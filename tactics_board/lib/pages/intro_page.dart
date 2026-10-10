@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/sport_type.dart';
+import '../services/ad_service.dart';
 import '../ui/tokens.dart';
 import '../widgets/sport_glyph.dart';
 
@@ -84,8 +85,17 @@ class _IntroPageState extends State<IntroPage> {
   int _at = 0;
 
   @override
+  void initState() {
+    super.initState();
+    // The first thing a new install sees is this page; the app-open ad's
+    // cold-start window lands right on top of it. Not here.
+    AdService.instance.pushAdSuppression();
+  }
+
+  @override
   void dispose() {
     _pages.dispose();
+    AdService.instance.popAdSuppression();
     super.dispose();
   }
 

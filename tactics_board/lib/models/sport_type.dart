@@ -471,6 +471,25 @@ extension SportTypeExtension on SportType {
   /// batter.
   bool get implementHeldByDefault => this != SportType.baseball;
 
+  /// Whether a player of this sport can travel with the ball — dribble it,
+  /// tuck it, swim with it, hold it in a glove.
+  ///
+  /// It decides how a moving holder's route is drawn: the squiggle a coach
+  /// uses for a carry, or the plain dash of a run. On a badminton court the
+  /// shuttle is struck, never carried, so a player walking to meet it was
+  /// drawn dribbling it across the floor. Same list as CARRY_SPORTS in
+  /// tools/drills/engine.py, which decides whether the ball goes with him
+  /// at all.
+  bool get canCarryBall => const {
+        SportType.soccer,
+        SportType.basketball,
+        SportType.handball,
+        SportType.rugby,
+        SportType.waterPolo,
+        SportType.fieldHockey,
+        SportType.baseball,
+      }.contains(this);
+
   SportGroup get group {
     switch (this) {
       case SportType.soccer:
@@ -902,19 +921,26 @@ extension SportTypeExtension on SportType {
           // 11v11: 3-3-3-1 (modern balanced)
           SportFormation(
             nameKey: 'formation_3331',
+            // Four lines in a half, evenly: on a 577pt board a line has to
+            // clear the one in front by 0.09 of the height or the figures
+            // overlap, and this used to crowd the last two to 0.04 — the
+            // midfield standing inside the forwards. The two strikers are
+            // also off the centre column, because at 0.46 and 0.54 they are
+            // a stride from the OTHER team's midfield line and a board that
+            // close needs the width to tell them apart.
             homePositions: [
-              Offset(0.5, 0.82),  // GK
-              Offset(0.22, 0.72), Offset(0.5, 0.71), Offset(0.78, 0.72), // DEF
-              Offset(0.22, 0.62), Offset(0.5, 0.61), Offset(0.78, 0.62), // HALVES
-              Offset(0.22, 0.55), Offset(0.5, 0.54), Offset(0.78, 0.55), // MID
-              Offset(0.5, 0.50), // FWD
+              Offset(0.5, 0.86),  // GK
+              Offset(0.22, 0.76), Offset(0.5, 0.76), Offset(0.78, 0.76), // DEF
+              Offset(0.22, 0.66), Offset(0.5, 0.66), Offset(0.78, 0.66), // HALVES
+              Offset(0.22, 0.56), Offset(0.5, 0.56), Offset(0.78, 0.56), // MID
+              Offset(0.38, 0.46), // FWD
             ],
             awayPositions: [
-              Offset(0.5, 0.18),
-              Offset(0.78, 0.28), Offset(0.5, 0.29), Offset(0.22, 0.28),
-              Offset(0.78, 0.38), Offset(0.5, 0.39), Offset(0.22, 0.38),
-              Offset(0.78, 0.45), Offset(0.5, 0.46), Offset(0.22, 0.45),
-              Offset(0.5, 0.50),
+              Offset(0.5, 0.14),
+              Offset(0.78, 0.24), Offset(0.5, 0.24), Offset(0.22, 0.24),
+              Offset(0.78, 0.34), Offset(0.5, 0.34), Offset(0.22, 0.34),
+              Offset(0.78, 0.44), Offset(0.5, 0.44), Offset(0.22, 0.44),
+              Offset(0.62, 0.54),
             ],
           ),
           // 11v11: 5-3-2 (traditional defensive)

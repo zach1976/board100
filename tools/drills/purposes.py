@@ -443,8 +443,126 @@ HAND_GOAL = {
 }
 
 
+# ── badminton: its own words ─────────────────────────────────────────────────
+# The NET table is shared with volleyball and the racket sports and talks
+# about "contacts" and "a set-up touch"; the DEFAULT one talks about goals.
+# Neither is what a badminton coach says. Written to the shuttle: corners,
+# base, the lift, the clear, the smash, the tape.
+BADMINTON = {
+    "warmup": _P(
+        "Get the feet and the split step going before the work — footwork "
+        "first, because every shot in badminton is one you have to get to.",
+        "热身：先把脚步和分腿垫步动起来——羽毛球每一拍都得先跑到位，所以热身从步法开始。",
+        "熱身：先把腳步和分腿墊步動起來——羽毛球每一拍都得先跑到位，所以熱身從步法開始。",
+        "まず足とスプリットステップを動かす。バドミントンの一打はすべて「まず届く」ことから始まる。",
+        "발과 스플릿 스텝부터 깨운다. 배드민턴의 모든 샷은 먼저 그 자리에 도착해야 하는 샷이다.",
+        "Activar los pies y el split step antes del trabajo: en bádminton cada golpe es uno al que primero hay que llegar.",
+        "Mettre les pieds et le split step en route avant le travail : au badminton, chaque coup est d'abord un coup à atteindre.",
+        "Gerakkan kaki dan split step dulu — setiap pukulan bulu tangkis harus dijangkau lebih dulu.",
+        "Gerakkan kaki dan split step dahulu — setiap pukulan badminton perlu dicapai dahulu.",
+        "ขยับเท้าและสปลิตสเต็ปก่อนเริ่มงาน — ทุกลูกในแบดมินตันคือลูกที่ต้องไปให้ถึงก่อน",
+        "Khởi động chân và bước tách trước — mọi cú đánh cầu lông đều phải tới được vị trí trước đã."),
+    "possession": _P(
+        "Keep the rally going on your terms — clear to the back line, drive "
+        "flat, and be back at base before the reply, so the opponent is the "
+        "one running.",
+        "控制回合：高远球打到底线、平抽打平，每一拍之后回到中心点，让跑动的是对手而不是你。",
+        "控制回合：高遠球打到底線、平抽打平，每一拍之後回到中心點，讓跑動的是對手而不是你。",
+        "ラリーを自分のペースで続ける。クリアはバックラインまで、ドライブはフラットに、返球前にベースへ戻る。走るのは相手だ。",
+        "랠리를 내 방식대로 이어간다. 클리어는 뒷선까지, 드라이브는 평평하게, 상대가 치기 전에 베이스로. 뛰는 쪽은 상대다.",
+        "Mantener el peloteo en tus términos: el globo a la línea de fondo, el drive plano, y de vuelta a la base antes de la réplica para que corra el rival.",
+        "Garder l'échange à ses conditions : le dégagement jusqu'à la ligne de fond, le drive à plat, et de retour à la base avant la réplique — c'est l'adversaire qui court.",
+        "Jaga reli dengan cara Anda — lob sampai garis belakang, drive datar, kembali ke base sebelum balasan; biar lawan yang berlari.",
+        "Kekalkan rali mengikut cara anda — lob ke garis belakang, drive rata, kembali ke base sebelum balasan; biar lawan yang berlari.",
+        "คุมแรลลีในแบบของคุณ — เคลียร์ถึงเส้นหลัง ตีดาดให้แบน กลับฐานก่อนลูกตอบ ให้คู่แข่งเป็นฝ่ายวิ่ง",
+        "Giữ pha cầu theo ý mình — cầu cao tới cuối sân, đập ngang thật phẳng, về vị trí trước khi đối thủ trả cầu; để đối thủ là người phải chạy."),
+    "attacking": _P(
+        "Open the court and take the net — a drop that dies, a net shot that "
+        "forces the lift, a hold that sends the opponent the wrong way.",
+        "进攻：把场地拉开、把网前拿下——吊球要死、网前球逼对手挑起来、一个停顿把对手骗向另一边。",
+        "進攻：把場地拉開、把網前拿下——吊球要死、網前球逼對手挑起來、一個停頓把對手騙向另一邊。",
+        "コートを開き、ネット前を取る。沈むドロップ、ロブを強いるヘアピン、相手を逆に動かすホールド。",
+        "코트를 열고 네트 앞을 차지한다. 죽는 드롭, 리프트를 강요하는 헤어핀, 상대를 반대로 보내는 홀드.",
+        "Abrir la pista y tomar la red: una dejada que muere, un golpe de red que obliga al globo, una pausa que manda al rival al lado equivocado.",
+        "Ouvrir le court et prendre le filet : un amorti qui meurt, un coup au filet qui force le lob, une tenue qui envoie l'adversaire du mauvais côté.",
+        "Buka lapangan dan kuasai net — dropshot yang mati, bola net yang memaksa lob, tahanan yang mengecoh lawan.",
+        "Buka gelanggang dan kuasai jaring — dropshot yang mati, pukulan jaring yang memaksa lob, tahanan yang mengelirukan lawan.",
+        "เปิดคอร์ตและยึดหน้าเน็ต — ลูกหยอดที่ตาย ลูกหน้าเน็ตที่บังคับให้งัด และการหน่วงที่ส่งคู่แข่งไปผิดทาง",
+        "Mở sân và chiếm lưới — cú bỏ nhỏ chết lưới, cú lưới ép đối thủ phải đẩy cao, một nhịp giữ cầu đưa đối thủ sai hướng."),
+    "defending": _P(
+        "Stay in the rally under the smash — racket up and in front, block it "
+        "short or lift it deep, and bring the point back to neutral.",
+        "防守：在对方杀球下留在回合里——拍子举在身前，挡短或者挑深，把这一分拉回均势。",
+        "防守：在對方殺球下留在回合裡——拍子舉在身前，擋短或者挑深，把這一分拉回均勢。",
+        "スマッシュの下でラリーに残る。ラケットは前で上げ、短くブロックするか深くロブで上げ、ポイントを五分に戻す。",
+        "스매시 아래서 랠리에 남는다. 라켓은 앞에서 올리고, 짧게 블록하거나 깊게 띄워 포인트를 원점으로 돌린다.",
+        "Seguir en el peloteo bajo el remate: raqueta arriba y delante, bloquear corto o levantar profundo, y devolver el punto al equilibrio.",
+        "Rester dans l'échange sous le smash : raquette haute et devant, bloquer court ou lober profond, et ramener le point à l'équilibre.",
+        "Bertahan di reli di bawah smes — raket terangkat di depan, blok pendek atau lob dalam, kembalikan poin ke posisi seimbang.",
+        "Kekal dalam rali di bawah smesy — raket diangkat di hadapan, blok pendek atau lob dalam, kembalikan mata ke keadaan seimbang.",
+        "อยู่ในแรลลีใต้ลูกตบ — ยกไม้ไว้ข้างหน้า บล็อกสั้นหรืองัดลึก แล้วดึงแต้มกลับมาเสมอ",
+        "Trụ lại pha cầu dưới cú đập — vợt giơ phía trước, chặn ngắn hoặc đẩy sâu, kéo điểm về thế cân bằng."),
+    "finishing": _P(
+        "End the rally — smash steep and in front of the body, into the space "
+        "the last shot opened, and follow it in.",
+        "终结：杀球要陡、要在身前击球，打进上一拍拉开的空当，然后跟上去。",
+        "終結：殺球要陡、要在身前擊球，打進上一拍拉開的空當，然後跟上去。",
+        "ラリーを終わらせる。体の前で角度のあるスマッシュを、前の一打で開いたスペースへ。そして詰める。",
+        "랠리를 끝낸다. 몸 앞에서 가파르게 스매시, 직전 샷이 연 공간으로, 그리고 따라 들어간다.",
+        "Terminar el peloteo: remate picado y delante del cuerpo, al espacio que abrió el golpe anterior, y seguirlo.",
+        "Finir l'échange : smash piqué et devant le corps, dans l'espace ouvert par le coup précédent, et suivre.",
+        "Akhiri reli — smes tajam di depan badan, ke ruang yang dibuka pukulan sebelumnya, lalu ikuti.",
+        "Tamatkan rali — smesy curam di hadapan badan, ke ruang yang dibuka pukulan sebelumnya, lalu ikut masuk.",
+        "จบแรลลี — ตบชันและข้างหน้าลำตัว ลงช่องที่ลูกก่อนเปิดไว้ แล้วตามเข้าไป",
+        "Kết thúc pha cầu — đập dốc và phía trước thân, vào khoảng trống cú trước đã mở, rồi theo lên."),
+    "setpiece": _P(
+        "Rehearse the serve and the return — the two shots nobody can rush "
+        "you on, so they are placed rather than hit; and the first stroke "
+        "after each decides who attacks.",
+        "发接发：发球和接发球是唯一没人能逼你的两拍，所以要放到位而不是随手打；发接发之后的第一拍决定谁进攻。",
+        "發接發：發球和接發球是唯一沒人能逼你的兩拍，所以要放到位而不是隨手打；發接發之後的第一拍決定誰進攻。",
+        "サーブとレシーブを反復する。誰にも急かされない二打だから、打つのではなく置く。その次の一打が攻める側を決める。",
+        "서브와 리시브를 반복한다. 아무도 몰아붙일 수 없는 두 샷이니 치는 게 아니라 놓는다. 그다음 한 샷이 누가 공격할지를 정한다.",
+        "Ensayar el saque y el resto: los dos golpes que nadie puede apurarte, así que se colocan, no se pegan; y el primer golpe después decide quién ataca.",
+        "Répéter le service et le retour : les deux coups où personne ne peut te presser, donc placés plutôt que frappés ; et le premier coup suivant décide qui attaque.",
+        "Latih servis dan pengembalian — dua pukulan yang tak bisa diburu, jadi ditempatkan bukan dipukul; pukulan pertama sesudahnya menentukan siapa menyerang.",
+        "Latih servis dan kembalian — dua pukulan yang tiada siapa boleh mendesak, jadi diletakkan bukan dipukul; pukulan pertama selepasnya menentukan siapa menyerang.",
+        "ซ้อมเสิร์ฟและรับเสิร์ฟ — สองลูกที่ไม่มีใครเร่งคุณได้ จึงต้องวาง ไม่ใช่ตี และลูกแรกถัดไปตัดสินว่าใครบุก",
+        "Tập giao và đỡ giao cầu — hai cú không ai ép được bạn, nên phải đặt chứ không đánh; cú đầu tiên sau đó quyết định ai tấn công."),
+    "ssg": _P(
+        "A game with a constraint — half the court, the front court only, two "
+        "against one — so the tactic the session was about has to be used to "
+        "win.",
+        "限制性对抗：半场、只打前场、二打一——加一条限制，这堂课练的战术就成了赢球的必需品。",
+        "限制性對抗：半場、只打前場、二打一——加一條限制，這堂課練的戰術就成了贏球的必需品。",
+        "条件付きのゲーム。半面、前だけ、2対1。縛りがあるから、その日の戦術を使わなければ勝てない。",
+        "조건을 건 게임. 반 코트, 앞쪽만, 2대1. 제약이 있으니 그날 연습한 전술을 써야 이긴다.",
+        "Un juego con condición: media pista, solo la zona delantera, dos contra uno, para que la táctica de la sesión sea necesaria para ganar.",
+        "Un jeu à contrainte : demi-court, avant-court seulement, deux contre un, pour que la tactique de la séance soit nécessaire pour gagner.",
+        "Permainan dengan batasan — setengah lapangan, depan saja, dua lawan satu — agar taktik sesi ini harus dipakai untuk menang.",
+        "Permainan bersyarat — separuh gelanggang, depan sahaja, dua lawan satu — supaya taktik sesi ini perlu digunakan untuk menang.",
+        "เกมมีเงื่อนไข — ครึ่งคอร์ต เฉพาะหน้าคอร์ต สองต่อหนึ่ง — เพื่อให้แทคติกที่ซ้อมวันนี้ต้องถูกใช้เพื่อชนะ",
+        "Trận đấu có điều kiện — nửa sân, chỉ đánh trước sân, hai đấu một — để chiến thuật của buổi tập phải được dùng mới thắng được."),
+    "conditioning": _P(
+        "Fitness for the court — shadow footwork, line shuttles and jump "
+        "series, so the sixth corner is reached as fast as the first.",
+        "体能：影子步法、折返跑、连续起跳——练到第六个角和第一个角一样快。",
+        "體能：影子步法、折返跑、連續起跳——練到第六個角和第一個角一樣快。",
+        "コートのための体力。シャドウフットワーク、ラインシャトル、ジャンプの連続。6つ目の隅へも1つ目と同じ速さで。",
+        "코트를 위한 체력. 섀도 풋워크, 라인 셔틀, 점프 시리즈. 여섯 번째 구석도 첫 번째만큼 빠르게.",
+        "Fondo para la pista: footwork en sombra, series en las líneas y saltos, para llegar a la sexta esquina tan rápido como a la primera.",
+        "Du physique pour le court : footwork fantôme, navettes sur les lignes et séries de sauts, pour atteindre le sixième coin aussi vite que le premier.",
+        "Kebugaran untuk lapangan — shadow footwork, lari bolak-balik, seri lompatan — agar sudut keenam dicapai secepat yang pertama.",
+        "Kecergasan untuk gelanggang — shadow footwork, larian ulang-alik, siri lompatan — supaya sudut keenam dicapai sepantas yang pertama.",
+        "ความฟิตสำหรับคอร์ต — ฟุตเวิร์กเงา วิ่งแตะเส้น และชุดกระโดด เพื่อให้ไปถึงมุมที่หกได้เร็วเท่ามุมแรก",
+        "Thể lực cho sân cầu — di chuyển mô phỏng, chạy con thoi và chuỗi bật nhảy, để tới góc thứ sáu nhanh như góc đầu tiên."),
+}
+
+
 def purpose_texts(sport: str, category: str) -> dict | None:
     """The 目的 section for a drill, by sport family and category."""
+    if sport == "badminton" and category in BADMINTON:
+        return BADMINTON[category]
     if sport in BASEBALL and category in BASE:
         return BASE[category]
     if sport in NET_SPORTS and category in NET:

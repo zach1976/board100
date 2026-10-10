@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,11 @@ void main() {
       (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues({});
+    // The intro brackets itself with AdService, which asks PurchaseService
+    // whether Pro is owned; on the default test platform that opens an
+    // Android billing connection that fails asynchronously. StoreKit does not
+    // connect until asked — see overflow_test.dart.
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     await EasyLocalization.ensureInitialized();
     tester.view.physicalSize = const Size(402 * 3, 874 * 3);
     tester.view.devicePixelRatio = 3.0;
@@ -76,5 +82,6 @@ void main() {
     expect(find.byType(IntroPage), findsNothing,
         reason: 'the coach was just told what the app is');
     expect(await IntroPage.shouldShow(), isFalse);
+    debugDefaultTargetPlatformOverride = null;
   });
 }

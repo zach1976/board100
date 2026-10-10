@@ -54,6 +54,20 @@ def ball_spot(pt):
     return (ax, y - 70.0 / _H)
 
 
+# The server stands as far behind the line as the board can show him.
+#
+# A serve is struck from behind the line, and written as 0.04 of the court
+# (0.72 m) the token sat half over it — the one thing a coach would correct
+# on a board about serve receive. But the margin outside the end line is only
+# 54 units of the 730 the board is drawn in (1.6 m of court), and a figure is
+# 67 units tall: 25 above its own point and 42 below. Standing him far enough
+# back to clear the line takes his head off the card. 0.043 is 0.78 m, the
+# deepest point whose head is still drawn; getting him wholly into the
+# service zone needs the COURT drawn smaller, which is a change to
+# SportType.fieldRect and the painter together.
+SERVE_BACK = 0.043
+SERVE_SPOT = (0.5, -SERVE_BACK)
+
 # ── serve receive, one drill per rotation ────────────────────────────────────
 
 RECEIVE_NAME = {
@@ -120,9 +134,9 @@ def receive_family() -> list[Drill]:
             free=(r in (1, 4)), off_surface=True,
             name=suffixed(RECEIVE_NAME, f"{r}"), note=RECEIVE_NOTE,
             home=home,
-            away=[P(0.5, -0.04, "S", moves=[(0.5, 0.02, 0)])],
+            away=[P(*SERVE_SPOT, "S", moves=[(0.5, 0.02, 0)])],
             markers=[M(*SET_POINT, "square", "")],
-            ball=(0.5, -0.04),          # in the server's hand, behind the line
+            ball=SERVE_SPOT,            # in the server's hand, behind the line
             # Serve, pass, set, hit: over the net to P1, up to the setter
             # releasing to the net, delivered to the hitter stepping in —
             # and put away into the far court. The side-out is the point.
@@ -258,6 +272,12 @@ SOLO_NOTE = {
 }
 
 
+# Where the coach feeds from: their back court, on the far side, so the ball
+# comes up out of a dig the way a real rally starts. The drills that use it
+# put a figure on the spot — a ball on an empty floor is a ball nobody fed.
+FEED_SPOT = (0.62, 0.14)
+
+
 def block_family() -> list[Drill]:
     # Nobody triple-blocks a first-tempo middle: there is no time to close
     # three, and committing the front row leaves two diggers for the court.
@@ -292,14 +312,15 @@ tight=True,
             away=[
                 P(0.38, 0.47, "S"),
                 P(x, 0.32, "A", moves=[(x, 0.22, 0), (x, 0.44, 1)]),
+                # Somebody has to be standing where the ball starts. The text
+                # has always said the setter "takes the feed" and the feeder
+                # "keeps the balls coming"; on the board the ball lay five
+                # metres from the nearest body, which reads as a ball nobody
+                # put there. Last in the list so a0 and a1 still name the
+                # setter and the hitter.
+                P(*FEED_SPOT, "C", coach=True),
             ],
-            # Their pass, coming up out of their back court. The ball used to
-            # start on the setter's own point, where _holder picked the
-            # nearest HOME player instead and the text read "B plays it to A"
-            # — a blue blocker setting the red hitter. Started behind him, the
-            # setter is the one who feeds the hitter, in the picture and in
-            # the sentence.
-            ball=(0.62, 0.14),
+            ball=FEED_SPOT,
             # Pass, set, and the swing into our floor defence — the ball the
             # block is timed against.
             ball_to=[("a0", 0), ("a1", 1), (n, 2)],
@@ -365,11 +386,9 @@ def defense_family() -> list[Drill]:
             away=[
                 P(0.40, 0.47, "S"),
                 P(0.20, 0.34, "A", moves=[(0.20, 0.22, 0), (0.20, 0.44, 1)]),
+                P(*FEED_SPOT, "C", coach=True),   # see block_family
             ],
-            # Their pass, from their back court. Placed on the setter's own
-            # point it was nearer a home blocker than to him, and the text
-            # read "B plays it to A" — a blue blocker setting the red hitter.
-            ball=(0.62, 0.14),
+            ball=FEED_SPOT,
             # Pass, set to the hitter running in, swing, and the dig in the
             # deep corner — where every one of these systems says the ball
             # must be kept off the floor.
@@ -425,14 +444,19 @@ def serve_family() -> list[Drill]:
         i = min(range(3), key=lambda k: gap(SERVE_PASSERS[k]))
         away = []
         for k, (px, py) in enumerate(SERVE_PASSERS):
-            step = [(px + (land[0] - px) * 0.6, py + (land[1] - py) * 0.6, 1)]
+            # All the way, and WHILE the serve is in the air — phase 0, the
+            # serve's own beat. Sixty per cent of the way on the beat after
+            # meant the ball landed on an empty floor and a passer arrived
+            # at it later: nobody receives a serve by watching it bounce.
+            step = [(land[0], land[1], 0)]
             away.append(P(px, py, "P", moves=step if k == i else []))
         out.append(Drill(
             id=f"vb_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "float_deep"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(start[0], 1.04, "S",
-                    moves=[(start[0], 0.98, 0), (start[0], 1.02, 1)])],
+            home=[P(start[0], 1.0 + SERVE_BACK, "S",
+                    moves=[(start[0], 0.98, 0),
+                           (start[0], 1.0 + SERVE_BACK, 1)])],
             away=away,
             markers=[M(*land, "zone", "")],
             ball=0,
@@ -553,15 +577,24 @@ def warmup_family() -> list[Drill]:
             ball_to = [(1, 0), (0, 1)]
         elif key == "butterfly":
             # The butterfly proper: 1 serves, 4 passes to the target T at the
-            # net on the PASSER's own side, and everyone follows the ball one
-            # station on — server to passer, passer to target, target to the
-            # back of the serving line. It used to be 4 passing straight back
-            # over the net, which is a rally, not a butterfly.
-            home = [P(0.32, 0.96, "1", moves=[(0.56, 0.30, 2)]),
-                    P(0.16, 0.96, "2"), P(0.48, 0.96, "3")]
-            away = [P(0.62, 0.26, "4", moves=[(0.42, 0.42, 2)]),
-                    P(0.40, 0.42, "T", moves=[(0.64, 0.94, 2)])]
-            ball_to = [("a0", 0), ("a1", 1)]
+            # net, and everyone follows the ball one station on — server to
+            # passer, passer to target, target to the back of the serving
+            # line. It used to be 4 passing straight back over the net, which
+            # is a rally, not a butterfly.
+            #
+            # Run on ONE court. The gym version sends each player round the
+            # post to the other side, and a board cannot draw "round the
+            # post" — it draws a straight line, and a straight line from one
+            # half to the other goes through the net, which is the one thing
+            # a volleyball player may not do. Both lines on the same side say
+            # the same drill and nobody walks through the tape.
+            home = [P(0.32, 1.0 + SERVE_BACK, "1", moves=[(0.62, 0.78, 2)]),
+                    P(0.18, 1.0 + SERVE_BACK, "2"),
+                    P(0.46, 1.0 + SERVE_BACK, "3"),
+                    P(0.62, 0.78, "4", moves=[(0.44, 0.60, 2)]),
+                    P(0.44, 0.60, "T", moves=[(0.46, 1.0 + SERVE_BACK, 2)])]
+            away = []
+            ball_to = [(3, 0), (4, 1)]
         else:
             # Both shuffle the same way, to the cone and back: shuffling into
             # each other until the tokens touch reads as a collision.
@@ -571,7 +604,9 @@ def warmup_family() -> list[Drill]:
             ball_to = [("a0", 0), (1, 1)]
         out.append(Drill(
             id=f"vb_warm_{key}", category="warmup", minutes=8, rel=True,
-            free=(key == "pepper"),
+            # The butterfly's serving line waits behind the end line, which
+            # is where a server belongs and is off the playing surface.
+            free=(key == "pepper"), off_surface=(key == "butterfly"),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=home, away=away, ball=0,
             # Back and forth — the ball is the metronome of every warm-up.

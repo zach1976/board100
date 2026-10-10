@@ -219,24 +219,36 @@ class _Example extends StatelessWidget {
         // like the marks — the ball drawn "beside" a player buried his
         // number, on the very line that says it does not. At the width the
         // library is read at, they are the same picture.
-        ClipRRect(
-          borderRadius: T.brSm,
-          child: AspectRatio(
-            aspectRatio: kBoardRefWidth / kBoardRefHeight,
-            child: FittedBox(
-              fit: BoxFit.contain,
-              child: SizedBox(
-                width: kBoardRefWidth,
-                height: kBoardRefHeight,
-                child: ChangeNotifierProvider<TacticsState>.value(
-                  value: state,
-                  child:
-                      const IgnorePointer(child: TacticsCanvas(preview: true)),
-                ),
+        Builder(builder: (context) {
+          // Sideways the board itself is drawn landscape, so the picture of
+          // it is too — see drill_detail_page.
+          final sideways =
+              MediaQuery.orientationOf(context) == Orientation.landscape;
+          final board = SizedBox(
+            width: kBoardRefWidth,
+            height: kBoardRefHeight,
+            child: ChangeNotifierProvider<TacticsState>.value(
+              value: state,
+              child: IgnorePointer(
+                  child: TacticsCanvas(
+                      preview: true, boardTurns: sideways ? 1 : 0)),
+            ),
+          );
+          return ClipRRect(
+            borderRadius: T.brSm,
+            child: AspectRatio(
+              aspectRatio: sideways
+                  ? kBoardRefHeight / kBoardRefWidth
+                  : kBoardRefWidth / kBoardRefHeight,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: sideways
+                    ? RotatedBox(quarterTurns: 1, child: board)
+                    : board,
               ),
             ),
-          ),
-        ),
+          );
+        }),
         const SizedBox(height: T.s12),
         for (final l in lines) ...[
           _Bullet(text: l),

@@ -8,9 +8,7 @@ import '../ui/tokens.dart';
 import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
 import '../state/tactics_state.dart';
-import '../ui_constants.dart';
 
-const _kStrokeWidths = [2.0, 3.0, 5.0, 7.0];
 
 /// Terminators, in the order they appear across each row of the grid.
 const _kArrows = [
@@ -52,8 +50,9 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
   late LineShape _shape = widget.state.lineShape;
   late StrokeStyle _dash = widget.state.strokeStyle;
   late ArrowStyle _arrow = widget.state.arrowStyle;
-  late Color _color = widget.state.strokeColor;
-  late double _width = widget.state.strokeWidth;
+  /// Read only: the grid draws its previews in the pen's colour. Which
+  /// colour, and how thick, is chosen on the bar itself.
+  late final Color _color = widget.state.strokeColor;
 
   /// Push the current selection to the board immediately. Called on every tap
   /// so a choice takes effect without a separate "confirm" press — a selected
@@ -62,9 +61,13 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
     widget.state
       ..setLineShape(_shape)
       ..setStrokeStyle(_dash)
-      ..setArrowStyle(_arrow)
-      ..setStrokeColor(_color)
-      ..setStrokeWidth(_width);
+      ..setArrowStyle(_arrow);
+    // With a line picked out, this sheet restyles that line as well. Shape
+    // is the one thing it cannot change — see updateStroke.
+    final sel = widget.state.selectedStroke;
+    if (sel != null) {
+      widget.state.updateStroke(sel.id, style: _dash, arrow: _arrow);
+    }
   }
 
   void _apply() {
@@ -106,57 +109,6 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
                         _grid(shape, dash),
                       const SizedBox(height: 14),
                     ],
-                    _sectionLabel('line_color'.tr()),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 10,
-                      children: [
-                        for (final c in kStrokeColors)
-                          _Swatch(
-                            selected: _color == c,
-                            onTap: () {
-                              setState(() => _color = c);
-                              _applyLive();
-                            },
-                            child: Container(
-                              width: 24,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                  color: c, shape: BoxShape.circle),
-                            ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    _sectionLabel('line_width'.tr()),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 10,
-                      children: [
-                        for (final w in _kStrokeWidths)
-                          _Swatch(
-                            selected: _width == w,
-                            onTap: () {
-                              setState(() => _width = w);
-                              _applyLive();
-                            },
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: Center(
-                                child: Container(
-                                  width: w * 2.4,
-                                  height: w * 2.4,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle),
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 18),
                   ],
                 ),
               ),
@@ -230,33 +182,6 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class _Swatch extends StatelessWidget {
-  final bool selected;
-  final VoidCallback onTap;
-  final Widget child;
-  const _Swatch(
-      {required this.selected, required this.onTap, required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(6),
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: selected ? const Color(0xFFFFD600) : Colors.transparent,
-            width: 2,
-          ),
-        ),
-        child: child,
       ),
     );
   }

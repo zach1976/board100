@@ -139,7 +139,7 @@ def serve_family() -> list[Drill]:
             id=f"bt_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "flat"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(0.32, 1.03, "S", moves=[(0.32, 0.94, 0), (0.34, 0.74, 1)]),
+            home=[P(0.32, 1.043, "S", moves=[(0.32, 0.94, 0), (0.34, 0.74, 1)]),
                   P(*RIGHT, "P", moves=[(0.70, 0.66, 1)])],
             away=[P(land[0], land[1] - 0.06, "R", moves=[(land[0], land[1], 1)]),
                   P(0.70, 0.30, "R")],
@@ -378,7 +378,7 @@ def return_family() -> list[Drill]:
             name=suffixed(RETURN_NAME, label), note=RETURN_NOTE,
             home=[P(0.34, 0.80, "R", moves=[(to[0], min(to[1] + 0.42, 0.72), 1)]),
                   P(0.70, 0.66, "P", moves=[(0.68, 0.60, 1)])],
-            away=[P(0.30, -0.02, "S", moves=[(0.32, 0.20, 1)]),
+            away=[P(0.30, -0.043, "S", moves=[(0.32, 0.20, 1)]),
                   P(0.72, 0.32, "P")],
             markers=[M(*to, "zone", "")],
             ball=(0.30, -0.02),
@@ -459,8 +459,11 @@ LOB_NOTE = {
 
 
 def lob_family() -> list[Drill]:
+    # "recover" is the home pair's man stepping UP to the net after the lob
+    #  comes back — 0.06 was that point mirrored, i.e. the far baseline, and
+    #  he walked the length of the court and through the net to get there.
     specs = [("over", "over the net pair", (0.66, 0.90)),
-             ("recover", "recovering it", (0.34, 0.06))]
+             ("recover", "recovering it", (0.34, 0.58))]
     out = []
     for key, label, land in specs:
         home = ([P(0.30, 0.72, "1", moves=[(0.34, 0.80, 1)]),

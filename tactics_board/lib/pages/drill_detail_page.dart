@@ -501,38 +501,52 @@ class _BoardCard extends StatelessWidget {
               // players on a shrunken pitch — three of them covering the
               // centre circle. Scaling the finished board instead makes the
               // preview exactly the board, smaller.
-              child: Center(
-                child: SizedBox(
-                  // Taller than it was: with the card gone this is the
-                  // hero of the page, and the pitch gets the width the
-                  // screen can give it.
-                  height: MediaQuery.of(context).size.height * 0.42,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    // A drill that lives in one half is shown at that half:
-                    // the other half is empty grass, and drawing it halved
-                    // the size of everything that mattered. The crop is a
-                    // view — the board underneath is the full pitch.
-                    child: ClipRect(
-                      child: Align(
-                        alignment: frame == 'bottom'
-                            ? Alignment.bottomCenter
-                            : Alignment.topCenter,
-                        // 0.60 of the canvas: the generator marks a drill
-                        // "top"/"bottom" only when everything in it sits a
-                        // token inside this share (engine.FRAME_VIEW).
-                        heightFactor: frame == null ? 1.0 : 0.60,
-                        child: const SizedBox(
-                          width: kBoardRefWidth,
-                          height: kBoardRefHeight,
-                          child: IgnorePointer(
-                              child: TacticsCanvas(preview: true)),
-                        ),
-                      ),
+              child: Builder(builder: (context) {
+                // Turned sideways the board page draws the board landscape
+                // (see TacticsBoardHomePage), so a portrait picture here is a
+                // picture of a board the coach will not recognise when he
+                // presses "Put on the board".
+                final sideways =
+                    MediaQuery.orientationOf(context) == Orientation.landscape;
+                // A drill that lives in one half is shown at that half: the
+                // other half is empty grass, and drawing it halved the size
+                // of everything that mattered. The crop is a view — the board
+                // underneath is the full pitch. It is taken upright and then
+                // turned, so "top" is still the end being attacked.
+                final board = ClipRect(
+                  child: Align(
+                    alignment: frame == 'bottom'
+                        ? Alignment.bottomCenter
+                        : Alignment.topCenter,
+                    // 0.60 of the canvas: the generator marks a drill
+                    // "top"/"bottom" only when everything in it sits a token
+                    // inside this share (engine.FRAME_VIEW).
+                    heightFactor: frame == null ? 1.0 : 0.60,
+                    child: SizedBox(
+                      width: kBoardRefWidth,
+                      height: kBoardRefHeight,
+                      child: IgnorePointer(
+                          child: TacticsCanvas(
+                              preview: true, boardTurns: sideways ? 1 : 0)),
                     ),
                   ),
-                ),
-              ),
+                );
+                return Center(
+                  // Bounded both ways rather than fixed in height: turned
+                  // sideways the picture is wide and short, and a fixed
+                  // height made it wider than the column it sits in.
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height * 0.42),
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: sideways
+                          ? RotatedBox(quarterTurns: 1, child: board)
+                          : board,
+                    ),
+                  ),
+                );
+              }),
             ),
             if (steps > 0) ...[
               const SizedBox(height: T.s4),

@@ -60,15 +60,24 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
     }
 
-    // The ball is on the board twice by design — the live token and the copy
-    // that stands at the end of its leg as the waypoint handle — so every
-    // glyph of it is measured, in a stable order.
+    // Every glyph of the ball a coach can SEE, in a stable order. The canvas
+    // also keeps an off-screen copy of the whole board, parked thousands of
+    // points to the left, which is what a shared PNG is rendered from (see
+    // _buildExternalContent). Where that scaffold sits is not a thing anyone
+    // looks at, and it drifts a point when the waypoint dots come and go, so
+    // measuring it was measuring the furniture.
+    final view = Offset.zero & tester.view.physicalSize / tester.view.devicePixelRatio;
     List<Offset> ballsOnScreen() {
       final f = find.byWidgetPredicate(
           (w) => w is PlayerIconWidget && w.player.isBall && w.player.id == 'ball');
       expect(f, findsWidgets);
-      final c = f.evaluate().map((e) => tester.getCenter(find.byWidget(e.widget))).toList()
+      final c = f
+          .evaluate()
+          .map((e) => tester.getCenter(find.byWidget(e.widget)))
+          .where(view.contains)
+          .toList()
         ..sort((a, b) => a.dx.compareTo(b.dx));
+      expect(c, isNotEmpty);
       return c;
     }
 

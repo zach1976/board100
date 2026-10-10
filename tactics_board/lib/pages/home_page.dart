@@ -40,6 +40,14 @@ import '../services/practice_service.dart';
 import 'practice_plan_page.dart';
 import 'practice_run_page.dart';
 
+/// How wide the landscape rail is.
+///
+/// Its floor is the playback row — four 32pt circles with 6 between them and
+/// the panel's own 4 each side, which is 154. The rest of the rail is text
+/// that is centred in whatever it is given, so the number is set by that row
+/// and the board keeps the difference.
+const double kRailWidth = 160;
+
 class TacticsBoardHomePage extends StatelessWidget {
   const TacticsBoardHomePage({super.key});
 
@@ -48,10 +56,13 @@ class TacticsBoardHomePage extends StatelessWidget {
     context.locale;
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
-    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     final isTablet = MediaQuery.sizeOf(context).shortestSide >= 600;
 
-    final theme = context.select<TacticsState, SportTheme>((s) => s.sportType.theme);
+    final theme = context.select<TacticsState, SportTheme>(
+      (s) => s.sportType.theme,
+    );
     final scaffold = Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
@@ -81,7 +92,8 @@ class TacticsBoardHomePage extends StatelessWidget {
     // across the middle of the pitch, running under the rail. Here it sits
     // at the foot of the board, inside the board's own column.
     final railShown = context.select<TacticsState, bool>(
-        (s) => s.toolbarVisible && !s.presentationMode);
+      (s) => s.toolbarVisible && !s.presentationMode,
+    );
     final app = Theme.of(context);
     return Theme(
       data: app.copyWith(
@@ -89,7 +101,7 @@ class TacticsBoardHomePage extends StatelessWidget {
           insetPadding: EdgeInsets.fromLTRB(
             T.s16,
             T.s8,
-            (railShown ? 190 * uiScale(context) : 0) + T.s16,
+            (railShown ? kRailWidth * uiScale(context) : 0) + T.s16,
             bottomPad + T.s12,
           ),
         ),
@@ -107,24 +119,51 @@ class TacticsBoardHomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildLandscape(BuildContext context, double topPad, double bottomPad) {
+  Widget _buildLandscape(
+    BuildContext context,
+    double topPad,
+    double bottomPad,
+  ) {
+    // Sideways the Dynamic Island is a pill down one long edge — about a
+    // third of that edge long, in the middle of it, and a good deal
+    // narrower than the inset iOS reports for it. Over the board it would
+    // sit at the height where the server stands in the free zone beyond the
+    // end line, and a board has nothing it can move out of the way.
+    //
+    // The board runs edge to edge and the rail stays on the right, where
+    // only the rows that run behind the island step aside (see
+    // [_landscapeSidePanel]).
+    //
+    // Nothing is given up for the island on the board's side, because iOS
+    // cannot tell us which side it is on: turned sideways it reports the
+    // same 59pt inset on BOTH edges, so honouring it cost 59pt of court in
+    // every orientation for a pill that is only on one of them. What the
+    // pill does have is a fixed place along the edge — the middle third —
+    // and everything the board floats sits in the top and bottom bands,
+    // well clear of it. The one thing that can end up behind it is a player
+    // standing right out in the free zone beyond the end line, half a
+    // figure of him, in one of the two orientations.
+    final rail = Selector<TacticsState, ({bool visible, SportTheme theme})>(
+      selector: (_, s) => (
+        visible: s.toolbarVisible && !s.presentationMode,
+        theme: s.sportType.theme,
+      ),
+      builder: (context, sel, _) => sel.visible
+          ? SizedBox(
+              // The rail's contents are text at uiScale, so the rail has to
+              // scale with them; a fixed width overflows on a tablet.
+              width: kRailWidth * uiScale(context),
+              child: Material(
+                color: sel.theme.panelColor,
+                child: _landscapeSidePanel(context),
+              ),
+            )
+          : const SizedBox.shrink(),
+    );
     return Row(
       children: [
         Expanded(child: _canvasStack(context, topPad)),
-        Selector<TacticsState, ({bool visible, SportTheme theme})>(
-          selector: (_, s) => (visible: s.toolbarVisible && !s.presentationMode, theme: s.sportType.theme),
-          builder: (context, sel, _) => sel.visible
-            ? SizedBox(
-                // The rail's contents are text at uiScale, so the rail has to
-                // scale with them; a fixed 190 overflows on a tablet.
-                width: 190 * uiScale(context),
-                child: Material(
-                  color: sel.theme.panelColor,
-                  child: _landscapeSidePanel(context),
-                ),
-              )
-            : const SizedBox.shrink(),
-        ),
+        rail,
       ],
     );
   }
@@ -156,7 +195,6 @@ class TacticsBoardHomePage extends StatelessWidget {
   double _pagesTop(double topPad) =>
       math.max(topPad + 6, _chromeTop(topPad) + 44 + 10);
 
-
   /// How much of the top the second row takes, so the pitch can start below
   /// it. Zero for the one-page board that has no second row.
   double _pagesBand(BuildContext context, double topPad, bool wide) {
@@ -169,232 +207,460 @@ class TacticsBoardHomePage extends StatelessWidget {
     return (wide ? _pagesTop(topPad) : _chromeTop(topPad)) + row;
   }
 
+  /// Which band of the card the floating buttons float in, turned sideways:
+  /// the one above and below the court, or the one at its ends.
+  ///
+  /// The court is centred in the card at its own aspect, so sideways one of
+  /// those two bands is wide and the other is a few points — and which it is
+  /// depends on the sport. A court narrow for its length (volleyball,
+  /// tennis, badminton) is fitted by the card's length and keeps its spare
+  /// room above and below; a pitch wide for its length (football, rugby,
+  /// hockey) is fitted by the card's height and keeps it at the ends.
+  ///
+  /// So the buttons go wherever the room already is and the board gives up
+  /// nothing for them. Above and below is the better place to be when it is
+  /// available: the ends are where the rail is, and four circles stacked
+  /// down that edge read as a second rail beside the first.
+  bool _chromeAcross(BuildContext context, Size card) {
+    if (card.width <= 0 || card.height <= 0) return false;
+    final sport = context.select<TacticsState, SportType>((s) => s.sportType);
+    // Sideways the canvas is a RotatedBox away: it is laid out portrait with
+    // the card's height for its width, so fieldRect's WIDTH is the court
+    // measured across the screen's short side — the band this is after.
+    final court = sport.fieldRect(Size(card.height, card.width));
+    // Three quarters of a circle, not a whole one. The buttons sit 4 off the
+    // card's edge in the corners, where the court's own corner is the point
+    // furthest from them; asking for the whole circle made the answer flip
+    // every time the board changed width by a few points, and the layout
+    // flipping with it is worse than a quarter of a glass circle lying over
+    // a touchline at the very end of it.
+    return (card.height - court.width) / 2 >= chromeCircle(context) * 0.75;
+  }
+
+  /// How far in from each end the board has to start, turned sideways, so
+  /// the floating corner buttons are not standing on the court.
+  ///
+  /// A pitch is longer than it is wide, so sideways it is fitted by HEIGHT
+  /// and what is left over at each end is whatever the width did not need.
+  /// On a tablet, or in a window, that is a wide margin of turf and the
+  /// buttons float in it, which is what they were written for. On a phone it
+  /// is a couple of points: the court runs to within a nail's width of the
+  /// card's ends, and the menu, the page badge, the zoom and the fullscreen
+  /// circles all sat on the playing surface — over the baseline, over the
+  /// key, over a man standing in the corner, taking his taps.
+  ///
+  /// So the gutter is measured, not assumed: the two button columns reach
+  /// [chromeCircle] + 12 in from each edge, and the board gives up only
+  /// however much of that the court was not already clear of. A screen with
+  /// the room keeps every point of board it has today.
+  double _endGutter(BuildContext context, Size box, bool across) {
+    const small = T.s8;
+    if (box.width <= 0 || box.height <= 0) return small;
+    // Nothing stands at the ends when the buttons are above and below.
+    if (across) return small;
+    final need = 12 + chromeCircle(context) + 4;
+    final sport = context.select<TacticsState, SportType>((s) => s.sportType);
+    final card = Size(box.width - small * 2, box.height);
+    // Sideways the canvas is a RotatedBox away: it is laid out portrait, with
+    // the card's height for its width. fieldRect's own height is the court's
+    // length, which runs across the screen.
+    final court = sport.fieldRect(Size(card.height, card.width));
+    final clear = small + (card.width - court.height) / 2;
+    return clear >= need ? small : need;
+  }
+
   Widget _canvasStack(BuildContext context, double topPad) {
-    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     // Only the page count matters here, so the whole board does not rebuild
     // every time something on it moves.
     final wideChrome =
         context.select<TacticsState, int>((s) => s.pageCount) > 1;
     return DragTarget<PhotoDragData>(
       onAcceptWithDetails: (details) => _onPhotoDropped(context, details),
-      builder: (ctx, candidate, rejected) => Stack(
-      fit: StackFit.expand,
-      children: [
-        // A one-page board runs full bleed: its two corner buttons sit in
-        // the island's own band, where there is nothing but grass. A
-        // multi-page board's row had to come down out of that band to stay
-        // reachable, and down there it covers the penalty area — so the
-        // pitch starts below it instead of underneath it. Only the boards
-        // that pay for the row pay for the inset.
-        // The board is a card, not the page. It used to run to all four
-        // edges, which read as paint that had spilled off the screen; with
-        // the sport's own dark ground showing round it and the corners
-        // taken off, the pitch reads as something laid on the table. The
-        // corner buttons stay where they are, half on the card and half
-        // off, which is how they stop being part of the pitch.
-        //
-        // Sideways, the board takes the whole height. A pitch is longer than
-        // it is wide and a sideways screen is wider still, so the pitch is
-        // fitted by height and leaves a wide margin of turf at each end —
-        // room enough for the corner buttons to float in, which is what the
-        // chrome band was reserving space for. Upright the inset stays: a
-        // penalty corner puts the injector on the backline, in the corner,
-        // and the page badge sat on top of him.
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              T.s8,
-              isLandscape ? T.s8 : _pagesBand(context, topPad, wideChrome),
-              T.s8,
-              T.s8),
-          child: DecoratedBox(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(T.rBoard)),
-              boxShadow: T.shadowFloat,
-            ),
-            child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(T.rBoard)),
-              child: isLandscape
-                  ? const RotatedBox(
-                      quarterTurns: 1, child: TacticsCanvas(boardTurns: 1))
-                  : const TacticsCanvas(),
-            ),
-          ),
-        ),
-        // Presentation mode swaps all editing chrome for a clean, locked
-        // overlay; the normal board chrome is shown otherwise.
-        Consumer<TacticsState>(
-          builder: (context, state, _) {
-            if (state.presentationMode) {
-              return _PresentationOverlay(topPad: topPad);
-            }
-            // The selection edit bar spans the bottom width; the bottom
-            // corner controls fade out while it's open so the panel never
-            // overlaps the Half Court / zoom / fullscreen buttons.
-            final editPanelOpen = !state.isAnimating &&
-                !state.zoomMode &&
-                (state.isDrawingMode ||
-                    state.selectedStrokeId != null ||
-                    state.selectedPlayerId != null);
-            return Stack(
-              fit: StackFit.expand,
-              children: [
-        // The first-run coach mark sits under the corner chrome and gets out
-        // of the way for good once the coach selects or draws anything.
-        if (!editPanelOpen) const _FirstRunHint(),
-        // Always: the board is pushed from the sport's home page now, in
-        // every build. It used to be the root — so a single-sport app had no
-        // back button at all, and once the home page went in front of it
-        // there was no way off the board. The board swallows the edge-swipe
-        // (it draws with it), so this is the only way back.
-        Positioned(
-            top: _chromeTop(topPad), left: 12,
-            child: Selector<TacticsState, (String?, String?)>(
-              selector: (_, s) => (s.editingFromPlan, s.runningPlanName),
-              builder: (context, tuple, _) {
-                final planName = tuple.$1;
-                final runName = tuple.$2;
-                final inPlanMode = planName != null || runName != null;
-                return GestureDetector(
-                  onTap: () async {
-                    final state = context.read<TacticsState>();
-                    if (runName != null) {
-                      // Auto-save tactic edits made during a run, matching the
-                      // plan-edit branch below.
-                      if (state.currentTacticName != null) {
-                        try {
-                          await state.saveTactics(state.currentTacticName!);
-                        } catch (_) {}
-                      }
-                      final startIdx = state.runningItemIndex;
-                      state.runningPlanName = null;
-                      state.editingFromPlan = null;
-                      final p = await PracticeService.load(state.sportType, runName) ?? Practice(name: runName);
-                      if (!context.mounted) return;
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => PracticeRunPage(
-                          state: state,
-                          practice: p,
-                          initialIndex: startIdx,
+      builder: (ctx, candidate, rejected) => LayoutBuilder(
+        builder: (context, outer) {
+          // Where the floating buttons float, sideways: above and below the
+          // court, or at its ends. Measured once here because the board's own
+          // padding and four separate pieces of chrome all have to agree.
+          final across =
+              isLandscape &&
+              _chromeAcross(
+                context,
+                Size(outer.maxWidth - T.s8 * 2, outer.maxHeight - T.s8 * 2),
+              );
+          // In that band the circles sit 4 off the card's edge rather than 8:
+          // the band was measured to the point and every point below it is court.
+          final chromeTop = across ? 4.0 : _chromeTop(topPad);
+          return Stack(
+            fit: StackFit.expand,
+            children: [
+              // A one-page board runs full bleed: its two corner buttons sit in
+              // the island's own band, where there is nothing but grass. A
+              // multi-page board's row had to come down out of that band to stay
+              // reachable, and down there it covers the penalty area — so the
+              // pitch starts below it instead of underneath it. Only the boards
+              // that pay for the row pay for the inset.
+              // The board is a card, not the page. It used to run to all four
+              // edges, which read as paint that had spilled off the screen; with
+              // the sport's own dark ground showing round it and the corners
+              // taken off, the pitch reads as something laid on the table. The
+              // corner buttons stay where they are, half on the card and half
+              // off, which is how they stop being part of the pitch.
+              //
+              // Sideways, the board takes the whole height. A pitch is longer than
+              // it is wide and a sideways screen is wider still, so the pitch is
+              // fitted by height and leaves a wide margin of turf at each end —
+              // room enough for the corner buttons to float in, which is what the
+              // chrome band was reserving space for. Upright the inset stays: a
+              // penalty corner puts the injector on the backline, in the corner,
+              // and the page badge sat on top of him.
+              LayoutBuilder(
+                builder: (context, box) {
+                  final top = isLandscape
+                      ? T.s8
+                      : _pagesBand(context, topPad, wideChrome);
+                  final side = isLandscape
+                      ? _endGutter(
+                          context,
+                          Size(box.maxWidth, box.maxHeight - top - T.s8),
+                          across,
+                        )
+                      : T.s8;
+                  // A drill's step note is a text element on the board, not chrome
+                  // painted over it — so it is placed once the board knows its own
+                  // size and which way round it is drawn, which is this frame.
+                  if (context.select<TacticsState, bool>((s) => s.noteWanted)) {
+                    WidgetsBinding.instance.addPostFrameCallback(
+                      (_) => context.read<TacticsState>().placeDrillNote(
+                        sideways: isLandscape,
+                      ),
+                    );
+                  }
+                  return Padding(
+                    padding: EdgeInsets.fromLTRB(side, top, side, T.s8),
+                    child: DecoratedBox(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(T.rBoard),
                         ),
-                      ));
-                      return;
-                    }
-                    if (planName != null) {
-                      // Auto-save tactic edits made while in plan-edit mode, so
-                      // the disk file (and cloud sync) pick up new players/moves
-                      // without requiring a manual Save tap.
-                      if (state.currentTacticName != null) {
-                        try {
-                          await state.saveTactics(state.currentTacticName!);
-                        } catch (_) {}
-                      }
-                      state.editingFromPlan = null;
-                      final p = await PracticeService.load(state.sportType, planName) ?? Practice(name: planName);
-                      if (!context.mounted) return;
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => PracticeEditPage(state: state, practice: p),
-                      ));
-                      return;
-                    }
-                    // Back to the sport's home page, which is what pushed
-                    // the board. It used to replace the route with the sport
-                    // grid, which skipped the home page in the hub and did
-                    // not exist at all in a single-sport build.
-                    Navigator.of(context).maybePop();
-                  },
-                  child: _GlassCircle(
-                    size: chromeCircle(context),
-                    border: inPlanMode
-                        ? Border.all(color: T.accent, width: 1.5)
-                        : null,
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      color: inPlanMode ? T.accent : Colors.white,
-                      size: 16 * uiScale(context),
+                        boxShadow: T.shadowFloat,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(T.rBoard),
+                        ),
+                        child: isLandscape
+                            ? const RotatedBox(
+                                quarterTurns: 1,
+                                child: TacticsCanvas(boardTurns: 1),
+                              )
+                            : const TacticsCanvas(),
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ),
-        // Pages. Always there, because a routine is several boards and the
-        // way to make the second one has to be visible before anybody knows
-        // they want it; a coach wrote a review saying there was no easy way
-        // to add pages, and there was no way at all.
-        // Beside the menu while it is one circle; on its own row once it
-        // grows chevrons, because three circles anchored right reach into
-        // the island.
-        // Sideways the board runs the full height and the pitch is fitted
-        // by it, leaving a margin of turf at each end but none above: a
-        // page badge beside the menu button sat on the touchline. Stacked
-        // under the menu instead, down the right edge, it stays on the
-        // margin — the same column the zoom and fullscreen buttons make at
-        // the bottom corner.
-        Positioned(
-          top: isLandscape
-              ? _chromeTop(topPad) + chromeCircle(context) + T.s8
-              : wideChrome
-                  ? _pagesTop(topPad)
-                  : _chromeTop(topPad),
-          right: wideChrome || isLandscape
-              ? 12
-              : 12 + chromeCircle(context),
-          child: const _PagesButton(),
-        ),
-        Positioned(top: _chromeTop(topPad), right: 12, child: _MenuButton()),
-        _CollapsibleEditPanel(),
-        // Zoom and fullscreen live in the tool capsule now, on every screen
-        // wide enough to hold them (viewButtonsInBar). What stays on the
-        // board regardless is the way back: fullscreen hides the capsule,
-        // and a button that hides itself cannot be pressed again, so while
-        // the toolbar is away this circle sits in the bottom corner — on
-        // the turf, which is fine for the moment a coach is presenting and
-        // not editing. The zoom-reset is there too, for a board zoomed in.
-        // A phone too narrow for the pair in the bar gets both of them
-        // here as well, floating, the way every phone did before.
-        Selector<TacticsState, bool>(
-          selector: (_, s) => s.toolbarVisible,
-          builder: (context, visible, _) {
-            final inBar = viewButtonsInBar(context);
-            return Positioned(
-              bottom: 12,
-              right: 12,
-              child: IgnorePointer(
-                ignoring: editPanelOpen,
-                child: AnimatedOpacity(
-                  opacity: editPanelOpen ? 0.0 : 1.0,
-                  duration: const Duration(milliseconds: 160),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      _ZoomResetButton(),
-                      if (!inBar) _ZoomModeButton(),
-                      if (!inBar || !visible) _FullscreenButton(),
-                    ],
-                  ),
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-        // Last in the stack, so it is over the board and over the edit bar —
-        // which opens in the same breath as the selection this explains, and
-        // took the bottom of the screen with it.
-        const _FocusHint(),
-              ],
-            );
-          },
-        ),
-      ],
+              // Presentation mode swaps all editing chrome for a clean, locked
+              // overlay; the normal board chrome is shown otherwise.
+              Consumer<TacticsState>(
+                builder: (context, state, _) {
+                  if (state.presentationMode) {
+                    return _PresentationOverlay(topPad: topPad);
+                  }
+                  // The selection edit bar spans the bottom width; the bottom
+                  // corner controls fade out while it's open so the panel never
+                  // overlaps the Half Court / zoom / fullscreen buttons.
+                  final editPanelOpen =
+                      !state.isAnimating &&
+                      !state.zoomMode &&
+                      (state.isDrawingMode ||
+                          state.selectedStrokeId != null ||
+                          state.selectedPlayerId != null);
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      // The first-run coach mark sits under the corner chrome and gets out
+                      // of the way for good once the coach selects or draws anything.
+                      if (!editPanelOpen) const _FirstRunHint(),
+                      // Always: the board is pushed from the sport's home page now, in
+                      // every build. It used to be the root — so a single-sport app had no
+                      // back button at all, and once the home page went in front of it
+                      // there was no way off the board. The board swallows the edge-swipe
+                      // (it draws with it), so this is the only way back.
+                      Positioned(
+                        top: chromeTop,
+                        left: 12,
+                        child: Selector<TacticsState, (String?, String?)>(
+                          selector: (_, s) =>
+                              (s.editingFromPlan, s.runningPlanName),
+                          builder: (context, tuple, _) {
+                            final planName = tuple.$1;
+                            final runName = tuple.$2;
+                            final inPlanMode =
+                                planName != null || runName != null;
+                            return GestureDetector(
+                              onTap: () async {
+                                final state = context.read<TacticsState>();
+                                if (runName != null) {
+                                  // Auto-save tactic edits made during a run, matching the
+                                  // plan-edit branch below.
+                                  if (state.currentTacticName != null) {
+                                    try {
+                                      await state.saveTactics(
+                                        state.currentTacticName!,
+                                      );
+                                    } catch (_) {}
+                                  }
+                                  final startIdx = state.runningItemIndex;
+                                  state.runningPlanName = null;
+                                  state.editingFromPlan = null;
+                                  final p =
+                                      await PracticeService.load(
+                                        state.sportType,
+                                        runName,
+                                      ) ??
+                                      Practice(name: runName);
+                                  if (!context.mounted) return;
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => PracticeRunPage(
+                                        state: state,
+                                        practice: p,
+                                        initialIndex: startIdx,
+                                      ),
+                                    ),
+                                  );
+                                  return;
+                                }
+                                if (planName != null) {
+                                  // Auto-save tactic edits made while in plan-edit mode, so
+                                  // the disk file (and cloud sync) pick up new players/moves
+                                  // without requiring a manual Save tap.
+                                  if (state.currentTacticName != null) {
+                                    try {
+                                      await state.saveTactics(
+                                        state.currentTacticName!,
+                                      );
+                                    } catch (_) {}
+                                  }
+                                  state.editingFromPlan = null;
+                                  final p =
+                                      await PracticeService.load(
+                                        state.sportType,
+                                        planName,
+                                      ) ??
+                                      Practice(name: planName);
+                                  if (!context.mounted) return;
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => PracticeEditPage(
+                                        state: state,
+                                        practice: p,
+                                      ),
+                                    ),
+                                  );
+                                  return;
+                                }
+                                // Back to the sport's home page, which is what pushed
+                                // the board. It used to replace the route with the sport
+                                // grid, which skipped the home page in the hub and did
+                                // not exist at all in a single-sport build.
+                                Navigator.of(context).maybePop();
+                              },
+                              child: _GlassCircle(
+                                size: chromeCircle(context),
+                                border: inPlanMode
+                                    ? Border.all(color: T.accent, width: 1.5)
+                                    : null,
+                                child: Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: inPlanMode ? T.accent : Colors.white,
+                                  size: 16 * uiScale(context),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      // Pages. Always there, because a routine is several boards and the
+                      // way to make the second one has to be visible before anybody knows
+                      // they want it; a coach wrote a review saying there was no easy way
+                      // to add pages, and there was no way at all.
+                      // Beside the menu while it is one circle; on its own row once it
+                      // grows chevrons, because three circles anchored right reach into
+                      // the island.
+                      // Sideways it keeps the top row, beside the menu: the band above the
+                      // court runs the whole width of the card, so anything in it is off
+                      // the pitch however wide the badge grows. On a board whose spare
+                      // room is at the ends instead (see [_chromeAcross]) there is no such
+                      // band — a badge beside the menu sat on the touchline — so there it
+                      // stacks under the menu, down the end margin, the same column the
+                      // zoom and fullscreen buttons make at the bottom corner.
+                      Positioned(
+                        top: across
+                            ? chromeTop
+                            : isLandscape
+                            ? _chromeTop(topPad) + chromeCircle(context) + T.s8
+                            : wideChrome
+                            ? _pagesTop(topPad)
+                            : _chromeTop(topPad),
+                        right: across
+                            ? 12 + chromeCircle(context) + T.s8
+                            : wideChrome || isLandscape
+                            ? 12
+                            : 12 + chromeCircle(context),
+                        child: const _PagesButton(),
+                      ),
+                      Positioned(
+                        top: chromeTop,
+                        right: 12,
+                        child: _MenuButton(),
+                      ),
+                      _CollapsibleEditPanel(),
+                      // Zoom and fullscreen live in the tool capsule now, on every screen
+                      // wide enough to hold them (viewButtonsInBar). What stays on the
+                      // board regardless is the way back: fullscreen hides the capsule,
+                      // and a button that hides itself cannot be pressed again, so while
+                      // the toolbar is away this circle sits in the bottom corner — on
+                      // the turf, which is fine for the moment a coach is presenting and
+                      // not editing. The zoom-reset is there too, for a board zoomed in.
+                      // A phone too narrow for the pair in the bar gets both of them
+                      // here as well, floating, the way every phone did before.
+                      Selector<TacticsState, bool>(
+                        selector: (_, s) => s.toolbarVisible,
+                        builder: (context, visible, _) {
+                          final inBar = viewButtonsInBar(context);
+                          final buttons = [
+                            _ZoomResetButton(across: across),
+                            if (!inBar) _ZoomModeButton(across: across),
+                            if (!inBar || !visible) _FullscreenButton(),
+                          ];
+                          return Positioned(
+                            // 4 rather than 12 where the band is the court's own
+                            // clearance: [_chromeAcross] measured it to the point.
+                            bottom: across ? 4 : 12,
+                            right: 12,
+                            child: IgnorePointer(
+                              ignoring: editPanelOpen,
+                              child: AnimatedOpacity(
+                                opacity: editPanelOpen ? 0.0 : 1.0,
+                                duration: const Duration(milliseconds: 160),
+                                // Laid along the bottom band where there is one, so the
+                                // pair does not climb the end margin the board no longer
+                                // leaves for it.
+                                child: across
+                                    ? Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: buttons,
+                                      )
+                                    : Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: buttons,
+                                      ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      // Fullscreen hides the rail, and with it the only way to walk a
+                      // drill — which is the one thing fullscreen is FOR. Three circles
+                      // in the opposite bottom corner from the zoom pair: back a beat,
+                      // play, forward a beat. Only on a board that has beats.
+                      Selector<
+                        TacticsState,
+                        ({bool show, int at, int steps, bool playing})
+                      >(
+                        selector: (_, s) => (
+                          show:
+                              !s.toolbarVisible &&
+                              !s.presentationMode &&
+                              s.hasMoves,
+                          at: s.atStep,
+                          steps: s.maxMoveSteps,
+                          playing: s.isAnimating,
+                        ),
+                        builder: (context, sel, _) {
+                          if (!sel.show) return const SizedBox.shrink();
+                          final state = context.read<TacticsState>();
+                          final d = chromeCircle(context);
+                          Widget circle(IconData icon, VoidCallback? onTap) =>
+                              Padding(
+                                padding: const EdgeInsets.only(right: 8),
+                                child: GestureDetector(
+                                  onTap: onTap,
+                                  child: Opacity(
+                                    opacity: onTap == null ? 0.35 : 1.0,
+                                    child: _GlassCircle(
+                                      size: d,
+                                      child: Icon(
+                                        icon,
+                                        color: Colors.white,
+                                        size: 18 * uiScale(context),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                          return Positioned(
+                            bottom: across ? 4 : 12,
+                            left: 12,
+                            child: IgnorePointer(
+                              ignoring: editPanelOpen,
+                              child: AnimatedOpacity(
+                                opacity: editPanelOpen ? 0.0 : 1.0,
+                                duration: const Duration(milliseconds: 160),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    circle(
+                                      Icons.chevron_left_rounded,
+                                      sel.at > 0 ? state.stepBackward : null,
+                                    ),
+                                    circle(
+                                      sel.playing
+                                          ? Icons.stop_rounded
+                                          : Icons.play_arrow_rounded,
+                                      sel.playing
+                                          ? state.stopAnimation
+                                          : state.startAnimation,
+                                    ),
+                                    circle(
+                                      Icons.chevron_right_rounded,
+                                      sel.at < sel.steps
+                                          ? state.stepForward
+                                          : null,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      // Last in the stack, so it is over the board and over the edit bar —
+                      // which opens in the same breath as the selection this explains, and
+                      // took the bottom of the screen with it.
+                      const _FocusHint(),
+                    ],
+                  );
+                },
+              ),
+            ],
+          );
+        },
       ),
     );
   }
 
   /// Drop handler for photos dragged from the My Teams strip — converts the
   /// global drop point into canvas coords and adds a player there.
-  void _onPhotoDropped(BuildContext context, DragTargetDetails<PhotoDragData> details) {
+  void _onPhotoDropped(
+    BuildContext context,
+    DragTargetDetails<PhotoDragData> details,
+  ) {
     final state = context.read<TacticsState>();
     final ro = boardRepaintKey.currentContext?.findRenderObject();
     if (ro is! RenderBox || !ro.attached) return;
@@ -410,47 +676,112 @@ class TacticsBoardHomePage extends StatelessWidget {
       localFromBoard.dx.clamp(24.0, size.width - 24.0),
       localFromBoard.dy.clamp(24.0, size.height - 24.0),
     );
-    state.addPlayer(PlayerIcon(
-      id: DateTime.now().microsecondsSinceEpoch.toString(),
-      label: '${max + 1}',
-      team: details.data.team,
-      position: clamped,
-      photoId: details.data.photo.id,
-    ));
+    state.addPlayer(
+      PlayerIcon(
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        label: '${max + 1}',
+        team: details.data.team,
+        position: clamped,
+        photoId: details.data.photo.id,
+      ),
+    );
     HapticFeedback.lightImpact();
   }
 
   Widget _bottomBar(BuildContext context, double bottomPad) {
     return Selector<TacticsState, ({bool visible, bool moves, bool present})>(
-      selector: (_, s) => (visible: s.toolbarVisible, moves: s.hasMoves, present: s.presentationMode),
+      selector: (_, s) => (
+        visible: s.toolbarVisible,
+        moves: s.hasMoves,
+        present: s.presentationMode,
+      ),
       builder: (context, sel, _) {
         // Presentation mode hides the whole toolbar/play bar — the locked
         // overlay carries its own large playback controls.
         if (sel.present) return SizedBox(height: bottomPad > 0 ? 36 : 20);
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (sel.visible)
-              SizedBox(
-                height: playBarHeight(context),
-                child: sel.moves ? Center(child: PlayControlsBar(state: context.read<TacticsState>())) : null,
-              ),
-            AnimatedSize(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeInOut,
-              child: sel.visible ? const TacticsToolbar() : const SizedBox.shrink(),
-            ),
-            SizedBox(height: bottomPad > 0 ? 36 : 20),
-          ],
+        final foot = SizedBox(height: bottomPad > 0 ? 36 : 20);
+        return LayoutBuilder(
+          builder: (context, box) {
+            // One row, side by side, where there is room for both capsules at
+            // their full width: a tablet or a window. Two rows of chrome under
+            // a board that already has the width for them is a phone layout
+            // nobody shrank the screen for. The threshold is the tool bar's own
+            // cap plus what the playback capsule takes; below it they stack, so
+            // a portrait iPad and every phone keep what they had.
+            final oneRow = sel.visible && sel.moves && box.maxWidth >= 1100;
+            if (oneRow) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(width: T.s16),
+                      PlayControlsBar(state: context.read<TacticsState>()),
+                      const SizedBox(width: T.s12),
+                      // Whatever is left, which its own centeredPanel caps at
+                      // kBarMaxWidth. Fixed at that width the pair ran off an
+                      // 11-inch iPad, where a tablet's bigger buttons make the
+                      // playback capsule half as wide again as a phone's.
+                      const Expanded(child: TacticsToolbar()),
+                    ],
+                  ),
+                  foot,
+                ],
+              );
+            }
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (sel.visible)
+                  SizedBox(
+                    height: playBarHeight(context),
+                    child: sel.moves
+                        ? Center(
+                            child: PlayControlsBar(
+                              state: context.read<TacticsState>(),
+                            ),
+                          )
+                        : null,
+                  ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                  child: sel.visible
+                      ? const TacticsToolbar()
+                      : const SizedBox.shrink(),
+                ),
+                foot,
+              ],
+            );
+          },
         );
       },
     );
   }
 
   Widget _landscapeSidePanel(BuildContext context) {
+    final pad = MediaQuery.paddingOf(context);
+    // A phone screen is a rounded rectangle, and the corner eats sideways
+    // into the edge: with a 55pt radius, 8pt down from the top the right
+    // edge has already come 26pt in. The rail's first and last rows sit in
+    // exactly that band, which is why Move and the replay button arrived
+    // with their ends shaved off. So on a phone with rounded corners the
+    // rail keeps its content off the edge and off the two ends; a flat
+    // old phone (no insets anywhere) keeps the tight margins it had.
+    final rounded = pad.left > 0 || pad.right > 0 || pad.bottom > 0;
+    final edge = rounded ? 14.0 : 4.0;
+    final vPad = rounded ? 20.0 : 8.0;
+    // The three wide text rows are the ones that run behind the Dynamic
+    // Island: measured on a 402pt edge the pill covers the middle third,
+    // roughly y 130..270, which is Add, Save/Share and Clear. The modes sit
+    // above it and the playback controls below, and what is left in the
+    // middle is the Spacer. So only these three give ground — the rail
+    // itself runs to the screen edge, and the board keeps the 59pt that a
+    // SafeArea over the whole edge used to take off the court.
+    final dodge = EdgeInsets.only(right: math.max(0, pad.right - edge));
     return Consumer<TacticsState>(
       builder: (context, state, _) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+        padding: EdgeInsets.fromLTRB(4, vPad, edge, vPad),
         child: Column(
           children: [
             // Mode buttons — Move / Draw / Select, matching the portrait
@@ -468,11 +799,20 @@ class TacticsBoardHomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 6),
-                Expanded(child: _lBtn('mode_draw', state.isDrawingMode, () => state.setDrawingMode(true))),
+                Expanded(
+                  child: _lBtn(
+                    'mode_draw',
+                    state.isDrawingMode,
+                    () => state.setDrawingMode(true),
+                  ),
+                ),
                 const SizedBox(width: 6),
                 Expanded(
-                  child: _lBtn('mode_select', state.multiSelectMode,
-                      () => state.setMultiSelectMode(!state.multiSelectMode)),
+                  child: _lBtn(
+                    'mode_select',
+                    state.multiSelectMode,
+                    () => state.setMultiSelectMode(!state.multiSelectMode),
+                  ),
                 ),
               ],
             ),
@@ -481,25 +821,63 @@ class TacticsBoardHomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _lCircleBtn(Icons.undo_rounded, kAccent, state.canUndo ? state.undo : null),
+                _lCircleBtn(
+                  Icons.undo_rounded,
+                  kAccent,
+                  state.canUndo ? state.undo : null,
+                ),
                 const SizedBox(width: 12),
-                _lCircleBtn(Icons.redo_rounded, kAccent, state.canRedo ? state.redo : null),
+                _lCircleBtn(
+                  Icons.redo_rounded,
+                  kAccent,
+                  state.canRedo ? state.redo : null,
+                ),
               ],
             ),
             const SizedBox(height: 10),
             // Action buttons
-            _lWideBtn(Icons.add_rounded, 'add_label', () => showAddElementSheet(context, state)),
+            Padding(
+              padding: dodge,
+              child: _lWideBtn(
+                Icons.add_rounded,
+                'add_label',
+                () => showAddElementSheet(context, state),
+              ),
+            ),
             const SizedBox(height: 6),
-            Row(
-              children: [
-                Expanded(child: _lBtn('save', false, () => showSaveLoadSheet(context, state))),
-                const SizedBox(width: 6),
-                Expanded(child: _lBtn('share', false, () => shareBoardImage(context, state))),
-              ],
+            Padding(
+              padding: dodge,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: _lBtn(
+                      'save',
+                      false,
+                      () => showSaveLoadSheet(context, state),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: _lBtn(
+                      'share',
+                      false,
+                      () => shareBoardImage(context, state),
+                    ),
+                  ),
+                ],
+              ),
             ),
             if (state.players.isNotEmpty || state.strokes.isNotEmpty) ...[
               const SizedBox(height: 6),
-              _lWideBtn(Icons.delete_sweep_outlined, 'clear', () => confirmClearAll(context, state), color: Colors.redAccent),
+              Padding(
+                padding: dodge,
+                child: _lWideBtn(
+                  Icons.delete_sweep_outlined,
+                  'clear',
+                  () => confirmClearAll(context, state),
+                  color: Colors.redAccent,
+                ),
+              ),
             ],
             const Spacer(),
             // Play controls
@@ -510,44 +888,87 @@ class TacticsBoardHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _lCircleBtn(Icons.chevron_left_rounded, Colors.blue, state.atStep > 0 ? state.stepBackward : null),
+                  _lCircleBtn(
+                    Icons.chevron_left_rounded,
+                    Colors.blue,
+                    state.atStep > 0 ? state.stepBackward : null,
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
-                    child: Text('${state.atStep}/${state.maxMoveSteps}', style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                    child: Text(
+                      '${state.atStep}/${state.maxMoveSteps}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  _lCircleBtn(Icons.chevron_right_rounded, Colors.blue, state.atStep < state.maxMoveSteps ? state.stepForward : null),
+                  _lCircleBtn(
+                    Icons.chevron_right_rounded,
+                    Colors.blue,
+                    state.atStep < state.maxMoveSteps
+                        ? state.stepForward
+                        : null,
+                  ),
                 ],
               ),
               const SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _lCircleBtn(Icons.replay, Colors.orange, state.atStep > 0 ? state.clearAnimatedPositions : null),
-                  const SizedBox(width: 6),
-                  _lCircleBtn(state.isAnimating ? Icons.stop_rounded : Icons.play_arrow_rounded, Colors.green, !state.isAnimating ? state.startAnimation : state.stopAnimation),
-                  const SizedBox(width: 6),
-                  _lCircleBtn(Icons.show_chart, state.routesOn ? Colors.white54 : Colors.redAccent, state.toggleShowMoveLines),
-                  const SizedBox(width: 6),
-                  _lCircleBtn(Icons.view_timeline_outlined, Colors.purpleAccent, () {
-                    showModalBottomSheet(
-                      context: context,
-                      constraints: sheetConstraints(context),
-                      backgroundColor: T.surface,
-                      isScrollControlled: true,
-                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-                      builder: (ctx) => scaledSheet(ctx, TimelineEditor(state: state)),
-                    );
-                  }),
+                  _lCircleBtn(
+                    Icons.replay,
+                    Colors.orange,
+                    state.atStep > 0 ? state.clearAnimatedPositions : null,
+                  ),
+                  const SizedBox(width: 4),
+                  _lCircleBtn(
+                    state.isAnimating
+                        ? Icons.stop_rounded
+                        : Icons.play_arrow_rounded,
+                    Colors.green,
+                    !state.isAnimating
+                        ? state.startAnimation
+                        : state.stopAnimation,
+                  ),
+                  const SizedBox(width: 4),
+                  _lCircleBtn(
+                    Icons.show_chart,
+                    state.routesOn ? Colors.white54 : Colors.redAccent,
+                    state.toggleShowMoveLines,
+                  ),
+                  const SizedBox(width: 4),
+                  _lCircleBtn(
+                    Icons.view_timeline_outlined,
+                    Colors.purpleAccent,
+                    () {
+                      showModalBottomSheet(
+                        context: context,
+                        constraints: sheetConstraints(context),
+                        backgroundColor: T.surface,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20),
+                          ),
+                        ),
+                        builder: (ctx) =>
+                            scaledSheet(ctx, TimelineEditor(state: state)),
+                      );
+                    },
+                  ),
                 ],
               ),
             ],
-            const SizedBox(height: 8),
+            // 4, not 8: an iPhone SE turned sideways gives the rail 304pt and
+            // its contents want 305.
+            const SizedBox(height: 4),
           ],
         ),
       ),
     );
   }
-
 
   Widget _lBtn(String key, bool active, VoidCallback onTap) {
     return GestureDetector(
@@ -558,7 +979,25 @@ class TacticsBoardHomePage extends StatelessWidget {
           color: active ? Colors.blue : Colors.white10,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Center(child: Text(key.tr(), style: TextStyle(color: active ? Colors.white : Colors.white54, fontSize: 12, fontWeight: FontWeight.w600))),
+        // One line, shrunk to fit rather than wrapped: the rail is narrow and
+        // "Sélectionner" took three lines of it, which pushed the playback
+        // controls off the bottom. Scaling keeps the rail the same height in
+        // every language.
+        child: Center(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              key.tr(),
+              maxLines: 1,
+              softWrap: false,
+              style: TextStyle(
+                color: active ? Colors.white : Colors.white54,
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -569,15 +1008,24 @@ class TacticsBoardHomePage extends StatelessWidget {
       child: Opacity(
         opacity: onTap != null ? 1.0 : 0.35,
         child: Container(
-          width: 32, height: 32,
-          decoration: BoxDecoration(color: color.withValues(alpha: 0.2), shape: BoxShape.circle),
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: color.withValues(alpha: 0.2),
+            shape: BoxShape.circle,
+          ),
           child: Icon(icon, color: color, size: 17),
         ),
       ),
     );
   }
 
-  Widget _lWideBtn(IconData icon, String key, VoidCallback onTap, {Color? color}) {
+  Widget _lWideBtn(
+    IconData icon,
+    String key,
+    VoidCallback onTap, {
+    Color? color,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -587,13 +1035,23 @@ class TacticsBoardHomePage extends StatelessWidget {
           color: Colors.white.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: color ?? Colors.white70, size: 18),
-            const SizedBox(width: 6),
-            Text(key.tr(), style: TextStyle(color: color ?? Colors.white70, fontSize: 13)),
-          ],
+        // Shrunk to fit rather than clipped, same as _lBtn: these rows step
+        // aside for the island and "Añadir" is wider than what is left.
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, color: color ?? Colors.white70, size: 18),
+              const SizedBox(width: 6),
+              Text(
+                key.tr(),
+                maxLines: 1,
+                softWrap: false,
+                style: TextStyle(color: color ?? Colors.white70, fontSize: 13),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -637,7 +1095,8 @@ class _GlassCircle extends StatelessWidget {
               // edge on a bright turf as well as a dark one. Callers that
               // pass their own border — the plan-mode accent ring — still
               // win, because theirs says something this one does not.
-              border: border ??
+              border:
+                  border ??
                   Border.all(color: Colors.white.withValues(alpha: 0.22)),
             ),
             child: child,
@@ -675,9 +1134,11 @@ class _PagesButton extends StatelessWidget {
                 onTap: index > 0 ? () => state.goToPage(index - 1) : null,
                 child: _GlassCircle(
                   size: dim,
-                  child: Icon(Icons.chevron_left,
-                      color: index > 0 ? Colors.white : Colors.white24,
-                      size: 20 * s),
+                  child: Icon(
+                    Icons.chevron_left,
+                    color: index > 0 ? Colors.white : Colors.white24,
+                    size: 20 * s,
+                  ),
                 ),
               ),
               SizedBox(width: 4 * s),
@@ -705,9 +1166,11 @@ class _PagesButton extends StatelessWidget {
                     : null,
                 child: _GlassCircle(
                   size: dim,
-                  child: Icon(Icons.chevron_right,
-                      color: index < count - 1 ? Colors.white : Colors.white24,
-                      size: 20 * s),
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: index < count - 1 ? Colors.white : Colors.white24,
+                    size: 20 * s,
+                  ),
                 ),
               ),
             ],
@@ -724,7 +1187,12 @@ class _PagesButton extends StatelessWidget {
         ctx,
         TacticalSheet(
           maxHeightFraction: 0.6,
-          padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s16),
+          padding: const EdgeInsets.fromLTRB(
+            T.screenX,
+            T.s12,
+            T.screenX,
+            T.s16,
+          ),
           child: Consumer<TacticsState>(
             builder: (context, s, _) => Column(
               mainAxisSize: MainAxisSize.min,
@@ -802,8 +1270,7 @@ class _PageRow extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.only(bottom: T.s8),
-        padding: const EdgeInsets.symmetric(
-            horizontal: T.s12, vertical: T.s12),
+        padding: const EdgeInsets.symmetric(horizontal: T.s12, vertical: T.s12),
         decoration: BoxDecoration(
           color: current ? T.accentFill : T.surfaceHi,
           borderRadius: T.brMd,
@@ -811,16 +1278,23 @@ class _PageRow extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Text('${index + 1}',
-                style: TextStyle(
-                    color: current ? T.accent : T.textDim,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700)),
+            Text(
+              '${index + 1}',
+              style: TextStyle(
+                color: current ? T.accent : T.textDim,
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             const SizedBox(width: T.s12),
             Expanded(
-              child: Text('pages_page'.tr(args: ['${index + 1}']),
-                  style: TextStyle(
-                      color: current ? T.text : T.textDim, fontSize: 15)),
+              child: Text(
+                'pages_page'.tr(args: ['${index + 1}']),
+                style: TextStyle(
+                  color: current ? T.text : T.textDim,
+                  fontSize: 15,
+                ),
+              ),
             ),
             if (canDelete)
               GestureDetector(
@@ -828,8 +1302,11 @@ class _PageRow extends StatelessWidget {
                 onTap: onDelete,
                 child: const Padding(
                   padding: EdgeInsets.all(6),
-                  child: Icon(Icons.delete_outline_rounded,
-                      size: 18, color: kDanger),
+                  child: Icon(
+                    Icons.delete_outline_rounded,
+                    size: 18,
+                    color: kDanger,
+                  ),
                 ),
               ),
           ],
@@ -866,7 +1343,8 @@ class _MenuButton extends StatelessWidget {
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
-        final showPro = PurchaseService.instance.isStoreEnabled &&
+        final showPro =
+            PurchaseService.instance.isStoreEnabled &&
             AdService.instance.servesAds &&
             !PurchaseService.instance.hasPro;
         return [
@@ -880,7 +1358,11 @@ class _MenuButton extends StatelessWidget {
           // Also here, not only on the toolbar: the toolbar drops this
           // button on a narrow phone, and the boards have to stay reachable.
           _menuItem('boards', Icons.folder_outlined, 'boards'.tr()),
-          _menuItem('practice', Icons.event_note_outlined, 'practice_plan'.tr()),
+          _menuItem(
+            'practice',
+            Icons.event_note_outlined,
+            'practice_plan'.tr(),
+          ),
           _divider(),
           // Getting it out of the app
           _menuItem('share', Icons.ios_share_rounded, 'share'.tr()),
@@ -894,30 +1376,42 @@ class _MenuButton extends StatelessWidget {
           // page that happened to be reachable from a pitch.
           if (showPro) ...[
             _divider(),
-            _menuItem('pro', Icons.workspace_premium_outlined,
-                'menu_remove_ads'.tr(), tint: T.accent),
+            _menuItem(
+              'pro',
+              Icons.workspace_premium_outlined,
+              'menu_remove_ads'.tr(),
+              tint: T.accent,
+            ),
           ],
           _divider(),
           // Destructive, and rare: it used to sit a thumb's width from Undo
           // on the toolbar, where the two are easy to confuse.
-          _menuItem('clear', Icons.delete_sweep_outlined,
-              // The menu item asks for the action; the confirm dialog is what
-              // asks the question. Both were reading 'Clear Board?'.
-              'clear_all'.tr(), tint: T.danger),
+          _menuItem(
+            'clear',
+            Icons.delete_sweep_outlined,
+            // The menu item asks for the action; the confirm dialog is what
+            // asks the question. Both were reading 'Clear Board?'.
+            'clear_all'.tr(),
+            tint: T.danger,
+          ),
         ];
       },
     );
   }
 
   PopupMenuEntry<String> _divider() => const PopupMenuItem<String>(
-        enabled: false,
-        height: 9,
-        padding: EdgeInsets.zero,
-        child: TacticalDivider(),
-      );
+    enabled: false,
+    height: 9,
+    padding: EdgeInsets.zero,
+    child: TacticalDivider(),
+  );
 
-  PopupMenuItem<String> _menuItem(String value, IconData icon, String label,
-      {Color? tint}) {
+  PopupMenuItem<String> _menuItem(
+    String value,
+    IconData icon,
+    String label, {
+    Color? tint,
+  }) {
     return PopupMenuItem(
       value: value,
       height: 50,
@@ -934,7 +1428,10 @@ class _MenuButton extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  color: tint ?? T.text, fontSize: 15, height: 1.25),
+                color: tint ?? T.text,
+                fontSize: 15,
+                height: 1.25,
+              ),
             ),
           ),
         ],
@@ -972,17 +1469,14 @@ class _MenuButton extends StatelessWidget {
   }
 
   void _showPaywall(BuildContext context) {
-    TacticalSheet.show(
-      context,
-      builder: (_) => const _PaywallSheet(),
-    );
+    TacticalSheet.show(context, builder: (_) => const _PaywallSheet());
   }
 
   void _showPracticePlan(BuildContext context) {
     final state = context.read<TacticsState>();
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => PracticePlanPage(state: state),
-    ));
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (_) => PracticePlanPage(state: state)));
   }
 
   void _showScorer(BuildContext context) {
@@ -996,10 +1490,13 @@ class _MenuButton extends StatelessWidget {
       context,
       builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
-        child: scaledSheet(ctx, _ScorerPromoSheet(sport: sport, appName: appName, url: url)),
-      ));
+        child: scaledSheet(
+          ctx,
+          _ScorerPromoSheet(sport: sport, appName: appName, url: url),
+        ),
+      ),
+    );
   }
-
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1030,15 +1527,21 @@ class _ContactPageState extends State<ContactPage> {
     final body = _bodyCtrl.text.trim();
     // Validation
     if (email.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${'your_email'.tr()} required')));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('${'your_email'.tr()} required')));
       return;
     }
     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(email)) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('send_email_error'.tr())));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('send_email_error'.tr())));
       return;
     }
     if (body.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${'message'.tr()} required')));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('${'message'.tr()} required')));
       return;
     }
     final sport = context.read<TacticsState>().sportType;
@@ -1046,36 +1549,43 @@ class _ContactPageState extends State<ContactPage> {
 
     setState(() => _sending = true);
     try {
-      final response = await http.post(
-        Uri.parse('https://tacticsboard.100for1.com/api/v1/send-email'),
-        body: {
-          'from': 'support@ScoreSyncer.com',
-          'to': 'zachsong@gmail.com',
-          'email': email,
-          'sport': sport.name,
-          'app': appName,
-          'subject': _subjectCtrl.text.trim().isEmpty ? 'Feedback' : _subjectCtrl.text.trim(),
-          'message': body,
-        },
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      ).timeout(const Duration(seconds: 10));
+      final response = await http
+          .post(
+            Uri.parse('https://tacticsboard.100for1.com/api/v1/send-email'),
+            body: {
+              'from': 'support@ScoreSyncer.com',
+              'to': 'zachsong@gmail.com',
+              'email': email,
+              'sport': sport.name,
+              'app': appName,
+              'subject': _subjectCtrl.text.trim().isEmpty
+                  ? 'Feedback'
+                  : _subjectCtrl.text.trim(),
+              'message': body,
+            },
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          )
+          .timeout(const Duration(seconds: 10));
 
       if (!mounted) return;
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('send_success'.tr()), backgroundColor: Colors.green),
+          SnackBar(
+            content: Text('send_success'.tr()),
+            backgroundColor: Colors.green,
+          ),
         );
         Navigator.pop(context);
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('send_failed'.tr())),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('send_failed'.tr())));
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('send_failed'.tr())),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('send_failed'.tr())));
       }
     } finally {
       if (mounted) setState(() => _sending = false);
@@ -1095,7 +1605,10 @@ class _ContactPageState extends State<ContactPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('contact_subtitle'.tr(), style: const TextStyle(color: Colors.white70, fontSize: 16)),
+            Text(
+              'contact_subtitle'.tr(),
+              style: const TextStyle(color: Colors.white70, fontSize: 16),
+            ),
             const SizedBox(height: 20),
             _field(_emailCtrl, 'your_email'.tr(), TextInputType.emailAddress),
             const SizedBox(height: 12),
@@ -1108,11 +1621,26 @@ class _ContactPageState extends State<ContactPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
               child: _sending
-                  ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                  : Text('send'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: Colors.white,
+                      ),
+                    )
+                  : Text(
+                      'send'.tr(),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
             ),
           ],
         ),
@@ -1122,25 +1650,45 @@ class _ContactPageState extends State<ContactPage> {
 
   String _flavorAppName(SportType s) {
     switch (s) {
-      case SportType.badminton:    return 'Badminton Board';
-      case SportType.tableTennis:  return 'Table Tennis Board';
-      case SportType.tennis:       return 'Tennis Board';
-      case SportType.basketball:   return 'Basketball Board';
-      case SportType.volleyball:   return 'Volleyball Board';
-      case SportType.pickleball:   return 'Pickleball Board';
-      case SportType.soccer:       return 'Soccer Board';
-      case SportType.fieldHockey:  return 'Field Hockey Board';
-      case SportType.rugby:        return 'Rugby Board';
-      case SportType.baseball:     return 'Baseball Board';
-      case SportType.handball:     return 'Handball Board';
-      case SportType.waterPolo:    return 'Water Polo Board';
-      case SportType.sepakTakraw:  return 'Sepak Takraw Board';
-      case SportType.beachTennis:  return 'Beach Tennis Board';
-      case SportType.footvolley:   return 'Footvolley Board';
+      case SportType.badminton:
+        return 'Badminton Board';
+      case SportType.tableTennis:
+        return 'Table Tennis Board';
+      case SportType.tennis:
+        return 'Tennis Board';
+      case SportType.basketball:
+        return 'Basketball Board';
+      case SportType.volleyball:
+        return 'Volleyball Board';
+      case SportType.pickleball:
+        return 'Pickleball Board';
+      case SportType.soccer:
+        return 'Soccer Board';
+      case SportType.fieldHockey:
+        return 'Field Hockey Board';
+      case SportType.rugby:
+        return 'Rugby Board';
+      case SportType.baseball:
+        return 'Baseball Board';
+      case SportType.handball:
+        return 'Handball Board';
+      case SportType.waterPolo:
+        return 'Water Polo Board';
+      case SportType.sepakTakraw:
+        return 'Sepak Takraw Board';
+      case SportType.beachTennis:
+        return 'Beach Tennis Board';
+      case SportType.footvolley:
+        return 'Footvolley Board';
     }
   }
 
-  Widget _field(TextEditingController ctrl, String label, [TextInputType? type, int maxLines = 1]) {
+  Widget _field(
+    TextEditingController ctrl,
+    String label, [
+    TextInputType? type,
+    int maxLines = 1,
+  ]) {
     return TextField(
       controller: ctrl,
       keyboardType: type,
@@ -1151,8 +1699,14 @@ class _ContactPageState extends State<ContactPage> {
         labelStyle: const TextStyle(color: Colors.white38),
         filled: true,
         fillColor: Colors.white.withValues(alpha: 0.08),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.blue)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.blue),
+        ),
       ),
     );
   }
@@ -1208,7 +1762,12 @@ class _LoginPageState extends State<LoginPage> {
     if (!mounted) return;
     if (result.success) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
+        SnackBar(
+          content: Text(
+            '${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!',
+          ),
+          backgroundColor: Colors.green,
+        ),
       );
       // Keep spinner on while we pull cloud data so the user doesn't see a
       // half-populated screen if they navigate away immediately.
@@ -1230,7 +1789,12 @@ class _LoginPageState extends State<LoginPage> {
     if (!mounted) return;
     if (result.success) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!'), backgroundColor: Colors.green),
+        SnackBar(
+          content: Text(
+            '${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!',
+          ),
+          backgroundColor: Colors.green,
+        ),
       );
       await CloudSyncService.syncNow();
       if (!mounted) return;
@@ -1267,11 +1831,25 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.check_circle_outline_rounded, color: Colors.green, size: 80),
+        const Icon(
+          Icons.check_circle_outline_rounded,
+          color: Colors.green,
+          size: 80,
+        ),
         const SizedBox(height: 16),
-        Text(_auth.userName ?? 'User', style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+        Text(
+          _auth.userName ?? 'User',
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         if (_auth.userEmail != null)
-          Text(_auth.userEmail!, style: const TextStyle(color: Colors.white54, fontSize: 14)),
+          Text(
+            _auth.userEmail!,
+            style: const TextStyle(color: Colors.white54, fontSize: 14),
+          ),
         const SizedBox(height: 28),
         _buildSyncStatus(),
         const SizedBox(height: 12),
@@ -1282,17 +1860,19 @@ class _LoginPageState extends State<LoginPage> {
                 ? null
                 : _manualSync,
             icon: const Icon(Icons.cloud_sync_outlined),
-            label: Text('sync_now'.tr(),
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold)),
+            label: Text(
+              'sync_now'.tr(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: T.accent,
               foregroundColor: T.bg0,
               disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
               disabledForegroundColor: Colors.white38,
               padding: const EdgeInsets.symmetric(vertical: 14),
-              shape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
           ),
         ),
@@ -1308,9 +1888,14 @@ class _LoginPageState extends State<LoginPage> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
               padding: const EdgeInsets.symmetric(vertical: 14),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
-            child: Text('logout'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            child: Text(
+              'logout'.tr(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         const SizedBox(height: 40),
@@ -1391,14 +1976,20 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(primary,
-                    style: TextStyle(
-                        color: color, fontSize: 14, fontWeight: FontWeight.w600)),
+                Text(
+                  primary,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 if (secondary != null) ...[
                   const SizedBox(height: 2),
-                  Text(secondary,
-                      style: const TextStyle(
-                          color: Colors.white54, fontSize: 12)),
+                  Text(
+                    secondary,
+                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                  ),
                 ],
               ],
             ),
@@ -1424,24 +2015,44 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('delete_account'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text('delete_account_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
+        title: Text(
+          'delete_account'.tr(),
+          style: const TextStyle(color: Colors.white),
+        ),
+        content: Text(
+          'delete_account_confirm'.tr(),
+          style: const TextStyle(color: Colors.white70),
+        ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text('cancel'.tr()),
+          ),
           TextButton(
             onPressed: () async {
               Navigator.pop(ctx);
               setState(() => _loading = true);
               try {
                 final response = await http.delete(
-                  Uri.parse('https://tacticsboard.100for1.com/api/v1/auth/delete-account'),
-                  headers: {'Authorization': 'Bearer ${_auth.token}', 'Accept': 'application/json'},
+                  Uri.parse(
+                    'https://tacticsboard.100for1.com/api/v1/auth/delete-account',
+                  ),
+                  headers: {
+                    'Authorization': 'Bearer ${_auth.token}',
+                    'Accept': 'application/json',
+                  },
                 );
                 _auth.logout();
                 if (mounted) {
                   setState(() => _loading = false);
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(response.statusCode == 200 ? 'delete_account_success'.tr() : 'delete_account_failed'.tr())),
+                    SnackBar(
+                      content: Text(
+                        response.statusCode == 200
+                            ? 'delete_account_success'.tr()
+                            : 'delete_account_failed'.tr(),
+                      ),
+                    ),
                   );
                 }
               } catch (_) {
@@ -1449,7 +2060,10 @@ class _LoginPageState extends State<LoginPage> {
                 if (mounted) setState(() => _loading = false);
               }
             },
-            child: Text('delete_account'.tr(), style: const TextStyle(color: Colors.red)),
+            child: Text(
+              'delete_account'.tr(),
+              style: const TextStyle(color: Colors.red),
+            ),
           ),
         ],
       ),
@@ -1462,8 +2076,11 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         const Icon(Icons.person_outline, color: Colors.white38, size: 80),
         const SizedBox(height: 24),
-        Text('login_subtitle'.tr(),
-            style: TextStyle(color: Colors.white70, fontSize: 16), textAlign: TextAlign.center),
+        Text(
+          'login_subtitle'.tr(),
+          style: TextStyle(color: Colors.white70, fontSize: 16),
+          textAlign: TextAlign.center,
+        ),
         const SizedBox(height: 40),
         if (_loading)
           const CircularProgressIndicator()
@@ -1505,14 +2122,23 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: bgColor,
           foregroundColor: color,
           padding: const EdgeInsets.symmetric(vertical: 14),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, size: 24),
             const SizedBox(width: 10),
-            Text(label, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: color)),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: color,
+              ),
+            ),
           ],
         ),
       ),
@@ -1527,7 +2153,11 @@ class _ScorerPromoSheet extends StatelessWidget {
   final SportType sport;
   final String appName;
   final Uri url;
-  const _ScorerPromoSheet({required this.sport, required this.appName, required this.url});
+  const _ScorerPromoSheet({
+    required this.sport,
+    required this.appName,
+    required this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1539,19 +2169,22 @@ class _ScorerPromoSheet extends StatelessWidget {
           children: [
             // App icon area
             Container(
-              width: 80, height: 80,
+              width: 80,
+              height: 80,
               decoration: BoxDecoration(
                 color: Colors.blue.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Center(
-                child: SportGlyph(sport: sport, size: 46),
-              ),
+              child: Center(child: SportGlyph(sport: sport, size: 46)),
             ),
             const SizedBox(height: 16),
             Text(
               appName,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8),
             Text(
@@ -1564,11 +2197,17 @@ class _ScorerPromoSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _featureChip(Icons.scoreboard_outlined, 'scorer_feature_score'.tr()),
+                _featureChip(
+                  Icons.scoreboard_outlined,
+                  'scorer_feature_score'.tr(),
+                ),
                 const SizedBox(width: 8),
                 _featureChip(Icons.timer_outlined, 'scorer_feature_timer'.tr()),
                 const SizedBox(width: 8),
-                _featureChip(Icons.history_rounded, 'scorer_feature_history'.tr()),
+                _featureChip(
+                  Icons.history_rounded,
+                  'scorer_feature_history'.tr(),
+                ),
               ],
             ),
             const SizedBox(height: 20),
@@ -1577,12 +2216,20 @@ class _ScorerPromoSheet extends StatelessWidget {
               child: ElevatedButton.icon(
                 onPressed: () => _openAppStore(context),
                 icon: const Icon(Icons.download, size: 20),
-                label: Text('scorer_download'.tr(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                label: Text(
+                  'scorer_download'.tr(),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
             ),
@@ -1593,15 +2240,29 @@ class _ScorerPromoSheet extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'trainer_also_try'.tr(),
-                  style: const TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
-              _trainerRow(context, Icons.bolt, 'trainer_whip_name'.tr(),
-                  'trainer_whip_desc'.tr(), 'https://apps.apple.com/app/id6775930960'),
+              _trainerRow(
+                context,
+                Icons.bolt,
+                'trainer_whip_name'.tr(),
+                'trainer_whip_desc'.tr(),
+                'https://apps.apple.com/app/id6775930960',
+              ),
               const SizedBox(height: 8),
-              _trainerRow(context, Icons.directions_run, 'trainer_footwork_name'.tr(),
-                  'trainer_footwork_desc'.tr(), 'https://apps.apple.com/app/id6777419248'),
+              _trainerRow(
+                context,
+                Icons.directions_run,
+                'trainer_footwork_name'.tr(),
+                'trainer_footwork_desc'.tr(),
+                'https://apps.apple.com/app/id6777419248',
+              ),
             ],
           ],
         ),
@@ -1609,7 +2270,13 @@ class _ScorerPromoSheet extends StatelessWidget {
     );
   }
 
-  Widget _trainerRow(BuildContext context, IconData icon, String name, String desc, String urlStr) {
+  Widget _trainerRow(
+    BuildContext context,
+    IconData icon,
+    String name,
+    String desc,
+    String urlStr,
+  ) {
     return InkWell(
       onTap: () => _openLink(context, urlStr),
       borderRadius: BorderRadius.circular(12),
@@ -1623,7 +2290,8 @@ class _ScorerPromoSheet extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 38, height: 38,
+              width: 38,
+              height: 38,
               decoration: BoxDecoration(
                 color: Colors.white.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(10),
@@ -1635,8 +2303,18 @@ class _ScorerPromoSheet extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600)),
-                  Text(desc, style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    desc,
+                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                  ),
                 ],
               ),
             ),
@@ -1659,13 +2337,17 @@ class _ScorerPromoSheet extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.white54, size: 14),
           const SizedBox(width: 4),
-          Text(label, style: const TextStyle(color: Colors.white54, fontSize: 12)),
+          Text(
+            label,
+            style: const TextStyle(color: Colors.white54, fontSize: 12),
+          ),
         ],
       ),
     );
   }
 
-  Future<void> _openAppStore(BuildContext context) => _openLink(context, url.toString());
+  Future<void> _openAppStore(BuildContext context) =>
+      _openLink(context, url.toString());
 
   Future<void> _openLink(BuildContext context, String urlStr) async {
     try {
@@ -1676,7 +2358,10 @@ class _ScorerPromoSheet extends StatelessWidget {
       await Clipboard.setData(ClipboardData(text: urlStr));
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('scorer_link_copied'.tr()), backgroundColor: Colors.green),
+          SnackBar(
+            content: Text('scorer_link_copied'.tr()),
+            backgroundColor: Colors.green,
+          ),
         );
       }
     }
@@ -1690,6 +2375,7 @@ class _ScorerPromoSheet extends StatelessWidget {
 class _PlayerEditBar extends StatefulWidget {
   final TacticsState state;
   final PlayerIcon player;
+
   /// When set, the close × and delete actions invoke this in addition to
   /// their usual behaviour.
   final VoidCallback? onClose;
@@ -1709,30 +2395,31 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   /// bar until the user taps the tune button to ask for them.
   bool _expanded = false;
 
-  static const _colors = <Color>[
-    T.home,
-    T.away,
-    Color(0xFF2E7D32),
-    Color(0xFFE65100),
-    Color(0xFF6A1B9A),
-    Color(0xFF00838F),
-    Color(0xFFAD1457),
-    Color(0xFFF9A825),
-  ];
+  static const _colors = kElementColors;
 
   Widget _scaleSlider(PlayerIcon p) => Slider(
-        value: p.scale,
-        min: 0.5,
-        max: 3.0,
-        divisions: 10,
-        activeColor: kAccent,
-        inactiveColor: Colors.white24,
-        onChanged: (v) => widget.state.updatePlayer(p.id, scale: v),
-      );
+    value: p.scale,
+    min: 0.5,
+    max: 3.0,
+    divisions: 10,
+    activeColor: kAccent,
+    inactiveColor: Colors.white24,
+    onChanged: (v) => widget.state.updatePlayer(p.id, scale: v),
+  );
 
   @override
   Widget build(BuildContext context) {
     final p = widget.player;
+    // A second tap on a text element on the board asks for its words. The
+    // dialog lives here, so the request is picked up and cleared here —
+    // after the frame, because opening a route while this one is building
+    // is how you get "setState called during build".
+    if (widget.state.labelEditRequest == p.id) {
+      widget.state.clearLabelEditRequest();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _promptLabel();
+      });
+    }
     // A custom graphic is its own picture: the colour swatches do nothing to
     // it, so size is the only thing the tune panel can change. Show that row
     // straight away rather than making a coach find a ⚙ to reach the one
@@ -1743,7 +2430,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     // ships as artwork — has no colour to change: the swatches did nothing
     // to a cone and a coach tried them. Such an element gets the size row
     // straight away and no swatches, the way a photo already did.
-    final isPicture = isPhoto ||
+    final isPicture =
+        isPhoto ||
         p.isBall ||
         (p.isMarker &&
             !p.isPersonMarker &&
@@ -1783,7 +2471,15 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                             if (p.label.isNotEmpty && !p.labelInside) ...[
                               const SizedBox(width: 6),
                               Flexible(
-                                child: Text(p.label, overflow: TextOverflow.ellipsis, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                                child: Text(
+                                  p.label,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ],
                           ],
@@ -1805,7 +2501,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   p.markerShape != MarkerShape.referee &&
                   p.markerShape != MarkerShape.coach)) ...[
                 const SizedBox(width: 6),
-                _MoveToggle(state: widget.state, compact: p.label.isNotEmpty && !p.labelInside),
+                _MoveToggle(
+                  state: widget.state,
+                  compact: p.label.isNotEmpty && !p.labelInside,
+                ),
               ],
               if (!isPicture) ...[
                 const SizedBox(width: 6),
@@ -1824,11 +2523,13 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 widget.state.copyPlayer(p.id);
                 final m = ScaffoldMessenger.maybeOf(context);
                 m?.hideCurrentSnackBar();
-                m?.showSnackBar(SnackBar(
-                  content: Text('element_copied'.tr()),
-                  duration: const Duration(seconds: 2),
-                  behavior: SnackBarBehavior.floating,
-                ));
+                m?.showSnackBar(
+                  SnackBar(
+                    content: Text('element_copied'.tr()),
+                    duration: const Duration(seconds: 2),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
               }),
               const SizedBox(width: 6),
               // Delete
@@ -1843,7 +2544,11 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   widget.state.selectPlayer(null);
                   widget.onClose?.call();
                 },
-                child: const Icon(Icons.close_rounded, color: Colors.white54, size: 20),
+                child: const Icon(
+                  Icons.close_rounded,
+                  color: Colors.white54,
+                  size: 20,
+                ),
               ),
             ],
           ),
@@ -1855,20 +2560,32 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
             // intention — "face him up the pitch" — so it gets buttons too.
             Row(
               children: [
-                const Icon(Icons.rotate_90_degrees_ccw,
-                    color: Colors.white38, size: 14),
+                const Icon(
+                  Icons.rotate_90_degrees_ccw,
+                  color: Colors.white38,
+                  size: 14,
+                ),
                 const SizedBox(width: 8),
-                _editAction(Icons.rotate_left, Colors.white70,
-                    () => _turn(p, -_notch(p))),
+                _editAction(
+                  Icons.rotate_left,
+                  Colors.white70,
+                  () => _turn(p, -_notch(p)),
+                ),
                 const SizedBox(width: 6),
-                _editAction(Icons.rotate_right, Colors.white70,
-                    () => _turn(p, _notch(p))),
+                _editAction(
+                  Icons.rotate_right,
+                  Colors.white70,
+                  () => _turn(p, _notch(p)),
+                ),
                 const SizedBox(width: 10),
-                Text(_degrees(_shown(p)),
-                    style: const TextStyle(
-                        color: Colors.white54,
-                        fontSize: 12,
-                        fontFeatures: [FontFeature.tabularFigures()])),
+                Text(
+                  _degrees(_shown(p)),
+                  style: const TextStyle(
+                    color: Colors.white54,
+                    fontSize: 12,
+                    fontFeatures: [FontFeature.tabularFigures()],
+                  ),
+                ),
                 const Spacer(),
                 // Reset undoes a turn the coach made: for a person that is
                 // the hand-set facing, and the board decides again after.
@@ -1878,12 +2595,17 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     onTap: () => _turn(p, -_shown(p)),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      child: Text('rotate_reset'.tr(),
-                          style: const TextStyle(
-                              color: kAccent,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600)),
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      child: Text(
+                        'rotate_reset'.tr(),
+                        style: const TextStyle(
+                          color: kAccent,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 // Who is standing there. The Add sheet can put a woman on the
@@ -1908,25 +2630,34 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
             Row(
               children: [
                 if (!isPicture)
-                  ..._colors.map((c) => GestureDetector(
-                  onTap: () {
-                    widget.state.updatePlayer(p.id, customColor: c);
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 6),
-                    width: 24, height: 24,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: c,
-                      border: Border.all(
-                        color: p.customColor == c ? kAccent : Colors.white24,
-                        width: p.customColor == c ? 2.5 : 1,
+                  ..._colors.map(
+                    (c) => GestureDetector(
+                      onTap: () {
+                        widget.state.updatePlayer(p.id, customColor: c);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 6),
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: c,
+                          border: Border.all(
+                            color: p.customColor == c
+                                ? kAccent
+                                : Colors.white24,
+                            width: p.customColor == c ? 2.5 : 1,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                )),
                 if (!isPicture) const Spacer(),
-                const Icon(Icons.photo_size_select_small, color: Colors.white38, size: 14),
+                const Icon(
+                  Icons.photo_size_select_small,
+                  color: Colors.white38,
+                  size: 14,
+                ),
                 // Beside six swatches the slider gets a fixed 100pt, which is
                 // coarse for a 0.5x–3x range but all the row can spare. With
                 // the swatches gone it takes the whole row — the same widget
@@ -1943,37 +2674,22 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  const Icon(Icons.text_fields, color: Colors.white38, size: 14),
+                  const Icon(
+                    Icons.text_fields,
+                    color: Colors.white38,
+                    size: 14,
+                  ),
                   const SizedBox(width: 8),
-                  for (final f in kTextFonts) ...[
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => widget.state.updatePlayer(p.id,
-                          font: f.isEmpty ? null : f, clearFont: f.isEmpty),
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 6),
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: (p.font ?? '') == f ? kAccent : Colors.white24,
-                            width: (p.font ?? '') == f ? 2 : 1,
-                          ),
-                        ),
-                        child: Builder(builder: (_) {
-                          final faces = textFontFamily(f);
-                          return Text('Aa',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: faces.isEmpty ? null : faces.first,
-                                fontFamilyFallback: faces.length > 1 ? faces.sublist(1) : null,
-                              ));
-                        }),
+                  for (final f in kTextFonts)
+                    TextFontChip(
+                      font: f,
+                      selected: (p.font ?? '') == f,
+                      onTap: () => widget.state.updatePlayer(
+                        p.id,
+                        font: f.isEmpty ? null : f,
+                        clearFont: f.isEmpty,
                       ),
                     ),
-                  ],
                 ],
               ),
             ],
@@ -2004,9 +2720,17 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     if (_picture(p) || p.facingLocked) return p.rotation;
     final st = widget.state;
     final beat = st.atStep > 0 ? st.atStep : st.targetStep;
-    final h = boardHeading(st.players, p, beat) ?? playerFacing(p);
+    final h = faceAcrossNet(
+      boardHeading(st.players, p, beat) ?? playerFacing(p),
+      p,
+      st.sportType,
+      standingAt(p, beat),
+      st.canvasSize,
+      ball: ballStandingAt(st.players, beat),
+    );
     return TacticsState.snapFacing(
-        h - (p.team == PlayerTeam.home ? 0.0 : math.pi));
+      h - (p.team == PlayerTeam.home ? 0.0 : math.pi),
+    );
   }
 
   /// One notch of the rotate buttons, snapped by the state.
@@ -2045,165 +2769,215 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDialogState) => AlertDialog(
-        title: Text(_titleKey().tr(), style: const TextStyle(color: Colors.white)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Avatar and name are one edit: tapping the preview opens the
-            // crop editor on top of this dialog (the field keeps its text),
-            // and the preview refreshes itself when the crop is saved.
-            GestureDetector(
-              onTap: (p.isBall || p.isMarker)
-                  ? null
-                  : () async {
-                      final picked = await _pickAvatar(photoId);
-                      if (picked == null) return; // dismissed
-                      setDialogState(() =>
-                          photoId = picked.isEmpty ? null : picked);
-                    },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _identityGlyph(
-                    p.copyWith(
-                      team: team,
-                      photoId: photoId,
-                      clearPhotoId: photoId == null,
-                    ),
-                    dim: 64,
+          title: Text(
+            _titleKey().tr(),
+            style: const TextStyle(color: Colors.white),
+          ),
+          // Scrollable, because the dialog's own height is whatever is left of
+          // a phone turned sideways — 402pt, less the title, the actions and
+          // the keyboard. A text element's field carries a character counter
+          // that a player's does not, and that one extra line was two pixels
+          // more than the box had.
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Avatar and name are one edit: tapping the preview opens the
+                // crop editor on top of this dialog (the field keeps its text),
+                // and the preview refreshes itself when the crop is saved.
+                GestureDetector(
+                  onTap: (p.isBall || p.isMarker)
+                      ? null
+                      : () async {
+                          final picked = await _pickAvatar(photoId);
+                          if (picked == null) return; // dismissed
+                          setDialogState(
+                            () => photoId = picked.isEmpty ? null : picked,
+                          );
+                        },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _identityGlyph(
+                        p.copyWith(
+                          team: team,
+                          photoId: photoId,
+                          clearPhotoId: photoId == null,
+                        ),
+                        dim: 64,
+                      ),
+                      if (!p.isBall && !p.isMarker) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          'avatar_pick_title'.tr(),
+                          style: const TextStyle(
+                            color: kAccent,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
-                  if (!p.isBall && !p.isMarker) ...[
-                    const SizedBox(height: 6),
-                    Text(
-                      'avatar_pick_title'.tr(),
-                      style: const TextStyle(color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-            // Which side the player belongs to. Only real players have one —
-            // balls and markers are neutral.
-            if (!p.isBall && !p.isMarker) ...[
-              const SizedBox(height: 14),
-              Row(
-                children: [
-                  for (final t in [PlayerTeam.home, PlayerTeam.away]) ...[
-                    if (t == PlayerTeam.away) const SizedBox(width: 8),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () => setDialogState(() => team = t),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          decoration: BoxDecoration(
-                            color: PlayerIcon.teamColor(t)
-                                .withValues(alpha: team == t ? 0.30 : 0.08),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: team == t
-                                  ? PlayerIcon.teamColor(t)
-                                  : Colors.white24,
-                              width: team == t ? 2 : 1,
+                ),
+                // Which side the player belongs to. Only real players have one —
+                // balls and markers are neutral.
+                if (!p.isBall && !p.isMarker) ...[
+                  const SizedBox(height: 14),
+                  Row(
+                    children: [
+                      for (final t in [PlayerTeam.home, PlayerTeam.away]) ...[
+                        if (t == PlayerTeam.away) const SizedBox(width: 8),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => setDialogState(() => team = t),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              decoration: BoxDecoration(
+                                color: PlayerIcon.teamColor(
+                                  t,
+                                ).withValues(alpha: team == t ? 0.30 : 0.08),
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: team == t
+                                      ? PlayerIcon.teamColor(t)
+                                      : Colors.white24,
+                                  width: team == t ? 2 : 1,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 12,
+                                    height: 12,
+                                    decoration: BoxDecoration(
+                                      color: PlayerIcon.teamColor(t),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    (t == PlayerTeam.home
+                                            ? 'team_home'
+                                            : 'team_away')
+                                        .tr(),
+                                    style: TextStyle(
+                                      color: team == t
+                                          ? Colors.white
+                                          : Colors.white60,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 12, height: 12,
-                                decoration: BoxDecoration(
-                                  color: PlayerIcon.teamColor(t),
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                (t == PlayerTeam.home ? 'team_home' : 'team_away').tr(),
-                                style: TextStyle(
-                                  color: team == t ? Colors.white : Colors.white60,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+                // Position: same sheet the bar chip opens, but the pick is held
+                // until Apply like every other field here.
+                if (_showRole(p)) ...[
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      Text(
+                        'role_title'.tr(),
+                        style: const TextStyle(
+                          color: Colors.white60,
+                          fontSize: 13,
+                        ),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () async {
+                          final picked = await _chooseRole(role);
+                          if (picked == null) return;
+                          setDialogState(
+                            () => role = picked.isEmpty ? null : picked,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: role != null
+                                ? kAccent.withValues(alpha: 0.22)
+                                : Colors.white.withValues(alpha: 0.08),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: role != null ? kAccent : Colors.white24,
+                              width: 1,
+                            ),
+                          ),
+                          child: Text(
+                            role ?? 'role_set'.tr(),
+                            style: TextStyle(
+                              color: role != null ? kAccent : Colors.white70,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ],
-              ),
-            ],
-            // Position: same sheet the bar chip opens, but the pick is held
-            // until Apply like every other field here.
-            if (_showRole(p)) ...[
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  Text('role_title'.tr(),
-                      style: const TextStyle(color: Colors.white60, fontSize: 13)),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () async {
-                      final picked = await _chooseRole(role);
-                      if (picked == null) return;
-                      setDialogState(() => role = picked.isEmpty ? null : picked);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      decoration: BoxDecoration(
-                        color: role != null
-                            ? kAccent.withValues(alpha: 0.22)
-                            : Colors.white.withValues(alpha: 0.08),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                            color: role != null ? kAccent : Colors.white24, width: 1),
-                      ),
-                      child: Text(
-                        role ?? 'role_set'.tr(),
-                        style: TextStyle(
-                          color: role != null ? kAccent : Colors.white70,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
                 ],
+                const SizedBox(height: 12),
+                TextFormField(
+                  initialValue: p.label,
+                  autofocus: true,
+                  // A name has to fit the badge under the board icon and the chip
+                  // in the edit bar; past this it is only ever seen truncated.
+                  // A text element is the sentence, not a name under a token.
+                  maxLength: isTextElement(p) ? kTextElementMaxChars : 12,
+                  // A sentence gets the room of one: two lines to start,
+                  // four as it grows. Two was a slot to type a name in.
+                  minLines: isTextElement(p) ? 2 : null,
+                  maxLines: isTextElement(p) ? 4 : 1,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    counterStyle: const TextStyle(
+                      color: Colors.white38,
+                      fontSize: 11,
+                    ),
+                    labelText: 'player_name'.tr(),
+                    labelStyle: const TextStyle(color: Colors.white60),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white30),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kAccent),
+                    ),
+                  ),
+                  onChanged: (v) => text = v,
+                  onFieldSubmitted: (v) => Navigator.of(ctx).pop([v]),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: Text(
+                'cancel'.tr(),
+                style: const TextStyle(color: Colors.white54),
               ),
-            ],
-            const SizedBox(height: 12),
-            TextFormField(
-              initialValue: p.label,
-              autofocus: true,
-              // A name has to fit the badge under the board icon and the chip
-              // in the edit bar; past this it is only ever seen truncated.
-              // A text element is the sentence, not a name under a token.
-              maxLength: isTextElement(p) ? kTextElementMaxChars : 12,
-              maxLines: isTextElement(p) ? 2 : 1,
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),
-                labelText: 'player_name'.tr(),
-                labelStyle: const TextStyle(color: Colors.white60),
-                enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white30)),
-                focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: kAccent)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop([text]),
+              child: Text(
+                'confirm'.tr(),
+                style: const TextStyle(color: kAccent),
               ),
-              onChanged: (v) => text = v,
-              onFieldSubmitted: (v) => Navigator.of(ctx).pop([v]),
             ),
           ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop([text]),
-            child: Text('confirm'.tr(), style: const TextStyle(color: kAccent)),
-          ),
-        ],
         ),
       ),
     );
@@ -2230,7 +3004,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
         child: _AvatarPickerSheet(currentPhotoId: current),
-      ));
+      ),
+    );
   }
 
   /// Miniature of the selected element, drawn with the very same painters the
@@ -2255,10 +3030,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       );
       glyph = art == null
           ? drawn
-          : Image.asset(art,
+          : Image.asset(
+              art,
               fit: BoxFit.contain,
               filterQuality: FilterQuality.medium,
-              errorBuilder: (_, _, _) => drawn);
+              errorBuilder: (_, _, _) => drawn,
+            );
     } else {
       glyph = Stack(
         children: [
@@ -2268,8 +3045,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               borderColor: Colors.white,
               borderWidth: 1.5,
               gender: p.gender,
-              figure: TopDownPlayerPainter.figureFor(
-                  widget.state.sportType, p),
+              figure: TopDownPlayerPainter.figureFor(widget.state.sportType, p),
               sport: widget.state.sportType,
               heading: playerFacing(p),
             ),
@@ -2280,7 +3056,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               alignment: playerLabelAlign(widget.state.sportType, p),
               child: Text(
                 p.label,
-                style: TextStyle(color: Colors.white, fontSize: dim * 0.35, fontWeight: FontWeight.w800, height: 1),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: dim * 0.35,
+                  fontWeight: FontWeight.w800,
+                  height: 1,
+                ),
               ),
             ),
         ],
@@ -2314,8 +3095,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   Widget _genderAction(PlayerIcon p, PlayerGender g, IconData icon) {
     final on = p.gender == g;
     return _editAction(icon, on ? kAccent : Colors.white54, () {
-      widget.state.updatePlayer(p.id,
-          gender: on ? PlayerGender.unspecified : g);
+      widget.state.updatePlayer(
+        p.id,
+        gender: on ? PlayerGender.unspecified : g,
+      );
     });
   }
 
@@ -2350,14 +3133,19 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     return GestureDetector(
       onTap: _pickRole,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: iconOnly ? 6 : 10, vertical: 5),
+        padding: EdgeInsets.symmetric(
+          horizontal: iconOnly ? 6 : 10,
+          vertical: 5,
+        ),
         decoration: BoxDecoration(
           color: assigned
               ? kAccent.withValues(alpha: 0.22)
               : Colors.white.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-              color: assigned ? kAccent : Colors.white24, width: 1),
+            color: assigned ? kAccent : Colors.white24,
+            width: 1,
+          ),
         ),
         child: iconOnly
             ? const Icon(Icons.place_outlined, color: Colors.white70, size: 14)
@@ -2378,7 +3166,10 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   Future<void> _pickRole() async {
     final picked = await _chooseRole(widget.player.role);
     if (picked == null) return; // dismissed
-    widget.state.setPlayerRole(widget.player.id, picked.isEmpty ? null : picked);
+    widget.state.setPlayerRole(
+      widget.player.id,
+      picked.isEmpty ? null : picked,
+    );
   }
 
   /// Role sheet shared by the bar chip and the edit dialog. Returns the picked
@@ -2398,30 +3189,37 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('role_title'.tr(),
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)),
+                Text(
+                  'role_title'.tr(),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const SizedBox(height: 12),
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
                   children: [
                     _roleOption(ctx, 'role_none'.tr(), current == null, ''),
-                    for (final r in roles)
-                      _roleOption(ctx, r, current == r, r),
+                    for (final r in roles) _roleOption(ctx, r, current == r, r),
                   ],
                 ),
               ],
             ),
           ),
         ),
-      ));
+      ),
+    );
   }
 
   Widget _roleOption(
-      BuildContext ctx, String label, bool selected, String value) {
+    BuildContext ctx,
+    String label,
+    bool selected,
+    String value,
+  ) {
     return GestureDetector(
       onTap: () {
         Navigator.of(ctx).pop(value);
@@ -2432,14 +3230,18 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
           color: selected ? kAccent : Colors.white.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-              color: selected ? kAccent : Colors.white24,
-              width: selected ? 2 : 1),
+            color: selected ? kAccent : Colors.white24,
+            width: selected ? 2 : 1,
+          ),
         ),
-        child: Text(label,
-            style: TextStyle(
-                color: selected ? Colors.white : Colors.white70,
-                fontSize: 13,
-                fontWeight: FontWeight.w600)),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: selected ? Colors.white : Colors.white70,
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
@@ -2454,17 +3256,131 @@ class _CollapsibleEditPanel extends StatefulWidget {
 }
 
 class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
+  /// How far the coach has pushed the bar from where it opens.
+  ///
+  /// It opens across the foot of the board, which is also where a text
+  /// element's words sit and where the last row of a formation stands — so
+  /// the bar covers the very thing it was opened to edit. Dragging it is
+  /// the answer: anywhere on the bar, including over its buttons, because
+  /// a drag is not a tap and the buttons only answer taps.
+  Offset _drag = Offset.zero;
+
+  /// What the bar was last placed for. Each new selection places it again:
+  /// at the foot of the board, unless that covers the very thing just
+  /// selected — a line drawn along the baseline, a text chip under the
+  /// court — in which case at the head. A drag after that is kept until
+  /// the selection changes.
+  String? _placedFor;
+  final GlobalKey _panelKey = GlobalKey();
+
+  /// The bar's offset for a selection whose box on the screen is [target],
+  /// given where the bar rests undragged. Of the two slots, the one that
+  /// covers less of the target; the foot when they tie, or there is no
+  /// room above.
+  static Offset _slotFor(Rect atRest, Rect? target, double boardTop) {
+    if (target == null) return Offset.zero;
+    // 64: under the back / pages / menu circles across the top.
+    final up = Offset(0, (boardTop + 64) - atRest.top);
+    if (up.dy >= 0) return Offset.zero;
+    double covered(Rect r) {
+      final o = r.intersect(target);
+      return o.isEmpty ? 0 : o.width * o.height;
+    }
+    final low = covered(atRest);
+    if (low == 0) return Offset.zero;
+    return covered(atRest.shift(up)) < low ? up : Offset.zero;
+  }
+
+  /// A canvas rect on the screen: the bounds of its corners carried through
+  /// the canvas's own transform, which sideways is a quarter turn.
+  static Rect _onScreen(RenderBox canvas, Rect r) {
+    final pts = [r.topLeft, r.topRight, r.bottomLeft, r.bottomRight]
+        .map(canvas.localToGlobal)
+        .toList();
+    var out = Rect.fromPoints(pts.first, pts.first);
+    for (final p in pts) {
+      out = out.expandToInclude(Rect.fromPoints(p, p));
+    }
+    return out;
+  }
+
+  /// Where the selected thing is on the screen, generously: a stroke's
+  /// bounds, or a box around the figure, chip or token.
+  Rect? _targetRect(TacticsState state, RenderBox canvas) {
+    final stroke = state.selectedStroke;
+    if (stroke != null) {
+      if (stroke.points.isEmpty) return null;
+      var r = Rect.fromPoints(stroke.points.first, stroke.points.first);
+      for (final pt in stroke.points) {
+        r = r.expandToInclude(Rect.fromPoints(pt, pt));
+      }
+      return _onScreen(canvas, r.inflate(stroke.width / 2 + 8));
+    }
+    final id = state.selectedPlayerId;
+    if (id == null) return null;
+    final p = state.players.cast<PlayerIcon?>().firstWhere(
+      (x) => x?.id == id,
+      orElse: () => null,
+    );
+    if (p == null) return null;
+    final at = state.animatedPositions[p.id] ?? p.position;
+    final double w, h;
+    if (isTextElement(p)) {
+      w = textElementMaxWidth(context, p.label) * p.scale;
+      h = 30 * p.scale * textElementMaxLines(p.label);
+    } else {
+      // A figure stands taller than its icon box: head above the point,
+      // feet and shadow below.
+      w = kPlayerIconSize * 1.4 * p.scale;
+      h = kPlayerIconSize * 2.4 * p.scale;
+    }
+    return _onScreen(
+      canvas,
+      Rect.fromCenter(center: at, width: w, height: h),
+    );
+  }
+
+  /// Measure after the frame — the bar has to have a size and a place
+  /// before it can be asked whether it is in the way.
+  void _place(TacticsState state, String key) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _placedFor == key) return;
+      final panel = _panelKey.currentContext?.findRenderObject();
+      final canvas = boardRepaintKey.currentContext?.findRenderObject();
+      if (panel is! RenderBox ||
+          !panel.attached ||
+          canvas is! RenderBox ||
+          !canvas.attached) {
+        return;
+      }
+      _placedFor = key;
+      final atRest =
+          (panel.localToGlobal(Offset.zero) & panel.size).shift(-_drag);
+      final board = _onScreen(canvas, Offset.zero & canvas.size);
+      final slot = _slotFor(atRest, _targetRect(state, canvas), board.top);
+      if (slot != _drag) setState(() => _drag = slot);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
         if (state.isAnimating || state.presentationMode || state.zoomMode) {
+          _placedFor = null;
           return const SizedBox.shrink();
         }
 
-        final hasDrawing = state.isDrawingMode || state.selectedStrokeId != null;
+        final hasDrawing =
+            state.isDrawingMode || state.selectedStrokeId != null;
         final hasPlayer = state.selectedPlayerId != null;
-        if (!hasDrawing && !hasPlayer) return const SizedBox.shrink();
+        if (!hasDrawing && !hasPlayer) {
+          _placedFor = null;
+          return const SizedBox.shrink();
+        }
+        final placeKey =
+            state.selectedStrokeId ?? state.selectedPlayerId ?? 'draw';
+        if (_placedFor != placeKey) _place(state, placeKey);
 
         // The edit surface is shown inline, anchored just above the toolbar —
         // no extra ⚙ tap, no modal dialog. One unified, always-visible bar.
@@ -2483,16 +3399,73 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
             onClose: () => state.selectPlayer(null),
           );
         }
+        final screen = MediaQuery.sizeOf(context);
+        // The drag moves the Positioned itself, not a Transform inside it.
+        //
+        // Transform.translate paints the bar somewhere else and leaves its
+        // box behind: Transform skips its own bounds check, but the Center
+        // and the Positioned above it do not, so every tap on the moved bar
+        // was rejected before it got that far and fell through to the board
+        // underneath — which deselected the very element being edited.
         return Positioned(
-          left: 8, right: 8, bottom: 10,
+          left: 8 + _drag.dx,
+          right: 8 - _drag.dx,
+          bottom: 10 - _drag.dy,
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 540),
-              child: Material(
-                color: kSurfaceHi,
-                elevation: 8,
-                borderRadius: BorderRadius.circular(16),
-                child: child,
+              child: GestureDetector(
+                // Translucent, so the chip and the actions inside still
+                // get their taps; this only claims the drag.
+                //
+                // And ONLY the drag: a double-tap recogniser up here —
+                // it was a "put it back" shortcut — holds every child's
+                // tap for the double-tap timeout and can take it outright,
+                // which left the tune button on the bar doing nothing.
+                behavior: HitTestBehavior.translucent,
+                onPanUpdate: (d) => setState(() {
+                  // Kept on the screen: half of it off an edge and the
+                  // only way back is to close it and open it again.
+                  _drag = Offset(
+                    (_drag.dx + d.delta.dx).clamp(
+                      -screen.width / 2,
+                      screen.width / 2,
+                    ),
+                    (_drag.dy + d.delta.dy).clamp(-screen.height + 80, 0.0),
+                  );
+                }),
+                child: Material(
+                  key: _panelKey,
+                  color: kSurfaceHi,
+                  elevation: 8,
+                  borderRadius: BorderRadius.circular(16),
+                  // A grab bar across the top. The bar has always dragged,
+                  // from anywhere on it, but nothing said so — a coach who
+                  // had just drawn a line under it had no reason to try.
+                  // Laid over the bar's own top padding by a Stack, so it
+                  // costs no height and the pan still belongs to the
+                  // detector above.
+                  child: Stack(
+                    children: [
+                      child,
+                      Positioned(
+                        top: 4,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: Container(
+                            width: 32,
+                            height: 3.5,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.28),
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
@@ -2501,7 +3474,6 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
     );
   }
 }
-
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Add-run toggle — explicit sub-mode entry shown in the player edit bar.
@@ -2535,7 +3507,10 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
   Future<void> _upload() async {
     final groups = await PhotoLibraryService.instance.listGroups();
     if (!mounted || groups.isEmpty) return;
-    await PhotoImportSheet.showWithSourcePicker(context, groupId: groups.first.id);
+    await PhotoImportSheet.showWithSourcePicker(
+      context,
+      groupId: groups.first.id,
+    );
     if (mounted) setState(() => _photos = _load());
   }
 
@@ -2553,7 +3528,11 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 Expanded(
                   child: Text(
                     'avatar_pick_title'.tr(),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
                 GestureDetector(
@@ -2574,7 +3553,10 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                     return const Center(
                       child: Padding(
                         padding: EdgeInsets.all(16),
-                        child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
+                        child: CircularProgressIndicator(
+                          color: kAccent,
+                          strokeWidth: 3,
+                        ),
                       ),
                     );
                   }
@@ -2584,7 +3566,10 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       child: Text(
                         'photo_no_faces'.tr(),
-                        style: const TextStyle(color: Colors.white38, fontSize: 13),
+                        style: const TextStyle(
+                          color: Colors.white38,
+                          fontSize: 13,
+                        ),
                       ),
                     );
                   }
@@ -2597,7 +3582,8 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                           GestureDetector(
                             onTap: () => Navigator.of(context).pop(entry.$1.id),
                             child: Container(
-                              width: 56, height: 56,
+                              width: 56,
+                              height: 56,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
@@ -2608,7 +3594,9 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                                   color: entry.$1.id == widget.currentPhotoId
                                       ? kAccent
                                       : Colors.white24,
-                                  width: entry.$1.id == widget.currentPhotoId ? 2.5 : 1,
+                                  width: entry.$1.id == widget.currentPhotoId
+                                      ? 2.5
+                                      : 1,
                                 ),
                               ),
                             ),
@@ -2622,24 +3610,39 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
             const Divider(color: Colors.white12, height: 24),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.add_a_photo_outlined, color: Colors.white),
-              title: Text('avatar_upload_new'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
+              leading: const Icon(
+                Icons.add_a_photo_outlined,
+                color: Colors.white,
+              ),
+              title: Text(
+                'avatar_upload_new'.tr(),
+                style: const TextStyle(color: Colors.white, fontSize: 15),
+              ),
               onTap: _upload,
             ),
             if (widget.currentPhotoId != null) ...[
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.crop, color: kAccent),
-                title: Text('photo_crop_title'.tr(),
-                    style: const TextStyle(color: kAccent, fontSize: 15)),
-                onTap: () => PhotoCropEditor.show(context, photoId: widget.currentPhotoId!),
+                title: Text(
+                  'photo_crop_title'.tr(),
+                  style: const TextStyle(color: kAccent, fontSize: 15),
+                ),
+                onTap: () => PhotoCropEditor.show(
+                  context,
+                  photoId: widget.currentPhotoId!,
+                ),
               ),
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                leading: const Icon(Icons.person_outline, color: Colors.white54),
-                title: Text('avatar_remove'.tr(),
-                    style: const TextStyle(color: Colors.white54, fontSize: 15)),
+                leading: const Icon(
+                  Icons.person_outline,
+                  color: Colors.white54,
+                ),
+                title: Text(
+                  'avatar_remove'.tr(),
+                  style: const TextStyle(color: Colors.white54, fontSize: 15),
+                ),
                 onTap: () => Navigator.of(context).pop(''),
               ),
             ],
@@ -2652,6 +3655,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
 
 class _MoveToggle extends StatelessWidget {
   final TacticsState state;
+
   /// Icon-only pill. Used when the selected element carries a name, which
   /// needs the ~50pt the label would otherwise take.
   final bool compact;
@@ -2667,7 +3671,10 @@ class _MoveToggle extends StatelessWidget {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 140),
-        padding: EdgeInsets.symmetric(horizontal: compact ? 8 : 10, vertical: 6),
+        padding: EdgeInsets.symmetric(
+          horizontal: compact ? 8 : 10,
+          vertical: 6,
+        ),
         decoration: BoxDecoration(
           color: on ? kAccent : kAccentFill,
           borderRadius: BorderRadius.circular(14),
@@ -2676,15 +3683,21 @@ class _MoveToggle extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(on ? Icons.check_rounded : Icons.directions_run,
-                size: 14, color: on ? Colors.white : kAccent),
+            Icon(
+              on ? Icons.check_rounded : Icons.directions_run,
+              size: 14,
+              color: on ? Colors.white : kAccent,
+            ),
             if (!compact) ...[
               const SizedBox(width: 4),
-              Text(on ? 'move_done'.tr() : 'move_add'.tr(),
-                  style: TextStyle(
-                      color: on ? Colors.white : kAccent,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600)),
+              Text(
+                on ? 'move_done'.tr() : 'move_add'.tr(),
+                style: TextStyle(
+                  color: on ? Colors.white : kAccent,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ],
         ),
@@ -2697,20 +3710,31 @@ class _MoveToggle extends StatelessWidget {
 // Bottom-right chrome — fullscreen toggle + reset-zoom (only while zoomed).
 // ─────────────────────────────────────────────────────────────────────────────
 class _ZoomModeButton extends StatelessWidget {
+  /// Laid along the bottom of the board rather than up its end, which is
+  /// where the gap to the next button has to go. Carried by the button and
+  /// not by the row because this one can vanish — a gap left behind by a
+  /// button that is not there is a hole.
+  final bool across;
+  const _ZoomModeButton({this.across = false});
+
   @override
   Widget build(BuildContext context) {
     return Selector<TacticsState, bool>(
       selector: (_, s) => s.zoomMode,
       builder: (context, on, _) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
+        padding: across
+            ? const EdgeInsets.only(right: 8)
+            : const EdgeInsets.only(bottom: 8),
         child: GestureDetector(
           onTap: context.read<TacticsState>().toggleZoomMode,
           child: _GlassCircle(
             size: chromeCircle(context),
             border: on ? Border.all(color: kAccent, width: 1.5) : null,
-            child: Icon(Icons.pinch,
-                color: on ? kAccent : Colors.white,
-                size: 17 * uiScale(context)),
+            child: Icon(
+              Icons.pinch,
+              color: on ? kAccent : Colors.white,
+              size: 17 * uiScale(context),
+            ),
           ),
         ),
       ),
@@ -2727,8 +3751,11 @@ class _FullscreenButton extends StatelessWidget {
         onTap: context.read<TacticsState>().toggleToolbar,
         child: _GlassCircle(
           size: chromeCircle(context),
-          child: Icon(visible ? Icons.fullscreen : Icons.fullscreen_exit,
-              color: Colors.white, size: 18 * uiScale(context)),
+          child: Icon(
+            visible ? Icons.fullscreen : Icons.fullscreen_exit,
+            color: Colors.white,
+            size: 18 * uiScale(context),
+          ),
         ),
       ),
     );
@@ -2738,6 +3765,10 @@ class _FullscreenButton extends StatelessWidget {
 /// Appears only while the board is zoomed/panned — one tap restores the
 /// 1:1 fit (and clears the basketball half-court preset).
 class _ZoomResetButton extends StatefulWidget {
+  /// See [_ZoomModeButton.across].
+  final bool across;
+  const _ZoomResetButton({this.across = false});
+
   @override
   State<_ZoomResetButton> createState() => _ZoomResetButtonState();
 }
@@ -2772,13 +3803,18 @@ class _ZoomResetButtonState extends State<_ZoomResetButton> {
     final zoomed = state.transformationController.value != Matrix4.identity();
     if (!zoomed) return const SizedBox.shrink();
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: widget.across
+          ? const EdgeInsets.only(right: 8)
+          : const EdgeInsets.only(bottom: 8),
       child: GestureDetector(
         onTap: state.resetZoom,
         child: _GlassCircle(
           size: chromeCircle(context),
-          child: Icon(Icons.zoom_out_map,
-              color: Colors.white, size: 17 * uiScale(context)),
+          child: Icon(
+            Icons.zoom_out_map,
+            color: Colors.white,
+            size: 17 * uiScale(context),
+          ),
         ),
       ),
     );
@@ -2801,12 +3837,17 @@ class _PresentationOverlay extends StatelessWidget {
       children: [
         // Exit pill — top center.
         Positioned(
-          top: topPad + 10, left: 0, right: 0,
+          top: topPad + 10,
+          left: 0,
+          right: 0,
           child: Center(
             child: GestureDetector(
               onTap: state.togglePresentationMode,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 9,
+                ),
                 decoration: BoxDecoration(
                   // A quiet pill, not an accent-outlined button: nothing in
                   // presentation mode should compete with the board.
@@ -2819,11 +3860,14 @@ class _PresentationOverlay extends StatelessWidget {
                   children: [
                     const Icon(Icons.close_rounded, color: T.textDim, size: 18),
                     const SizedBox(width: 6),
-                    Text('present_exit'.tr(),
-                        style: const TextStyle(
-                            color: T.text,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600)),
+                    Text(
+                      'present_exit'.tr(),
+                      style: const TextStyle(
+                        color: T.text,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -2833,7 +3877,9 @@ class _PresentationOverlay extends StatelessWidget {
         // Large playback controls — bottom center, only when there are moves.
         if (state.hasMoves)
           Positioned(
-            bottom: 28, left: 0, right: 0,
+            bottom: 28,
+            left: 0,
+            right: 0,
             child: Center(child: _BigPlayControls(state: state)),
           ),
       ],
@@ -2864,8 +3910,10 @@ class _BigPlayControls extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _bigBtn(Icons.chevron_left_rounded,
-              (!animating && !atStart) ? state.stepBackward : null),
+          _bigBtn(
+            Icons.chevron_left_rounded,
+            (!animating && !atStart) ? state.stepBackward : null,
+          ),
           const SizedBox(width: 10),
           _bigBtn(
             animating ? Icons.stop_rounded : Icons.play_arrow_rounded,
@@ -2873,15 +3921,20 @@ class _BigPlayControls extends StatelessWidget {
             primary: true,
           ),
           const SizedBox(width: 12),
-          Text('${state.atStep}/${state.maxMoveSteps}',
-              style: const TextStyle(
-                  color: T.text,
-                  fontSize: 19,
-                  fontWeight: FontWeight.w600,
-                  fontFeatures: [FontFeature.tabularFigures()])),
+          Text(
+            '${state.atStep}/${state.maxMoveSteps}',
+            style: const TextStyle(
+              color: T.text,
+              fontSize: 19,
+              fontWeight: FontWeight.w600,
+              fontFeatures: [FontFeature.tabularFigures()],
+            ),
+          ),
           const SizedBox(width: 12),
-          _bigBtn(Icons.chevron_right_rounded,
-              (!animating && !atEnd) ? state.stepForward : null),
+          _bigBtn(
+            Icons.chevron_right_rounded,
+            (!animating && !atEnd) ? state.stepForward : null,
+          ),
           const SizedBox(width: 10),
           // Toggle the move-arrow overlay while presenting — show the end
           // position first, then reveal how each player got there.
@@ -2929,13 +3982,15 @@ class _BigPlayControls extends StatelessWidget {
             // group is neutral so the eye lands on the one action.
             color: primary ? T.lime : Colors.transparent,
           ),
-          child: Icon(icon,
-              color: onTap == null
-                  ? T.textOff
-                  : primary
-                      ? T.onLime
-                      : T.text,
-              size: primary ? 34 : 28),
+          child: Icon(
+            icon,
+            color: onTap == null
+                ? T.textOff
+                : primary
+                ? T.onLime
+                : T.text,
+            size: primary ? 34 : 28,
+          ),
         ),
       ),
     );
@@ -2960,9 +4015,12 @@ class _PaywallSheet extends StatefulWidget {
 }
 
 class _PaywallSheetState extends State<_PaywallSheet> {
-  static final Uri _termsUrl =
-      Uri.parse('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/');
-  static final Uri _privacyUrl = Uri.parse('https://tacticsboard.100for1.com/privacy');
+  static final Uri _termsUrl = Uri.parse(
+    'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+  );
+  static final Uri _privacyUrl = Uri.parse(
+    'https://tacticsboard.100for1.com/privacy',
+  );
 
   List<ProductDetails>? _products;
   String? _selectedId;
@@ -2983,7 +4041,9 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       // Preselect the yearly plan (the recommended entry point).
       _selectedId = _byId(PurchaseService.yearlyId) != null
           ? PurchaseService.yearlyId
-          : (products != null && products.isNotEmpty ? products.first.id : null);
+          : (products != null && products.isNotEmpty
+                ? products.first.id
+                : null);
       _loading = false;
     });
   }
@@ -3028,15 +4088,16 @@ class _PaywallSheetState extends State<_PaywallSheet> {
     Navigator.of(context).pop();
   }
 
-  void _toast(String msg) => ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(msg)));
+  void _toast(String msg) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
 
   /// "≈ ¥1.83 / mo" derived from the yearly plan's localized store price.
   String? _perMonth(ProductDetails y) {
     final m = y.rawPrice / 12;
     if (m <= 0) return null;
     return 'pro_permonth'.tr(
-        namedArgs: {'p': '${y.currencySymbol}${m.toStringAsFixed(2)}'});
+      namedArgs: {'p': '${y.currencySymbol}${m.toStringAsFixed(2)}'},
+    );
   }
 
   @override
@@ -3059,8 +4120,9 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                     width: 38,
                     height: 4,
                     decoration: BoxDecoration(
-                        color: Colors.white24,
-                        borderRadius: BorderRadius.circular(2)),
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -3083,32 +4145,44 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   ),
                 ),
                 const SizedBox(height: 34),
-                Text('pro_title'.tr(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.2)),
+                Text(
+                  'pro_title'.tr(),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.2,
+                  ),
+                ),
                 const SizedBox(height: 8),
-                Text('pro_subtitle'.tr(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Colors.white60, fontSize: 13.5, height: 1.35)),
+                Text(
+                  'pro_subtitle'.tr(),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white60,
+                    fontSize: 13.5,
+                    height: 1.35,
+                  ),
+                ),
                 const SizedBox(height: 20),
                 _benefits(),
                 const SizedBox(height: 18),
                 if (_loading)
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 28),
-                    child: Center(child: CircularProgressIndicator(color: kAccent)),
+                    child: Center(
+                      child: CircularProgressIndicator(color: kAccent),
+                    ),
                   )
                 else if (lifetime == null && yearly == null)
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 18),
-                    child: Text('pro_unavailable'.tr(),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.white54)),
+                    child: Text(
+                      'pro_unavailable'.tr(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.white54),
+                    ),
                   )
                 else ...[
                   if (yearly != null)
@@ -3136,25 +4210,36 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   Center(
                     child: TextButton(
                       onPressed: _busy ? null : _restore,
-                      child: Text('pro_restore'.tr(),
-                          style: const TextStyle(
-                              color: Colors.white70, fontSize: 13)),
+                      child: Text(
+                        'pro_restore'.tr(),
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 13,
+                        ),
+                      ),
                     ),
                   ),
                   if (hasYearly) ...[
                     const SizedBox(height: 2),
-                    Text('pro_legal'.tr(),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.white38, fontSize: 11, height: 1.45)),
+                    Text(
+                      'pro_legal'.tr(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white38,
+                        fontSize: 11,
+                        height: 1.45,
+                      ),
+                    ),
                   ],
                   const SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _link('pro_terms'.tr(), _termsUrl),
-                      const Text('    ·    ',
-                          style: TextStyle(color: Colors.white24, fontSize: 12)),
+                      const Text(
+                        '    ·    ',
+                        style: TextStyle(color: Colors.white24, fontSize: 12),
+                      ),
                       _link('pro_privacy'.tr(), _privacyUrl),
                     ],
                   ),
@@ -3166,7 +4251,11 @@ class _PaywallSheetState extends State<_PaywallSheet> {
             top: 6,
             right: 4,
             child: IconButton(
-              icon: const Icon(Icons.close_rounded, color: Colors.white54, size: 22),
+              icon: const Icon(
+                Icons.close_rounded,
+                color: Colors.white54,
+                size: 22,
+              ),
               onPressed: () => Navigator.of(context).maybePop(),
             ),
           ),
@@ -3208,7 +4297,11 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _benefit(Icons.do_not_disturb_on_outlined, 'pro_b1_t'.tr(), 'pro_b1_s'.tr()),
+          _benefit(
+            Icons.do_not_disturb_on_outlined,
+            'pro_b1_t'.tr(),
+            'pro_b1_s'.tr(),
+          ),
           _benefitDivider(),
           _benefit(Icons.insights_outlined, 'pro_b2_t'.tr(), 'pro_b2_s'.tr()),
           _benefitDivider(),
@@ -3229,21 +4322,29 @@ class _PaywallSheetState extends State<_PaywallSheet> {
           children: [
             Icon(icon, color: kAccent, size: 24),
             const SizedBox(height: 8),
-            Text(title,
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w600)),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12.5,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             const SizedBox(height: 3),
-            Text(sub,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Colors.white38, fontSize: 10.5, height: 1.25)),
+            Text(
+              sub,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                color: Colors.white38,
+                fontSize: 10.5,
+                height: 1.25,
+              ),
+            ),
           ],
         ),
       ),
@@ -3271,14 +4372,16 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               color: selected ? kAccentFill : kSurfaceHi,
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
-                  color: selected ? kAccent : Colors.white12,
-                  width: selected ? 1.6 : 1),
+                color: selected ? kAccent : Colors.white12,
+                width: selected ? 1.6 : 1,
+              ),
               boxShadow: selected
                   ? [
                       BoxShadow(
-                          color: kAccent.withValues(alpha: 0.18),
-                          blurRadius: 16,
-                          spreadRadius: -6),
+                        color: kAccent.withValues(alpha: 0.18),
+                        blurRadius: 16,
+                        spreadRadius: -6,
+                      ),
                     ]
                   : null,
             ),
@@ -3290,27 +4393,38 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                      color: selected ? kAccentFill : Colors.white10,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Icon(icon,
-                      color: selected ? kAccent : Colors.white70, size: 22),
+                    color: selected ? kAccentFill : Colors.white10,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Icon(
+                    icon,
+                    color: selected ? kAccent : Colors.white70,
+                    size: 22,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700)),
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                       const SizedBox(height: 2),
-                      Text(desc,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                              color: Colors.white54, fontSize: 12)),
+                      Text(
+                        desc,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white54,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -3318,18 +4432,24 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(p.price,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800)),
+                    Text(
+                      p.price,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                     if (priceSub != null) ...[
                       const SizedBox(height: 2),
-                      Text(priceSub,
-                          style: TextStyle(
-                              color: selected ? kAccent : Colors.white38,
-                              fontSize: 11,
-                              fontWeight: FontWeight.w500)),
+                      Text(
+                        priceSub,
+                        style: TextStyle(
+                          color: selected ? kAccent : Colors.white38,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ],
                   ],
                 ),
@@ -3346,14 +4466,18 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               decoration: const BoxDecoration(
                 color: kAccent,
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(14),
-                    bottomLeft: Radius.circular(12)),
+                  topRight: Radius.circular(14),
+                  bottomLeft: Radius.circular(12),
+                ),
               ),
-              child: Text(badge,
-                  style: const TextStyle(
-                      color: T.bg0,
-                      fontSize: 10.5,
-                      fontWeight: FontWeight.w800)),
+              child: Text(
+                badge,
+                style: const TextStyle(
+                  color: T.bg0,
+                  fontSize: 10.5,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
             ),
           ),
       ],
@@ -3367,8 +4491,9 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-            color: selected ? kAccent : Colors.white38,
-            width: selected ? 6.5 : 1.6),
+          color: selected ? kAccent : Colors.white38,
+          width: selected ? 6.5 : 1.6,
+        ),
       ),
     );
   }
@@ -3378,10 +4503,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
     return Opacity(
       opacity: enabled ? 1 : 0.6,
       child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: T.accent,
-          borderRadius: T.brMd,
-        ),
+        decoration: BoxDecoration(color: T.accent, borderRadius: T.brMd),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
@@ -3395,18 +4517,27 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       width: 22,
                       height: 22,
                       child: CircularProgressIndicator(
-                          strokeWidth: 2.4, color: Colors.white))
+                        strokeWidth: 2.4,
+                        color: Colors.white,
+                      ),
+                    )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.lock_open_rounded,
-                            color: Colors.white, size: 20),
+                        const Icon(
+                          Icons.lock_open_rounded,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                         const SizedBox(width: 10),
-                        Text('pro_cta'.tr(),
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700)),
+                        Text(
+                          'pro_cta'.tr(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ],
                     ),
             ),
@@ -3419,8 +4550,10 @@ class _PaywallSheetState extends State<_PaywallSheet> {
   Widget _link(String label, Uri url) {
     return GestureDetector(
       onTap: () => launchUrl(url, mode: LaunchMode.externalApplication),
-      child: Text(label,
-          style: const TextStyle(color: Colors.white38, fontSize: 12)),
+      child: Text(
+        label,
+        style: const TextStyle(color: Colors.white38, fontSize: 12),
+      ),
     );
   }
 }
@@ -3527,7 +4660,10 @@ class _FocusHintState extends State<_FocusHint> {
                   'focus_hint'.tr(),
                   maxLines: 2,
                   style: const TextStyle(
-                      fontSize: 14, color: T.text, height: 1.3),
+                    fontSize: 14,
+                    color: T.text,
+                    height: 1.3,
+                  ),
                 ),
               ),
               const SizedBox(width: T.s4),
@@ -3578,7 +4714,8 @@ class _FirstRunHintState extends State<_FirstRunHint> {
     // Anything on the board means the coach no longer needs telling how to
     // put something on it — a loaded drill counts as much as a manual add.
     final boardInUse = context.select<TacticsState, bool>(
-        (s) => s.players.isNotEmpty || s.strokes.isNotEmpty);
+      (s) => s.players.isNotEmpty || s.strokes.isNotEmpty,
+    );
     if (boardInUse) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && _visible) _dismiss();
@@ -3630,7 +4767,10 @@ class _FirstRunHintState extends State<_FirstRunHint> {
                       'first_run_hint'.tr(args: ['add_label'.tr()]),
                       maxLines: 2,
                       style: const TextStyle(
-                          fontSize: 14, color: T.text, height: 1.3),
+                        fontSize: 14,
+                        color: T.text,
+                        height: 1.3,
+                      ),
                     ),
                   ),
                   const SizedBox(width: T.s4),
@@ -3639,8 +4779,11 @@ class _FirstRunHintState extends State<_FirstRunHint> {
                     onTap: _dismiss,
                     child: const Padding(
                       padding: EdgeInsets.all(T.s4),
-                      child:
-                          Icon(Icons.close_rounded, color: T.textOff, size: 17),
+                      child: Icon(
+                        Icons.close_rounded,
+                        color: T.textOff,
+                        size: 17,
+                      ),
                     ),
                   ),
                 ],

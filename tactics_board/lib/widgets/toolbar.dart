@@ -1660,37 +1660,143 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   Future<void> _addTextMarker(MarkerShape shape, Color color,
       {Offset? at}) async {
     var text = '';
+    // Face, ground and size are chosen here, where the words are typed,
+    // not found afterwards in the tune panel. The field is drawn as the
+    // chip will be — its colour, its face, white words on it — so what is
+    // typed is what lands on the board.
+    var ground = color;
+    var font = '';
+    var scale = 1.0;
     final ok = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('text_add_title'.tr(),
-            style: const TextStyle(color: Colors.white)),
-        content: TextFormField(
-          autofocus: true,
-          maxLength: kTextElementMaxChars,
-          maxLines: 2,
-          textInputAction: TextInputAction.done,
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            hintText: 'text_add_hint'.tr(),
-            hintStyle: const TextStyle(color: Colors.white30),
-            counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),
-            enabledBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white30)),
-            focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: kAccent)),
-          ),
-          onChanged: (v) => text = v,
-          onFieldSubmitted: (_) => Navigator.pop(ctx, true),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: Text('cancel'.tr())),
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: Text('confirm'.tr())),
-        ],
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setLocal) {
+          final faces = textFontFamily(font);
+          return AlertDialog(
+            title: Text('text_add_title'.tr(),
+                style: const TextStyle(color: Colors.white)),
+            // Scrollable for the same reason the edit dialog is: a phone
+            // turned sideways leaves this box 402pt less a keyboard, and
+            // the field with three rows of choices is more than that.
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: ground.withValues(alpha: 0.94),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.white24),
+                    ),
+                    padding: const EdgeInsets.fromLTRB(10, 2, 10, 0),
+                    child: TextFormField(
+                      autofocus: true,
+                      maxLength: kTextElementMaxChars,
+                      minLines: 2,
+                      maxLines: 4,
+                      textInputAction: TextInputAction.done,
+                      // The chip's own size, clamped so the smallest is
+                      // still typeable and the largest still fits.
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: (13 * scale).clamp(13.0, 26.0),
+                        fontWeight: FontWeight.w600,
+                        fontFamily: faces.isEmpty ? null : faces.first,
+                        fontFamilyFallback:
+                            faces.length > 1 ? faces.sublist(1) : null,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: 'text_add_hint'.tr(),
+                        hintStyle: const TextStyle(color: Colors.white54),
+                        counterStyle: const TextStyle(
+                            color: Colors.white70, fontSize: 11),
+                        border: InputBorder.none,
+                      ),
+                      onChanged: (v) => text = v,
+                      onFieldSubmitted: (_) => Navigator.pop(ctx, true),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  // The same three rows the tune panel shows a text
+                  // element, in the same order.
+                  Row(
+                    children: [
+                      const Icon(Icons.palette_outlined,
+                          color: Colors.white38, size: 14),
+                      const SizedBox(width: 8),
+                      for (final c in kElementColors)
+                        GestureDetector(
+                          onTap: () => setLocal(() => ground = c),
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 6),
+                            width: 22,
+                            height: 22,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: c,
+                              border: Border.all(
+                                color: ground == c ? kAccent : Colors.white24,
+                                width: ground == c ? 2.5 : 1,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.text_fields,
+                          color: Colors.white38, size: 14),
+                      const SizedBox(width: 8),
+                      for (final f in kTextFonts)
+                        TextFontChip(
+                          font: f,
+                          selected: font == f,
+                          onTap: () => setLocal(() => font = f),
+                        ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.photo_size_select_small,
+                          color: Colors.white38, size: 14),
+                      Expanded(
+                        child: Slider(
+                          value: scale,
+                          min: 0.5,
+                          max: 3.0,
+                          divisions: 10,
+                          activeColor: kAccent,
+                          inactiveColor: Colors.white24,
+                          onChanged: (v) => setLocal(() => scale = v),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 34,
+                        child: Text(
+                          '${scale.toStringAsFixed(1)}×',
+                          textAlign: TextAlign.right,
+                          style: const TextStyle(
+                              color: Colors.white70, fontSize: 12),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(ctx, false),
+                  child: Text('cancel'.tr())),
+              TextButton(
+                  onPressed: () => Navigator.pop(ctx, true),
+                  child: Text('confirm'.tr())),
+            ],
+          );
+        },
       ),
     );
     if (ok != true || text.trim().isEmpty) return;
@@ -1700,7 +1806,9 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       label: text.trim(),
       team: PlayerTeam.neutral,
       markerShape: shape,
-      customColor: color,
+      customColor: ground,
+      font: font.isEmpty ? null : font,
+      scale: scale,
       position: at ?? Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
     ));
   }
@@ -4827,22 +4935,40 @@ class DrawingOptionsBar extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: T.s8),
-              TacticalChip(
-                label: 'eraser'.tr(),
-                icon: Icons.backspace_outlined,
-                selected: state.eraserMode,
+              _EraserToggle(
+                on: state.eraserMode,
                 onTap: () => state.setEraserMode(!state.eraserMode),
               ),
+              // A way out that is not the toolbar. Closing the pen's panel
+              // puts the pen down: the bottom bar goes back to Move, which
+              // is what a coach is about to do next. With a line picked
+              // out the row above has its own close, which only lets go of
+              // the line.
+              if (sel == null) ...[
+                const SizedBox(width: T.s4),
+                TacticalIconButton(
+                  icon: Icons.close_rounded,
+                  size: 20,
+                  onTap: () => state.setDrawingMode(false),
+                ),
+              ],
             ],
           ),
           const SizedBox(height: T.s12),
           // Colours and thickness on one line.
           Row(
             children: [
+              // A colour or a thickness is the pen's from here on — and,
+              // when a line is picked out, that line's too. Without the
+              // second half a drawn line could only be deleted and drawn
+              // again: updateStroke existed and nothing ever called it.
               ...kStrokeColors.map((c) => _ColorDot(
                     color: c,
                     selected: state.strokeColor == c,
-                    onTap: () => state.setStrokeColor(c),
+                    onTap: () {
+                      state.setStrokeColor(c);
+                      if (sel != null) state.updateStroke(sel.id, color: c);
+                    },
                   )),
               const SizedBox(width: T.s8),
               Expanded(
@@ -4864,7 +4990,17 @@ class DrawingOptionsBar extends StatelessWidget {
                     min: 1,
                     max: 8,
                     divisions: 7,
-                    onChanged: state.setStrokeWidth,
+                    // The first touch is the undo point; the steps after it
+                    // ride on top of that one snapshot.
+                    onChangeStart: sel == null
+                        ? null
+                        : (v) => state.updateStroke(sel.id, width: v),
+                    onChanged: (v) {
+                      state.setStrokeWidth(v);
+                      if (sel != null) {
+                        state.updateStroke(sel.id, width: v, snapshot: false);
+                      }
+                    },
                   ),
                 ),
               ),
@@ -4879,6 +5015,71 @@ class DrawingOptionsBar extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared small widgets
 // ─────────────────────────────────────────────────────────────────────────────
+
+/// The eraser toggle in the drawing panel.
+///
+/// It was a [TacticalChip], whose "on" is a 12%-opacity teal wash — fine for
+/// a filter you read a list of, invisible for a mode that changes what every
+/// tap on the board does. On it is now solid, the way the active tool in the
+/// bottom bar is solid, and it says so in words.
+class _EraserToggle extends StatelessWidget {
+  final bool on;
+  final VoidCallback onTap;
+
+  const _EraserToggle({required this.on, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      toggled: on,
+      child: Material(
+        color: on ? T.toolOn : T.surfaceHi,
+        borderRadius: T.brSm,
+        child: InkWell(
+          onTap: () {
+            HapticFeedback.selectionClick();
+            onTap();
+          },
+          borderRadius: T.brSm,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 120),
+            height: T.tap,
+            padding: const EdgeInsets.symmetric(horizontal: T.s12),
+            decoration: BoxDecoration(
+              borderRadius: T.brSm,
+              border: Border.all(
+                color: on ? T.onToolOn.withValues(alpha: 0.55) : T.border,
+                width: on ? 1.5 : 1,
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  on ? Icons.backspace_rounded : Icons.backspace_outlined,
+                  size: 17,
+                  color: on ? T.onToolOn : T.textDim,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  'eraser'.tr(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 13.5,
+                    fontWeight: on ? FontWeight.w700 : FontWeight.w400,
+                    color: on ? T.onToolOn : T.textDim,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class _ColorDot extends StatelessWidget {
   final Color color;

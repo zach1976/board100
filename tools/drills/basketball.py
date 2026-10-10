@@ -1,5 +1,5 @@
 """The basketball library."""
-from .engine import Drill, M, P, ring, suffixed
+from .engine import Drill, M, P, behind, ring, suffixed
 
 
 def basketball_drills() -> list[Drill]:
@@ -62,6 +62,9 @@ def basketball_drills() -> list[Drill]:
             home=[P(0.5, 0.80, "1", moves=[(0.5, 0.55, 0), (0.5, 0.30, 1)])],
             markers=[M(0.35, 0.70), M(0.65, 0.70), M(0.35, 0.45), M(0.65, 0.45)],
             ball=0,
+            # Two of them, which is the name of the drill: one in each hand,
+            # down and back through the cones. The board drew one.
+            balls=2,
             # dribbled the length, never leaving his hands
             ball_follow=0,
         ),
@@ -84,17 +87,20 @@ def basketball_drills() -> list[Drill]:
                   "ms-MY": "Hantar dan berlari di belakang penerima.",
                   "th-TH": "ส่งแล้ววิ่งไปด้านหลังคนที่รับ การส่งที่ไม่มีการเคลื่อนที่คือการหยุด",
                   "vi-VN": "Chuyền rồi chạy ra sau người nhận."},
-            # Follow the pass, one beat behind it, and stop 82% of the way —
-            # queue behind the receiver, do not stand on him. Ending on his
-            # exact point (and on the same beat as the pass) stacked every
-            # pair dead centre, the same rotation defect as the passing
-            # diamond.
+            # Follow the pass, one beat behind it, and finish the far side
+            # of the man you passed to — that is what "pass and go behind
+            # him" means, and it is the drill's whole coaching point. These
+            # used to stop at 82% of the way, which is BETWEEN passer and
+            # receiver: on the board the follower stood in front of the man
+            # he had just passed to, saying the opposite of the note.
+            # behind() keeps him off the receiver's exact point, which is
+            # what the 82% was really guarding against.
             home=[
-                P(0.500, 0.340, "1", moves=[(0.344, 0.565, 1)]),
-                P(0.177, 0.451, "2", moves=[(0.585, 0.590, 4)]),
-                P(0.300, 0.629, "3", moves=[(0.708, 0.490, 2)]),
+                P(0.500, 0.340, "1", moves=[(*behind((0.500, 0.340), (0.300, 0.629)), 1)]),
+                P(0.177, 0.451, "2", moves=[(*behind((0.177, 0.451), (0.700, 0.629)), 4)]),
+                P(0.300, 0.629, "3", moves=[(*behind((0.300, 0.629), (0.823, 0.451)), 2)]),
                 P(0.700, 0.629, "4"),
-                P(0.823, 0.451, "5", moves=[(0.319, 0.451, 3)]),
+                P(0.823, 0.451, "5", moves=[(*behind((0.823, 0.451), (0.177, 0.451)), 3)]),
             ],
             ball=0,
             # The star: every pass skips a corner, so the ball draws the

@@ -203,6 +203,117 @@ ORIGINS = [
 ]
 
 
+# ── badminton's own frequencies ──────────────────────────────────────────────
+# The table above is one set of sentences for every sport, and it says
+# "goals" to a badminton player and "the team" to a singles player.
+FREQUENCY_BADMINTON = {
+    "warmup": _P(
+        "Every session, first thing — ten minutes of footwork before the "
+        "first shuttle.",
+        "每堂课开场——先做十分钟步法，再碰第一只球。",
+        "每堂課開場——先做十分鐘步法，再碰第一隻球。",
+        "毎回、最初に。最初のシャトルの前に10分のフットワーク。",
+        "매 세션 맨 처음 — 첫 셔틀 전에 풋워크 10분.",
+        "Cada sesión, lo primero: diez minutos de desplazamientos antes del primer volante.",
+        "Chaque séance, en premier : dix minutes de déplacements avant le premier volant.",
+        "Setiap sesi, paling awal — sepuluh menit footwork sebelum kok pertama.",
+        "Setiap sesi, paling awal — sepuluh minit footwork sebelum bulu tangkis pertama.",
+        "ทุกครั้ง เป็นอย่างแรก — ฟุตเวิร์กสิบนาทีก่อนแตะลูกแรก",
+        "Mỗi buổi, việc đầu tiên — mười phút di chuyển trước quả cầu đầu."),
+    "possession": _P(
+        "Most sessions — clear and drive rallies are the base of the stroke "
+        "work and go in early, straight after the warm-up.",
+        "大多数课都练——高远球和平抽的对拉是击球训练的底子，热身之后紧接着就上。",
+        "大多數課都練——高遠球和平抽的對拉是擊球訓練的底子，熱身之後緊接著就上。",
+        "ほとんどのセッションで。クリアとドライブのラリーはストローク練習の土台で、ウォームアップ直後に入れる。",
+        "대부분의 세션에서. 클리어와 드라이브 랠리는 스트로크 훈련의 토대로, 웜업 직후에 들어간다.",
+        "Casi todas las sesiones: los peloteos de globo y drive son la base del trabajo de golpes y van justo tras el calentamiento.",
+        "Presque chaque séance : les échanges en dégagement et en drive sont la base du travail de frappe et viennent juste après l'échauffement.",
+        "Hampir setiap sesi — reli lob dan drive adalah dasar latihan pukulan, langsung setelah pemanasan.",
+        "Hampir setiap sesi — rali lob dan drive ialah asas latihan pukulan, terus selepas memanaskan badan.",
+        "แทบทุกครั้ง — แรลลีเคลียร์และดาดคือพื้นฐานของการซ้อมตี ใส่ทันทีหลังวอร์ม",
+        "Hầu hết các buổi — đôi công cầu cao và đập ngang là nền của tập kỹ thuật, vào ngay sau khởi động."),
+    "attacking": _P(
+        "A few times a week in the technical block — drops, net play and "
+        "deception are built shot by shot and kept sharp.",
+        "每周几次，放在技术训练里——吊球、网前和假动作一拍一拍地练，练出来还要保持住。",
+        "每週幾次，放在技術訓練裡——吊球、網前和假動作一拍一拍地練，練出來還要保持住。",
+        "週に数回、技術練習の枠で。ドロップ、ネット前、フェイントは一打ずつ作り、切らさない。",
+        "주 몇 회, 기술 훈련 블록에서. 드롭, 네트 플레이, 페인트는 한 샷씩 쌓고 날을 유지한다.",
+        "Varias veces por semana en el bloque técnico: dejadas, juego de red y engaños se construyen golpe a golpe y se mantienen afilados.",
+        "Plusieurs fois par semaine dans le bloc technique : amortis, jeu au filet et feintes se construisent coup par coup et s'entretiennent.",
+        "Beberapa kali seminggu dalam blok teknik — dropshot, permainan net dan tipuan dibangun pukulan demi pukulan dan dijaga tajam.",
+        "Beberapa kali seminggu dalam blok teknik — dropshot, permainan jaring dan tipuan dibina pukulan demi pukulan dan dikekalkan tajam.",
+        "สัปดาห์ละหลายครั้งในช่วงซ้อมเทคนิค — หยอด เน็ต และหลอก สร้างทีละลูกและรักษาความคม",
+        "Vài lần mỗi tuần trong phần kỹ thuật — bỏ nhỏ, chơi lưới và động tác giả được xây từng cú và giữ cho sắc."),
+    "defending": _P(
+        "Weekly, fed from a smash — defence is a position you hold, and it is "
+        "drilled off the feed before it is trusted in a game.",
+        "每周一次，用杀球来喂——防守是先站好的姿势，先在喂球里练熟，再放进比赛里用。",
+        "每週一次，用殺球來餵——防守是先站好的姿勢，先在餵球裡練熟，再放進比賽裡用。",
+        "週1回、スマッシュの球出しで。守備は構えておく姿勢であり、ゲームで頼る前に球出しで固める。",
+        "주 1회, 스매시 피딩으로. 수비는 미리 잡아두는 자세이고, 경기에서 믿기 전에 피딩으로 다진다.",
+        "Semanal, alimentado con remates: la defensa es una posición que se mantiene, y se trabaja con bolas lanzadas antes de fiarse de ella en partido.",
+        "Hebdomadaire, nourri au smash : la défense est une position qu'on tient, travaillée sur envois avant de s'y fier en match.",
+        "Mingguan, diumpan dengan smes — bertahan adalah posisi yang dijaga, dilatih dari umpan sebelum dipercaya di pertandingan.",
+        "Mingguan, disuap dengan smesy — pertahanan ialah kedudukan yang dikekalkan, dilatih daripada suapan sebelum dipercayai dalam perlawanan.",
+        "สัปดาห์ละครั้ง ป้อนด้วยลูกตบ — การรับคือท่าที่ตั้งไว้ ซ้อมจากการป้อนก่อนจะเชื่อใจในเกม",
+        "Hàng tuần, có người đập để tập — phòng thủ là tư thế giữ sẵn, luyện từ quả cấp trước khi tin dùng trong trận."),
+    "finishing": _P(
+        "Often, and late in the session — the smash is what the attack is "
+        "for, and it is practised when the legs are already tired.",
+        "经常练，放在课的后半——杀球是整个进攻的目的，要在腿已经累了的时候练。",
+        "經常練，放在課的後半——殺球是整個進攻的目的，要在腿已經累了的時候練。",
+        "よく、セッションの終盤に。スマッシュは攻撃の目的そのもので、脚が疲れた状態で練習する。",
+        "자주, 세션 후반에. 스매시는 공격의 목적이며, 다리가 이미 지친 상태에서 연습한다.",
+        "A menudo y al final de la sesión: el remate es el fin del ataque y se practica con las piernas ya cansadas.",
+        "Souvent, et en fin de séance : le smash est le but de l'attaque et se travaille jambes déjà fatiguées.",
+        "Sering, di akhir sesi — smes adalah tujuan serangan, dilatih saat kaki sudah lelah.",
+        "Kerap, di hujung sesi — smesy ialah tujuan serangan, dilatih ketika kaki sudah penat.",
+        "บ่อย และช่วงท้ายการซ้อม — ลูกตบคือจุดหมายของการบุก ซ้อมตอนขาล้าแล้ว",
+        "Thường xuyên, và ở cuối buổi — cú đập là mục đích của tấn công, tập khi chân đã mỏi."),
+    "setpiece": _P(
+        "Every week and before every match — ten serves a set, returns with "
+        "a live reply, until the placement is automatic.",
+        "每周都练、赛前必练——每组十个发球、接发球要有真实回球，练到落点成为本能。",
+        "每週都練、賽前必練——每組十個發球、接發球要有真實回球，練到落點成為本能。",
+        "毎週、そして試合前に必ず。1セット10本のサーブ、実戦の返球付きのレシーブ、置き所が無意識になるまで。",
+        "매주, 그리고 경기 전마다. 한 세트 서브 10개, 실전 리턴이 붙은 리시브, 위치가 자동이 될 때까지.",
+        "Cada semana y antes de cada partido: diez saques por serie, restos con réplica real, hasta que la colocación sea automática.",
+        "Chaque semaine et avant chaque match : dix services par série, retours avec réplique réelle, jusqu'à ce que le placement soit automatique.",
+        "Setiap minggu dan sebelum setiap pertandingan — sepuluh servis per set, pengembalian dengan balasan nyata, sampai penempatan jadi otomatis.",
+        "Setiap minggu dan sebelum setiap perlawanan — sepuluh servis satu set, kembalian dengan balasan sebenar, sehingga penempatan menjadi automatik.",
+        "ทุกสัปดาห์และก่อนทุกแมตช์ — เสิร์ฟสิบลูกต่อเซ็ต รับเสิร์ฟพร้อมลูกตอบจริง จนการวางเป็นอัตโนมัติ",
+        "Mỗi tuần và trước mỗi trận — mười quả giao một hiệp, đỡ giao có trả cầu thật, đến khi điểm rơi thành phản xạ."),
+    "ssg": _P(
+        "Most sessions, at the end — the conditioned game is where the day's "
+        "stroke gets used under pressure.",
+        "大多数课的结尾——限制性对抗是把当天练的那一拍放到压力下去用的地方。",
+        "大多數課的結尾——限制性對抗是把當天練的那一拍放到壓力下去用的地方。",
+        "ほとんどのセッションの最後に。条件付きゲームは、その日の一打をプレッシャーの中で使う場。",
+        "대부분의 세션 마지막에. 조건 게임은 그날의 샷을 압박 속에서 써보는 자리다.",
+        "Casi todas las sesiones, al final: el juego condicionado es donde el golpe del día se usa bajo presión.",
+        "Presque chaque séance, à la fin : le jeu à contrainte est là où le coup du jour est utilisé sous pression.",
+        "Hampir setiap sesi, di akhir — permainan bersyarat adalah tempat pukulan hari itu dipakai di bawah tekanan.",
+        "Hampir setiap sesi, di hujung — permainan bersyarat ialah tempat pukulan hari itu digunakan di bawah tekanan.",
+        "แทบทุกครั้ง ตอนท้าย — เกมมีเงื่อนไขคือที่ที่ลูกของวันนั้นถูกใช้ภายใต้แรงกดดัน",
+        "Hầu hết các buổi, ở cuối — trận có điều kiện là nơi cú đánh của hôm đó được dùng dưới áp lực."),
+    "conditioning": _P(
+        "Fitness days and the pre-season — two or three times a week off-peak, "
+        "less in competition weeks.",
+        "体能日和赛季前——非比赛周每周两三次，比赛周减量。",
+        "體能日和賽季前——非比賽週每週兩三次，比賽週減量。",
+        "フィットネスの日とプレシーズンに。オフピークは週2〜3回、試合週は減らす。",
+        "체력 훈련일과 프리시즌에. 비시즌 주 2~3회, 시합 주에는 줄인다.",
+        "Días de físico y pretemporada: dos o tres veces por semana fuera de competición, menos en semanas de torneo.",
+        "Jours de physique et présaison : deux ou trois fois par semaine hors pic, moins en semaine de compétition.",
+        "Hari kebugaran dan pramusim — dua tiga kali seminggu di luar puncak, lebih sedikit di minggu kompetisi.",
+        "Hari kecergasan dan pramusim — dua tiga kali seminggu di luar puncak, kurang pada minggu pertandingan.",
+        "วันฟิตเนสและก่อนฤดูกาล — สัปดาห์ละสองสามครั้งนอกช่วงแข่ง น้อยลงในสัปดาห์แข่ง",
+        "Ngày thể lực và trước mùa giải — hai ba lần mỗi tuần ngoài cao điểm, ít hơn vào tuần thi đấu."),
+}
+
+
 def _origin_for(sport: str, drill_id: str):
     for sp, key, text in ORIGINS:
         if (sp is None or sp == sport) and key in drill_id:
@@ -212,4 +323,5 @@ def _origin_for(sport: str, drill_id: str):
 
 def background_texts(sport: str, category: str, drill_id: str):
     """(frequency, origin) for a drill; origin may be None."""
-    return FREQUENCY.get(category), _origin_for(sport, drill_id)
+    table = FREQUENCY_BADMINTON if sport == "badminton" else FREQUENCY
+    return table.get(category), _origin_for(sport, drill_id)

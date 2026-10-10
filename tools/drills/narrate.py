@@ -242,6 +242,21 @@ BACK_TO_START = {
     "id-ID": "kembali ke awal", "ms-MY": "kembali ke permulaan",
     "th-TH": "กลับจุดเริ่ม", "vi-VN": "về điểm xuất phát",
 }
+NET_WORD = {
+    "en": "the net", "en-GB": "the net", "zh-CN": "网前",
+    "zh-TW": "網前", "ja-JP": "ネット前", "ko-KR": "네트 앞",
+    "es-ES": "la red", "fr-FR": "le filet",
+    "id-ID": "depan net", "ms-MY": "depan jaring",
+    "th-TH": "หน้าเน็ต", "vi-VN": "sát lưới",
+}
+HIT_NET = {
+    "en": "{a} plays it to the net", "en-GB": "{a} plays it to the net",
+    "zh-CN": "{a}把球打到网前", "zh-TW": "{a}把球打到網前",
+    "ja-JP": "{a}がネット前へ打つ", "ko-KR": "{a}가 네트 앞으로 친다",
+    "es-ES": "{a} la deja en la red", "fr-FR": "{a} la pose au filet",
+    "id-ID": "{a} memukul ke depan net", "ms-MY": "{a} memukul ke depan jaring",
+    "th-TH": "{a} ตีไปหน้าเน็ต", "vi-VN": "{a} đánh sát lưới",
+}
 SPOT_WORD = {
     "en": "the open space", "en-GB": "the open space", "zh-CN": "空当",
     "zh-TW": "空當", "ja-JP": "スペース", "ko-KR": "빈 자리",
@@ -374,6 +389,32 @@ CHANGES_HANDS = {
 }
 # …and from a distance it was handed on, not won: the ball given to the
 # other side to start the next rep.
+# A handoff, not a pass: the ball changes hands without travelling. A dribble
+# handoff is the clearest case — the receiver runs shoulder to shoulder with
+# the carrier and takes it off him — and calling that "1 throws to 2" over a
+# board where the ball moved six points leaves a reader hunting for a pass
+# that was never thrown, and no sign of where the ball had been.
+HANDS_OFF = {
+    "en": "{a} hands it off to {b}", "en-GB": "{a} hands it off to {b}",
+    "zh-CN": "{a}把球手递手交给{b}", "zh-TW": "{a}把球手遞手交給{b}",
+    "ja-JP": "{a}が{b}にハンドオフする", "ko-KR": "{a}가 {b}에게 핸드오프한다",
+    "es-ES": "{a} le entrega el balón en mano a {b}",
+    "fr-FR": "{a} remet le ballon en main à {b}",
+    "id-ID": "{a} menyerahkan bola langsung ke {b}",
+    "ms-MY": "{a} menyerahkan bola terus kepada {b}",
+    "th-TH": "{a} ส่งบอลมือต่อมือให้ {b}",
+    "vi-VN": "{a} trao bóng tận tay cho {b}",
+}
+# How far the ball may travel and still be a handoff rather than a pass: about
+# one figure's width on the drill canvas.
+HANDOFF_NEAR = 80.0
+# And only where the word is right. A ball that barely moves means something
+# different in each sport — a dug ball in volleyball, a net shot in badminton,
+# a stick-to-stick push in hockey — and in rugby "hand-off" is fending a
+# tackler away, so borrowing it for a short pass says the opposite. Basketball
+# is the one that names this exact action, and has a drill called after it.
+HANDOFF_SPORTS = {"basketball"}
+
 HANDS_OVER = {
     "en": "{a} plays the ball to {b} for the next rep",
     "en-GB": "{a} plays the ball to {b} for the next rep",
@@ -423,6 +464,19 @@ FOLLOW = {
     "ms-MY": "{a} naik di belakang {to}",
     "th-TH": "{a} ตามขึ้นไปด้านหลัง{to}",
     "vi-VN": "{a} theo lên phía sau {to}",
+}
+# Across a net there is no support to run up in: the man who just played
+# the shuttle and now moves towards it is closing the net — a feeder
+# stepping in behind his feed, a player committing to the reply he
+# expects. "Runs up in support" is a team-sport sentence and it was being
+# said of an opponent.
+CLOSES_NET = {
+    "en": "{a} steps in", "en-GB": "{a} steps in",
+    "zh-CN": "{a}跟进上前", "zh-TW": "{a}跟進上前",
+    "ja-JP": "{a}が前に詰める", "ko-KR": "{a}가 앞으로 들어간다",
+    "es-ES": "{a} se adelanta", "fr-FR": "{a} avance",
+    "id-ID": "{a} maju", "ms-MY": "{a} mara",
+    "th-TH": "{a} ขยับเข้าไป", "vi-VN": "{a} tiến lên",
 }
 FOLLOW_PLAIN = {
     "en": "{a} runs up in support", "en-GB": "{a} runs up in support",
@@ -514,6 +568,14 @@ SETUP_CONES = {
     "zh-TW": "{n} 個錐標", "ja-JP": "コーン{n}個", "ko-KR": "콘 {n}개",
     "es-ES": "{n} conos", "fr-FR": "{n} plots", "id-ID": "{n} kerucut",
     "ms-MY": "{n} kon", "th-TH": "กรวย {n} อัน", "vi-VN": "{n} cọc",
+}
+# The languages that count. Until a drill was cut down to a single cone
+# every board had two or more and the plural was never wrong; "1 cones"
+# then appeared in four setups at once. Only the European entries differ —
+# the rest of the table has no plural form to get wrong.
+SETUP_CONE_1 = {
+    "en": "1 cone", "en-GB": "1 cone", "es-ES": "1 cono", "fr-FR": "1 plot",
+    "id-ID": "1 kerucut", "ms-MY": "1 kon",
 }
 SETUP_BALL_AT = {
     "en": "ball with {a}", "en-GB": "ball with {a}", "zh-CN": "球在 {a} 脚下",
@@ -633,6 +695,34 @@ def _is_far_end(sport: str, target) -> bool:
     return target[1] < top + ch * frac or target[1] > top + ch * (1 - frac)
 
 
+def _standing_on(drill, target, ph):
+    """The player within reach of [target] at the END of beat [ph], else
+    None — the one who got to the shot."""
+    from .engine import _pos_at
+    best, who = 160.0, None
+    for pl in drill.home + drill.away:
+        px, py = _pos_at(pl, ph)
+        d = abs(px - target[0]) + abs(py - target[1])
+        if d < best:
+            best, who = d, pl
+    return who
+
+
+def _is_near_net(sport: str, target) -> bool:
+    """A point within a tenth of the court of the net, on a court that has
+    one — a net shot, a drop, a block: the ball is "at the net", not "at
+    the spot"."""
+    if sport not in HIT_SPORTS:
+        return False
+    from .engine import court_rect
+    _, top, _, ch = court_rect(sport)
+    return abs(target[1] - (top + ch * 0.5)) < ch * 0.10
+
+
+def _net_leg() -> tuple[dict, dict]:
+    return HIT_NET, NET_WORD
+
+
 def _spot_leg(sport: str) -> tuple[dict, dict]:
     """(verb, place) for a ball played to a point short of the far end."""
     if sport in HIT_SPORTS:
@@ -676,43 +766,79 @@ def _holder(drill):
     if isinstance(drill.ball, tuple):
         x, y = drill.ball
         best, who = 160.0, None
-        # BOTH sides. Searching only home made every loose ball belong to the
-        # nearest home player, so a ball placed on their setter was credited
-        # to our blocker and seven volleyball boards read "B plays it to A"
-        # over a picture of S setting.
+        # BOTH moments, and BOTH sides. Beat zero alone misses the net
+        # boards, where the shuttle waits at the tape and the man walks up
+        # to it before he plays it — nobody was near it before any of that
+        # happened, and the lift came out as "the ball comes over to 2".
+        # The beat it moves on alone misses everyone who has set off by
+        # then: a rally board starts the ball on the man who strikes it and
+        # he is already moving, so naming only the later moment lost the
+        # striker on a dozen boards that had him right.
+        #
+        # Searching only home made every loose ball belong to the nearest
+        # home player, so a ball placed on their setter was credited to our
+        # blocker and seven volleyball boards read "B plays it to A" over a
+        # picture of S setting.
+        # The later moment is held to a tighter reach — he has to be ON it,
+        # not merely the nearest. "Near enough at the start" is a fair
+        # guess at who it belongs to; "near enough once everyone has run
+        # about" is not, and at the loose threshold a volleyball board
+        # credited the attacker with the feed he was only closest to.
+        from .engine import _pos_at
+        ph = drill.ball_moves[0][2] if drill.ball_moves else 0
         for pl in drill.home + drill.away:
             d = abs(pl.x - x) + abs(pl.y - y)
             if d < best:
+                best, who = d, pl
+            px, py = _pos_at(pl, ph)
+            d = abs(px - x) + abs(py - y)
+            if d < min(best, 60.0):
                 best, who = d, pl
         return who
     return None
 
 
-def _narration_route(drill) -> list:
+def _narration_route(drill, sport: str = "") -> list:
     """The ball's legs as (target, phase), for the text.
 
     ball_to when the author wrote one. A drill with hand-written ball_moves
     (a double play, a served shuttle) used to get no 球路 and no ball in its
-    流程 at all — the legs are turned back into targets here: whichever
-    player is standing where the ball stops on that beat, else the point.
+    流程 at all — the legs are turned back into targets here.
+
+    Who a leg is "to": whoever is within reach of where it stops once the
+    beat is over — the man who was standing there, or the man who stepped
+    to meet it. With one exception. An OPPONENT who was not there before
+    the beat and ran to it was not played to; the ball was hit into his
+    court and he went and got it. That leg is to a place — "to the net",
+    "deep", "to the spot" — and his run is its own clause. A team-mate who
+    runs onto a pass is still played to; an opponent who was already
+    standing there (a feed, a cooperative rally) is still played to. It is
+    only the opponent who had to run that turns the target into a place.
     """
     if drill.ball_to or drill.ball_follow is not None:
         return drill.ball_to
     from .engine import _pos_at
+    people = [(i, pl) for i, pl in enumerate(drill.home)] + \
+             [(f"a{i}", pl) for i, pl in enumerate(drill.away)]
+    holder = _holder(drill)
     out = []
     for (x, y, ph) in drill.ball_moves:
-        best, who = 160.0, None
-        for i, pl in enumerate(drill.home):
+        best, who, pl_found = 160.0, None, None
+        for key, pl in people:
             px, py = _pos_at(pl, ph)
             d = abs(px - x) + abs(py - y)
             if d < best:
-                best, who = d, i
-        for i, pl in enumerate(drill.away):
-            px, py = _pos_at(pl, ph)
-            d = abs(px - x) + abs(py - y)
-            if d < best:
-                best, who = d, f"a{i}"
-        out.append((who if who is not None else (x, y), ph))
+                best, who, pl_found = d, key, pl
+        target = (x, y)
+        if pl_found is not None:
+            sx, sy = _pos_at(pl_found, ph - 1)
+            was_there = abs(sx - x) + abs(sy - y) < 160.0
+            opponent = (holder is not None
+                        and (pl_found in drill.away) != (holder in drill.away))
+            target = (x, y) if (opponent and not was_there) else who
+        out.append((target, ph))
+        if pl_found is not None:
+            holder = pl_found
     return out
 
 
@@ -733,8 +859,10 @@ def sequence_texts(drill, sport: str) -> dict | None:
         carrier = drill.home[drill.ball_follow]
         for (_, _, ph) in carrier.moves[:1]:
             add(ph, CARRY, a=_label(carrier))
-    route = _narration_route(drill)
-    if route:
+    route = _narration_route(drill, sport)
+
+    def narrate_route(route):
+      if route:
         from .engine import _pos_at
         holder = _holder(drill)
         prev = holder
@@ -744,18 +872,40 @@ def sequence_texts(drill, sport: str) -> dict | None:
             from_xy = (holder.x, holder.y)
         else:
             from_xy = drill.ball if isinstance(drill.ball, tuple) else None
+        last_shooty = False
         for k, (target, ph) in enumerate(route):
             if k > 0 and k - 1 < len(legs):
                 from_xy = legs[k - 1][:2]
+            # Nobody was holding it when this beat began — it was hit into
+            # a space last beat — but somebody ran onto it: he plays it.
+            # Without this the second shot of every rally that goes into
+            # space fell out of the text, and a board that showed S getting
+            # to the ball and playing it read "S moves up the board".
+            if prev is None and from_xy is not None and not last_shooty:
+                prev = _standing_on(drill, from_xy, ph)
             if isinstance(target, tuple):
                 # A point at the far end of the board is a shot, a pitch, a
                 # ball hit deep — not "the ball played on". So is a point
                 # on a mini-goal, wherever the game's area sits.
                 shooty = _is_far_end(sport, target) or _on_square(drill, target)
-                tbl = (_far_end(sport) if shooty else _spot_leg(sport))[0]
+                tbl = (_far_end(sport) if shooty
+                       else _net_leg() if _is_near_net(sport, target)
+                       else _spot_leg(sport))[0]
                 if prev:
                     add(ph, tbl, a=_label(prev))
-                prev = None
+                # Whoever ran onto it plays the next one. The target was
+                # named a place because nobody stood there when the shot
+                # was played; by the end of the beat somebody usually
+                # does, and without him the leg after this one had no
+                # subject and fell out of the text — the smash after the
+                # lift, the kill after the net shot, every second shot of
+                # every game.
+                # A ball pitched to the plate or shot at the goal is not a
+                # ball somebody ran onto: the batter standing there did
+                # not take it, and the next leg was reading "P wins the
+                # ball off B".
+                prev = None if shooty else _standing_on(drill, target, ph)
+                last_shooty = shooty
             else:
                 t = (drill.away[int(target[1:])] if isinstance(target, str)
                      else drill.home[target])
@@ -788,8 +938,40 @@ def sequence_texts(drill, sport: str) -> dict | None:
                         tbl = HANDS_OVER if handed else CHANGES_HANDS
                     add(ph, tbl, a=_label(prev), b=_label(t))
                 else:
-                    add(ph, _pass_verb(sport), a=_label(prev), b=_label(t))
+                    # Measured on the BALL, not on the players: two men can
+                    # be a stride apart and still hand it over, and they can
+                    # be shoulder to shoulder and still throw it.
+                    to_xy = legs[k][:2] if k < len(legs) else None
+                    near = (sport in HANDOFF_SPORTS
+                            and from_xy is not None and to_xy is not None
+                            and ((from_xy[0] - to_xy[0]) ** 2
+                                 + (from_xy[1] - to_xy[1]) ** 2) ** 0.5
+                            < HANDOFF_NEAR)
+                    add(ph, HANDS_OFF if near else _pass_verb(sport),
+                        a=_label(prev), b=_label(t))
                 prev = t
+                last_shooty = False
+
+    narrate_route(route)
+    # The second ball's passes, through the same sentences. Its legs are
+    # resolved the way the board resolves them — the ball fields are swapped
+    # out, resolve_ball runs, and the first ball's state goes back — so a
+    # drill with two balls narrates both instead of describing one and
+    # leaving a reader to wonder where the other went.
+    if getattr(drill, "ball2", None) is not None:
+        from .engine import resolve_ball, prune_degenerate_ball_legs
+        keep = (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+                drill.ball_carriers, drill.ball_holders)
+        try:
+            drill.ball, drill.ball_to = drill.ball2, list(drill.ball2_to)
+            drill.ball_moves, drill.ball_follow = [], None
+            drill.ball_carriers, drill.ball_holders = [], []
+            resolve_ball(drill, sport)
+            prune_degenerate_ball_legs(drill, sport)
+            narrate_route(_narration_route(drill, sport))
+        finally:
+            (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+             drill.ball_carriers, drill.ball_holders) = keep
 
     # The player who played the ball on each beat — a follow is that player
     # chasing his own pass, nobody else drifting near the ball.
@@ -845,10 +1027,24 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     dq = abs(q.x - prev_stop[0]) + abs(q.y - prev_stop[1])
                     if dq < best:
                         best, dest = dq, q
+                # "behind {to}" is a claim about where he ends up, and the
+                # board has to back it. Measured along the line he ran: he is
+                # behind the receiver only once he is PAST him. Boards that
+                # stopped him short read as standing in front of the man he
+                # passed to, and a handful were not follows at all — a rugby
+                # pick-and-go had the runner going the other way entirely,
+                # t = -1.4, and still read "1 follows up behind 2".
+                past = False
                 if dest is not None and best < FOLLOW_NEAR:
+                    vx, vy = dest.x - p.x, dest.y - p.y
+                    span = vx * vx + vy * vy
+                    if span > 1e-9:
+                        past = ((x - p.x) * vx + (y - p.y) * vy) / span >= 1.0
+                if dest is not None and best < FOLLOW_NEAR and past:
                     add(ph, FOLLOW, a=_label(p), to=_label(dest))
                 else:
-                    add(ph, FOLLOW_PLAIN, a=_label(p))
+                    add(ph, CLOSES_NET if sport in HIT_SPORTS else FOLLOW_PLAIN,
+                        a=_label(p))
                 continue
             dx, dy = x - p.x, y - p.y
             d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
@@ -903,8 +1099,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
                        for k, v in params.items()}
                 rendered.append(table[loc].format(**fmt))
             for (tid, dir_key, why), subjects in grouped.items():
-                table = next(t for t in (RUN, FOLLOW_PLAIN, CARRY, HIT_MOVE,
-                                         PASS_SPOT, HIT_SPOT, HIT_DEEP,
+                table = next(t for t in (RUN, FOLLOW_PLAIN, CLOSES_NET, CARRY,
+                                         HIT_MOVE, PASS_SPOT, HIT_SPOT, HIT_NET,
+                                         HIT_DEEP,
                                          KICK_POSTS, PITCH, SHOOT, SHOOT_HOOP,
                                          PASS_IN, PASS_IN_NET, FEED)
                              if id(t) == tid)
@@ -965,7 +1162,7 @@ def route_texts(drill, sport: str) -> dict | None:
     The step-by-step below it is precise but sequential; this is the shape of
     the whole drill in a glance, and it is what makes the steps scannable.
     """
-    route = _narration_route(drill)
+    route = _narration_route(drill, sport)
     if not route:
         return None
     stops_by_loc = {loc: [] for loc in LOCALES}
@@ -984,6 +1181,8 @@ def route_texts(drill, sport: str) -> dict | None:
                     stops.append(_far_end(sport)[1][loc])
                 elif sx is not None and abs(t[0]-sx) + abs(t[1]-sy) < 120:
                     stops.append(BACK_TO_START[loc])
+                elif _is_near_net(sport, t):
+                    stops.append(NET_WORD[loc])
                 else:
                     stops.append(_spot_leg(sport)[1][loc])
             elif isinstance(t, str):
@@ -996,6 +1195,28 @@ def route_texts(drill, sport: str) -> dict | None:
         if len(clean) < 2:
             return None
         stops_by_loc[loc] = " → ".join(x or LONE[loc] for x in clean)
+    # A drill run with two balls has two paths, and printing one of them
+    # under a note that says "both balls keep moving" tells half the story.
+    if getattr(drill, "ball2", None) is not None:
+        from .engine import resolve_ball, prune_degenerate_ball_legs
+        keep = (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+                drill.ball_carriers, drill.ball_holders, drill.ball2)
+        try:
+            drill.ball, drill.ball_to = drill.ball2, list(drill.ball2_to)
+            drill.ball_moves, drill.ball_follow = [], None
+            drill.ball_carriers, drill.ball_holders = [], []
+            # Cleared, or the recursive call keeps finding a second ball and
+            # goes round for ever.
+            drill.ball2 = None
+            resolve_ball(drill, sport)
+            prune_degenerate_ball_legs(drill, sport)
+            second = route_texts(drill, sport)
+        finally:
+            (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+             drill.ball_carriers, drill.ball_holders, drill.ball2) = keep
+        if second:
+            for loc in LOCALES:
+                stops_by_loc[loc] = f"{stops_by_loc[loc]}    {second[loc]}"
     return stops_by_loc
 
 
@@ -1033,10 +1254,16 @@ def setup_texts(drill, sport: str) -> dict:
                                                names=join.join(away_names)))
         cones = sum(1 for m in drill.markers if m.shape == "cone")
         if cones:
-            bits.append(SETUP_CONES[loc].format(n=cones))
+            one = SETUP_CONE_1.get(loc) if cones == 1 else None
+            bits.append(one or SETUP_CONES[loc].format(n=cones))
         if isinstance(drill.ball, int):
-            bits.append(_ball_at(sport, loc).format(
-                a=_subj(_label(drill.home[drill.ball]), loc)))
+            # Both, when the drill is run with two: "ball with A" under a
+            # note that says two balls go round the square is a setup a coach
+            # cannot lay out.
+            whos = [_subj(_label(drill.home[drill.ball]), loc)]
+            if isinstance(getattr(drill, "ball2", None), int):
+                whos.append(_subj(_label(drill.home[drill.ball2]), loc))
+            bits.append(_ball_at(sport, loc).format(a=AND[loc].join(whos)))
         out[loc] = AND[loc].join(bits)
     return out
 

@@ -433,9 +433,10 @@ COMBO_NOTE = {
 
 
 def combo_family() -> list[Drill]:
+    # The hit is taken at the net on the attacker's OWN side; 0.42 is past it.
     specs = [("quick", "off the quick set", (0.40, 0.53)),
              ("back", "from the back court", (0.56, 0.55)),
-             ("second_ball", "attacking the second ball", (0.36, 0.42))]
+             ("second_ball", "attacking the second ball", (0.36, 0.53))]
     out = []
     for key, label, hit in specs:
         out.append(Drill(

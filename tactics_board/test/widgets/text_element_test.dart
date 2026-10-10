@@ -90,14 +90,21 @@ void main() {
     // element IS the sentence, so that cap must not reach it.
     expect(find.text(phrase), findsOneWidget);
     final body = tester.widget<Text>(find.text(phrase));
-    expect(body.maxLines, 3, reason: 'three lines, then it ellipsises');
+    expect(body.maxLines, textElementMaxLines(phrase),
+        reason: 'a short phrase keeps three lines, a long one gets two');
 
     // Sized to the words: wider than the 44pt box every token lives in, and
-    // capped so three notes on one pitch do not bury each other.
+    // capped so three notes on one pitch do not bury each other. A short
+    // phrase keeps the narrow cap; a drill's own step is allowed to be a
+    // block rather than a column (see textElementMaxWidth).
     final box = tester.getSize(
         find.ancestor(of: find.text(phrase), matching: find.byType(TextElementChip)));
     expect(box.width, greaterThan(kPlayerIconSize));
-    expect(box.width, lessThanOrEqualTo(kTextElementMaxWidth + 1));
+    expect(
+        box.width,
+        lessThanOrEqualTo(textElementMaxWidth(
+                tester.element(find.byType(TextElementChip).first), phrase) +
+            1));
 
     // ── an empty one keeps the tool glyph so it can still be tapped ─────
     // An invisible element is one you cannot select in order to type into.

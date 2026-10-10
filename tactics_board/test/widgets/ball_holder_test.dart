@@ -66,11 +66,16 @@ void main() {
     // 抱在手里的球：固定挂在胯边，不许飘回身体中线 —— 篮球画在胸口，
     // 正好压住球衣号码，看上去是一团而不是「人 + 他抱着的球」。
     for (final s in [SportType.basketball, SportType.handball,
-                     SportType.waterPolo, SportType.rugby, SportType.volleyball,
+                     SportType.waterPolo, SportType.rugby,
                      SportType.badminton]) {
       expect(held(s).dy, closeTo(kPlayerIconSize * 0.50, 0.01), reason: s.name);
       expect(held(s).dx, closeTo(kPlayerIconSize * 0.40, 0.01), reason: s.name);
     }
+    // 排球不是抱着的：垫、传、扣都在上半身，球挂在胸口那条线上，不是胯边。
+    expect(held(SportType.volleyball).dy,
+        closeTo(kPlayerIconSize * 0.15, 0.01), reason: 'volleyball');
+    expect(held(SportType.volleyball).dx,
+        closeTo(kPlayerIconSize * 0.40, 0.01), reason: 'volleyball');
     // 球在左边，就挂在左胯 —— 只有距离是定死的，哪一边还是看球在哪。
     final left = PlayerIcon(
       id: 'b', label: '', team: PlayerTeam.neutral,

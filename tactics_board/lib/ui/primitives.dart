@@ -50,8 +50,17 @@ class TacticalSheet extends StatelessWidget {
     // height and the column overflowing. Give the sheet more of the screen
     // before that happens; the content itself still scrolls inside it.
     final scale = mq.textScaler.scale(15) / 15;
-    final fraction =
-        (maxHeightFraction * (scale > 1.2 ? 1.15 : 1.0)).clamp(0.3, 0.94);
+    // And a phone turned sideways has 402pt of height to give, not 874. The
+    // fractions here were chosen against an upright screen; six tenths of a
+    // landscape one is 241pt, and a title, a hint and a row of buttons are
+    // most of that — the list they are wrapped around came out as a sliver
+    // with nothing legible in it. On a short screen a sheet takes what it
+    // needs; it still scrolls inside itself.
+    final short = mq.size.height < 500;
+    final fraction = (maxHeightFraction *
+            (scale > 1.2 ? 1.15 : 1.0) *
+            (short ? 1.5 : 1.0))
+        .clamp(0.3, 0.94);
     final maxH = mq.size.height * fraction;
     return Container(
       constraints: BoxConstraints(maxHeight: maxH),

@@ -132,6 +132,12 @@ def call(method, path, payload=None, **params):
         if r.status_code != 401 or attempt == 2:
             break
         _tok["exp"] = 0
+    # Deleting something that is already gone is the state we wanted. ASC
+    # lists assets a moment behind itself, so a set read and then cleared can
+    # name a screenshot that no longer exists, and a 404 there used to abort
+    # a whole upload between its "delete the old" and "send the new" halves.
+    if method == "DELETE" and r.status_code == 404:
+        return {}
     if r.status_code >= 400:
         detail = ""
         try:
@@ -238,6 +244,14 @@ def step_text():
         print(f"   {PLATFORM} 从未上架 → 首次发布，不填 whatsNew")
 
     for folder, locale in LOCALE_MAP.items():
+        # Only the locales this app actually has text for. The map is the
+        # fleet's full list and not every app ships every one — field hockey
+        # has no en-GB — and running it blind created an EMPTY en-GB
+        # localization on the version: no description, no keywords, no
+        # What's New, which review rejects. A locale the app does not
+        # translate should simply not exist on the listing.
+        if not os.path.isdir(os.path.join(str(metadata_dir(KEY)), folder)):
+            continue
         name, sub = read(folder, "name"), read(folder, "subtitle")
         # appInfo is shared by both platforms and locks while either one is in
         # review. The names are already the new ones, put there by the iOS
@@ -391,9 +405,13 @@ def step_ipad():
 def step_preview():
     """The App Preview film, en-US only.
 
-    A locale with no preview falls back to the primary one, so eleven copies
-    of the same silent film would buy nothing. Apple transcodes it after
-    upload; the version can be submitted while that is still running.
+    PREVIEW_LOCALES picks which; the default is en-US alone, because a
+    locale with no preview of its own falls back to the primary one.
+    That default is right for a FIRST upload and wrong for a replacement:
+    2.0.0 put the film in all twelve, and a locale that already has one does
+    not fall back, so a new film has to be pushed to every locale that holds
+    an old one. Apple transcodes after upload; the version can be submitted
+    while that is still running.
     """
     aid = app_id()
     vid, _ = find_version(aid)
@@ -401,18 +419,78 @@ def step_preview():
     # then fails it with MOV_RESAVE_STEREO — a preview must carry stereo
     # audio, even when there is nothing to hear. tools/record_preview.sh
     # records silent, so a muted stereo track is muxed on afterwards.
-    mp4 = os.path.join(REPO, "build", "preview", "soccer_av.mp4")
+    mp4 = os.path.join(REPO, "build", "preview", f"{KEY}_av.mp4")
     if not os.path.exists(mp4):
-        raise SystemExit("✗ 没有 build/preview/soccer_av.mp4（需要带静音立体声音轨）")
+        raise SystemExit(f"✗ 没有 build/preview/{KEY}_av.mp4（需要带静音立体声音轨）")
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
+    frame = _preview_frame()
     only = os.environ.get("PREVIEW_LOCALES", "en-US").split(",")
     targets = [(lc, vlocs[lc]) for lc in only if lc in vlocs]
     if not targets:
         raise SystemExit(f"✗ 这些语言不存在: {only}")
+    made = []
     for lc, lid in targets:
-        _one_preview(lc, lid, mp4)
+        made.append((lc, _one_preview(lc, lid, mp4)))
+    if frame:
+        _set_preview_frames(made, frame)
+
+
+def _set_preview_frames(made, frame):
+    """Set the poster frame once Apple has finished transcoding.
+
+    Not inline with the upload: a preview that is still being processed
+    answers "Asset Not in Complete state! can't update Image!" with a 409,
+    and that used to abort the run after the first locale. The frame is a
+    label on a finished asset, so it waits for one.
+    """
+    import time
+    pending = list(made)
+    for attempt in range(40):
+        still = []
+        for lc, pid in pending:
+            st = get(f"/appPreviews/{pid}")["data"]["attributes"]
+            if st["assetDeliveryState"]["state"] != "COMPLETE":
+                still.append((lc, pid))
+                continue
+            patch(f"/appPreviews/{pid}", {
+                "data": {"type": "appPreviews", "id": pid,
+                         "attributes": {"previewFrameTimeCode": frame}}})
+            print(f"   {lc}: 预览帧 {frame}")
+        pending = still
+        if not pending:
+            print(f"✅ 预览帧 {frame} 已写入 {len(made)} 个语言")
+            return
+        time.sleep(15)
+    print(f"⚠️  还有 {len(pending)} 个语言在转码，预览帧没设上："
+          f"{[lc for lc, _ in pending]} — 重跑 preview 这一步即可")
+
+
+def _preview_frame():
+    """The frame the store shows before the film is played.
+
+    From tools/preview_frames.tsv, because leaving it to ASC's default put a
+    picture of an empty pitch on the soccer listing: the film opens by
+    BUILDING a board, so its first seconds are the emptiest it ever looks.
+    PREVIEW_FRAME overrides for a one-off.
+    """
+    env = os.environ.get("PREVIEW_FRAME")
+    if env:
+        return env
+    table = os.path.join(REPO, "tools", "preview_frames.tsv")
+    if os.path.exists(table):
+        for line in open(table, encoding="utf-8"):
+            if line.startswith("#") or not line.strip():
+                continue
+            # Columns are padded with tabs to line the file up, so take the
+            # first non-empty one after the key rather than cols[1].
+            cols = [c.strip() for c in line.split("\t")]
+            if cols and cols[0] == KEY:
+                rest = [c for c in cols[1:] if c]
+                if rest:
+                    return rest[0]
+    return None
 
 
 def _one_preview(lc, lid, mp4):
@@ -447,6 +525,7 @@ def _one_preview(lc, lid, mp4):
                  "attributes": {"uploaded": True,
                                 "sourceFileChecksum": hashlib.md5(blob).hexdigest()}}})
     print(f"✅ {lc}: 预览视频 {len(blob)/1048576:.1f} MB 已上传，Apple 转码中")
+    return pv["id"]
 
 
 def step_build():
@@ -536,8 +615,15 @@ def step_submit():
     aid = app_id()
     vid, state = find_version(aid)
     print(f"{VERSION} {state}")
-    subs = get(f"/apps/{aid}/reviewSubmissions",
-               **{"filter[state]": "READY_FOR_REVIEW", "limit": 5})["data"]
+    # Only this platform's. Badminton and pickleball still carry MAC_OS
+    # drafts left over from the July 4.3 cleanup — READY_FOR_REVIEW, never
+    # submitted, and the API will not delete them. Taking the first open
+    # submission handed an iOS version to a Mac submission, which Apple
+    # answers with "Supported platforms are not compatible".
+    subs = [x for x in get(f"/apps/{aid}/reviewSubmissions",
+                           **{"filter[state]": "READY_FOR_REVIEW",
+                              "limit": 20})["data"]
+            if x["attributes"].get("platform") == PLATFORM]
     sub = subs[0] if subs else post("/reviewSubmissions", {
         "data": {"type": "reviewSubmissions",
                  "attributes": {"platform": PLATFORM},

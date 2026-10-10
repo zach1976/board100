@@ -38,6 +38,23 @@ const double kPlayerIconSize = 36.0;
 /// edit bar if a drill wants the ball emphasised.
 const double kBallDrawFactor = 0.58;
 
+/// The same fraction, per sport, because the balls are not the same size.
+///
+/// 0.58 was measured against a football, and a football is 22cm across a
+/// 45cm pair of shoulders — half a person wide, which is what it looks like
+/// from above. A hockey ball is 7.3cm. Drawn at the football's fraction it
+/// came out the size of a player's head, which is the one thing a board
+/// showing a drag flick must not do: the eye reads the biggest round thing
+/// as the ball, and here it was reading a head.
+///
+/// Not scaled to life — at true scale a hockey ball would be 0.19 of the
+/// cell and vanish — but far enough down that it is plainly the smaller
+/// object. The others keep the football's figure until each is looked at.
+double ballDrawFactor(SportType sport) => switch (sport) {
+      SportType.fieldHockey => 0.40,
+      _ => kBallDrawFactor,
+    };
+
 /// The figure a brand-new player of this sport gets: holding, if the sport
 /// has something to hold. A coach who wants an empty-handed feeder turns it
 /// off on that one player.
@@ -597,6 +614,104 @@ double playerFacing(PlayerIcon p) =>
 /// This replaced "face the way you came": a runner who had reached the
 /// touchline stood staring at it for the rest of the drill, and the man
 /// who had just laid the ball off turned his back on the whole pattern.
+
+/// Fold a heading so it obeys the net, for a token drawn at [at].
+///
+/// The rule behind [boardHeading] is "face your next action", and on a
+/// court that is wrong in a way a player would notice at once: the next
+/// action after reaching the net is the recovery to base, so the man was
+/// drawn having spun round to face his own back line. You lunge to the net
+/// facing it and you push back off that lunge still facing it. The net
+/// stays in front of you.
+///
+/// Badminton has one exception, and it is one corner of the court: the
+/// BACKHAND rear. That is the corner you cannot reach facing forwards —
+/// you turn, travel back with your back to the net, hit, and turn again.
+/// The forehand rear is a scissor jump taken chest-on, and the two front
+/// corners are lunges you push straight back out of, so all three of them
+/// keep the net in front of you. For a right-hander the backhand rear is
+/// the left corner of his own half, and the other way round for the man
+/// across the net. The sideways half of the heading is kept either way;
+/// only the towards/away half is folded.
+double faceAcrossNet(double h, PlayerIcon p, SportType sport, Offset at,
+    Size court, {Offset? ball, Offset? ballFrom}) {
+  if (!sport.hasNet) return h;
+  // A racket sport's rule, not every net sport's. In volleyball, sepak
+  // takraw and footvolley the ball is played BETWEEN team-mates on the same
+  // side before it ever crosses: a pepper pair face each other, a setter
+  // turns his back on the net to back-set, a passer turns to the man he is
+  // passing to. Folding them to the net drew both halves of a two-man
+  // warm-up facing the same way, the one thing a coach would notice first.
+  //
+  // What they do instead is never turn their backs on the BALL. A volleyball
+  // player has no stroke that is played behind him: he moves to the ball and
+  // squares up to it, and "face the way you ran" — the fallback when the
+  // next action resolves to himself — had a passer stepping back for a deep
+  // serve drawn with his back to the server. So the heading is kept unless
+  // it points away from the ball, and then it is the ball.
+  if (sport == SportType.volleyball ||
+      sport == SportType.sepakTakraw ||
+      sport == SportType.footvolley) {
+    // No ball on the board at all — a court-sprint, a jump series, any of
+    // the conditioning boards. A volleyball player runs those square to the
+    // net: he shuffles and he sprints, he does not turn to face the cone he
+    // is running at. Without a ball to watch he keeps his stance.
+    if (ball == null) return playerFacing(p);
+    var toBall = ball - at;
+    // A ball he is playing is on him and points nowhere — half a token is
+    // close enough to be his — so he faces where it came FROM: the server,
+    // the hitter, the partner who passed it. That is the stance a passer
+    // takes, and it is what stops a man who stepped back for a deep serve
+    // being drawn with his back to the man who served it.
+    if (toBall.distance < kPlayerIconSize * 0.5) {
+      if (ballFrom == null) return h;
+      toBall = ballFrom - at;
+      if (toBall.distance < kPlayerIconSize * 0.5) return h;
+      return atan2(toBall.dx, -toBall.dy);
+    }
+    final facing = Offset(sin(h), -cos(h));
+    final away = facing.dx * toBall.dx + facing.dy * toBall.dy;
+    return away >= 0 ? h : atan2(toBall.dx, -toBall.dy);
+  }
+  final wantUp = p.team == PlayerTeam.home;
+  var faceNet = true;
+  if (sport == SportType.badminton && court.height > 0 && court.width > 0) {
+    // 0.82, not 0.80: the rear corners of the footwork boards sit at 0.89
+    // of the canvas and a round-the-head clear is taken from 0.80 — the
+    // one shot whose entire point is NOT turning your back — and the old
+    // line ran a thousandth under it.
+    final deep = wantUp
+        ? at.dy / court.height > 0.82
+        : at.dy / court.height < 0.18;
+    final backhand =
+        wantUp ? at.dx / court.width < 0.5 : at.dx / court.width > 0.5;
+    // And only on the way IN. Turning your back on the net is what you do
+    // retreating into the backhand corner; coming out of it you are
+    // already facing forwards again, and standing in it waiting to start
+    // you never turned at all. Measured against where the token began the
+    // board: a feeder whose ready position is that corner was drawn
+    // turned away before anything had happened, and a clear rally — both
+    // players living in a rear corner and stepping out of it between
+    // shots — had one of them spin round on every recovery.
+    final wentBack = wantUp
+        ? at.dy > p.position.dy + 0.5
+        : at.dy < p.position.dy - 0.5;
+    faceNet = !(deep && backhand && wentBack);
+    // Square to it, not angled towards it. A badminton player stands
+    // facing the net because he has to cover both sides of himself, and
+    // the lunge to a front corner does not turn him — he reaches, and he
+    // pushes back out of it the way he came. Keeping the sideways half of
+    // the travel direction had him swivel 45 degrees to go to the corner
+    // and swivel back, which is a step nobody takes.
+    return faceNet == wantUp ? 0.0 : pi;
+  }
+  final u = sin(h);
+  var v = cos(h); // positive is up the board, towards the far side
+  final up = faceNet == wantUp;
+  if (up ? v < 0 : v > 0) v = -v;
+  return atan2(u, v);
+}
+
 double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
   // How close a ball sits to the feet of the player holding it: the
   // generator places it 24pt away, and a pass into space beside a man is
@@ -770,13 +885,22 @@ class PlayerIconWidget extends StatelessWidget {
     // circle" MarkerPainter still draws is right where it belongs — as the
     // tool's own icon in the palette.
     if (isTextElement(player)) {
-      return GestureDetector(
-        onTap: onTap,
-        onLongPress: onLongPress,
-        onScaleStart: onScaleStart,
-        onScaleUpdate: onScaleUpdate,
-        onScaleEnd: onScaleEnd,
-        child: TextElementChip(player: player, isSelected: isSelected),
+      // The gestures sit INSIDE the turn. Every box above a Transform keeps
+      // the untransformed rectangle for its hit test, so a detector wrapped
+      // around a turned chip answered only where the two rectangles
+      // overlapped. Inside it, the detector's own frame is the chip's, and
+      // the whole of it answers at any angle.
+      return turnedForText(
+        player,
+        GestureDetector(
+          onTap: onTap,
+          onLongPress: onLongPress,
+          onScaleStart: onScaleStart,
+          onScaleUpdate: onScaleUpdate,
+          onScaleEnd: onScaleEnd,
+          child: TextElementChip(
+              player: player, isSelected: isSelected, turned: false),
+        ),
       );
     }
     final size = kPlayerIconSize * player.scale;
@@ -830,8 +954,8 @@ class PlayerIconWidget extends StatelessWidget {
                                   sport: sport)
                               : Center(
                                   child: FractionallySizedBox(
-                                    widthFactor: kBallDrawFactor,
-                                    heightFactor: kBallDrawFactor,
+                                    widthFactor: ballDrawFactor(sport),
+                                    heightFactor: ballDrawFactor(sport),
                                     child: _BallWidget(
                                         player: player,
                                         isSelected: isSelected),
@@ -1427,7 +1551,7 @@ class _ContactShadow extends StatelessWidget {
     // both end 9.2–9.5pt below the middle, not the 10.4–11.2 their draw
     // factors say).
     final draw = (player.isBall
-            ? kBallDrawFactor
+            ? ballDrawFactor(player.sportType ?? SportType.soccer)
             : markerArtScale(player.markerShape))
         .clamp(0.4, 1.2);
     final drop = person ? size * 0.70 : size * (draw / 2 - 0.03);
@@ -1638,14 +1762,31 @@ class _MarkerWidget extends StatelessWidget {
 bool isTextElement(PlayerIcon p) =>
     p.markerShape == MarkerShape.text && p.photoId == null;
 
-/// How wide a text element is allowed to get before it wraps. Wide enough
-/// for a short coaching phrase, narrow enough that three of them on a pitch
-/// do not overlap each other by default.
-const double kTextElementMaxWidth = 150.0;
+/// How wide a text element is allowed to get before it wraps, and how many
+/// lines it is allowed to wrap into.
+///
+/// 150 and three lines for a short coaching phrase — wide enough to read,
+/// narrow enough that three of them on a pitch do not overlap each other by
+/// default. A drill's own step runs longer than that (median 31 characters
+/// across the library, the ninetieth percentile 71, the longest 259), and at
+/// 150 it came out as a column nine lines deep.
+///
+/// So a long one is given the width instead of the height: most of the
+/// board's short side, and two lines. It is the caption under a picture, and
+/// a caption that climbs three or four lines up into the court is covering
+/// the thing it describes. What will not fit is an ellipsis away — tapping
+/// the element opens the whole of it to read and to edit.
+double textElementMaxWidth(BuildContext context, String label) {
+  if (label.length <= 40) return 150.0;
+  return (MediaQuery.sizeOf(context).shortestSide * 0.8).clamp(280.0, 520.0);
+}
 
-/// As much as three wrapped lines of the chip hold. The other elements cap
-/// at 12 because they are a name under a token; this one IS the sentence.
-const int kTextElementMaxChars = 40;
+int textElementMaxLines(String label) => label.length <= 40 ? 3 : 2;
+
+/// What the longest step in the drill library needs, with room to edit it.
+/// The other elements cap at 12 because they are a name under a token; this
+/// one IS the sentence.
+const int kTextElementMaxChars = 260;
 
 /// The words, on a chip sized to them.
 /// The platform face for a text element's [PlayerIcon.font], primary and
@@ -1667,11 +1808,129 @@ List<String> textFontFamily(String? font) {
   };
 }
 
+/// What a face is called on a picker. A type specimen, not a word to
+/// translate: these are Latin faces and the name is set in the face itself,
+/// which is what tells them apart — four "Aa" at 14pt did not.
+String textFontName(String? font) => switch (font) {
+      'serif' => 'Serif',
+      'mono' => 'Mono',
+      'hand' => 'Hand',
+      _ => 'Sans',
+    };
+
+/// One face on a picker: a big "Aa" over its name, both set in the face.
+/// The tune panel and the add-text dialog show the same four.
+class TextFontChip extends StatelessWidget {
+  /// One of [kTextFonts]; the empty string is the app's own face.
+  final String font;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const TextFontChip(
+      {super.key,
+      required this.font,
+      required this.selected,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final faces = textFontFamily(font);
+    final family = faces.isEmpty ? null : faces.first;
+    final fallback = faces.length > 1 ? faces.sublist(1) : null;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(right: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(
+            color: selected ? T.accent : Colors.white24,
+            width: selected ? 2 : 1,
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Aa',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                height: 1.1,
+                fontWeight: FontWeight.w600,
+                fontFamily: family,
+                fontFamilyFallback: fallback,
+              ),
+            ),
+            Text(
+              textFontName(font),
+              style: TextStyle(
+                color: selected ? T.accent : Colors.white54,
+                fontSize: 9,
+                height: 1.1,
+                fontFamily: family,
+                fontFamilyFallback: fallback,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A text element turned the way its rotation says, as a whole, text and
+/// all: it IS the text, and a label along a touchline reads along the
+/// touchline. Every other token turns its picture and keeps its label
+/// upright.
+///
+/// A quarter turn is turned by ROTATING THE BOX, not by transforming the
+/// paint inside it. Transform.rotate leaves the layout size alone: a chip
+/// lying on its side still measured 280 across and 45 down while it painted
+/// 45 across and 280 down, so the half-size it is pulled back by to sit on
+/// its point was the half-size of the wrong rectangle. RotatedBox turns the
+/// box with it. A free angle (a marker turned 15 degrees at a time) still
+/// transforms — there is no box for it — and sits a little off its point;
+/// its hit area is right regardless, because the gestures live inside the
+/// turn (see PlayerIconWidget).
+Widget turnedForText(PlayerIcon player, Widget child) {
+  final quarters = player.rotation / (pi / 2);
+  final nearest = quarters.roundToDouble();
+  final squared = (quarters - nearest).abs() < 0.01;
+  return squared
+      ? RotatedBox(quarterTurns: (nearest.toInt() % 4 + 4) % 4, child: child)
+      : Transform.rotate(angle: player.rotation, child: child);
+}
+
+/// A drag delta reported inside a turned text element, put back into the
+/// board's frame.
+///
+/// The gesture detector lives inside the turn (see [turnedForText]), which
+/// is what makes the whole chip answer a tap at any angle — and it means a
+/// drag's delta arrives in the CHIP's frame, not the board's. A note lying
+/// on its side was moving at a right angle to the finger; the board turned
+/// too, sideways, made that read as backwards.
+Offset untwistForText(PlayerIcon player, Offset local) {
+  final a = player.rotation;
+  if (a == 0) return local;
+  return Offset(local.dx * cos(a) - local.dy * sin(a),
+      local.dx * sin(a) + local.dy * cos(a));
+}
+
 class TextElementChip extends StatelessWidget {
   final PlayerIcon player;
   final bool isSelected;
+
+  /// False when the caller turns the chip itself, so that it can put its
+  /// gesture detector inside the turn. See [turnedForText].
+  final bool turned;
   const TextElementChip(
-      {super.key, required this.player, this.isSelected = false});
+      {super.key,
+      required this.player,
+      this.isSelected = false,
+      this.turned = true});
 
   @override
   Widget build(BuildContext context) {
@@ -1680,13 +1939,9 @@ class TextElementChip extends StatelessWidget {
     // keeps the tool's own glyph until something is typed into it.
     final empty = player.label.trim().isEmpty;
     final faces = textFontFamily(player.font);
-    // Turned as a whole, text and all: it IS the text, and a label along a
-    // touchline reads along the touchline. Every other token turns its
-    // picture and keeps its label upright.
-    return Transform.rotate(
-      angle: player.rotation,
-      child: ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: kTextElementMaxWidth * scale),
+    final body = ConstrainedBox(
+      constraints: BoxConstraints(
+          maxWidth: textElementMaxWidth(context, player.label) * scale),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: 8 * scale, vertical: 4.5 * scale),
@@ -1702,7 +1957,7 @@ class TextElementChip extends StatelessWidget {
         ),
         child: Text(
           empty ? 'T' : player.label,
-          maxLines: 3,
+          maxLines: textElementMaxLines(player.label),
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -1716,8 +1971,8 @@ class TextElementChip extends StatelessWidget {
           ),
         ),
       ),
-      ),
     );
+    return turned ? turnedForText(player, body) : body;
   }
 }
 
@@ -1743,11 +1998,15 @@ class MarkerPainter extends CustomPainter {
       canvas.drawCircle(Offset(cx, cy), r + 5, glow);
     }
 
-    // Shadow
-    final shadow = Paint()
-      ..color = Colors.black.withValues(alpha: 0.32)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
-    canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
+    // Shadow. Not for a zone: that one is paint on the floor, not a thing
+    // standing on it, and a drop shadow under it was half of why it read
+    // as a little tile somebody had put down.
+    if (shape != MarkerShape.zone) {
+      final shadow = Paint()
+        ..color = Colors.black.withValues(alpha: 0.32)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
+      canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
+    }
 
     final fill = Paint()..color = color;
     final border = Paint()
@@ -1802,12 +2061,33 @@ class MarkerPainter extends CustomPainter {
         )..layout();
         tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
       case MarkerShape.zone:
-        // Dashed rectangle zone
-        final rect = Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 1.6);
-        final zoneFill = Paint()..color = color.withValues(alpha: 0.3);
-        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneFill);
-        final zoneBorder = Paint()..color = color..style = PaintingStyle.stroke..strokeWidth = 2;
-        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneBorder);
+        // An area of the floor the shot has to land in. The old one was a
+        // solid amber box with a hard 2pt outline and a drop shadow: an
+        // object on the court, which is what it looked like. Shading is a
+        // wash with a soft edge — a pale bloom under a tint of the marker
+        // colour, and a dashed line round it so the boundary is still
+        // readable without drawing a frame.
+        final rect = Rect.fromCenter(
+            center: Offset(cx, cy), width: r * 2.4, height: r * 2.0);
+        final rr = RRect.fromRectAndRadius(rect, const Radius.circular(3));
+        canvas.drawRRect(
+            rr, Paint()..color = Colors.white.withValues(alpha: 0.14));
+        canvas.drawRRect(
+            rr, Paint()..color = color.withValues(alpha: 0.20));
+        final edge = Paint()
+          ..color = color.withValues(alpha: 0.72)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.6;
+        for (final m in (Path()..addRRect(rr)).computeMetrics()) {
+          var at = 0.0;
+          var on = true;
+          while (at < m.length) {
+            final end = (at + (on ? 5.0 : 4.0)).clamp(0.0, m.length);
+            if (on) canvas.drawPath(m.extractPath(at, end), edge);
+            at = end;
+            on = !on;
+          }
+        }
       case MarkerShape.referee:
         // Referee whistle icon — circle with "R"
         canvas.drawCircle(Offset(cx, cy), r, Paint()..color = Colors.black87);

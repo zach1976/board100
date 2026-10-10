@@ -1,0 +1,18 @@
+# Which frame of each app's App Preview the store shows before it is played.
+#
+# ASC calls it previewFrameTimeCode and defaults it to a few seconds in, which
+# is where soccer's first upload put a picture of an EMPTY PITCH on the
+# listing — the film spends its opening seconds building the board, so the
+# early frames are the least worth showing. Pick the frame after the thing the
+# film is about has happened, and write it here.
+#
+# Format: HH:MM:SS:FF. release_app.py's preview step applies it, and a frame
+# can only be set while the version is NOT in review: Apple answers
+# "Can't Commit Preview while Waiting For Review" with a 409.
+#
+# key		timecode	what is on screen
+soccer		00:00:24:00	squad, the run drawn, the player settled at its end
+fieldHockey	00:00:15:00	6v6 out, a player picked up, his run drawn
+basketball	00:00:24:00	3v3 out, the run drawn, the runner settled at its end, ball on
+baseball	00:00:26:00	the defence out, the run drawn, the fielder settled in left field
+badminton	00:00:24:00	singles out, the run to the net drawn, the player settled at the tape, shuttle on

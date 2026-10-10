@@ -7,9 +7,19 @@ so most drills carry the recovery step as their last phase.
 """
 from .engine import Drill, M, P, suffixed
 
-BASE_C = (0.50, 0.97)
-BASE_D, BASE_A = (0.72, 0.97), (0.28, 0.97)   # deuce / ad corners, home side
-WIDE_D, WIDE_A = (0.93, 0.93), (0.07, 0.93)
+# These fractions are of the COURT, not the canvas, so 1.0 IS the baseline
+# and anything less than that is inside the court. A groundstroke is taken
+# from behind the line — you step in to attack one, you do not live there —
+# and at 0.97 the whole library had its players standing on the line or in
+# front of it. A metre back is about 0.04 of this court's length.
+# A serve and a return are struck from BEHIND the line, and the figure is
+# 44pt tall on a court drawn 620pt long — 0.84 m of it below its own point.
+# Written as 0.03 of the court (0.71 m) the server stood astride his own
+# baseline. 0.05 is 1.19 m: all of him is behind it.
+BEHIND = 0.043
+BASE_C = (0.50, 1.04)
+BASE_D, BASE_A = (0.72, 1.04), (0.28, 1.04)   # deuce / ad corners, home side
+WIDE_D, WIDE_A = (0.93, 1.00), (0.07, 1.00)
 SERVICE_D, SERVICE_A = (0.74, 0.62), (0.26, 0.62)   # service box centres
 NET_D, NET_A = (0.68, 0.58), (0.32, 0.58)
 
@@ -112,8 +122,8 @@ def serve_family() -> list[Drill]:
             id=f"tn_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "deuce_wide"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(stand[0], 1.03, "S", moves=[(stand[0], 0.94, 0), (0.5, 0.99, 1)])],
-            away=[P(1 - stand[0], -0.03, "R",
+            home=[P(stand[0], 1 + BEHIND, "S", moves=[(stand[0], 0.94, 0), (0.5, 0.99, 1)])],
+            away=[P(1 - stand[0], -BEHIND, "R",
                     moves=[(target[0], target[1] - 0.16, 1)])],
             markers=[M(*target, "zone", "")],
             ball=0,
@@ -153,7 +163,9 @@ def plus_one_family() -> list[Drill]:
         ("serve_plus_one", "serve", BASE_D, (0.30, 0.86), (0.10, 0.30)),
         ("return_plus_one", "return", BASE_A, (0.62, 0.90), (0.90, 0.28)),
         ("inside_out", "inside-out forehand", BASE_A, (0.34, 0.92), (0.90, 0.30)),
-        ("approach", "approach", BASE_C, (0.62, 0.72), (0.70, 0.56)),
+        # The target is the corner of the AWAY court the finishing ball goes
+        # to, and the away player runs there; 0.56 is over the net.
+        ("approach", "approach", BASE_C, (0.62, 0.72), (0.70, 0.42)),
     ]
     out = []
     for key, label, start, second, target in specs:
@@ -257,7 +269,7 @@ def defend_family() -> list[Drill]:
             # A lob answers a player at the net, and a block return answers
             # a serve; both used to be drawn against a second baseliner, so
             # neither had the premise it is named for.
-            away=[P(*({"lob": (0.48, 0.30), "block_return": (0.44, -0.03)}
+            away=[P(*({"lob": (0.48, 0.30), "block_return": (0.44, -BEHIND)}
                       .get(key, mirror(BASE_C))), "2",
                     moves=[(mirror(pulled)[0], 0.10 if key == "slice" else 0.24, 0),
                            (target[0], target[1], 1)])],
@@ -485,8 +497,8 @@ def gaps_family() -> list[Drill]:
             level="foundation", free=True, off_surface=True,
             name=suffixed(SERVE_NAME, "the kicking second serve"),
             note=SECOND_NOTE,
-            home=[P(BASE_D[0], 1.03, "S", moves=[(BASE_D[0], 0.94, 0), (0.5, 0.99, 2)])],
-            away=[P(0.28, -0.03, "R", moves=[(0.22, 0.16, 2)])],
+            home=[P(BASE_D[0], 1 + BEHIND, "S", moves=[(BASE_D[0], 0.94, 0), (0.5, 0.99, 2)])],
+            away=[P(0.28, -BEHIND, "R", moves=[(0.22, 0.16, 2)])],
             markers=[M(0.20, 0.26, "zone", "")],
             # …and the return comes back deep to the server's side: the
             # kick serve has done its job when the return is neutral
@@ -502,9 +514,9 @@ def gaps_family() -> list[Drill]:
                   "id-ID": "Servis dan voli", "ms-MY": "Servis dan voli",
                   "th-TH": "เสิร์ฟแล้วขึ้นวอลเลย์", "vi-VN": "Giao bóng lên lưới"},
             note=SV_NOTE,
-            home=[P(BASE_D[0], 1.03, "S",
+            home=[P(BASE_D[0], 1 + BEHIND, "S",
                     moves=[(BASE_D[0], 0.94, 0), (0.62, 0.74, 1), (0.60, 0.60, 2)])],
-            away=[P(0.28, -0.03, "R", moves=[(0.26, 0.14, 1)])],
+            away=[P(0.28, -BEHIND, "R", moves=[(0.26, 0.14, 1)])],
             markers=[M(0.435, 0.25, "zone", ""), M(0.30, 0.30, "zone", "")],
             ball=0, off_surface=True,
             ball_moves=[(0.435, 0.25, 1), (0.60, 0.60, 2), (0.30, 0.30, 3)],
@@ -523,9 +535,9 @@ def gaps_family() -> list[Drill]:
         Drill(
             id="tn_doubles_poach", category="attacking", minutes=10, rel=True,
             name=suffixed(DOUBLES_NAME, "the poach"), note=POACH_NOTE,
-            home=[P(BASE_D[0], 1.03, "S", moves=[(BASE_D[0], 0.94, 0), (0.66, 0.86, 2)]),
+            home=[P(BASE_D[0], 1 + BEHIND, "S", moves=[(BASE_D[0], 0.94, 0), (0.66, 0.86, 2)]),
                   P(0.30, 0.66, "N", moves=[(0.44, 0.60, 1), (0.56, 0.56, 2)])],
-            away=[P(0.28, -0.03, "R", moves=[(0.30, 0.16, 1)]),
+            away=[P(0.28, -BEHIND, "R", moves=[(0.30, 0.16, 1)]),
                   P(0.70, 0.34, "P", moves=[(0.72, 0.28, 2)])],
             markers=[M(0.435, 0.25, "zone", ""), M(0.78, 0.20, "zone", "")],
             ball=0, off_surface=True,

@@ -9,6 +9,9 @@ from .engine import Drill, M, P, suffixed
 
 KITCHEN = 0.66          # home non-volley zone line
 KITCHEN_AWAY = 0.34
+# Behind the baseline by more than half a figure, so the server is not drawn
+# standing on his own line. See BEHIND in tennis.py.
+BEHIND = 0.03
 BASELINE = 0.97
 TRANSITION = 0.80
 K_L, K_R = (0.30, KITCHEN), (0.70, KITCHEN)
@@ -166,8 +169,10 @@ def speedup_family() -> list[Drill]:
         # player may not touch the non-volley zone. It used to finish at
         # x 0.06 inside the line and 0.27 m from the net, inside the
         # kitchen — a fault, on the board teaching the shot.
+        # …and he lands on HIS side of it: 0.46 put him over the net, which
+        # is the other half of the same fault.
         run = [(0.66, KITCHEN - 0.02, 1)] if key != "ernie" else [
-            (0.03, KITCHEN + 0.04, 1), (-0.05, 0.46, 2)]
+            (0.03, KITCHEN + 0.04, 1), (-0.05, 0.56, 2)]
         out.append(Drill(
             id=f"pb_speedup_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "shoulder"), off_surface=(key == "ernie"),
@@ -257,10 +262,13 @@ DEFEND_NOTE = {
 
 
 def defend_family() -> list[Drill]:
+    # Where the DEFENDER ends up, not where the ball goes: 0.44 and 0.40 are
+    # in the opponents' half, and a reset is a step up to your own kitchen
+    # line, a counter is held at it.
     specs = [("block", "the block", (0.62, KITCHEN + 0.01)),
-             ("reset", "the reset from transition", (0.50, 0.44)),
+             ("reset", "the reset from transition", (0.50, KITCHEN + 0.02)),
              ("lob", "the lob over your head", (0.50, 0.92)),
-             ("counter", "the counter in a firefight", (0.40, 0.40))]
+             ("counter", "the counter in a firefight", (0.40, KITCHEN + 0.02))]
     out = []
     for key, label, to in specs:
         start = (0.62, TRANSITION) if key == "reset" else K_R
@@ -317,7 +325,7 @@ def serve_family() -> list[Drill]:
              ("return_and_in", "return and come in", (0.34, 0.08))]
     out = []
     for key, label, land in specs:
-        home = [P(0.72, 1.03, "S", moves=[(0.72, BASELINE, 1)])]
+        home = [P(0.72, 1 + BEHIND, "S", moves=[(0.72, BASELINE, 1)])]
         if key == "return_and_in":
             home = [P(0.72, BASELINE, "R",
                       moves=[(0.72, TRANSITION, 1), (0.72, KITCHEN, 2)])]
@@ -534,7 +542,7 @@ def gaps_family() -> list[Drill]:
             level="foundation", free=True, off_surface=True,
             name=suffixed(SHAPE_NAME, "the two-bounce sequence"),
             note=TWO_BOUNCE_NOTE,
-            home=[P(0.72, 1.03, "S", moves=[(0.72, 0.96, 1), (0.66, TRANSITION, 3)]),
+            home=[P(0.72, 1 + BEHIND, "S", moves=[(0.72, 0.96, 1), (0.66, TRANSITION, 3)]),
                   P(0.30, KITCHEN, "P")],
             away=[P(0.28, 0.13, "R", moves=[(0.30, 0.22, 2), (0.32, KITCHEN_AWAY, 3)]),
                   P(0.70, KITCHEN_AWAY, "B")],

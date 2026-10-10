@@ -94,8 +94,28 @@ MARKER = {"none": 0, "circle": 1, "square": 2, "triangle": 3, "diamond": 4,
           "cone": 5, "text": 6, "zone": 7, "referee": 8, "coach": 9,
           "ladder": 10, "hurdle": 11, "arrow": 12}
 
+# The coach's kit: the slate of the coach marker, so a feeder is never
+# mistaken for the opponents' red.
+COACH_COLOR = 0xFF37474F
 MOVE_COLORS = [0xFF40C4FF, 0xFFFF6D6D, 0xFF69F0AE, 0xFFFFD740,
                0xFFEA80FC, 0xFF84FFFF, 0xFFFF9E80, 0xFFA5D6A7]
+
+
+def behind(frm, to, past: float = 0.16) -> tuple[float, float]:
+    """A point just the far side of ``to``, coming from ``frm``.
+
+    What "pass and go behind the man you passed to" draws. Authors used to
+    compute it by hand as a fraction of the way there — star passing stopped
+    its runners at 82% — which puts them BETWEEN the passer and the receiver,
+    and on a board that reads as standing in front of him, the opposite of
+    the instruction the drill is named for.
+
+    ``past`` is how far beyond, as a fraction of the run: far enough to be
+    plainly the other side of him, near enough to still be his queue.
+    """
+    fx, fy = frm
+    tx, ty = to
+    return (fx + (tx - fx) * (1.0 + past), fy + (ty - fy) * (1.0 + past))
 
 
 @dataclass
@@ -109,6 +129,11 @@ class P:
     # Why each leg is run, {phase: intent key} — see intents.WHY. The
     # board draws where; this is the coach's "so that…" for the sentence.
     why: dict = field(default_factory=dict)
+    # The coach, feeding. On a board with two figures a reader has to be
+    # told which one is training and which one is serving him the ball,
+    # and "2" in the opponents' red said nothing: a feeder is labelled C,
+    # wears slate instead of a team's colour, and carries the role.
+    coach: bool = False
 
 
 @dataclass
@@ -228,6 +253,18 @@ class Drill:
     # and the escorted rule will rightly treat it as a carry.
     ball_follow: object = None
     ball_to: list = field(default_factory=list)
+    # How many balls the drill is run with. Two-ball dribbling is a warm-up
+    # in half these sports and the board drew one, because the engine knew
+    # only one ball: the text said "dribble both balls down and back" over a
+    # picture of a player with one. The extras ride with the same holder and
+    # follow the same legs — the board lays them either side of his feet.
+    balls: int = 1
+    # A SECOND, independent ball: its own start and its own passes, where
+    # [balls] only repeats the first one at the same feet. Two balls going
+    # round a square of four players is a different drill from one man
+    # dribbling two, and the board has to show the difference.
+    ball2: object = None
+    ball2_to: list = field(default_factory=list)
     # Hand-written setup for the note's 组织 section — how to lay the drill
     # out on grass (shape, distances), which no census of the board can say.
     # Localised like the note; families write it once. Left None, the note
@@ -254,7 +291,7 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int,
     phases = [m[2] for m in p.moves]
     return {
         "id": f"d{idx}",
-        "label": p.label,
+        "label": (p.label or "C") if p.coach else p.label,
         "team": team,
         "sportType": None,
         "position": [p.x, p.y],
@@ -262,11 +299,11 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int,
         "moves": moves,
         "movePhases": phases,
         "moveColor": MOVE_COLORS[color_idx % len(MOVE_COLORS)],
-        "customColor": None,
+        "customColor": COACH_COLOR if p.coach else None,
         "gender": 2,                      # unspecified
         "markerShape": MARKER["none"],
         "photoId": None,
-        "role": p.role,
+        "role": "coach" if p.coach else p.role,
         "attachedTo": None,
         # Omitted unless the drill says otherwise, which reads back as
         # "whatever this sport normally does".
@@ -478,6 +515,32 @@ def normalise_phases(drill: Drill) -> None:
         p.moves = [(x, y, remap[ph]) for (x, y, ph) in p.moves]
         p.why = {remap[ph]: w for ph, w in p.why.items() if ph in remap}
     drill.ball_moves = [(x, y, remap[ph]) for (x, y, ph) in drill.ball_moves]
+
+
+def to_display_frame(board: dict) -> dict:
+    """Restate a finished board in the frame its coordinates actually mean.
+
+    They are authored in a 1000x1500 box, but the court they are placed
+    against is the one [court_rect] works out — the court as the app DRAWS
+    it, at 402x730. Those two canvases are not the same shape, so "0.95
+    across the court" is a different fraction of the canvas in each. While
+    the app rescaled a loaded board by plain canvas fractions it did not
+    matter: the numbers lined up on the one canvas they were written for.
+    The app now carries a board by its COURT, so the canvas a board says it
+    came from has to be the canvas whose court these numbers fit — otherwise
+    every drill is stretched sideways against the lines and a corner man
+    stands in the crowd.
+
+    Nothing moves relative to anything else; the board is the same board,
+    measured in the other ruler.
+    """
+    sx, sy = DISPLAY_W / CANVAS_W, DISPLAY_H / CANVAS_H
+    for pd in board["players"]:
+        pd["position"] = [pd["position"][0] * sx, pd["position"][1] * sy]
+        pd["moves"] = [[m[0] * sx, m[1] * sy] for m in pd["moves"]]
+    board["canvasWidth"] = DISPLAY_W
+    board["canvasHeight"] = DISPLAY_H
+    return board
 
 
 def to_canvas(drill: Drill, sport: str) -> None:
@@ -1037,6 +1100,42 @@ def frame_of(sport: str, board: dict) -> str | None:
     return None
 
 
+def _second_ball(drill: Drill, sport: str, home_ids, idx: int,
+                 carrier_id) -> dict:
+    """Resolve and emit the drill's second ball.
+
+    It goes through the very same machinery the first one does — the ball
+    fields are swapped out, resolve_ball runs again, the result is taken, and
+    the first ball's state is put back so the note still narrates it. Writing
+    a parallel resolver would mean two sets of rules for carries, holders and
+    degenerate legs, and they would drift.
+    """
+    keep = (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+            drill.ball_carriers, drill.ball_holders)
+    try:
+        drill.ball = drill.ball2
+        drill.ball_to = list(drill.ball2_to)
+        drill.ball_moves = []
+        drill.ball_follow = None
+        drill.ball_carriers = []
+        drill.ball_holders = []
+        resolve_ball(drill, sport)
+        prune_degenerate_ball_legs(drill, sport)
+        bx, by = ball_start(drill, sport)
+        attached = (home_ids[drill.ball] if isinstance(drill.ball, int)
+                    else None)
+        holder0 = (carrier_id(drill.ball) if isinstance(drill.ball, int)
+                   else None)
+        return _ball(idx, sport, bx, by, attached,
+                     drill.ball_moves,
+                     [carrier_id(c) for c in drill.ball_carriers],
+                     [carrier_id(c) for c in drill.ball_holders],
+                     holder0)
+    finally:
+        (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+         drill.ball_carriers, drill.ball_holders) = keep
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     from .narrate import compose_note
     unlabel_lone_player(drill)
@@ -1090,8 +1189,13 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
             bx, by = ball_start(drill, sport)
-            players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
-                                 drill.ball_moves, carriers, holders, holder0))
+            for n in range(max(1, drill.balls)):
+                players.append(_ball(n, sport, bx, by, home_ids[drill.ball],
+                                     drill.ball_moves, carriers, holders,
+                                     holder0))
+            if drill.ball2 is not None:
+                players.append(_second_ball(drill, sport, home_ids,
+                                            len(players), carrier_id))
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
                                  drill.ball_moves, carriers, holders, holder0))
@@ -1550,7 +1654,14 @@ def at_the_feet_of(x: float, y: float, sport: str,
     # A ball pushed ahead at the touchline must not be pushed off it. Only
     # for a moving holder: a man standing outside the field of play — the
     # thrower, the corner taker — keeps his ball out there with him.
-    if clamp:
+    #
+    # And only for a holder who is himself inside it. A table tennis player
+    # stands a long way behind the table on purpose, so the clamp hauled his
+    # ball forward onto the table and left him empty-handed — eighteen
+    # boards opened with a ball lying on the far edge belonging to nobody.
+    inside = (left + 15 <= x <= left + w - 15
+              and top + 15 <= y <= top + h - 15)
+    if clamp and inside:
         return (min(max(bx, left + 15), left + w - 15),
                 min(max(by, top + 15), top + h - 15))
     return bx, by
@@ -1728,6 +1839,31 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
         assert not _STUTTER.search(name) and "  " not in name, (
             f"{sport}/{drill.id} [{loc}]: {name!r} reads as a stutter")
 
+    # Nobody crosses the net.
+    #
+    # It is the one rule of a net sport a board can break without looking
+    # wrong anywhere else, and six of them had: a beach-tennis man ran the
+    # length of the court to a point 44% into the other half, and five more
+    # boards put somebody a few points past the line. The usual cause is a
+    # coordinate written for the far side and then used for a near-side
+    # player, or the reverse.
+    #
+    # Two points' tolerance, because standing ON the line is standing at the
+    # net, which is where half of these drills are played.
+    if sport in NET_RALLY_SPORTS | {"volleyball"}:
+        left, top, w, h = court_rect(sport)
+        net = top + h / 2
+        for p in people:
+            pts = [p["position"], *p["moves"]]
+            sides = {q[1] > net for q in pts if abs(q[1] - net) > 2}
+            if len(sides) > 1:
+                start = pts[0][1] > net
+                over = max(abs(q[1] - net) for q in pts if (q[1] > net) != start)
+                raise AssertionError(
+                    f"{sport}/{drill.id}: {p['label']!r} crosses the net — "
+                    f"{over:.0f} of {h:.0f} units ({over / h * 100:.0f}% of "
+                    f"the court) into the other half")
+
     if drill.off_surface:
         left, top, w, h = court_rect(sport)
         def outside(pt):
@@ -1813,6 +1949,11 @@ def build(sport: str, library) -> dict:
         # it was before narration ever ran.
         board = build_board(d, sport)
         audit(sport, d, board)
+        # Everything that reasons about the board does it in the authoring
+        # frame — the audit above, frame_of below — so the conversion comes
+        # last, after the record is built. See to_display_frame.
+        frame = frame_of(sport, board)
+        board = to_display_frame(board)
         records.append({
                 "id": d.id,
                 "level": derive_level(d),
@@ -1826,7 +1967,7 @@ def build(sport: str, library) -> dict:
                 "players": d.player_count,
                 "free": d.free,
                 "usage": d.usage,
-                "frame": frame_of(sport, board),
+                "frame": frame,
                 "offSurface": d.off_surface,
                 # A scrum, a maul, a lineout, a wall: the author says the
                 # bodies really are touching, and the pile-up check trusts it.

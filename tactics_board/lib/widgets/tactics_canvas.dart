@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:flutter/gestures.dart' show kDoubleTapTimeout;
 import 'package:flutter/material.dart';
 import '../ui/tokens.dart';
 import 'package:flutter/services.dart';
@@ -50,12 +51,15 @@ import 'player_icon_widget.dart';
 /// hiding the numbers of the players they belonged to, and a cone under a
 /// player's foot is the picture a coach meant.
 @visibleForTesting
-List<PlayerIcon> inPaintOrderForTest(List<PlayerIcon> players,
-        {double Function(PlayerIcon)? depth}) =>
-    _inPaintOrder(players, depth);
+List<PlayerIcon> inPaintOrderForTest(
+  List<PlayerIcon> players, {
+  double Function(PlayerIcon)? depth,
+}) => _inPaintOrder(players, depth);
 
-List<PlayerIcon> _inPaintOrder(List<PlayerIcon> players,
-    [double Function(PlayerIcon)? depth]) {
+List<PlayerIcon> _inPaintOrder(
+  List<PlayerIcon> players, [
+  double Function(PlayerIcon)? depth,
+]) {
   final markers = <PlayerIcon>[];
   final rest = <(double, int, PlayerIcon)>[];
   for (var i = 0; i < players.length; i++) {
@@ -169,6 +173,20 @@ const double _kHandAnchor = kPlayerIconSize * 0.30;
 const double _kHandAhead = kPlayerIconSize * 0.20;
 const double _kHandSide = kPlayerIconSize * 0.40;
 
+/// A volleyball is played off the platform or above the head, never carried.
+///
+/// At the hands' 0.30 below the middle the ball sat at the player's thigh,
+/// which is the one height a volleyball is never at. Level with the middle
+/// is his chest: a pass taken on the forearms, a set in front of the
+/// forehead, a dig in front of the knees — all of them nearer the top half
+/// of him than the floor. Still 0.40 out to the side, so it clears the
+/// shirt and its number.
+const double _kChestAnchor = kPlayerIconSize * -0.05;
+
+/// One ball on its way to a holder: where it would sit between his feet, how
+/// far across his facing the next one goes, and how much of the pull applies.
+typedef _Held = ({String id, Offset middle, Offset across, double weight});
+
 /// Where a ball its holder owns is drawn, relative to the middle of his
 /// token: how far to the side, and how far down the screen.
 ///
@@ -187,8 +205,16 @@ const double _kHandSide = kPlayerIconSize * 0.40;
       SportType.soccer ||
       SportType.footvolley ||
       SportType.sepakTakraw ||
-      SportType.fieldHockey =>
-        (anchor: _kFeetAnchor, ahead: _kFeetAhead, side: _kFeetSide),
+      SportType.fieldHockey => (
+        anchor: _kFeetAnchor,
+        ahead: _kFeetAhead,
+        side: _kFeetSide,
+      ),
+      SportType.volleyball => (
+        anchor: _kChestAnchor,
+        ahead: _kHandAhead,
+        side: _kHandSide,
+      ),
       _ => (anchor: _kHandAnchor, ahead: _kHandAhead, side: _kHandSide),
     };
 
@@ -217,10 +243,12 @@ Map<String, Offset> ballAtFeetOffsets(
   int boardTurns = 0,
   String? Function(PlayerIcon ball)? holderOf,
   SportType sport = SportType.soccer,
+
   /// Filled, when given, with the man each ball was decided to belong to.
   /// Who that is takes the board's word, a reach test and a keeper rule;
   /// the layering needs the same answer and must not work it out twice.
   Map<String, PlayerIcon>? intoHolders,
+
   /// Whether the ball has come to rest where it was going.
   ///
   /// The pull fades with distance so a ball LEAVING on a pass slides free
@@ -232,17 +260,28 @@ Map<String, Offset> ballAtFeetOffsets(
   /// and came to rest a stride behind him — "the ball was right before the
   /// move and wrong once it came over".
   bool settled = false,
+
   /// Which way each holder faces, radians clockwise from up the BOARD (the
   /// same angle TopDownPlayerPainter is given). The ball goes ahead of him
   /// along it. Without it everyone is taken to face the viewer, which is
   /// what a caller with no beat to read it from gets.
   double Function(PlayerIcon holder)? headingOf,
+
+  /// The playing surface, in board coordinates. A man standing in the corner
+  /// had the ball put at his outside hand, which is over the line: on a board
+  /// where the court is the whole subject, a ball off the court reads as a
+  /// mistake. Given it, the ball takes whichever side keeps it in play.
+  Rect? court,
 }) {
   final hold = ballHoldAt(sport);
-  final holders =
-      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  final holders = players
+      .where((p) => !p.isMarker && !p.isBall)
+      .toList(growable: false);
   if (holders.isEmpty) return const {};
   final result = <String, Offset>{};
+  // Every ball each holder was given, so the ones who ended up with more
+  // than one can be spread apart below.
+  final mine = <String, List<_Held>>{};
   for (final ball in players) {
     if (!ball.isBall) continue;
     final at = positionOf(ball);
@@ -254,6 +293,25 @@ Map<String, Offset> ballAtFeetOffsets(
     // to: the pass was drawn arriving at his own other foot, two balls a
     // stride apart with a stub of an arrow between them.
     final named = holderOf?.call(ball);
+    // A board that names holders and names nobody for this beat means the
+    // ball is in the air: a shot, a loose ball, a pass between two men. It
+    // must stay where the route puts it. Falling through to "nearest body"
+    // magnetised a shot back onto the shooter's boot — the board drew him
+    // taking it rather than letting it go, and once the start-of-leg trace
+    // was drawn too he stood there with a ball either side of him.
+    // A list of nothing but nulls is not an answer, it is a board that was
+    // never asked: a drill whose ball legs are written as coordinates fills
+    // the list to length with nulls and names nobody at all. Read as "the
+    // ball is loose on every leg", a throw that lands on a fielder was left
+    // dead centre on his token and disappeared behind him — the board said
+    // "F throws to CF" with no ball anywhere on it.
+    final boardNamesHolders =
+        ball.moves.isNotEmpty &&
+        ball.moveHolders.length == ball.moves.length &&
+        ball.moveHolders.any((h) => h != null);
+    // Only when the caller actually asked: with no holderOf, a null means
+    // nobody enquired, and the nearest-body rule is the whole answer.
+    if (holderOf != null && named == null && boardNamesHolders) continue;
     if (named != null) {
       for (final p in holders) {
         if (p.id == named) {
@@ -330,16 +388,62 @@ Map<String, Offset> ballAtFeetOffsets(
       }
       return nearest;
     }
+
     var chosen = side;
     if (clearance(landing(side)) < kPlayerIconSize * 0.7 * holder.scale &&
         clearance(landing(-side)) > clearance(landing(side))) {
       chosen = -side;
     }
+    // ...and not over the line, if the other side is on the court. A corner
+    // shooter stands a stride from the sideline and the ball at his outside
+    // hand sat in the crowd.
+    if (court != null &&
+        !court.contains(landing(chosen)) &&
+        court.contains(landing(-chosen))) {
+      chosen = -chosen;
+    }
     final step = spot(chosen) - d;
     result[ball.id] = turnVector(step, (4 - boardTurns) % 4) * weight;
     intoHolders?[ball.id] = holder;
+    // A man can have more than one ball — two-ball dribbling is a warm-up in
+    // half the sports here. Remember whose they are, along with the spot
+    // between his feet and which way is sideways TO HIM; the spread below
+    // needs to know how many there turned out to be before it can centre
+    // them, and it measures from the middle, not from the side one of them
+    // happened to be given.
+    (mine[him.id] ??= <_Held>[]).add((
+      id: ball.id,
+      middle: spot(0) - d,
+      weight: weight,
+      across: Offset(-forward.dy, forward.dx) * (hold.side * him.scale * 2),
+    ));
+  }
+  // Two balls at one man's feet were drawn one in front of the other: the
+  // side offset is a step along the SCREEN's x, so for a player facing
+  // across the screen "his other side" is in front of him, not beside him.
+  // Spread them across his facing instead, centred between his feet, so two
+  // read as one in each hand and three as a row. Two end up exactly where
+  // the old left/right flip put them on a board the right way up.
+  for (final held in mine.values) {
+    if (held.length < 2) continue;
+    for (var i = 0; i < held.length; i++) {
+      final h = held[i];
+      final lateral = h.across * (i - (held.length - 1) / 2);
+      result[h.id] =
+          turnVector(h.middle + lateral, (4 - boardTurns) % 4) * h.weight;
+    }
   }
   return result;
+}
+
+/// Where the ball stands at beat [beat], for the facing rules — null when
+/// the board has no ball. The volleyball fold needs it to know which way a
+/// player must not turn; see faceAcrossNet.
+Offset? ballStandingAt(List<PlayerIcon> players, int beat) {
+  for (final x in players) {
+    if (x.isBall) return ballPositionAt(players, x, beat);
+  }
+  return null;
 }
 
 /// A board-space vector as it appears on a screen turned [quarterTurns]
@@ -423,8 +527,10 @@ Map<String, Offset> markerClearOffsets(
           ? const Offset(0, -1)
           : d / d.distance;
       final lift = (1 - d.distance / reach).clamp(0.0, 1.0);
-      result[m.id] =
-          turnVector(dir * (reach - d.distance) * lift, (4 - boardTurns) % 4);
+      result[m.id] = turnVector(
+        dir * (reach - d.distance) * lift,
+        (4 - boardTurns) % 4,
+      );
       break;
     }
   }
@@ -451,8 +557,9 @@ Map<String, Offset> fanOutOffsets(
   List<PlayerIcon> players,
   Offset Function(PlayerIcon) positionOf,
 ) {
-  final subjects =
-      players.where((p) => !p.isMarker && !p.isBall).toList(growable: false);
+  final subjects = players
+      .where((p) => !p.isMarker && !p.isBall)
+      .toList(growable: false);
   if (subjects.length < 2) return const {};
 
   // Connected components: A near B and B near C puts all three in one group,
@@ -466,8 +573,8 @@ Map<String, Offset> fanOutOffsets(
     for (var g = 0; g < group.length; g++) {
       for (var j = 0; j < subjects.length; j++) {
         if (seen.contains(j)) continue;
-        final d = (positionOf(subjects[group[g]]) - positionOf(subjects[j]))
-            .distance;
+        final d =
+            (positionOf(subjects[group[g]]) - positionOf(subjects[j])).distance;
         if (d < _kFanThreshold) {
           seen.add(j);
           group.add(j);
@@ -509,8 +616,10 @@ Map<String, Offset> fanOutOffsets(
       final dir = away.distance < 0.5
           // Exactly stacked: no direction to push along, so spread them
           // evenly around the circle instead.
-          ? Offset(math.cos(2 * math.pi * k / members.length),
-              math.sin(2 * math.pi * k / members.length))
+          ? Offset(
+              math.cos(2 * math.pi * k / members.length),
+              math.sin(2 * math.pi * k / members.length),
+            )
           : away / away.distance;
       result[members[k].id] = dir * push;
     }
@@ -543,8 +652,13 @@ class TacticsCanvas extends StatefulWidget {
 }
 
 class _TacticsCanvasState extends State<TacticsCanvas> {
+  // The last tap on a text element, for telling a second tap from a first.
+  String? _lastTextTapId;
+  DateTime? _lastTextTapAt;
+
   TacticsState? _stateOrNull;
   TacticsState get _state => _stateOrNull!;
+
   /// True while a multi-select pan is moving the group (started on a
   /// selected stroke). When false, multi-select pans draw the lasso rect.
   bool _multiSelectStrokeDragging = false;
@@ -662,183 +776,222 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     if (sw <= 0 || sh <= 0) return const SizedBox(width: 960, height: 540);
     Offset sc(Offset p) => Offset(p.dx / sw * pw, p.dy / sh * ph);
     final players = _inPaintOrder(_state.players);
-    final sPlayers = players.map((p) => p.copyWith(
-      position: sc(p.position),
-      moves: p.moves.map(sc).toList(),
-    )).toList();
-    final sStrokes = _visibleStrokes(_state, players).map((s) => s.copyWith(
-      points: s.points.map(sc).toList(),
-    )).toList();
+    final sPlayers = players
+        .map(
+          (p) => p.copyWith(
+            position: sc(p.position),
+            moves: p.moves.map(sc).toList(),
+          ),
+        )
+        .toList();
+    final sStrokes = _visibleStrokes(
+      _state,
+      players,
+    ).map((s) => s.copyWith(points: s.points.map(sc).toList())).toList();
     // RotatedBox(quarterTurns: 3) = 90° CCW: portrait bottom → landscape left (home side)
     // Its tokens counter-turn by hand below, so the board's own orientation
     // must not reach them or they would turn twice.
     return BoardOrientation(
       quarterTurns: 0,
       child: RotatedBox(
-      quarterTurns: 3,
-      child: SizedBox(
-        width: pw,
-        height: ph,
-        child: Stack(
-          children: [
-            CustomPaint(
-              painter: _courtPainter(_state.sportType),
-              size: const Size(pw, ph),
-              child: const SizedBox(width: pw, height: ph),
-            ),
-            CustomPaint(
-              painter: DrawingPainter(
-                strokes: sStrokes,
-                currentStroke: null,
-                selectedStrokeId: null,
+        quarterTurns: 3,
+        child: SizedBox(
+          width: pw,
+          height: ph,
+          child: Stack(
+            children: [
+              CustomPaint(
+                painter: _courtPainter(_state.sportType),
+                size: const Size(pw, ph),
+                child: const SizedBox(width: pw, height: ph),
               ),
-              size: const Size(pw, ph),
-            ),
-            // Equipment under the ghosts, same as on screen.
-            ...sPlayers.where((p) => p.isMarker).map(_externalIcon),
-            // Ghost icons at starting positions
-            if (_state.showMoveLines)
-              ...sPlayers.where((p) => p.moves.isNotEmpty).map((player) {
-                final size = kPlayerIconSize * player.scale;
-                final hasPhoto = player.photoId != null &&
-                    !player.isMarker &&
-                    !player.isBall;
-                return Positioned(
-                  left: player.position.dx - size / 2,
-                  top: player.position.dy - size / 2,
-                  child: SizedBox(
-                    width: size,
-                    height: size,
-                    child: hasPhoto
-                        ? PhotoPlayerShape(
-                            player: player,
-                            isSelected: false,
-                            isGhost: true,
-                          )
-                        : player.isBall
-                        ? Opacity(
-                            opacity: 0.45,
-                            child: Center(
-                              child: FractionallySizedBox(
-                                widthFactor: kBallDrawFactor,
-                                heightFactor: kBallDrawFactor,
-                                child: ballWidget(
-                                    player.sportType ?? _state.sportType),
+              CustomPaint(
+                painter: DrawingPainter(
+                  strokes: sStrokes,
+                  currentStroke: null,
+                  selectedStrokeId: null,
+                ),
+                size: const Size(pw, ph),
+              ),
+              // Equipment under the ghosts, same as on screen.
+              ...sPlayers.where((p) => p.isMarker).map(_externalIcon),
+              // Ghost icons at starting positions
+              if (_state.showMoveLines)
+                ...sPlayers.where((p) => p.moves.isNotEmpty).map((player) {
+                  final size = kPlayerIconSize * player.scale;
+                  final hasPhoto =
+                      player.photoId != null &&
+                      !player.isMarker &&
+                      !player.isBall;
+                  return Positioned(
+                    left: player.position.dx - size / 2,
+                    top: player.position.dy - size / 2,
+                    child: SizedBox(
+                      width: size,
+                      height: size,
+                      child: hasPhoto
+                          ? PhotoPlayerShape(
+                              player: player,
+                              isSelected: false,
+                              isGhost: true,
+                            )
+                          : player.isBall
+                          ? Opacity(
+                              opacity: 0.45,
+                              child: Center(
+                                child: FractionallySizedBox(
+                                  widthFactor: ballDrawFactor(
+                                    player.sportType ?? _state.sportType,
+                                  ),
+                                  heightFactor: ballDrawFactor(
+                                    player.sportType ?? _state.sportType,
+                                  ),
+                                  child: ballWidget(
+                                    player.sportType ?? _state.sportType,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : RotatedBox(
+                              quarterTurns: BoardOrientation.counterTurns(
+                                context,
+                              ),
+                              child: CustomPaint(
+                                painter: TopDownPlayerPainter(
+                                  color: player.color,
+                                  borderColor: Colors.white,
+                                  borderWidth: 1.5,
+                                  gender: player.gender,
+                                  figure: TopDownPlayerPainter.figureFor(
+                                    _state.sportType,
+                                    player,
+                                  ),
+                                  sport: _state.sportType,
+                                  heading: playerFacing(player),
+                                  boardTurns: widget.boardTurns,
+                                  isGhost: true,
+                                ),
                               ),
                             ),
-                          )
-                        : RotatedBox(
-                            quarterTurns:
-                                BoardOrientation.counterTurns(context),
-                            child: CustomPaint(
-                            painter: TopDownPlayerPainter(
-                              color: player.color,
-                              borderColor: Colors.white,
-                              borderWidth: 1.5,
-                              gender: player.gender,
-                              figure: TopDownPlayerPainter.figureFor(
-                                  _state.sportType, player),
-                              sport: _state.sportType,
-                              heading: playerFacing(player),
-                              boardTurns: widget.boardTurns,
-                              isGhost: true,
+                    ),
+                  );
+                }),
+              // Waypoint dots
+              if (!_state.isAnimating && _state.showMoveLines)
+                ...sPlayers.expand((player) {
+                  return player.moves.asMap().entries.map((entry) {
+                    final isLast = entry.key == player.moves.length - 1;
+                    final pos = entry.value;
+                    if (isLast) {
+                      return Positioned(
+                        left: pos.dx - kPlayerIconSize / 2,
+                        top: pos.dy - kPlayerIconSize / 2,
+                        child: IgnorePointer(
+                          child: RotatedBox(
+                            quarterTurns: 1,
+                            child: SizedBox(
+                              width: kPlayerIconSize,
+                              height: kPlayerIconSize,
+                              child:
+                                  player.photoId != null &&
+                                      !player.isMarker &&
+                                      !player.isBall
+                                  ? PhotoPlayerShape(
+                                      player: player,
+                                      isSelected: false,
+                                    )
+                                  : player.isBall
+                                  ? Center(
+                                      child: FractionallySizedBox(
+                                        widthFactor: ballDrawFactor(
+                                          player.sportType!,
+                                        ),
+                                        heightFactor: ballDrawFactor(
+                                          player.sportType!,
+                                        ),
+                                        child: ballWidget(player.sportType!),
+                                      ),
+                                    )
+                                  : CustomPaint(
+                                      painter: player.isMarker
+                                          ? MarkerPainter(
+                                              shape: player.markerShape,
+                                              color: player.color,
+                                            )
+                                          : TopDownPlayerPainter(
+                                              color: player.color,
+                                              borderColor: player.moveColor,
+                                              borderWidth: 2.5,
+                                              gender: player.gender,
+                                              figure:
+                                                  TopDownPlayerPainter.figureFor(
+                                                    _state.sportType,
+                                                    player,
+                                                  ),
+                                              sport: _state.sportType,
+                                              heading: playerFacing(player),
+                                              boardTurns: widget.boardTurns,
+                                            ),
+                                    ),
                             ),
-                          )),
-                  ),
-                );
-              }),
-            // Waypoint dots
-            if (!_state.isAnimating && _state.showMoveLines)
-              ...sPlayers.expand((player) {
-                return player.moves.asMap().entries.map((entry) {
-                  final isLast = entry.key == player.moves.length - 1;
-                  final pos = entry.value;
-                  if (isLast) {
+                          ),
+                        ),
+                      );
+                    }
+                    const dotSize = 28.0;
                     return Positioned(
-                      left: pos.dx - kPlayerIconSize / 2,
-                      top: pos.dy - kPlayerIconSize / 2,
+                      left: pos.dx - dotSize / 2,
+                      top: pos.dy - dotSize / 2,
                       child: IgnorePointer(
                         child: RotatedBox(
                           quarterTurns: 1,
-                          child: SizedBox(
-                            width: kPlayerIconSize,
-                            height: kPlayerIconSize,
-                            child: player.photoId != null && !player.isMarker && !player.isBall
-                                ? PhotoPlayerShape(player: player, isSelected: false)
-                                : player.isBall
-                                ? Center(
-                                    child: FractionallySizedBox(
-                                      widthFactor: kBallDrawFactor,
-                                      heightFactor: kBallDrawFactor,
-                                      child: ballWidget(player.sportType!),
-                                    ),
-                                  )
-                                : CustomPaint(
-                              painter: player.isMarker
-                                  ? MarkerPainter(shape: player.markerShape, color: player.color)
-                                  : TopDownPlayerPainter(
-                                      color: player.color,
-                                      borderColor: player.moveColor,
-                                      borderWidth: 2.5,
-                                      gender: player.gender,
-                                      figure:
-                                          TopDownPlayerPainter.figureFor(
-                                              _state.sportType, player),
-                                      sport: _state.sportType,
-                                      heading: playerFacing(player),
-                                      boardTurns: widget.boardTurns,
-                                    ),
+                          child: Container(
+                            width: dotSize,
+                            height: dotSize,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: player.moveColor,
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '${entry.key + 1}',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1,
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     );
-                  }
-                  const dotSize = 28.0;
-                  return Positioned(
-                    left: pos.dx - dotSize / 2,
-                    top: pos.dy - dotSize / 2,
-                    child: IgnorePointer(
-                      child: RotatedBox(
-                        quarterTurns: 1,
-                        child: Container(
-                          width: dotSize,
-                          height: dotSize,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: player.moveColor,
-                            border: Border.all(color: Colors.white, width: 2),
-                          ),
-                          child: Center(
-                            child: Text(
-                              '${entry.key + 1}',
-                              style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                });
-              }),
-            ...sPlayers.where((p) => !p.isMarker).map(_externalIcon),
-            if (_state.showMoveLines)
-              CustomPaint(
-                painter: PlayerMovesPainter(
-                  players: sPlayers,
-                  targetStep: _state.atStep > 0 ? _state.atStep : _state.targetStep,
-                  completedSteps: _state.isAnimating
-                      ? (_state.animToStep > _state.animFromStep
-                          ? _state.atStep + 1
-                          : _state.atStep)
-                      : null,
+                  });
+                }),
+              ...sPlayers.where((p) => !p.isMarker).map(_externalIcon),
+              if (_state.showMoveLines)
+                CustomPaint(
+                  painter: PlayerMovesPainter(
+                    players: sPlayers,
+                    sport: _state.sportType,
+                    targetStep: _state.atStep > 0
+                        ? _state.atStep
+                        : _state.targetStep,
+                    completedSteps: _state.isAnimating
+                        ? (_state.animToStep > _state.animFromStep
+                              ? _state.atStep + 1
+                              : _state.atStep)
+                        : null,
+                  ),
+                  size: const Size(pw, ph),
                 ),
-                size: const Size(pw, ph),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 
   @override
@@ -866,7 +1019,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             ),
           ),
         LayoutBuilder(
-      builder: (context, constraints) {
+          builder: (context, constraints) {
             final canvasW = constraints.maxWidth;
             final canvasH = constraints.maxHeight;
             final newSize = Size(canvasW, canvasH);
@@ -877,8 +1030,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             final players = _inPaintOrder(state.players);
 
             final eraser = state.isDrawingMode && state.eraserMode;
-            final draggingStroke = state.isDrawingMode &&
-                state.selectedStrokeId != null && !eraser;
+            final draggingStroke =
+                state.isDrawingMode &&
+                state.selectedStrokeId != null &&
+                !eraser;
             final isAddMove =
                 state.isAddingMove && state.selectedPlayerId != null;
             final locked = state.presentationMode;
@@ -891,7 +1046,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             // Canvas-level single-finger gestures: drawing, erasing,
             // multi-select lasso, or laying a run. All off while the board
             // is locked (presentation) or being zoomed.
-            final pannable = !useViewer &&
+            final pannable =
+                !useViewer &&
                 (state.isDrawingMode || state.multiSelectMode || isAddMove);
 
             final board = GestureDetector(
@@ -963,7 +1119,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                         }
                       } else if (isAddMove && _addMovePanPos != null) {
                         state.addPlayerMove(
-                            state.selectedPlayerId!, _addMovePanPos!);
+                          state.selectedPlayerId!,
+                          _addMovePanPos!,
+                        );
                         HapticFeedback.selectionClick();
                         _addMovePanPos = null;
                       }
@@ -992,7 +1150,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       } else if (isAddMove) {
                         // Explicit add-run sub-mode: a tap appends a waypoint.
                         state.addPlayerMove(
-                            state.selectedPlayerId!, d.localPosition);
+                          state.selectedPlayerId!,
+                          d.localPosition,
+                        );
                         HapticFeedback.selectionClick();
                       } else {
                         // Plain move mode: tapping a stroke selects it;
@@ -1019,11 +1179,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final wrapped = RepaintBoundary(
               key: widget.preview ? null : boardRepaintKey,
-              child: SizedBox(
-                width: canvasW,
-                height: canvasH,
-                child: board,
-              ),
+              child: SizedBox(width: canvasW, height: canvasH, child: board),
             );
             // Only mount the InteractiveViewer while zooming/presenting; in
             // normal editing apply any existing zoom statically (no gesture
@@ -1048,13 +1204,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     ),
                     child: wrapped,
                   );
-      },
-    ),
+          },
+        ),
       ],
     );
   }
 
-  Widget _buildCanvasContent(TacticsState state, List<PlayerIcon> players, double canvasW, double canvasH) {
+  Widget _buildCanvasContent(
+    TacticsState state,
+    List<PlayerIcon> players,
+    double canvasW,
+    double canvasH,
+  ) {
     // Beats elapsed, whichever way the board is being stepped: atStep when
     // played in the app, targetStep when a tool shoots a frame.
     // The beat on show. At rest it is the beat the stepper is parked on.
@@ -1075,11 +1236,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     // drew the whole plan.
     final stepLimit = state.isAnimating
         ? (state.animToStep > state.animFromStep
-            ? math.min(state.atStep + 1, state.animToStep)
-            : math.max(state.atStep, 1))
+              ? math.min(state.atStep + 1, state.animToStep)
+              : math.max(state.atStep, 1))
         : (state.atStep > 0
-            ? state.atStep
-            : (state.targetStep > 0 ? state.targetStep : 0));
+              ? state.atStep
+              : (state.targetStep > 0 ? state.targetStep : 0));
     // Where a token that is not being animated STANDS: after the beats
     // done, not the beat on show. They differ only while a beat plays, and
     // for the frame between one beat completing and the next one's first
@@ -1115,7 +1276,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     /// with, so the ball goes where the man is looking.
     double headingAt(PlayerIcon p, int beat) => p.facingLocked
         ? playerFacing(p)
-        : (boardHeading(players, p, beat) ?? playerFacing(p));
+        // The net fold goes on the OUTSIDE of the ?? — the fallback is a
+        // heading too, and the generator's opening stance is where these
+        // boards get theirs: a badminton player is posed at 135 degrees,
+        // facing down the court, and a beat with no cue of its own left
+        // him standing like that with his back to the net.
+        : faceAcrossNet(
+            boardHeading(players, p, beat) ?? playerFacing(p),
+            p,
+            _state.sportType,
+            standingAt(p, beat),
+            _state.canvasSize,
+            ball: ballStandingAt(players, beat),
+            ballFrom: ballStandingAt(players, beat - 1),
+          );
     // "Playing" is stricter than isAnimating: the flag goes up a frame
     // before the driver has placed anything, and for that one frame the
     // board still looks exactly like the rest frame before it. Reading the
@@ -1133,6 +1307,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         boardTurns: widget.boardTurns,
         holderOf: (b) => ballHolderAt(b, restBeat),
         sport: state.sportType,
+        court: state.sportType.fieldRect(state.canvasSize),
         intoHolders: holders,
         settled: !playing,
         headingOf: (p) => headingAt(p, restBeat),
@@ -1152,16 +1327,19 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     // defender a stride nearer the viewer than the man on the ball covers
     // it, as he would.
     double contactOf(PlayerIcon p) =>
-        turnVector(drawnAt(p) + (fan[p.id] ?? Offset.zero), widget.boardTurns)
-            .dy +
+        turnVector(
+          drawnAt(p) + (fan[p.id] ?? Offset.zero),
+          widget.boardTurns,
+        ).dy +
         kPlayerIconSize * 0.70 * p.scale;
     double depthOf(PlayerIcon p) {
       if (!p.isBall) return contactOf(p);
       final h = holders[p.id];
       if (h == null) {
-        return turnVector(drawnAt(p) + (feet[p.id] ?? Offset.zero),
-                    widget.boardTurns)
-                .dy +
+        return turnVector(
+              drawnAt(p) + (feet[p.id] ?? Offset.zero),
+              widget.boardTurns,
+            ).dy +
             kPlayerIconSize * 0.26 * p.scale;
       }
       return contactOf(h) +
@@ -1169,6 +1347,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               ? -0.5
               : 0.5);
     }
+
     players = _inPaintOrder(players, depthOf);
 
     /// Whether [p]'s name badge, hung under his feet, would land on the
@@ -1183,23 +1362,33 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         return false;
       }
       final at = turnVector(
-          drawnAt(p) + (fan[p.id] ?? Offset.zero), widget.boardTurns);
+        drawnAt(p) + (fan[p.id] ?? Offset.zero),
+        widget.boardTurns,
+      );
       final badge = Rect.fromCenter(
-          center: at + Offset(0, (kPlayerIconSize * 0.5 + 11.7) * p.scale),
-          width: 26 * p.scale,
-          height: 13 * p.scale);
+        center: at + Offset(0, (kPlayerIconSize * 0.5 + 11.7) * p.scale),
+        width: 26 * p.scale,
+        height: 13 * p.scale,
+      );
       final mine = depthOf(p);
       for (final q in players) {
         if (identical(q, p) || q.isBall || q.isMarker) continue;
         if (depthOf(q) <= mine) continue;
         final qa = turnVector(
-            drawnAt(q) + (fan[q.id] ?? Offset.zero), widget.boardTurns);
-        final head = Rect.fromLTRB(qa.dx - 12 * q.scale, qa.dy - 24 * q.scale,
-            qa.dx + 12 * q.scale, qa.dy - 6 * q.scale);
+          drawnAt(q) + (fan[q.id] ?? Offset.zero),
+          widget.boardTurns,
+        );
+        final head = Rect.fromLTRB(
+          qa.dx - 12 * q.scale,
+          qa.dy - 24 * q.scale,
+          qa.dx + 12 * q.scale,
+          qa.dy - 6 * q.scale,
+        );
         if (badge.overlaps(head)) return true;
       }
       return false;
     }
+
     // Equipment a player is standing in front of, lifted clear of them.
     final clear = markerClearOffsets(
       players,
@@ -1230,10 +1419,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
     int limitFor(PlayerIcon p) =>
         (!state.isAnimating &&
-                state.selectedPlayerId == p.id &&
-                p.moves.isNotEmpty)
-            ? 0
-            : stepLimit;
+            state.selectedPlayerId == p.id &&
+            p.moves.isNotEmpty)
+        ? 0
+        : stepLimit;
 
     /// Where a ghost stands: the spot the beat on show starts from.
     Offset ghostStart(PlayerIcon p) => stepStart(p, limitFor(p));
@@ -1263,6 +1452,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       // As the leg began: whoever had it after the beat before.
       holderOf: (b) => ballHolderAt(b, limitFor(b) - 1),
       sport: state.sportType,
+      court: state.sportType.fieldRect(state.canvasSize),
       // A trace is a rest frame by definition — the spot the leg set off
       // from, with the ball on that man's boot.
       settled: true,
@@ -1300,12 +1490,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         // way he will be facing. Worked out without those it aimed at a
         // different spot, and the ball landed there and then hopped to its
         // foot when the beat was counted.
-        final to = ballAtFeetOffsets(
+        final to =
+            ballAtFeetOffsets(
               players,
               (p) => chainEndAt(p, after),
               boardTurns: widget.boardTurns,
               holderOf: (b) => ballHolderAt(b, after),
               sport: state.sportType,
+              court: state.sportType.fieldRect(state.canvasSize),
               settled: true,
               headingOf: (p) => headingAt(p, after),
             )[ball.id] ??
@@ -1320,12 +1512,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     Widget playerIcon(PlayerIcon player) {
       final animPos = state.animatedPositions[player.id];
       final inMulti =
-          state.multiSelectMode &&
-          state.multiSelectIds.contains(player.id);
-      final selected =
-          state.selectedPlayerId == player.id || inMulti;
-      final atStartTime =
-          state.atStep == 0 && state.targetStep == 0;
+          state.multiSelectMode && state.multiSelectIds.contains(player.id);
+      final selected = state.selectedPlayerId == player.id || inMulti;
+      final atStartTime = state.atStep == 0 && state.targetStep == 0;
       // A player whose phases start AFTER the current step
       // hasn't moved yet — their start position is still their
       // current position, so don't hide the icon as a "past
@@ -1338,9 +1527,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       if (phaseLimit > 0 && player.moves.isNotEmpty) {
         player.syncPhases();
         for (int i = 0; i < player.moves.length; i++) {
-          final ph = i < player.movePhases.length
-              ? player.movePhases[i]
-              : i;
+          final ph = i < player.movePhases.length ? player.movePhases[i] : i;
           if (ph < phaseLimit) {
             hasStartedMoving = true;
             break;
@@ -1355,13 +1542,22 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       // been, then turned back when the beat was counted. A flash at the
       // end of every step, on every runner.
       final beat = state.isAnimating ? stepLimit : phaseLimit;
-      final moving = animPos != null &&
+      final moving =
+          animPos != null &&
           (animPos - chainEndAt(player, state.atStep)).distance > 0.5;
       final heading = player.facingLocked
           ? playerFacing(player)
           : moving
-              ? playerHeadingAt(player, animPos)
-              : (boardHeading(players, player, beat) ?? playerFacing(player));
+          ? playerHeadingAt(player, animPos)
+          : faceAcrossNet(
+              boardHeading(players, player, beat) ?? playerFacing(player),
+              player,
+              state.sportType,
+              standingAt(player, beat),
+              state.canvasSize,
+              ball: ballStandingAt(players, beat),
+              ballFrom: ballStandingAt(players, beat - 1),
+            );
       return _PlayerOnBoard(
         key: ValueKey(player.id),
         player: player,
@@ -1371,15 +1567,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         // where the beats so far have taken it, solid — the same place the
         // animated token would be. Left at its start it read as a player
         // who had not moved, once the earlier legs stopped being drawn.
-        renderPosition: animPos ??
+        renderPosition:
+            animPos ??
             (restLimit > 0 && player.moves.isNotEmpty
                 ? chainEndAt(player, restLimit)
                 : null),
-        drawOffset: (fan[player.id] ?? Offset.zero) +
+        drawOffset:
+            (fan[player.id] ?? Offset.zero) +
             (feet[player.id] ?? Offset.zero) +
             (clear[player.id] ?? Offset.zero),
         isSelected: selected,
-        isPrimary: selected &&
+        isPrimary:
+            selected &&
             !state.multiSelectMode &&
             state.selectedWaypointIndex == null,
         isAtCurrentStep: atStartTime || !hasStartedMoving,
@@ -1389,6 +1588,24 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         onTap: () {
           if (state.multiSelectMode) {
             state.toggleMultiSelectId(player.id);
+          } else if (isTextElement(player)) {
+            // One tap selects and KEEPS it selected; a second within the
+            // double-tap window opens the words to be rewritten.
+            //
+            // Counted here rather than with a double-tap recogniser, because
+            // a GestureDetector that has one holds every single tap back for
+            // the whole window to see whether a second is coming — and a
+            // selection that lands a third of a second late feels broken.
+            // A tap here is answered at once; only the second one knows it
+            // was a second one.
+            final now = DateTime.now();
+            final again = _lastTextTapId == player.id &&
+                _lastTextTapAt != null &&
+                now.difference(_lastTextTapAt!) < kDoubleTapTimeout;
+            _lastTextTapId = player.id;
+            _lastTextTapAt = now;
+            state.selectPlayer(player.id);
+            if (again) state.requestLabelEdit(player.id);
           } else {
             state.selectPlayer(selected ? null : player.id);
           }
@@ -1401,389 +1618,466 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
     }
 
     PlayerMovesPainter routes(RouteLayer layer) => PlayerMovesPainter(
-                          layer: layer,
-                          // Down the screen, in the board's coordinates:
-                          // the figures' feet are that way whichever way
-                          // the board is turned.
-                          footward: turnVector(
-                              const Offset(0, 1), (4 - widget.boardTurns) % 4),
+      layer: layer,
+      // Down the screen, in the board's coordinates:
+      // the figures' feet are that way whichever way
+      // the board is turned.
+      footward: turnVector(const Offset(0, 1), (4 - widget.boardTurns) % 4),
 
-                          players: players,
-                          // Selecting an element follows it: see
-                          // PlayerMovesPainter.focusId. Only on the board —
-                          // the external display is what a room is watching,
-                          // and it must not dim because someone touched the
-                          // phone.
-                          focusId: state.selectedPlayerId,
-                          // The figures' own nudge as well as the balls'
-                          // feet: a line has to end where the token is drawn.
-                          endShift: {...fan, ...feet},
-                          startShift: {...ghostFan, ...ghostFeet},
-                          // Only while animating: at rest the ball IS at the
-                          // leg's end and endShift is the right answer.
-                          // Every ball, from the first animating frame: a
-                          // ball the driver has not placed yet is where it
-                          // rests, so its line is zero long and grows, rather
-                          // than drawn whole to the receiver for one frame
-                          // and then snapped back to the ball.
-                          livePos: state.isAnimating
-                              ? {
-                                  for (final p in players)
-                                    if (p.isBall)
-                                      p.id: (state.animatedPositions[p.id] ??
-                                              drawnAt(p)) +
-                                          (feet[p.id] ?? Offset.zero),
-                                }
-                              : const {},
-                          // Beat zero draws nothing but the one route a
-                          // coach asked for — see routeShown above.
-                          onlyFocus: stepLimit == 0 &&
-                              !state.isAnimating &&
-                              !state.showPlanAtStart,
-                          targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
-                          // The leg being run is the one to draw: going
-                          // forward that is the beat after the ones done.
-                          // The same number the ghosts use, and clamped
-                          // the same way.
-                          completedSteps: state.isAnimating ? stepLimit : null,
-                        
-                        );
+      players: players,
+      sport: state.sportType,
+      // Selecting an element follows it: see
+      // PlayerMovesPainter.focusId. Only on the board —
+      // the external display is what a room is watching,
+      // and it must not dim because someone touched the
+      // phone.
+      focusId: state.selectedPlayerId,
+      // The figures' own nudge as well as the balls'
+      // feet: a line has to end where the token is drawn.
+      endShift: {...fan, ...feet},
+      startShift: {...ghostFan, ...ghostFeet},
+      // Only while animating: at rest the ball IS at the
+      // leg's end and endShift is the right answer.
+      // Every ball, from the first animating frame: a
+      // ball the driver has not placed yet is where it
+      // rests, so its line is zero long and grows, rather
+      // than drawn whole to the receiver for one frame
+      // and then snapped back to the ball.
+      livePos: state.isAnimating
+          ? {
+              for (final p in players)
+                if (p.isBall)
+                  p.id:
+                      (state.animatedPositions[p.id] ?? drawnAt(p)) +
+                      (feet[p.id] ?? Offset.zero),
+            }
+          : const {},
+      // Beat zero draws nothing but the one route a
+      // coach asked for — see routeShown above.
+      onlyFocus: stepLimit == 0 && !state.isAnimating && !state.showPlanAtStart,
+      targetStep: state.atStep > 0 ? state.atStep : state.targetStep,
+      // The leg being run is the one to draw: going
+      // forward that is the beat after the ones done.
+      // The same number the ghosts use, and clamped
+      // the same way.
+      completedSteps: state.isAnimating ? stepLimit : null,
+    );
 
     return Stack(
-                children: [
-                  // Court background
-                  CustomPaint(
-                    painter: _courtPainter(state.sportType),
-                    size: Size(canvasW, canvasH),
-                    child: SizedBox(
-                      width: canvasW,
-                      height: canvasH,
-                    ),
-                  ),
-                  // Drawing layer (filter by phase during step playback)
-                  RotatedBox(quarterTurns: (4 - widget.boardTurns) % 4, child: CustomPaint(
-                    painter: DrawingPainter(
-                      strokes: _visibleStrokes(state, players),
-                      currentStroke: state.currentStroke,
-                      selectedStrokeId: state.selectedStrokeId,
-                      multiSelectStrokeIds: state.multiSelectStrokeIds,
-                    ),
-                    size: Size(canvasW, canvasH),
-                  )),
-                  // Equipment first — under the ghosts as well as under
-                  // the live tokens. Reordering only the icon pass left a
-                  // hurdle on top of the faint start-position marker of the
-                  // player it belongs to.
-                  ...players.where((p) => p.isMarker).map(playerIcon),
-                  // Ghost icons at initial positions for players with moves.
-                  // Under the waypoint layer: the dashed ghost is where a
-                  // player WAS, the end-of-run icon is where someone IS, and
-                  // when a runner takes the very spot another player just
-                  // left (every rotation drill) the ghost used to paint over
-                  // him, so the board showed the man who had gone instead of
-                  // the man who arrived.
-                  ...players
-                      .where((p) => p.moves.isNotEmpty && routeShown(p))
-                      .where((p) {
-                      // The ball leaves a trace at the spot its leg began,
-                      // at the feet of whoever played it: without one the
-                      // pass arrow sets off from bare grass and the board
-                      // never says where the ball came from. While it is
-                      // playing the trace appears the moment the ball has
-                      // left the spot, the same as a runner's — it used to
-                      // wait for the beat to end, so the ball flew from
-                      // bare grass and its start was drawn in afterwards.
-                      // Not before it has left, though: under the live ball
-                      // the two are one ball drawn twice.
-                      if (p.isBall && state.isAnimating) {
-                        final at = state.animatedPositions[p.id];
-                        if (at == null) return false;
-                        if ((at - ghostStart(p)).distance <
-                            kPlayerIconSize * 0.2) {
-                          return false;
-                        }
-                      }
-                      // A ghost the ball lands on is not drawn. A player who
-                      // steps forward to receive leaves his ghost a stride
-                      // behind him — exactly where the ball arrives at his
-                      // feet — and the ball then sat on the ghost's head: a
-                      // man under a ball. The dashed run from that spot to
-                      // the live player already says where he came from.
-                      // Measured on the screen, where the figure stands
-                      // upright: the figure's own ink — 14pt either side, 24
-                      // up and 26 down of the ghost's middle — grown by the
-                      // ball's radius, so touching counts: a ball resting
-                      // against a ghost's head is a ball on a head too.
-                      if (!p.isBall) {
-                        final gs = ghostStart(p);
-                        for (final b in players) {
-                          if (!b.isBall) continue;
-                          final r = kPlayerIconSize * kBallDrawFactor / 2 * b.scale;
-                          final d = turnVector(
-                              drawnAt(b) + (feet[b.id] ?? Offset.zero) - gs,
-                              widget.boardTurns);
-                          if (d.dx.abs() <= 14 * p.scale + r &&
-                              d.dy >= -24 * p.scale - r &&
-                              d.dy <= 26 * p.scale + r) {
-                            return false;
-                          }
-                        }
-                      }
-                      // Mirror of the rule above, the other way round: once
-                      // the run has been played the end icon is the live one,
-                      // and a ghost less than a token away only covers it.
-                      final limit = limitFor(p);
-                      if (limit == 0) return true;
-                      // Only the beat on show leaves a ghost, at the spot its
-                      // leg starts from; a player standing still this beat
-                      // has nothing to be a ghost of.
-                      final legs = stepLegs(p, limit);
-                      if (legs.isEmpty) return false;
-                      return (legs.last.value - stepStart(p, limit)).distance >=
-                          nudgeThreshold(p);
-                    }).map((player) {
-                      final size = kPlayerIconSize * player.scale;
-                      // At the feet of whoever played it, the same as a live
-                      // ball; the raw spot is a token's length ahead of them,
-                      // which on a standing figure is their head.
-                      final ghostAt = ghostStart(player) +
-                          (player.isBall
-                              ? ghostFeet[player.id] ?? Offset.zero
-                              : ghostFan[player.id] ?? Offset.zero);
-                      final hasPhoto = player.photoId != null &&
-                          !player.isMarker &&
-                          !player.isBall;
-                      return Positioned(
-                        key: ValueKey('ghost_${player.id}'),
-                        left: ghostAt.dx - size / 2,
-                        top: ghostAt.dy - size / 2,
-                        child: SizedBox(
-                          width: size,
-                          height: size,
-                          child: hasPhoto
-                              ? PhotoPlayerShape(
-                                  player: player,
-                                  isSelected: false,
+      children: [
+        // Court background
+        CustomPaint(
+          painter: _courtPainter(state.sportType),
+          size: Size(canvasW, canvasH),
+          child: SizedBox(width: canvasW, height: canvasH),
+        ),
+        // Drawing layer (filter by phase during step playback)
+        RotatedBox(
+          quarterTurns: (4 - widget.boardTurns) % 4,
+          child: CustomPaint(
+            painter: DrawingPainter(
+              strokes: _visibleStrokes(state, players),
+              currentStroke: state.currentStroke,
+              selectedStrokeId: state.selectedStrokeId,
+              multiSelectStrokeIds: state.multiSelectStrokeIds,
+            ),
+            size: Size(canvasW, canvasH),
+          ),
+        ),
+        // Equipment first — under the ghosts as well as under
+        // the live tokens. Reordering only the icon pass left a
+        // hurdle on top of the faint start-position marker of the
+        // player it belongs to.
+        ...players.where((p) => p.isMarker).map(playerIcon),
+        // Ghost icons at initial positions for players with moves.
+        // Under the waypoint layer: the dashed ghost is where a
+        // player WAS, the end-of-run icon is where someone IS, and
+        // when a runner takes the very spot another player just
+        // left (every rotation drill) the ghost used to paint over
+        // him, so the board showed the man who had gone instead of
+        // the man who arrived.
+        ...players
+            .where((p) => p.moves.isNotEmpty && routeShown(p))
+            .where((p) {
+              // The ball leaves a trace at the spot its leg began,
+              // at the feet of whoever played it: without one the
+              // pass arrow sets off from bare grass and the board
+              // never says where the ball came from. While it is
+              // playing the trace appears the moment the ball has
+              // left the spot, the same as a runner's — it used to
+              // wait for the beat to end, so the ball flew from
+              // bare grass and its start was drawn in afterwards.
+              // Not before it has left, though: under the live ball
+              // the two are one ball drawn twice.
+              if (p.isBall && state.isAnimating) {
+                final at = state.animatedPositions[p.id];
+                if (at == null) return false;
+                if ((at - ghostStart(p)).distance < kPlayerIconSize * 0.2) {
+                  return false;
+                }
+              }
+              // A ghost the ball lands on is not drawn. A player who
+              // steps forward to receive leaves his ghost a stride
+              // behind him — exactly where the ball arrives at his
+              // feet — and the ball then sat on the ghost's head: a
+              // man under a ball. The dashed run from that spot to
+              // the live player already says where he came from.
+              // Measured on the screen, where the figure stands
+              // upright: the figure's own ink — 14pt either side, 24
+              // up and 26 down of the ghost's middle — grown by the
+              // ball's radius, so touching counts: a ball resting
+              // against a ghost's head is a ball on a head too.
+              // Only for a stride, though. The rule above is about
+              // a man who stepped a yard forward and left his ghost
+              // under the ball; where the run is long the ghost is
+              // the only thing saying where it began, and dropping
+              // it left a dashed arrow coming out of bare court with
+              // nobody at its tail — a multi-shuttle board, the
+              // player sent corner to corner from a base the
+              // shuttle happens to rest on.
+              if (!p.isBall &&
+                  (drawnAt(p) - ghostStart(p)).distance <
+                      kPlayerIconSize * 1.5 * p.scale) {
+                final gs = ghostStart(p);
+                for (final b in players) {
+                  if (!b.isBall) continue;
+                  final r =
+                      kPlayerIconSize *
+                      ballDrawFactor(b.sportType ?? _state.sportType) /
+                      2 *
+                      b.scale;
+                  final d = turnVector(
+                    drawnAt(b) + (feet[b.id] ?? Offset.zero) - gs,
+                    widget.boardTurns,
+                  );
+                  if (d.dx.abs() <= 14 * p.scale + r &&
+                      d.dy >= -24 * p.scale - r &&
+                      d.dy <= 26 * p.scale + r) {
+                    return false;
+                  }
+                }
+              }
+              // Mirror of the rule above, the other way round: once
+              // the run has been played the end icon is the live one,
+              // and a ghost less than a token away only covers it.
+              final limit = limitFor(p);
+              if (limit == 0) return true;
+              // Only the beat on show leaves a ghost, at the spot its
+              // leg starts from; a player standing still this beat
+              // has nothing to be a ghost of.
+              final legs = stepLegs(p, limit);
+              if (legs.isEmpty) return false;
+              // For a ball, measure where the two are DRAWN, not how
+              // far the leg is. A ball is pulled to its holder's
+              // feet, so a handoff — where it changes hands without
+              // travelling — moves it six points on paper and a
+              // stride on the board. Judged on the leg it failed the
+              // threshold and no trace was drawn at all: the board
+              // said "1 hands it off to 2" with the ball already at
+              // 2 and nothing to say it had ever been at 1.
+              if (p.isBall) {
+                final ghostAt =
+                    stepStart(p, limit) + (ghostFeet[p.id] ?? Offset.zero);
+                final liveAt = drawnAt(p) + (feet[p.id] ?? Offset.zero);
+                // Ball, man, ball. A shot ends over the shooter's
+                // head while his trace from the catch is still at
+                // his hip, so one figure carries two balls and the
+                // arrow that joins them runs behind him — the board
+                // reads as two balls rather than one going up. The
+                // same ink box as the rule above, on the screen.
+                final r =
+                    kPlayerIconSize *
+                    ballDrawFactor(p.sportType ?? _state.sportType) /
+                    2 *
+                    p.scale;
+                for (final man in players) {
+                  if (man.isBall || man.isMarker) continue;
+                  final mid = drawnAt(man);
+                  bool on(Offset at) {
+                    final d = turnVector(at - mid, widget.boardTurns);
+                    return d.dx.abs() <= 14 * man.scale + r &&
+                        d.dy >= -24 * man.scale - r &&
+                        d.dy <= 26 * man.scale + r;
+                  }
+
+                  if (on(ghostAt) && on(liveAt)) return false;
+                }
+                return (liveAt - ghostAt).distance >= nudgeThreshold(p);
+              }
+              return (legs.last.value - stepStart(p, limit)).distance >=
+                  nudgeThreshold(p);
+            })
+            .map((player) {
+              final size = kPlayerIconSize * player.scale;
+              // At the feet of whoever played it, the same as a live
+              // ball; the raw spot is a token's length ahead of them,
+              // which on a standing figure is their head.
+              final ghostAt =
+                  ghostStart(player) +
+                  (player.isBall
+                      ? ghostFeet[player.id] ?? Offset.zero
+                      : ghostFan[player.id] ?? Offset.zero);
+              final hasPhoto =
+                  player.photoId != null && !player.isMarker && !player.isBall;
+              return Positioned(
+                key: ValueKey('ghost_${player.id}'),
+                left: ghostAt.dx - size / 2,
+                top: ghostAt.dy - size / 2,
+                child: SizedBox(
+                  width: size,
+                  height: size,
+                  child: hasPhoto
+                      ? PhotoPlayerShape(
+                          player: player,
+                          isSelected: false,
+                          isGhost: true,
+                        )
+                      // A moving ball leaves a ghost too, and until
+                      // the ball could move nothing exercised this
+                      // branch for one — the person-shaped ghost
+                      // painter drew a small grey figure where the
+                      // pass starts.
+                      : player.isBall
+                      ? Opacity(
+                          opacity: 0.45,
+                          child: Center(
+                            child: FractionallySizedBox(
+                              widthFactor: ballDrawFactor(
+                                player.sportType ?? _state.sportType,
+                              ),
+                              heightFactor: ballDrawFactor(
+                                player.sportType ?? _state.sportType,
+                              ),
+                              child: ballWidget(
+                                player.sportType ?? state.sportType,
+                              ),
+                            ),
+                          ),
+                        )
+                      : RotatedBox(
+                          quarterTurns: (4 - widget.boardTurns) % 4,
+                          child: Stack(
+                            children: [
+                              CustomPaint(
+                                painter: TopDownPlayerPainter(
+                                  color: player.color,
+                                  borderColor: Colors.white,
+                                  borderWidth: 2,
+                                  gender: player.gender,
+                                  figure: TopDownPlayerPainter.figureFor(
+                                    state.sportType,
+                                    player,
+                                  ),
+                                  sport: state.sportType,
+                                  // A ghost obeys the net too: on
+                                  // a badminton board the trace left
+                                  // at the rear corner is a man who
+                                  // had turned his back on it.
+                                  heading: faceAcrossNet(
+                                    playerFacing(player),
+                                    player,
+                                    state.sportType,
+                                    ghostStart(player),
+                                    state.canvasSize,
+                                    ball: ballStandingAt(players, 0),
+                                  ),
+                                  boardTurns: widget.boardTurns,
                                   isGhost: true,
-                                )
-                              // A moving ball leaves a ghost too, and until
-                              // the ball could move nothing exercised this
-                              // branch for one — the person-shaped ghost
-                              // painter drew a small grey figure where the
-                              // pass starts.
-                              : player.isBall
-                              ? Opacity(
-                                  opacity: 0.45,
-                                  child: Center(
-                                    child: FractionallySizedBox(
-                                      widthFactor: kBallDrawFactor,
-                                      heightFactor: kBallDrawFactor,
-                                      child: ballWidget(
-                                          player.sportType ?? state.sportType),
+                                ),
+                                size: Size.infinite,
+                              ),
+                              // The number sits on the shirt, the same
+                              // place and the same size as on the live
+                              // token — centred in the box it landed on
+                              // the neck, half over the head, so the
+                              // ghost's number and the player's number
+                              // read as two different marks.
+                              if (player.labelInside)
+                                Align(
+                                  alignment: playerLabelAlign(
+                                    state.sportType,
+                                    player,
+                                  ),
+                                  child: Text(
+                                    player.label,
+                                    style: TextStyle(
+                                      color: Colors.white.withValues(
+                                        alpha: 0.85,
+                                      ),
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 15 * player.scale,
+                                      height: 1,
+                                      shadows: const [
+                                        Shadow(
+                                          color: Colors.black54,
+                                          blurRadius: 2,
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                )
-                              : RotatedBox(quarterTurns: (4 - widget.boardTurns) % 4, child: Stack(
-                                  children: [
-                                    CustomPaint(
-                                      painter: TopDownPlayerPainter(
-                                        color: player.color,
-                                        borderColor: Colors.white,
-                                        borderWidth: 2,
-                                        gender: player.gender,
-                                        figure: TopDownPlayerPainter
-                                            .figureFor(state.sportType, player),
-                                        sport: state.sportType,
-                                        heading: playerFacing(player),
-                                        boardTurns: widget.boardTurns,
-                                        isGhost: true,
-                                      ),
-                                      size: Size.infinite,
-                                    ),
-                                    // The number sits on the shirt, the same
-                                    // place and the same size as on the live
-                                    // token — centred in the box it landed on
-                                    // the neck, half over the head, so the
-                                    // ghost's number and the player's number
-                                    // read as two different marks.
-                                    if (player.labelInside)
-                                      Align(
-                                        alignment: playerLabelAlign(
-                                            state.sportType, player),
-                                        child: Text(
-                                          player.label,
-                                          style: TextStyle(
-                                            color: Colors.white
-                                                .withValues(alpha: 0.85),
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 15 * player.scale,
-                                            height: 1,
-                                            shadows: const [
-                                              Shadow(
-                                                color: Colors.black54,
-                                                blurRadius: 2,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                  ],
-                                )),
+                                ),
+                            ],
+                          ),
                         ),
-                      );
-                    }),
-                  // Waypoint dots — stay visible through animation so each
-                  // step-forward tap doesn't flash every middle dot off and
-                  // back on. The phaseLimit filter (driven by atStep) still
-                  // hides phases that haven't started yet.
-                  ...players.where(routeShown).expand((player) {
-                      // The legs of the beat on show, keyed by their index
-                      // in the chain so a dot still selects its own waypoint.
-                      final legs = stepLegs(player, stepLimit);
-                      final from = stepStart(player, stepLimit);
-                      final atStartTime =
-                          state.atStep == 0 && state.targetStep == 0;
-                      // A ball riding along with the players keeps only its
-                      // final dot — that one IS the ball at its current spot.
-                      // The intermediate numbered badges marked stops the
-                      // players' own chains already mark, one more disc on
-                      // every cone.
-                      final ballEscorted = player.isBall &&
-                          ballTravelsWithPlayers(player, players);
-                      // At step 0 the solid token is still at the start, so
-                      // a run shorter than the token would drop the faded end
-                      // icon straight on top of it — the same player drawn
-                      // twice. The nudge arrow carries the direction instead.
-                      final shortRun = legs.isNotEmpty &&
-                          (legs.last.value - from).distance <
-                              nudgeThreshold(player);
-                      final chainSelected =
-                          state.selectedPlayerId == player.id;
-                      return legs.where((entry) {
-                        final isEnd = entry.key == legs.last.key;
-                        // While the ball is in flight its own token says
-                        // where it is; a badge on the raw point it is
-                        // heading for sits a stride from where it will be
-                        // drawn — a ring on the grass that turns out to be
-                        // nothing.
-                        if (player.isBall && state.isAnimating) return false;
-                        if (shortRun && atStartTime && isEnd) return false;
-                        // While the board is playing, the token is on its
-                        // way to this spot. A faded copy of it waiting there
-                        // is the same player drawn twice, and standing next
-                        // to somebody else's token it reads as a player who
-                        // has already arrived: press play on a rotation and
-                        // a pale A appears beside B before anybody has moved.
-                        if (state.isAnimating && atStartTime && isEnd) {
-                          return false;
-                        }
-                        // Past beat zero the live token itself stands at
-                        // the end of the leg — renderPosition put it there
-                        // — so the end copy, which is promoted to a solid
-                        // figure once the timeline has moved, is the same
-                        // player drawn twice. Not quite on top of each
-                        // other, either: the copy takes the stance the
-                        // player has after every beat, the token the one
-                        // for this beat, and where the two differ a second
-                        // stick and a second pair of boots show from behind
-                        // — a coach read it as two men in one place. The
-                        // promotion is older than renderPosition and was
-                        // standing in for a token that used to stay at its
-                        // start. The copy is kept while its chain is
-                        // selected, where it is the handle for the waypoint.
-                        if (isEnd &&
-                            !player.isBall &&
-                            !atStartTime &&
-                            !chainSelected) {
-                          return false;
-                        }
-                        if (!ballEscorted) return true;
-                        return isEnd;
-                      }).map((entry) {
-                        final isLast = entry.key == legs.last.key;
-                        return _WaypointDot(
-                          key: ValueKey('wp_${player.id}_${entry.key}'),
-                          player: player,
-                          index: entry.key,
-                          // The last dot of a ball IS the ball, drawn a
-                          // second time over the live token. It has to take
-                          // the same step to the feet, or the board shows two
-                          // balls — one at the player's boots and one on his
-                          // head, which is where the pair used to overlap.
-                          position: entry.value +
-                              (player.isBall && isLast
-                                  ? feet[player.id] ?? Offset.zero
-                                  : Offset.zero),
-                          // A person's turning point sits where the line
-                          // does, at his feet. The last dot is the figure
-                          // itself and stays on its middle.
-                          drawOffset: (!player.isBall &&
-                                  !player.isMarker &&
-                                  !isLast)
-                              ? turnVector(const Offset(0, 1),
-                                      (4 - widget.boardTurns) % 4) *
-                                  (kPlayerIconSize * 0.70 * player.scale)
-                              : Offset.zero,
-                          isLast: isLast,
-                          isSelected: chainSelected,
-                          isPrimary: chainSelected && state.selectedWaypointIndex == entry.key,
-                          isAtCurrentStep: isLast ? !atStartTime : true,
-                          onLongPress: isLast
-                              ? () => state.selectPlayer(player.id)
-                              : null,
-                        );
-                      });
-                    }),
-                  // The routes go UNDER the people. They are marks on the
-                  // ground, and a body standing across one hides that
-                  // stretch of it — including the arrowhead, when the body
-                  // is the receiver's: a pass drawn over everyone ran up the
-                  // receiver's shirt to a head on his number. Where a pass
-                  // arrives is said twice already, by the shaft running into
-                  // him and by the ball at his feet; where a run arrives is
-                  // the man himself, standing on it. (A split that kept the
-                  // heads on top was tried first and put the head on the
-                  // chest instead of the shirt, which is no better.) Gated by
-                  // the same per-element question as the ghosts and the
-                  // waypoint dots, so beat zero's button governs all of them.
-                  if (players.any(routeShown))
-                    IgnorePointer(
-                      child: CustomPaint(
-                        painter: routes(RouteLayer.all),
-                        size: Size(canvasW, canvasH),
-                      ),
-                    ),
-                  // Players and the ball, over the ghosts and the routes.
-                  ...players.where((p) => !p.isMarker).map(playerIcon),
-                  // Animation driver (zero-size, drives per-frame updates)
-                  _AnimationDriver(
-                    isAnimating: state.isAnimating,
-                    players: players,
-                    targetStep: state.targetStep,
-                    fromStep: state.animFromStep,
-                    toStep: state.animToStep,
-                    sequentialMode: state.sequentialMode,
-                    speed: state.animSpeed,
-                    loop: state.loopAnimation,
-                  ),
-                  // Lasso overlay — drawn while the user is rectangle-selecting
-                  // in multi-select mode.
-                  if (state.multiSelectDragRect != null)
-                    IgnorePointer(
-                      child: CustomPaint(
-                        painter: _LassoRectPainter(state.multiSelectDragRect!),
-                        size: Size(canvasW, canvasH),
-                      ),
-                    ),
-                ],
+                ),
+              );
+            }),
+        // Waypoint dots — stay visible through animation so each
+        // step-forward tap doesn't flash every middle dot off and
+        // back on. The phaseLimit filter (driven by atStep) still
+        // hides phases that haven't started yet.
+        ...players.where(routeShown).expand((player) {
+          // The legs of the beat on show, keyed by their index
+          // in the chain so a dot still selects its own waypoint.
+          final legs = stepLegs(player, stepLimit);
+          final from = stepStart(player, stepLimit);
+          final atStartTime = state.atStep == 0 && state.targetStep == 0;
+          // A ball riding along with the players keeps only its
+          // final dot — that one IS the ball at its current spot.
+          // The intermediate numbered badges marked stops the
+          // players' own chains already mark, one more disc on
+          // every cone.
+          final ballEscorted =
+              player.isBall && ballTravelsWithPlayers(player, players);
+          // At step 0 the solid token is still at the start, so
+          // a run shorter than the token would drop the faded end
+          // icon straight on top of it — the same player drawn
+          // twice. The nudge arrow carries the direction instead.
+          final shortRun =
+              legs.isNotEmpty &&
+              (legs.last.value - from).distance < nudgeThreshold(player);
+          final chainSelected = state.selectedPlayerId == player.id;
+          return legs
+              .where((entry) {
+                final isEnd = entry.key == legs.last.key;
+                // While the ball is in flight its own token says
+                // where it is; a badge on the raw point it is
+                // heading for sits a stride from where it will be
+                // drawn — a ring on the grass that turns out to be
+                // nothing.
+                if (player.isBall && state.isAnimating) return false;
+                if (shortRun && atStartTime && isEnd) return false;
+                // While the board is playing, the token is on its
+                // way to this spot. A faded copy of it waiting there
+                // is the same player drawn twice, and standing next
+                // to somebody else's token it reads as a player who
+                // has already arrived: press play on a rotation and
+                // a pale A appears beside B before anybody has moved.
+                if (state.isAnimating && atStartTime && isEnd) {
+                  return false;
+                }
+                // Past beat zero the live token itself stands at
+                // the end of the leg — renderPosition put it there
+                // — so the end copy, which is promoted to a solid
+                // figure once the timeline has moved, is the same
+                // player drawn twice. Not quite on top of each
+                // other, either: the copy takes the stance the
+                // player has after every beat, the token the one
+                // for this beat, and where the two differ a second
+                // stick and a second pair of boots show from behind
+                // — a coach read it as two men in one place. The
+                // promotion is older than renderPosition and was
+                // standing in for a token that used to stay at its
+                // start. The copy is kept while its chain is
+                // selected, where it is the handle for the waypoint.
+                if (isEnd && !player.isBall && !atStartTime && !chainSelected) {
+                  return false;
+                }
+                if (!ballEscorted) return true;
+                return isEnd;
+              })
+              .map((entry) {
+                final isLast = entry.key == legs.last.key;
+                return _WaypointDot(
+                  key: ValueKey('wp_${player.id}_${entry.key}'),
+                  player: player,
+                  index: entry.key,
+                  // The last dot of a ball IS the ball, drawn a
+                  // second time over the live token. It has to take
+                  // the same step to the feet, or the board shows two
+                  // balls — one at the player's boots and one on his
+                  // head, which is where the pair used to overlap.
+                  position:
+                      entry.value +
+                      (player.isBall && isLast
+                          ? feet[player.id] ?? Offset.zero
+                          : Offset.zero),
+                  // A person's turning point sits where the line
+                  // does, at his feet. The last dot is the figure
+                  // itself and stays on its middle.
+                  drawOffset: (!player.isBall && !player.isMarker && !isLast)
+                      ? turnVector(
+                              const Offset(0, 1),
+                              (4 - widget.boardTurns) % 4,
+                            ) *
+                            (kPlayerIconSize * 0.70 * player.scale)
+                      : Offset.zero,
+                  isLast: isLast,
+                  isSelected: chainSelected,
+                  isPrimary:
+                      chainSelected && state.selectedWaypointIndex == entry.key,
+                  isAtCurrentStep: isLast ? !atStartTime : true,
+                  onLongPress: isLast
+                      ? () => state.selectPlayer(player.id)
+                      : null,
+                );
+              });
+        }),
+        // The routes go UNDER the people. They are marks on the
+        // ground, and a body standing across one hides that
+        // stretch of it — including the arrowhead, when the body
+        // is the receiver's: a pass drawn over everyone ran up the
+        // receiver's shirt to a head on his number. Where a pass
+        // arrives is said twice already, by the shaft running into
+        // him and by the ball at his feet; where a run arrives is
+        // the man himself, standing on it. (A split that kept the
+        // heads on top was tried first and put the head on the
+        // chest instead of the shirt, which is no better.) Gated by
+        // the same per-element question as the ghosts and the
+        // waypoint dots, so beat zero's button governs all of them.
+        if (players.any(routeShown))
+          IgnorePointer(
+            child: CustomPaint(
+              painter: routes(RouteLayer.all),
+              size: Size(canvasW, canvasH),
+            ),
+          ),
+        // Players and the ball, over the ghosts and the routes.
+        ...players.where((p) => !p.isMarker).map(playerIcon),
+        // Animation driver (zero-size, drives per-frame updates)
+        _AnimationDriver(
+          isAnimating: state.isAnimating,
+          players: players,
+          targetStep: state.targetStep,
+          fromStep: state.animFromStep,
+          toStep: state.animToStep,
+          sequentialMode: state.sequentialMode,
+          speed: state.animSpeed,
+          loop: state.loopAnimation,
+        ),
+        // Lasso overlay — drawn while the user is rectangle-selecting
+        // in multi-select mode.
+        if (state.multiSelectDragRect != null)
+          IgnorePointer(
+            child: CustomPaint(
+              painter: _LassoRectPainter(state.multiSelectDragRect!),
+              size: Size(canvasW, canvasH),
+            ),
+          ),
+      ],
     );
   }
 
   /// Return strokes visible at the current playback step.
   /// Strokes with isFullSpan are always visible.
   /// During step playback, show strokes whose phase range overlaps current step.
-  static List<DrawingStroke> _visibleStrokes(TacticsState state, List<PlayerIcon> players) {
-    final phaseLimit = state.atStep > 0 ? state.atStep : (state.targetStep > 0 ? state.targetStep : 0);
+  static List<DrawingStroke> _visibleStrokes(
+    TacticsState state,
+    List<PlayerIcon> players,
+  ) {
+    final phaseLimit = state.atStep > 0
+        ? state.atStep
+        : (state.targetStep > 0 ? state.targetStep : 0);
     if (phaseLimit == 0) return state.strokes; // show all
     // phaseLimit is the number of beats elapsed (atStep). A stroke whose
     // phase value is strictly less than phaseLimit has already begun.
@@ -1795,7 +2089,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
       return false;
     }).toList();
   }
-
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1853,14 +2146,16 @@ class _AnimationDriverState extends State<_AnimationDriver>
       _buildPhaseGroups();
       // Per-phase duration scales inversely with the chosen playback speed.
       _ctrl.duration = Duration(
-          milliseconds: (700 / widget.speed).clamp(120, 4000).round());
+        milliseconds: (700 / widget.speed).clamp(120, 4000).round(),
+      );
       _isBackward = widget.toStep < widget.fromStep;
       // Single step if toStep is exactly 1 away from fromStep
       _singleStep = (widget.toStep - widget.fromStep).abs() == 1;
 
       if (_maxPhase < 0) {
         WidgetsBinding.instance.addPostFrameCallback(
-            (_) => context.read<TacticsState>().finishAnimation());
+          (_) => context.read<TacticsState>().finishAnimation(),
+        );
         return;
       }
 
@@ -1869,18 +2164,19 @@ class _AnimationDriverState extends State<_AnimationDriver>
         _phaseIdx = widget.fromStep - 1;
         if (_phaseIdx < 0 || _phaseIdx < widget.toStep) {
           WidgetsBinding.instance.addPostFrameCallback(
-              (_) => context.read<TacticsState>().finishAnimation());
+            (_) => context.read<TacticsState>().finishAnimation(),
+          );
         } else {
           _startLeg();
         }
       } else {
         // _phaseIdx = phase value to animate on this leg.
         _phaseIdx = widget.fromStep;
-        final endIdx =
-            widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
+        final endIdx = widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
         if (_phaseIdx > _maxPhase || _phaseIdx >= endIdx) {
           WidgetsBinding.instance.addPostFrameCallback(
-              (_) => context.read<TacticsState>().finishAnimation());
+            (_) => context.read<TacticsState>().finishAnimation(),
+          );
         } else {
           _startLeg();
         }
@@ -1922,7 +2218,10 @@ class _AnimationDriverState extends State<_AnimationDriver>
       player.syncPhases();
       for (int i = 0; i < player.moves.length; i++) {
         final phase = i < player.movePhases.length ? player.movePhases[i] : i;
-        _phaseGroups.putIfAbsent(phase, () => []).add((player: player, moveIdx: i));
+        _phaseGroups.putIfAbsent(phase, () => []).add((
+          player: player,
+          moveIdx: i,
+        ));
         if (phase > _maxPhase) _maxPhase = phase;
       }
     }
@@ -1974,7 +2273,9 @@ class _AnimationDriverState extends State<_AnimationDriver>
       final all = [player.position, ...player.moves];
 
       // Check if this player has a move in the current phase
-      final activeEntry = activeGroup.where((e) => e.player.id == player.id).toList();
+      final activeEntry = activeGroup
+          .where((e) => e.player.id == player.id)
+          .toList();
 
       if (activeEntry.isNotEmpty) {
         // This player IS moving in this phase
@@ -2013,7 +2314,9 @@ class _AnimationDriverState extends State<_AnimationDriver>
     // sits at the same rest offset from the holder's live (animated) position.
     for (final ball in widget.players) {
       if (!ball.isBall || ball.attachedTo == null) continue;
-      final holderIdx = widget.players.indexWhere((p) => p.id == ball.attachedTo);
+      final holderIdx = widget.players.indexWhere(
+        (p) => p.id == ball.attachedTo,
+      );
       if (holderIdx < 0) continue;
       final holder = widget.players[holderIdx];
       final holderPos = positions[holder.id] ?? holder.position;
@@ -2032,7 +2335,8 @@ class _AnimationDriverState extends State<_AnimationDriver>
       // at phase 0 — so a multi-step rewind lands where the user dragged.
       if (_singleStep || _phaseIdx < widget.toStep || _phaseIdx < 0) {
         WidgetsBinding.instance.addPostFrameCallback(
-            (_) => context.read<TacticsState>().finishAnimation());
+          (_) => context.read<TacticsState>().finishAnimation(),
+        );
       } else {
         _ctrl.forward(from: 0);
       }
@@ -2040,8 +2344,7 @@ class _AnimationDriverState extends State<_AnimationDriver>
       _phaseIdx++;
       context.read<TacticsState>().advanceAtStep(_phaseIdx);
       // Forward runs stop at toStep (the scrubber target / maxMoveSteps).
-      final endIdx =
-          widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
+      final endIdx = widget.toStep > 0 ? widget.toStep : (_maxPhase + 1);
       if (!_singleStep && _phaseIdx >= endIdx && widget.loop) {
         // Loop: jump back to the first phase and keep playing.
         _phaseIdx = 0;
@@ -2049,7 +2352,8 @@ class _AnimationDriverState extends State<_AnimationDriver>
         _ctrl.forward(from: 0);
       } else if (_singleStep || _phaseIdx >= endIdx) {
         WidgetsBinding.instance.addPostFrameCallback(
-            (_) => context.read<TacticsState>().finishAnimation());
+          (_) => context.read<TacticsState>().finishAnimation(),
+        );
       } else {
         _ctrl.forward(from: 0);
       }
@@ -2085,10 +2389,12 @@ class _PlayerOnBoard extends StatefulWidget {
   final bool isPrimary;
   final bool isAtCurrentStep; // start position is the current timeline step
   final bool isDrawingMode;
+
   /// True when the board is in the multi-select mode (taps toggle set
   /// membership instead of opening the edit panel). Controls the gesture
   /// dispatch in [_PlayerOnBoardState].
   final bool isMultiSelectMode;
+
   /// True when this player is currently in the multi-select set. Drives
   /// group drag — panning a member translates the whole set.
   final bool isInMultiSelect;
@@ -2124,8 +2430,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
   @override
   Widget build(BuildContext context) {
     final player = widget.player;
-    final pos =
-        (widget.renderPosition ?? player.position) + widget.drawOffset;
+    final pos = (widget.renderPosition ?? player.position) + widget.drawOffset;
     final size = kPlayerIconSize * player.scale;
     // Start-of-chain icons (player has moves, not animating) render as a
     // faded ghost when the timeline is past step 0 — because the player's
@@ -2134,9 +2439,8 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // reveals the full icon.
     final isStartWithMoves =
         widget.renderPosition == null && player.moves.isNotEmpty;
-    final showGhostForStart = isStartWithMoves &&
-        !widget.isPrimary &&
-        !widget.isAtCurrentStep;
+    final showGhostForStart =
+        isStartWithMoves && !widget.isPrimary && !widget.isAtCurrentStep;
     // In multi-select mode a non-member player must NOT register a pan
     // recognizer at all — otherwise it would claim drags that started on
     // top of the player and the user couldn't lasso through it. Members
@@ -2160,11 +2464,16 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       onScaleUpdate: canPan
           ? (d) {
               final state = context.read<TacticsState>();
+              // In the board's frame. A text element's detector sits inside
+              // its own turn, so its delta has to be turned back first.
+              final delta = isTextElement(player)
+                  ? untwistForText(player, d.focalPointDelta)
+                  : d.focalPointDelta;
               if (widget.isInMultiSelect) {
-                state.moveMultiSelectBy(d.focalPointDelta);
+                state.moveMultiSelectBy(delta);
                 return;
               }
-              state.movePlayer(player.id, player.position + d.focalPointDelta);
+              state.movePlayer(player.id, player.position + delta);
               if (d.pointerCount >= 2) {
                 state.resizePlayer(player.id, _baseScale * d.scale);
                 // The same gesture already carried the twist; it was simply
@@ -2204,13 +2513,9 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
     // plate showing through at the waist. A selected person is marked by
     // the accent rim on their outline and the ring at their feet, both
     // drawn by TopDownPlayerPainter.
-    final BoxShadow? glow = widget.isPrimary &&
-            (player.isMarker || player.isBall)
-        ? const BoxShadow(
-            color: T.selectRing,
-            blurRadius: 0,
-            spreadRadius: 2,
-          )
+    final BoxShadow? glow =
+        widget.isPrimary && (player.isMarker || player.isBall)
+        ? const BoxShadow(color: T.selectRing, blurRadius: 0, spreadRadius: 2)
         : null;
     if (isTextElement(player)) {
       // A chip sized to its words has no size to subtract, so it is placed on
@@ -2282,10 +2587,10 @@ class _WaypointDotState extends State<_WaypointDot> {
 
   void _onPanUpdate(DragUpdateDetails d) {
     context.read<TacticsState>().movePlayerWaypoint(
-          widget.player.id,
-          widget.index,
-          widget.position + d.delta,
-        );
+      widget.player.id,
+      widget.index,
+      widget.position + d.delta,
+    );
   }
 
   void _onPanEnd(DragEndDetails _) {
@@ -2294,15 +2599,16 @@ class _WaypointDotState extends State<_WaypointDot> {
 
   void _onDefaultLongPress() {
     context.read<TacticsState>().removePlayerWaypoint(
-          widget.player.id,
-          widget.index,
-        );
+      widget.player.id,
+      widget.index,
+    );
   }
 
   void _onTap() {
-    context
-        .read<TacticsState>()
-        .selectPlayerWaypoint(widget.player.id, widget.index);
+    context.read<TacticsState>().selectPlayerWaypoint(
+      widget.player.id,
+      widget.index,
+    );
   }
 
   @override
@@ -2320,9 +2626,10 @@ class _WaypointDotState extends State<_WaypointDot> {
       // normal player shape as a dashed ghost outline (same style as the
       // start ghost) so start/end use consistent "not current" styling.
       final fadeEnd = !widget.isAtCurrentStep && !widget.isPrimary;
-      final hasPhoto = widget.player.photoId != null
-          && !widget.player.isMarker
-          && !widget.player.isBall;
+      final hasPhoto =
+          widget.player.photoId != null &&
+          !widget.player.isMarker &&
+          !widget.player.isBall;
       final Widget endIcon = SizedBox(
         width: kPlayerIconSize,
         height: kPlayerIconSize,
@@ -2331,90 +2638,97 @@ class _WaypointDotState extends State<_WaypointDot> {
               ? 0
               : BoardOrientation.counterTurns(context),
           child: Stack(
-          children: [
-            if (hasPhoto)
-              Opacity(
-                opacity: fadeEnd ? 0.55 : 1.0,
-                child: PhotoPlayerShape(
-                  player: widget.player,
-                  isSelected: widget.isSelected,
-                ),
-              )
-            else if (widget.player.isBall)
-              // The same fraction of the cell the ball's own icon uses.
-              // Filling it edge to edge made the ball grow a third the
-              // moment it reached its first waypoint — travelling resized
-              // it.
-              Center(
-                child: FractionallySizedBox(
-                  widthFactor: kBallDrawFactor,
-                  heightFactor: kBallDrawFactor,
-                  child: ballWidget(widget.player.sportType!),
-                ),
-              )
-            else
-              CustomPaint(
-                painter: widget.player.isMarker
-                    ? MarkerPainter(
-                        shape: widget.player.markerShape,
-                        color: widget.player.color,
-                        isSelected: widget.isSelected,
-                      )
-                    : TopDownPlayerPainter(
-                        color: widget.player.color,
-                        borderColor: widget.isPrimary
-                            ? T.accent
-                            : (widget.isSelected ? Colors.yellow : widget.player.moveColor),
-                        borderWidth: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2.5),
-                        isSelected: widget.isSelected && !fadeEnd,
-                        isGhost: fadeEnd,
-                        gender: widget.player.gender,
-                        figure: TopDownPlayerPainter.figureFor(
+            children: [
+              if (hasPhoto)
+                Opacity(
+                  opacity: fadeEnd ? 0.55 : 1.0,
+                  child: PhotoPlayerShape(
+                    player: widget.player,
+                    isSelected: widget.isSelected,
+                  ),
+                )
+              else if (widget.player.isBall)
+                // The same fraction of the cell the ball's own icon uses.
+                // Filling it edge to edge made the ball grow a third the
+                // moment it reached its first waypoint — travelling resized
+                // it.
+                Center(
+                  child: FractionallySizedBox(
+                    widthFactor: ballDrawFactor(widget.player.sportType!),
+                    heightFactor: ballDrawFactor(widget.player.sportType!),
+                    child: ballWidget(widget.player.sportType!),
+                  ),
+                )
+              else
+                CustomPaint(
+                  painter: widget.player.isMarker
+                      ? MarkerPainter(
+                          shape: widget.player.markerShape,
+                          color: widget.player.color,
+                          isSelected: widget.isSelected,
+                        )
+                      : TopDownPlayerPainter(
+                          color: widget.player.color,
+                          borderColor: widget.isPrimary
+                              ? T.accent
+                              : (widget.isSelected
+                                    ? Colors.yellow
+                                    : widget.player.moveColor),
+                          borderWidth: widget.isPrimary
+                              ? 3.5
+                              : (widget.isSelected ? 3 : 2.5),
+                          isSelected: widget.isSelected && !fadeEnd,
+                          isGhost: fadeEnd,
+                          gender: widget.player.gender,
+                          figure: TopDownPlayerPainter.figureFor(
                             context.read<TacticsState>().sportType,
-                            widget.player),
-                        sport: context.read<TacticsState>().sportType,
-                        // Where the run ends: the stance the player takes
-                        // once every beat has run.
-                        heading: widget.player.facingLocked
-                            ? playerFacing(widget.player)
-                            : boardHeading(
-                                    context.read<TacticsState>().players,
-                                    widget.player,
-                                    context
-                                        .read<TacticsState>()
-                                        .maxMoveSteps) ??
-                                playerFacing(widget.player),
-                        boardTurns: BoardOrientation.of(context),
-                      ),
-                size: Size.infinite,
-              ),
-            if (widget.player.label.isNotEmpty &&
-                !widget.player.isMarker &&
-                !widget.player.isBall &&
-                !hasPhoto)
-              Align(
-                // On the shirt, the same place the live token carries it.
-                alignment: playerLabelAlign(
-                    context.read<TacticsState>().sportType, widget.player),
-                child: Text(
-                  widget.player.label,
-                  style: TextStyle(
-                    color: Colors.white,
-                    // A number matches the live token; a name has to stay
-                    // small enough to fit inside the disc at all.
-                    fontWeight: widget.player.labelInside
-                        ? FontWeight.w800
-                        : FontWeight.w600,
-                    fontSize: widget.player.labelInside ? 15 : 13,
-                    height: 1,
-                    shadows: const [
-                      Shadow(color: Colors.black54, blurRadius: 2),
-                    ],
+                            widget.player,
+                          ),
+                          sport: context.read<TacticsState>().sportType,
+                          // Where the run ends: the stance the player takes
+                          // once every beat has run.
+                          heading: widget.player.facingLocked
+                              ? playerFacing(widget.player)
+                              : boardHeading(
+                                      context.read<TacticsState>().players,
+                                      widget.player,
+                                      context.read<TacticsState>().maxMoveSteps,
+                                    ) ??
+                                    playerFacing(widget.player),
+                          boardTurns: BoardOrientation.of(context),
+                        ),
+                  size: Size.infinite,
+                ),
+              if (widget.player.label.isNotEmpty &&
+                  !widget.player.isMarker &&
+                  !widget.player.isBall &&
+                  !hasPhoto)
+                Align(
+                  // On the shirt, the same place the live token carries it.
+                  alignment: playerLabelAlign(
+                    context.read<TacticsState>().sportType,
+                    widget.player,
+                  ),
+                  child: Text(
+                    widget.player.label,
+                    style: TextStyle(
+                      color: Colors.white,
+                      // A number matches the live token; a name has to stay
+                      // small enough to fit inside the disc at all.
+                      fontWeight: widget.player.labelInside
+                          ? FontWeight.w800
+                          : FontWeight.w600,
+                      fontSize: widget.player.labelInside ? 15 : 13,
+                      height: 1,
+                      shadows: const [
+                        Shadow(color: Colors.black54, blurRadius: 2),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-          ],
-        )),
+            ],
+          ),
+        ),
       );
       return Positioned(
         left: widget.position.dx + widget.drawOffset.dx - kPlayerIconSize / 2,
@@ -2459,7 +2773,10 @@ class _WaypointDotState extends State<_WaypointDot> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: const Color(0x59000000),
-                  border: Border.all(color: widget.player.moveColor, width: 2.5),
+                  border: Border.all(
+                    color: widget.player.moveColor,
+                    width: 2.5,
+                  ),
                 ),
               ),
             ),
@@ -2514,7 +2831,12 @@ class _WaypointDotState extends State<_WaypointDot> {
               child: Center(
                 child: Text(
                   '${widget.index + 1}',
-                  style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold, height: 1),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
                 ),
               ),
             ),

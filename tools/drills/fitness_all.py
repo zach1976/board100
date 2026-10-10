@@ -366,6 +366,7 @@ def _badminton():
         ),
         Drill(
             id="bdfit_court_shuttle", category="conditioning", minutes=8, rel=True,
+            holds=False,                 # a line shuttle: the racket stays on the bench
             purpose=PURPOSE_COURT, name=SHUTTLE_NAME, note=SHUTTLE_NOTE,
             home=[P(0.50, 0.92, "A",
                     moves=[(0.50, 0.56, 0), (0.50, 0.92, 1), (0.50, 0.56, 2), (0.50, 0.92, 3)],
@@ -373,15 +374,16 @@ def _badminton():
             setup=_s("the player on his own rear service line; the net and the rear line are the two ends",
                      "球员站在本方后发球线上，网前和后场线是两个端点",
                      "球員站在本方後發球線上，網前和後場線是兩個端點"),
-            gear=_s("no equipment: the net and the rear court line are the turns — the racket touches the net cord at one end and the foot touches the line at the other",
-                    "不需要器材：网和后场线就是两个折返点——前场用球拍触网带，后场用脚踩线",
-                    "不需要器材：網和後場線就是兩個折返點——前場用球拍觸網帶，後場用腳踩線"),
+            gear=_s("no equipment: the net and the rear court line are the turns — the hand touches the net cord at one end and the foot touches the line at the other; no racket",
+                    "不需要器材：网和后场线就是两个折返点——前场用手触网带，后场用脚踩线；不持拍",
+                    "不需要器材：網和後場線就是兩個折返點——前場用手觸網帶，後場用腳踩線；不持拍"),
             flow=_s("Six lengths is one set, about 25 seconds; rest 35 seconds and go again. Eight sets, and the last two should be within a second of the first two.",
                     "六趟为一组，约 25 秒；休息 35 秒再来。做 8 组，最后两组和前两组的时间差不能超过 1 秒。",
                     "六趟為一組，約 25 秒；休息 35 秒再來。做 8 組，最後兩組和前兩組的時間差不能超過 1 秒。"),
         ),
         Drill(
             id="bdfit_jump_smash_series", category="conditioning", minutes=8, rel=True,
+            holds=False,                 # the jump is the work; the arm swing is shadowed
             purpose=PURPOSE_COURT, name=JUMP_NAME, note=JUMP_NOTE,
             home=[P(0.50, 0.88, "A",
                     moves=[(0.50, 0.80, 0), (0.50, 0.88, 1), (0.50, 0.80, 2), (0.50, 0.88, 3)],
@@ -393,9 +395,9 @@ def _badminton():
             gear=_s("the two cones are the rear line the jump starts behind; the shaded zone is where the landing has to be — forward of the take-off, never back onto the heels",
                     "两个锥标标出起跳前所在的后场线，阴影区是落地位置——要落在起跳点前方，绝不能后仰落在脚跟上",
                     "兩個錐標標出起跳前所在的後場線，陰影區是落地位置——要落在起跳點前方，絕不能後仰落在腳跟上"),
-            flow=_s("Eight jump smashes in a row with the full swing, then 90 seconds' rest; four sets. Stop the set the moment a landing goes backwards.",
-                    "连续做 8 次完整挥拍的跳杀，然后休息 90 秒；做 4 组。只要有一次落地向后，这一组立刻停。",
-                    "連續做 8 次完整揮拍的跳殺，然後休息 90 秒；做 4 組。只要有一次落地向後，這一組立刻停。"),
+            flow=_s("Eight jump-smash jumps in a row, the arm swung through as in the stroke but with no racket, then 90 seconds' rest; four sets. Stop the set the moment a landing goes backwards.",
+                    "连续做 8 次跳杀起跳，手臂按挥拍动作带过去但不持拍，然后休息 90 秒；做 4 组。只要有一次落地向后，这一组立刻停。",
+                    "連續做 8 次跳殺起跳，手臂按揮拍動作帶過去但不持拍，然後休息 90 秒；做 4 組。只要有一次落地向後，這一組立刻停。"),
         ),
     ]
 

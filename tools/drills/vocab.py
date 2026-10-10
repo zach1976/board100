@@ -185,6 +185,11 @@ add("pressed side on", "侧向受压", "側向受壓", "横からのプレッシ
     "bị ép từ bên hông")
 
 # ── net sports: strokes and shots ────────────────────────────────────────────
+# A drill the coach feeds from a box, shuttle after shuttle, as against a
+# rally with one. The name carries it so a coach can tell from the list.
+add("multi-shuttle", "多球", "多球", "ノック", "멀티셔틀",
+    "multivolante", "multivolant", "multi-shuttlecock", "multi-bulu tangkis",
+    "หลายลูก", "đa cầu")
 add("the forehand net", "正手网前", "正手網前", "フォア前", "포핸드 네트 앞",
     "red de derecha", "filet coup droit", "net forehand", "jaring forehand",
     "หน้าเน็ตโฟร์แฮนด์", "trước lưới thuận tay")

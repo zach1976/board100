@@ -12,6 +12,8 @@ BASE = (0.50, 0.72)
 FL, FR = (0.18, 0.58), (0.82, 0.58)
 RL, RR = (0.14, 0.94), (0.86, 0.94)
 NET_L, NET_R = (0.22, 0.545), (0.78, 0.545)
+# Where a feeder stands, just the other side of the net.
+FEED = (0.50, 0.44)
 
 
 def mirror(pt):
@@ -46,7 +48,25 @@ FOOT_NOTE = {
 
 
 def footwork_family() -> list[Drill]:
-    """The four-corner shape, one corner at a time then all four."""
+    """The four-corner shape, one corner at a time then all four.
+
+    Shadow footwork, so no shuttle. These drills' own flow text says the
+    player "plays the shadow stroke there and gets back to base", and the
+    board used to contradict it: a shuttle really was played, 765 board
+    points of it, and the feeder ran 280 to hit it. What is being trained
+    is the journey to the corner and the recovery, which is why the fifth
+    drill of the family — all four corners — has always been one player
+    and nothing else.
+
+    The feeder stays where he is for the same reason. He is the coach's
+    arm: he points, the player goes. A feeder who crosses his own court
+    every repetition reads as a rally.
+
+    One cone, not four. Four is how a court is set up for a session and is
+    right for the drill that works all of them; on a board that trains one
+    corner the other three are furniture, and the note then has to explain
+    three things nobody does.
+    """
     specs = [("net_forehand", "the forehand net", FR),
              ("net_backhand", "the backhand net", FL),
              ("rear_forehand", "the forehand rear", RR),
@@ -58,9 +78,8 @@ def footwork_family() -> list[Drill]:
             free=(key == "net_forehand"),
             name=suffixed(FOOT_NAME, label), note=FOOT_NOTE,
             home=[P(*BASE, "1", moves=[corner + (0,), BASE + (1,)])],
-            away=[P(*mirror(BASE), "F", moves=[(mirror(corner)[0], 0.40, 0)])],
-            markers=[M(*c, "cone", "") for c in (FL, FR, RL, RR)],
-            ball=mirror(BASE),          # the feeder has it
+            away=[P(*mirror(BASE), "C", coach=True)],
+            markers=[M(*corner, "cone", "")],
         ))
     out.append(Drill(
         id="bd_footwork_four_corner", category="warmup", minutes=8, rel=True,
@@ -99,7 +118,32 @@ CLEAR_NOTE = {
 }
 
 
+def recover(frm, home=True):
+    """A stride out of a corner and no more.
+
+    Between two clears you come off the corner towards the middle and go
+    straight back to it; you do not return to base and set off again. A
+    quarter of the way is a step, which is what these boards want to show.
+    """
+    mid = BASE if home else mirror(BASE)
+    return (frm[0] + (mid[0] - frm[0]) * 0.25,
+            frm[1] + (mid[1] - frm[1]) * 0.25)
+
+
 def clear_family() -> list[Drill]:
+    """Clear to clear, down one side of the court.
+
+    A clear rally lives in two corners: both players stand in the one the
+    shuttle keeps coming back to, and what travels is the shuttle. The
+    straight version runs up and down a single tramline; the cross-court
+    one runs along a single diagonal, because a cross answered with a
+    cross comes back where it started.
+
+    These boards used to put the player at base and send him out to the
+    corner and home again on every rally — a tour of the court for a drill
+    whose whole point is the shot. That is the footwork family, two doors
+    down.
+    """
     specs = [("straight", "straight", RR, mirror(RR)),
              ("cross", "cross-court", RR, mirror(RL))]
     out = []
@@ -108,8 +152,10 @@ def clear_family() -> list[Drill]:
             id=f"bd_clear_{key}", category="possession", minutes=8, rel=True,
             free=(key == "straight"),
             name=suffixed(CLEAR_NAME, label), note=CLEAR_NOTE,
-            home=[P(*BASE, "1", moves=[frm + (0,), BASE + (1,)])],
-            away=[P(*mirror(BASE), "2", moves=[to + (1,), mirror(BASE) + (2,)])],
+            home=[P(*frm, "1",
+                    moves=[recover(frm) + (0,), frm + (1,)])],
+            away=[P(*to, "2",
+                    moves=[recover(to, home=False) + (1,), to + (2,)])],
             markers=[M(*to, "zone", "")],
             ball=0,
         ))
@@ -143,18 +189,37 @@ DROP_NOTE = {
 
 
 def drop_family() -> list[Drill]:
+    """A drop goes to the net. That is what makes it a drop.
+
+    The shuttle used to be left to the generator, which sends it to the
+    other player — and the other player stands at his base in the middle
+    of his court, so the board drew a shot dying half way down the far
+    side. It lands just over the tape now, in the zone, and the man over
+    there comes forward to take it and lifts it back deep.
+
+    The hitter stands in the corner he hits from, as in the clear family:
+    an overhead drop is played from the back, not run to from base.
+    """
     specs = [("straight", "straight", RR, NET_R), ("cross", "cross-court", RR, NET_L),
              ("slice", "sliced", RL, NET_R)]
     out = []
     for key, label, frm, to in specs:
+        land = (to[0], 0.44)        # just over the tape, the far side of it
         out.append(Drill(
             id=f"bd_drop_{key}", category="attacking", minutes=8, rel=True,
             free=(key == "straight"),
-            name=suffixed(DROP_NAME, label), note=DROP_NOTE,
-            home=[P(*BASE, "1", moves=[frm + (0,), BASE + (1,)])],
-            away=[P(*mirror(BASE), "2", moves=[(to[0], 0.44, 1)])],
-            markers=[M(to[0], 0.44, "zone", "")],
+            name=suffixed(suffixed(DROP_NAME, label), "multi-shuttle"), note=DROP_NOTE,
+            home=[P(*frm, "1", moves=[recover(frm) + (0,), frm + (1,)])],
+            # The feeder stands where the drop is going and stays there.
+            # One side is training here, the other is giving him the
+            # shuttle back, and a feeder does not run the drill — he was
+            # starting at his base and crossing half his court to every
+            # drop, which reads as a rally between equals. Both sides move
+            # in the clear family, because there both sides are working.
+            away=[P(land[0], 0.36, "C", coach=True)],
+            markers=[M(*land, "zone", "")],
             ball=0,
+            ball_moves=[land + (0,), (frm[0], 0.88, 1)],
         ))
     return out
 
@@ -191,14 +256,23 @@ def smash_family() -> list[Drill]:
              ("steep", "steep", (0.50, 0.90), (0.46, 0.40))]
     out = []
     for key, label, frm, land in specs:
+        # A smash answers a lift: 2 lifts to the corner, 1 gets back under
+        # it, smashes into the zone, recovers; 2 defends where it lands.
+        # The old board had 1 strike from base on the first beat — before
+        # he had moved — and sent the shuttle to 2, so the zone it was
+        # supposed to hit was decoration.
+        start2 = mirror(BASE)
+        cover = (land[0] + (start2[0] - land[0]) * 0.3,
+                 land[1] + (start2[1] - land[1]) * 0.3)
         out.append(Drill(
             id=f"bd_smash_{key}", category="finishing", minutes=8, rel=True,
             free=(key == "straight"),
-            name=suffixed(SMASH_NAME, label), note=SMASH_NOTE,
-            home=[P(*BASE, "1", moves=[frm + (0,), (BASE[0], 0.68, 1)])],
-            away=[P(*mirror(BASE), "2", moves=[(land[0], land[1] + 0.04, 1)])],
+            name=suffixed(suffixed(SMASH_NAME, label), "multi-shuttle"), note=SMASH_NOTE,
+            home=[P(*BASE, "1", moves=[frm + (0,), BASE + (2,)])],
+            away=[P(*start2, "C", coach=True, moves=[cover + (1,)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=start2,
+            ball_moves=[frm + (0,), land + (1,)],
         ))
     return out
 
@@ -230,18 +304,45 @@ NETPLAY_NOTE = {
 
 
 def net_family() -> list[Drill]:
+    """In to the tape, play the shot there, out again.
+
+    Three beats, in that order: step up to the net, play it from the net,
+    recover to base. The board used to open with the home player striking
+    from his own base and only then walking forward, which is the rally
+    the drill sits inside rather than the drill — and it left him parked
+    short of base at the end, so the next repetition had nowhere to start.
+
+    The man on the other side covers where the shot is going, but from
+    his own side of it: a third of the way back towards his base. He was
+    being sent to within a stride of the tape, and a figure is 52 points
+    tall — on the spinning-net board that drew him standing across the net.
+    """
+    # All three are played from the forehand net corner, NET_R at x=0.78,
+    # and where the shuttle goes is what tells them apart. The spinning net
+    # shot is a TIGHT one, back down the same tramline, tumbling over the
+    # tape — it was landing at x=0.26, the other side of the court, which
+    # is a cross-court net shot and has a different name in every language
+    # this library ships.
     specs = [("kill", "kill", (0.72, 0.30)), ("lift", "lift", (0.80, 0.10)),
-             ("spin", "spinning net", (0.26, 0.44))]
+             ("spin", "spinning net", (0.74, 0.44))]
     out = []
     for key, label, land in specs:
+        start2 = mirror(BASE)
+        cover = (land[0] + (start2[0] - land[0]) * 0.3,
+                 land[1] + (start2[1] - land[1]) * 0.3)
         out.append(Drill(
             id=f"bd_net_{key}", category="attacking", minutes=8, rel=True,
             free=(key == "kill"),
-            name=suffixed(NETPLAY_NAME, label), note=NETPLAY_NOTE,
-            home=[P(*BASE, "1", moves=[NET_R + (0,), (0.60, 0.64, 1)])],
-            away=[P(*mirror(BASE), "2", moves=[(land[0], land[1] + 0.05, 1)])],
+            name=suffixed(suffixed(NETPLAY_NAME, label), "multi-shuttle"), note=NETPLAY_NOTE,
+            home=[P(*BASE, "1", moves=[NET_R + (0,), BASE + (2,)])],
+            away=[P(*start2, "C", coach=True, moves=[cover + (1,)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            # The feed comes from the other side; the shuttle is never
+            # lying about. Parking it at the tape for the home player to
+            # walk up to drew beat zero as a shuttle on the floor with
+            # nobody near it, which is not a thing a court ever shows.
+            ball=start2,
+            ball_moves=[NET_R + (0,), land + (1,)],
         ))
     return out
 
@@ -286,9 +387,9 @@ def defence_family() -> list[Drill]:
         out.append(Drill(
             id=f"bd_defence_{key}", category="defending", minutes=8, rel=True,
             free=(key == "block"),
-            name=suffixed(DEF_NAME, label), note=DEF_NOTE,
+            name=suffixed(suffixed(DEF_NAME, label), "multi-shuttle"), note=DEF_NOTE,
             home=[P(0.66, 0.76, "1", moves=[(0.70, 0.70, 0), (0.62, 0.74, 1)])],
-            away=[P(*mirror(RR), "2", moves=[(0.80, 0.16, 0)])],
+            away=[P(*mirror(RR), "C", coach=True, moves=[(0.80, 0.16, 0)])],
             markers=[M(*to, "zone", "")],
             ball=mirror(RR),            # the smasher has it
             # The reply itself, over the net into the target.
@@ -329,12 +430,30 @@ def serve_family() -> list[Drill]:
     # receiver's non-valid area. Both are faults, on the four boards whose
     # whole subject is the serve.
     SHORT_LINE_NEAR, SHORT_LINE_FAR = 0.648, 0.352
+    # S serves from the right-hand court, so every serve has to land in
+    # the box DIAGONALLY opposite — the receiver's court on x < 0.5. The
+    # drive serve was aimed at x=0.66, the straight box: a fault, on the
+    # one board whose subject is the serve.
     specs = [("short", "short", (0.36, 0.325), 0.685),
              ("flick", "flick", (0.34, 0.085), 0.685),
              ("high", "high singles", (0.32, 0.025), 0.80),
-             ("drive", "drive", (0.66, 0.295), 0.685)]
+             ("drive", "drive", (0.34, 0.295), 0.685)]
     out = []
     for key, label, land, from_y in specs:
+        # The serve lands in the zone — that is the whole drill — and R
+        # moves to meet it there. Left to the generator it was sent to R
+        # where he stood, so only the short serve, whose zone happens to
+        # be at his feet, ever reached its target; the flick, the high
+        # and the drive all landed on a man standing by the short line.
+        ready = (0.36, SHORT_LINE_FAR - 0.06)
+        meet = (land[0] + (ready[0] - land[0]) * 0.3,
+                land[1] + (ready[1] - land[1]) * 0.3)
+        # The return is a shot, so it goes to a space, not to the server:
+        # a short serve is pushed deep past him, a flick or a high serve
+        # is hit down into the mid-court, a drive serve is blocked to the
+        # net. "R plays it to S" is what a feed looks like, not a reply.
+        reply = {"short": (0.50, 0.84), "flick": (0.36, 0.76),
+                 "high": (0.36, 0.76), "drive": (0.44, 0.60)}[key]
         out.append(Drill(
             id=f"bd_serve_{key}", category="setpiece", minutes=6, rel=True,
             free=(key == "short"),
@@ -343,12 +462,12 @@ def serve_family() -> list[Drill]:
                     moves=[(0.60, min(from_y + 0.04, 0.94), 1)])],
             # Behind his own short service line, which is where a receiver
             # must stand.
-            away=[P(0.36, SHORT_LINE_FAR - 0.06, "R",
-                    moves=[(land[0], land[1] + 0.05, 1)])],
+            away=[P(*ready, "R", moves=[meet + (0,)])],
             markers=[M(*land, "zone", ""),
                      M(0.50, SHORT_LINE_NEAR, "cone", ""),
                      M(0.50, SHORT_LINE_FAR, "cone", "")],
             ball=0,
+            ball_moves=[land + (0,), reply + (1,)],
         ))
     return out
 
@@ -393,24 +512,45 @@ def doubles_family() -> list[Drill]:
          [(0.50, 0.60), (0.50, 0.90)]),
     ]
     out = []
+    REPLY = {"attack": (0.50, 0.42),      # the kill, short of a side-by-side pair
+             "defence": (0.22, 0.08),     # the lift, to the open rear corner
+             "rotation": (0.78, 0.30)}    # the smash, down the open side
     for key, label, start, end in specs:
+        reply = REPLY[key]
+        # Front-back when they are attacking, which is the only shape a
+        # defending pair has anything to defend against.
+        away = ([P(0.50, 0.40, "A", moves=[(0.46, 0.36, 0)]),
+                 P(0.50, 0.14, "B")] if key in ("defence", "rotation")
+                else [P(0.34, 0.28, "A", moves=[(0.34, 0.22, 0)]),
+                      P(0.68, 0.28, "B")])
         out.append(Drill(
             id=f"bd_doubles_{key}",
             category="defending" if key == "defence" else "attacking",
             minutes=10, rel=True, free=(key == "attack"),
             name=suffixed(DOUBLES_NAME, label), note=DOUBLES_NOTE,
-            # the shuttle that makes the shape mean something: theirs comes
-            # over, the pair answers it
-            ball=(0.50, 0.42),
-            ball_to=[(0, 0), ("a0", 1)],
+            # The shuttle that makes the shape mean something: theirs comes
+            # over, the pair answers it. It starts IN A'S HAND, wherever he
+            # is standing — a fixed point in their half happened to be on
+            # him in two of these three, and in the third it was a shuttle
+            # hanging in mid-court belonging to nobody.
+            ball=(away[0].x, away[0].y),
+            # On the rotation board the ball that comes over IS the lift:
+            # it goes deep, to the man who drops back to take it — player 2,
+            # who ends at the rear — while 1 goes forward to the net. It
+            # used to go to 1, who had just moved UP, so the shuttle landed
+            # at the net and nothing on the board was a lift.
+            #
+            # The reply is a shot and goes into the gap the opponents'
+            # shape leaves open, which is the zone: between a side-by-side
+            # pair, into the open rear corner behind a front-back pair, down
+            # the open side when they are both in the middle. It used to go
+            # back to A, which is what a feed does.
+            ball_moves=[end[1 if key == "rotation" else 0] + (0,),
+                        reply + (1,)],
+            markers=[M(*reply, "zone", "")],
             home=[P(sx, sy, f"{i + 1}", moves=[end[i] + (0,)])
                   for i, (sx, sy) in enumerate(start)],
-            # Front-back when they are attacking, which is the only shape a
-            # defending pair has anything to defend against.
-            away=([P(0.50, 0.40, "A", moves=[(0.46, 0.36, 0)]),
-                   P(0.50, 0.14, "B")] if key in ("defence", "rotation")
-                  else [P(0.34, 0.28, "A", moves=[(0.34, 0.22, 0)]),
-                        P(0.68, 0.28, "B")]),
+            away=away,
         ))
     return out
 
@@ -442,18 +582,36 @@ DECEPTION_NOTE = {
 
 
 def deception_family() -> list[Drill]:
+    """The hold happens at the tape, and somebody has to be fooled by it.
+
+    Three beats. The feed comes to the net and 1 steps up to it; 2 commits
+    — a stride towards the net, on 1's column, reading a net reply — and in
+    the same beat 1 plays the other shot, over him to the rear (the flick)
+    or across him to the far net (the double motion); 1 recovers, 2
+    scrambles towards where it went.
+
+    What this replaces struck from base before 1 had reached the net,
+    sent the shuttle to 2 rather than into the zone, and walked 2 up to
+    within a stride of the tape — on the double-motion board he stood
+    across the net. Nothing on it was a deception: nobody held anything
+    and nobody was sent the wrong way.
+    """
     specs = [("hold_flick", "hold and flick", NET_R, (0.20, 0.08)),
              ("double_motion", "double motion", NET_L, (0.76, 0.44))]
     out = []
     for key, label, frm, land in specs:
+        start2 = mirror(BASE)
+        commit = (frm[0], 0.40)          # his side of the tape, on 1's column
+        chase = (land[0] + (start2[0] - land[0]) * 0.3,
+                 land[1] + (start2[1] - land[1]) * 0.3)
         out.append(Drill(
             id=f"bd_deception_{key}", category="attacking", minutes=8, rel=True,
-            name=suffixed(DECEPTION_NAME, label), note=DECEPTION_NOTE,
-            home=[P(*BASE, "1", moves=[frm + (0,), (frm[0], 0.60, 2)])],
-            away=[P(*mirror(BASE), "2",
-                    moves=[(frm[0], 0.42, 1), (land[0], land[1] + 0.05, 2)])],
+            name=suffixed(suffixed(DECEPTION_NAME, label), "multi-shuttle"), note=DECEPTION_NOTE,
+            home=[P(*BASE, "1", moves=[frm + (0,), BASE + (2,)])],
+            away=[P(*start2, "C", coach=True, moves=[commit + (1,), chase + (2,)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=start2,
+            ball_moves=[frm + (0,), land + (1,)],
         ))
     return out
 
@@ -485,7 +643,22 @@ DRIVE_NOTE = {
 }
 
 
+# The short service lines, in these court fractions: 0.647 on the home
+# side and 0.352 on the far one. A flat exchange is played from BEHIND
+# them, and the first beat of this family used to walk both players
+# straight across.
+SHORT_SERVICE_H, SHORT_SERVICE_A = 0.647, 0.352
+
+
 def drive_family() -> list[Drill]:
+    """A drive exchange is hands and racket, not feet.
+
+    Both players stand a stride behind their own short service line and
+    stay there. What used to happen was a stride forward on the first
+    beat, which put both of them in front of the line — the one place a
+    flat drive is not played from — and made a rally of two standing
+    players look like an advance.
+    """
     specs = [("flat", "flat exchange", 0.66), ("crosscourt", "cross-court", 0.34)]
     out = []
     for key, label, x in specs:
@@ -494,8 +667,8 @@ def drive_family() -> list[Drill]:
             id=f"bd_drive_{key}", category="possession", minutes=8, rel=True,
             free=(key == "flat"),
             name=suffixed(DRIVE_NAME, label), note=DRIVE_NOTE,
-            home=[P(x, 0.68, "1", moves=[(x, 0.62, 0), (x, 0.68, 1)])],
-            away=[P(ax, 0.32, "2", moves=[(ax, 0.38, 0)])],
+            home=[P(x, 0.72, "1", moves=[(x, 0.69, 0), (x, 0.72, 1)])],
+            away=[P(ax, 0.28, "2", moves=[(ax, 0.31, 0)])],
             ball=0,
         ))
     return out
@@ -537,18 +710,41 @@ def game_family() -> list[Drill]:
          [(0.30, 0.28), (0.70, 0.28)]),
     ]
     out = []
+    # Where each side's shot lands: a space, not the other player. A game
+    # is the one place nobody hits to anybody — half-court goes to the
+    # open corner of the half, front-court to the side of the tape, 2v1
+    # into the gap between the two and the single player's open corner,
+    # doubles between a side-by-side pair and down the side of a front-back
+    # one. The rally used to be "1 plays it to A, A plays it to 1".
+    SHOTS = {"half_court": ((0.22, 0.10), (0.22, 0.90)),
+             "front_court": ((0.22, 0.44), (0.78, 0.56)),
+             "two_v_one": ((0.22, 0.10), (0.50, 0.90)),
+             "full_doubles": ((0.50, 0.12), (0.22, 0.78))}
+
+    def toward(frm, to):
+        # A shot into a space is only a rally if somebody goes and gets
+        # it: the first player on each side runs to the spot the other
+        # side hit to, and plays the next shot from there.
+        return (to[0] + (frm[0] - to[0]) * 0.3, to[1] + (frm[1] - to[1]) * 0.3)
+
     for key, label, home, away in specs:
+        ours, theirs = SHOTS[key]
         out.append(Drill(
             id=f"bd_game_{key}", category="ssg", minutes=15, rel=True,
             free=(key in ("half_court", "full_doubles")),
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.05, 0)])
+            home=[P(x, y, f"{i + 1}",
+                    moves=([toward((x, y), theirs) + (1,)] if i == 0
+                           else [(x, y - 0.05, 0)]))
                   for i, (x, y) in enumerate(home)],
-            away=[P(x, y, chr(65 + i), moves=[(x, y + 0.05, 0)])
+            away=[P(x, y, chr(65 + i),
+                    moves=([toward((x, y), ours) + (0,)] if i == 0
+                           else [(x, y + 0.05, 0)]))
                   for i, (x, y) in enumerate(away)],
             markers=([M(0.50, 0.30, "cone", ""), M(0.50, 0.70, "cone", "")]
                      if key == "half_court" else []),
             ball=0,
+            ball_moves=[ours + (0,), theirs + (1,)],
         ))
     return out
 
@@ -611,47 +807,62 @@ def gaps_family() -> list[Drill]:
     front-court battle between two players. All verified absent.
     """
     return [
+        # Home is the bottom half on every board in this library, and the
+        # two returns were written with R at the top: everything that
+        # keys on which half is yours — which way a figure faces, which
+        # corner is his backhand — came out backwards, and R stood with
+        # his back to the net on both. Same drill, turned round.
         Drill(
             id="bd_return_short_serve", category="setpiece", minutes=8, rel=True,
             level="foundation", free=True,
             name=suffixed(RETURN_NAME, "against the short serve"),
             note=RETURN_NOTE,
-            home=[P(0.36, 0.29, "R", moves=[(0.40, 0.375, 0), (0.38, 0.32, 1)])],
-            away=[P(0.62, 0.685, "S", moves=[(0.60, 0.72, 1)])],
-            markers=[M(0.66, 0.60, "zone", ""), M(0.50, 0.352, "cone", ""),
+            home=[P(0.36, 0.71, "R", moves=[(0.40, 0.625, 0), (0.38, 0.68, 1)])],
+            away=[P(0.62, 0.315, "S", moves=[(0.60, 0.28, 1)])],
+            markers=[M(0.66, 0.40, "zone", ""), M(0.50, 0.352, "cone", ""),
                      M(0.50, 0.648, "cone", "")],
-            ball=(0.615, 0.665),
-            ball_moves=[(0.40, 0.375, 0), (0.66, 0.60, 1)],
+            ball=(0.615, 0.335),
+            ball_moves=[(0.40, 0.625, 0), (0.66, 0.40, 1)],
         ),
         Drill(
             id="bd_return_flick_serve", category="setpiece", minutes=8, rel=True,
             name=suffixed(RETURN_NAME, "against the flick"), note=RETURN_NOTE,
-            home=[P(0.36, 0.29, "R", moves=[(0.34, 0.16, 0), (0.40, 0.30, 2)])],
-            away=[P(0.62, 0.685, "S", moves=[(0.58, 0.74, 1)])],
-            markers=[M(0.70, 0.76, "zone", ""), M(0.50, 0.352, "cone", ""),
+            home=[P(0.36, 0.71, "R", moves=[(0.34, 0.84, 0), (0.40, 0.70, 2)])],
+            away=[P(0.62, 0.315, "S", moves=[(0.58, 0.26, 1)])],
+            markers=[M(0.70, 0.24, "zone", ""), M(0.50, 0.352, "cone", ""),
                      M(0.50, 0.648, "cone", "")],
-            ball=(0.615, 0.665),
-            ball_moves=[(0.34, 0.14, 0), (0.70, 0.76, 1)],
+            ball=(0.615, 0.335),
+            ball_moves=[(0.34, 0.86, 0), (0.70, 0.24, 1)],
         ),
         Drill(
             id="bd_clear_round_the_head", category="possession", minutes=8, rel=True,
-            name=suffixed(CLEAR_NAME, "round the head"), note=OVERHEAD_NOTE,
+            name=suffixed(suffixed(CLEAR_NAME, "round the head"), "multi-shuttle"), note=OVERHEAD_NOTE,
+            # Feed and move, clear and cover, recover — the clear used to
+            # wait a beat after 1 had arrived, with nothing happening on
+            # the board but the feeder shuffling sideways.
             home=[P(*BASE, "1", moves=[(0.30, 0.84, 0), BASE + (2,)])],
-            away=[P(*mirror(BASE), "F", moves=[(0.34, 0.30, 1)])],
+            away=[P(*mirror(BASE), "C", coach=True, moves=[(0.34, 0.30, 1)])],
             markers=[M(0.30, 0.86, "cone", ""), M(0.72, 0.14, "zone", "")],
             ball=mirror(BASE),
-            ball_moves=[(0.30, 0.84, 0), (0.72, 0.14, 2)],
+            ball_moves=[(0.30, 0.84, 0), (0.72, 0.14, 1)],
         ),
         Drill(
             id="bd_net_battle", category="attacking", minutes=8, rel=True,
             level="advanced",
             name=suffixed(NETPLAY_NAME, "the battle at the tape"),
             note=NETBATTLE_NOTE,
+            # Both a stride off the tape, not on it. A figure stands 26pt
+            # below its own point, and the far player's feet go TOWARDS
+            # the net — placed at 0.475 he was drawn standing on the cord.
             home=[P(0.42, 0.60, "1", moves=[(0.44, 0.565, 0), (0.40, 0.60, 2)])],
-            away=[P(0.44, 0.42, "2", moves=[(0.44, 0.475, 1)])],
-            markers=[M(0.30, 0.30, "zone", "")],
+            away=[P(0.44, 0.40, "2", moves=[(0.44, 0.43, 1)])],
+            # The winning shot crosses the net. The zone was authored at
+            # y=0.30 — 2's own half — so the board had him beating 1 by
+            # hitting the shuttle into his own court. It lands deep in the
+            # corner 1 has left open by coming to the tape.
+            markers=[M(0.30, 0.72, "zone", "")],
             ball=(0.435, 0.575),
-            ball_moves=[(0.44, 0.475, 1), (0.30, 0.30, 2)],
+            ball_moves=[(0.44, 0.46, 1), (0.30, 0.72, 2)],
         ),
     ]
 
@@ -691,10 +902,29 @@ def multi_shuttle() -> list[Drill]:
               "ms-MY": "Tempo suapan sedikit melebihi selesa.",
               "th-TH": "จังหวะป้อนต้องเร็วกว่าที่สบายนิดหนึ่ง เทคนิคที่รอดถึงลูกที่สิบคือของจริง",
               "vi-VN": "Nhịp cấp cầu nhanh hơn mức thoải mái một chút."},
+        # All four corners, and a cone on each. A feeder with a box of
+        # shuttles works the whole court — that is what multi-shuttle is
+        # for — and this board used to send the player to three of them
+        # and leave the backhand rear alone, with the cones to match.
         home=[P(*BASE, "1", moves=[FR + (0,), BASE + (1,), FL + (2,),
-                                   BASE + (3,), RR + (4,), BASE + (5,)])],
-        away=[P(0.5, 0.44, "C", moves=[(0.46, 0.44, 2)])],
-        markers=[M(*c, "cone", "") for c in (FL, FR, RR)],
-        ball=(0.5, 0.44),           # in the feeder's hand
+                                   BASE + (3,), RR + (4,), BASE + (5,),
+                                   RL + (6,), BASE + (7,)])],
+        away=[P(*FEED, "C", coach=True)],
+        markers=[M(*c, "cone", "") for c in (FL, FR, RL, RR)],
+        ball=FEED,                  # in the feeder's hand
+        # The shuttle is hit AT THE CORNERS. Left to the generator the feed
+        # simply went to the player, and the player's own route starts at
+        # base — so the one shot on the board was played in the middle of
+        # the court, which is the one place a multi-shuttle feed never
+        # goes. It is fed to the corner the player has just reached, comes
+        # back, and goes out to the next one.
+        #
+        # Every beat but the last carries a leg on purpose. A beat the ball
+        # has no leg for, with a written leg still to come, is given one
+        # that follows the player — fine when a man runs with the ball,
+        # wrong here: the shuttle would have walked back to base with him
+        # between feeds.
+        ball_moves=[FR + (0,), FEED + (1,), FL + (2,), FEED + (3,),
+                    RR + (4,), FEED + (5,), RL + (6,)],
     )]
 

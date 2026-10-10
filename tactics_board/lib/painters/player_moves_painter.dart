@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart' show mapEquals;
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
+import '../models/sport_type.dart';
 import '../widgets/player_icon_widget.dart';
 
 /// Which legs of this ball's route ride along with a player, and whose leg
@@ -113,7 +114,7 @@ double nudgeThreshold(PlayerIcon p) =>
 
 /// How much of its 36pt box an icon actually fills.
 double iconDrawFactor(PlayerIcon p) => p.isBall
-    ? kBallDrawFactor
+    ? ballDrawFactor(p.sportType ?? SportType.soccer)
     : p.isMarker
         ? markerArtScale(p.markerShape)
         : 1.0;
@@ -266,10 +267,17 @@ class PlayerMovesPainter extends CustomPainter {
   /// follows the ball and arrives when it does.
   final Map<String, Offset> livePos;
 
+  /// The sport the board is set to, which decides whether a holder on the
+  /// move is carrying the ball or merely walking while it waits for him.
+  /// Null keeps the old behaviour — a carry is a carry — for the callers
+  /// that have no board to ask.
+  final SportType? sport;
+
   const PlayerMovesPainter({
     required this.players,
     this.layer = RouteLayer.all,
     this.livePos = const {},
+    this.sport,
     this.targetStep = 0,
     this.completedSteps,
     this.focusId,
@@ -418,7 +426,13 @@ class PlayerMovesPainter extends CustomPainter {
       // parallel arrows a few points apart.
       final carrying = carries.contains('${player.id}#${legs[i].key}');
       if (player.isBall && carrying) continue;
-      final style = carrying
+      // The squiggle only where a ball can actually travel with a player.
+      // A shuttle is struck, never carried, so on a badminton court the
+      // man walking to meet it read as dribbling it there; his is a run
+      // like any other. The ball's own copy of the leg stays dropped
+      // either way — it rides with him, and two lines for one movement is
+      // the thing [carries] exists to prevent.
+      final style = carrying && (sport?.canCarryBall ?? true)
           ? _Line.wave
           : player.isBall
               ? _Line.solid

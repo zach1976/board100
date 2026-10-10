@@ -297,6 +297,9 @@ class _SportHomePageState extends State<SportHomePage> {
               state.loadFromJson(Map<String, dynamic>.from(drill.board));
               state.currentTacticName = null;
               state.currentTacticMeta = null;
+              // See drill_library_page: the board prints its own steps.
+              state.openedDrill(
+                  DrillNote.parse(drill.localizedNote(_locale)).beats);
               RecentBoardsService.instance.record(
                 state.sportType,
                 RecentBoard(
@@ -909,6 +912,17 @@ class _BoardCardState extends State<_BoardCard> {
     // With nothing drawn yet the card does not offer to open a board; making
     // one becomes its main action. See hasWorkingBoard.
     final hasBoard = hasWorkingBoard(state);
+    final sideways =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    final previewBoard = SizedBox(
+      width: kBoardRefWidth,
+      height: kBoardRefHeight,
+      child: ChangeNotifierProvider<TacticsState>.value(
+        value: _preview,
+        child: IgnorePointer(
+            child: TacticsCanvas(preview: true, boardTurns: sideways ? 1 : 0)),
+      ),
+    );
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: hasBoard ? onOpen : onNew,
@@ -929,19 +943,21 @@ class _BoardCardState extends State<_BoardCard> {
               // Drawn at the real board size and scaled as one picture, so
               // the players are the size they are on the board rather than
               // three times it — see kBoardRefWidth.
+              //
+              // Turned sideways — a tablet, a Mac window, a phone on its
+              // side — the board page draws the board landscape, so a
+              // portrait thumbnail here was a picture of a board the coach
+              // would not recognise when he opened it. The preview takes the
+              // same quarter turn, and the card gives it width instead of
+              // height.
               child: SizedBox(
-                height: 190,
+                height: sideways ? null : 190,
+                width: sideways ? 260 : null,
                 child: FittedBox(
                   fit: BoxFit.contain,
-                  child: SizedBox(
-                    width: kBoardRefWidth,
-                    height: kBoardRefHeight,
-                    child: ChangeNotifierProvider<TacticsState>.value(
-                      value: _preview,
-                      child: const IgnorePointer(
-                          child: TacticsCanvas(preview: true)),
-                    ),
-                  ),
+                  child: sideways
+                      ? RotatedBox(quarterTurns: 1, child: previewBoard)
+                      : previewBoard,
                 ),
               ),
             ),

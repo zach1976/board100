@@ -269,27 +269,37 @@ void _libraryTests(String sport) {
       // by the rules), and equipment — cones mark channels and gates that sit
       // outside the lines on purpose.
       final sportType = SportType.values.firstWhere((s) => s.name == sport);
-      // The surface as the phone actually draws it, put back into the
-      // 1000x1500 the coordinates are written in. Player positions rescale by
-      // plain canvas fractions while the court is fitted to its own aspect,
-      // so the two only line up on the canvas the board is shown at — asking
-      // fieldRect for 1000x1500 measures a court no device ever draws.
-      const shownIn = Size(402, 730);
-      final shown = sportType.fieldRect(shownIn);
-      final field = Rect.fromLTRB(
-        shown.left / shownIn.width * 1000,
-        shown.top / shownIn.height * 1500,
-        shown.right / shownIn.width * 1000,
-        shown.bottom / shownIn.height * 1500,
+      // The surface as the phone actually draws it. A board states the
+      // canvas its coordinates are in — see to_display_frame in
+      // tools/drills/engine.py — and the court is that canvas's own, so the
+      // two line up without a conversion.
+      final shownIn = Size(
+        (drills.first.board['canvasWidth'] as num).toDouble(),
+        (drills.first.board['canvasHeight'] as num).toDouble(),
       );
+      final field = sportType.fieldRect(shownIn);
+      // The old allowance was 12 units of a 1000x1500 frame.
+      final slack = 12.0 * shownIn.width / 1000;
+      final slackY = 12.0 * shownIn.height / 1500;
+      // Behind a tennis baseline is still the court. The rect above is the
+      // LINES, and on a tennis court the apron behind them is several
+      // metres of playing surface that the board draws — a groundstroke is
+      // taken from back there, so the library puts its players there on
+      // purpose. 6% of the court's length is about a metre and a half: far
+      // enough to stand behind the line, not far enough to be stranded in
+      // the margin, which is what this test is for.
+      final behind = sportType == SportType.tennis ? field.height * 0.06 : 0.0;
       for (final d in drills) {
         if (d.offSurface) continue;
         for (final p in (d.board['players'] as List).cast<Map>()) {
           if ((p['markerShape'] as int? ?? 0) != 0) continue; // equipment
           final pos = (p['position'] as List).cast<num>();
-          expect(pos[0], inInclusiveRange(field.left - 12, field.right + 12),
+          expect(pos[0], inInclusiveRange(field.left - slack, field.right + slack),
               reason: '${d.id}/${p['id']} is off the surface');
-          expect(pos[1], inInclusiveRange(field.top - 12, field.bottom + 12),
+          expect(
+              pos[1],
+              inInclusiveRange(field.top - slackY - behind,
+                  field.bottom + slackY + behind),
               reason: '${d.id}/${p['id']} is off the surface');
         }
       }

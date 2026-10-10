@@ -124,6 +124,20 @@
   pre.prompt .var { color: var(--accent); }
 
   /* ── generic cards / tables ────────────────────────────────────────── */
+  .made { padding: 14px 18px 4px; }
+  .made .dim { color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .shots { display: grid; grid-template-columns: repeat(3, 120px); gap: 12px; }
+  .shot { position: relative; aspect-ratio: 9 / 19.5; border-radius: 14px; overflow: hidden;
+          background: #0f1a17; border: 1px solid rgba(255,255,255,.08); cursor: pointer; }
+  .shot[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; display: block; }
+  .shot.missing img { display: none; }
+  .shot .tag { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; font-size: 12px;
+               color: var(--text); background: linear-gradient(transparent, rgba(0,0,0,.7)); }
+  .shot.missing .tag { top: 0; display: flex; align-items: center; justify-content: center;
+                       color: var(--dim); background: none; }
+  .pick .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: 6px;
+               background: var(--accent); vertical-align: 1px; }
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
   .card {
     background: var(--bg1); border: 1px solid var(--border); border-radius: 12px; padding: 18px;
@@ -203,6 +217,10 @@
             <span class="file" id="who-file"></span>
           </div>
           <button class="copy" id="copy" type="button">复制提示词</button>
+        </div>
+        <div class="made">
+          <p class="rail-label">这个 app 已经出好的图 <span class="dim" id="made-note"></span></p>
+          <div class="shots" id="shots"></div>
         </div>
         <pre class="prompt" id="prompt"></pre>
       </div>
@@ -363,7 +381,12 @@
   const STYLE_HEAD =
 `Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
 
-A coach's magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.`;
+A coach's magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin white lines, {DISCS}`;
+
+  // What the magnets do on the board. One sport overrides it: table tennis
+  // players stand on the floor around the table, not on it.
+  const DISCS_DEFAULT =
+`with glossy red and blue magnetic discs arranged as a formation and white solid and dashed movement arrows curving between them.`;
 
   const STYLE_TAIL =
 `Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading "Plan / Train / Improve" and "Better Players / Brighter Teams" with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
@@ -395,7 +418,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
   // key -> the five things that actually change between the sixteen apps.
   // Order matches tools/sports.tsv, hub first.
   const SPORTS = [
-    { key: 'tactics_board', dir: 'tactics_board', zh: '战术板（合集）',
+    { key: 'tactics_board', dir: 'HubBoard', zh: '战术板（合集）',
       COURT: 'a blank magnetic tactics board face with faint white grid lines and no sport markings',
       SURFACE: 'a dark slate table top',
       BALL: 'a football, a basketball and a volleyball grouped together',
@@ -415,7 +438,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'volleyball', dir: 'VolleyballBoard', zh: '排球战术板',
       COURT: 'a volleyball court seen vertically, with the centre net line and both attack lines',
-      SURFACE: 'a blue and yellow indoor sports floor',
+      SURFACE: 'a glossy indoor volleyball floor in the standard competition colours — a bright ROYAL BLUE playing court inside crisp white lines with a warm ORANGE-YELLOW free zone around it. This floor is the one exception to the muted-green palette: its blue must read as a clean saturated blue, never teal, cyan, green or grey',
       BALL: 'a white, blue and yellow volleyball',
       PROP_A: 'a pair of black knee pads',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
@@ -426,7 +449,8 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a badminton racket lying flat',
       PROP_B: 'an open tube of shuttlecocks' },
     { key: 'tableTennis', dir: 'TableTennisBoard', zh: '乒乓球战术板',
-      COURT: 'a table tennis table seen from above, with the centre line and the net across the middle',
+      COURT: 'a table tennis table seen from above and drawn SMALL in the centre of the board — a blue rectangle with white edge lines, a centre line and the net across the middle — with wide empty dark floor around it on every side',
+      DISCS: 'with one glossy red magnetic disc standing on the floor beyond the far END of the table and one glossy blue disc on the floor beyond the near end, both well outside the table\'s edge lines (nothing is placed on the table top itself — players stand around a table, not on it), and white solid and dashed arrows tracing each player\'s sidesteps along the floor at their own end.',
       SURFACE: 'a dark blue table tennis table top',
       BALL: 'a white 40mm table tennis ball',
       PROP_A: 'a red and black table tennis paddle',
@@ -441,7 +465,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       COURT: 'a pickleball court seen vertically, with the non-volley kitchen zone and both service courts',
       SURFACE: 'a blue and green pickleball court surface',
       BALL: 'a yellow perforated plastic pickleball',
-      PROP_A: 'a graphite pickleball paddle',
+      PROP_A: 'a pickleball paddle — a SOLID flat slab of graphite with a square face and rounded corners and a short grip, like an oversized table tennis bat, with NO strings and NO oval head: it is not a tennis or badminton racket',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'fieldHockey', dir: 'FieldHockeyBoard', zh: '曲棍球战术板',
       COURT: 'a field hockey pitch seen vertically, with both shooting circles and the 23-metre lines',
@@ -493,7 +517,11 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
   ];
 
-  let sportAt = 1;   // soccer: the one with a real mockup to compare against
+  // ?sport=<key> opens the page on that sport; otherwise soccer, the one with
+  // a real mockup to compare against.
+  const want = new URLSearchParams(location.search).get('sport');
+  let sportAt = Math.max(0, SPORTS.findIndex((s) => s.key === want));
+  if (sportAt === 0 && want !== SPORTS[0].key) sportAt = 1;
   let panelAt = 0;
 
   function compose(sport, panel) {
@@ -502,8 +530,13 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       .replace(/\{SURFACE\}/g, sport.SURFACE)
       .replace(/\{BALL\}/g, sport.BALL)
       .replace(/\{PROP_A\}/g, sport.PROP_A)
-      .replace(/\{PROP_B\}/g, sport.PROP_B);
-    return [fill(STYLE_HEAD), fill(panel.scene), STYLE_TAIL].join('\n\n');
+      .replace(/\{PROP_B\}/g, sport.PROP_B)
+      .replace(/\{DISCS\}/g, sport.DISCS || DISCS_DEFAULT);
+    // Line 1 is the file the image is delivered as, line 2 its size — the
+    // same two-line head every prompt sheet in this repo starts with, so the
+    // image comes back already named for install_intro_art.py --all.
+    const head = sport.key + '_' + panel.n + '.png\n1080 x 2340, PNG';
+    return [head, fill(STYLE_HEAD), fill(panel.scene), STYLE_TAIL].join('\n\n');
   }
 
   // The per-sport words are highlighted so it is obvious at a glance what
@@ -513,7 +546,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
     const panel = PANELS[panelAt];
     const text = compose(sport, panel);
 
-    const varied = [sport.COURT, sport.SURFACE, sport.BALL, sport.PROP_A, sport.PROP_B]
+    const varied = [sport.COURT, sport.SURFACE, sport.BALL, sport.PROP_A, sport.PROP_B, sport.DISCS]
       .filter(Boolean)
       .sort((a, b) => b.length - a.length);
     let html = '';
@@ -546,7 +579,49 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
     const c = document.getElementById('copy');
     c.classList.remove('done');
     c.textContent = '复制提示词';
+    renderShots(sport);
   }
+
+  // The images that already exist, read straight out of the shells — the
+  // page sits in tools/, so each app's assets/intro/ is one level up.
+  const artPath = (sport, n) => '../' + sport.dir + '/assets/intro/intro_' + n + '.webp';
+
+  function renderShots(sport) {
+    const el = document.getElementById('shots');
+    el.innerHTML = '';
+    PANELS.forEach((panel, i) => {
+      const d = document.createElement('div');
+      d.className = 'shot';
+      d.setAttribute('aria-current', String(i === panelAt));
+      const img = document.createElement('img');
+      img.src = artPath(sport, panel.n);
+      img.alt = 'intro_' + panel.n;
+      const tag = document.createElement('div');
+      tag.className = 'tag';
+      tag.textContent = '第 ' + panel.n + ' 屏 · ' + panel.t;
+      img.addEventListener('error', () => { d.classList.add('missing'); tag.textContent = '第 ' + panel.n + ' 屏 · 还没有'; });
+      d.append(img, tag);
+      d.addEventListener('click', () => { panelAt = i; render(); });
+      el.appendChild(d);
+    });
+    document.getElementById('made-note').textContent = '（' + sport.dir + '/assets/intro/）';
+  }
+
+  // Dot every sport that already has all three, so the rail doubles as a
+  // progress board: which apps still need their intro shot.
+  SPORTS.forEach((sport, i) => {
+    let have = 0;
+    PANELS.forEach((panel) => {
+      const probe = new Image();
+      probe.onload = () => {
+        if (++have === PANELS.length) {
+          const b = document.querySelector('#sports button[data-i="' + i + '"]');
+          if (b && !b.querySelector('.dot')) { const dot = document.createElement('span'); dot.className = 'dot'; b.appendChild(dot); }
+        }
+      };
+      probe.src = artPath(sport, panel.n);
+    });
+  });
 
   function esc(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

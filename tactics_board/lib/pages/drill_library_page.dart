@@ -160,6 +160,10 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     widget.state.loadFromJson(Map<String, dynamic>.from(drill.board));
     widget.state.currentTacticName = null;
     widget.state.currentTacticMeta = null;
+    // Its own words come with it, so the board can print the step it is
+    // standing on under the court.
+    widget.state
+        .openedDrill(DrillNote.parse(drill.localizedNote(_locale)).beats);
     // A drill is never saved — it is a starting shape the coach edits — so
     // without this the thing they most recently had on the board is exactly
     // the thing the home page cannot offer them again.
