@@ -1,5 +1,24 @@
-Yang Baru
+Yang Baru di 2.0.0
 
-• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
-• Kembali ke aplikasi terasa lebih mulus.
-• Perbaikan bug dan peningkatan stabilitas.
+Pembaruan besar: pustaka latihan bawaan, rencana latihan, dan papan yang digambar ulang sepenuhnya.
+
+PUSTAKA LATIHAN — 32 LATIHAN
+Setiap latihan adalah papan beranimasi lengkap dengan susunan, jalur bola, dan poin kepelatihan. Buka lalu putar, atau taruh di papan dan sunting seperti milik Anda sendiri. Cari, atau saring menurut kategori, level, dan jumlah pemain.
+
+RENCANA LATIHAN DAN SKUAD ANDA
+Rangkai latihan dan papan Anda sendiri menjadi satu rencana dan jalankan dari pinggir lapangan, satu per satu, lengkap dengan catatan apa yang benar-benar dijalankan. Simpan pemain beserta fotonya dan tandai kehadiran tiap sesi.
+
+PAPAN ADALAH SEBUAH KARTU
+Lapangan duduk di atas latar gelap olahraganya sendiri dengan sudut membulat dan bayangan lembut, bukan lagi memenuhi tepi layar. Pemain, peralatan, dan bola punya bayangan kontak, permukaan lapangan punya teksturnya sendiri, dan jaring punya anyaman.
+
+KONTROL DIBANGUN ULANG
+Bilah bawah yang lebih jelas dengan alat dalam satu kapsul dan pemutaran di kapsul lain; tombol sudut lebih besar dan menjauhi Dynamic Island; zoom dan layar penuh pindah ke bilah. Di iPad dalam posisi lanskap, kontrol berada di bawah papan sehingga lapangan memakai lebar penuh.
+
+BOLA DAN RUTE
+Pemain yang memegang bola menaruhnya di depan, pada sisi yang ia hadapi — tidak pernah di belakang, tidak pernah terinjak. Lari, giring, dan umpan adalah tiga garis berbeda, digambar di bawah figur, dari kaki ke kaki. Dan semua papan latihan di pustaka diatur ulang jaraknya agar tidak ada figur yang tumpang tindih di langkah mana pun.
+
+JUGA
+- Bagikan papan sebagai tautan web; penerimanya tak perlu aplikasi
+- Ekspor sebuah pergerakan sebagai video, bukan cuma gambar
+- Salin pemain beserta lariannya ke halaman berikutnya
+- Layar pembuka untuk mode lanskap

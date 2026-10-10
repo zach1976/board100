@@ -1,23 +1,13 @@
-Yang Baru di 2.2.0
+Yang Baru di 2.2.1
 
-Tampilan papan yang baru, dan bola yang selalu berada di tempat pemain memegangnya.
+TEMBAKAN MASUK GAWANG
+Setiap latihan penyelesaian berakhir dengan bola jauh di belakang gawang: titik tujuannya ditulis terhadap kanvas, bukan terhadap lapangan. Kini tembakan berakhir di dalam jala, sesuai isi latihannya.
 
-PAPAN ADALAH SEBUAH KARTU
-Lapangan duduk di atas latar gelap olahraganya sendiri dengan sudut membulat dan bayangan lembut, bukan lagi memenuhi tepi layar. Pemain, kerucut, dan bola punya bayangan kontak, rumput punya garis potongnya, jaring punya anyaman, dan gawang sepak bola kini berupa gambar, bukan garis.
+PAPAN TETAP DI DALAM LAPANGAN
+Di iPad, di Mac, dan di ponsel yang dimiringkan, pemain dan bola diletakkan terhadap jendela, bukan lapangan, sehingga seluruh pergerakan meleset beberapa meter dari garis. Kini semuanya berada di tempat yang ditunjukkan garis, pada ukuran layar apa pun.
 
-KONTROL DIBANGUN ULANG
-Bilah bawah yang lebih jelas dengan alat dalam satu kapsul dan pemutaran di kapsul lain; tombol sudut lebih besar dan menjauhi Dynamic Island; zoom dan layar penuh pindah ke bilah. Di iPad dalam posisi lanskap, kontrol berada di bawah papan sehingga lapangan memakai lebar penuh.
+RUANG UNTUK TOMBOL
+Saat dimiringkan, tombol menu, nomor halaman, dan zoom berada di atas lapangan. Papan kini dimulai di dalamnya, dan di iPad bar pemutaran dan bar alat berbagi satu baris sehingga lapangan mendapat tingginya kembali.
 
-BOLA DI DEPAN PEMAIN
-Pemain yang memegang bola menaruhnya di kaki, di depan, pada sisi yang ia hadapi — tidak pernah di belakang, tidak pernah terinjak. Pemain yang membelakangi Anda digambar di atas bola, sebagaimana mestinya. Bola tidak lagi melompat di awal langkah atau mendarat dua kali di akhirnya.
-
-RUTE DI BAWAH ORANG
-Garis lari, giring, dan umpan digambar di bawah figur, mulai dan berakhir di kaki, dan ujung panah berhenti sebelum orang yang ditunjuk alih-alih menempel di kepalanya.
-
-TIDAK ADA YANG MENGINJAK SIAPA PUN
-Semua 674 papan latihan di pustaka diatur ulang jaraknya agar tidak ada dua figur yang tumpang tindih di langkah mana pun.
-
-JUGA
-- Layar pembuka untuk mode lanskap
-- Layar beranda menampilkan nama olahraga
-- Pembaruan latihan hanya diunduh bila ada yang berubah
+GAMBAR KECIL IKUT BERPUTAR
+Papan di layar utama dan di sebuah latihan digambar searah dengan papan yang Anda buka.

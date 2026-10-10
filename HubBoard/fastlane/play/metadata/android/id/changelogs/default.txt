@@ -1,0 +1,7 @@
+2.0.0
+
+• Pustaka 674 latihan beranimasi — buka lalu putar, atau taruh di papan dan sunting
+• Rencana latihan untuk dijalankan dari pinggir lapangan, skuad dengan foto dan kehadiran
+• Papan digambar ulang: kartu membulat, bayangan kontak, tekstur lapangan, jaring beranyam
+• Kontrol dibangun ulang; di tablet lanskap lapangan memakai lebar penuh
+• Bola berada di depan pemain yang memegangnya, rute digambar di bawah figur

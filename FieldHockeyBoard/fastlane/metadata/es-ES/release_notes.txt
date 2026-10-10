@@ -1,24 +1,13 @@
-Novedades de la versión 2.0
+Novedades de la versión 2.0.1
 
-36 EJERCICIOS DE HOCKEY, INCLUIDOS
-Cada ejercicio es una pizarra que puedes recorrer paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras se juega. Calentamiento, salida de bola, entrada al área, definición, presión, córner corto, portería y físico.
+LA PIZARRA SE QUEDA EN EL CAMPO
+En iPad, en Mac y en el móvil girado, los jugadores y el balón se colocaban respecto a la ventana y no al campo, así que toda la jugada quedaba fuera de las líneas. Ahora todo está donde dicen las líneas, a cualquier tamaño.
 
-PLANIFICA TODA LA SESIÓN
-Encadena ejercicios en un plan de entrenamiento, ejecútalo desde la banda uno a uno y queda registrado lo que realmente hiciste.
+DOS BALONES, UNO A CADA LADO
+Quien calienta con dos balones los tiene uno a cada lado, no uno delante y otro detrás.
 
-TU PLANTILLA Y TU ASISTENCIA
-Guarda a tus jugadores con foto, marca quién vino y mira la temporada de un vistazo.
+SITIO PARA LOS BOTONES
+Girada la pantalla, el menú, el número de página y el zoom se apoyaban sobre la superficie de juego. La pizarra empieza ahora por dentro de ellos, y en iPad la barra de reproducción y la de herramientas comparten una fila.
 
-COMPARTE UNA PIZARRA COMO ENLACE
-Envía una jugada al equipo: la abren en el navegador, sin instalar nada.
-
-JUGADORES REDIBUJADOS
-Miran hacia donde van, con el stick en la mano, hombres y mujeres, con bola o sin ella.
-
-ADEMÁS
-- La carrera es una flecha discontinua, la conducción ondula, el pase es una línea continua
-- Gira cualquier elemento y escribe texto directamente sobre la pizarra
-- Una pizarra es un conjunto de páginas por las que puedes pasar
-- iPad y Mac: la pizarra ocupa toda la pantalla
-- Exporta una jugada como vídeo, no solo como imagen
-- Una compra única opcional elimina la publicidad
+LAS MINIATURAS GIRAN CON LA PIZARRA
+La pizarra de la pantalla de inicio y la de un ejercicio se dibujan en el mismo sentido que la que abres.

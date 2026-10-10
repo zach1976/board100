@@ -1,23 +1,13 @@
-Nouveautés de la version 2.2.0
+Nouveautés de la version 2.2.1
 
-Un tableau au nouveau look, et un ballon toujours là où un joueur l'aurait.
+LES TIRS RENTRENT
+Tous les exercices de finition se terminaient avec le ballon loin derrière le but : la cible était écrite par rapport au cadre de dessin et non au terrain. Le tir finit désormais dans les filets, comme l'exercice l'annonce.
 
-LE TABLEAU EST UNE CARTE
-Le terrain repose sur le fond sombre de son sport, avec des coins arrondis et une ombre douce, au lieu de déborder des bords de l'écran. Joueurs, plots et ballon ont une ombre de contact, la pelouse a ses bandes de tonte, les filets ont leurs mailles et les buts de football sont des images plutôt que des tracés.
+LE TABLEAU RESTE SUR LE TERRAIN
+Sur iPad, sur Mac et sur un téléphone tourné, les joueurs et le ballon étaient placés par rapport à la fenêtre et non au terrain : toute l'action se retrouvait à plusieurs mètres des lignes. Tout est maintenant là où les lignes le disent, à toutes les tailles.
 
-COMMANDES REFAITES
-Une barre inférieure plus lisible, outils dans une capsule et lecture dans une autre ; des boutons d'angle plus grands qui évitent la Dynamic Island ; zoom et plein écran déplacés dans la barre. Sur iPad en paysage, les commandes passent sous le tableau et le terrain prend toute la largeur.
+DE LA PLACE POUR LES BOUTONS
+À l'horizontale, le menu, le numéro de page et le zoom se posaient sur la surface de jeu. Le tableau commence maintenant en deçà, et sur iPad la barre de lecture et la barre d'outils tiennent sur une seule ligne : le terrain récupère cette hauteur.
 
-LE BALLON DEVANT LE JOUEUR
-Le porteur a le ballon aux pieds, devant lui, du côté où il regarde — jamais derrière, jamais sous les crampons. Un joueur de dos est dessiné par-dessus le ballon, comme il le serait. Le ballon ne sursaute plus au début d'un pas et ne retombe plus deux fois à la fin.
-
-LES TRACÉS SOUS LES JOUEURS
-Courses, conduites et passes sont dessinées sous les silhouettes, partent et arrivent aux pieds, et les pointes de flèche s'arrêtent avant celui qu'elles visent au lieu de se poser sur sa tête.
-
-PERSONNE NE MARCHE SUR PERSONNE
-Les 674 exercices de la bibliothèque ont été réespacés pour qu'aucune silhouette n'en chevauche une autre, à aucun pas.
-
-ET AUSSI
-- Un écran de lancement en paysage
-- L'écran d'accueil affiche le nom du sport
-- Les exercices ne se téléchargent que si quelque chose a changé
+LES VIGNETTES TOURNENT AVEC LE TABLEAU
+Le tableau de l'accueil et celui d'un exercice sont orientés comme celui que vous ouvrez.

@@ -1,5 +1,24 @@
-Có gì mới
+Có gì mới trong 2.0.0
 
-• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
-• Quay lại ứng dụng mượt mà hơn.
-• Sửa lỗi và cải thiện độ ổn định.
+Một bản cập nhật lớn: thư viện bài tập tích hợp, kế hoạch buổi tập, và bảng chiến thuật được vẽ lại từ đầu.
+
+THƯ VIỆN BÀI TẬP — 28 BÀI
+Mỗi bài tập là một bảng động kèm cách bố trí, đường bóng và điểm huấn luyện. Mở ra bấm phát, hoặc đưa lên bảng và sửa như bảng của bạn. Tìm kiếm, hoặc lọc theo nhóm, trình độ và số người.
+
+KẾ HOẠCH BUỔI TẬP VÀ ĐỘI HÌNH
+Xâu chuỗi các bài tập và bảng của riêng bạn thành một kế hoạch rồi chạy ngay bên đường biên, từng mục một, có ghi lại những gì đã thực sự tập. Lưu cầu thủ kèm ảnh và điểm danh mỗi buổi.
+
+BẢNG LÀ MỘT TẤM THẺ
+Sân nằm trên nền tối của chính môn thể thao đó, bo góc và có bóng đổ nhẹ, thay vì tràn ra mép màn hình. Cầu thủ, dụng cụ và bóng có bóng tiếp đất, mặt sân có kết cấu riêng, và lưới có mắt lưới.
+
+ĐIỀU KHIỂN LÀM LẠI
+Thanh dưới rõ ràng hơn với công cụ trong một viên nang và phát lại trong một viên nang khác; nút góc lớn hơn và tránh Dynamic Island; thu phóng và toàn màn hình chuyển vào thanh. Trên iPad ở chế độ ngang, điều khiển nằm dưới bảng để sân chiếm trọn chiều rộng.
+
+BÓNG VÀ ĐƯỜNG DI CHUYỂN
+Cầu thủ có bóng giữ bóng ở phía trước, bên anh ta đang hướng tới — không bao giờ ở sau lưng, không bao giờ dưới chân. Chạy, rê và chuyền là ba đường khác nhau, vẽ dưới các nhân vật, từ chân đến chân. Và mọi bảng bài tập trong thư viện đều được giãn lại để không nhân vật nào chồng lên nhau ở bất kỳ bước nào.
+
+NGOÀI RA
+- Chia sẻ bảng bằng liên kết web; người mở không cần cài ứng dụng
+- Xuất một pha di chuyển thành video chứ không chỉ ảnh tĩnh
+- Sao chép cầu thủ kèm đường chạy sang trang kế tiếp
+- Màn hình khởi động cho chế độ ngang

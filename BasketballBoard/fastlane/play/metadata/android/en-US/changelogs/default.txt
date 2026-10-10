@@ -1,0 +1,7 @@
+2.0.0
+
+• A library of 58 animated drills — open one, press play, or put it on the board and edit it like your own
+• Practice plans you can run from the touchline, and a squad with photos and attendance
+• The board redrawn: a rounded card, contact shadows, textured surfaces, mesh nets
+• Rebuilt controls; on a tablet in landscape the court takes the full width
+• The ball sits in front of the player holding it, and routes run under the figures

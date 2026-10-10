@@ -1,5 +1,13 @@
-Novedades
+Novedades de la versión 2.0.2
 
-• El editor de línea de tiempo ahora se desplaza: todas las filas de jugadores y trazos quedan accesibles, sin importar cuántas añadas.
-• Regreso más fluido al volver a la app.
-• Correcciones de errores y mejoras de estabilidad.
+LA PIZARRA SE QUEDA EN LA PISTA
+En iPad, en Mac y en el móvil girado, los jugadores y el balón se dibujaban respecto a la ventana y no respecto a la pista: una bandeja acababa más allá de la línea de fondo y el tirador se quedaba sobre el aro. Ahora todo está donde dicen las líneas, a cualquier tamaño.
+
+DOS BALONES, UNO A CADA LADO
+Quien calienta con dos balones los tiene uno a cada lado, no uno delante y otro detrás.
+
+SITIO PARA LOS BOTONES
+Girada la pantalla, el menú, el número de página y el zoom se apoyaban sobre la pista. La pizarra empieza ahora por dentro de ellos.
+
+LAS MINIATURAS GIRAN CON LA PIZARRA
+La pizarra de la pantalla de inicio y la de un ejercicio se dibujan en el mismo sentido que la que abres.

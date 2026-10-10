@@ -1,5 +1,24 @@
-Novedades
+Novedades de la versión 2.0.0
 
-• El editor de línea de tiempo ahora se desplaza: todas las filas de jugadores y trazos quedan accesibles, sin importar cuántas añadas.
-• Regreso más fluido al volver a la app.
-• Correcciones de errores y mejoras de estabilidad.
+Una actualización grande: biblioteca de ejercicios, planes de entrenamiento y una pizarra redibujada de arriba abajo.
+
+BIBLIOTECA DE EJERCICIOS — 35 EJERCICIOS
+Cada ejercicio es una pizarra animada con su disposición, el recorrido del balón y el punto de entrenamiento. Ábrelo y dale al play, o llévalo a la pizarra y edítalo como uno tuyo. Búscalo o fíltralo por categoría, nivel y número de jugadores.
+
+PLANES DE ENTRENAMIENTO Y TU PLANTILLA
+Encadena ejercicios y tus propias pizarras en un plan y recórrelo desde la banda, uno a uno, con registro de lo que realmente hiciste. Guarda a tus jugadores con su foto y pasa lista en cada sesión.
+
+LA PIZARRA ES UNA TARJETA
+La pista se apoya sobre el fondo oscuro de su deporte, con esquinas redondeadas y una sombra suave, en lugar de salirse por los bordes de la pantalla. Jugadores, material y balón proyectan sombra de contacto, la superficie de juego tiene su propia textura y las redes tienen malla.
+
+CONTROLES REHECHOS
+Una barra inferior más clara, con las herramientas en una cápsula y la reproducción en otra; botones de esquina más grandes que esquivan la Dynamic Island; zoom y pantalla completa dentro de la barra. En iPad en horizontal los controles quedan bajo la pizarra y la pista ocupa todo el ancho.
+
+EL BALÓN Y LAS RUTAS
+El jugador con balón lo tiene por delante, del lado hacia el que mira: nunca detrás, nunca pisado. Carrera, conducción y pase son tres líneas distintas, dibujadas bajo las figuras, de pies a pies. Y todos los ejercicios de la biblioteca se han reespaciado para que ninguna figura se superponga a otra en ningún paso.
+
+ADEMÁS
+- Comparte una pizarra como enlace web: quien lo abra no necesita la app
+- Exporta una jugada como vídeo además de como imagen
+- Copia un jugador con su carrera a la página siguiente
+- Pantalla de inicio en horizontal

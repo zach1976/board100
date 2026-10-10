@@ -1,5 +1,13 @@
-Apa Yang Baharu
+Apa Yang Baharu dalam 2.0.1
 
-• Penyunting garis masa kini boleh ditatal — setiap baris pemain dan lakaran kekal boleh dicapai, tidak kira berapa banyak yang ditambah.
-• Kembali ke apl terasa lebih lancar.
-• Pembaikan pepijat dan penambahbaikan kestabilan.
+PAPAN KEKAL DI DALAM PADANG
+Pada iPad, Mac dan telefon yang dipusing, pemain dan bola diletakkan terhadap tetingkap, bukan padang, jadi seluruh pergerakan tersasar dari garisan. Kini semuanya berada di tempat yang ditunjuk garisan, pada apa jua saiz skrin.
+
+DUA BOLA, SATU DI SETIAP SISI
+Memanaskan badan dengan dua bola kini meletakkan satu bola di setiap sisi pemain, bukan satu di depan dan satu di belakang.
+
+RUANG UNTUK BUTANG
+Apabila dipusing, butang menu, nombor halaman dan zum berada di atas padang. Papan kini bermula di dalamnya, dan pada iPad bar main balik dan bar alat berkongsi satu baris.
+
+GAMBAR KECIL TURUT BERPUSING
+Papan di skrin utama dan pada sesuatu latihan dilukis mengikut arah papan yang anda buka.

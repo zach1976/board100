@@ -1,5 +1,24 @@
-What's New
+What's New in 2.0.0
 
-• The timeline editor now scrolls — every player and drawing row stays reachable, no matter how many you add.
-• Smoother return when you switch back into the app.
-• Bug fixes and stability improvements.
+This is a big update: a built-in drill library, practice plans, and a board that has been redrawn from the ground up.
+
+A DRILL LIBRARY — 35 DRILLS
+Every drill is an animated board carrying its setup, the ball path and the coaching point. Open one, press play, or put it on the board and edit it like your own. Search it, or filter by category, level and squad size.
+
+PRACTICE PLANS AND YOUR SQUAD
+String drills and your own boards into a plan and run it from the touchline, one item at a time, with a record of what you actually ran. Keep your players with their photos and mark attendance per session.
+
+THE BOARD IS A CARD
+The court sits on the sport's own dark ground with rounded corners and a soft shadow, instead of running off the edges of the screen. Players, equipment and the ball cast contact shadows, the playing surface has its own texture, and nets have mesh.
+
+CONTROLS REBUILT
+A clearer bottom bar with the tools in one capsule and playback in another; larger corner buttons that keep clear of the Dynamic Island; zoom and fullscreen moved into the bar. On iPad in landscape the controls sit under the board so the court takes the full width.
+
+THE BALL AND THE ROUTES
+A player with the ball has it ahead of them, on the side they are facing — never behind them, never underfoot. Run, dribble and pass are three different lines, drawn beneath the figures, starting and ending at the feet. And every drill in the library was re-spaced so no two figures overlap at any step.
+
+ALSO
+- Share a board as a web link; whoever opens it needs no app
+- Export a move as a video as well as a still image
+- Copy a player with their run onto the next page
+- A launch screen for landscape

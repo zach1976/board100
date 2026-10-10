@@ -1,0 +1,7 @@
+2.0.0
+
+• Pustaka 674 latihan beranimasi — buka dan mainkan, atau letak pada papan dan sunting
+• Pelan latihan untuk dijalankan dari tepi padang, skuad dengan foto dan kehadiran
+• Papan dilukis semula: kad bucu bulat, bayang sentuhan, tekstur gelanggang, jaring berjalin
+• Kawalan dibina semula; pada tablet landskap gelanggang mengambil lebar penuh
+• Bola di hadapan pemain yang memegangnya, laluan dilukis di bawah figura

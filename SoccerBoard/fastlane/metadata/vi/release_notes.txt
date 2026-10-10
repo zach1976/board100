@@ -1,23 +1,13 @@
-Có gì mới trong 2.2.0
+Có gì mới trong 2.2.1
 
-Diện mạo mới cho bảng chiến thuật, và quả bóng luôn nằm đúng chỗ cầu thủ giữ nó.
+CÚ SÚT VÀO LƯỚI
+Mọi bài tập dứt điểm đều kết thúc với quả bóng nằm xa phía sau khung thành: điểm đến được viết theo khung vẽ chứ không theo sân. Giờ cú sút kết thúc trong lưới, đúng như bài tập mô tả.
 
-BẢNG LÀ MỘT TẤM THẺ
-Sân nằm trên nền tối của chính môn thể thao đó, bo góc và có bóng đổ nhẹ, thay vì tràn ra mép màn hình. Cầu thủ, cọc và bóng có bóng tiếp đất, mặt cỏ có vệt cắt, lưới có mắt lưới, và khung thành bóng đá là hình ảnh thay vì nét vẽ.
+BẢNG NẰM GỌN TRONG SÂN
+Trên iPad, trên Mac và trên điện thoại xoay ngang, cầu thủ và bóng được đặt theo cửa sổ chứ không theo sân, nên cả pha bóng lệch khỏi các đường kẻ vài mét. Giờ mọi thứ nằm đúng chỗ các đường kẻ chỉ ra, ở mọi kích thước màn hình.
 
-ĐIỀU KHIỂN LÀM LẠI
-Thanh dưới rõ ràng hơn với công cụ trong một viên nang và phát lại trong một viên nang khác; nút góc lớn hơn và tránh Dynamic Island; thu phóng và toàn màn hình chuyển vào thanh. Trên iPad ở chế độ ngang, điều khiển nằm dưới bảng để sân chiếm trọn chiều rộng.
+CHỪA CHỖ CHO CÁC NÚT
+Khi xoay ngang, nút menu, số trang và nút thu phóng nằm đè lên mặt sân. Bảng giờ bắt đầu từ phía trong chúng, và trên iPad thanh phát và thanh công cụ nằm chung một hàng nên sân lấy lại được phần chiều cao đó.
 
-BÓNG Ở TRƯỚC CẦU THỦ
-Cầu thủ có bóng giữ bóng ở chân, phía trước, bên anh ta đang hướng tới — không bao giờ ở sau lưng, không bao giờ dưới chân. Cầu thủ quay lưng về phía bạn được vẽ đè lên bóng, đúng như thực tế. Bóng không còn nảy khi bắt đầu một bước hay rơi hai lần khi kết thúc.
-
-ĐƯỜNG DI CHUYỂN NẰM DƯỚI NGƯỜI
-Đường chạy, rê và chuyền được vẽ dưới các nhân vật, bắt đầu và kết thúc ở chân, và đầu mũi tên dừng trước người được chỉ thay vì đè lên đầu anh ta.
-
-KHÔNG AI ĐỨNG LÊN AI
-Toàn bộ 674 bảng bài tập trong thư viện được giãn lại để không có hai nhân vật nào chồng lên nhau ở bất kỳ bước nào.
-
-NGOÀI RA
-- Màn hình khởi động cho chế độ ngang
-- Màn hình chính hiển thị tên môn thể thao
-- Bài tập chỉ tải về khi có thay đổi
+ẢNH NHỎ XOAY THEO BẢNG
+Bảng ở màn hình chính và trong một bài tập được vẽ cùng chiều với bảng bạn mở.

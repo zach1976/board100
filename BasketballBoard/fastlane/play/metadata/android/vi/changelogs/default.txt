@@ -1,0 +1,7 @@
+2.0.0
+
+• Thư viện 58 bài tập động — mở ra bấm phát, hoặc đưa lên bảng và sửa như của bạn
+• Kế hoạch buổi tập chạy ngay bên đường biên, đội hình có ảnh và điểm danh
+• Bảng được vẽ lại: thẻ bo góc, bóng tiếp đất, mặt sân có kết cấu, lưới có mắt
+• Điều khiển làm lại; trên máy tính bảng nằm ngang, sân chiếm trọn chiều rộng
+• Bóng nằm trước cầu thủ đang giữ, đường di chuyển vẽ dưới nhân vật

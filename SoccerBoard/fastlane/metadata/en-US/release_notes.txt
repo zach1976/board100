@@ -1,23 +1,13 @@
-What's New in 2.2.0
+What's New in 2.2.1
 
-A new look for the board, and a ball that is always where a player would have it.
+SHOTS GO IN
+Every finishing drill ended with the ball well behind the goal: the target was written against the canvas instead of against the pitch. The shot now finishes in the net, where the drill says it does.
 
-THE BOARD IS A CARD
-The pitch sits on the sport's own dark ground with rounded corners and a soft shadow, instead of running off the edges of the screen. Players, cones and the ball cast contact shadows, the turf has its mowing bands, nets have mesh, and the football goals are pictures rather than line drawings.
+THE BOARD KEEPS TO THE PITCH
+On iPad, on a Mac and on a phone turned sideways, the players and the ball were placed against the window rather than the pitch, so the whole move sat several metres off the lines. Everything now stands where the lines say, at any size.
 
-CONTROLS REBUILT
-A clearer bottom bar with the tools in one capsule and playback in another; larger corner buttons that keep clear of the Dynamic Island; zoom and fullscreen moved into the bar. On iPad in landscape the controls sit under the board so the pitch takes the full width.
+ROOM FOR THE BUTTONS
+Turned sideways, the menu, the page badge and the zoom buttons sat on the playing surface. The board now starts inside them, and on an iPad the playback and tool bars share one row so the pitch gets the height back.
 
-THE BALL IS IN FRONT OF THE PLAYER
-A player with the ball has it at his feet, ahead of him on the side he is facing — never behind him, never underfoot. A player facing away from you is drawn over the ball, as he would be. The ball no longer hops at the start of a step or lands twice at the end of one.
-
-ROUTES UNDER THE PEOPLE
-Run, dribble and pass lines are drawn beneath the figures, start and end at the feet, and arrowheads stop short of whoever they point at instead of sitting on his head.
-
-NOBODY STANDS ON ANYBODY
-Every drill in the library — 674 boards — was re-spaced so no two figures overlap at any step.
-
-ALSO
-- A launch screen for landscape
-- The home screen shows the sport's name
-- Drill updates download only when something changed
+THE PICTURES TURN WITH THE BOARD
+The board on the home screen and the one on a drill are drawn the same way round as the board you open.

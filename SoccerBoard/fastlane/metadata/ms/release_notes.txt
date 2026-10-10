@@ -1,23 +1,13 @@
-Apa yang Baharu dalam 2.2.0
+Apa Yang Baharu dalam 2.2.1
 
-Rupa baharu untuk papan, dan bola yang sentiasa berada di tempat pemain memegangnya.
+TENDANGAN MASUK GOL
+Setiap latihan penamat berakhir dengan bola jauh di belakang gol: titik sasaran ditulis terhadap kanvas, bukan terhadap padang. Kini tendangan berakhir di dalam jaring, seperti yang dikatakan latihan itu.
 
-PAPAN IALAH SEKEPING KAD
-Padang terletak di atas latar gelap sukan itu sendiri dengan bucu bulat dan bayang lembut, bukan lagi memenuhi tepi skrin. Pemain, kon dan bola ada bayang sentuhan, rumput ada jalur potongannya, jaring ada jalinannya, dan gol bola sepak kini berupa gambar, bukan garisan.
+PAPAN KEKAL DI DALAM PADANG
+Pada iPad, Mac dan telefon yang dipusing, pemain dan bola diletakkan terhadap tetingkap, bukan padang, jadi seluruh pergerakan tersasar beberapa meter dari garisan. Kini semuanya berada di tempat yang ditunjuk garisan, pada apa jua saiz skrin.
 
-KAWALAN DIBINA SEMULA
-Bar bawah yang lebih jelas dengan alat dalam satu kapsul dan main balik dalam satu lagi; butang bucu lebih besar dan menjauhi Dynamic Island; zum dan skrin penuh dipindahkan ke dalam bar. Pada iPad dalam landskap, kawalan berada di bawah papan supaya padang mengambil lebar penuh.
+RUANG UNTUK BUTANG
+Apabila dipusing, butang menu, nombor halaman dan zum berada di atas padang. Papan kini bermula di dalamnya, dan pada iPad bar main balik dan bar alat berkongsi satu baris supaya padang mendapat semula ketinggian itu.
 
-BOLA DI HADAPAN PEMAIN
-Pemain yang memegang bola meletakkannya di kaki, di hadapan, pada sisi yang dihadapnya — tidak pernah di belakang, tidak pernah terpijak. Pemain yang membelakangi anda dilukis di atas bola, seperti sepatutnya. Bola tidak lagi melonjak pada permulaan langkah atau mendarat dua kali pada penghujungnya.
-
-LALUAN DI BAWAH ORANG
-Garis larian, kelecek dan hantaran dilukis di bawah figura, bermula dan berakhir di kaki, dan mata anak panah berhenti sebelum orang yang ditunjuk dan bukannya hinggap di kepalanya.
-
-TIADA SIAPA MEMIJAK SESIAPA
-Kesemua 674 papan latihan dalam pustaka dijarakkan semula supaya tiada dua figura bertindih pada mana-mana langkah.
-
-JUGA
-- Skrin pelancaran untuk landskap
-- Skrin utama memaparkan nama sukan
-- Kemas kini latihan hanya dimuat turun apabila ada perubahan
+GAMBAR KECIL TURUT BERPUSING
+Papan di skrin utama dan pada sesuatu latihan dilukis mengikut arah papan yang anda buka.

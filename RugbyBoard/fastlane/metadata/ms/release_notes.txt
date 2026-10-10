@@ -1,5 +1,24 @@
-Apa Yang Baharu
+Apa yang Baharu dalam 2.0.0
 
-• Penyunting garis masa kini boleh ditatal — setiap baris pemain dan lakaran kekal boleh dicapai, tidak kira berapa banyak yang ditambah.
-• Kembali ke apl terasa lebih lancar.
-• Pembaikan pepijat dan penambahbaikan kestabilan.
+Kemas kini besar: pustaka latihan terbina dalam, pelan latihan, dan papan yang dilukis semula sepenuhnya.
+
+PUSTAKA LATIHAN — 40 LATIHAN
+Setiap latihan ialah papan beranimasi lengkap dengan susunan, laluan bola dan poin kejurulatihan. Buka dan mainkan, atau letakkannya pada papan dan sunting seperti milik anda sendiri. Cari, atau tapis mengikut kategori, tahap dan bilangan pemain.
+
+PELAN LATIHAN DAN SKUAD ANDA
+Rangkaikan latihan dan papan anda sendiri menjadi satu pelan dan jalankannya dari tepi padang, satu demi satu, dengan rekod apa yang benar-benar dijalankan. Simpan pemain berserta foto mereka dan tandakan kehadiran setiap sesi.
+
+PAPAN IALAH SEKEPING KAD
+Gelanggang terletak di atas latar gelap sukan itu sendiri dengan bucu bulat dan bayang lembut, bukan lagi memenuhi tepi skrin. Pemain, peralatan dan bola ada bayang sentuhan, permukaan permainan ada teksturnya sendiri, dan jaring ada jalinannya.
+
+KAWALAN DIBINA SEMULA
+Bar bawah yang lebih jelas dengan alat dalam satu kapsul dan main balik dalam satu lagi; butang bucu lebih besar dan menjauhi Dynamic Island; zum dan skrin penuh dipindahkan ke dalam bar. Pada iPad dalam landskap, kawalan berada di bawah papan supaya gelanggang mengambil lebar penuh.
+
+BOLA DAN LALUAN
+Pemain yang memegang bola meletakkannya di hadapan, pada sisi yang dihadapnya — tidak pernah di belakang, tidak pernah terpijak. Larian, kelecek dan hantaran ialah tiga garis berbeza, dilukis di bawah figura, dari kaki ke kaki. Dan semua papan latihan dalam pustaka dijarakkan semula supaya tiada figura bertindih pada mana-mana langkah.
+
+JUGA
+- Kongsi papan sebagai pautan web; penerimanya tidak perlu aplikasi
+- Eksport satu pergerakan sebagai video, bukan sekadar gambar
+- Salin pemain berserta lariannya ke halaman seterusnya
+- Skrin pelancaran untuk landskap

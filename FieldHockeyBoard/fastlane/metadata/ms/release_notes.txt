@@ -1,24 +1,13 @@
-Apa yang Baharu dalam 2.0
+Apa Yang Baharu dalam 2.0.1
 
-36 LATIHAN HOKI, TERSEDIA DI DALAM
-Setiap latihan ialah papan yang boleh anda lalui satu demi satu ketukan: apa yang dilatih, bagaimana menyusunnya, dan satu ayat yang perlu disebut semasa ia berjalan. Memanaskan badan, membina serangan, masuk ke bulatan, penamat, tekanan, penjuru penalti, penjaga gol dan kecergasan.
+PAPAN KEKAL DI DALAM PADANG
+Pada iPad, Mac dan telefon yang dipusing, pemain dan bola diletakkan terhadap tetingkap, bukan padang, jadi seluruh pergerakan tersasar dari garisan. Kini semuanya berada di tempat yang ditunjuk garisan, pada apa jua saiz skrin.
 
-RANCANG SATU SESI PENUH
-Rangkaikan latihan menjadi rancangan latihan, jalankan dari tepi padang satu demi satu, dan rekodnya tersimpan sendiri.
+DUA BOLA, SATU DI SETIAP SISI
+Memanaskan badan dengan dua bola kini meletakkan satu bola di setiap sisi pemain, bukan satu di depan dan satu di belakang.
 
-SKUAD DAN KEHADIRAN ANDA
-Simpan pemain berserta foto, tandakan siapa yang hadir, dan lihat satu musim sekali pandang.
+RUANG UNTUK BUTANG
+Apabila dipusing, butang menu, nombor halaman dan zum berada di atas padang. Papan kini bermula di dalamnya, dan pada iPad bar main balik dan bar alat berkongsi satu baris.
 
-KONGSI PAPAN SEBAGAI PAUTAN
-Hantar satu rutin kepada pasukan — mereka membukanya dalam pelayar, tanpa aplikasi.
-
-PEMAIN DILUKIS SEMULA
-Menghadap arah tujuan, memegang kayu hoki, lelaki dan wanita, dengan atau tanpa bola.
-
-JUGA
-- Larian ialah anak panah putus, gelecek beralun, hantaran ialah garis penuh
-- Putarkan mana-mana elemen, dan taip teks terus pada papan
-- Sebuah papan ialah himpunan halaman yang boleh dibelek
-- iPad dan Mac: papan menggunakan seluruh skrin
-- Eksport satu rutin sebagai video, bukan sekadar gambar
-- Pembelian sekali pilihan menghapuskan iklan
+GAMBAR KECIL TURUT BERPUSING
+Papan di skrin utama dan pada sesuatu latihan dilukis mengikut arah papan yang anda buka.

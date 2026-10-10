@@ -1,5 +1,13 @@
-Yang Baru
+Yang Baru di 2.0.1
 
-• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
-• Kembali ke aplikasi terasa lebih mulus.
-• Perbaikan bug dan peningkatan stabilitas.
+PAPAN TETAP DI DALAM LAPANGAN
+Di iPad, di Mac, dan di ponsel yang dimiringkan, pemain dan bola diletakkan terhadap jendela, bukan lapangan, sehingga seluruh pergerakan meleset dari garis. Kini semuanya berada di tempat yang ditunjukkan garis, pada ukuran layar apa pun.
+
+DUA BOLA, SATU DI TIAP SISI
+Pemanasan dua bola kini menaruh satu bola di tiap sisi pemain, bukan satu di depan dan satu di belakang.
+
+RUANG UNTUK TOMBOL
+Saat dimiringkan, tombol menu, nomor halaman, dan zoom berada di atas lapangan. Papan kini dimulai di dalamnya, dan di iPad bar pemutaran dan bar alat berbagi satu baris.
+
+GAMBAR KECIL IKUT BERPUTAR
+Papan di layar utama dan di sebuah drill digambar searah dengan papan yang Anda buka.

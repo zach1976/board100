@@ -1,5 +1,13 @@
-Nouveautés
+Nouveautés de la version 2.0.1
 
-• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
-• Retour plus fluide lorsque vous revenez dans l'app.
-• Corrections de bugs et améliorations de stabilité.
+LE TABLEAU RESTE SUR LE TERRAIN
+Sur iPad, sur Mac et sur un téléphone tourné, les joueurs et le ballon étaient placés par rapport à la fenêtre et non au terrain : toute l'action se retrouvait hors des lignes. Tout est maintenant là où les lignes le disent, à toutes les tailles.
+
+DEUX BALLONS, UN DE CHAQUE CÔTÉ
+À l'échauffement à deux ballons, il y en a un de chaque côté du joueur, et non un devant et un derrière.
+
+DE LA PLACE POUR LES BOUTONS
+À l'horizontale, le menu, le numéro de page et le zoom se posaient sur la surface de jeu. Le tableau commence maintenant en deçà, et sur iPad la barre de lecture et la barre d'outils tiennent sur une seule ligne.
+
+LES VIGNETTES TOURNENT AVEC LE TABLEAU
+Le tableau de l'accueil et celui d'un exercice sont orientés comme celui que vous ouvrez.

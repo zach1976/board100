@@ -1,24 +1,13 @@
-What's New in 2.0
+What's New in 2.0.1
 
-36 FIELD HOCKEY DRILLS, BUILT IN
-Every drill is a board you can step through — what it trains, how to set it up, and the one thing to say while it runs. Warm-ups, building out, circle entries, finishing, pressing, penalty corners, goalkeeping, conditioning.
+THE BOARD KEEPS TO THE PITCH
+On iPad, on a Mac and on a phone turned sideways, the players and the ball were placed against the window instead of against the pitch, so the whole move sat off the lines. Everything now stands where the lines say, at any size.
 
-PLAN THE WHOLE SESSION
-String drills into a practice plan, run it from the sideline one drill at a time, and keep a record of what you actually ran.
+TWO BALLS, ONE EACH SIDE
+A player warming up with two balls has one at either side of him, instead of one in front and one behind.
 
-YOUR SQUAD, YOUR ATTENDANCE
-Keep your players with their photos, mark who turned up, and see the season at a glance.
+ROOM FOR THE BUTTONS
+Turned sideways, the menu, the page badge and the zoom buttons sat on the playing surface. The board now starts inside them, and on an iPad the playback and tool bars share one row so the pitch gets the height back.
 
-SHARE A BOARD AS A LINK
-Send a routine to the squad — they open it in a browser, no app needed.
-
-NEW PLAYERS ON THE PITCH
-Redrawn figures who face where they are going, stick in hand, men and women, with or without the ball.
-
-ALSO IN THIS RELEASE
-- A run is a dashed arrow, a carry waves, a pass is a solid line
-- Rotate any element, and type text straight onto the board
-- A board is a set of pages you can flick between
-- iPad and Mac: the board uses the whole screen
-- Export a move as a video, not just an image
-- An optional one-time upgrade removes the ads
+THE PICTURES TURN WITH THE BOARD
+The board on the home screen and the one on a drill are drawn the same way round as the board you open.

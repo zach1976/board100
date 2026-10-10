@@ -1,5 +1,13 @@
-What's New
+What's New in 2.0.1
 
-• The timeline editor now scrolls — every player and drawing row stays reachable, no matter how many you add.
-• Smoother return when you switch back into the app.
-• Bug fixes and stability improvements.
+THE BOARD KEEPS TO THE FIELD
+On iPad, on a Mac and on a phone turned sideways, the players and the ball were placed against the window instead of against the field, so the whole move sat off the lines. Everything now stands where the lines say, at any size.
+
+TWO BALLS, ONE EACH SIDE
+A player warming up with two balls has one at either side of him, instead of one in front and one behind.
+
+ROOM FOR THE BUTTONS
+Turned sideways, the menu, the page badge and the zoom buttons sat on the playing surface. The board now starts inside them, and on an iPad the playback and tool bars share one row so the field gets the height back.
+
+THE PICTURES TURN WITH THE BOARD
+The board on the home screen and the one on a drill are drawn the same way round as the board you open.

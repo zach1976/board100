@@ -1,5 +1,13 @@
-Có gì mới
+Có gì mới trong 2.0.2
 
-• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
-• Quay lại ứng dụng mượt mà hơn.
-• Sửa lỗi và cải thiện độ ổn định.
+BẢNG NẰM GỌN TRONG SÂN
+Trên iPad, trên Mac và trên điện thoại xoay ngang, cầu thủ và bóng được đặt theo cửa sổ chứ không theo sân: quả lay-up rơi ra ngoài đường biên cuối và người ném đứng trên vành rổ. Giờ mọi thứ nằm đúng chỗ các đường kẻ chỉ ra, ở mọi kích thước màn hình.
+
+HAI BÓNG, MỖI BÊN MỘT QUẢ
+Khởi động hai bóng giờ đặt mỗi bên người chơi một quả, không còn một trước một sau.
+
+CHỪA CHỖ CHO CÁC NÚT
+Khi xoay ngang, nút menu, số trang và nút thu phóng nằm đè lên mặt sân. Bảng giờ bắt đầu từ phía trong chúng.
+
+ẢNH NHỎ XOAY THEO BẢNG
+Bảng ở màn hình chính và trong một bài tập được vẽ cùng chiều với bảng bạn mở.
