@@ -22,3 +22,5 @@ JUGA
 - Eksport satu pergerakan sebagai video, bukan sekadar gambar
 - Salin pemain berserta lariannya ke halaman seterusnya
 - Skrin pelancaran untuk landskap
+- Penerangan setiap langkah latihan tertulis pada papan dan bertukar mengikut langkah; alih, gayakan atau tulis semula seperti teks biasa
+- Dalam landskap, kawalan beralih ke sisi Dynamic Island supaya tiada apa di gelanggang terlindung

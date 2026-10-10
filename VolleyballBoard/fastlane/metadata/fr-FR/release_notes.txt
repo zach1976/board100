@@ -22,3 +22,5 @@ ET AUSSI
 - Exportez une action en vidéo aussi bien qu'en image
 - Copiez un joueur avec sa course sur la page suivante
 - Un écran de lancement en paysage
+- L'explication de chaque étape de l'exercice s'affiche sur le tableau et change avec l'étape ; déplacez-la, changez son style ou réécrivez-la comme n'importe quel texte
+- En paysage, les commandes passent du côté de la Dynamic Island : plus rien du terrain n'est caché derrière

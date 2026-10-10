@@ -22,3 +22,5 @@ ADEMÁS
 - Exporta una jugada como vídeo además de como imagen
 - Copia un jugador con su carrera a la página siguiente
 - Pantalla de inicio en horizontal
+- La explicación de cada paso del ejercicio aparece sobre la pizarra y cambia con el paso; muévela, cambia su estilo o reescríbela como cualquier texto
+- En horizontal los controles se colocan del lado de la Dynamic Island, así nada de la pista queda detrás

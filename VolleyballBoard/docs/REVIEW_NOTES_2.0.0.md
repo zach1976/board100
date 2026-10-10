@@ -61,12 +61,14 @@ reached from the app's own navigation.
     browser and needs no app.
 13. A move can be exported as a video as well as a still image, and a player
     can be copied with their run onto the next page.
+14. A drill's step text sits on the board and changes with each step; in
+    landscape the controls move to the Dynamic Island's side.
 
 ## Store compliance
 
-14. The description carries the standard EULA link and the privacy policy
+15. The description carries the standard EULA link and the privacy policy
     link in every localization.
-15. The app does not present App Tracking Transparency. Ads are
+16. The app does not present App Tracking Transparency. Ads are
     non-personalized, the bundle ships a privacy manifest declaring
     `NSPrivacyTracking = false`, and the App Privacy label declares no
     tracking. These three agree.
