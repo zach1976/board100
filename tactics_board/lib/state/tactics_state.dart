@@ -1153,7 +1153,7 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, PlayerGender? gender, bool? holdsImplement, bool clearHolds = false, String? photoId, bool clearPhotoId = false, String? font, bool clearFont = false}) {
+  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, PlayerGender? gender, bool? holdsImplement, bool clearHolds = false, String? photoId, bool clearPhotoId = false, String? font, bool clearFont = false, MarkerShape? markerShape}) {
     // The note is not part of the play, so writing on it does not throw the
     // board back to the set-up the way every other edit does — and the beat
     // it is standing on is the beat the new words belong to.
@@ -1181,6 +1181,7 @@ class TacticsState extends ChangeNotifier {
       font: font,
       clearFont: clearFont,
       clearPhotoId: clearPhotoId,
+      markerShape: markerShape,
     );
     notifyListeners();
   }
@@ -2405,17 +2406,58 @@ class TacticsState extends ChangeNotifier {
     noteWanted = false;
     _players.removeWhere((p) => p.id == kDrillNoteId);
     final court = _sportType.fieldRect(_canvasSize);
+    final w = _canvasSize.width, h = _canvasSize.height;
+    // Under the court by default — and over it when someone stands under
+    // it. A volleyball serve is taken from behind the end line, which is
+    // exactly that band, and the sentence printed over the server hid both.
+    // Each band is scored by how many of the board's figures, at any beat
+    // (where they start and every point they run to), would be under the
+    // note; the far band is taken only when it is strictly emptier.
+    //
+    // Sideways the canvas is drawn a quarter turn round, so the screen's
+    // "under the court" is the canvas's right-hand margin and "over" its
+    // left-hand one.
+    final under = sideways
+        ? Rect.fromLTRB(court.right, 0, w, h)
+        : Rect.fromLTRB(0, court.bottom, w, h);
+    final over = sideways
+        ? Rect.fromLTRB(0, 0, court.left, h)
+        : Rect.fromLTRB(0, 0, w, court.top);
+    int crowd(Rect band) {
+      // The note's own extent: the middle of the band, not its whole
+      // length — a figure out by the side line is clear of the words.
+      final note = sideways
+          ? Rect.fromLTRB(band.left, h * 0.1, band.right, h * 0.9)
+          : Rect.fromLTRB(w * 0.1, band.top, w * 0.9, band.bottom);
+      // A figure stands taller than its point (36 is the icon cell, see
+      // kPlayerIconSize): head above it, feet below.
+      const cell = 36.0;
+      var n = 0;
+      for (final p in _players) {
+        if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) {
+          continue;
+        }
+        for (final at in [p.position, ...p.moves]) {
+          final box = Rect.fromCenter(
+            center: at,
+            width: cell * 1.2 * p.scale,
+            height: cell * 1.8 * p.scale,
+          );
+          if (box.overlaps(note)) n++;
+        }
+      }
+      return n;
+    }
+
+    final flip = crowd(over) < crowd(under);
+    final band = flip ? over : under;
     _players.add(PlayerIcon(
       id: kDrillNoteId,
       label: drillBeats.first,
       team: PlayerTeam.neutral,
       markerShape: MarkerShape.text,
       customColor: const Color(0xFF263238),
-      position: sideways
-          ? Offset((court.right + _canvasSize.width) / 2,
-              _canvasSize.height / 2)
-          : Offset(_canvasSize.width / 2,
-              (court.bottom + _canvasSize.height) / 2),
+      position: band.center,
       rotation: sideways ? -math.pi / 2 : 0,
     ));
     notifyListeners();

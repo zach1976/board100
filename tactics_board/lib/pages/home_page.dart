@@ -26,6 +26,7 @@ import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../painters/ball_painter.dart';
 import '../widgets/player_icon_widget.dart';
+import '../widgets/marker_shape_clipper.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
 import '../widgets/sport_glyph.dart';
@@ -536,7 +537,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                             if (!inBar) _ZoomModeButton(across: across),
                             if (!inBar || !visible) _FullscreenButton(),
                           ];
-                          return Positioned(
+                          return _ClearOfText(
                             // 4 rather than 12 where the band is the court's own
                             // clearance: [_chromeAcross] measured it to the point.
                             bottom: across ? 4 : 12,
@@ -604,7 +605,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                                   ),
                                 ),
                               );
-                          return Positioned(
+                          return _ClearOfText(
                             bottom: across ? 4 : 12,
                             left: 12,
                             child: IgnorePointer(
@@ -2668,6 +2669,53 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   SizedBox(width: 100, child: _scaleSlider(p)),
               ],
             ),
+            // A picture the coach brought in is cut to a shape — chosen when
+            // it was imported, and until now never again. The same four the
+            // import offers, each drawn as itself.
+            if (isPhoto && p.isMarker) ...[
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.category_outlined,
+                    color: Colors.white38,
+                    size: 14,
+                  ),
+                  const SizedBox(width: 8),
+                  for (final shape in kPhotoMarkerShapes)
+                    GestureDetector(
+                      onTap: () => widget.state.updatePlayer(
+                        p.id,
+                        markerShape: shape,
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 6),
+                        width: 36,
+                        height: 32,
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.06),
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: p.markerShape == shape
+                                ? kAccent
+                                : Colors.white24,
+                            width: p.markerShape == shape ? 2 : 1,
+                          ),
+                        ),
+                        child: ClipPath(
+                          clipper: MarkerShapeClipper(shape),
+                          child: ColoredBox(
+                            color: p.markerShape == shape
+                                ? kAccent
+                                : Colors.white70,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ],
             // A text element is its text, so it also has a face. Four,
             // shown as themselves; the empty name is the app's own.
             if (isTextElement(p)) ...[
@@ -3250,6 +3298,119 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
 // ─────────────────────────────────────────────────────────────────────────────
 // Collapsible edit panel — drawing options / player edit with collapse toggle
 // ─────────────────────────────────────────────────────────────────────────────
+/// Where every text element is on the screen, as drawn — turned chips by
+/// the box they actually cover.
+///
+/// Read off the board's own render tree rather than estimated from the
+/// element, because a chip's width is its words: the drill note is a
+/// different length at every beat. The board also lays chips out far off
+/// screen to measure them; only the ones on the board count.
+List<Rect> textChipsOnScreen() {
+  final root = boardRepaintKey.currentContext;
+  final board = root?.findRenderObject();
+  if (root == null || board is! RenderBox || !board.attached) return const [];
+  final bounds = MatrixUtils.transformRect(
+    board.getTransformTo(null),
+    Offset.zero & board.size,
+  );
+  final out = <Rect>[];
+  void visit(Element e) {
+    if (e.widget is TextElementChip) {
+      final box = e.renderObject;
+      if (box is RenderBox && box.attached && box.hasSize) {
+        final r = MatrixUtils.transformRect(
+          box.getTransformTo(null),
+          Offset.zero & box.size,
+        );
+        if (r.overlaps(bounds)) out.add(r);
+      }
+      return;
+    }
+    e.visitChildElements(visit);
+  }
+
+  (root as Element).visitChildElements(visit);
+  return out;
+}
+
+/// A cluster of floating corner buttons that steps up over the words on the
+/// board instead of sitting on them.
+///
+/// Fullscreen puts the beat controls and the way back in the bottom
+/// corners, in the band under the court — which is exactly where a drill's
+/// step note is placed, so the circles covered the sentence they were
+/// stepping through. Measured after each frame: if the cluster at rest
+/// covers a text chip, it is lifted to just above it (and above the next
+/// one, if that lands it on another).
+class _ClearOfText extends StatefulWidget {
+  final double bottom;
+  final double? left;
+  final double? right;
+  final Widget child;
+  const _ClearOfText({
+    required this.bottom,
+    this.left,
+    this.right,
+    required this.child,
+  });
+
+  @override
+  State<_ClearOfText> createState() => _ClearOfTextState();
+}
+
+class _ClearOfTextState extends State<_ClearOfText> {
+  final GlobalKey _key = GlobalKey();
+  double _lift = 0;
+
+  void _measure() {
+    if (!mounted) return;
+    final box = _key.currentContext?.findRenderObject();
+    if (box is! RenderBox || !box.attached || !box.hasSize) return;
+    final atRest = (box.localToGlobal(Offset.zero) & box.size).shift(
+      Offset(0, _lift),
+    );
+    final chips = textChipsOnScreen();
+    var lift = 0.0;
+    // A few rounds: a lift that clears one chip can land on another.
+    for (var i = 0; i < 4; i++) {
+      final r = atRest.shift(Offset(0, -lift));
+      final hit = chips.where((c) {
+        final o = r.intersect(c);
+        return o.width > 0 && o.height > 0;
+      });
+      if (hit.isEmpty) break;
+      final top = hit.map((c) => c.top).reduce(math.min);
+      lift = atRest.bottom - (top - 4);
+    }
+    // Never more than half the screen: past that it is better on the words
+    // than in the middle of the court.
+    lift = lift.clamp(0.0, MediaQuery.sizeOf(context).height / 2);
+    if ((lift - _lift).abs() > 0.5) setState(() => _lift = lift);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Only what moves a chip, so playing a drill does not walk the tree
+    // every frame: the words (the note changes at each beat), where it is,
+    // how big, which way round, and the face it is set in.
+    context.select<TacticsState, String>(
+      (s) => [
+        for (final p in s.players)
+          if (isTextElement(p))
+            '${p.id}|${p.label}|${p.position}|${p.scale}|${p.rotation}|${p.font}',
+      ].join('\n'),
+    );
+    MediaQuery.sizeOf(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _measure());
+    return Positioned(
+      bottom: widget.bottom + _lift,
+      left: widget.left,
+      right: widget.right,
+      child: KeyedSubtree(key: _key, child: widget.child),
+    );
+  }
+}
+
 class _CollapsibleEditPanel extends StatefulWidget {
   @override
   State<_CollapsibleEditPanel> createState() => _CollapsibleEditPanelState();
@@ -3274,21 +3435,56 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
   final GlobalKey _panelKey = GlobalKey();
 
   /// The bar's offset for a selection whose box on the screen is [target],
-  /// given where the bar rests undragged. Of the two slots, the one that
-  /// covers less of the target; the foot when they tie, or there is no
-  /// room above.
-  static Offset _slotFor(Rect atRest, Rect? target, double boardTop) {
-    if (target == null) return Offset.zero;
+  /// given where the bar rests undragged.
+  ///
+  /// Not just the foot or the head: anywhere between the two, so the bar
+  /// can sit in the gap between the thing being edited and the words
+  /// written on the board. The selection comes first — a bar over the very
+  /// element it edits is no use — and after it every text element on the
+  /// board, [texts], which is what a coach is reading while editing. Of
+  /// the places that cover equally little, the one nearest the foot.
+  static Offset _slotFor(
+    Rect atRest,
+    Rect? target,
+    List<Rect> texts,
+    double boardTop,
+  ) {
     // 64: under the back / pages / menu circles across the top.
-    final up = Offset(0, (boardTop + 64) - atRest.top);
-    if (up.dy >= 0) return Offset.zero;
-    double covered(Rect r) {
-      final o = r.intersect(target);
-      return o.isEmpty ? 0 : o.width * o.height;
+    final up = (boardTop + 64) - atRest.top;
+    if (up >= 0) return Offset.zero;
+    double covered(Rect r, Rect o) {
+      final x = r.intersect(o);
+      return x.isEmpty ? 0 : x.width * x.height;
     }
-    final low = covered(atRest);
-    if (low == 0) return Offset.zero;
-    return covered(atRest.shift(up)) < low ? up : Offset.zero;
+
+    double cost(double dy) {
+      final r = atRest.shift(Offset(0, dy));
+      var c = target == null ? 0.0 : covered(r, target) * 1000;
+      for (final t in texts) {
+        c += covered(r, t);
+      }
+      return c;
+    }
+
+    // The foot, the head, and every place where the bar's edge just clears
+    // an edge of something it should not cover.
+    final candidates = <double>{0, up};
+    for (final o in [?target, ...texts]) {
+      candidates.add((o.top - 4) - atRest.bottom);
+      candidates.add((o.bottom + 4) - atRest.top);
+    }
+    var best = 0.0;
+    var bestCost = cost(0);
+    if (bestCost == 0) return Offset.zero;
+    for (final raw in candidates) {
+      final dy = raw.clamp(up, 0.0);
+      final c = cost(dy);
+      if (c < bestCost - 0.5 || (c <= bestCost + 0.5 && dy > best)) {
+        best = dy;
+        bestCost = c;
+      }
+    }
+    return Offset(0, best);
   }
 
   /// A canvas rect on the screen: the bounds of its corners carried through
@@ -3323,11 +3519,24 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       orElse: () => null,
     );
     if (p == null) return null;
+    return _elementRect(state, canvas, p);
+  }
+
+  /// A box round one element on the screen.
+  Rect _elementRect(TacticsState state, RenderBox canvas, PlayerIcon p) {
     final at = state.animatedPositions[p.id] ?? p.position;
-    final double w, h;
+    double w, h;
     if (isTextElement(p)) {
       w = textElementMaxWidth(context, p.label) * p.scale;
       h = 30 * p.scale * textElementMaxLines(p.label);
+      // A chip laid on its side — the drill note, sideways — is tall, not
+      // wide.
+      final quarter = (p.rotation / (math.pi / 2)).round();
+      if (quarter.isOdd) {
+        final t = w;
+        w = h;
+        h = t;
+      }
     } else {
       // A figure stands taller than its icon box: head above the point,
       // feet and shadow below.
@@ -3339,6 +3548,13 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       Rect.fromCenter(center: at, width: w, height: h),
     );
   }
+
+  /// Every text element on the board other than the one being edited.
+  List<Rect> _textRects(TacticsState state, RenderBox canvas) => [
+    for (final p in state.players)
+      if (isTextElement(p) && p.id != state.selectedPlayerId)
+        _elementRect(state, canvas, p),
+  ];
 
   /// Measure after the frame — the bar has to have a size and a place
   /// before it can be asked whether it is in the way.
@@ -3357,7 +3573,12 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       final atRest =
           (panel.localToGlobal(Offset.zero) & panel.size).shift(-_drag);
       final board = _onScreen(canvas, Offset.zero & canvas.size);
-      final slot = _slotFor(atRest, _targetRect(state, canvas), board.top);
+      final slot = _slotFor(
+        atRest,
+        _targetRect(state, canvas),
+        _textRects(state, canvas),
+        board.top,
+      );
       if (slot != _drag) setState(() => _drag = slot);
     });
   }
@@ -3447,7 +3668,18 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                   // detector above.
                   child: Stack(
                     children: [
-                      child,
+                      // Opening the tune rows makes the bar several times
+                      // taller, and a place chosen for the short bar can
+                      // put the tall one over the very words it dodged.
+                      // So a change of size places it again.
+                      NotificationListener<SizeChangedLayoutNotification>(
+                        onNotification: (_) {
+                          _placedFor = null;
+                          _place(state, placeKey);
+                          return true;
+                        },
+                        child: SizeChangedLayoutNotifier(child: child),
+                      ),
                       Positioned(
                         top: 4,
                         left: 0,
