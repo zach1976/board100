@@ -57,3 +57,9 @@ tools/release_review_*.html
 tactics_board/fastlane/screenshots_ipad/
 # Golden-test failure dumps, written by flutter test on a mismatch.
 tactics_board/test/**/failures/
+# Raw in-app captures that the compositor turns into store shots. Kept on
+# disk only (user, 2026-10-10): re-shot every release, ~1.6GB a run.
+tactics_board/aso/screenshots_raw/
+tactics_board/aso/screenshots_raw_ipad/
+tactics_board/aso/screenshots_v2_raw/
+tactics_board/aso/screenshots_v2_raw_ipad/
