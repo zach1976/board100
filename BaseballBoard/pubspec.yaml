@@ -2,7 +2,7 @@ name: baseball_board
 description: "Baseball Board — single-sport shell over the shared tactics_board core."
 publish_to: 'none'
 # Kept in lockstep with the core: every app in this repo ships one version.
-version: 2.0.0+1
+version: 2.0.1+2
 
 environment:
   sdk: ^3.11.0
@@ -27,6 +27,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/intro/
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.

@@ -14,7 +14,7 @@ dependencies:
   # lib/main.dart and tactics_board/lib/config_constants.dart.
   tactics_board:
     path: ../tactics_board
-  # This sport's own drills, ball and equipment — and no other sport's.
+  # Only this app's sport(s): the drill library, the ball, the equipment.
   sport_rugby:
     path: ../packages/sport_rugby
 
@@ -27,10 +27,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/intro/
 
 # Native icons/splash are generated ONCE (by tools/gen_sport_shell.sh) and
 # committed, so a build never regenerates assets into another app's folders.
-# Sources live with the core, next to every other sport's artwork.
+# The sources are this app's own assets/icon/ — no other app's artwork is
+# reachable from here.
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

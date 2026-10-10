@@ -2,7 +2,7 @@ name: soccer_board
 description: "Soccer Board — single-sport shell over the shared tactics_board core."
 publish_to: 'none'
 # Kept in lockstep with the core: every app in this repo ships one version.
-version: 2.2.0+9
+version: 2.2.1+10
 
 environment:
   sdk: ^3.11.0
