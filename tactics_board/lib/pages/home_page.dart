@@ -49,6 +49,39 @@ import 'practice_run_page.dart';
 /// and the board keeps the difference.
 const double kRailWidth = 160;
 
+/// Which long edge the Dynamic Island (or notch) is on, turned sideways:
+/// "left", "right" or "none".
+///
+/// iOS reports the same inset on both long edges in landscape, so this asks
+/// the native side, which reads the interface orientation — and which also
+/// pushes the answer on every rotation, because a half turn from one
+/// landscape to the other changes nothing Flutter would rebuild for.
+class IslandSide {
+  static const _channel = MethodChannel('com.zach.tacticsboard/islandSide');
+  static final ValueNotifier<String> side = ValueNotifier('none');
+  static bool _wired = false;
+
+  static void ensure() {
+    if (_wired) return;
+    _wired = true;
+    if (!Platform.isIOS) return;
+    _channel.setMethodCallHandler((call) async {
+      if (call.method == 'changed' && call.arguments is String) {
+        side.value = call.arguments as String;
+      }
+    });
+    refresh();
+  }
+
+  static Future<void> refresh() async {
+    try {
+      side.value = await _channel.invokeMethod<String>('get') ?? 'none';
+    } catch (_) {
+      // An older native build without the channel: keep the rail right.
+    }
+  }
+}
+
 class TacticsBoardHomePage extends StatelessWidget {
   const TacticsBoardHomePage({super.key});
 
@@ -99,12 +132,16 @@ class TacticsBoardHomePage extends StatelessWidget {
     return Theme(
       data: app.copyWith(
         snackBarTheme: app.snackBarTheme.copyWith(
-          insetPadding: EdgeInsets.fromLTRB(
-            T.s16,
-            T.s8,
-            (railShown ? kRailWidth * uiScale(context) : 0) + T.s16,
-            bottomPad + T.s12,
-          ),
+          insetPadding: () {
+            final rail = railShown ? kRailWidth * uiScale(context) : 0.0;
+            final left = IslandSide.side.value == 'left';
+            return EdgeInsets.fromLTRB(
+              (left ? rail : 0) + T.s16,
+              T.s8,
+              (left ? 0 : rail) + T.s16,
+              bottomPad + T.s12,
+            );
+          }(),
         ),
       ),
       child: scaffold,
@@ -131,9 +168,9 @@ class TacticsBoardHomePage extends StatelessWidget {
     // sit at the height where the server stands in the free zone beyond the
     // end line, and a board has nothing it can move out of the way.
     //
-    // The board runs edge to edge and the rail stays on the right, where
-    // only the rows that run behind the island step aside (see
-    // [_landscapeSidePanel]).
+    // The board runs edge to edge and the rail goes to the island's side,
+    // where only the rows that run behind the pill step aside (see
+    // [_landscapeSidePanel] and [IslandSide]).
     //
     // Nothing is given up for the island on the board's side, because iOS
     // cannot tell us which side it is on: turned sideways it reports the
@@ -161,11 +198,18 @@ class TacticsBoardHomePage extends StatelessWidget {
             )
           : const SizedBox.shrink(),
     );
-    return Row(
-      children: [
-        Expanded(child: _canvasStack(context, topPad)),
-        rail,
-      ],
+    // The rail goes to whichever side the island is on, so the pill only
+    // ever lies over the rail's own rows (which step aside for it) and
+    // never over the board. Right when there is no island, or no telling.
+    IslandSide.ensure();
+    return ValueListenableBuilder<String>(
+      valueListenable: IslandSide.side,
+      builder: (context, side, _) {
+        final board = Expanded(child: _canvasStack(context, topPad));
+        return Row(
+          children: side == 'left' ? [rail, board] : [board, rail],
+        );
+      },
     );
   }
 
@@ -779,10 +823,17 @@ class TacticsBoardHomePage extends StatelessWidget {
     // middle is the Spacer. So only these three give ground — the rail
     // itself runs to the screen edge, and the board keeps the 59pt that a
     // SafeArea over the whole edge used to take off the court.
-    final dodge = EdgeInsets.only(right: math.max(0, pad.right - edge));
+    // On the left, when that is where the island is, it all mirrors: the
+    // screen edge — and the pill — are on the rail's left.
+    final onLeft = IslandSide.side.value == 'left';
+    final dodge = onLeft
+        ? EdgeInsets.only(left: math.max(0, pad.left - edge))
+        : EdgeInsets.only(right: math.max(0, pad.right - edge));
     return Consumer<TacticsState>(
       builder: (context, state, _) => Padding(
-        padding: EdgeInsets.fromLTRB(4, vPad, edge, vPad),
+        padding: onLeft
+            ? EdgeInsets.fromLTRB(edge, vPad, 4, vPad)
+            : EdgeInsets.fromLTRB(4, vPad, edge, vPad),
         child: Column(
           children: [
             // Mode buttons — Move / Draw / Select, matching the portrait
