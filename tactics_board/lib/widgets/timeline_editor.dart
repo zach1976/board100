@@ -24,6 +24,12 @@ class _TimelineEditorState extends State<TimelineEditor> {
   // RANGES and are still edited per-row separately.
   final Set<({String id, int moveIdx, bool isStroke})> _selected = {};
 
+  /// The name column. A tablet sets the sheet's type 1.4x (scaledSheet) and
+  /// the dot and gap stay 18pt, so 40 left two characters — CF, GK, X2 —
+  /// nothing but an ellipsis. The phone keeps its 40.
+  double get _labelW =>
+      MediaQuery.sizeOf(context).shortestSide >= 600 ? 60 : 40;
+
   // Live scrubber value while the playhead is being dragged (null = idle).
   double? _scrubValue;
 
@@ -123,7 +129,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
             if (widget.state.maxMoveSteps > 0) _scrubber(),
             // Phase numbers — current phase (atStep) highlighted as the playhead.
             Padding(
-              padding: const EdgeInsets.fromLTRB(56, 4, 12, 2),
+              padding: EdgeInsets.fromLTRB(16 + _labelW, 4, 12, 2),
               child: Row(
                 children: List.generate(phaseCount, (i) {
                   final isCurrent = i == widget.state.atStep - 1 && widget.state.atStep > 0;
@@ -199,7 +205,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
       child: Row(
         children: [
           SizedBox(
-            width: 40,
+            width: _labelW,
             child: player.photoId != null
                 // Players created from an uploaded photo show their avatar
                 // here instead of the colour dot + number.
@@ -312,7 +318,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
       child: Row(
         children: [
           SizedBox(
-            width: 40,
+            width: _labelW,
             child: Row(
               children: [
                 Icon(Icons.gesture_rounded, color: c, size: 14),

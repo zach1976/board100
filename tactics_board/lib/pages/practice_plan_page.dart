@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../ui/adaptive.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../config_constants.dart';
@@ -34,6 +35,14 @@ class PracticePlanPage extends StatefulWidget {
 class _PracticePlanPageState extends State<PracticePlanPage> {
   List<String> _names = [];
   bool _loading = true;
+
+  /// Plans beside the plan being edited — a tablet with room for both. Set
+  /// by the layout on every build.
+  bool _split = false;
+
+  /// The plan open in the right-hand pane of the split. The editor renames
+  /// it in place, so its name is always the current one.
+  Practice? _selected;
 
   @override
   void initState() {
@@ -123,6 +132,11 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     }
     await PracticeService.save(sport, p);
     if (!mounted) return;
+    if (_split) {
+      await _reload();
+      if (mounted) setState(() => _selected = p);
+      return;
+    }
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => PracticeEditPage(state: widget.state, practice: p),
     ));
@@ -132,6 +146,11 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
   Future<void> _open(String name) async {
     final p = await PracticeService.load(widget.state.sportType, name);
     if (p == null || !mounted) return;
+    // A tablet opens the plan beside the list rather than over it.
+    if (_split) {
+      setState(() => _selected = p);
+      return;
+    }
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => PracticeEditPage(state: widget.state, practice: p),
     ));
@@ -156,6 +175,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
     );
     if (ok == true) {
       await PracticeService.delete(widget.state.sportType, name);
+      if (_selected?.name == name && mounted) setState(() => _selected = null);
       _reload();
     }
   }
@@ -290,12 +310,24 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
           ),
         ],
       ),
-      body: _loading
+      body: LayoutBuilder(builder: (context, box) {
+        _split = isTabletLayout(context) && box.maxWidth >= kSplitMinWidth;
+        if (_split && _selected == null && !_loading && _names.isNotEmpty) {
+          final first = _names.first;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted && _selected == null) _open(first);
+          });
+        }
+        final list = _loading
           ? const Center(child: CircularProgressIndicator(color: _kAccent))
           : _names.isEmpty
               ? _EmptyState(onCreate: _createNew)
               : ListView.separated(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  // A tablet too narrow to split keeps the rows to a
+                  // readable column.
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: _split ? 0 : tabletInset(context, box.maxWidth)),
                   itemCount: _names.length,
                   separatorBuilder: (_, _) => const Divider(color: T.border, height: 1),
                   itemBuilder: (ctx, i) {
@@ -308,6 +340,8 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                             ? ''
                             : '${p.items.length} · ${p.totalMinutes} ${'practice_minutes'.tr()}';
                         return ListTile(
+                          selected: _split && _selected?.name == name,
+                          selectedTileColor: T.accentFill,
                           leading: const Icon(Icons.event_note_outlined, color: _kAccent),
                           title: Text(name, style: const TextStyle(color: T.text)),
                           subtitle: Text(subtitle, style: const TextStyle(color: T.textDim)),
@@ -332,7 +366,35 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       },
                     );
                   },
-                ),
+                );
+        // No plans yet: the empty state, centred on the whole page.
+        if (!_split || _names.isEmpty) return list;
+        final sel = _selected;
+        return Row(
+          children: [
+            SizedBox(
+              width: (box.maxWidth * 0.38).clamp(340.0, 440.0),
+              child: list,
+            ),
+            const VerticalDivider(width: 1, thickness: 1, color: T.border),
+            Expanded(
+              child: sel == null
+                  ? const SizedBox.shrink()
+                  : PracticeEditPage(
+                      key: ObjectKey(sel),
+                      state: widget.state,
+                      practice: sel,
+                      embedded: true,
+                      // A rename, a new drill or a new length: the list's
+                      // own line for this plan says all three.
+                      onChanged: () {
+                        if (mounted) _reload();
+                      },
+                    ),
+            ),
+          ],
+        );
+      }),
     );
   }
 }
@@ -361,7 +423,20 @@ class _EmptyState extends StatelessWidget {
 class PracticeEditPage extends StatefulWidget {
   final TacticsState state;
   final Practice practice;
-  const PracticeEditPage({super.key, required this.state, required this.practice});
+
+  /// The right-hand pane of the plans split view on a tablet, not a page of
+  /// its own: no back arrow, and nothing to intercept on the way out —
+  /// switching plans saves what was typed (see dispose).
+  final bool embedded;
+
+  /// After every save, so the list beside an embedded editor can follow.
+  final VoidCallback? onChanged;
+  const PracticeEditPage(
+      {super.key,
+      required this.state,
+      required this.practice,
+      this.embedded = false,
+      this.onChanged});
 
   @override
   State<PracticeEditPage> createState() => _PracticeEditPageState();
@@ -383,9 +458,34 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
 
   @override
   void dispose() {
+    if (widget.embedded) _saveOnLeave();
     _nameCtrl.dispose();
     _notesCtrl.dispose();
     super.dispose();
+  }
+
+  /// An embedded editor is left by picking another plan, with no back
+  /// button to hold the coach while a save runs. What was typed is saved
+  /// anyway, off the widget — the values are read now, before the fields
+  /// go away. A name that clashes with another plan keeps the old name.
+  void _saveOnLeave() {
+    if (!_dirty) return;
+    final sport = widget.state.sportType;
+    final p = _p;
+    final newName = _nameCtrl.text.trim();
+    final notes = _notesCtrl.text;
+    final onChanged = widget.onChanged;
+    () async {
+      if (newName.isNotEmpty &&
+          newName != p.name &&
+          await PracticeService.load(sport, newName) == null) {
+        await PracticeService.rename(sport, p.name, newName);
+        p.name = newName;
+      }
+      p.notes = notes;
+      await PracticeService.save(sport, p);
+      onChanged?.call();
+    }();
   }
 
   /// Returns true on success, false if a rename collision blocked the save.
@@ -409,6 +509,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     _p.notes = _notesCtrl.text;
     await PracticeService.save(sport, _p);
     _dirty = false;
+    widget.onChanged?.call();
     return true;
   }
 
@@ -633,20 +734,11 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) async {
-        if (didPop) return;
-        final ok = await _saveIfDirty();
-        if (!mounted) return;
-        if (!ok) return; // Name collision — stay on page so user can fix it
-        if (!context.mounted) return;
-        Navigator.of(context).pop();
-      },
-      child: Scaffold(
+    final page = Scaffold(
         backgroundColor: _kBg,
         appBar: AppBar(
           backgroundColor: _kCard,
+          automaticallyImplyLeading: !widget.embedded,
           title: Text('practice_edit'.tr(), style: const TextStyle(color: T.text)),
           iconTheme: const IconThemeData(color: T.text),
           actions: [
@@ -658,9 +750,33 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               ),
           ],
         ),
-        body: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
+        body: LayoutBuilder(builder: (context, box) {
+          // A form on a tablet is a form's width, centred, not 1000pt of
+          // text field.
+          final x = 16 +
+              tabletInset(context, box.maxWidth - 32, maxWidth: kFormMaxWidth);
+          return ListView(
+          padding: EdgeInsets.fromLTRB(x, 16, x, 16),
+          children: _formChildren(),
+        );
+        }),
+      );
+    if (widget.embedded) return page;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        final ok = await _saveIfDirty();
+        if (!mounted) return;
+        if (!ok) return; // Name collision — stay on page so user can fix it
+        if (!context.mounted) return;
+        Navigator.of(context).pop();
+      },
+      child: page,
+    );
+  }
+
+  List<Widget> _formChildren() => [
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 6),
               child: Text('practice_name'.tr(),
@@ -764,11 +880,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                 foregroundColor: Colors.black,
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
+          ];
 
   InputDecoration _inputDeco() => InputDecoration(
         filled: true,

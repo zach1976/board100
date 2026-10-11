@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -26,6 +27,7 @@ import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../painters/ball_painter.dart';
 import '../widgets/player_icon_widget.dart';
+import '../widgets/board_shortcuts.dart';
 import '../widgets/marker_shape_clipper.dart';
 import '../widgets/tactics_canvas.dart';
 import '../widgets/toolbar.dart';
@@ -82,6 +84,32 @@ class IslandSide {
   }
 }
 
+/// How tall the board's bottom chrome (playback + tool capsules) stands,
+/// so a tablet's SnackBar can sit on top of it instead of over it.
+final ValueNotifier<double> _bottomChromeHeight = ValueNotifier(0);
+
+class _ReportHeight extends SingleChildRenderObjectWidget {
+  const _ReportHeight({required super.child});
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderReportHeight();
+}
+
+class _RenderReportHeight extends RenderProxyBox {
+  @override
+  void performLayout() {
+    super.performLayout();
+    final h = size.height;
+    if ((_bottomChromeHeight.value - h).abs() > 0.5) {
+      // Not during layout: it rebuilds the page's theme.
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _bottomChromeHeight.value = h,
+      );
+    }
+  }
+}
+
 class TacticsBoardHomePage extends StatelessWidget {
   const TacticsBoardHomePage({super.key});
 
@@ -107,7 +135,9 @@ class TacticsBoardHomePage extends StatelessWidget {
     );
     final scaffold = Scaffold(
       backgroundColor: Colors.transparent,
-      body: Container(
+      // A hardware keyboard drives the board: Space, arrows, ⌘Z, Delete,
+      // Esc, ⌘S. See BoardShortcuts.
+      body: BoardShortcuts(child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -125,9 +155,38 @@ class TacticsBoardHomePage extends StatelessWidget {
         child: isLandscape && !isTablet
             ? _buildLandscape(context, topPad, bottomPad)
             : _buildPortrait(context, topPad, bottomPad),
-      ),
+      )),
     );
-    if (!isLandscape || isTablet) return scaffold;
+    if (isTablet) {
+      // A tablet's two capsules are 1.4x a phone's, and stacked in portrait
+      // they stand ~170pt tall: the app's 96pt lift left a drill's name, or
+      // "Saved", lying over the step counter and Play for four seconds,
+      // 992pt wide. Here it is a 480pt pill that sits on the chrome's
+      // measured top edge, whatever row layout the chrome chose.
+      final app = Theme.of(context);
+      final width = MediaQuery.sizeOf(context).width;
+      return ValueListenableBuilder<double>(
+        valueListenable: _bottomChromeHeight,
+        builder: (context, chrome, child) {
+          final side = math.max(T.s16, (width - 480) / 2);
+          return Theme(
+            data: app.copyWith(
+              snackBarTheme: app.snackBarTheme.copyWith(
+                insetPadding: EdgeInsets.fromLTRB(
+                  side,
+                  T.s8,
+                  side,
+                  math.max(96.0, chrome + T.s8),
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        },
+        child: scaffold,
+      );
+    }
+    if (!isLandscape) return scaffold;
     // The app's SnackBar sits 96pt off the bottom to clear the portrait
     // toolbar capsule. Turned sideways the capsule is a rail down the right
     // and there is nothing at the bottom to clear, so a drill's name arrived
@@ -386,6 +445,19 @@ class TacticsBoardHomePage extends StatelessWidget {
                   if (context.select<TacticsState, bool>((s) => s.noteWanted)) {
                     WidgetsBinding.instance.addPostFrameCallback(
                       (_) => context.read<TacticsState>().placeDrillNote(
+                        sideways: isLandscape,
+                        maxWidth: textElementMaxWidth(context, '', note: true),
+                      ),
+                    );
+                  }
+                  // Turned since the note was put down, and it has not been
+                  // moved: under the court is now another side of the canvas.
+                  final placed = context.select<TacticsState, bool?>(
+                    (s) => s.notePlacedSideways,
+                  );
+                  if (placed != null && placed != isLandscape) {
+                    WidgetsBinding.instance.addPostFrameCallback(
+                      (_) => context.read<TacticsState>().reorientDrillNote(
                         sideways: isLandscape,
                         maxWidth: textElementMaxWidth(context, '', note: true),
                       ),
@@ -768,7 +840,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         // overlay carries its own large playback controls.
         if (sel.present) return SizedBox(height: bottomPad > 0 ? 36 : 20);
         final foot = SizedBox(height: bottomPad > 0 ? 36 : 20);
-        return LayoutBuilder(
+        return _ReportHeight(child: LayoutBuilder(
           builder: (context, box) {
             // One row, side by side, where there is room for both capsules at
             // their full width: a tablet or a window. Two rows of chrome under
@@ -822,7 +894,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               ],
             );
           },
-        );
+        ));
       },
     );
   }
@@ -1135,17 +1207,31 @@ class TacticsBoardHomePage extends StatelessWidget {
 
 /// iOS-style frosted glass circular button — translucent fill on top of a
 /// real-time backdrop blur. Used for top-corner chrome (back / menu / fullscreen).
-class _GlassCircle extends StatelessWidget {
+class _GlassCircle extends StatefulWidget {
   final double size;
   final Widget child;
   final BoxBorder? border;
   const _GlassCircle({required this.size, required this.child, this.border});
 
   @override
+  State<_GlassCircle> createState() => _GlassCircleState();
+}
+
+class _GlassCircleState extends State<_GlassCircle> {
+  // A trackpad or mouse pointer over it: a hand cursor and a lighter fill,
+  // so the corner chrome says it is a button before it is clicked.
+  bool _hover = false;
+
+  @override
   Widget build(BuildContext context) {
+    final size = widget.size, child = widget.child, border = widget.border;
     // Shadow is drawn by the outer DecoratedBox so it's not clipped away by
     // ClipOval; the BackdropFilter blurs the field/board content underneath.
-    return DecoratedBox(
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _hover = true),
+      onExit: (_) => setState(() => _hover = false),
+      child: DecoratedBox(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         boxShadow: [
@@ -1164,7 +1250,9 @@ class _GlassCircle extends StatelessWidget {
             height: size,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.28),
+              color: _hover
+                  ? Colors.white.withValues(alpha: 0.16)
+                  : Colors.black.withValues(alpha: 0.28),
               shape: BoxShape.circle,
               // A hairline of the pitch's own light, so the circle has an
               // edge on a bright turf as well as a dark one. Callers that
@@ -1178,7 +1266,7 @@ class _GlassCircle extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -3604,9 +3692,13 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       final note = p.id == TacticsState.kDrillNoteId;
       w = textElementMaxWidth(context, p.label, note: note) * p.scale;
       h = 30 * p.scale * textElementMaxLines(p.label, note: note);
-      // A chip laid on its side — the drill note, sideways — is tall, not
-      // wide.
-      final quarter = (p.rotation / (math.pi / 2)).round();
+      // A chip laid on its side is tall, not wide. Its rotation is read
+      // against the screen (text counter-turns with the board, see
+      // turnedForText), so on the board's own frame — a quarter turn away
+      // in landscape — an upright chip is the one lying down.
+      final turned =
+          MediaQuery.orientationOf(context) == Orientation.landscape ? 1 : 0;
+      final quarter = (p.rotation / (math.pi / 2)).round() + turned;
       if (quarter.isOdd) {
         final t = w;
         w = h;
@@ -3645,8 +3737,12 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         return;
       }
       _placedFor = key;
-      final atRest =
-          (panel.localToGlobal(Offset.zero) & panel.size).shift(-_drag);
+      // Through the panel's whole transform: on a tablet it is drawn
+      // scaled (_ScaledBox), and its own size is the unscaled one.
+      final atRest = MatrixUtils.transformRect(
+        panel.getTransformTo(null),
+        Offset.zero & panel.size,
+      ).shift(-_drag);
       final board = _onScreen(canvas, Offset.zero & canvas.size);
       // Drawing with nothing selected, the bar has no one element to keep
       // clear of — so it keeps clear of all of them. Resting at the foot
@@ -3655,9 +3751,29 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       // covers the fewest figures, which on most boards is open court.
       final drawing =
           state.isDrawingMode && state.selectedStrokeId == null;
+      final target = _targetRect(state, canvas);
+      // A tablet docks the bar beside what it edits — a player at the
+      // left touchline had his bar 500pt away at the bottom centre. Just
+      // under it, or over it when there is no room under; across, centred
+      // on it and kept on the screen.
+      if (target != null &&
+          MediaQuery.sizeOf(context).shortestSide >= 600) {
+        final screenW = MediaQuery.sizeOf(context).width;
+        final up = (board.top + 64) - atRest.top;
+        final below = (target.bottom + 12) - atRest.top;
+        final above = (target.top - 12) - atRest.bottom;
+        final dy = (below <= 0 ? below : above).clamp(math.min(up, 0.0), 0.0);
+        final dx = (target.center.dx - atRest.center.dx).clamp(
+          8 - atRest.left,
+          math.max(8 - atRest.left, screenW - 8 - atRest.right),
+        );
+        final near = Offset(dx.toDouble(), dy.toDouble());
+        if (near != _drag) setState(() => _drag = near);
+        return;
+      }
       final slot = _slotFor(
         atRest,
-        _targetRect(state, canvas),
+        target,
         [
           ..._textRects(state, canvas),
           if (drawing)
@@ -3715,12 +3831,21 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         // and the Positioned above it do not, so every tap on the moved bar
         // was rejected before it got that far and fell through to the board
         // underneath — which deselected the very element being edited.
+        // A tablet draws the bar larger, whole: its 30pt buttons and 24pt
+        // swatches were a phone's, under a coach's finger on a 13-inch
+        // screen. Scaled as one piece (layout and hit-testing too) so
+        // nothing inside has to know; capped by the screen's width.
+        final tabletScale = screen.shortestSide >= 600
+            ? math.min(1.45, (screen.width - 16) / 540).clamp(1.0, 1.45)
+            : 1.0;
         return Positioned(
           left: 8 + _drag.dx,
           right: 8 - _drag.dx,
           bottom: 10 - _drag.dy,
           child: Center(
-            child: ConstrainedBox(
+            child: _ScaledBox(
+              scale: tabletScale.toDouble(),
+              child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 540),
               child: GestureDetector(
                 // Translucent, so the chip and the actions inside still
@@ -3786,11 +3911,80 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                   ),
                 ),
               ),
-            ),
+            )),
           ),
         );
       },
     );
+  }
+}
+
+/// Lays its child out [scale] times smaller and draws it [scale] times
+/// larger, so the child — layout, paint and taps — is simply bigger.
+class _ScaledBox extends SingleChildRenderObjectWidget {
+  final double scale;
+  const _ScaledBox({required this.scale, required super.child});
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderScaledBox(scale);
+
+  @override
+  void updateRenderObject(BuildContext context, _RenderScaledBox r) =>
+      r.scale = scale;
+}
+
+class _RenderScaledBox extends RenderProxyBox {
+  _RenderScaledBox(this._scale);
+  double _scale;
+  set scale(double v) {
+    if (v == _scale) return;
+    _scale = v;
+    markNeedsLayout();
+  }
+
+  @override
+  void performLayout() {
+    final c = child;
+    if (c == null) {
+      size = constraints.smallest;
+      return;
+    }
+    c.layout(constraints / _scale, parentUsesSize: true);
+    size = constraints.constrain(c.size * _scale);
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    final c = child;
+    if (c == null) return;
+    if (_scale == 1.0) {
+      context.paintChild(c, offset);
+      return;
+    }
+    layer = context.pushTransform(
+      needsCompositing,
+      offset,
+      Matrix4.diagonal3Values(_scale, _scale, 1),
+      (ctx, o) => ctx.paintChild(c, o),
+      oldLayer: layer is TransformLayer ? layer as TransformLayer : null,
+    );
+  }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    final c = child;
+    if (c == null) return false;
+    return result.addWithPaintTransform(
+      transform: Matrix4.diagonal3Values(_scale, _scale, 1),
+      position: position,
+      hitTest: (r, p) => c.hitTest(r, position: p),
+    );
+  }
+
+  @override
+  void applyPaintTransform(RenderBox child, Matrix4 transform) {
+    transform.scaleByDouble(_scale, _scale, 1, 1);
   }
 }
 
@@ -5039,6 +5233,11 @@ class _FirstRunHintState extends State<_FirstRunHint> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && _visible) _dismiss();
       });
+      return const SizedBox.shrink();
+    }
+    // Full screen has no Add button for the card to point at. Hidden, not
+    // dismissed: it is still news when the toolbar comes back.
+    if (!context.select<TacticsState, bool>((s) => s.toolbarVisible)) {
       return const SizedBox.shrink();
     }
     // A light coach mark above the toolbar, not a paragraph across the

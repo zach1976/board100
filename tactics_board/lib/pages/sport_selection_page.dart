@@ -62,6 +62,40 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
   /// again the moment they choose a sport.
   bool? _intro;
 
+  /// The grid's scroll, so a rotation can keep the coach where they were.
+  ///
+  /// The offset is in points, and turning an iPad changes how many points
+  /// each row of cards is: the same 600pt that was the third row upright is
+  /// the middle of the net sports on its side, so the header and Continue
+  /// went off the top. Held as a share of the scroll instead, and put back
+  /// after the new layout.
+  final _scroll = ScrollController();
+  Orientation? _orientation;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final o = MediaQuery.orientationOf(context);
+    final was = _orientation;
+    _orientation = o;
+    if (was == null || was == o || !_scroll.hasClients) return;
+    final pos = _scroll.position;
+    final share =
+        pos.maxScrollExtent <= 0 ? 0.0 : pos.pixels / pos.maxScrollExtent;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scroll.hasClients) return;
+      final p = _scroll.position;
+      _scroll.jumpTo((share * p.maxScrollExtent)
+          .clamp(p.minScrollExtent, p.maxScrollExtent));
+    });
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -153,14 +187,30 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
     final isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     final crossCount = isLandscape ? 4 : isTablet ? 3 : 2;
+    // A tablet on its side shelves each group in as many columns as leave
+    // no card on its own: five team sports in four columns put Handball
+    // alone on a row beside 1000pt of nothing. Four or five, whichever
+    // leaves the last row fullest (ties keep four).
+    int columnsFor(int n) {
+      if (!(isLandscape && isTablet)) return crossCount;
+      int gap(int c) => (c - n % c) % c;
+      return gap(5) < gap(4) ? 5 : 4;
+    }
     final topPad = MediaQuery.of(context).padding.top;
-    final sideX = isLandscape ? 12.0 : isTablet ? 24.0 : T.screenX;
+    // 12pt was a phone-on-its-side margin; on an iPad it put the cards
+    // against the glass.
+    final sideX = isLandscape
+        ? (isTablet ? 24.0 : 12.0)
+        : isTablet
+            ? 24.0
+            : T.screenX;
     final order = sportDisplayOrderFor(context.locale);
     final recent = _recent;
 
     return Scaffold(
       backgroundColor: T.bg0,
       body: CustomScrollView(
+        controller: _scroll,
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
@@ -217,7 +267,8 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
               padding: EdgeInsets.symmetric(horizontal: sideX),
               sliver: SliverGrid(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: crossCount,
+                  crossAxisCount: columnsFor(
+                      order.where((s) => s.group == group).length),
                   crossAxisSpacing: T.s12,
                   mainAxisSpacing: T.s12,
                   childAspectRatio: isLandscape ? 1.3 : 1.05,
@@ -412,10 +463,13 @@ class _SportCard extends StatelessWidget {
                 Row(children: [
                   SportGlyph(sport: sport, size: 18),
                   const SizedBox(width: T.s8),
+                  // Two lines before it gives up: "Hockey sobre césped" on a
+                  // 375pt Slide Over card lost the one word that says which
+                  // hockey.
                   Expanded(
                     child: Text(sport.displayName,
                         style: T.body.copyWith(fontWeight: FontWeight.w700),
-                        maxLines: 1,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis),
                   ),
                 ]),

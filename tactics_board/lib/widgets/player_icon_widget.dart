@@ -872,6 +872,10 @@ class PlayerIconWidget extends StatelessWidget {
   /// him, so whose it is stays plain.
   final bool labelAbove;
 
+  /// A right-click (trackpad, mouse) — and on a tablet a long press — asks
+  /// for the element's menu, at this point on the screen.
+  final void Function(Offset globalPosition)? onContextMenu;
+
   const PlayerIconWidget({
     super.key,
     required this.player,
@@ -884,7 +888,22 @@ class PlayerIconWidget extends StatelessWidget {
     this.onScaleStart,
     this.onScaleUpdate,
     this.onScaleEnd,
+    this.onContextMenu,
   });
+
+  /// The long press opens the menu only on a tablet and only where nothing
+  /// else has claimed it; a phone's board is unchanged.
+  GestureLongPressStartCallback? _menuOnHold(BuildContext context) {
+    final menu = onContextMenu;
+    if (menu == null || onLongPress != null) return null;
+    if (MediaQuery.sizeOf(context).shortestSide < 600) return null;
+    return (d) => menu(d.globalPosition);
+  }
+
+  /// A pointer that can hover gets told this is something to pick up.
+  Widget _hoverable(Widget child) => onTap == null && onScaleStart == null
+      ? child
+      : MouseRegion(cursor: SystemMouseCursors.grab, child: child);
 
   @override
   Widget build(BuildContext context) {
@@ -901,21 +920,30 @@ class PlayerIconWidget extends StatelessWidget {
       // the whole of it answers at any angle.
       return turnedForText(
         player,
-        GestureDetector(
+        extraQuarters: BoardOrientation.counterTurns(context),
+        _hoverable(GestureDetector(
           onTap: onTap,
           onLongPress: onLongPress,
+          onLongPressStart: _menuOnHold(context),
+          onSecondaryTapUp: onContextMenu == null
+              ? null
+              : (d) => onContextMenu!(d.globalPosition),
           onScaleStart: onScaleStart,
           onScaleUpdate: onScaleUpdate,
           onScaleEnd: onScaleEnd,
           child: TextElementChip(
               player: player, isSelected: isSelected, turned: false),
-        ),
+        )),
       );
     }
     final size = kPlayerIconSize * player.scale;
-    return GestureDetector(
+    return _hoverable(GestureDetector(
       onTap: onTap,
       onLongPress: onLongPress,
+      onLongPressStart: _menuOnHold(context),
+      onSecondaryTapUp: onContextMenu == null
+          ? null
+          : (d) => onContextMenu!(d.globalPosition),
       onScaleStart: onScaleStart,
       onScaleUpdate: onScaleUpdate,
       onScaleEnd: onScaleEnd,
@@ -1029,7 +1057,7 @@ class PlayerIconWidget extends StatelessWidget {
             ),
         ],
       ),
-    );
+    ));
   }
 }
 
@@ -1933,13 +1961,21 @@ class TextFontChip extends StatelessWidget {
 /// transforms — there is no box for it — and sits a little off its point;
 /// its hit area is right regardless, because the gestures live inside the
 /// turn (see PlayerIconWidget).
-Widget turnedForText(PlayerIcon player, Widget child) {
-  final quarters = player.rotation / (pi / 2);
+///
+/// [extraQuarters] is the board's counter-turn ([BoardOrientation.counterTurns]).
+/// Words are for the reader, so a text element keeps its own rotation
+/// relative to the SCREEN: when landscape turns the whole board a quarter,
+/// the chip turns back the way the figures do, and "Press high" or the
+/// step note no longer reads down the side of an iPad.
+Widget turnedForText(PlayerIcon player, Widget child,
+    {int extraQuarters = 0}) {
+  final angle = player.rotation + extraQuarters * (pi / 2);
+  final quarters = angle / (pi / 2);
   final nearest = quarters.roundToDouble();
   final squared = (quarters - nearest).abs() < 0.01;
   return squared
       ? RotatedBox(quarterTurns: (nearest.toInt() % 4 + 4) % 4, child: child)
-      : Transform.rotate(angle: player.rotation, child: child);
+      : Transform.rotate(angle: angle, child: child);
 }
 
 /// A drag delta reported inside a turned text element, put back into the
@@ -1950,8 +1986,9 @@ Widget turnedForText(PlayerIcon player, Widget child) {
 /// drag's delta arrives in the CHIP's frame, not the board's. A note lying
 /// on its side was moving at a right angle to the finger; the board turned
 /// too, sideways, made that read as backwards.
-Offset untwistForText(PlayerIcon player, Offset local) {
-  final a = player.rotation;
+Offset untwistForText(PlayerIcon player, Offset local,
+    {int extraQuarters = 0}) {
+  final a = player.rotation + extraQuarters * (pi / 2);
   if (a == 0) return local;
   return Offset(local.dx * cos(a) - local.dy * sin(a),
       local.dx * sin(a) + local.dy * cos(a));
@@ -2013,7 +2050,10 @@ class TextElementChip extends StatelessWidget {
         ),
       ),
     );
-    return turned ? turnedForText(player, body) : body;
+    return turned
+        ? turnedForText(player, body,
+            extraQuarters: BoardOrientation.counterTurns(context))
+        : body;
   }
 }
 

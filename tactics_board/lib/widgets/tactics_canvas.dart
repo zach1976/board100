@@ -1,5 +1,6 @@
 import 'dart:math' as math;
-import 'package:flutter/gestures.dart' show kDoubleTapTimeout;
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart' show kDoubleTapTimeout, PointerDeviceKind;
 import 'package:flutter/material.dart';
 import '../ui/tokens.dart';
 import 'package:flutter/services.dart';
@@ -450,6 +451,11 @@ Offset? ballStandingAt(List<PlayerIcon> players, int beat) {
   return null;
 }
 
+/// The Apple Pencil pointer drawing on the board right now, if any. Read by
+/// the players, which ignore a palm's drag while it is set.
+@visibleForTesting
+int? pencilPointer;
+
 /// A board-space vector as it appears on a screen turned [quarterTurns]
 /// clockwise — the rotation RotatedBox applies, without the translation,
 /// which an offset does not care about.
@@ -670,6 +676,110 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   /// Last finger position while laying a run by dragging in add-move mode.
   Offset? _addMovePanPos;
 
+  // Apple Pencil (tablet only; a phone's board is unchanged). The Pencil
+  // draws in any mode — Draw, or Move without switching — and a finger
+  // moves players. While the Pencil is on the glass a touch is a palm: it
+  // neither draws nor drags. The Pencil's line is drawn here from raw
+  // pointer events rather than by the board's pan, so Move mode needs no
+  // pan recogniser fighting the players' own drags.
+  bool _panIgnored = false;
+  bool _touchStroke = false;
+
+  bool _pencilCanDraw(TacticsState state) =>
+      !state.presentationMode &&
+      !state.zoomMode &&
+      !state.isAnimating &&
+      !state.multiSelectMode &&
+      !(state.isAddingMove && state.selectedPlayerId != null) &&
+      !(state.isDrawingMode && state.eraserMode);
+
+  void _pencilDown(PointerDownEvent e, TacticsState state) {
+    if (e.kind != PointerDeviceKind.stylus || pencilPointer != null) return;
+    if (!_pencilCanDraw(state)) return;
+    // Grabbing the selected line to move it is the pan's job.
+    if (state.isDrawingMode &&
+        state.selectedStrokeId != null &&
+        state.hitTestStroke(e.localPosition) == state.selectedStrokeId) {
+      return;
+    }
+    // A palm got there first and has started a line: it was never meant.
+    if (_touchStroke) {
+      state.cancelStroke();
+      _touchStroke = false;
+      _panIgnored = true;
+    }
+    if (state.selectedStrokeId != null) state.selectStroke(null);
+    pencilPointer = e.pointer;
+    state.startStroke(e.localPosition);
+  }
+
+  /// The element's menu at [at]: edit, duplicate, add a run, remove — each
+  /// the same action the edit bar runs.
+  Future<void> _elementMenu(
+      TacticsState state, PlayerIcon player, Offset at) async {
+    final overlay =
+        Overlay.of(context).context.findRenderObject() as RenderBox?;
+    if (overlay == null) return;
+    final text = isTextElement(player);
+    final edit = player.isBall
+        ? 'edit_ball'
+        : player.isMarker
+            ? 'edit_marker'
+            : 'edit_player';
+    PopupMenuItem<String> item(String v, IconData icon, String label,
+            {Color? tint}) =>
+        PopupMenuItem<String>(
+          value: v,
+          child: Row(children: [
+            Icon(icon, size: 19, color: tint ?? T.textDim),
+            const SizedBox(width: 12),
+            Flexible(
+              child: Text(label,
+                  style: TextStyle(color: tint ?? T.text, fontSize: 15)),
+            ),
+          ]),
+        );
+    final picked = await showMenu<String>(
+      context: context,
+      color: T.surface,
+      position: RelativeRect.fromRect(
+          at & const Size(1, 1), Offset.zero & overlay.size),
+      items: [
+        item('edit', Icons.edit_outlined, edit.tr()),
+        item('duplicate', Icons.copy_rounded, 'element_duplicate'.tr()),
+        if (!text) item('run', Icons.timeline_rounded, 'move_add'.tr()),
+        item('remove', Icons.delete_outline_rounded, 'remove'.tr(),
+            tint: T.danger),
+      ],
+    );
+    if (!mounted || picked == null) return;
+    switch (picked) {
+      case 'edit':
+        state.selectPlayer(player.id);
+        if (text) state.requestLabelEdit(player.id);
+      case 'duplicate':
+        state.copyPlayer(player.id);
+        final id = state.pastePlayer();
+        if (id != null) state.selectPlayer(id);
+      case 'run':
+        state.selectPlayer(player.id);
+        state.setAddingMove(true);
+      case 'remove':
+        state.removePlayer(player.id);
+    }
+  }
+
+  void _pencilMove(PointerMoveEvent e, TacticsState state) {
+    if (e.pointer != pencilPointer) return;
+    state.addPoint(e.localPosition);
+  }
+
+  void _pencilUp(PointerEvent e, TacticsState state, {bool cancel = false}) {
+    if (e.pointer != pencilPointer) return;
+    pencilPointer = null;
+    cancel ? state.cancelStroke() : state.endStroke();
+  }
+
   /// Erase any stroke under [p] (drawing-mode eraser sub-mode).
   void _eraseAt(TacticsState state, Offset p) {
     final hit = state.hitTestStroke(p);
@@ -692,6 +802,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   @override
   void dispose() {
     _state.removeListener(_rebuild);
+    pencilPointer = null;
     super.dispose();
   }
 
@@ -1034,6 +1145,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             final players = _inPaintOrder(state.players);
 
             final eraser = state.isDrawingMode && state.eraserMode;
+            final pencilAware = MediaQuery.sizeOf(context).shortestSide >= 600;
             final draggingStroke =
                 state.isDrawingMode &&
                 state.selectedStrokeId != null &&
@@ -1057,6 +1169,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             final board = GestureDetector(
               onPanStart: pannable
                   ? (d) {
+                      _panIgnored = pencilAware &&
+                          (pencilPointer != null ||
+                              (d.kind == PointerDeviceKind.stylus &&
+                                  state.isDrawingMode &&
+                                  !eraser &&
+                                  !draggingStroke));
+                      if (_panIgnored) return;
                       if (eraser) {
                         _eraseAt(state, d.localPosition);
                       } else if (state.isDrawingMode) {
@@ -1066,6 +1185,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                           state.selectStroke(null);
                         }
                         state.startStroke(d.localPosition);
+                        _touchStroke = pencilAware;
                       } else if (state.multiSelectMode) {
                         // Pan started on a stroke that's already in the
                         // multi-select set → drag the whole group instead
@@ -1085,6 +1205,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               onPanUpdate: pannable
                   ? (d) {
+                      if (_panIgnored) return;
                       if (eraser) {
                         _eraseAt(state, d.localPosition);
                       } else if (state.isDrawingMode) {
@@ -1106,6 +1227,11 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   : null,
               onPanEnd: pannable
                   ? (_) {
+                      _touchStroke = false;
+                      if (_panIgnored) {
+                        _panIgnored = false;
+                        return;
+                      }
                       if (eraser) {
                         return;
                       } else if (state.isDrawingMode) {
@@ -1183,7 +1309,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
             final wrapped = RepaintBoundary(
               key: widget.preview ? null : boardRepaintKey,
-              child: SizedBox(width: canvasW, height: canvasH, child: board),
+              child: SizedBox(
+                width: canvasW,
+                height: canvasH,
+                child: pencilAware && !widget.preview
+                    ? Listener(
+                        onPointerDown: (e) => _pencilDown(e, state),
+                        onPointerMove: (e) => _pencilMove(e, state),
+                        onPointerUp: (e) => _pencilUp(e, state),
+                        onPointerCancel: (e) =>
+                            _pencilUp(e, state, cancel: true),
+                        child: board,
+                      )
+                    : board,
+              ),
             );
             // Only mount the InteractiveViewer while zooming/presenting; in
             // normal editing apply any existing zoom statically (no gesture
@@ -1618,6 +1757,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         // then appears, so a separate long-press dialog is no
         // longer needed (one unified edit surface).
         onLongPress: null,
+        // Right-click (and a tablet's long press): the same actions the
+        // edit bar has, where the pointer is.
+        onContextMenu: state.multiSelectMode ||
+                state.isAnimating ||
+                state.presentationMode
+            ? null
+            : (at) => _elementMenu(state, player, at),
       );
     }
 
@@ -2404,6 +2550,7 @@ class _PlayerOnBoard extends StatefulWidget {
   final bool isInMultiSelect;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
+  final void Function(Offset globalPosition)? onContextMenu;
   final bool labelAbove;
 
   const _PlayerOnBoard({
@@ -2421,6 +2568,7 @@ class _PlayerOnBoard extends StatefulWidget {
     this.isInMultiSelect = false,
     this.onTap,
     this.onLongPress,
+    this.onContextMenu,
   });
 
   @override
@@ -2430,6 +2578,10 @@ class _PlayerOnBoard extends StatefulWidget {
 class _PlayerOnBoardState extends State<_PlayerOnBoard> {
   double _baseScale = 1.0;
   double _baseRotation = 0.0;
+
+  /// This drag is the Pencil (it draws instead — see _pencilDown) or a palm
+  /// resting while the Pencil draws. Tablet only.
+  bool _ignoreDrag = false;
 
   @override
   Widget build(BuildContext context) {
@@ -2459,19 +2611,26 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
       labelAbove: widget.labelAbove,
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
+      onContextMenu: widget.onContextMenu,
       onScaleStart: canPan
           ? (d) {
+              _ignoreDrag =
+                  MediaQuery.sizeOf(context).shortestSide >= 600 &&
+                  (d.kind == PointerDeviceKind.stylus ||
+                      pencilPointer != null);
               _baseScale = player.scale;
               _baseRotation = player.rotation;
             }
           : null,
       onScaleUpdate: canPan
           ? (d) {
+              if (_ignoreDrag) return;
               final state = context.read<TacticsState>();
               // In the board's frame. A text element's detector sits inside
               // its own turn, so its delta has to be turned back first.
               final delta = isTextElement(player)
-                  ? untwistForText(player, d.focalPointDelta)
+                  ? untwistForText(player, d.focalPointDelta,
+                      extraQuarters: BoardOrientation.counterTurns(context))
                   : d.focalPointDelta;
               if (widget.isInMultiSelect) {
                 state.moveMultiSelectBy(delta);
@@ -2489,6 +2648,10 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
           : null,
       onScaleEnd: canPan
           ? (d) {
+              if (_ignoreDrag) {
+                _ignoreDrag = false;
+                return;
+              }
               final state = context.read<TacticsState>();
               if (widget.isInMultiSelect) {
                 state.moveMultiSelectEnd();

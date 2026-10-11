@@ -5,6 +5,7 @@ import '../models/drill.dart';
 import '../models/sport_type.dart';
 import '../services/recent_boards_service.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../widgets/drill_thumbnail.dart';
 
@@ -61,6 +62,10 @@ class RecentPage extends StatelessWidget {
     );
   }
 
+  /// A readable column on a tablet; nothing on a phone.
+  static double _inset(BuildContext context) =>
+      tabletInset(context, MediaQuery.sizeOf(context).width - 2 * T.screenX);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,8 +77,9 @@ class RecentPage extends StatelessWidget {
             TacticalNavBar(title: 'home_recent'.tr()),
             Expanded(
               child: ListView.separated(
-                padding: const EdgeInsets.fromLTRB(
-                    T.screenX, T.s4, T.screenX, T.s32),
+                padding: EdgeInsets.fromLTRB(
+                    T.screenX + _inset(context), T.s4,
+                    T.screenX + _inset(context), T.s32),
                 itemCount: items.length,
                 separatorBuilder: (_, _) => const SizedBox(height: T.s8),
                 itemBuilder: (context, i) {

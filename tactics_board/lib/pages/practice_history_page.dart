@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../config_constants.dart';
 import '../models/practice_session.dart';
@@ -133,7 +134,9 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                   title: 'practice_history_empty'.tr(),
                   message: 'practice_history_empty_hint'.tr(),
                 )
-              : Column(
+              // A readable column on a tablet, not stats and rows spread
+              // over 1376pt.
+              : tabletColumn(context, Column(
                   children: [
                     Container(
                       margin: const EdgeInsets.all(12),
@@ -193,7 +196,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                       ),
                     ),
                   ],
-                ),
+                )),
     );
   }
 }

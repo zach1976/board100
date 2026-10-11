@@ -16,6 +16,7 @@ import '../services/purchase_service.dart';
 import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import 'drill_library_page.dart';
 import 'recent_page.dart';
@@ -637,7 +638,10 @@ class _SportHomePageState extends State<SportHomePage> {
   /// only needed when the picture is wrong costs nothing when it is right.
   Widget _hero(SportType sport) {
     final top = MediaQuery.paddingOf(context).top;
-    final content = Padding(
+    // In the same centred column as the page below it, so on a window wider
+    // than [_kMaxColumn] the title starts where the cards start rather than
+    // 150pt to their left. Only the photograph bleeds.
+    final content = _column(Padding(
       // The bottom is not a margin: it is the band the photograph fades out
       // over, so the page begins under a gradient rather than at an edge.
       // Nothing is drawn in it — the scrim below reaches T.bg0 across it.
@@ -692,10 +696,9 @@ class _SportHomePageState extends State<SportHomePage> {
               if (!isSingleSportApp) const SizedBox(width: T.s4),
               _HomeMenu(
                 onLanguage: () => LanguagePicker.show(context),
-                onContact: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-                onLogin: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const LoginPage())),
+                onContact: () =>
+                    pushFormSheet<void>(context, const ContactPage()),
+                onLogin: () => pushFormSheet<void>(context, const LoginPage()),
               ),
             ],
           ),
@@ -713,7 +716,7 @@ class _SportHomePageState extends State<SportHomePage> {
           ),
         ],
       ),
-    );
+    ));
 
     if (!_hasArt) return content;
 

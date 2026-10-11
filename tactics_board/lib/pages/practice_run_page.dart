@@ -1,7 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
+import '../widgets/tactics_canvas.dart';
 import 'package:flutter/services.dart';
 import '../models/practice.dart';
 import '../models/practice_session.dart';
@@ -43,6 +49,13 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
   bool _sessionRecorded = false;
   PracticeSession? _recorded;
 
+  /// The current item's board, drawn on a tablet in the space a phone
+  /// leaves empty above the timer. Its own throwaway state, as the drill
+  /// page's is: the coach's live board is not touched until "Open on
+  /// board". Null until read, and for a board whose file is gone.
+  TacticsState? _preview;
+  String? _previewOf;
+
   @override
   void initState() {
     super.initState();
@@ -55,8 +68,44 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     _resetItem();
   }
 
+  /// Reads the current item's saved board into [_preview]. Straight from
+  /// its file rather than through TacticsState.loadTactics, which would
+  /// also log it as a board the coach opened.
+  Future<void> _loadPreview() async {
+    final name = _current?.tacticName;
+    if (name == null || name == _previewOf) return;
+    _previewOf = name;
+    Map<String, dynamic>? json;
+    try {
+      // Where TacticsState keeps them, with its same fallback.
+      Directory docs;
+      try {
+        docs = await getApplicationDocumentsDirectory();
+      } catch (_) {
+        docs = Directory.systemTemp;
+      }
+      final f = File(
+          '${docs.path}/tactics/${widget.state.sportType.name}/$name.json');
+      if (await f.exists()) {
+        json = jsonDecode(await f.readAsString()) as Map<String, dynamic>;
+      }
+    } catch (_) {
+      // An unreadable file: no picture, and the run page is still a timer.
+    }
+    if (!mounted || _previewOf != name) return;
+    final old = _preview;
+    setState(() {
+      _preview = json == null
+          ? null
+          : (TacticsState(sportType: widget.state.sportType, preview: true)
+            ..loadFromJson(json));
+    });
+    old?.dispose();
+  }
+
   @override
   void dispose() {
+    _preview?.dispose();
     _timer?.cancel();
     AdService.instance.popAdSuppression();
     _recordSession(completed: false);
@@ -127,6 +176,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
       _running = false;
     });
     _timer?.cancel();
+    _loadPreview();
   }
 
   void _togglePlay() {
@@ -258,38 +308,9 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
       );
     }
     final total = items.length;
-    return Scaffold(
-      backgroundColor: _kBg,
-      // Third of the three practice screens, and the last one still on a
-      // raised bar with a centred title.
-      appBar: AppBar(
-        backgroundColor: T.bg1,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        titleSpacing: 0,
-        centerTitle: false,
-        iconTheme: const IconThemeData(color: T.text, size: 22),
-        title: Text(widget.practice.name, style: T.section),
-      ),
-      body: SafeArea(
-        // Fill the screen when it fits, scroll when it does not. The timer is
-        // 84pt and the two button rows are fixed, so on a 320x568 phone — or
-        // any phone once the drill note runs to several lines — this column
-        // was 158 to 194 pixels taller than the space it had. IntrinsicHeight
-        // keeps the Spacer working in the case that does fit.
-        child: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight),
-              child: IntrinsicHeight(
-                child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Text('${_idx + 1} / $total',
-                  style: const TextStyle(color: T.textDim, fontSize: 16)),
-              const SizedBox(height: 8),
-              Container(
+    final counter = Text('${_idx + 1} / $total',
+                  style: const TextStyle(color: T.textDim, fontSize: 16));
+    final card = Container(
                 padding: const EdgeInsets.all(16),
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -312,9 +333,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                     ],
                   ],
                 ),
-              ),
-              const Spacer(),
-              Text(
+              );
+    final timer = Text(
                 _mmss(_secLeft),
                 style: TextStyle(
                   color: _secLeft == 0 ? T.danger : _kAccent,
@@ -322,9 +342,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                   fontWeight: FontWeight.w300,
                   fontFeatures: const [FontFeature.tabularFigures()],
                 ),
-              ),
-              const SizedBox(height: 24),
-              Row(
+              );
+    final controls = Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _RoundBtn(
@@ -345,9 +364,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                     onTap: _next,
                   ),
                 ],
-              ),
-              const SizedBox(height: 20),
-              Row(
+              );
+    final buttons = Row(
                 children: [
                   Expanded(
                     child: OutlinedButton.icon(
@@ -376,7 +394,47 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                     ),
                   ),
                 ],
-              ),
+              );
+    return Scaffold(
+      backgroundColor: _kBg,
+      // Third of the three practice screens, and the last one still on a
+      // raised bar with a centred title.
+      appBar: AppBar(
+        backgroundColor: T.bg1,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        centerTitle: false,
+        iconTheme: const IconThemeData(color: T.text, size: 22),
+        title: Text(widget.practice.name, style: T.section),
+      ),
+      body: isTabletLayout(context)
+          ? SafeArea(
+              child: _tabletBody(counter, card, timer, controls, buttons))
+          : SafeArea(
+        // Fill the screen when it fits, scroll when it does not. The timer is
+        // 84pt and the two button rows are fixed, so on a 320x568 phone — or
+        // any phone once the drill note runs to several lines — this column
+        // was 158 to 194 pixels taller than the space it had. IntrinsicHeight
+        // keeps the Spacer working in the case that does fit.
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
+                child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              counter,
+              const SizedBox(height: 8),
+              card,
+              const Spacer(),
+              timer,
+              const SizedBox(height: 24),
+              controls,
+              const SizedBox(height: 20),
+              buttons,
               const SizedBox(height: 8),
             ],
           ),
@@ -387,6 +445,107 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
         ),
       ),
     );
+  }
+
+  /// A tablet's run page: the board the coach is about to run where a
+  /// phone has empty space, and the controls kept to a column a hand can
+  /// cross. Upright, the board sits between the drill and the timer;
+  /// sideways, it takes the left and the controls stand down the right.
+  /// The phone layout stretched across an iPad put 700pt of nothing above
+  /// a timer, with the prev and next arrows 480pt apart.
+  Widget _tabletBody(Widget counter, Widget card, Widget timer,
+      Widget controls, Widget buttons) {
+    final landscape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    final panel = <Widget>[
+      timer,
+      const SizedBox(height: 24),
+      controls,
+      const SizedBox(height: 20),
+      buttons,
+      const SizedBox(height: 8),
+    ];
+    if (landscape) {
+      return Padding(
+        padding: const EdgeInsets.all(24),
+        child: Row(
+          children: [
+            Expanded(child: _boardPreview()),
+            const SizedBox(width: 32),
+            SizedBox(
+              width: 420,
+              child: Column(
+                children: [
+                  counter,
+                  const SizedBox(height: 8),
+                  card,
+                  const Spacer(),
+                  ...panel,
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: kFormMaxWidth),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              counter,
+              const SizedBox(height: 8),
+              card,
+              const SizedBox(height: 20),
+              Expanded(child: _boardPreview()),
+              const SizedBox(height: 20),
+              ...panel,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// The current item's board, read-only, fitted to the space it is given.
+  /// A tap plays its moves, the way a coach would show them to the group.
+  Widget _boardPreview() {
+    final preview = _preview;
+    if (preview == null) return const SizedBox.expand();
+    return LayoutBuilder(builder: (context, c) {
+      // Drawn sideways when the space is, as the drill page does.
+      final sideways = c.maxWidth > c.maxHeight;
+      final board = SizedBox(
+        width: kBoardRefWidth,
+        height: kBoardRefHeight,
+        child: IgnorePointer(
+          child: ChangeNotifierProvider<TacticsState>.value(
+            value: preview,
+            child: TacticsCanvas(preview: true, boardTurns: sideways ? 1 : 0),
+          ),
+        ),
+      );
+      return GestureDetector(
+        key: const ValueKey('run-board-preview'),
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          if (preview.hasMoves && !preview.isAnimating) {
+            preview.startAnimation();
+          }
+        },
+        child: Center(
+          child: ClipRRect(
+            borderRadius: T.brLg,
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: sideways ? RotatedBox(quarterTurns: 1, child: board) : board,
+            ),
+          ),
+        ),
+      );
+    });
   }
 }
 

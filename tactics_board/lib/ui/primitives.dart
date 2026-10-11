@@ -62,22 +62,28 @@ class TacticalSheet extends StatelessWidget {
             (short ? 1.5 : 1.0))
         .clamp(0.3, 0.94);
     final maxH = mq.size.height * fraction;
+    // Inside a tablet popover (see showBoardPanel) the popover draws the
+    // surface and its corners; a sheet's grab handle means nothing there.
+    final popover = PopoverScope.of(context);
     return Container(
       constraints: BoxConstraints(maxHeight: maxH),
-      decoration: BoxDecoration(
-        color: T.surface,
-        borderRadius: T.brSheet,
-        boxShadow: T.shadowSheet,
-      ),
+      decoration: popover
+          ? null
+          : BoxDecoration(
+              color: T.surface,
+              borderRadius: T.brSheet,
+              boxShadow: T.shadowSheet,
+            ),
       child: SafeArea(
         top: false,
+        bottom: !popover,
         child: Padding(
           padding: padding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const _DragHandle(),
+              if (!popover) const _DragHandle(),
               // Flexible, not a bare child: the column is mainAxisSize.min,
               // so an unwrapped child is handed unbounded height and any
               // Flexible inside it takes the full intrinsic height of its
@@ -90,6 +96,17 @@ class TacticalSheet extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Marks a subtree as shown in a tablet popover rather than a bottom sheet.
+class PopoverScope extends InheritedWidget {
+  const PopoverScope({super.key, required super.child});
+
+  static bool of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<PopoverScope>() != null;
+
+  @override
+  bool updateShouldNotify(PopoverScope oldWidget) => false;
 }
 
 class _DragHandle extends StatelessWidget {

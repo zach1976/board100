@@ -42,6 +42,7 @@ import '../services/share_link_service.dart';
 import '../services/video_export_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/adaptive.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import 'element_import_flow.dart';
@@ -201,8 +202,201 @@ Widget scaledSheet(BuildContext ctx, Widget child) {
   );
 }
 
+/// Whether the board's panels — Add, Timeline, Boards, Share, the ⋯ menu's
+/// sheets — open as popovers by the button that opened them. A tablet: a
+/// bottom sheet there opened at the bottom centre of a 13-inch screen, far
+/// from a Share that was tapped in the top-right corner, and dimmed the
+/// board it was about. A phone keeps its bottom sheets.
+bool boardPanelsArePopovers(BuildContext context) =>
+    MediaQuery.sizeOf(context).shortestSide >= 600;
+
+/// Open a board panel: a bottom sheet on a phone ([TacticalSheet.show]), a
+/// popover anchored to [anchor]'s box (or [context]'s) on a tablet. The
+/// board stays lit and live under a popover; a tap outside or Esc closes it.
+Future<T2?> showBoardPanel<T2>(
+  BuildContext context, {
+  required WidgetBuilder builder,
+  BuildContext? anchor,
+  double maxWidth = 460,
+}) {
+  if (!boardPanelsArePopovers(context)) {
+    return TacticalSheet.show<T2>(context, builder: builder);
+  }
+  // A context as big as the page (a keyboard shortcut's) is no anchor:
+  // the panel opens in the middle of the screen instead.
+  var rect = anchorRectOf(anchor ?? context);
+  if (rect != null && rect.height > MediaQuery.sizeOf(context).height / 2) {
+    rect = null;
+  }
+  // The panel edits the board it was opened from: hand it that board's
+  // state, whichever provider the route would otherwise find.
+  TacticsState? board;
+  try {
+    board = Provider.of<TacticsState>(context, listen: false);
+  } on ProviderNotFoundException {
+    board = null;
+  }
+  return Navigator.of(context).push<T2>(BoardPopoverRoute<T2>(
+    anchor: rect,
+    builder: board == null
+        ? builder
+        : (ctx) => ChangeNotifierProvider<TacticsState>.value(
+              value: board!,
+              child: Builder(builder: builder),
+            ),
+    maxWidth: maxWidth,
+    capturedThemes:
+        InheritedTheme.capture(from: context, to: Navigator.of(context).context),
+  ));
+}
+
+/// [context]'s box on the screen, or null when it has none.
+Rect? anchorRectOf(BuildContext context) {
+  final ro = context.findRenderObject();
+  if (ro is! RenderBox || !ro.hasSize || !ro.attached) return null;
+  return ro.localToGlobal(Offset.zero) & ro.size;
+}
+
+/// A panel floating next to the control that opened it, the way iPadOS
+/// shows a popover: above the button when there is room (the board's
+/// buttons are mostly at its foot), below it otherwise, centred on it and
+/// kept on the screen. No dimming barrier — the board is what the panel is
+/// about — but a tap outside dismisses it.
+class BoardPopoverRoute<T2> extends PopupRoute<T2> {
+  final Rect? anchor;
+  final WidgetBuilder builder;
+  final double maxWidth;
+  final CapturedThemes capturedThemes;
+
+  BoardPopoverRoute({
+    required this.anchor,
+    required this.builder,
+    required this.maxWidth,
+    required this.capturedThemes,
+  });
+
+  @override
+  Color? get barrierColor => Colors.transparent;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  String? get barrierLabel => 'cancel'.tr();
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 160);
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    final mq = MediaQuery.of(context);
+    return CustomSingleChildLayout(
+      delegate: _PopoverLayout(
+        anchor: anchor,
+        padding: mq.padding,
+        maxWidth: maxWidth,
+      ),
+      child: capturedThemes.wrap(
+        PopoverScope(
+          child: Material(
+            type: MaterialType.transparency,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: T.surface,
+                borderRadius: BorderRadius.circular(T.rDialog),
+                border: Border.all(color: T.border),
+                boxShadow: T.shadowFloat,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(T.rDialog),
+                child: Builder(builder: builder),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    final curved = CurvedAnimation(parent: animation, curve: Curves.easeOut);
+    return FadeTransition(
+      opacity: curved,
+      child: ScaleTransition(
+        scale: Tween<double>(begin: 0.96, end: 1).animate(curved),
+        child: child,
+      ),
+    );
+  }
+}
+
+class _PopoverLayout extends SingleChildLayoutDelegate {
+  final Rect? anchor;
+  final EdgeInsets padding;
+  final double maxWidth;
+  static const double gap = 8, edge = 12;
+
+  _PopoverLayout(
+      {required this.anchor, required this.padding, required this.maxWidth});
+
+  Rect _anchorIn(Size size) =>
+      anchor ?? Rect.fromCenter(
+          center: size.center(Offset.zero), width: 0, height: 0);
+
+  double _above(Size size) =>
+      _anchorIn(size).top - gap - padding.top - edge;
+  double _below(Size size) =>
+      size.height - _anchorIn(size).bottom - gap - padding.bottom - edge;
+
+  @override
+  BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
+    final size = constraints.biggest;
+    final h = anchor == null
+        ? size.height - padding.vertical - edge * 2
+        : math.max(_above(size), _below(size));
+    return BoxConstraints(
+      maxWidth: math.min(maxWidth, size.width - edge * 2),
+      maxHeight: math.max(120, h),
+    );
+  }
+
+  @override
+  Offset getPositionForChild(Size size, Size child) {
+    final a = _anchorIn(size);
+    final x = (a.center.dx - child.width / 2)
+        .clamp(edge, math.max(edge, size.width - child.width - edge))
+        .toDouble();
+    double y;
+    if (anchor == null) {
+      y = (size.height - child.height) / 2;
+    } else if (child.height <= _above(size) || _above(size) >= _below(size)) {
+      y = a.top - gap - child.height;
+    } else {
+      y = a.bottom + gap;
+    }
+    y = y
+        .clamp(padding.top + edge,
+            math.max(padding.top + edge, size.height - child.height - edge))
+        .toDouble();
+    return Offset(x, y);
+  }
+
+  @override
+  bool shouldRelayout(_PopoverLayout old) =>
+      old.anchor != anchor || old.padding != padding || old.maxWidth != maxWidth;
+}
+
 /// Public function to show save/load bottom sheet
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
+  if (boardPanelsArePopovers(context)) {
+    showBoardPanel<void>(context,
+        maxWidth: 420,
+        builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)));
+    return;
+  }
   showModalBottomSheet(
     context: context,
     constraints: sheetConstraints(context),
@@ -215,7 +409,7 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
 /// Public function to show the soccer pitch appearance sheet (layout + grass
 /// colour). Only meaningful for the soccer board.
 void showFieldSettingsSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
     context,
     builder: (ctx) => scaledSheet(ctx, _FieldSettingsSheet(state: state)),
   );
@@ -408,7 +602,7 @@ class _FieldTypeTile extends StatelessWidget {
 /// Public: show the generic court appearance sheet (surface colour + layout)
 /// for non-soccer sports. Soccer keeps its richer [showFieldSettingsSheet].
 void showCourtSettingsSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -794,7 +988,8 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
 }
 
 Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
-  return TacticalSheet.show(
+  return showBoardPanel(
+      maxWidth: 360,
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -929,7 +1124,8 @@ Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
 /// single most common between-plays workflow.
 void confirmClearAll(BuildContext context, TacticsState state) {
   final hasStrokes = state.strokes.isNotEmpty;
-  TacticalSheet.show(
+  showBoardPanel(
+      maxWidth: 380,
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -961,8 +1157,9 @@ void confirmClearAll(BuildContext context, TacticsState state) {
 
 /// Public function to show the add element bottom sheet
 void showAddElementSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
       context,
+    maxWidth: kPanelMaxWidth,
     builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
   );
 }
@@ -1034,10 +1231,21 @@ class _PrimaryToolbar extends StatelessWidget {
                   builder: (context, box) {
                     // Four labelled tools need about eight and a half times
                     // a button's own width between them — measured when a
-                    // button was 46pt and the threshold 348, and written as
-                    // a ratio so it follows the button up.
-                    final wide =
-                        roomy && box.maxWidth >= barButton(context) * 8.4;
+                    // button was 46pt and the threshold 348. A phone keeps
+                    // that rule. A tablet measures its words instead: the
+                    // ratio on its 1.4x button asked for 517pt and dropped
+                    // every word on an iPad mini and in Split View, with
+                    // ~90pt per icon to spare.
+                    final wide = roomy &&
+                        box.maxWidth >=
+                            (uiScale(context) > 1
+                                ? _labelledToolsWidth(context, [
+                                    'mode_move'.tr(),
+                                    'mode_draw'.tr(),
+                                    'mode_select'.tr(),
+                                    'add_label'.tr(),
+                                  ])
+                                : barButton(context) * 8.4);
                     // Each tool is Flexible so the four of them share what
                     // the row has and a long word ellipsises. At their
                     // natural width they simply ran off the end: the label
@@ -1076,13 +1284,15 @@ class _PrimaryToolbar extends StatelessWidget {
                               ? null
                               : () => state.setMultiSelectMode(!selecting),
                         )),
-                        Flexible(child: _Tool(
+                        // Its own context, so a tablet's popover is
+                        // anchored to this button, not to the whole row.
+                        Flexible(child: Builder(builder: (btn) => _Tool(
                           showLabel: wide,
                           icon: Icons.add_rounded,
                           label: 'add_label'.tr(),
                           selected: false,
-                          onTap: () => _AddPlayerBtn.showAddSheet(context, state),
-                        )),
+                          onTap: () => _AddPlayerBtn.showAddSheet(btn, state),
+                        ))),
                       ],
                     );
                   },
@@ -1137,12 +1347,12 @@ class _PrimaryToolbar extends StatelessWidget {
               // width holds everything else and not this.
               if (mq.size.width >= 460) ...[
                 const BarDivider(),
-                TacticalIconButton(
+                Builder(builder: (btn) => TacticalIconButton(
                   icon: Icons.folder_outlined,
-                  onTap: () => showSaveLoadSheet(context, state),
+                  onTap: () => showSaveLoadSheet(btn, state),
                   color: T.text,
                   semanticLabel: 'boards'.tr(),
-                ),
+                )),
               ],
             ],
           ),
@@ -1150,6 +1360,27 @@ class _PrimaryToolbar extends StatelessWidget {
       ),
     );
   }
+}
+
+/// What four labelled [_Tool]s take side by side: padding, icon, gap and
+/// the word at its selected (bold) weight.
+double _labelledToolsWidth(BuildContext context, List<String> labels) {
+  final dim = barButton(context);
+  final scaler = MediaQuery.textScalerOf(context);
+  var w = 0.0;
+  for (final l in labels) {
+    final tp = TextPainter(
+      text: TextSpan(
+          text: l,
+          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
+      maxLines: 1,
+      textScaler: scaler,
+      textDirection: ui.TextDirection.ltr,
+    )..layout();
+    w += 22 + dim * 0.45 + 6 + tp.width;
+    tp.dispose();
+  }
+  return w;
 }
 
 /// One tool in the primary capsule.
@@ -1275,11 +1506,11 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         existing == null ? null : await widget.state.readTacticMeta(existing);
     if (!mounted) return;
 
-    final meta = await Navigator.of(context).push<TacticMeta>(
-      MaterialPageRoute(
-        builder: (_) => SaveTacticPage(
-            state: widget.state, initial: initial, knownMetas: _metas),
-      ),
+    // A centred form sheet on a tablet; the usual page on a phone.
+    final meta = await pushFormSheet<TacticMeta>(
+      context,
+      SaveTacticPage(
+          state: widget.state, initial: initial, knownMetas: _metas),
     );
     if (meta == null || !mounted) return;
 
@@ -1570,8 +1801,9 @@ class _AddPlayerBtn extends StatelessWidget {
   }
 
   static void showAddSheet(BuildContext context, TacticsState state) {
-    TacticalSheet.show(
+    showBoardPanel(
       context,
+      maxWidth: kPanelMaxWidth,
       builder: (ctx) =>
           scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
     );
@@ -2103,6 +2335,19 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   /// Generic drop adapter — converts a global drop point to a canvas-local
   /// position (clamped to bounds) and runs the placement callback if the
   /// drop landed on the board. Closes the sheet on success.
+  /// A row of tiles: scrolled sideways on a phone, wrapped on a tablet,
+  /// where the sheet is a 620pt popover and the strip cut its last tile in
+  /// half ("Triang…") with "More" out of sight.
+  Widget _strip(BuildContext context, List<Widget> children) {
+    if (MediaQuery.sizeOf(context).shortestSide >= 600) {
+      return Wrap(runSpacing: 8, children: children);
+    }
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(mainAxisSize: MainAxisSize.min, children: children),
+    );
+  }
+
   void _placeAtDropPos(Offset globalPos, void Function(Offset) place) {
     final ro = boardRepaintKey.currentContext?.findRenderObject();
     if (ro is! RenderBox || !ro.attached) return;
@@ -2167,10 +2412,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(T.panelPad, 0, T.panelPad, T.s4),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
+              // A strip that scrolls on a phone; on a tablet every tile
+              // shows, wrapping, rather than cutting the last one off.
+              // Rebuilt whenever a use is recorded, so promotion is live.
+              child: ListenableBuilder(
+                listenable: ElementUsageService.instance,
+                builder: (context, _) => _strip(context, [
                     _DraggableMarkerCard(
                       label: 'team_ball'.tr(),
                       child: ClipOval(
@@ -2227,17 +2474,11 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                     // used pieces stay visible and the rest collapse into
                     // "More". ListenableBuilder rebuilds the row whenever
                     // a new use is recorded so promotion happens live.
-                    ListenableBuilder(
-                      listenable: ElementUsageService.instance,
-                      builder: (context, _) {
-                        final sorted = _sortedMarkerEntries();
-                        final inline = sorted.take(_inlineMarkerCount).toList();
-                        return Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [for (final e in inline) _buildMarkerTile(e)],
-                        );
-                      },
-                    ),
+                    // Spread into the strip, not a row of their own, so a
+                    // tablet's wrap can break between them.
+                    for (final e
+                        in _sortedMarkerEntries().take(_inlineMarkerCount))
+                      _buildMarkerTile(e),
                     // Custom-element tiles (live) inline with the standard
                     // marker shapes so users see all available pieces in
                     // one row instead of a separate section below.
@@ -2294,9 +2535,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                         );
                       }),
                     ),
-                  ],
-                ),
-              ),
+                  ])),
             ),
             // Collapsed-by-default "More" — holds the markers that didn't
             // make the inline row. Re-sorted by usage on every open so the
@@ -2304,20 +2543,15 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             if (_showMore)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: ListenableBuilder(
+                child: ListenableBuilder(
                     listenable: ElementUsageService.instance,
                     builder: (context, _) {
                       final rest = _sortedMarkerEntries()
                           .skip(_inlineMarkerCount)
                           .toList();
-                      return Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [for (final e in rest) _buildMarkerTile(e)],
-                      );
+                      return _strip(context,
+                          [for (final e in rest) _buildMarkerTile(e)]);
                     },
-                  ),
                 ),
               ),
             const SizedBox(height: T.s12),
@@ -4875,7 +5109,10 @@ class _MarkerCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60 * s,
+        // A tablet sets the label 1.4x, and at 84pt "Hình vuông", "Tuan
+        // Rumah" and "Segitiga" broke over two lines; the tiles wrap there
+        // (see _strip), so the width costs nothing.
+        width: s > 1 ? 100 : 60 * s,
         padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 4 * s),
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.07),
@@ -5320,8 +5557,9 @@ class _TimelineBtn extends StatelessWidget {
   }
 
   void _showTimeline(BuildContext context) {
-    TacticalSheet.show(
+    showBoardPanel(
       context,
+      maxWidth: kPanelMaxWidth,
       builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
         child: scaledSheet(ctx, TimelineEditor(state: state)),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 
 import '../models/tactic_meta.dart';
@@ -153,8 +154,13 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
         ],
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        // A form's width on a tablet, centred: four fields 1300pt wide with
+        // the screen's lower two-thirds empty read as a phone page stretched.
+        child: LayoutBuilder(builder: (context, box) {
+          final x = 20 +
+              tabletInset(context, box.maxWidth - 40, maxWidth: kFormMaxWidth);
+          return ListView(
+          padding: EdgeInsets.fromLTRB(x, 8, x, 32),
           children: [
             _label('tactic_name_label'.tr()),
             _field(controller: _nameCtrl, hint: 'tactics_name'.tr()),
@@ -191,7 +197,8 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
             _label('coaching_points'.tr()),
             _field(controller: _pointsCtrl, hint: '', maxLines: 4),
           ],
-        ),
+        );
+        }),
       ),
     );
   }

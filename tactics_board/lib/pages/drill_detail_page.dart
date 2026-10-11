@@ -42,6 +42,11 @@ class DrillDetailPage extends StatefulWidget {
   /// Shown instead of the load button when the drill is behind Pro.
   final VoidCallback? onUpgrade;
 
+  /// Shown as the right-hand pane of the library's split view on a tablet
+  /// rather than as a page of its own: no back arrow, since there is
+  /// nothing to go back to — the list is beside it.
+  final bool embedded;
+
   const DrillDetailPage({
     super.key,
     required this.drill,
@@ -49,6 +54,7 @@ class DrillDetailPage extends StatefulWidget {
     required this.locale,
     this.onLoad,
     this.onUpgrade,
+    this.embedded = false,
   });
 
   static Future<void> push(
@@ -194,6 +200,24 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
       body: SafeArea(
         child: Column(
           children: [
+            if (widget.embedded)
+              SizedBox(
+                height: 52,
+                child: Row(
+                  children: [
+                    const Spacer(),
+                    TacticalIconButton(
+                      icon: _mark.starred
+                          ? Icons.star_rounded
+                          : Icons.star_border_rounded,
+                      onTap: _toggleStar,
+                      color: _mark.starred ? T.warning : null,
+                    ),
+                    const SizedBox(width: T.s8),
+                  ],
+                ),
+              )
+            else
             TacticalNavBar(
               actions: [
                 TacticalIconButton(
@@ -285,7 +309,16 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                             children: [
                               // Enough for the board to be worth looking at,
                               // and no more: the words are the page.
-                              SizedBox(width: (c.maxWidth * 0.36).clamp(320.0, 520.0),
+                              // An upright tablet gives the board half: at
+                              // 0.36 of 1032pt it was a narrow strip with
+                              // an empty column under it.
+                              SizedBox(
+                                  width: (c.maxWidth *
+                                          (MediaQuery.orientationOf(context) ==
+                                                  Orientation.portrait
+                                              ? 0.5
+                                              : 0.36))
+                                      .clamp(320.0, 520.0),
                                   child: board),
                               const SizedBox(width: T.s24),
                               Expanded(child: reading),

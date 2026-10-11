@@ -1152,6 +1152,8 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     // Moving the note is not a change to the play; see updatePlayer.
     if (id != kDrillNoteId) _resetAnimationState();
+    // Where the coach put it is where it stays, whichever way up.
+    if (id == kDrillNoteId) notePlacedSideways = null;
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     var updated = _players[idx].copyWith(position: newPosition);
@@ -1940,6 +1942,14 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Drop the stroke being drawn without keeping it — a palm that touched
+  /// down before the Pencil did.
+  void cancelStroke() {
+    if (_currentStroke == null) return;
+    _currentStroke = null;
+    notifyListeners();
+  }
+
   void endStroke() {
     if (_currentStroke == null) return;
     if (_currentStroke!.points.length > 1) {
@@ -2350,6 +2360,14 @@ class TacticsState extends ChangeNotifier {
     _parkedRedo.clear();
     final live = pages[_pageIndex];
     _players = (live['players'] as List).map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>)).toList();
+    // Boards saved before text counter-turned with the board kept a note
+    // placed sideways at -90°, which now reads as -90° on every screen.
+    for (final p in _players) {
+      if (p.id == kDrillNoteId && (p.rotation + math.pi / 2).abs() < 0.01) {
+        p.rotation = 0;
+      }
+    }
+    notePlacedSideways = null;
     _strokes = (live['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
     _rescaleFromSaved(live);
     _otherPages
@@ -2407,6 +2425,26 @@ class TacticsState extends ChangeNotifier {
   /// does it on the first frame after. Once placed this goes false and
   /// stays false: deleting the note is meant to be final.
   bool noteWanted = false;
+
+  /// Which way round the board was drawn when the note was placed — null
+  /// once the coach has moved it (or for a board read back from disk), when
+  /// where it stands is theirs. Turning the device moves a note still where
+  /// it was put, to the new "under the court" (see [reorientDrillNote]).
+  bool? notePlacedSideways;
+
+  /// The board has turned between portrait and landscape: put an unmoved
+  /// note under the court again, which sideways is a different side of the
+  /// canvas. It keeps its colour, size and words.
+  void reorientDrillNote({required bool sideways, double maxWidth = 320}) {
+    final was = notePlacedSideways;
+    if (was == null || was == sideways || noteWanted) return;
+    if (!_players.any((p) => p.id == kDrillNoteId)) {
+      notePlacedSideways = null;
+      return;
+    }
+    noteWanted = true;
+    placeDrillNote(sideways: sideways, maxWidth: maxWidth);
+  }
 
   /// A drill has just landed on the board: these are its beats, and it
   /// wants its note.
@@ -2500,6 +2538,7 @@ class TacticsState extends ChangeNotifier {
     if (!noteWanted) return;
     if (drillBeats.isEmpty || _canvasSize.isEmpty) return;
     noteWanted = false;
+    final kept = _players.where((p) => p.id == kDrillNoteId).firstOrNull;
     _players.removeWhere((p) => p.id == kDrillNoteId);
     final court = _sportType.fieldRect(_canvasSize);
     final w = _canvasSize.width, h = _canvasSize.height;
@@ -2578,19 +2617,103 @@ class TacticsState extends ChangeNotifier {
       return lo > hi ? size / 2 : c.clamp(lo, hi);
     }
 
-    final at = Offset(
+    // Where in the band. Its middle, unless that still covers someone — a
+    // table-tennis receiver standing in the band over the table had the
+    // sentence across his head — or the goal, which stands in the band
+    // under a pitch (audit 2026-10-11 #16). Then the place in the band that
+    // covers least: its outer edge, its court edge, or along it to either
+    // end. The band itself is still chosen as above; the middle wins every
+    // tie, so a
+    // board with nothing in the way keeps the note exactly where it was.
+    final keepOut = <Rect>[];
+    for (final p in _players) {
+      if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) continue;
+      for (final pt in [p.position, ...p.moves]) {
+        keepOut.add(Rect.fromCenter(
+            center: pt, width: 36 * 1.2 * p.scale, height: 36 * 1.8 * p.scale));
+      }
+    }
+    const goalSports = {
+      SportType.soccer,
+      SportType.fieldHockey,
+      SportType.handball,
+      SportType.waterPolo,
+    };
+    if (!sideways && goalSports.contains(_sportType)) {
+      final gw = court.width * 0.16, gd = court.height * 0.035 + 6;
+      keepOut
+        ..add(Rect.fromLTRB(court.center.dx - gw / 2, court.top - gd,
+            court.center.dx + gw / 2, court.top + 2))
+        ..add(Rect.fromLTRB(court.center.dx - gw / 2, court.bottom - 2,
+            court.center.dx + gw / 2, court.bottom + gd));
+    }
+    double covers(Offset c) {
+      final r = Rect.fromCenter(center: c, width: extentX, height: extentY);
+      var a = 0.0;
+      for (final k in keepOut) {
+        final x = r.intersect(k);
+        if (!x.isEmpty && x.width > 0 && x.height > 0) a += x.width * x.height;
+      }
+      return a;
+    }
+
+    List<Offset> spots(Rect b) {
+      // Across the band (its short side) and along it (its long side).
+      final across = sideways
+          ? [b.center.dx, b.right - extentX / 2 - margin, b.left + extentX / 2 + margin]
+          : [b.center.dy, b.bottom - extentY / 2 - margin, b.top + extentY / 2 + margin];
+      final along = sideways
+          ? [h / 2, extentY / 2 + margin, h - extentY / 2 - margin]
+          : [w / 2, extentX / 2 + margin, w - extentX / 2 - margin];
+      return [
+        for (final l in along)
+          for (final c in across)
+            sideways
+                ? Offset(fit(c, extentX, w), fit(l, extentY, h))
+                : Offset(fit(l, extentX, w), fit(c, extentY, h)),
+      ];
+    }
+
+    var at = Offset(
       fit(band.center.dx, extentX, w),
       fit(band.center.dy, extentY, h),
     );
-    _players.add(PlayerIcon(
-      id: kDrillNoteId,
-      label: drillBeats.first,
-      team: PlayerTeam.neutral,
-      markerShape: MarkerShape.text,
-      customColor: const Color(0xFF263238),
-      position: at,
-      rotation: sideways ? -math.pi / 2 : 0,
-    ));
+    var best = covers(at);
+    if (best > 0) {
+      for (final c in spots(band)) {
+        final v = covers(c);
+        if (v < best - 0.5) {
+          best = v;
+          at = c;
+        }
+      }
+      // The band under a pitch on a tablet is a few points deeper than the
+      // chip, and the goal stands in it. Rather than print the sentence
+      // over the goal, lay it just inside the end line — over the goal
+      // area's markings, if no one stands there.
+      if (best > 0.5 && !sideways && goalSports.contains(_sportType)) {
+        final inside = flip
+            ? court.top + 4 + extentY / 2
+            : court.bottom - 4 - extentY / 2;
+        final c = Offset(fit(w / 2, extentX, w), inside);
+        if (covers(c) < best - 0.5) at = c;
+      }
+    }
+    // Upright either way: a text element counter-turns with the board
+    // (turnedForText), so sideways it already reads level on the screen.
+    _players.add(kept != null
+        ? kept.copyWith(position: at, rotation: 0)
+        : PlayerIcon(
+            id: kDrillNoteId,
+            label: drillBeats.first,
+            team: PlayerTeam.neutral,
+            markerShape: MarkerShape.text,
+            customColor: const Color(0xFF263238),
+            position: at,
+            rotation: 0,
+          ));
+    notePlacedSideways = sideways;
+    _syncDrillNote();
     notifyListeners();
   }
 

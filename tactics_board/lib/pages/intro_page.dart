@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/sport_type.dart';
 import '../services/ad_service.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../widgets/sport_glyph.dart';
 
@@ -133,7 +134,10 @@ class _IntroPageState extends State<IntroPage> {
         n: 3,
         icon: Icons.event_note_outlined,
         title: 'intro_plan_t'.tr(),
-        body: 'intro_plan_b'.tr(),
+        // "Run it from your phone" is not what an iPad is; the tablet's
+        // copy says tablet.
+        body: (isTabletLayout(context) ? 'intro_plan_b_tablet' : 'intro_plan_b')
+            .tr(),
         // Only the last panel carries them: it is the one making a claim
         // about a whole session rather than about one board.
         pillars: const [
@@ -144,6 +148,10 @@ class _IntroPageState extends State<IntroPage> {
       ),
     ];
     final last = _at == panels.length - 1;
+    // On a tablet on its side the art is a portrait panel down the right
+    // (see _PanelView), so the dots and the button centre under the words
+    // on the left rather than across the picture.
+    final artW = _sideArtWidth(context) ?? 0;
     return Scaffold(
       backgroundColor: T.bg0,
       body: Stack(
@@ -175,19 +183,32 @@ class _IntroPageState extends State<IntroPage> {
                     child: GestureDetector(
                       behavior: HitTestBehavior.opaque,
                       onTap: _finish,
-                      child: Padding(
+                      // 44pt tall at least: as a bare line of text it was a
+                      // 33pt target, the smallest thing on the screen.
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                            minHeight: T.tap, minWidth: T.tap),
+                        child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: T.s12, vertical: T.s8),
-                        child: Text('intro_skip'.tr(),
+                        child: Center(
+                          widthFactor: 1,
+                          heightFactor: 1,
+                          child: Text('intro_skip'.tr(),
                             style: const TextStyle(
                                 color: T.textDim,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600)),
+                        ),
+                      ),
                       ),
                     ),
                   ),
                 ),
                 const Spacer(),
+                Padding(
+                  padding: EdgeInsets.only(right: artW),
+                  child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -214,7 +235,8 @@ class _IntroPageState extends State<IntroPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
                       T.screenX, T.s20, T.screenX, T.s20),
-                  child: _BigCta(
+                  // A tablet's button is a button, not a 1336pt bar.
+                  child: tabletColumn(context, maxWidth: 480, _BigCta(
                     label: last ? 'intro_start'.tr() : 'intro_next'.tr(),
                     onTap: last
                         ? _finish
@@ -222,7 +244,9 @@ class _IntroPageState extends State<IntroPage> {
                               duration: const Duration(milliseconds: 260),
                               curve: Curves.easeOutCubic,
                             ),
-                  ),
+                  )),
+                ),
+                  ]),
                 ),
               ],
             ),
@@ -256,37 +280,8 @@ class _PanelView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        _Backdrop(n: panel.n, icon: panel.icon),
-        // Two scrims, not one: the headline needs the top dark enough to read
-        // white on, and the button at the foot needs the same. The middle is
-        // left alone — that band is where the board and the ball are.
-        const DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xF0071A1D),
-                Color(0xB8071A1D),
-                Color(0x00071A1D),
-                Color(0x00071A1D),
-                Color(0xCC071A1D),
-                Color(0xF5071A1D),
-              ],
-              stops: [0.0, 0.22, 0.46, 0.62, 0.88, 1.0],
-            ),
-          ),
-        ),
-        SafeArea(
-          child: Padding(
-            // Clear of the skip row, and never further down than the top
-            // third: the art below it is composed with the top 40% empty, so
-            // words that drift lower start landing on the board.
-            padding: const EdgeInsets.fromLTRB(T.s32, 52, T.s32, 0),
-            child: Column(
+    final artW = _sideArtWidth(context);
+    final words = Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 // Which of the sixteen apps this is. Small, spaced and dim:
@@ -328,12 +323,99 @@ class _PanelView extends StatelessWidget {
                   _Pillars(items: panel.pillars),
                 ],
               ],
+            );
+    if (artW != null) {
+      // A tablet on its side. The art is a 9:19.5 portrait picture, and
+      // covering a 4:3 landscape screen with it kept only its bottom third —
+      // the board and the magnets, right behind the headline. Here it keeps
+      // its own shape down the right, whole, and the words have the left.
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          ColoredBox(color: T.bg0),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: 0,
+            width: artW,
+            child: _Backdrop(n: panel.n, icon: panel.icon),
+          ),
+          // The picture's left edge fades into the page rather than ending
+          // on a hard line.
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: artW - 120,
+            width: 120,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [T.bg0, T.bg0.withAlpha(0)],
+                ),
+              ),
             ),
+          ),
+          SafeArea(
+            child: Padding(
+              // Clear of the dots and the button at the foot.
+              padding: EdgeInsets.fromLTRB(T.s32, 52, artW + T.s32, 120),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: words,
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        _Backdrop(n: panel.n, icon: panel.icon),
+        // Two scrims, not one: the headline needs the top dark enough to read
+        // white on, and the button at the foot needs the same. The middle is
+        // left alone — that band is where the board and the ball are.
+        const DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xF0071A1D),
+                Color(0xB8071A1D),
+                Color(0x00071A1D),
+                Color(0x00071A1D),
+                Color(0xCC071A1D),
+                Color(0xF5071A1D),
+              ],
+              stops: [0.0, 0.22, 0.46, 0.62, 0.88, 1.0],
+            ),
+          ),
+        ),
+        SafeArea(
+          child: Padding(
+            // Clear of the skip row, and never further down than the top
+            // third: the art below it is composed with the top 40% empty, so
+            // words that drift lower start landing on the board.
+            padding: const EdgeInsets.fromLTRB(T.s32, 52, T.s32, 0),
+            // An upright tablet keeps the words to a readable column.
+            child: tabletColumn(context, maxWidth: 560, words),
           ),
         ),
       ],
     );
   }
+}
+
+/// How wide the art stands down the right of a tablet on its side — its
+/// own 9:19.5 shape at the screen's full height — or null everywhere else,
+/// where it covers the screen as it always has.
+double? _sideArtWidth(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  if (!isTabletLayout(context) || size.width <= size.height) return null;
+  return size.height * (9 / 19.5);
 }
 
 /// The photograph, or the gradient that stands in for one.
