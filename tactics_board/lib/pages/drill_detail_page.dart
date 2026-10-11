@@ -1,6 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../services/drill_library_service.dart';
 import 'package:provider/provider.dart';
 
 import '../models/drill.dart';
@@ -358,14 +359,13 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       icon: Icons.groups_outlined, label: '${d.players}'),
                   MetaItem(
                       icon: Icons.local_fire_department_outlined,
-                      label: d.category
-                          .labelKeyFor(widget.sportType.drillVocabulary)
-                          .tr()),
+                      label: DrillLibraryService.instance.label(context, d.category
+                          .labelKeyFor(widget.sportType.drillVocabulary))),
                   MetaItem(
                       icon: Icons.bar_chart_rounded,
-                      label: d.level.labelKey.tr()),
+                      label: DrillLibraryService.instance.label(context, d.level.labelKey)),
                   MetaItem(
-                      icon: Icons.repeat_rounded, label: d.usageKey.tr()),
+                      icon: Icons.repeat_rounded, label: DrillLibraryService.instance.label(context, d.usageKey)),
                 ],
               ),
             ],

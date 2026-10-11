@@ -1357,7 +1357,7 @@ class _CategoryGrid extends StatelessWidget {
             _CategoryTile(
               category: c,
               sport: sport,
-              label: c.labelKeyFor(sport.drillVocabulary).tr(),
+              label: DrillLibraryService.instance.label(context, c.labelKeyFor(sport.drillVocabulary)),
               // How much is behind the door, before opening it.
               count: counts[c]!,
               onTap: () => onTap(c),
@@ -1564,7 +1564,7 @@ class _LearnBlock extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: T.surfaceHi, borderRadius: T.brMd),
                     alignment: Alignment.center,
-                    child: Text(l.labelKey.tr(),
+                    child: Text(DrillLibraryService.instance.label(context, l.labelKey),
                         style: const TextStyle(
                             color: T.text,
                             fontSize: 13.5,

@@ -1,8 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/widgets.dart' show BuildContext;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:http/http.dart' as http;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../config_constants.dart';
@@ -85,6 +89,7 @@ class DrillLibraryService {
         // No library for this sport yet.
       }
     }
+    _adoptStrings(json);
     final drills = json == null
         ? const <Drill>[]
         : (json['drills'] as List)
@@ -156,10 +161,10 @@ class DrillLibraryService {
       // app, which is always something that works, instead of a board with
       // a piece missing. Packs that name nothing are for everyone.
       final min = json['minClient'] as String?;
-      if (min != null && _olderThan(kAppVersion, min)) return;
+      if (min != null && olderThan(await _clientVersion(), min)) return;
       // Parse before persisting: a half-served or wrong-shaped payload must
       // never become the cache the next launch trusts.
-      (json['drills'] as List)
+      final parsed = (json['drills'] as List)
           .map((d) => Drill.fromJson(d as Map<String, dynamic>))
           .toList();
       final f = await _cacheFile(sport);
@@ -174,8 +179,72 @@ class DrillLibraryService {
       } else {
         await tagFile.writeAsString(etag);
       }
+      // In use from the next open in this session, not the next launch: a
+      // coach who opens the library twice should not need a restart to see
+      // a correction that has already arrived. The counts follow.
+      _cache[sport] = parsed;
+      _counts = null;
+      _adoptStrings(json);
     } catch (_) {
       // Offline, slow, or a bad payload — the bundled library is the product.
+    }
+  }
+
+  /// Words a pack brings for the labels the library shows around its
+  /// drills — category and level chips, usage tags — keyed by the same
+  /// translation key the app uses, then by locale ("zh-CN", "en").
+  ///
+  /// The labels used to live only in the app's translation files, so the
+  /// day "Finishing" turned out to read 射门 (shot on goal) for table
+  /// tennis, correcting one word of a drill library needed an app release.
+  /// A pack can now carry the corrected word and it wins over the app's.
+  final Map<String, Map<String, String>> _strings = {};
+
+  void _adoptStrings(Map<String, dynamic>? pack) {
+    final raw = pack?['strings'];
+    if (raw is! Map) return;
+    raw.forEach((key, byLocale) {
+      if (key is String && byLocale is Map) {
+        _strings[key] = {
+          for (final e in byLocale.entries)
+            if (e.key is String && e.value is String)
+              e.key as String: e.value as String,
+        };
+      }
+    });
+  }
+
+  /// [key] in the current language: the pack's word when it brought one,
+  /// otherwise the app's own translation.
+  String label(BuildContext context, String key) {
+    final byLocale = _strings[key];
+    if (byLocale != null) {
+      final tag = context.locale.toLanguageTag();
+      final hit = byLocale[tag] ??
+          (context.locale.languageCode == 'en' ? byLocale['en'] : null) ??
+          byLocale[context.locale.languageCode];
+      if (hit != null && hit.isNotEmpty) return hit;
+    }
+    return key.tr();
+  }
+
+  @visibleForTesting
+  void debugAdoptStrings(Map<String, dynamic> pack) => _adoptStrings(pack);
+
+  /// The release this build is, for the [olderThan] gate.
+  ///
+  /// The build passes it in (APP_VERSION); a build that did not — an Xcode
+  /// archive, `flutter run` — used to compare as version nothing, and
+  /// nothing is older than every pack, so it refused all of them. The
+  /// platform knows the version the bundle was stamped with; ask it.
+  String? _resolvedVersion;
+  Future<String> _clientVersion() async {
+    if (kAppVersion.isNotEmpty) return kAppVersion;
+    if (_resolvedVersion != null) return _resolvedVersion!;
+    try {
+      return _resolvedVersion = (await PackageInfo.fromPlatform()).version;
+    } catch (_) {
+      return _resolvedVersion = '';
     }
   }
 
@@ -204,7 +273,13 @@ class DrillLibraryService {
 /// asked to withhold a pack, and withholding one because a version string
 /// was a shape this code did not expect would break updates for everybody
 /// on the strength of a typo.
-bool _olderThan(String have, String want) {
+@visibleForTesting
+bool olderThan(String have, String want) {
+  // A version this build cannot name is not "older": see above. The empty
+  // string used to read as 0.0.0 and refused every pack.
+  if (have.trim().isEmpty || int.tryParse(have.split('.').first) == null) {
+    return false;
+  }
   final mine = have.split('.');
   final theirs = want.split('.');
   for (var i = 0; i < theirs.length; i++) {

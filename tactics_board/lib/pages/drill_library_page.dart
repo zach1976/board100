@@ -490,7 +490,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                           const SizedBox(width: 6),
                           _CategoryChip(
                             key: _filter == c ? _activeCategory : null,
-                            label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
+                            label: DrillLibraryService.instance.label(context, c.labelKeyFor(widget.state.sportType.drillVocabulary)),
                             count: countForCategory(c),
                             selected: _filter == c,
                             onTap: () => setState(() => _filter = c),
@@ -518,7 +518,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                           const SizedBox(width: 6),
                           _CategoryChip(
                             key: _level == l ? _activeLevel : null,
-                            label: l.labelKey.tr(),
+                            label: DrillLibraryService.instance.label(context, l.labelKey),
                             count: countForLevel(l),
                             selected: _level == l,
                             onTap: () => setState(() => _level = l),
@@ -692,7 +692,7 @@ class _UsageTag extends StatelessWidget {
             Icon(Icons.repeat_rounded, size: 11, color: color),
             const SizedBox(width: 3),
             Flexible(
-              child: Text('drill_usage_$usage'.tr(),
+              child: Text(DrillLibraryService.instance.label(context, 'drill_usage_$usage'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: T.meta.copyWith(color: color, height: 1.2)),
@@ -813,7 +813,7 @@ class _DrillRow extends StatelessWidget {
                         label: _span((d) => d.players)),
                     MetaItem(
                         icon: Icons.bar_chart_rounded,
-                        label: first.level.labelKey.tr()),
+                        label: DrillLibraryService.instance.label(context, first.level.labelKey)),
                   ],
                 ),
                 if (grouped) ...[

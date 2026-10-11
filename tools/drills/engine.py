@@ -11,6 +11,7 @@ it is on, so these numbers are proportions, not pixels. Author with rel=True
 and give coordinates inside the playing surface (0..1) instead — court_rect
 maps them, which is the only way to be sure nobody is standing in the margin.
 """
+import json
 import math
 import re as _re
 from dataclasses import dataclass, field
@@ -1998,5 +1999,18 @@ def build(sport: str, library) -> dict:
                     d.category),
                 "board": board,
         })
-    return {"sport": sport, "version": pack_version(),
+    pack = {"sport": sport, "version": pack_version(),
             "minClient": min_client(), "drills": records}
+    # Derived, not declared: the newest release any field or value in this
+    # pack needs (see compat.py). min_client.txt is only the floor.
+    # Label words the library shows (category / level / usage chips), when
+    # a correction has to reach installed apps without a release. Keyed like
+    # the app's translation files; the app prefers these over its own.
+    # Empty file, no key: the packs stay byte-identical until it is used.
+    strings = json.loads((_CONFIG_DIR / "i18n" / "app_strings.json")
+                         .read_text(encoding="utf-8"))
+    if strings:
+        pack["strings"] = strings
+    from .compat import required_client
+    pack["minClient"] = required_client(pack, min_client())
+    return pack

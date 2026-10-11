@@ -38,6 +38,8 @@ from pathlib import Path as _Path
 # raises at generation time instead of shipping in English.
 _I18N: dict = {}
 for _f in sorted((_Path(__file__).parent / "i18n").glob("*.json")):
+    if _f.name == "app_strings.json":
+        continue  # the app's label words, shipped in the pack (engine.build)
     for _en, _tr in _json.loads(_f.read_text(encoding="utf-8")).items():
         _I18N.setdefault(_en, {}).update(_tr)
 
