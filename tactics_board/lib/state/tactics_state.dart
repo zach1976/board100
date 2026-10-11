@@ -512,6 +512,17 @@ class TacticsState extends ChangeNotifier {
 
   // Sport switching
   void setSportType(SportType type) {
+    // The hub keeps one working board per sport. Switching used to clear the
+    // players but keep the NAME, so the next sport's empty board autosaved
+    // over the previous sport's saved board of that name. Park this sport's
+    // board under its own key first, forget which board it was, and bring
+    // back the new sport's own.
+    final switching = type != _sportType;
+    if (switching) saveWorkingBoard();
+    currentTacticName = null;
+    currentTacticMeta = null;
+    drillBeats = const [];
+    drillSetup = null;
     _isAnimating = false;
     _animatedPositions = {};
     _targetStep = 0;
@@ -528,6 +539,7 @@ class TacticsState extends ChangeNotifier {
     _isAddingMove = false;
     _zoomMode = false;
     notifyListeners();
+    if (switching) unawaited(restoreWorkingBoard());
   }
 
   /// Default spawn Y position for a team, avoids court/table area

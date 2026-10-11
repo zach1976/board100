@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../models/drill.dart';
 import '../models/sport_type.dart';
 import '../ui/tokens.dart';
+import 'toolbar.dart' show courtPainterFor;
+import '../models/court_layout.dart';
 import 'tactics_canvas.dart' show kBoardRefWidth, kBoardRefHeight;
 
 /// A drill, small enough to scan a list of a hundred.
@@ -59,7 +61,8 @@ class DrillThumbnail extends StatelessWidget {
         height: height,
         child: CustomPaint(
           painter: _ThumbPainter(
-              scene, drill.offSurface, DefaultTextStyle.of(context).style),
+              scene, drill.offSurface, DefaultTextStyle.of(context).style,
+              sport: sport, pitch: pitch),
         ),
       ),
     );
@@ -213,9 +216,16 @@ class _Scene {
         }
         return _Kind.home;
       }();
+      // Same side first — a rondo's 2 is the passer's 2, not the
+      // defenders' — then anyone: in a net sport the ball goes across to
+      // the other side's player, and with a same-side-only lookup no rally
+      // in table tennis, tennis or beach tennis drew a single arrow.
       _Mark? byLabel(String l) {
         for (final m in people) {
           if (m.kind == side && m.label == l) return m;
+        }
+        for (final m in people) {
+          if (m.label == l) return m;
         }
         return null;
       }
@@ -300,8 +310,14 @@ class _Scene {
     // the picture; at 45% it was a man and four dots in one corner.
     final extent = math.max(right - left, bottom - top) - 2 * pad;
     final floor = extent < 0.25 ? 0.28 : 0.45;
-    final span = math.max(math.max(right - left, bottom - top), floor)
-        .clamp(0.0, 1.0);
+    // At most the whole pitch — unless the people stand beyond it. Table
+    // tennis's "pitch" is the table, and its players stand metres off the
+    // ends; clamped to the table, three of its first four cards showed an
+    // empty table and a cone.
+    final need = math.max(right - left, bottom - top);
+    // Past the pitch, keep a token's width of room so nobody is cut in half.
+    final room = need > 1.0 ? need * 1.3 : need;
+    final span = math.max(room, floor).clamp(0.0, math.max(1.0, room)).toDouble();
     var rect = Rect.fromCenter(
         center: Offset((left + right) / 2, (top + bottom) / 2),
         width: span,
@@ -311,9 +327,11 @@ class _Scene {
     // "Inside" allows a strip beyond the lines, because a corner taker or
     // a thrower stands outside them and is part of the picture; the
     // strip is only as wide as those people need.
-    final lo = math.min(0.0, math.min(left + pad, top + pad) - 0.02);
-    final hiX = math.max(1.0, right - pad + 0.02);
-    final hiY = math.max(1.0, bottom - pad + 0.02);
+    // That strip is a token's room, not 0.02 of the pitch: on a table the
+    // players stand a whole table-length away and were drawn cut in half.
+    final lo = math.min(0.0, math.min(left, top));
+    final hiX = math.max(1.0, right);
+    final hiY = math.max(1.0, bottom);
     if (rect.width >= hiX - lo) {
       rect = Rect.fromLTWH(lo, rect.top, hiX - lo, rect.height);
     } else if (rect.left < lo) {
@@ -343,7 +361,37 @@ class _ThumbPainter extends CustomPainter {
   /// font family, and in the renderer that means the box font.
   final TextStyle base;
 
-  const _ThumbPainter(this.scene, this.offSurface, this.base);
+  /// Whose ground to lay down, and where that sport's field sits inside the
+  /// authored canvas. Every thumbnail used to be soccer turf with a centre
+  /// circle — a pool, a table, sand and a hardwood floor all drawn as grass.
+  final SportType sport;
+  final Rect pitch;
+
+  const _ThumbPainter(this.scene, this.offSurface, this.base,
+      {required this.sport, required this.pitch});
+
+  /// The sport's own court, drawn by the board's own painter into the
+  /// authored canvas and mapped onto the thumbnail's crop window, then
+  /// pressed down so the arrows stay the brightest thing on it.
+  void _paintCourt(Canvas canvas, Size size) {
+    const w = kBoardRefWidth, h = kBoardRefHeight;
+    final win = scene.window;
+    final sx = size.width / (pitch.width * w * win.width);
+    final sy = size.height / (pitch.height * h * win.height);
+    final ox = -(pitch.left / pitch.width + win.left) / win.width * size.width;
+    final oy = -(pitch.top / pitch.height + win.top) / win.height * size.height;
+    canvas.save();
+    canvas.clipRect(Offset.zero & size);
+    canvas.translate(ox, oy);
+    canvas.scale(sx, sy);
+    final surfaces = sport.courtSurfaces;
+    final colour = surfaces.isNotEmpty ? surfaces.first.color : sport.courtColor;
+    courtPainterFor(sport, CourtLayout.full, colour)
+        .paint(canvas, const Size(w, h));
+    canvas.restore();
+    canvas.drawRect(Offset.zero & size,
+        Paint()..color = Colors.black.withValues(alpha: 0.30));
+  }
 
   Offset _at(Offset p, Size size) => Offset(
         (p.dx - scene.window.left) / scene.window.width * size.width,
@@ -355,7 +403,12 @@ class _ThumbPainter extends CustomPainter {
     // Always the turf and its lines: a drill whose taker stands outside
     // the corner flag is still played on a pitch, and the lines are what
     // show him to be outside it.
-    canvas.drawRect(Offset.zero & size, Paint()..color = T.turf);
+    final turf = sport == SportType.soccer;
+    if (turf) {
+      canvas.drawRect(Offset.zero & size, Paint()..color = T.turf);
+    } else {
+      _paintCourt(canvas, size);
+    }
 
     final unit = size.shortestSide;
     final tokenR = unit * 0.10;
@@ -364,7 +417,8 @@ class _ThumbPainter extends CustomPainter {
     // Drawn in pitch coordinates and cropped with everything else, so a
     // drill framed on one corner still shows the touchline it is played
     // against. Faint, because they are context and the arrows are content.
-    {
+    // Soccer's own lines; every other sport's come with its court above.
+    if (turf) {
       final line = Paint()
         ..color = Colors.white.withValues(alpha: 0.16)
         ..strokeWidth = 1
@@ -519,5 +573,6 @@ class _ThumbPainter extends CustomPainter {
       old.scene.marks.length != scene.marks.length ||
       old.scene.passes.length != scene.passes.length ||
       old.scene.window != scene.window ||
-      old.offSurface != offSurface;
+      old.offSurface != offSurface ||
+      old.sport != sport;
 }

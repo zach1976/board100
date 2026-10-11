@@ -141,6 +141,10 @@ enum DrillVocabulary {
 
   /// Baseball, which shares almost none of the vocabulary.
   diamond,
+
+  /// Rugby: an invasion sport, but it scores a try, not a shot — the
+  /// shared "Finishing" label read 射门 (shot on goal) in Chinese.
+  oval,
 }
 
 /// How much the drill asks of the players — the second axis a coach filters
@@ -207,6 +211,7 @@ enum DrillCategory {
         DrillCategory.possession,   // the rally
         DrillCategory.setpiece,     // the serve
         DrillCategory.ssg,          // match play
+        DrillCategory.finishing,    // the put-away, not a shot on goal
       },
       DrillVocabulary.diamond: {
         DrillCategory.possession,   // fielding
@@ -214,6 +219,9 @@ enum DrillCategory {
         DrillCategory.finishing,    // scoring
         DrillCategory.setpiece,     // holding the runner
         DrillCategory.ssg,          // scrimmage
+      },
+      DrillVocabulary.oval: {
+        DrillCategory.finishing,    // scoring the try
       },
     };
     if (overrides[vocabulary]?.contains(this) ?? false) {

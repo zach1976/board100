@@ -563,10 +563,11 @@ extension SportTypeExtension on SportType {
         return DrillVocabulary.net;
       case SportType.baseball:
         return DrillVocabulary.diamond;
+      case SportType.rugby:
+        return DrillVocabulary.oval;
       case SportType.basketball:
       case SportType.soccer:
       case SportType.fieldHockey:
-      case SportType.rugby:
       case SportType.handball:
       case SportType.waterPolo:
         return DrillVocabulary.pitch;
