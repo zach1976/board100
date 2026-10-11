@@ -225,7 +225,10 @@ void main() {
     // is pressed, the sheet stays open and the field stays empty. Choose
     // the shape first, then press it.
     if (find.text('Formation').hitTestable().evaluate().isNotEmpty) {
-      await tapText(_formationChip);
+      // The LAST match: volleyball's first formation is called "6v6", the
+      // same word as the count chip above it, and tapping the first match
+      // pressed the count twice while the formation went unchosen.
+      await tapFinder(find.text(_formationChip).last);
       await hold(400);
     }
     final applied = await tapText('Apply');
