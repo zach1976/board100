@@ -1,0 +1,82 @@
+{
+  "the four cones mark a 28 m by 34 m grid the passing stays inside": {
+    "ja-JP": "4つのコーンで28m×34mのグリッドを作り、パスはその中で回す",
+    "ko-KR": "콘 4개로 28m × 34m 그리드를 만들고, 패스는 그 안에서만 한다",
+    "es-ES": "los cuatro conos marcan una cuadrícula de 28 m por 34 m dentro de la que se pasa",
+    "fr-FR": "les quatre plots délimitent un carré de 28 m sur 34 m dans lequel on se passe le ballon",
+    "id-ID": "empat kerucut menandai kotak 28 m kali 34 m tempat operan dilakukan",
+    "ms-MY": "empat kon menandakan petak 28 m kali 34 m tempat hantaran dibuat",
+    "th-TH": "กรวยสี่อันกำหนดตาราง 28 x 34 เมตร การส่งบอลทั้งหมดอยู่ในตารางนี้",
+    "vi-VN": "bốn cọc đánh dấu một ô 28 m × 34 m, mọi đường chuyền diễn ra trong ô này"
+  },
+  "the three cones stand 8 m apart at the end of the run and mark the three lanes the runners keep to": {
+    "ja-JP": "3つのコーンは走路の終点に8m間隔で置き、3人それぞれのレーンを示す",
+    "ko-KR": "콘 3개를 달리기 끝 지점에 8m 간격으로 놓아 세 러너의 레인을 표시한다",
+    "es-ES": "los tres conos, a 8 m entre sí al final de la carrera, marcan los tres carriles de los corredores",
+    "fr-FR": "les trois plots, espacés de 8 m au bout de la course, marquent les trois couloirs des coureurs",
+    "id-ID": "tiga kerucut berjarak 8 m di ujung lari menandai tiga lajur para pelari",
+    "ms-MY": "tiga kon berjarak 8 m di hujung larian menandakan tiga lorong pelari",
+    "th-TH": "กรวยสามอันห่างกัน 8 เมตร วางที่ปลายทางวิ่ง กำหนดช่องวิ่งของแต่ละคน",
+    "vi-VN": "ba cọc cách nhau 8 m ở cuối đường chạy đánh dấu ba làn của ba người chạy"
+  },
+  "six cones 12 m apart at the end of the run mark the lanes across the width, one per player": {
+    "ja-JP": "6つのコーンを走路の終点に12m間隔で置き、幅いっぱいに1人1レーンを示す",
+    "ko-KR": "콘 6개를 달리기 끝 지점에 12m 간격으로 놓아 폭 전체에 1인 1레인을 표시한다",
+    "es-ES": "seis conos a 12 m entre sí al final de la carrera marcan los carriles a lo ancho, uno por jugador",
+    "fr-FR": "six plots espacés de 12 m au bout de la course marquent les couloirs sur la largeur, un par joueur",
+    "id-ID": "enam kerucut berjarak 12 m di ujung lari menandai lajur selebar lapangan, satu per pemain",
+    "ms-MY": "enam kon berjarak 12 m di hujung larian menandakan lorong merentas lebar padang, satu bagi setiap pemain",
+    "th-TH": "กรวยหกอันห่างกัน 12 เมตร วางที่ปลายทางวิ่ง กำหนดช่องวิ่งตลอดความกว้าง คนละหนึ่งช่อง",
+    "vi-VN": "sáu cọc cách nhau 12 m ở cuối đường chạy đánh dấu các làn trên bề ngang sân, mỗi người một làn"
+  },
+  "each pair of cones stands 5 m apart and marks a channel the carrier runs through; the tackle is made inside it": {
+    "ja-JP": "コーン2つ1組を5m間隔で置き、キャリアが走るチャンネルを示す。タックルはその中で行う",
+    "ko-KR": "콘 두 개씩 5m 간격으로 놓아 볼 캐리어가 달리는 채널을 표시하고, 태클은 그 안에서 한다",
+    "es-ES": "cada par de conos, a 5 m entre sí, marca un pasillo por el que corre el portador; el placaje se hace dentro",
+    "fr-FR": "chaque paire de plots, espacés de 5 m, marque un couloir où court le porteur ; le plaquage se fait dedans",
+    "id-ID": "setiap pasang kerucut berjarak 5 m menandai lorong yang dilalui pembawa bola; tekel dilakukan di dalamnya",
+    "ms-MY": "setiap pasang kon berjarak 5 m menandakan lorong yang dilalui pembawa bola; tekel dibuat di dalamnya",
+    "th-TH": "กรวยแต่ละคู่ห่างกัน 5 เมตร กำหนดช่องที่คนถือบอลวิ่งผ่าน และต้องแท็กเกิลภายในช่องนั้น",
+    "vi-VN": "mỗi cặp cọc cách nhau 5 m đánh dấu một hành lang người cầm bóng chạy qua; cú truy cản diễn ra bên trong"
+  },
+  "the four cones mark a reduced area 50 m wide and 50 m long, from their try line back to their 10 m line; each side scores over the end line it attacks": {
+    "ja-JP": "4つのコーンで幅50m・長さ50mの縮小エリアを作る（相手トライラインから相手10mラインまで）。各チームは攻める側のエンドラインを越えて得点する",
+    "ko-KR": "콘 4개로 폭 50m, 길이 50m의 축소 구역을 만든다(상대 트라이라인부터 상대 10m 라인까지). 각 팀은 자기가 공격하는 끝선을 넘어 득점한다",
+    "es-ES": "los cuatro conos marcan un área reducida de 50 m de ancho por 50 m de largo, de su línea de ensayo a su línea de 10 m; cada equipo marca más allá de la línea de fondo que ataca",
+    "fr-FR": "les quatre plots délimitent une zone réduite de 50 m sur 50 m, de leur ligne d'essai à leur ligne des 10 m ; chaque équipe marque derrière la ligne de fond qu'elle attaque",
+    "id-ID": "empat kerucut menandai area kecil selebar 50 m dan sepanjang 50 m, dari garis try lawan sampai garis 10 m lawan; tiap tim mencetak angka melewati garis ujung yang diserangnya",
+    "ms-MY": "empat kon menandakan kawasan kecil selebar 50 m dan sepanjang 50 m, dari garisan try lawan hingga garisan 10 m lawan; setiap pasukan menjaringkan mata melepasi garisan hujung yang diserangnya",
+    "th-TH": "กรวยสี่อันกำหนดพื้นที่ย่อกว้าง 50 เมตร ยาว 50 เมตร จากเส้นทรัยของคู่แข่งถึงเส้น 10 เมตรของคู่แข่ง แต่ละทีมทำแต้มเมื่อข้ามเส้นท้ายที่ตัวเองบุก",
+    "vi-VN": "bốn cọc đánh dấu khu vực thu nhỏ rộng 50 m, dài 50 m, từ vạch try đối phương đến vạch 10 m của họ; mỗi đội ghi điểm khi vượt qua đường cuối mà mình tấn công"
+  },
+  "After a try the side that conceded restarts with a tap kick from the middle of the area; when the ball goes out, the other side restarts with a tap where it left, and the coach has spare balls ready so nothing stops. Four-minute games, then swap ends or opponents.": {
+    "ja-JP": "トライの後は失点側がエリア中央からタップキックで再開。ボールが出たら相手側が出た地点からタップで再開し、コーチは予備のボールを用意して止めない。1ゲーム4分、その後エンドか相手を替える。",
+    "ko-KR": "트라이 후에는 실점한 팀이 구역 가운데에서 탭 킥으로 재개한다. 공이 나가면 상대 팀이 나간 지점에서 탭으로 재개하고, 코치는 여분의 공을 준비해 멈추지 않게 한다. 4분 경기 후 진영이나 상대를 바꾼다.",
+    "es-ES": "Tras un ensayo, el equipo que lo recibe reanuda con un tap desde el centro del área; cuando el balón sale, el rival reanuda con un tap donde salió y el entrenador tiene balones de repuesto para no parar. Partidos de cuatro minutos y luego cambio de campo o de rival.",
+    "fr-FR": "Après un essai, l'équipe qui l'a encaissé relance par un tap au centre de la zone ; quand le ballon sort, l'autre équipe relance par un tap à l'endroit de la sortie, et l'entraîneur a des ballons de rechange pour ne jamais s'arrêter. Matchs de quatre minutes, puis on change de côté ou d'adversaire.",
+    "id-ID": "Setelah try, tim yang kebobolan memulai lagi dengan tap kick dari tengah area; saat bola keluar, tim lawan memulai dengan tap di tempat bola keluar, dan pelatih menyiapkan bola cadangan agar tak berhenti. Gim empat menit, lalu tukar sisi atau lawan.",
+    "ms-MY": "Selepas try, pasukan yang dibolosi memulakan semula dengan tap kick dari tengah kawasan; apabila bola keluar, pasukan lawan memulakan semula dengan tap di tempat bola keluar, dan jurulatih menyediakan bola simpanan supaya tidak terhenti. Permainan empat minit, kemudian tukar sisi atau lawan.",
+    "th-TH": "หลังทำทรัย ฝ่ายที่เสียแต้มเริ่มใหม่ด้วยการแตะเตะจากกลางพื้นที่ เมื่อบอลออก อีกฝ่ายเริ่มใหม่ด้วยการแตะเตะตรงจุดที่บอลออก โค้ชเตรียมบอลสำรองไว้ไม่ให้เกมหยุด เกมละสี่นาที แล้วสลับฝั่งหรือเปลี่ยนคู่",
+    "vi-VN": "Sau một try, đội bị ghi điểm bắt đầu lại bằng cú tap kick từ giữa khu vực; khi bóng ra ngoài, đội kia bắt đầu lại bằng tap tại chỗ bóng ra, và huấn luyện viên chuẩn bị sẵn bóng dự phòng để không phải dừng. Mỗi trận bốn phút, rồi đổi sân hoặc đổi đối thủ."
+  },
+  "A rep ends at the tackle: the carrier is put down inside the channel and both men are back on their feet at once. Carriers jog back and join the queue; after six reps the tacklers swap with the carriers.": {
+    "ja-JP": "1本はタックルで終わる。キャリアをチャンネル内で倒し、2人ともすぐに立ち上がる。キャリアはジョグで戻って列に並び、6本ごとにタックラーとキャリアを交代する。",
+    "ko-KR": "한 번은 태클에서 끝난다. 볼 캐리어를 채널 안에서 넘어뜨리고 두 사람 모두 곧바로 일어난다. 캐리어는 조깅으로 돌아가 줄을 서고, 여섯 번마다 태클러와 캐리어가 바뀐다.",
+    "es-ES": "Cada repetición acaba en el placaje: el portador va al suelo dentro del pasillo y los dos se levantan enseguida. Los portadores vuelven trotando a la fila; cada seis repeticiones placadores y portadores cambian.",
+    "fr-FR": "Une répétition se termine au plaquage : le porteur est mis au sol dans le couloir et les deux se relèvent aussitôt. Les porteurs reviennent en trottinant dans la file ; toutes les six répétitions, plaqueurs et porteurs échangent.",
+    "id-ID": "Satu ulangan berakhir di tekel: pembawa bola dijatuhkan di dalam lorong dan keduanya segera bangkit. Pembawa bola jogging kembali ke antrean; setiap enam ulangan penekel bertukar dengan pembawa bola.",
+    "ms-MY": "Satu ulangan berakhir pada tekel: pembawa bola dijatuhkan di dalam lorong dan kedua-duanya segera bangun. Pembawa bola berjoging kembali ke barisan; setiap enam ulangan penekel bertukar dengan pembawa bola.",
+    "th-TH": "แต่ละรอบจบที่การแท็กเกิล คนถือบอลถูกทำให้ล้มในช่อง แล้วทั้งสองคนลุกขึ้นทันที คนถือบอลวิ่งเหยาะกลับไปต่อแถว ทุกหกรอบให้คนแท็กเกิลสลับกับคนถือบอล",
+    "vi-VN": "Mỗi lượt kết thúc ở cú truy cản: người cầm bóng bị quật ngã trong hành lang và cả hai đứng dậy ngay. Người cầm bóng chạy nhẹ về xếp hàng; sau sáu lượt người truy cản đổi với người cầm bóng."
+  },
+  "One kicker, a kicking tee and a bag of balls; five kicking spots across the 22 metre line, two kicks from each": {
+    "ja-JP": "キッカー1人、キッキングティー1つ、ボール1袋。22mライン上に横並びで5か所のキック地点を作り、各地点から2本",
+    "ko-KR": "키커 1명, 킥 티 1개, 공 한 자루. 22m 라인을 따라 킥 지점 다섯 곳을 두고 지점마다 두 번씩 찬다",
+    "es-ES": "Un pateador, un tee y una bolsa de balones; cinco puntos de patada a lo largo de la línea de 22 m, dos patadas desde cada uno",
+    "fr-FR": "Un buteur, un tee et un sac de ballons ; cinq points de tir le long de la ligne des 22 m, deux coups de pied depuis chacun",
+    "id-ID": "Satu penendang, satu tee, dan sekantong bola; lima titik tendangan di sepanjang garis 22 meter, dua tendangan dari tiap titik",
+    "ms-MY": "Seorang penyepak, satu tee dan sebeg bola; lima titik sepakan di sepanjang garisan 22 meter, dua sepakan dari setiap titik",
+    "th-TH": "คนเตะหนึ่งคน แท่นวางบอลหนึ่งอัน และบอลหนึ่งถุง ตั้งจุดเตะห้าจุดตามแนวเส้น 22 เมตร จุดละสองครั้ง",
+    "vi-VN": "Một người đá, một đế đặt bóng và một túi bóng; năm điểm đá dọc vạch 22 mét, mỗi điểm hai cú"
+  }
+}

@@ -364,7 +364,7 @@ SCORE_TRY = {
     "fr-FR": "Un essai, c'est le ballon aplati au sol dans l'en-but ; le plaquage se fait sous les épaules et le ballon doit être libéré. Ballon ou porteur en touche : la phase s'arrête et l'adversaire lance.",
     "id-ID": "Try adalah bola ditekan ke tanah di area in-goal; tekel di bawah bahu dan bola harus dilepas. Bola atau pembawa keluar garis samping mengakhiri fase dan lawan melempar ke dalam.",
     "ms-MY": "Try ialah bola ditekan ke tanah di kawasan in-goal; tekel di bawah bahu dan bola mesti dilepaskan. Bola atau pembawa keluar garisan tepi menamatkan fasa dan lawan membaling masuk.",
-    "th-TH": "ทรายคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น",
+    "th-TH": "ทรัยคือการกดบอลลงพื้นในเขตอินโกล แท็กเกิลต้องต่ำกว่าไหล่และต้องปล่อยบอลเมื่อถูกล้ม บอลหรือคนถือบอลออกเส้นข้างจบเฟสนั้น ฝ่ายตรงข้ามโยนเข้าเล่น",
     "vi-VN": "Try là ấn bóng xuống đất trong khu in-goal; tắc bóng phải dưới vai và người bị tắc phải nhả bóng. Bóng hoặc người cầm bóng ra biên là kết thúc pha, đội kia ném biên.",
 }
 

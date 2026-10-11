@@ -30,23 +30,31 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true",
                     help="fail if the checked-in assets differ from this file")
+    ap.add_argument("--only", default="",
+                    help="comma list of sports to (re)write; the index is left alone")
     args = ap.parse_args()
+    only = {x for x in args.only.split(",") if x}
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     failed = False
     # How many drills each sport ships. The hub's sport picker shows the
     # number on every card, and the only other way to know it is to parse
     # fifteen libraries (13MB) on a page that has to open instantly.
-    counts = {sport: len(build(sport, CATALOGUE[sport])["drills"]) for sport in CATALOGUE}
+    counts = ({} if only else
+              {sport: len(build(sport, CATALOGUE[sport])["drills"]) for sport in CATALOGUE})
     index_path = OUT_DIR / "index.json"
     index_payload = json.dumps(counts, indent=2, sort_keys=True) + "\n"
-    if args.check:
+    if only:
+        pass
+    elif args.check:
         if (index_path.read_text(encoding="utf-8") if index_path.exists() else "") != index_payload:
             print(f"✗ {index_path.relative_to(REPO)} is stale — run tools/gen_drills.py")
             failed = True
     else:
         index_path.write_text(index_payload, encoding="utf-8")
     for sport in CATALOGUE:
+        if only and sport not in only:
+            continue
         payload = json.dumps(build(sport, CATALOGUE[sport]), ensure_ascii=False, indent=2) + "\n"
         path = OUT_DIR / f"{sport}.json"
         if args.check:

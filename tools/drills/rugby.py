@@ -1,23 +1,104 @@
 """The rugby library.
 
-Attacking upward. The field includes both in-goals, so the try line the attack
-is aiming at sits at y=0.153 and the halfway line at y=0.5 — a drill that runs
-"from our 22 to their 22" is y 0.694 down to y 0.306.
+Every board attacks UP the page. The drawing includes both in-goals, so the
+board is 70 m across and 144 m long, and everything here is written in
+METRES: x from the left touchline (0..70), y from the top dead-ball line
+(0..144). The try line being attacked is y=22, their 22 is y=44, their 10 m
+line y=62, halfway y=72, our 10 m line y=82, our 22 y=100, our try line
+y=122. The 5 m and 15 m lines run at x=5/15 and x=55/65.
+
+Three laws the boards are held to, by tools/check_rugby_passes.py:
+
+* No pass goes forward. A receiver catches the ball where he is at the end
+  of the beat, so every receiver starts deeper than the passer by more than
+  he runs during the pass — the line is staggered, each man a few metres
+  behind the one inside him, and he runs ONTO the ball from depth.
+* A try is grounded: the scorer carries it into the in-goal. The ball never
+  flies into the in-goal on its own except off a place kick at goal.
+* A kick has a kicker, and the chasers start level with him or behind him.
+
+A drawn figure is about 4-5 m wide and 8-11 m tall at this scale, so a
+scrum, a lineout or a maul cannot be drawn at true spacing; those boards
+are tight=True and keep the shape (single files, a 3-4-1 pack) at the
+closest spacing at which the numbers can still be read.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
+from .vocab import V
 
-TRY_LINE, TWENTY_TWO, HALFWAY = 0.153, 0.306, 0.50
-OWN_22, OWN_TRY = 0.694, 0.847
-
-
-def line_of(n, y, x0=0.16, x1=0.84):
-    # A line of one stands in the middle of its span, not at its left edge —
-    # at the edge it lands exactly on the last player of the pod next door.
-    if n == 1:
-        return [((x0 + x1) / 2, y)]
-    return [(x0 + (x1 - x0) * i / (n - 1), y) for i in range(n)]
+W, L = 70.0, 144.0
+TRY_Y = 22.0          # the try line being attacked
 
 
+def mk(x, y, shape="cone") -> M:
+    return M(x / W, y / L, shape, "")
+
+
+def spot(x, y) -> Spot:
+    """A place on the grass, exactly: a kick's landing, the ball placed back."""
+    return Spot(x / W, y / L)
+
+
+def pt(x, y) -> tuple:
+    return (x / W, y / L)
+
+
+class Board:
+    """Players written in metres, their runs beat by beat.
+
+    put() places a man; go() moves him on a beat; shift() moves several by
+    the same amount. Anyone not moved on a beat stands still. players()
+    hands back engine P objects in the order asked for.
+    """
+
+    def __init__(self):
+        self.start, self.at, self.moves = {}, {}, {}
+
+    def put(self, key, x, y):
+        self.start[key] = self.at[key] = (x, y)
+        self.moves[key] = []
+
+    def go(self, key, x, y, beat):
+        self.moves[key].append((x, y, beat))
+        self.at[key] = (x, y)
+
+    def shift(self, keys, dx, dy, beat):
+        for k in keys:
+            x, y = self.at[k]
+            self.go(k, x + dx, y + dy, beat)
+
+    def x(self, key):
+        return self.at[key][0]
+
+    def y(self, key):
+        return self.at[key][1]
+
+    def players(self, keys) -> list:
+        out = []
+        for k in keys:
+            sx, sy = self.start[k]
+            out.append(P(sx / W, sy / L, k.split("#")[0],
+                         moves=[(mx / W, my / L, ph)
+                                for (mx, my, ph) in self.moves[k]]))
+        return out
+
+
+# Variant halves that read as a heading and its subject — "Set piece — the
+# scrum", not "Set piece the scrum". The shared vocabulary keeps the
+# translation; the dash goes in where the languages glue with a space.
+_DASH = ("en", "en-GB", "es-ES", "fr-FR", "id-ID", "ms-MY", "vi-VN")
+
+
+def dashed(variant) -> dict:
+    d = dict(V[variant] if isinstance(variant, str) else variant)
+    for loc in _DASH:
+        d[loc] = "— " + d[loc]
+    return d
+
+
+def _t12(en, zh, zht, ja, ko, es, fr, idn, ms, th, vi) -> dict:
+    return {"en": en, "en-GB": en, "zh-CN": zh, "zh-TW": zht, "ja-JP": ja,
+            "ko-KR": ko, "es-ES": es, "fr-FR": fr, "id-ID": idn,
+            "ms-MY": ms, "th-TH": th, "vi-VN": vi}
 HANDLE_NAME = {
     "en": "Handling", "en-GB": "Handling", "zh-CN": "传接球", "zh-TW": "傳接球",
     "ja-JP": "ハンドリング", "ko-KR": "핸들링", "es-ES": "Manejo de balón",
@@ -42,30 +123,6 @@ HANDLE_NOTE = {
     "th-TH": "ส่งไปข้างหน้าอกคนรับ เพื่อให้เขาวิ่งเข้าหาบอล",
     "vi-VN": "Chuyền trước ngực người nhận để họ chạy vào bóng.",
 }
-
-
-def handling_family() -> list[Drill]:
-    specs = [("grid", "in a grid", 4), ("threes", "in threes", 3), ("wide", "across the width", 6)]
-    out = []
-    for key, label, n in specs:
-        spots = line_of(n, 0.62)
-        out.append(Drill(
-            id=f"rg_handling_{key}", category="warmup", minutes=8, rel=True,
-            free=(key in ("grid", "threes")),
-            name=suffixed(HANDLE_NAME, label), note=HANDLE_NOTE,
-            # The line runs on together, a step a beat, for as many beats
-            # as there are passes.
-            home=[P(x, y, f"{i + 1}",
-                    moves=[(x, y - 0.08 * (k + 1), k) for k in range(n)])
-                  for i, (x, y) in enumerate(spots)],
-            markers=[M(x, 0.40, "cone", "") for x, _ in spots],
-            ball=0,
-            # along the line as it runs onto the cones — all the way to the
-            # end man, who carries it over the last cone: the length is
-            # done, and the next one comes back the other way
-            ball_to=[(i % n, i - 1) for i in range(1, n)] + [(n - 1, n - 1)],
-        ))
-    return out
 
 
 PHASE_NAME = {
@@ -95,33 +152,6 @@ PHASE_NOTE = {
 }
 
 
-def phase_family() -> list[Drill]:
-    specs = [("one_three_three_one", "1-3-3-1", [(1, 0.24), (3, 0.40), (3, 0.62), (1, 0.80)]),
-             ("two_four_two", "2-4-2", [(2, 0.30), (4, 0.52), (2, 0.74)]),
-             ("left_to_right", "left to right", [(3, 0.44), (3, 0.62)])]
-    out = []
-    for key, label, pods in specs:
-        home = []
-        for n, x_frac in pods:
-            for j, (x, y) in enumerate(line_of(n, 0.60, x_frac - 0.07, x_frac + 0.07)):
-                home.append(P(x, y, f"{len(home) + 1}",
-                              moves=[(x, 0.50, 0), (x + 0.03, 0.42, 1)]))
-        out.append(Drill(
-            id=f"rg_phase_{key}", category="possession", minutes=14, rel=True,
-            # Fourteen bodies in pods: they are packed by design, so the
-            # floor is "labels readable", not "icons never touch".
-            tight=True,
-            free=(key == "one_three_three_one"),
-            name=suffixed(PHASE_NAME, label), note=PHASE_NOTE,
-            home=home,
-            away=[P(x, y, "D", moves=[(x, y + 0.06, 0)]) for x, y in line_of(6, 0.44)],
-            ball=0,
-            # recycled to the first pod, shipped on to the next
-            ball_to=[(1, 0), (4 % len(home), 1)],
-        ))
-    return out
-
-
 MOVE_NAME = {
     "en": "Backline move", "en-GB": "Backline move", "zh-CN": "后卫线配合",
     "zh-TW": "後衛線配合", "ja-JP": "バックスのサインプレー", "ko-KR": "백스 사인 플레이",
@@ -147,43 +177,6 @@ MOVE_NOTE = {
     "th-TH": "ทุกแผนคือการโกหกว่าบอลจะไปทางไหน",
     "vi-VN": "Mỗi bài phối hợp là một lời nói dối về hướng bóng.",
 }
-
-
-def move_family() -> list[Drill]:
-    specs = [("miss_pass", "the miss pass", 3, 0.86), ("switch", "the switch", 2, 0.30),
-             ("loop", "the loop", 2, 0.66), ("cut_out", "the cut-out", 4, 0.90),
-             ("dummy_runner", "with a dummy runner", 3, 0.72)]
-    out = []
-    for key, label, receiver, target_x in specs:
-        line = line_of(5, 0.60, 0.22, 0.86)
-        home = []
-        for i, (x, y) in enumerate(line):
-            end_x = target_x if i == receiver else x + (target_x - x) * 0.25
-            depth = 0.38
-            # The man the receiver runs onto top of holds his width and his
-            # depth instead of drifting. On the miss pass the receiver's
-            # target IS the outside man's channel, and both finished on the
-            # same point — one player drawn, not two.
-            if i != receiver and abs(end_x - target_x) < 0.07:
-                end_x, depth = x, 0.47
-            # A backline from first receiver outward is 10, 12, 13, 15, 14 —
-            # not 10, 11, 12, 13, 14, which puts the left wing at inside
-            # centre, a position 11 never stands in.
-            home.append(P(x, y, ("10", "12", "13", "15", "14")[i],
-                          moves=[(x + (end_x - x) * 0.4, 0.50, 0),
-                                 (end_x, depth, 1)]))
-        out.append(Drill(
-            id=f"rg_move_{key}", category="attacking", minutes=12, rel=True,
-            free=(key in ("miss_pass", "switch")),
-            name=suffixed(MOVE_NAME, label), note=MOVE_NOTE,
-            home=home,
-            away=[P(x, y, "D", moves=[(x, y + 0.05, 0), (x - 0.02, 0.44, 1)])
-                  for x, y in line_of(5, 0.42, 0.24, 0.84)],
-            ball=0,
-            # off the 10's hands into the move's strike runner
-            ball_to=[(1, 0), (receiver, 1)],
-        ))
-    return out
 
 
 FINISH_NAME = {
@@ -212,39 +205,6 @@ FINISH_NOTE = {
 }
 
 
-def finishing_family() -> list[Drill]:
-    specs = [("pick_and_go", "pick and go", (0.50, 0.20)), ("wide_finish", "in the corner", (0.90, 0.20)),
-             ("kick_chase", "off the kick chase", (0.70, 0.18))]
-    out = []
-    for key, label, start in specs:
-        out.append(Drill(
-            id=f"rg_finish_{key}", category="finishing", minutes=10, rel=True,
-            free=(key == "pick_and_go"),
-            name=suffixed(FINISH_NAME, label), note=FINISH_NOTE,
-            home=[P(*start, "1", moves=[(start[0] + (0.5 - start[0]) * 0.4,
-                                         TRY_LINE - 0.05, 1)]),
-                  P(start[0] - 0.14, start[1] + 0.06, "2",
-                    moves=[(start[0] - 0.06, TRY_LINE + 0.02, 1)])],
-            # The second defender used to stand at TRY_LINE - 0.04, which
-            # is 5.7 m *behind* the try line, in the in-goal — a goalkeeper
-            # from another sport's template. He covers across instead.
-            away=[P(start[0] + 0.04, TRY_LINE + 0.02, "D",
-                    moves=[(start[0] + 0.02, TRY_LINE + 0.05, 0)]),
-                  # Offset to the far side of the carrier's channel. On the
-                  # pick-and-go the carrier starts dead centre, and without
-                  # this both defenders covered to the same point — two D
-                  # tokens on one spot, so the board showed one defender.
-                  P(0.5 + (0.5 - start[0]) * 0.55, TRY_LINE + 0.075, "D",
-                    moves=[(max(0.08, start[0] * 0.4 + 0.30 - 0.09),
-                            TRY_LINE + 0.045, 1)])],
-            markers=[M(0.50, TRY_LINE, "zone", "")],
-            ball=0,
-            # carried at the corner, and the offload sends 2 over
-            ball_to=[(0, 0), (1, 1)],
-        ))
-    return out
-
-
 DEF_NAME = {
     "en": "Defence", "en-GB": "Defence", "zh-CN": "防守", "zh-TW": "防守",
     "ja-JP": "ディフェンス", "ko-KR": "수비", "es-ES": "Defensa",
@@ -269,30 +229,6 @@ DEF_NOTE = {
     "th-TH": "ขึ้นเป็นแนวเดียวกันและอย่าให้ขาด",
     "vi-VN": "Dâng lên thành một tuyến và không để đứt.",
 }
-
-
-def defence_family() -> list[Drill]:
-    specs = [("drift", "drifting", 0.06, 0.03), ("blitz", "the blitz", 0.14, 0.0),
-             ("scramble", "scrambling back", 0.02, 0.10)]
-    out = []
-    for key, label, push, slide in specs:
-        line = line_of(6, 0.42)
-        out.append(Drill(
-            id=f"rg_defence_{key}", category="defending", minutes=12, rel=True,
-            free=(key == "drift"),
-            name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            # Clamped: a scramble slides the whole line toward the ball, and
-            # the widest defender was sliding 0.04 past the touchline.
-            home=[P(x, y, "D",
-                    moves=[(min(x + slide, 0.97), y + push, 0),
-                           (min(x + slide * 2, 0.97), y + push * 1.4, 1)])
-                  for x, y in line],
-            away=[P(x, 0.60, "A", moves=[(x + 0.04, 0.52, 0)]) for x, _ in line_of(5, 0.60, 0.24, 0.84)],
-            ball=(0.24, 0.60),          # the attack starts with it
-            # their winger starts it wide — the line moves with the ball
-            ball_to=[("a1", 0), ("a2", 1)],
-        ))
-    return out
 
 
 SET_NAME = {
@@ -321,99 +257,6 @@ SET_NOTE = {
 }
 
 
-def setpiece_family() -> list[Drill]:
-    """Scrum, lineouts and the kick-off, each with its own law-shaped setup.
-
-    The scrum used to be a 3/3/2 grid, which makes 6 a lock and packs 7
-    where the number 8 goes; a scrum is 3-2-3 with the flankers bound on
-    the *sides* of the second row. The lineouts picked their jumpers by
-    counting from 3, which put the tighthead in a five-man and the
-    scrum-half — who never stands in the line — in a seven. And the
-    kick-off had no kicker, no ball in the air and no catch pod.
-    """
-    out = []
-
-    # ── the scrum: front row, locks behind them, flankers on the flanks,
-    # 8 at the back, and a 9 to feed and clear ─────────────────────────
-    y = 0.54
-    front = [(0.455, y, "1"), (0.50, y, "2"), (0.545, y, "3")]
-    locks = [(0.478, y + 0.045, "4"), (0.522, y + 0.045, "5")]
-    flanks = [(0.425, y + 0.045, "6"), (0.575, y + 0.045, "7")]
-    eight = [(0.50, y + 0.09, "8")]
-    out.append(Drill(
-        id="rg_set_scrum", category="setpiece", minutes=12, rel=True,
-        tight=True, name=suffixed(SET_NAME, "the scrum"), note=SET_NOTE,
-        home=[P(x, yy, lbl, moves=[(x, yy - 0.025, 0)])
-              for x, yy, lbl in front + locks + flanks + eight]
-             + [P(0.60, y + 0.10, "9", moves=[(0.56, y + 0.095, 1),
-                                              (0.66, y + 0.045, 2)])],
-        away=[P(0.455 + 0.045 * i, y - 0.05, "D") for i in range(3)]
-             + [P(0.478 + 0.044 * i, y - 0.095, "D") for i in range(2)]
-             + [P(0.425, y - 0.095, "D"), P(0.575, y - 0.095, "D"),
-                P(0.50, y - 0.14, "D")],
-        ball=8,
-            # hooked to the base; the 9 whips it away
-            ball_to=[(8, 1), ((0.72, 0.44), 2)],
-    ))
-
-    # ── the lineouts: the jumpers a team actually lifts ────────────────
-    for key, label, jumpers, y in [
-            ("lineout_five", "the five-man lineout", ["4", "5", "6", "7", "8"], 0.46),
-            ("lineout_seven", "the seven-man lineout",
-             ["1", "3", "4", "5", "6", "7", "8"], 0.46)]:
-        n = len(jumpers)
-        out.append(Drill(
-            id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
-            tight=True, free=(key == "lineout_five"), off_surface=True,
-            name=suffixed(SET_NAME, label), note=SET_NOTE,
-            # The hooker throws from outside the touchline; the jumper's two
-            # lifters close on him from their own sides.
-            #
-            # The lifters' step is SIGNED. It used to be a flat +0.012, which
-            # walked the lifter standing above the jumper down into him while
-            # the one below stepped away — and the jumper was translated up
-            # 0.02 on top of that, straight into the first of them. Two men
-            # on one point, and a lineout that shows four. A lift is vertical
-            # and a top-down board cannot draw it, so the jumper holds his
-            # ground and only the lifters move.
-            home=[P(-0.02, y + 0.02 * (n // 2), "2",
-                    moves=[(0.01, y + 0.02 * (n // 2), 1)])] + [
-                P(0.14, y + 0.024 * i, lbl,
-                  moves=[(0.145, y + 0.024 * i
-                          + (0.010 if i < n // 2 else -0.010
-                             if i > n // 2 else 0.0)
-                          * (1.0 if abs(i - n // 2) == 1 else 0.0), 1)])
-                for i, lbl in enumerate(jumpers)
-            ] + [P(0.26, y + 0.024 * (n // 2) + 0.05, "9",
-                   moves=[(0.24, y + 0.024 * (n // 2) + 0.02, 2)])],
-            away=[P(0.225, y + 0.024 * i, "D") for i in range(n)],
-            ball=0,
-            # thrown to the jumper, down to the 9 sweeping
-            ball_to=[(2, 1), (6, 2)],
-        ))
-
-    # ── the kick-off: a kicker, a ball in the air, a catch pod ─────────
-    out.append(Drill(
-        id="rg_set_kick_off", category="setpiece", minutes=12, rel=True,
-        tight=True, free=True,
-        name=suffixed(SET_NAME, "receiving the kick-off"), note=SET_NOTE,
-        # The receiving team: a pod of three under the ball with lifters,
-        # and the full-back behind for anything long.
-        home=[P(0.26, 0.60, "4", moves=[(0.30, 0.545, 1)]),
-              P(0.34, 0.585, "5", moves=[(0.345, 0.525, 1)]),
-              P(0.42, 0.60, "6", moves=[(0.39, 0.545, 1)]),
-              P(0.62, 0.62, "8", moves=[(0.52, 0.585, 2)]),
-              P(0.50, 0.76, "15", moves=[(0.44, 0.66, 2)])],
-        away=[P(0.50, 0.44, "10", moves=[(0.47, 0.475, 0)]),
-              P(0.30, 0.455, "D", moves=[(0.32, 0.52, 1)]),
-              P(0.70, 0.455, "D", moves=[(0.62, 0.52, 1)])],
-        markers=[M(0.345, 0.525, "zone", "")],
-        ball=(0.50, 0.455),
-        ball_moves=[(0.345, 0.525, 1)],
-    ))
-    return out
-
-
 KICK_NAME = {
     "en": "Kicking", "en-GB": "Kicking", "zh-CN": "踢球战术", "zh-TW": "踢球戰術",
     "ja-JP": "キック", "ko-KR": "킥", "es-ES": "Juego al pie",
@@ -438,31 +281,6 @@ KICK_NOTE = {
     "th-TH": "ลูกเตะที่ไม่มีคนไล่คือการจ่ายให้คู่แข่ง",
     "vi-VN": "Cú đá không ai đuổi theo là đường chuyền cho đối thủ.",
 }
-
-
-def kicking_family() -> list[Drill]:
-    specs = [("box", "the box kick", (0.34, 0.60), (0.34, 0.30)),
-             ("cross_field", "the cross-field kick", (0.50, 0.56), (0.88, 0.24)),
-             ("territory", "for territory", (0.50, 0.72), (0.14, 0.24)),
-             ("grubber", "the grubber", (0.66, 0.44), (0.72, 0.20))]
-    out = []
-    for key, label, kicker, land in specs:
-        out.append(Drill(
-            id=f"rg_kick_{key}", category="attacking", minutes=10, rel=True,
-            free=(key == "box"),
-            name=suffixed(KICK_NAME, label), note=KICK_NOTE,
-            home=[P(*kicker, "9", moves=[(kicker[0], kicker[1] - 0.06, 1)]),
-                  P(kicker[0] + 0.10, kicker[1] - 0.06, "C",
-                    moves=[(land[0], land[1] + 0.06, 1)]),
-                  P(kicker[0] - 0.10, kicker[1] - 0.04, "C",
-                    moves=[(land[0] - 0.10, land[1] + 0.08, 1)])],
-            away=[P(land[0], land[1] - 0.04, "F", moves=[(land[0], land[1], 1)])],
-            markers=[M(*land, "zone", "")],
-            ball=0,
-            # kicked to the marked landing zone; the chase competes
-            ball_to=[(land, 1)],
-        ))
-    return out
 
 
 BREAKDOWN_NAME = {
@@ -491,35 +309,6 @@ BREAKDOWN_NOTE = {
 }
 
 
-def breakdown_family() -> list[Drill]:
-    specs = [("quick_ball", "for quick ball", 2), ("jackal", "the jackal", 1),
-             ("counter_ruck", "the counter-ruck", 3)]
-    out = []
-    for key, label, n in specs:
-        out.append(Drill(
-            id=f"rg_breakdown_{key}", category="possession", minutes=10, rel=True,
-            # Bodies over the ball at a breakdown are touching.
-            tight=True,
-            free=(key == "quick_ball"),
-            name=suffixed(BREAKDOWN_NAME, label), note=BREAKDOWN_NOTE,
-            home=[P(0.50, 0.56, "1", moves=[(0.50, 0.50, 0)])] + [
-                # Spread across the ruck, not stacked on its middle. Every
-                # supporter used to arrive at exactly (0.50, 0.48), so a
-                # three-man counter-ruck was drawn as one man.
-                P(0.42 + 0.08 * i, 0.66, f"{i + 2}",
-                  moves=[(0.46 + 0.06 * i, 0.52, 0),
-                         (0.50 + 0.055 * (i - (n - 1) / 2), 0.48, 1)])
-                for i in range(n)
-            ],
-            away=[P(0.50, 0.44, "D", moves=[(0.50, 0.50, 0)]),
-                  P(0.58, 0.42, "D", moves=[(0.54, 0.49, 1)])],
-            ball=0,
-            # presented at the base, swept away before the counter-ruck
-            ball_to=[(1, 0), (0, 1)],
-        ))
-    return out
-
-
 GAME_NAME = {
     "en": "Game", "en-GB": "Game", "zh-CN": "对抗", "zh-TW": "對抗",
     "ja-JP": "ゲーム", "ko-KR": "게임", "es-ES": "Juego", "fr-FR": "Jeu",
@@ -543,30 +332,6 @@ GAME_NOTE = {
     "th-TH": "แคบสนามแล้วออฟโหลดจะมา กว้างสนามแล้วลูกเตะจะมา",
     "vi-VN": "Thu hẹp sân thì có offload; mở rộng thì có đá bóng.",
 }
-
-
-def game_family() -> list[Drill]:
-    out = []
-    for n, label in [(5, "touch 5v5"), (7, "sevens 7v7"), (8, "contact 8v8")]:
-        spots = line_of(n, 0.62, 0.20, 0.86)
-        out.append(Drill(
-            id=f"rg_game_{n}v{n}", category="ssg", minutes=15, rel=True,
-            # Fourteen to sixteen players do not fit a phone at one icon
-            # apart; readable labels is the honest bar for a game board.
-            tight=True,
-            free=(n == 5),
-            name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.08, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            away=[P(x, 0.38, chr(65 + i), moves=[(x, 0.46, 0)])
-                  for i, (x, _) in enumerate(spots)],
-            ball=0,
-            # two passes along the line as both sides move
-            # One pass per beat: both on beat 0 meant the first was never
-            # drawn and the ball appeared to teleport past its receiver.
-            ball_to=[(1 % n, 0), (2 % n, 1)],
-        ))
-    return out
 
 
 TACKLE_NAME = {"en": "Tackling", "en-GB": "Tackling", "zh-CN": "擒抱",
@@ -649,86 +414,6 @@ EXIT_NOTE = {
 }
 
 
-def gaps_family() -> list[Drill]:
-    """No tackling in a thirty-three-drill contact sport.
-
-    'Tackle' appeared only inside a shared defence note. Also absent from
-    every name and note: the high ball and the back-three counter, place
-    kicking, and the exit from your own 22.
-    """
-    return [
-        Drill(
-            id="rg_defence_tackle", category="defending", minutes=12, rel=True,
-            level="foundation", free=True,
-            name=suffixed(TACKLE_NAME, "front on and from the side"),
-            note=TACKLE_NOTE,
-            home=[P(0.38, 0.56, "D", moves=[(0.40, 0.50, 0), (0.44, 0.455, 1)]),
-                  P(0.62, 0.56, "D", moves=[(0.60, 0.50, 0), (0.555, 0.455, 1)])],
-            away=[P(0.42, 0.40, "A", moves=[(0.44, 0.455, 1)]),
-                  P(0.58, 0.40, "A", moves=[(0.555, 0.455, 1)])],
-            markers=[M(0.30, 0.46), M(0.70, 0.46)],
-            # two carriers come at two tacklers — one ball between them
-            ball=(0.42, 0.42),
-            ball_to=[("a0", 0), ("a0", 1)],
-        ),
-        Drill(
-            id="rg_kick_high_ball", category="defending", minutes=12, rel=True,
-            name=suffixed(HIGHBALL_NAME, "the contest and the counter"),
-            note=HIGHBALL_NOTE,
-            home=[P(0.50, 0.66, "15", moves=[(0.46, 0.56, 1), (0.34, 0.46, 2)]),
-                  P(0.24, 0.62, "11", moves=[(0.28, 0.50, 2)]),
-                  P(0.76, 0.62, "14", moves=[(0.66, 0.50, 2)])],
-            away=[P(0.50, 0.36, "10", moves=[(0.50, 0.42, 0)]),
-                  P(0.40, 0.40, "C", moves=[(0.44, 0.52, 1)]),
-                  P(0.60, 0.40, "C", moves=[(0.56, 0.52, 1)])],
-            markers=[M(0.46, 0.56, "zone", "")],
-            ball=(0.50, 0.375),
-            ball_moves=[(0.46, 0.56, 1)],
-        ),
-        Drill(
-            id="rg_kick_at_goal", category="finishing", minutes=10, rel=True,
-            level="foundation",
-            name=suffixed(GOALKICK_NAME, "the routine"), note=GOALKICK_NOTE,
-            home=[P(0.42, 0.34, "10", moves=[(0.375, 0.365, 0), (0.405, 0.345, 1)])],
-            markers=[M(0.42, 0.32, "square", ""), M(0.50, TRY_LINE - 0.02, "zone", "")],
-            ball=(0.42, 0.325),
-            ball_moves=[(0.50, TRY_LINE - 0.02, 2)],
-        ),
-        Drill(
-            id="rg_kick_exit", category="possession", minutes=14, rel=True,
-            level="advanced",
-            name=suffixed(EXIT_NAME, "two phases and the kick"), note=EXIT_NOTE,
-            home=[P(0.34, 0.78, "9", moves=[(0.42, 0.755, 0), (0.50, 0.735, 1)]),
-                  P(0.50, 0.82, "1", moves=[(0.44, 0.775, 0)]),
-                  P(0.64, 0.80, "4", moves=[(0.58, 0.755, 1)]),
-                  P(0.78, 0.76, "10", moves=[(0.70, 0.725, 2)])],
-            away=[P(0.40, 0.68, "D", moves=[(0.42, 0.72, 1)]),
-                  P(0.60, 0.68, "D", moves=[(0.58, 0.72, 1)]),
-                  P(0.80, 0.50, "15", moves=[(0.86, 0.42, 2)])],
-            markers=[M(0.92, 0.44, "zone", "")],
-            ball=0,
-            ball_moves=[(0.92, 0.44, 2)],
-        ),
-    ]
-
-
-# The backline moves and the phase plays end with the man the move frees
-# going over the line; a handling line ends where the last man has it and
-# the next length starts from there.
-OVER_THE_LINE = ["rg_phase_one_three_three_one", "rg_phase_two_four_two",
-                 "rg_phase_left_to_right", "rg_move_miss_pass", "rg_move_switch",
-                 "rg_move_loop", "rg_move_cut_out", "rg_move_dummy_runner"]
-
-
-def rugby_library() -> list[Drill]:
-    from .engine import finish_with
-    drills = (handling_family() + phase_family() + breakdown_family()
-              + move_family() + kicking_family() + finishing_family()
-              + defence_family() + setpiece_family() + maul_family()
-              + game_family() + gaps_family())
-    finish_with(drills, (0.60, TRY_LINE - 0.03), OVER_THE_LINE)
-    return drills
-
 MAUL_NAME = {
     "en": "Maul", "en-GB": "Maul", "zh-CN": "冒尔推进", "zh-TW": "冒爾推進",
     "ja-JP": "モール", "ko-KR": "몰", "es-ES": "Maul", "fr-FR": "Maul",
@@ -754,31 +439,1059 @@ MAUL_NOTE = {
 }
 
 
-def maul_family() -> list[Drill]:
-    """The lineout's second act — a coach reviewing the set pieces asked
-    where it was."""
+# ── purposes that the category's own line does not fit ───────────────────
+KICK_PURPOSE = _t12(
+    "Use the boot to gain ground or win the ball back — a kick is only as good as the chase that goes with it.",
+    "用脚赢地盘或把球抢回来——一脚踢得好不好，取决于跟上去的追击。",
+    "用腳贏地盤或把球搶回來——一腳踢得好不好，取決於跟上去的追擊。",
+    "キックで陣地を取り、ボールを取り返す。キックの価値は、一緒に走るチェイスで決まる。",
+    "킥으로 지역을 얻거나 공을 되찾는다 — 킥의 가치는 함께 달리는 체이스가 정한다.",
+    "Usar el pie para ganar terreno o recuperar el balón: una patada vale lo que vale la persecución que la acompaña.",
+    "Utiliser le pied pour gagner du terrain ou récupérer le ballon : un coup de pied ne vaut que par la chasse qui l'accompagne.",
+    "Memakai tendangan untuk merebut wilayah atau merebut kembali bola — tendangan hanya sebaik pengejaran yang menyertainya.",
+    "Menggunakan sepakan untuk merebut kawasan atau merampas semula bola — sepakan hanya sebaik kejaran yang mengiringinya.",
+    "ใช้ลูกเตะเพื่อได้พื้นที่หรือแย่งบอลคืน ลูกเตะจะดีแค่ไหนขึ้นกับการวิ่งไล่ที่ตามไป",
+    "Dùng chân để giành đất hoặc đoạt lại bóng — cú đá chỉ tốt bằng đợt đuổi theo đi cùng nó.")
+HIGHBALL_PURPOSE = _t12(
+    "Win the high ball under pressure and turn it straight into a counter-attack before the chase is set.",
+    "在压迫下拿下高球，并在对方追防站好之前立刻转为反击。",
+    "在壓迫下拿下高球，並在對方追防站好之前立刻轉為反擊。",
+    "プレッシャーの中でハイボールを確保し、チェイスが揃う前にそのままカウンターへ。",
+    "압박 속에서 하이볼을 잡고, 체이스가 정렬되기 전에 곧바로 역습으로 바꾼다.",
+    "Ganar el balón alto bajo presión y convertirlo en contraataque antes de que la persecución se organice.",
+    "Gagner le ballon haut sous pression et relancer avant que la chasse ne soit en place.",
+    "Menangkan bola tinggi di bawah tekanan dan langsung jadikan serangan balik sebelum pengejar tertata.",
+    "Menangi bola tinggi di bawah tekanan dan terus jadikan serangan balas sebelum pengejar tersusun.",
+    "เก็บลูกโด่งภายใต้แรงกดดัน แล้วสวนกลับทันทีก่อนฝ่ายไล่จะตั้งแนวได้",
+    "Bắt bóng bổng dưới áp lực và biến nó ngay thành phản công trước khi hàng đuổi kịp dàn xếp.")
+GOALKICK_PURPOSE = _t12(
+    "Make the place kick a routine: the same set-up every time, so that the scoreboard and the clock change nothing.",
+    "把定位踢变成固定流程：每次准备动作都一样，比分和时间都改变不了它。",
+    "把定位踢變成固定流程：每次準備動作都一樣，比分和時間都改變不了它。",
+    "プレースキックをルーティンにする。毎回同じ準備をして、スコアも時間も何も変えない。",
+    "플레이스 킥을 루틴으로 만든다. 매번 같은 준비로, 점수와 시간이 아무것도 바꾸지 못하게.",
+    "Convertir la patada a palos en rutina: la misma preparación siempre, para que el marcador y el reloj no cambien nada.",
+    "Faire du coup de pied placé une routine : la même préparation à chaque fois, pour que le score et le chrono ne changent rien.",
+    "Jadikan tendangan tempat sebuah rutinitas: persiapan yang sama setiap kali, sehingga skor dan waktu tak mengubah apa pun.",
+    "Jadikan sepakan tempat satu rutin: persediaan yang sama setiap kali, supaya mata dan masa tidak mengubah apa-apa.",
+    "ทำให้การเตะวางเป็นรูทีน เตรียมตัวเหมือนเดิมทุกครั้ง คะแนนและเวลาจะไม่เปลี่ยนอะไรเลย",
+    "Biến cú đá đặt thành thói quen: chuẩn bị giống hệt mỗi lần, để tỷ số và đồng hồ không thay đổi được gì.")
+EXIT_PURPOSE = _t12(
+    "Get out of your own 22 under pressure: secure possession through two carries, then a kick that finds touch or grass.",
+    "在压迫下打出本方 22 米区：先靠两次持球冲撞稳住球权，再一脚踢出界或踢到空当。",
+    "在壓迫下打出本方 22 公尺區：先靠兩次持球衝撞穩住球權，再一腳踢出界或踢到空檔。",
+    "プレッシャーの中で自陣22mから脱出する。2回のキャリーでボールを確保し、タッチか空いた芝へ蹴る。",
+    "압박 속에서 자기 진영 22m를 벗어난다. 두 번의 캐리로 공을 지키고, 터치나 빈 곳으로 킥한다.",
+    "Salir de tus 22 bajo presión: asegurar la posesión con dos cargas y una patada que encuentre touch o hierba libre.",
+    "Sortir de ses 22 mètres sous pression : sécuriser le ballon sur deux charges, puis un coup de pied qui trouve la touche ou l'herbe.",
+    "Keluar dari 22 m sendiri di bawah tekanan: amankan bola lewat dua bawaan, lalu tendangan ke luar lapangan atau ruang kosong.",
+    "Keluar dari 22 m sendiri di bawah tekanan: kukuhkan bola melalui dua bawaan, kemudian sepakan ke luar padang atau ruang kosong.",
+    "ออกจากแดน 22 เมตรของตัวเองภายใต้แรงกดดัน รักษาบอลด้วยการพาบอลปะทะสองครั้ง แล้วเตะออกข้างหรือลงพื้นที่ว่าง",
+    "Thoát khỏi vạch 22 của mình dưới áp lực: giữ bóng qua hai lần ôm bóng lao lên, rồi một cú đá ra biên hoặc vào khoảng trống.")
+TACKLE_PURPOSE = _t12(
+    "Tackle safely and effectively: the carrier goes down where he is met, and the tackler is the first man back on his feet.",
+    "安全而有效地擒抱：持球人在哪里被接住就在哪里倒地，擒抱者第一个站起来。",
+    "安全而有效地擒抱：持球人在哪裡被接住就在哪裡倒地，擒抱者第一個站起來。",
+    "安全で効果的なタックル。ボールキャリアは当たった場所で倒れ、タックラーが真っ先に立ち上がる。",
+    "안전하고 효과적인 태클: 볼 캐리어는 맞닥뜨린 자리에서 넘어지고, 태클러가 가장 먼저 일어선다.",
+    "Placar con seguridad y eficacia: el portador cae donde se le encuentra y el placador es el primero en levantarse.",
+    "Plaquer en sécurité et efficacement : le porteur tombe là où il est rencontré, et le plaqueur est le premier debout.",
+    "Tekel yang aman dan efektif: pembawa bola jatuh di tempat ia dihadang, dan penekel yang pertama berdiri lagi.",
+    "Tekel yang selamat dan berkesan: pembawa bola jatuh di tempat dia ditemui, dan penekel yang pertama bangun semula.",
+    "แท็กเกิลอย่างปลอดภัยและได้ผล คนถือบอลล้มตรงจุดที่ถูกปะทะ และคนแท็กเกิลลุกขึ้นก่อนใคร",
+    "Truy cản an toàn và hiệu quả: người cầm bóng ngã đúng chỗ bị chặn, và người truy cản là người đứng dậy đầu tiên.")
+
+
+# ── handling ──────────────────────────────────────────────────────────────
+def handling_family() -> list[Drill]:
+    """A staggered line running onto the ball: each man starts STAGGER
+    deeper than the one inside him and runs RUN up the field a beat, so the
+    pass he takes is always flat or behind the man who threw it."""
+    STAGGER, RUN = 4.0, 3.0
+    specs = [
+        # key, label, lanes (x), front man's start (y), cones
+        ("grid", "in a grid", [23, 29, 35, 41], 92.0,
+         [(18, 72), (46, 72), (18, 106), (46, 106)], 76.0),
+        ("threes", "in threes", [27, 35, 43], 92.0,
+         [(27, 78), (35, 78), (43, 78)], 80.0),
+        ("wide", "across the width", [5, 17, 29, 41, 53, 65], 84.0,
+         [(x, 62) for x in (5, 17, 29, 41, 53, 65)], 64.0),
+    ]
     out = []
-    for key, label, defenders in [("drive", "driving from the lineout", 3),
-                                  ("defend", "defending it", 5)]:
-        y = 0.40
-        pod = [P(-0.02 if i == 0 else 0.13 + 0.025 * (i - 1),
-                 y + (0.012 * i if i else 0.03), "2" if i == 0 else f"{i + 3}",
-                 moves=[(0.16 + 0.02 * (i - 1), y - 0.06 + 0.012 * i, 1)]
-                 if i else [(0.06, y + 0.02, 1)])
-               for i in range(6)]
+    for key, label, xs, y0, cones, finish in specs:
+        n = len(xs)
+        b = Board()
+        keys = [str(i + 1) for i in range(n)]
+        for i, (k, x) in enumerate(zip(keys, xs)):
+            b.put(k, x, y0 + STAGGER * i)
+        for beat in range(n):
+            for i, k in enumerate(keys):
+                if beat == n - 1 and i == n - 1:
+                    # the end man takes it over the line of cones
+                    b.go(k, b.x(k), finish, beat)
+                else:
+                    b.go(k, b.x(k), b.y(k) - RUN, beat)
         out.append(Drill(
-            id=f"rg_maul_{key}", category="setpiece", minutes=12, rel=True,
-            # A maul is players bound to each other; spread apart it is not a maul.
-            tight=True,
-            free=(key == "drive"), off_surface=True,
-            name=suffixed(MAUL_NAME, label), note=MAUL_NOTE,
-            home=pod,
-            away=[P(0.20 + 0.03 * i, y - 0.10, "D",
-                    moves=[(0.18 + 0.03 * i, y - 0.05, 1)])
-                  for i in range(defenders)],
+            id=f"rg_handling_{key}", category="warmup", minutes=8, rel=True,
+            free=(key in ("grid", "threes")),
+            name=suffixed(HANDLE_NAME, label), note=HANDLE_NOTE,
+            home=b.players(keys),
+            markers=[mk(x, y) for x, y in cones],
             ball=0,
-            # won at the front and buried in the drive as it rumbles
-            ball_to=[(1, 0), (5, 1)],
+            ball_to=[(i + 1, i) for i in range(n - 1)] + [(n - 1, n - 1)],
         ))
     return out
 
+
+# ── phase play ────────────────────────────────────────────────────────────
+def _pod(labels, cx, y):
+    """A pod's shape: one is a man, two stand side by side, three are a
+    shallow arrow with the hitter in front, four a flat four."""
+    offs = {1: [(0, 0)], 2: [(-2.5, 0), (2.5, 0)],
+            3: [(-4.6, 4), (0, 0), (4.6, 4)],
+            4: [(-6.9, 4), (-2.3, 0), (2.3, 0), (6.9, 4)]}[len(labels)]
+    return [(lbl, cx + dx, y + dy) for lbl, (dx, dy) in zip(labels, offs)]
+
+
+def _phase(key, label, free, ruck_x, groups, hit1, hit2, edge, d_xs):
+    """Two phases and the finish.
+
+    The 9 at the base passes to the first pod's hitter, who carries into
+    the tackle and places the ball back; the 9 passes again to the second
+    hitter, who gives it to the edge man, and the edge man scores. Every
+    receiver catches deeper than the ball was released; the defence comes
+    up and meets each carrier at the gain line rather than running through.
+    """
+    b = Board()
+    order = []
+    for labels, cx in groups:
+        for lbl, x, y in _pod(labels, cx, 58.0):
+            b.put(lbl, x, y)
+            order.append(lbl)
+    b.put("9", ruck_x, 53.0)
+    dkeys = [f"D#{i}" for i in range(len(d_xs))]
+    for k, x in zip(dkeys, d_xs):
+        b.put(k, x, 38.0)
+    pod1 = next(g for g, _ in groups if hit1 in g)
+    mates = [m for m in pod1 if m != hit1]
+
+    # beat 0: the 9 passes, the hitter runs onto it from depth
+    b.go(hit1, b.x(hit1), b.y(hit1) - 3.0, 0)
+    b.shift([k for k in order if k != hit1], 0, -2.0, 0)
+    b.shift(dkeys, 0, 3.0, 0)
+    # beat 1: into contact; two defenders meet him on the gain line
+    cx, cy = b.x(hit1) - 1.0, 48.0
+    b.go(hit1, cx, cy, 1)
+    near = sorted(dkeys, key=lambda k: abs(b.x(k) - cx))[:2]
+    tacklers = sorted(near, key=lambda k: b.x(k))
+    b.go(tacklers[0], cx - 2.5, cy - 4.0, 1)
+    b.go(tacklers[1], cx + 2.5, cy - 4.0, 1)
+    left = [m for m in mates if b.x(m) < cx]
+    right = [m for m in mates if b.x(m) >= cx]
+    if left:
+        b.go(left[-1], cx - 5.0, cy + 3.0, 1)
+    if right:
+        b.go(right[0], cx + 5.0, cy + 3.0, 1)
+    b.go("9", cx + 4.5, cy + 11.0, 1)
+    rest = [k for k in order if k not in pod1]
+    b.shift(rest, -2.0, 0, 1)
+    # beat 2: the ball is placed back at the 9's feet; the second pod
+    # drops to depth and the defence realigns on it
+    ball_back = spot(cx + 3.0, cy + 9.0)
+    b.shift([k for k in [g for g, _ in groups if hit2 in g][0] if k != edge],
+            0, 2.0, 2)
+    free_d = [k for k in dkeys if k not in tacklers]
+    b.shift(free_d, 2.0, 1.0, 2)
+    # beat 3: the 9 passes to the second hitter, running onto it
+    h2_y = max(b.y(hit2) - 1.5, cy + 13.0)
+    b.go(hit2, b.x(hit2), h2_y, 3)
+    b.shift([k for k in [g for g, _ in groups if hit2 in g][0]
+             if k not in (hit2, edge)], 0, -1.5, 3)
+    b.go(edge, b.x(edge), b.y(edge) - 1.0, 3)
+    # beat 4: he draws the last defenders and gives it to the edge man
+    # behind him; they meet him at the line
+    e_y = max(b.y(edge) - 1.0, h2_y + 2.0)
+    b.go(edge, b.x(edge) + 1.0, e_y, 4)
+    hx, hy = b.x(hit2), h2_y - 5.0
+    b.go(hit2, hx, hy, 4)
+    on_h2 = sorted(free_d, key=lambda k: abs(b.x(k) - hx))[:2]
+    for i, k in enumerate(sorted(on_h2, key=lambda k: b.x(k))):
+        b.go(k, hx - 2.5 + 5.0 * i, hy - 4.0, 4)
+    # beat 5: the edge man goes over and grounds it
+    b.go(edge, b.x(edge), 16.0, 5)
+    chaser = max(dkeys, key=lambda k: b.x(k)) if b.x(edge) > 35 else min(
+        dkeys, key=lambda k: b.x(k))
+    # the cover chases him in, inside him and beaten for pace
+    if chaser in on_h2:
+        chaser = [k for k in dkeys if k not in on_h2][-1]
+    inside = -9.0 if b.x(edge) > 35 else 9.0
+    b.go(chaser, b.x(edge) + inside, 30.0, 5)
+    home_keys = order + ["9"]
+    return Drill(
+        id=f"rg_phase_{key}", category="possession", minutes=14, rel=True,
+        tight=True, free=free,
+        name=suffixed(PHASE_NAME, label), note=PHASE_NOTE,
+        home=b.players(home_keys),
+        away=b.players(dkeys),
+        ball=home_keys.index("9"), ball_spot=pt(ruck_x + 2.0, 51.0),
+        ball_to=[(home_keys.index(hit1), 0), (home_keys.index(hit1), 1),
+                 (ball_back, 2), (home_keys.index(hit2), 3),
+                 (home_keys.index(edge), 4), (home_keys.index(edge), 5)],
+    )
+
+
+def phase_family() -> list[Drill]:
+    return [
+        # one forward on each edge, two pods of three between them
+        _phase("one_three_three_one", "1-3-3-1", True, 13.0,
+               [(["6"], 5.0), (["1", "2", "3"], 25.0),
+                (["4", "8", "5"], 46.0), (["7"], 65.0)],
+               "2", "8", "7", [12, 22, 32, 42, 52, 60]),
+        # a pair on each edge, four in the middle
+        _phase("two_four_two", "2-4-2", False, 19.0,
+               [(["6", "2"], 7.0), (["1", "4", "5", "3"], 34.0),
+                (["8", "7"], 61.0)],
+               "4", "8", "7", [12, 22, 32, 42, 52, 60]),
+        # off a ruck on the left, the ball goes across to the right
+        _phase("left_to_right", "left to right", False, 12.0,
+               [(["1", "2", "3"], 24.0), (["4", "5", "6"], 40.0),
+                (["10"], 52.0), (["13"], 63.0)],
+               "2", "10", "13", [10, 20, 30, 40, 50, 60]),
+    ]
+
+
+# ── backline moves ────────────────────────────────────────────────────────
+def move_family() -> list[Drill]:
+    """Five backs against four defenders, off first-phase ball.
+
+    The line is staggered three metres a man and runs two a beat, so every
+    pass along it is caught behind the passer. Each move ends with the man
+    it frees carrying the ball over the line; the decoys and the carriers
+    the defence reaches are met at the gain line, not run through.
+    """
+    out = []
+    for key, label in [("miss_pass", "the miss pass"), ("switch", "the switch"),
+                       ("loop", "the loop"), ("cut_out", "the cut-out"),
+                       ("dummy_runner", "with a dummy runner")]:
+        b = Board()
+        backs = ["10", "12", "13", "15", "14"]
+        for i, k in enumerate(backs):
+            b.put(k, 20.0 + 10.0 * i, 56.0 + 3.0 * i)
+        dk = [f"D#{i}" for i in range(4)]
+        for i, k in enumerate(dk):
+            b.put(k, 24.0 + 10.0 * i, 42.0)
+        D1, D2, D3, D4 = dk
+        # beat 0, every move: 10 passes to 12 as the line comes up
+        b.shift(backs, 0, -2.0, 0)
+        b.shift(dk, 0, 3.0, 0)
+        i10, i12, i13, i15, i14 = range(5)
+        if key == "miss_pass":
+            b.shift(["10", "12", "15", "14"], 0, -2.0, 1)
+            b.go("13", 41.0, 52.0, 1)               # holds his man
+            b.go(D3, 42.0, 50.0, 1)
+            b.shift([D1, D2], 0, 3.0, 1)
+            b.go(D4, 55.0, 48.0, 1)
+            b.go("14", 61.0, 62.0, 2)
+            b.go("15", 51.0, 57.0, 2)               # draws D4 and gives it
+            b.go(D4, 52.5, 55.0, 2)
+            b.shift(["10", "12"], 0, -1.0, 2)
+            b.go("14", 62.0, 16.0, 3)
+            b.go(D4, 50.0, 46.0, 3)
+            ball_to = [(i12, 0), (i15, 1), (i14, 2), (i14, 3)]
+        elif key == "switch":
+            b.go("12", 37.0, 53.0, 1)               # drifts out with it
+            b.go("13", 31.0, 59.0, 1)               # cuts back behind him
+            b.go("10", 22.0, 53.0, 1)
+            b.shift(["15", "14"], 0, -2.0, 1)
+            b.go(D2, 36.0, 48.0, 1)
+            b.go(D3, 41.0, 48.0, 1)
+            b.go(D1, 23.0, 48.0, 1)
+            b.go(D4, 54.0, 48.0, 1)
+            b.go("13", 29.0, 56.5, 2)
+            b.go("12", 38.0, 50.5, 2)               # taken by D3 after
+            b.go(D3, 40.0, 49.0, 2)
+            b.go(D2, 36.0, 49.0, 2)
+            b.go("10", 22.0, 51.0, 2)               # holds D1
+            b.go(D1, 22.5, 49.0, 2)
+            b.go("13", 28.0, 16.0, 3)
+            b.go(D2, 36.0, 44.0, 3)
+            ball_to = [(i12, 0), (i12, 1), (i13, 2), (i13, 3)]
+        elif key == "loop":
+            b.go("10", 34.5, 61.0, 1)               # round the back of 12
+            b.go("12", 30.0, 55.5, 1)
+            b.go("13", 45.0, 60.0, 1)
+            b.go("15", 53.0, 61.0, 1)
+            b.go("14", 62.0, 64.0, 1)
+            b.go(D2, 32.0, 48.0, 1)
+            b.go(D3, 45.0, 48.0, 1)
+            b.go(D1, 26.0, 48.0, 1)
+            b.go(D4, 55.0, 48.0, 1)
+            b.go("10", 36.5, 59.0, 2)               # outside 12, behind him
+            b.go("12", 31.0, 51.5, 2)               # into D2
+            b.go(D2, 31.0, 49.5, 2)
+            b.go("13", 45.0, 53.0, 2)               # holds D3
+            b.go(D3, 45.0, 51.0, 2)
+            b.go("10", 38.0, 16.0, 3)
+            b.go(D4, 47.0, 40.0, 3)
+            ball_to = [(i12, 0), (i12, 1), (i10, 2), (i10, 3)]
+        elif key == "cut_out":
+            b.go("14", 61.0, 63.5, 1)
+            b.go("12", 30.0, 54.0, 1)
+            b.go("13", 42.0, 53.0, 1)               # decoys hold their men
+            b.go("15", 51.0, 57.0, 1)
+            b.go("10", 20.0, 52.0, 1)
+            b.go(D3, 43.0, 51.0, 1)
+            b.go(D4, 52.0, 51.0, 1)
+            b.shift([D1, D2], 0, 3.0, 1)
+            b.go("14", 63.0, 16.0, 2)
+            b.go(D4, 51.0, 46.0, 2)
+            ball_to = [(i12, 0), (i14, 1), (i14, 2)]
+        else:   # dummy_runner
+            b.go("13", 35.0, 53.0, 1)               # the hard, short dummy line
+            b.go("12", 29.0, 55.5, 1)
+            b.go("15", 47.0, 61.0, 1)               # out the back
+            b.go("14", 60.0, 64.0, 1)
+            b.go("10", 20.0, 52.0, 1)
+            b.go(D3, 37.0, 50.5, 1)                 # bites on the dummy
+            b.go(D2, 32.0, 49.0, 1)
+            b.go(D4, 54.0, 49.0, 1)
+            b.go(D1, 24.0, 48.0, 1)
+            b.go("15", 45.0, 16.0, 2)
+            b.go(D4, 56.0, 46.0, 2)
+            ball_to = [(i12, 0), (i15, 1), (i15, 2)]
+        out.append(Drill(
+            id=f"rg_move_{key}", category="attacking", minutes=12, rel=True,
+            tight=True, free=(key in ("miss_pass", "switch")),
+            name=suffixed(MOVE_NAME, dashed(label)), note=MOVE_NOTE,
+            home=b.players(backs), away=b.players(dk),
+            ball=0, ball_to=ball_to,
+        ))
+    return out
+
+
+# ── finishing ─────────────────────────────────────────────────────────────
+WIDE_FINISH_NOTE = _t12(
+    "In the corner, finish low and away from the cover: ball in the hand furthest from the touchline, and down before the corner flag, not on it.",
+    "在角上终结要压低、远离补防：球拿在离边线远的那只手里，在角旗之前按下，不要压在角旗上。",
+    "在角上終結要壓低、遠離補防：球拿在離邊線遠的那隻手裡，在角旗之前按下，不要壓在角旗上。",
+    "コーナーでは低く、カバーから離れてフィニッシュ。ボールはタッチラインから遠い手に持ち、コーナーフラッグより手前で置く。",
+    "코너에서는 낮게, 커버에서 멀리 마무리한다. 공은 터치라인에서 먼 손에 들고, 코너 플래그 앞에서 찍는다.",
+    "En la esquina, termina bajo y lejos del que cubre: el balón en la mano más alejada de la línea de touche, y abajo antes del banderín, no encima.",
+    "Dans le coin, finis bas et loin du couvreur : le ballon dans la main la plus éloignée de la touche, aplati avant le drapeau, pas dessus.",
+    "Di sudut, selesaikan rendah dan jauh dari penutup: bola di tangan yang terjauh dari garis samping, tekan sebelum bendera sudut.",
+    "Di sudut, selesaikan rendah dan jauh daripada penutup: bola di tangan yang paling jauh dari garisan tepi, tekan sebelum bendera sudut.",
+    "ในมุมสนามให้จบต่ำและห่างจากคนตามปิด ถือบอลมือที่ไกลเส้นข้าง และวางก่อนถึงธงมุม",
+    "Ở góc, dứt điểm thấp người và tránh xa người bọc lót: bóng ở tay xa đường biên, ấn xuống trước cờ góc chứ không phải trên nó.")
+
+
+def finishing_family() -> list[Drill]:
+    out = []
+    # pick and go: the ball at the base of a ruck three metres out
+    b = Board()
+    b.put("1", 38.5, 31.0)
+    b.put("2", 43.0, 37.0)
+    b.put("D#0", 35.0, 21.0)
+    b.put("D#1", 41.0, 21.0)
+    b.go("1", 36.0, 25.0, 0)        # picks it up and drives at the line
+    b.go("D#0", 35.5, 22.5, 0)
+    b.go("D#1", 39.5, 22.0, 0)
+    b.go("2", 40.5, 31.0, 0)        # binds on behind him
+    b.go("1", 35.5, 17.0, 1)        # over, and down
+    b.go("D#0", 34.0, 15.0, 1)
+    b.go("2", 40.0, 24.0, 1)
+    out.append(Drill(
+        id="rg_finish_pick_and_go", category="finishing", minutes=10, rel=True,
+        tight=True, free=True,
+        name=suffixed(FINISH_NAME, dashed("pick and go")), note=FINISH_NOTE,
+        home=b.players(["1", "2"]), away=b.players(["D#0", "D#1"]),
+        markers=[mk(35, 14, "zone")],
+        ball=pt(36.5, 28.5),
+        ball_to=[(0, 0), (0, 1)],
+    ))
+
+    # in the corner: draw the cover, give it outside, dive in at the flag
+    b = Board()
+    b.put("1", 56.0, 42.0)
+    b.put("2", 64.0, 48.0)
+    b.put("D#0", 48.0, 28.0)
+    b.put("D#1", 60.0, 26.0)
+    b.go("1", 57.0, 35.0, 0)
+    b.go("2", 64.0, 41.0, 0)
+    b.go("D#0", 54.0, 30.0, 0)
+    b.go("D#1", 59.0, 30.0, 0)
+    b.go("2", 65.0, 37.5, 1)        # outside him and behind the ball
+    b.go("1", 57.0, 32.0, 1)        # taken as he gives it
+    b.go("D#1", 58.0, 30.5, 1)
+    b.go("D#0", 59.0, 27.0, 1)
+    b.go("2", 65.5, 15.0, 2)
+    b.go("D#0", 62.0, 21.0, 2)
+    out.append(Drill(
+        id="rg_finish_wide_finish", category="finishing", minutes=10, rel=True,
+        name=suffixed(FINISH_NAME, "in the corner"), note=WIDE_FINISH_NOTE,
+        home=b.players(["1", "2"]), away=b.players(["D#0", "D#1"]),
+        markers=[mk(63, 13, "zone")],
+        ball=0,
+        ball_to=[(0, 0), (1, 1), (1, 2)],
+    ))
+
+    # off the kick chase: a chip over the line, regathered and grounded
+    b = Board()
+    b.put("10", 30.0, 42.0)
+    b.put("13", 38.0, 44.0)          # behind the kicker: onside
+    b.put("D#0", 24.0, 30.0)
+    b.put("D#1", 38.0, 31.0)
+    b.go("13", 34.0, 32.0, 0)
+    b.go("10", 29.0, 36.0, 0)
+    b.go("D#0", 25.0, 28.0, 0)
+    b.go("D#1", 37.0, 27.0, 0)
+    b.go("13", 31.5, 27.5, 1)
+    b.go("D#1", 35.5, 24.5, 1)
+    b.go("13", 31.0, 16.0, 2)
+    b.go("D#1", 34.5, 19.0, 2)
+    out.append(Drill(
+        id="rg_finish_kick_chase", category="finishing", minutes=10, rel=True,
+        name=suffixed(FINISH_NAME, "off the kick chase"), note=FINISH_NOTE,
+        home=b.players(["10", "13"]), away=b.players(["D#0", "D#1"]),
+        markers=[mk(31, 13, "zone")],
+        ball=0,
+        ball_to=[(spot(31.0, 26.0), 0), (1, 1), (1, 2)],
+    ))
+    return out
+
+
+# ── defence ───────────────────────────────────────────────────────────────
+def defence_family() -> list[Drill]:
+    """The home side defends here: six numbered defenders facing down the
+    page, against five attackers lettered A-E running up it."""
+    out = []
+    att = ["A", "B", "C", "D", "E"]
+    defs = ["1", "2", "3", "4", "5", "6"]
+    for key, label in [("drift", "drifting"), ("blitz", "the blitz"),
+                       ("scramble", "scrambling back")]:
+        b = Board()
+        for i, k in enumerate(att):
+            b.put(k, 14.0 + 12.0 * i, 64.0 + 3.0 * i)
+        for i, k in enumerate(defs):
+            b.put(k, 10.0 + 10.0 * i, 50.0)
+        home_keys = list(defs)
+        if key == "drift":
+            ball = pt(14.0, 62.0)
+            b.shift(att, 0, -1.5, 0)
+            b.shift(defs, 2.5, 1.5, 0)
+            b.shift(att, 0, -1.5, 1)
+            b.shift(defs, 2.5, 1.0, 1)
+            b.shift(att, 0, -1.5, 2)
+            b.shift(defs, 2.5, 0.5, 2)
+            b.go("D", 50.0, 64.0, 3)                # into the tackle
+            b.go("4", 49.5, 61.0, 3)
+            b.go("5", 59.5, 59.0, 3)                # on E, inside him
+            ball_to = [("a1", 0), ("a2", 1), ("a3", 2), ("a3", 3)]
+        elif key == "blitz":
+            ball = pt(14.0, 62.0)
+            b.shift(att, 0, -2.0, 0)
+            b.shift(defs, -1.0, 8.0, 0)
+            b.go("B", 26.0, 62.0, 1)                # B takes it into contact
+            b.go("2", 25.0, 60.5, 1)
+            b.go("1", 14.0, 57.5, 1)                # each stops short of his man
+            b.go("3", 38.0, 63.5, 1)
+            b.go("4", 50.0, 66.5, 1)
+            b.go("5", 61.0, 69.5, 1)
+            b.go("6", 66.5, 64.0, 1)
+            b.shift(["A", "C", "D", "E"], 0, -1.0, 1)
+            ball_to = [("a1", 0), ("a1", 1)]
+        else:
+            # The line has been broken: B gives it to C on the gap and the
+            # defenders turn and chase back toward their own try line, the
+            # full-back coming across to make the tackle short of it.
+            b.put("15", 52.0, 28.0)
+            home_keys = defs + ["15"]
+            ball = pt(26.0, 65.0)
+            b.go("C", 36.0, 68.0, 0)
+            b.shift(["A", "B", "D", "E"], 0, -2.0, 0)
+            b.shift(defs, 0, 2.0, 0)
+            b.go("C", 35.0, 44.0, 1)                # through the gap
+            b.shift(defs, 0, -6.0, 1)               # turned, chasing back
+            b.go("15", 43.0, 34.0, 1)
+            b.go("C", 34.0, 31.0, 2)
+            b.go("15", 35.0, 29.5, 2)               # the tackle
+            b.shift(defs, 0, -8.0, 2)
+            b.shift(["A", "B", "D", "E"], 0, -3.0, 1)
+            ball_to = [("a2", 0), ("a2", 1), ("a2", 2)]
+        out.append(Drill(
+            id=f"rg_defence_{key}", category="defending", minutes=12, rel=True,
+            free=(key == "drift"),
+            name=suffixed(DEF_NAME, dashed(label)), note=DEF_NOTE,
+            home=b.players(home_keys), away=b.players(att),
+            ball=ball, ball_to=ball_to,
+        ))
+    return out
+
+
+# ── set pieces ────────────────────────────────────────────────────────────
+def _lineout(b, jumpers, line_y, d_label="D"):
+    """Two single files, at right angles to touch, from the 5 m line in:
+    ours on our side of the line of touch, theirs on theirs. The thrower
+    stands outside the touchline on it."""
+    keys = []
+    for i, lbl in enumerate(jumpers):
+        b.put(lbl, 6.0 + 4.4 * i, line_y + 4.0)
+        keys.append(lbl)
+    dk = [f"{d_label}#{i}" for i in range(len(jumpers))]
+    for i, k in enumerate(dk):
+        b.put(k, 6.0 + 4.4 * i, line_y - 4.0)
+    b.put("2", -1.5, line_y)
+    return keys, dk
+
+
+def setpiece_family() -> list[Drill]:
+    out = []
+
+    # ── the scrum: 8 v 8, the 9 feeds the tunnel, the hooker strikes it
+    # back to the No. 8's feet and the 9 passes it away from the base.
+    b = Board()
+    pack = {"1": (30.5, 68), "2": (35.0, 68), "3": (39.5, 68),
+            "6": (28.25, 76), "4": (32.75, 76), "5": (37.25, 76),
+            "7": (41.75, 76), "8": (35.0, 84)}
+    for k, (x, y) in pack.items():
+        b.put(k, x, y)
+    b.put("9", 25.0, 64.0)
+    b.put("10", 16.0, 92.0)
+    theirs = [(39.5, 60), (35.0, 60), (30.5, 60),
+              (41.75, 52), (37.25, 52), (32.75, 52), (28.25, 52), (35.0, 44)]
+    dk = [f"D#{i}" for i in range(8)]
+    for k, (x, y) in zip(dk, theirs):
+        b.put(k, x, y)
+    b.put("9#a", 45.0, 58.0)
+    b.shift(list(pack), 0, -2.0, 0)                 # engage
+    b.shift(dk, 0, 2.0, 0)
+    b.go("9#a", 44.5, 61.0, 1)                      # their 9 follows the feed
+    b.go("10", 18.0, 91.0, 1)
+    b.go("9", 30.5, 89.0, 2)                        # round to the base
+    b.go("9#a", 42.0, 64.0, 2)
+    b.go("10", 20.0, 95.0, 3)                       # onto the pass, deep
+    home = list(pack) + ["9", "10"]
+    out.append(Drill(
+        id="rg_set_scrum", category="setpiece", minutes=12, rel=True,
+        tight=True, name=suffixed(SET_NAME, dashed("the scrum")), note=SET_NOTE,
+        home=b.players(home), away=b.players(dk + ["9#a"]),
+        ball=home.index("9"), ball_spot=pt(27.5, 64.0),
+        ball_to=[(spot(33.5, 65.0), 1), (spot(34.0, 89.5), 2),
+                 (home.index("10"), 3)],
+    ))
+
+    # ── the lineouts
+    for key, label, jumpers, jumper in [
+            ("lineout_five", "the five-man lineout",
+             ["4", "5", "6", "7", "8"], "5"),
+            ("lineout_seven", "the seven-man lineout",
+             ["1", "3", "4", "5", "6", "7", "8"], "5")]:
+        b = Board()
+        line_y = 66.0
+        keys, dk = _lineout(b, jumpers, line_y)
+        jx = b.x(jumper)
+        b.put("9", jx + 2.0, line_y + 12.0)
+        b.put("10", jx + 22.0, line_y + 24.0)
+        jd = min(dk, key=lambda k: abs(b.x(k) - jx))
+        b.go(jd, jx + 1.5, line_y - 4.5, 0)         # their jumper contests
+        b.go("10", jx + 21.0, line_y + 22.0, 0)
+        b.go("9", jx + 3.5, line_y + 13.0, 1)
+        b.go("10", jx + 20.0, line_y + 21.0, 2)
+        b.go("10", jx + 18.0, line_y + 20.0, 3)
+        b.go("10", jx + 16.0, line_y + 13.0, 4)     # and takes it up
+        b.go(jd, jx, line_y - 4.0, 2)
+        home = ["2"] + keys + ["9", "10"]
+        out.append(Drill(
+            id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
+            tight=True, free=(key == "lineout_five"), off_surface=True,
+            name=suffixed(SET_NAME, dashed(label)), note=SET_NOTE,
+            home=b.players(home), away=b.players(dk),
+            ball=0, ball_spot=pt(-0.3, line_y),
+            # straight down the middle of the gap to the jumper's mark,
+            # taken, given back to the 9 and on to the 10
+            ball_to=[(spot(jx, line_y + 0.5), 0), (home.index(jumper), 1),
+                     (home.index("9"), 2), (home.index("10"), 3),
+                     (home.index("10"), 4)],
+        ))
+
+    # ── receiving the kick-off: the ball from the centre of halfway,
+    # landing past our 10 m line on a pod of three, the 9 behind it.
+    b = Board()
+    for k, (x, y) in {"4": (19.6, 94), "5": (24.0, 92), "6": (28.4, 94),
+                      "8": (42.0, 94), "9": (33.0, 102),
+                      "15": (35.0, 114)}.items():
+        b.put(k, x, y)
+    b.put("10#a", 35.0, 69.0)
+    b.put("D#0", 20.0, 69.0)
+    b.put("D#1", 50.0, 69.0)
+    b.go("5", 24.0, 87.5, 0)
+    b.go("4", 19.6, 89.0, 0)
+    b.go("6", 28.4, 89.0, 0)
+    b.go("D#0", 22.0, 79.0, 0)
+    b.go("D#1", 38.0, 80.0, 0)
+    b.go("10#a", 35.0, 75.0, 0)
+    b.go("D#0", 23.5, 83.0, 1)
+    b.go("9", 30.0, 96.0, 1)
+    b.go("8", 40.0, 92.0, 2)
+    b.go("15", 38.0, 108.0, 2)
+    home = ["4", "5", "6", "8", "9", "15"]
+    out.append(Drill(
+        id="rg_set_kick_off", category="setpiece", minutes=12, rel=True,
+        tight=True, free=True,
+        name=suffixed(SET_NAME, dashed("receiving the kick-off")), note=SET_NOTE,
+        home=b.players(home), away=b.players(["10#a", "D#0", "D#1"]),
+        markers=[mk(24, 86, "zone")],
+        ball=pt(35.0, 72.0),
+        ball_to=[(spot(24.0, 86.0), 0), (home.index("5"), 1),
+                 (home.index("9"), 2)],
+    ))
+    return out
+
+
+# ── kicking ───────────────────────────────────────────────────────────────
+def kicking_family() -> list[Drill]:
+    """The kicker holds the ball, the chasers start level with him or
+    behind him, and the ball lands in the zone before anybody plays it."""
+    out = []
+    # box kick: off the base of a ruck by our 22, contested where it lands
+    b = Board()
+    b.put("9", 14.0, 98.0)
+    b.put("11", 6.0, 101.0)
+    b.put("13", 24.0, 101.0)
+    b.put("14#a", 16.0, 60.0)
+    b.put("15#a", 36.0, 52.0)
+    b.go("11", 10.0, 80.0, 0)
+    b.go("13", 22.0, 82.0, 0)
+    b.go("14#a", 16.0, 68.5, 0)
+    b.go("15#a", 30.0, 60.0, 0)
+    b.go("11", 13.0, 72.0, 1)
+    b.go("13", 20.0, 72.5, 1)
+    b.go("15#a", 26.0, 66.0, 1)
+    out.append(Drill(
+        id="rg_kick_box", category="attacking", minutes=10, rel=True,
+        free=True, purpose=KICK_PURPOSE,
+        name=suffixed(KICK_NAME, dashed("the box kick")), note=KICK_NOTE,
+        home=b.players(["9", "11", "13"]), away=b.players(["14#a", "15#a"]),
+        markers=[mk(16, 70, "zone")],
+        ball=0,
+        ball_to=[(spot(16.0, 70.0), 0), ("a0", 1)],
+    ))
+
+    # cross-field kick: 10 to the far wing, who takes it and scores
+    b = Board()
+    b.put("10", 30.0, 40.0)
+    b.put("14", 60.0, 42.0)
+    b.put("13", 44.0, 43.0)
+    for i, (x, y) in enumerate([(18, 27), (34, 27), (48, 28), (56, 30)]):
+        b.put(f"D#{i}", x, y)
+    b.go("14", 62.0, 34.0, 0)
+    b.go("13", 46.0, 36.0, 0)
+    b.shift(["D#0", "D#1", "D#2"], 0, 2.0, 0)
+    b.go("D#3", 57.0, 28.0, 0)
+    b.go("14", 62.0, 31.5, 1)
+    b.go("D#3", 58.5, 28.0, 1)
+    b.go("13", 50.0, 30.0, 1)
+    b.go("14", 63.0, 15.0, 2)
+    out.append(Drill(
+        id="rg_kick_cross_field", category="attacking", minutes=10, rel=True,
+        purpose=KICK_PURPOSE,
+        name=suffixed(KICK_NAME, dashed("the cross-field kick")), note=KICK_NOTE,
+        home=b.players(["10", "14", "13"]),
+        away=b.players([f"D#{i}" for i in range(4)]),
+        markers=[mk(62, 28, "zone")],
+        ball=0,
+        ball_to=[(spot(62.0, 28.0), 0), (1, 1), (1, 2)],
+    ))
+
+    # territory: from inside our 22 to grass by their touchline
+    b = Board()
+    b.put("10", 35.0, 104.0)
+    b.put("11", 8.0, 106.0)
+    b.put("14", 62.0, 106.0)
+    b.put("11#a", 8.0, 50.0)
+    b.put("15#a", 35.0, 44.0)
+    b.put("14#a", 60.0, 48.0)
+    b.go("11", 20.0, 84.0, 0)
+    b.go("14", 60.0, 80.0, 0)
+    b.go("14#a", 63.0, 54.0, 0)
+    b.go("15#a", 45.0, 48.0, 0)
+    b.go("14", 62.0, 64.0, 1)
+    b.go("11", 40.0, 66.0, 1)
+    b.go("15#a", 52.0, 50.0, 1)
+    out.append(Drill(
+        id="rg_kick_territory", category="attacking", minutes=10, rel=True,
+        purpose=KICK_PURPOSE,
+        name=suffixed(KICK_NAME, "for territory"), note=KICK_NOTE,
+        home=b.players(["10", "11", "14"]),
+        away=b.players(["11#a", "15#a", "14#a"]),
+        markers=[mk(64, 56, "zone")],
+        ball=0,
+        ball_to=[(spot(64.0, 56.0), 0), ("a2", 1)],
+    ))
+
+    # grubber: through the line, regathered by the chaser from behind
+    b = Board()
+    b.put("10", 35.0, 46.0)
+    b.put("12", 27.0, 48.0)
+    b.put("13", 45.0, 48.0)
+    b.put("D#0", 28.0, 34.0)
+    b.put("D#1", 42.0, 34.0)
+    b.go("13", 41.0, 33.0, 0)
+    b.go("12", 30.0, 36.0, 0)
+    b.go("D#0", 29.0, 33.0, 0)
+    b.go("D#1", 43.0, 31.0, 0)
+    b.go("13", 38.5, 28.5, 1)
+    b.go("D#1", 41.5, 32.0, 1)
+    b.go("12", 32.0, 32.0, 1)
+    b.go("13", 37.0, 16.0, 2)
+    b.go("D#1", 40.0, 25.0, 2)
+    out.append(Drill(
+        id="rg_kick_grubber", category="attacking", minutes=10, rel=True,
+        purpose=KICK_PURPOSE,
+        name=suffixed(KICK_NAME, dashed("the grubber")), note=KICK_NOTE,
+        home=b.players(["10", "12", "13"]), away=b.players(["D#0", "D#1"]),
+        markers=[mk(38, 27, "zone")],
+        ball=0,
+        ball_to=[(spot(38.0, 27.0), 0), (2, 1), (2, 2)],
+    ))
+    return out
+
+
+# ── the breakdown ─────────────────────────────────────────────────────────
+def breakdown_family() -> list[Drill]:
+    """A tackle, the ball placed back, and what happens over it."""
+    out = []
+
+    # quick ball: two supporters arrive low and past the ball, the 9 clears
+    b = Board()
+    b.put("1", 35.0, 66.0)
+    b.put("2", 29.0, 74.0)
+    b.put("3", 41.0, 74.0)
+    b.put("9", 46.0, 80.0)
+    b.put("10", 56.0, 84.0)
+    b.put("D#0", 35.0, 52.0)
+    b.put("D#1", 44.0, 50.0)
+    b.go("1", 35.0, 60.0, 0)
+    b.go("D#0", 35.0, 57.5, 0)
+    b.go("2", 30.0, 66.0, 0)
+    b.go("3", 40.0, 66.0, 0)
+    b.go("9", 43.0, 73.0, 0)
+    b.go("D#1", 41.0, 54.0, 0)
+    b.go("2", 30.5, 58.0, 1)
+    b.go("3", 39.5, 57.0, 1)
+    b.go("9", 40.5, 67.0, 1)
+    b.go("D#1", 40.0, 55.5, 1)
+    b.go("10", 54.0, 78.0, 1)
+    b.go("10", 52.0, 74.0, 2)
+    out.append(Drill(
+        id="rg_breakdown_quick_ball", category="possession", minutes=10,
+        rel=True, tight=True, free=True,
+        name=suffixed(BREAKDOWN_NAME, "for quick ball"), note=BREAKDOWN_NOTE,
+        home=b.players(["1", "2", "3", "9", "10"]),
+        away=b.players(["D#0", "D#1"]),
+        ball=0,
+        ball_to=[(0, 0), (spot(38.5, 65.5), 1), (4, 2)],
+    ))
+
+    # the jackal: a defender gets over the ball on his feet first; the
+    # support man clears him out past it and the 9 gets it away
+    b = Board()
+    b.put("1", 35.0, 66.0)
+    b.put("2", 29.0, 76.0)
+    b.put("9", 46.0, 80.0)
+    b.put("10", 56.0, 84.0)
+    b.put("D#0", 35.0, 52.0)
+    b.put("D#j", 44.0, 50.0)
+    b.go("1", 35.0, 60.0, 0)
+    b.go("D#0", 35.0, 57.5, 0)
+    b.go("D#j", 40.0, 55.0, 0)
+    b.go("2", 31.0, 68.0, 0)
+    b.go("D#j", 37.5, 62.5, 1)                 # over the ball, on his feet
+    b.go("2", 31.0, 63.0, 1)
+    b.go("9", 43.0, 73.0, 1)
+    b.go("2", 39.5, 57.0, 2)                 # the clear-out, past the ball
+    b.go("D#j", 40.5, 54.0, 2)
+    b.go("9", 40.5, 67.0, 2)
+    b.go("10", 54.0, 78.0, 2)
+    b.go("10", 52.0, 74.0, 3)
+    out.append(Drill(
+        id="rg_breakdown_jackal", category="possession", minutes=10,
+        rel=True, tight=True,
+        name=suffixed(BREAKDOWN_NAME, dashed("the jackal")), note=BREAKDOWN_NOTE,
+        home=b.players(["1", "2", "9", "10"]),
+        away=b.players(["D#0", "D#j"]),
+        ball=0,
+        ball_to=[(0, 0), (spot(38.5, 65.5), 1), (3, 3)],
+    ))
+
+    # the counter-ruck: here WE defend (facing down the page). Their
+    # carrier is tackled and places the ball; our three drive over it,
+    # their support is pushed off, and our 9 takes it and passes away —
+    # back up the page, which is behind him now that we have the ball.
+    b = Board()
+    b.put("A", 35.0, 74.0)
+    b.put("B", 30.0, 84.0)
+    b.put("6", 35.0, 56.0)
+    b.put("7", 29.0, 52.0)
+    b.put("8", 41.0, 52.0)
+    b.put("9", 47.0, 46.0)
+    b.put("10", 57.0, 40.0)
+    b.go("A", 35.0, 66.0, 0)
+    b.go("6", 35.0, 63.5, 0)
+    b.go("7", 30.0, 58.0, 0)
+    b.go("8", 40.0, 58.0, 0)
+    b.go("B", 32.0, 76.0, 0)
+    b.go("B", 34.0, 70.0, 1)
+    b.go("7", 30.5, 64.0, 1)
+    b.go("8", 39.5, 64.0, 1)
+    b.go("9", 42.0, 58.0, 1)
+    b.go("7", 30.0, 76.0, 2)                 # drive over the ball
+    b.go("8", 40.0, 76.0, 2)
+    b.go("B", 34.5, 80.0, 2)
+    b.go("6", 26.0, 63.0, 2)                 # the tackler rolls away
+    b.go("9", 35.5, 66.5, 2)
+    b.go("10", 52.0, 52.0, 2)
+    b.go("10", 48.0, 58.0, 3)
+    home = ["6", "7", "8", "9", "10"]
+    out.append(Drill(
+        id="rg_breakdown_counter_ruck", category="possession", minutes=10,
+        rel=True, tight=True,
+        name=suffixed(BREAKDOWN_NAME, dashed("the counter-ruck")),
+        note=BREAKDOWN_NOTE,
+        home=b.players(home), away=b.players(["A", "B"]),
+        ball=pt(35.0, 72.0),
+        ball_to=[("a0", 0), (spot(35.0, 71.0), 1), (home.index("10"), 3)],
+    ))
+    return out
+
+
+# ── games ─────────────────────────────────────────────────────────────────
+def game_family() -> list[Drill]:
+    """A reduced area, 50 m by 50 m, marked by four cones from their try
+    line back to their 10 m line. Two passes along the line and a carry
+    into the defender who comes up to meet it."""
+    out = []
+    for n, label in [(5, "touch 5v5"), (7, "sevens 7v7"), (8, "contact 8v8")]:
+        b = Board()
+        xs = [13.0 + 44.0 * i / (n - 1) for i in range(n)]
+        hk = [str(i + 1) for i in range(n)]
+        ak = [chr(65 + i) for i in range(n)]
+        for i, (k, x) in enumerate(zip(hk, xs)):
+            b.put(k, x, 58.0 + 3.5 * min(i, 3))
+        for k, x in zip(ak, xs):
+            b.put(k, x + 1.0, 44.0)
+        b.shift(hk, 0, -2.5, 0)
+        b.shift(ak, 0, 3.0, 0)
+        b.shift(hk, 0, -2.5, 1)
+        b.shift(ak, 0, 2.0, 1)
+        b.go("3", b.x("3"), 54.0, 2)
+        b.go("C", b.x("3") + 0.5, 52.5, 2)
+        b.shift([k for k in ak if k != "C"], 0, 1.0, 2)
+        out.append(Drill(
+            id=f"rg_game_{n}v{n}", category="ssg", minutes=15, rel=True,
+            tight=True, free=(n == 5),
+            name=suffixed(GAME_NAME, dashed(label)), note=GAME_NOTE,
+            home=b.players(hk), away=b.players(ak),
+            markers=[mk(10, 22), mk(60, 22), mk(10, 72), mk(60, 72)],
+            ball=0,
+            ball_to=[(1, 0), (2, 1), (2, 2)],
+        ))
+    return out
+
+
+# ── tackling, the high ball, place kicking, the exit ──────────────────────
+def gaps_family() -> list[Drill]:
+    out = []
+
+    # Two channels, each a pair of cones 5 m apart. In the left one the
+    # tackler meets the carrier front on; in the right one he comes from
+    # the side. Each carrier has his own ball.
+    b = Board()
+    b.put("A", 24.5, 74.0)
+    b.put("B", 44.5, 74.0)
+    b.put("1", 24.5, 46.0)
+    b.put("2", 35.0, 54.0)
+    b.go("A", 24.5, 64.0, 0)
+    b.go("B", 44.5, 64.0, 0)
+    b.go("1", 24.5, 54.0, 0)
+    b.go("2", 39.5, 57.0, 0)
+    b.go("A", 24.5, 59.5, 1)
+    b.go("1", 24.5, 57.5, 1)                 # front on, in the channel
+    b.go("B", 44.5, 59.5, 1)
+    b.go("2", 43.0, 58.5, 1)                 # from the side
+    out.append(Drill(
+        id="rg_defence_tackle", category="defending", minutes=12, rel=True,
+        level="foundation", free=True, purpose=TACKLE_PURPOSE,
+        name=suffixed(TACKLE_NAME, "front on and from the side"),
+        note=TACKLE_NOTE,
+        home=b.players(["1", "2"]), away=b.players(["A", "B"]),
+        markers=[mk(22, 58), mk(27, 58), mk(42, 58), mk(47, 58)],
+        ball=pt(24.5, 72.0), ball_to=[("a0", 0), ("a0", 1)],
+        ball2=pt(44.5, 72.0), ball2_to=[("a1", 0), ("a1", 1)],
+    ))
+
+    # The high ball: their 10 kicks it up, his chasers start behind him;
+    # our 15 takes it, gives it to the 11 coming from behind, and we go.
+    b = Board()
+    b.put("10#a", 35.0, 48.0)
+    b.put("12#a", 25.0, 45.0)
+    b.put("13#a", 45.0, 45.0)
+    b.put("15", 35.0, 98.0)
+    b.put("11", 12.0, 96.0)
+    b.put("14", 58.0, 96.0)
+    b.go("12#a", 28.0, 66.0, 0)
+    b.go("13#a", 40.0, 66.0, 0)
+    b.go("15", 33.0, 86.0, 0)
+    b.go("11", 16.0, 94.0, 0)
+    b.go("14", 54.0, 94.0, 0)
+    b.go("12#a", 29.5, 80.0, 1)
+    b.go("13#a", 37.5, 79.5, 1)
+    b.go("11", 20.0, 93.0, 1)
+    b.go("11", 22.0, 92.0, 2)
+    b.go("15", 31.0, 82.5, 2)
+    b.go("14", 50.0, 88.0, 2)
+    b.go("11", 14.0, 66.0, 3)
+    b.go("14", 46.0, 78.0, 3)
+    home = ["15", "11", "14"]
+    out.append(Drill(
+        id="rg_kick_high_ball", category="defending", minutes=12, rel=True,
+        purpose=HIGHBALL_PURPOSE,
+        name=suffixed(HIGHBALL_NAME, dashed("the contest and the counter")),
+        note=HIGHBALL_NOTE,
+        home=b.players(home), away=b.players(["10#a", "12#a", "13#a"]),
+        markers=[mk(33, 84, "zone")],
+        ball=pt(35.0, 50.0),
+        ball_to=[(spot(33.0, 84.0), 0), (0, 1), (1, 2), (1, 3)],
+    ))
+
+    # Place kicking: the same steps back and across every time.
+    out.append(Drill(
+        id="rg_kick_at_goal", category="finishing", minutes=10, rel=True,
+        level="foundation", purpose=GOALKICK_PURPOSE,
+        setup={"en": "One kicker, a kicking tee and a bag of balls; five kicking spots across the 22 metre line, two kicks from each",
+               "en-GB": "One kicker, a kicking tee and a bag of balls; five kicking spots across the 22 metre line, two kicks from each",
+               "zh-CN": "一名踢球者、一个球座和一袋球；沿 22 米线横向设五个踢球点，每点踢两脚",
+               "zh-TW": "一名踢球者、一個球座和一袋球；沿 22 公尺線橫向設五個踢球點，每點踢兩腳"},
+        name=suffixed(GOALKICK_NAME, dashed("the routine")), note=GOALKICK_NOTE,
+        home=[P(0.42, 0.34, "10", moves=[(0.375, 0.365, 0), (0.405, 0.345, 1)])],
+        markers=[M(0.42, 0.32, "square", ""), mk(35, 15, "zone")],
+        ball=(0.42, 0.325),
+        ball_moves=[(35 / W, 15 / L, 2)],
+    ))
+
+    # The exit: two pick-and-drives off the 9 with the ball placed back
+    # each time, then the 9 to the 10 and the kick to grass by touch,
+    # well away from their 15.
+    b = Board()
+    b.put("9", 30.0, 110.0)
+    b.put("1", 22.0, 116.0)
+    b.put("4", 38.0, 118.0)
+    b.put("10", 46.0, 122.0)
+    b.put("D#0", 24.0, 98.0)
+    b.put("D#1", 36.0, 98.0)
+    b.put("15#a", 30.0, 56.0)
+    b.go("1", 23.0, 113.0, 0)                # 9 to 1, from depth
+    b.shift(["D#0", "D#1"], 0, 2.0, 0)
+    b.go("1", 25.0, 106.0, 1)                # carries into contact
+    b.go("D#0", 25.0, 104.0, 1)
+    b.go("4", 37.0, 117.0, 2)
+    b.go("D#1", 35.0, 102.0, 2)
+    b.go("4", 36.0, 113.0, 3)                # 9 to 4
+    b.go("D#0", 28.0, 102.0, 3)
+    b.go("4", 37.0, 106.0, 4)                # into contact
+    b.go("D#1", 37.0, 104.0, 4)
+    b.go("9", 41.5, 111.0, 4)
+    b.go("1", 27.0, 110.0, 4)
+    b.go("10", 50.0, 119.0, 5)
+    b.go("D#0", 31.0, 103.0, 5)
+    b.go("10", 52.0, 118.0, 6)               # 9 to 10, deep
+    b.go("15#a", 26.0, 60.0, 6)
+    b.go("15#a", 24.0, 64.0, 7)
+    b.go("D#0", 40.0, 106.0, 7)
+    home = ["9", "1", "4", "10"]
+    out.append(Drill(
+        id="rg_kick_exit", category="possession", minutes=14, rel=True,
+        tight=True, level="advanced", purpose=EXIT_PURPOSE,
+        name=suffixed(EXIT_NAME, dashed("two phases and the kick")),
+        note=EXIT_NOTE,
+        home=b.players(home), away=b.players(["D#0", "D#1", "15#a"]),
+        markers=[mk(66, 74, "zone")],
+        ball=0, ball_spot=pt(30.0, 108.0),
+        ball_to=[(1, 0), (1, 1), (spot(28.5, 110.0), 2), (2, 3), (2, 4),
+                 (spot(40.0, 110.0), 5), (3, 6), (spot(66.0, 74.0), 7)],
+    ))
+    return out
+
+
+# The maul's names are written whole: "Maul" + "defending it" borrowed a
+# hockey variant whose Chinese is "defending a short corner".
+MAUL_NAMES = {
+    "drive": _t12(
+        "Maul — driving off the lineout", "冒尔 争边球后推进", "冒爾 爭邊球後推進",
+        "モール ラインアウトからのドライブ", "몰 라인아웃 후 드라이브",
+        "Maul — empuje tras el lineout", "Maul — poussée après la touche",
+        "Maul — dorongan dari lineout", "Maul — tolakan dari lineout",
+        "มอล ดันต่อจากไลน์เอาต์", "Maul — đẩy từ tình huống ném biên"),
+    "defend": _t12(
+        "Maul — defending the drive", "冒尔 防守冒尔推进", "冒爾 防守冒爾推進",
+        "モール ドライブを止める守り", "몰 드라이브 수비",
+        "Maul — defender el empuje", "Maul — défendre la poussée",
+        "Maul — bertahan dari dorongan", "Maul — bertahan daripada tolakan",
+        "มอล การป้องกันการดัน", "Maul — phòng thủ cú đẩy"),
+}
+
+
+def maul_family() -> list[Drill]:
+    """The lineout's second act: the jumper takes it, the pod binds on
+    him, the ball goes to the No. 8 at the back, and the maul drives — or,
+    defended, is stopped where it formed."""
+    out = []
+    for key in ("drive", "defend"):
+        b = Board()
+        line_y = 40.0
+        keys, dk = _lineout(b, ["4", "5", "6", "7", "8"], line_y)
+        jx = b.x("5")
+        jd = min(dk, key=lambda k: abs(b.x(k) - jx))
+        b.go(jd, jx + 1.5, line_y - 4.5, 0)
+        b.go("4", 6.0, line_y + 5.5, 1)              # bind on the jumper
+        b.go("6", 14.8, line_y + 5.5, 1)
+        b.go("7", 8.2, line_y + 13.8, 1)
+        b.go("8", 12.6, line_y + 13.8, 1)
+        b.go(jd, jx, line_y + 1.0, 2)                # their front engages
+        b.go("2", 3.5, line_y + 21.5, 2)             # the thrower joins
+        # their pod binds onto the front of it: two beside their jumper,
+        # two behind them
+        others = [k for k in dk if k != jd]
+        for k, (x, y) in zip(others, [(6.0, line_y), (14.8, line_y),
+                                      (8.2, line_y - 8.0),
+                                      (12.6, line_y - 8.0)]):
+            b.go(k, x, y, 2)
+        mauls = ["5", "4", "6", "7", "8", "2"]
+        if key == "drive":
+            b.shift(mauls, 0, -4.0, 3)
+            b.shift(dk, 0, -4.0, 3)
+            b.shift(mauls, 0, -5.0, 4)
+            b.shift(dk, 0, -5.0, 4)
+            ball_to = [(spot(jx, line_y + 0.5), 0), (2, 1), (5, 2), (5, 3), (5, 4)]
+        else:
+            b.put("D#x", 30.0, 33.0)
+            dk = dk + ["D#x"]
+            b.shift(mauls, 0, -1.0, 3)               # held where it formed
+            b.go("D#x", 17.5, 52.0, 3)               # round to the ball
+            ball_to = [(spot(jx, line_y + 0.5), 0), (2, 1), (5, 2), (5, 3)]
+        home = ["2"] + keys
+        out.append(Drill(
+            id=f"rg_maul_{key}", category="setpiece", minutes=12, rel=True,
+            tight=True, free=(key == "drive"), off_surface=True,
+            name=MAUL_NAMES[key], note=MAUL_NOTE,
+            home=b.players(home), away=b.players(dk),
+            ball=0, ball_spot=pt(-0.3, line_y),
+            ball_to=ball_to,
+        ))
+    return out
+
+
+def rugby_library() -> list[Drill]:
+    return (handling_family() + phase_family() + breakdown_family()
+            + move_family() + kicking_family() + finishing_family()
+            + defence_family() + setpiece_family() + maul_family()
+            + game_family() + gaps_family())

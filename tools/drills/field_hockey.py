@@ -679,7 +679,7 @@ TACKLE_NOTE = {
     "id-ID": "Samakan dulu kecepatannya, baru ambil bolanya. Tekel sambil masih menutup jarak adalah pelanggaran.",
     "ms-MY": "Samakan dahulu kelajuannya, kemudian rampas bola. Rampasan sambil masih meluru ialah kesalahan.",
     "th-TH": "ปรับความเร็วให้เท่าเขาก่อน แล้วค่อยแย่งบอล เข้าปะทะขณะยังวิ่งเข้าหาคือฟาวล์",
-    "vi-VN": "Bat nhip toc do cua anh ta truoc, roi moi lay bong. Vao bong khi con dang lao toi la pham loi.",
+    "vi-VN": "Bắt nhịp tốc độ của anh ta trước, rồi mới lấy bóng. Vào bóng khi còn đang lao tới là phạm lỗi, và trọng tài thấy điều đó trước cả bạn.",
 }
 AERIAL_NOTE = {
     "en": "Land it in space with nobody under it, and shout early. Five metres is the rule and the receiver cannot claim it if he arrived at the same time as the ball.",
@@ -692,7 +692,7 @@ AERIAL_NOTE = {
     "id-ID": "Jatuhkan di ruang kosong dan berserulah lebih awal. Lima meter adalah aturannya.",
     "ms-MY": "Jatuhkan di ruang kosong dan bersuara awal. Lima meter ialah peraturannya.",
     "th-TH": "ส่งให้ตกในพื้นที่ว่างและตะโกนเรียกแต่เนิ่น ห้าเมตรคือกติกา",
-    "vi-VN": "Tha bong xuong khoang trong khong co ai va goi som. Nam met la luat.",
+    "vi-VN": "Thả bóng xuống khoảng trống không có ai bên dưới và gọi sớm. Luật là năm mét, người nhận không được giành bóng nếu đến cùng lúc với bóng.",
 }
 LONG_CORNER_NOTE = {
     "en": "Taken on the 23 m line, in line with where the ball crossed, so the first pass is already going forward. Standing over it while everyone jogs into place hands the defence the twenty seconds it needed.",
@@ -706,7 +706,7 @@ LONG_CORNER_NOTE = {
     "id-ID": "Diambil di garis 23 m, segaris dengan tempat bola keluar, sehingga umpan pertama sudah ke depan.",
     "ms-MY": "Diambil di garisan 23 m, segaris dengan tempat bola keluar, supaya hantaran pertama sudah ke hadapan.",
     "th-TH": "เล่นจากเส้น 23 เมตร ตรงแนวที่บอลออก เพื่อให้จ่ายลูกแรกไปข้างหน้าได้เลย",
-    "vi-VN": "Thuc hien tren vach 23 m, thang hang voi diem bong ra bien, de duong chuyen dau tien da huong len phia truoc.",
+    "vi-VN": "Thực hiện trên vạch 23 m, thẳng hàng với điểm bóng ra biên, để đường chuyền đầu tiên đã hướng lên phía trước. Đứng chờ trong khi mọi người chạy chậm vào vị trí là trao cho hàng thủ hai mươi giây họ cần.",
 }
 COUNTER_NOTE = {
     "en": "Three passes to the circle, not five. Every extra touch is a defender getting back, and hockey's defenders get back very fast.",
@@ -719,7 +719,7 @@ COUNTER_NOTE = {
     "id-ID": "Tiga umpan sampai ke lingkaran, bukan lima. Setiap sentuhan tambahan adalah satu bek yang kembali.",
     "ms-MY": "Tiga hantaran ke bulatan, bukan lima. Setiap sentuhan tambahan ialah seorang bek yang kembali.",
     "th-TH": "สามจังหวะจ่ายถึงวงกลม ไม่ใช่ห้า ทุกการสัมผัสที่เกินมาคือกองหลังหนึ่งคนที่กลับมาทัน",
-    "vi-VN": "Ba duong chuyen den vong cam, khong phai nam. Moi cham bong thua la mot hau ve kip ve.",
+    "vi-VN": "Ba đường chuyền đến vòng tròn, không phải năm. Mỗi lần chạm bóng thừa là một hậu vệ kịp về, và hậu vệ khúc côn cầu về rất nhanh.",
 }
 FH_GK_NAME = {"en": "Goalkeeping", "en-GB": "Goalkeeping", "zh-CN": "门将训练",
               "zh-TW": "門將訓練", "ja-JP": "GK練習", "ko-KR": "골키퍼 훈련",
@@ -737,7 +737,7 @@ FH_GK_NOTE = {
     "id-ID": "Keluar lebih awal dan kecil, bukan terlambat dan besar. Dua meter maju sudah menutup separuh gawang.",
     "ms-MY": "Keluar awal dan kecil, bukan lewat dan besar. Dua meter ke hadapan sudah menutup separuh gol.",
     "th-TH": "ออกมาเร็วและตัวเล็ก ไม่ใช่ช้าและตัวใหญ่ ออกมาสองเมตรก็ปิดประตูไปครึ่งหนึ่งแล้ว",
-    "vi-VN": "Ra som va thu nguoi, khong phai ra muon va dang rong. Ra hai met la da bit nua khung thanh.",
+    "vi-VN": "Rời vạch sớm và thu người nhỏ, đừng ra muộn và dang rộng. Lao ra hai mét là đã che mất nửa khung thành trước khi cú đánh được thực hiện.",
 }
 
 

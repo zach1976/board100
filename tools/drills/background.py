@@ -323,5 +323,26 @@ def _origin_for(sport: str, drill_id: str):
 
 def background_texts(sport: str, category: str, drill_id: str):
     """(frequency, origin) for a drill; origin may be None."""
+    if sport == "rugby" and category in FREQUENCY_RUGBY:
+        return FREQUENCY_RUGBY[category], _origin_for(sport, drill_id)
     table = FREQUENCY_BADMINTON if sport == "badminton" else FREQUENCY
     return table.get(category), _origin_for(sport, drill_id)
+
+
+# Rugby scores tries, not goals: the shared set-piece line said "set pieces
+# decide a large share of goals" in every rugby set-piece note.
+FREQUENCY_RUGBY = {
+    "setpiece": _P(
+        "Rehearsed weekly and hard before a match — most tries start from a "
+        "set piece, so the routines are drilled until automatic.",
+        "每周练、赛前重点练——大多数达阵都从定位球发起，所以套路要练到自动化。",
+        "每週練、賽前重點練——大多數達陣都從定位球發起，所以套路要練到自動化。",
+        "毎週、試合前は特に反復する。トライの多くはセットピースから始まるので、型が自動化するまで仕込む。",
+        "매주, 경기 전에는 집중적으로 반복 — 트라이 대부분이 세트피스에서 시작되므로 자동화될 때까지 훈련한다.",
+        "Se ensaya semanalmente y a fondo antes del partido: la mayoría de los ensayos nacen de una fase estática, así que las jugadas se repiten hasta automatizarse.",
+        "Répété chaque semaine et intensément avant un match : la plupart des essais partent d'une phase statique, donc les combinaisons sont répétées jusqu'à l'automatisme.",
+        "Dilatih mingguan dan intensif sebelum pertandingan — sebagian besar try berawal dari set piece, jadi rutinitas dilatih sampai otomatis.",
+        "Dilatih mingguan dan intensif sebelum perlawanan — kebanyakan try bermula daripada set piece, jadi rutin dilatih sehingga automatik.",
+        "ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ทรัยส่วนใหญ่เริ่มจากลูกตั้งเตะ จึงซ้อมจนเป็นอัตโนมัติ",
+        "Tập hàng tuần và kỹ trước trận — phần lớn các pha try bắt đầu từ tình huống cố định, nên các bài được tập đến mức tự động."),
+}

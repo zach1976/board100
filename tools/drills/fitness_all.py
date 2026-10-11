@@ -422,14 +422,17 @@ def _tennis():
                     "Lima bola, lima perjalanan, satu jam randik: yang diukur bukan kelajuan keluar, tetapi masa yang hilang ketika berpusing.",
                     "ห้าลูก ห้าเที่ยว จับเวลาครั้งเดียว วัดกันที่เสียเวลาหมุนตัวน้อยแค่ไหน ไม่ใช่วิ่งออกเร็วแค่ไหน",
                     "Năm bóng, năm lượt, một đồng hồ: đo không phải bạn chạy ra nhanh thế nào mà mất bao ít thời gian để quay lại."),
-            home=[P(0.50, 0.95, "A",
-                    moves=[(0.16, 0.70, 0), (0.50, 0.95, 1), (0.16, 0.95, 2), (0.50, 0.95, 3),
-                           (0.50, 0.70, 4), (0.50, 0.95, 5), (0.84, 0.95, 6), (0.50, 0.95, 7),
-                           (0.84, 0.70, 8), (0.50, 0.95, 9)],
+            # Cones ON the lines the text names: the service line is 0.769
+            # of the court and the singles sidelines 0.125 / 0.875 — they
+            # used to sit 2.1 m in front of the service line.
+            home=[P(0.50, 0.99, "A",
+                    moves=[(0.15, 0.78, 0), (0.50, 0.99, 1), (0.15, 0.99, 2), (0.50, 0.99, 3),
+                           (0.50, 0.78, 4), (0.50, 0.99, 5), (0.85, 0.99, 6), (0.50, 0.99, 7),
+                           (0.85, 0.78, 8), (0.50, 0.99, 9)],
                     why={0: "sprint", 1: "turn_back", 2: "sprint", 3: "turn_back",
                          4: "sprint", 5: "turn_back", 6: "sprint", 7: "turn_back",
                          8: "sprint", 9: "turn_back"})],
-            markers=[M(0.16, 0.68), M(0.16, 0.97), M(0.50, 0.68), M(0.84, 0.97), M(0.84, 0.68)],
+            markers=[M(0.125, 0.769), M(0.125, 1.0), M(0.50, 0.769), M(0.875, 1.0), M(0.875, 0.769)],
             setup=_s("five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline",
                      "五个锥标：底线两个单打边角、发球线两个角、发球中点；球员站在底线中点",
                      "五個錐標：底線兩個單打邊角、發球線兩個角、發球中點；球員站在底線中點"),
@@ -484,9 +487,10 @@ def _pickleball():
             id="pbfit_kitchen_shuffle", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_COURT, free=True, name=LATERAL_NAME, note=LATERAL_NOTE,
             home=[P(0.50, 0.68, "A",
-                    moves=[(0.20, 0.68, 0), (0.50, 0.68, 1), (0.80, 0.68, 2), (0.50, 0.68, 3)],
+                    moves=[(0.06, 0.68, 0), (0.50, 0.68, 1), (0.94, 0.68, 2), (0.50, 0.68, 3)],
                     why={0: "shuffle", 1: "shuffle", 2: "shuffle", 3: "shuffle"})],
-            markers=[M(0.18, 0.70), M(0.50, 0.70), M(0.82, 0.70)],
+            # On the sidelines, as the setup line says (they were 1.1 m in).
+            markers=[M(0.02, 0.70), M(0.50, 0.70), M(0.98, 0.70)],
             setup=_s("three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up",
                      "厨房线后方三个锥标：两条边线和中间；球员站在中间，球拍举在身前",
                      "廚房線後方三個錐標：兩條邊線和中間；球員站在中間，球拍舉在身前"),
@@ -556,12 +560,14 @@ def _pickleball():
 def _table_tennis():
     return [
         Drill(
-            id="ttfit_side_step", category="conditioning", minutes=8, rel=True,
+            id="ttfit_side_step", category="conditioning", minutes=8, rel=True, off_surface=True,
             purpose=PURPOSE_COURT, free=True, name=SHADOW_NAME, note=SHADOW_NOTE,
-            home=[P(0.50, 0.86, "A",
-                    moves=[(0.24, 0.86, 0), (0.50, 0.86, 1), (0.76, 0.86, 2), (0.50, 0.86, 3)],
+            # On the floor behind the end line (y > 1 is past the table):
+            # the cones and the player were drawn on the playing surface.
+            home=[P(0.50, 1.16, "A",
+                    moves=[(0.24, 1.16, 0), (0.50, 1.16, 1), (0.76, 1.16, 2), (0.50, 1.16, 3)],
                     why={0: "shuffle", 1: "shuffle", 2: "shuffle", 3: "shuffle"})],
-            markers=[M(0.20, 0.90), M(0.50, 0.90), M(0.80, 0.90)],
+            markers=[M(0.20, 1.07), M(0.50, 1.07), M(0.80, 1.07)],
             setup=_s("three cones on the floor behind the table — the two corners and the middle; the player starts in the middle in his playing stance",
                      "球台后方地面放三个锥标：两个角和中间；球员在中间以击球站位站好",
                      "球台後方地面放三個錐標：兩個角和中間；球員在中間以擊球站位站好"),
@@ -573,7 +579,7 @@ def _table_tennis():
                     "帶完整揮拍的併步移動 30 秒、休息 30 秒，做 12 次。數一數揮了多少拍，下次爭取更多。"),
         ),
         Drill(
-            id="ttfit_in_and_out", category="conditioning", minutes=8, rel=True,
+            id="ttfit_in_and_out", category="conditioning", minutes=8, rel=True, off_surface=True,
             purpose=PURPOSE_COURT,
             name=_t("In and out of the table", "进台退台步法", "進檯退檯步法", "前後のフットワーク",
                     "전후 스텝", "Entrar y salir de la mesa", "Avancer-reculer à la table",
@@ -590,11 +596,11 @@ def _table_tennis():
                     "Masuk dengan langkah kecil, keluar dengan dua — kesilapannya masuk dengan langkah besar.",
                     "เข้าโต๊ะก้าวเล็ก ออกสองก้าว ความผิดพลาดคือเข้าด้วยก้าวใหญ่ แล้วถอยไม่ทันลูกถัดไป",
                     "Vào bằng một bước nhỏ, ra bằng hai bước — sai lầm là bước vào quá dài, khi đó không kịp lùi cho quả sau."),
-            home=[P(0.50, 0.88, "A",
-                    moves=[(0.50, 0.78, 0), (0.50, 0.88, 1), (0.50, 0.96, 2), (0.50, 0.88, 3)],
+            home=[P(0.50, 1.12, "A",
+                    moves=[(0.50, 1.04, 0), (0.50, 1.12, 1), (0.50, 1.19, 2), (0.50, 1.12, 3)],
                     why={0: "decel", 1: "backpedal", 2: "backpedal", 3: "reset"})],
-            markers=[M(0.44, 0.76), M(0.56, 0.76), M(0.44, 0.98), M(0.56, 0.98)],
-            setup=_s("two cones close to the end of the table and two a step and a half behind them; the player starts between the pairs",
+            markers=[M(0.42, 1.04), M(0.58, 1.04), M(0.42, 1.20), M(0.58, 1.20)],
+            setup=_s("two cones on the floor just behind the end of the table and two a big step behind them; the player starts between the pairs",
                      "球台端线附近两个锥标，其后一步半再放两个锥标；球员站在两对锥标之间",
                      "球檯端線附近兩個錐標，其後一步半再放兩個錐標；球員站在兩對錐標之間"),
             gear=_s("the near pair is the short-ball position at the table, the far pair the deep position: step in between the near cones for the short ball, out behind the far cones for the deep one",
@@ -605,12 +611,19 @@ def _table_tennis():
                     "進檯退檯做 20 秒，兩端都要揮拍，休息 40 秒，做 10 次；最後 3 次由教練隨機喊短球或長球。"),
         ),
         Drill(
-            id="ttfit_figure_eight", category="conditioning", minutes=8, rel=True,
-            purpose=PURPOSE_COURT, name=REPEAT_NAME, note=REPEAT_NOTE,
-            home=[P(0.50, 0.86, "A",
-                    moves=[(0.24, 0.78, 0), (0.50, 0.94, 1), (0.76, 0.78, 2), (0.50, 0.94, 3)],
-                    why={0: "sprint", 1: "shuffle", 2: "sprint", 3: "shuffle"})],
-            markers=[M(0.20, 0.76), M(0.80, 0.76), M(0.50, 0.96)],
+            id="ttfit_figure_eight", category="conditioning", minutes=8, rel=True, off_surface=True,
+            purpose=PURPOSE_COURT,
+            # A figure of eight round three cones a metre apart is footwork,
+            # not a sprint: it was named "Repeat sprints" and said "sprint".
+            name=_t("Figure-eight footwork", "八字步法", "八字步法", "8の字フットワーク",
+                    "8자 풋워크", "Juego de pies en ocho", "Jeu de jambes en huit",
+                    "Footwork angka delapan", "Kerja kaki angka lapan",
+                    "ฟุตเวิร์กเลขแปด", "Di chuyển hình số tám"),
+            note=REPEAT_NOTE,
+            home=[P(0.50, 1.13, "A",
+                    moves=[(0.24, 1.08, 0), (0.50, 1.18, 1), (0.76, 1.08, 2), (0.50, 1.18, 3)],
+                    why={0: "shuffle", 1: "backpedal", 2: "shuffle", 3: "backpedal"})],
+            markers=[M(0.20, 1.05), M(0.80, 1.05), M(0.50, 1.21)],
             setup=_s("three cones behind the table in a triangle — two wide and forward, one back in the middle; the player starts between them",
                      "球台后方三个锥标呈三角形：两个在两侧偏前，一个在后方中间；球员站在三者之间",
                      "球檯後方三個錐標呈三角形：兩個在兩側偏前，一個在後方中間；球員站在三者之間"),
@@ -630,9 +643,12 @@ def _handball():
         Drill(
             id="hbfit_court_shuttle", category="conditioning", minutes=10, rel=True,
             purpose=PURPOSE_COURT, free=True, name=SHUTTLE_NAME, note=SHUTTLE_NOTE,
-            home=[P(0.50, 0.90, "A",
-                    moves=[(0.50, 0.72, 0), (0.50, 0.90, 1), (0.50, 0.50, 2), (0.50, 0.90, 3),
-                           (0.50, 0.28, 4), (0.50, 0.90, 5)],
+            # Starts and turns on the court's own lines: his 9 m line
+            # (31 m), halfway (20 m), the far 9 m line (9 m) — it used to
+            # start inside his own goal area and turn 2 m past each line.
+            home=[P(0.50, 0.775, "A",
+                    moves=[(0.50, 0.50, 0), (0.50, 0.775, 1), (0.50, 0.225, 2), (0.50, 0.775, 3),
+                           (0.50, 0.50, 4), (0.50, 0.775, 5)],
                     why={0: "sprint", 1: "turn_back", 2: "sprint", 3: "turn_back",
                          4: "sprint", 5: "turn_back"})],
             setup=_s("the player on his own nine-metre line; the court's own lines are the turns",
@@ -648,10 +664,12 @@ def _handball():
         Drill(
             id="hbfit_jump_series", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_COURT, name=JUMP_NAME, note=JUMP_NOTE,
-            home=[P(0.50, 0.74, "A",
-                    moves=[(0.50, 0.66, 0), (0.50, 0.74, 1), (0.50, 0.66, 2), (0.50, 0.74, 3)],
+            # Toward the goal at the near end: run-up at about 11 m,
+            # take-off between 9 and 10 m. It used to jump toward halfway.
+            home=[P(0.50, 0.715, "A",
+                    moves=[(0.50, 0.762, 0), (0.50, 0.715, 1), (0.50, 0.762, 2), (0.50, 0.715, 3)],
                     why={0: "jump", 1: "reset", 2: "jump", 3: "reset"})],
-            markers=[M(0.50, 0.76, "zone"), M(0.50, 0.64, "zone")],
+            markers=[M(0.50, 0.715, "zone"), M(0.50, 0.762, "zone")],
             setup=_s("a back court player behind the nine-metre line with the goal area in front of him and nobody in it",
                      "后卫站在九米线后，身前是空的六米区",
                      "後衛站在九米線後，身前是空的六米區"),
@@ -665,10 +683,13 @@ def _handball():
         Drill(
             id="hbfit_break_repeats", category="conditioning", minutes=10, rel=True,
             purpose=PURPOSE_COURT, name=REPEAT_NAME, note=REPEAT_NOTE,
-            home=[P(0.20, 0.88, "A",
-                    moves=[(0.20, 0.20, 0), (0.50, 0.88, 1)],
-                    why={0: "sprint", 1: "jog"})],
-            markers=[M(0.16, 0.90), M(0.16, 0.18)],
+            # The cones on the two goal lines at the wing, 40 m apart and
+            # outside both goal areas; the jog back goes down the middle
+            # and ends on the wing cone, not inside the goal area.
+            home=[P(0.10, 0.985, "A",
+                    moves=[(0.10, 0.015, 0), (0.50, 0.50, 1), (0.10, 0.985, 2)],
+                    why={0: "sprint", 1: "jog", 2: "jog"})],
+            markers=[M(0.06, 0.995), M(0.06, 0.005)],
             setup=_s("a cone on each wing position at the two ends of the court; the wing starts on the defensive one",
                      "两端边锋位各放一个锥标；边锋从防守端的锥标出发",
                      "兩端邊鋒位各放一個錐標；邊鋒從防守端的錐標出發"),
@@ -734,10 +755,14 @@ def _rugby():
                     "Dada menyentuh tanah lalu bangun menghadap ke hadapan — bangun itulah kemahirannya.",
                     "อกแตะพื้นแล้วลุกขึ้นหันหน้าไปข้างหน้า การลุกคือทักษะ หลังแท็กเกิลใครลุกก่อนคนนั้นได้ทำครั้งต่อไป",
                     "Ngực chạm đất rồi bật dậy hướng về phía trước — đứng dậy mới là kỹ năng; sau một pha tắc bóng, ai dậy trước người đó làm pha tiếp theo."),
-            home=[P(0.50, 0.80, "A",
-                    moves=[(0.50, 0.74, 0), (0.50, 0.68, 1), (0.50, 0.56, 2), (0.50, 0.80, 3)],
-                    why={0: "touch_down", 1: "touch_down", 2: "sprint", 3: "jog"})],
-            markers=[M(0.42, 0.82), M(0.58, 0.82), M(0.42, 0.54), M(0.58, 0.54)],
+            # In metres on the 144 m drawing: each up-down gains a body
+            # length (1.5 m), and the far gate is 20 m from the start.
+            home=[P(0.50, 0.82, "A",
+                    moves=[(0.50, 0.8096, 0), (0.50, 0.7992, 1), (0.50, 0.7888, 2),
+                           (0.50, 0.6811, 3), (0.50, 0.82, 4)],
+                    why={0: "touch_down", 1: "touch_down", 2: "touch_down",
+                         3: "sprint", 4: "jog"})],
+            markers=[M(0.42, 0.82), M(0.58, 0.82), M(0.42, 0.6811), M(0.58, 0.6811)],
             setup=_s("two cones as a start gate and two more 20 m ahead; the player starts standing at the gate",
                      "两个锥标作为起点门，前方 20 米再放两个；球员在起点门处站立准备",
                      "兩個錐標作為起點門，前方 20 米再放兩個；球員在起點門處站立準備"),
@@ -751,10 +776,11 @@ def _rugby():
         Drill(
             id="rgfit_repeat_sprints", category="conditioning", minutes=10, rel=True,
             purpose=PURPOSE_COURT, name=REPEAT_NAME, note=REPEAT_NOTE,
-            home=[P(0.30, 0.82, "A",
-                    moves=[(0.30, 0.44, 0), (0.50, 0.82, 1)],
+            # 40 m on the 144 m drawing is 0.278 of its length.
+            home=[P(0.30, 0.84, "A",
+                    moves=[(0.30, 0.562, 0), (0.50, 0.84, 1)],
                     why={0: "sprint", 1: "jog"})],
-            markers=[M(0.26, 0.84), M(0.26, 0.42)],
+            markers=[M(0.26, 0.84), M(0.26, 0.562)],
             setup=_s("two cones 40 m apart; the group lines up on the first and goes in pairs",
                      "两个锥标相距 40 米；全组在第一个锥标排队，两人一组出发",
                      "兩個錐標相距 40 米；全組在第一個錐標排隊，兩人一組出發"),
@@ -881,8 +907,11 @@ def _water_polo():
                     "Kepala di atas air pada tiga kayuhan pertama dan terakhir.",
                     "เงยหน้าในสามจังหวะแรกและสามจังหวะสุดท้าย",
                     "Ngẩng đầu ở ba nhịp đầu và ba nhịp cuối: cú nước rút vùi mặt khi về đích là của vận động viên bơi, không phải của cầu thủ."),
-            home=[P(0.50, 0.90, "A",
-                    moves=[(0.50, 0.10, 0), (0.50, 0.90, 1)],
+            # Line to line: the figure is drawn centred on its point and is
+            # ~2.7 m long, so 1.35 m off a line puts the head (going out) or
+            # the feet (pushing off) on it. It used to stop 1-2.5 m short.
+            home=[P(0.50, 0.955, "A",
+                    moves=[(0.50, 0.045, 0), (0.50, 0.955, 1)],
                     why={0: "swim", 1: "swim"})],
             setup=_s("the group on one goal line in lanes an arm's length apart; the far goal line is the finish",
                      "全组在一侧门线排开，彼此相隔一臂；对面门线是终点",
@@ -896,10 +925,27 @@ def _water_polo():
         ),
         Drill(
             id="wpfit_lunges", category="conditioning", minutes=8, rel=True,
-            purpose=PURPOSE_WATER, name=JUMP_NAME, note=JUMP_NOTE,
+            purpose=PURPOSE_WATER,
+            # Deep water: nobody takes off or lands on anything, so the jump
+            # name and its "land on both feet" were wrong for this board.
+            name=_t("Out-of-water lunges", "出水冲击", "出水衝擊", "水上への飛び出し",
+                    "물 밖으로 솟구치기", "Salidas explosivas del agua",
+                    "Jaillissements hors de l'eau", "Lonjakan keluar air",
+                    "Lonjakan keluar air", "ดีดตัวพ้นน้ำ", "Bật người khỏi mặt nước"),
+            note=_t("Every rep clears the water to the hips with the shooting arm up; the moment the hips stop clearing the surface the set is over — height out of the water is what is being trained.",
+                    "每一次都要把髋部拔出水面、射门手举高；髋部一出不了水面这一组就结束——练的就是出水高度。",
+                    "每一次都要把髖部拔出水面、射門手舉高；髖部一出不了水面這一組就結束——練的就是出水高度。",
+                    "毎回シュートする腕を上げて腰まで水面から出る。腰が出なくなった瞬間にそのセットは終わり——鍛えているのは水面からの高さだ。",
+                    "매번 슈팅 팔을 들고 골반까지 물 밖으로 나온다. 골반이 수면을 넘지 못하는 순간 그 세트는 끝이다 — 훈련하는 것은 물 밖으로의 높이다.",
+                    "Cada repetición saca la cadera del agua con el brazo de tiro arriba; en cuanto la cadera deja de salir, la serie se acabó: lo que se entrena es la altura fuera del agua.",
+                    "Chaque répétition sort les hanches de l'eau, bras de tir levé ; dès que les hanches ne sortent plus, la série est finie — c'est la hauteur hors de l'eau qu'on travaille.",
+                    "Setiap ulangan mengangkat pinggul keluar dari air dengan lengan tembak di atas; begitu pinggul tak lagi keluar, set selesai — yang dilatih adalah ketinggian keluar dari air.",
+                    "Setiap ulangan mengangkat pinggul keluar dari air dengan lengan tembakan di atas; sebaik pinggul tidak lagi keluar, set tamat — yang dilatih ialah ketinggian keluar dari air.",
+                    "ทุกครั้งต้องดีดสะโพกพ้นน้ำพร้อมยกแขนยิง พอสะโพกพ้นน้ำไม่ได้เมื่อไหร่ เซตนั้นจบ สิ่งที่ฝึกคือความสูงพ้นน้ำ",
+                    "Mỗi lần đều phải đưa hông lên khỏi mặt nước với tay ném giơ cao; ngay khi hông không còn nhô khỏi mặt nước thì kết thúc loạt — thứ đang được tập là độ cao khỏi mặt nước."),
             home=[P(0.50, 0.60, "A",
                     moves=[(0.50, 0.52, 0), (0.50, 0.60, 1), (0.50, 0.52, 2), (0.50, 0.60, 3)],
-                    why={0: "jump", 1: "tread", 2: "jump", 3: "tread"})],
+                    why={0: "wp_lunge", 1: "tread", 2: "wp_lunge", 3: "tread"})],
             markers=[M(0.50, 0.56, "zone")],
             setup=_s("the group in deep water facing the coach, far enough apart that nobody lands on anybody",
                      "全组在深水区面向教练排开，彼此距离足够，避免落下时压到别人",
@@ -1059,10 +1105,11 @@ def _sepak_takraw():
                     "Lutut hampir tidak membengkok: ini soal buku lali, dan lompatan kedua dalam rali datang dari situ.",
                     "เข่าแทบไม่งอ นี่คือข้อเท้า และการกระโดดครั้งที่สองในแต้มหนึ่งมาจากข้อเท้า",
                     "Gối gần như không gập: đây là bài cổ chân, và cú bật thứ hai trong một pha bóng đến từ cổ chân."),
-            home=[P(0.50, 0.80, "A",
-                    moves=[(0.50, 0.76, 0), (0.50, 0.80, 1), (0.50, 0.76, 2), (0.50, 0.80, 3)],
-                    why={0: "hop", 1: "reset", 2: "hop", 3: "reset"})],
-            markers=[M(0.44, 0.82), M(0.56, 0.82)],
+            # Hops on the spot between the cones: the board drew a half-metre
+            # drift forward and back — the very error the text warns about —
+            # and narrated "hop over each hurdle" with no hurdle on it.
+            home=[P(0.50, 0.80, "A")],
+            markers=[M(0.44, 0.80), M(0.56, 0.80)],
             setup=_s("the player standing between two cones with room overhead; no ball",
                      "球员站在两个锥标之间，头顶留出空间；不用球",
                      "球員站在兩個錐標之間，頭頂留出空間；不用球"),
@@ -1082,9 +1129,12 @@ def _beach_tennis():
         Drill(
             id="btfit_sand_sprints", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_SAND, free=True, name=SAND_NAME, note=SAND_NOTE,
+            # The jog back goes round OUTSIDE the sideline, as the gear
+            # line says, leaving the lane to the next runner.
             home=[P(0.30, 0.92, "A",
-                    moves=[(0.30, 0.58, 0), (0.50, 0.92, 1)],
-                    why={0: "sprint", 1: "jog"})],
+                    moves=[(0.30, 0.58, 0), (-0.07, 0.62, 1), (-0.07, 0.92, 2), (0.30, 0.92, 3)],
+                    why={0: "sprint", 1: "jog", 2: "jog", 3: "jog"})],
+            off_surface=True,
             markers=[M(0.26, 0.94), M(0.26, 0.56)],
             setup=_s("two cones from the baseline to the net on one side of the court; the group goes one at a time",
                      "球场一侧从底线到网前放两个锥标；全组一人一次轮流出发",
@@ -1100,9 +1150,11 @@ def _beach_tennis():
             id="btfit_sand_lateral", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_SAND, name=LATERAL_NAME, note=LATERAL_NOTE,
             home=[P(0.50, 0.72, "A",
-                    moves=[(0.22, 0.72, 0), (0.50, 0.72, 1), (0.78, 0.72, 2), (0.50, 0.72, 3)],
+                    moves=[(0.04, 0.72, 0), (0.50, 0.72, 1), (0.96, 0.72, 2), (0.50, 0.72, 3)],
                     why={0: "shuffle", 1: "shuffle", 2: "shuffle", 3: "shuffle"})],
-            markers=[M(0.20, 0.75), M(0.50, 0.75), M(0.78, 0.75)],
+            # 4 m apart, as the gear line says: the two sidelines and the
+            # middle of an 8 m court (they were 2.4 m apart).
+            markers=[M(0.0, 0.75), M(0.50, 0.75), M(0.99, 0.75)],
             setup=_s("three cones across the middle of the half; the player starts on the middle one with the paddle up",
                      "半场中部横向放三个锥标；球员持拍站在中间锥标上",
                      "半場中部橫向放三個錐標；球員持拍站在中間錐標上"),
@@ -1136,12 +1188,15 @@ def _beach_tennis():
 def _footvolley():
     return [
         Drill(
-            id="fvfit_sand_sprints", category="conditioning", minutes=8, rel=True,
+            id="fvfit_sand_sprints", category="conditioning", minutes=8, rel=True, off_surface=True,
             purpose=PURPOSE_SAND, free=True, name=SAND_NAME, note=SAND_NOTE,
-            home=[P(0.30, 0.90, "A",
-                    moves=[(0.30, 0.56, 0), (0.50, 0.90, 1)],
-                    why={0: "sprint", 1: "jog"})],
-            markers=[M(0.26, 0.92), M(0.26, 0.54)],
+            # The start cone is ON the baseline, and the jog back goes round
+            # outside the sideline so the lane stays free.
+            home=[P(0.30, 0.99, "A",
+                    moves=[(0.30, 0.56, 0), (-0.04, 0.60, 1), (-0.04, 0.97, 2),
+                           (0.30, 0.99, 3)],
+                    why={0: "sprint", 1: "jog", 2: "jog", 3: "reset"})],
+            markers=[M(0.24, 1.0), M(0.24, 0.54)],
             setup=_s("two cones from the baseline to the net on one side of the court; the group goes one at a time",
                      "球场一侧从底线到网前放两个锥标；全组一人一次轮流出发",
                      "球場一側從底線到網前放兩個錐標；全組一人一次輪流出發"),
@@ -1172,10 +1227,11 @@ def _footvolley():
         Drill(
             id="fvfit_sand_lateral", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_SAND, name=LATERAL_NAME, note=LATERAL_NOTE,
+            # 4 m apart, as the text says: 4 / 9 of the court's width.
             home=[P(0.50, 0.74, "A",
-                    moves=[(0.22, 0.74, 0), (0.50, 0.74, 1), (0.78, 0.74, 2), (0.50, 0.74, 3)],
+                    moves=[(0.08, 0.74, 0), (0.50, 0.74, 1), (0.92, 0.74, 2), (0.50, 0.74, 3)],
                     why={0: "shuffle", 1: "shuffle", 2: "shuffle", 3: "shuffle"})],
-            markers=[M(0.20, 0.77), M(0.50, 0.77), M(0.78, 0.77)],
+            markers=[M(0.06, 0.77), M(0.50, 0.77), M(0.94, 0.77)],
             setup=_s("three cones across the middle of the half; the player starts on the middle one",
                      "半场中部横向放三个锥标；球员站在中间锥标上",
                      "半場中部橫向放三個錐標；球員站在中間錐標上"),

@@ -34,28 +34,34 @@ FLOW = {
     "rg_move_": PATTERN_RULES,
     "rg_kick_": KICKING,
     "rg_finish_": SETPLAY_RULES,
-    "rg_defence_tackle": DUEL_RULES,
+    "rg_defence_tackle": _t(
+        "A rep ends at the tackle: the carrier is put down inside the channel and both men are back on their feet at once. Carriers jog back and join the queue; after six reps the tacklers swap with the carriers.",
+        "一回合在擒抱处结束：持球者在通道内被放倒，两人立刻起身。持球者慢跑回去排队；做 6 次后擒抱者与持球者互换。",
+        "一回合在擒抱處結束：持球者在通道內被放倒，兩人立刻起身。持球者慢跑回去排隊；做 6 次後擒抱者與持球者互換。"),
     "rg_defence_": DEFENCE,
     "rg_set_": SETPIECE_RULES, "rg_maul_": SETPIECE_RULES,
-    "rg_game_": GAME_RULES,
+    "rg_game_": _t(
+        "After a try the side that conceded restarts with a tap kick from the middle of the area; when the ball goes out, the other side restarts with a tap where it left, and the coach has spare balls ready so nothing stops. Four-minute games, then swap ends or opponents.",
+        "达阵后由失分一方在场地中间轻踢重新开球；球出界由另一方在出界处轻踢重新开始，教练准备好备用球，比赛不停。每局 4 分钟，然后换边或换对手。",
+        "達陣後由失分一方在場地中間輕踢重新開球；球出界由另一方在出界處輕踢重新開始，教練準備好備用球，比賽不停。每局 4 分鐘，然後換邊或換對手。"),
     "rg_kick_at_goal": QUEUE_RULES,
     "rg_kick_exit": PATTERN_RULES,
-    "rg_kick_high_ball": DEFENCE,
+    "rg_kick_high_ball": KICKING,
 }
 
 GEAR = {
     "rg_handling_grid": _t(
-        "the four cones mark the grid the passing stays inside",
-        "四个锥标围出传接球的方格区域",
-        "四個錐標圍出傳接球的方格區域"),
+        "the four cones mark a 28 m by 34 m grid the passing stays inside",
+        "四个锥标围出 28 米 × 34 米的方格，传接球都在格内完成",
+        "四個錐標圍出 28 公尺 × 34 公尺的方格，傳接球都在格內完成"),
     "rg_handling_threes": _t(
-        "the three cones stand 5 m apart and are the three lanes the runners keep to",
-        "三个锥标相距 5 米，标出三名跑动者各自的通道",
-        "三個錐標相距 5 米，標出三名跑動者各自的通道"),
+        "the three cones stand 8 m apart at the end of the run and mark the three lanes the runners keep to",
+        "三个锥标相距 8 米，放在跑动终点，标出三名跑动者各自的通道",
+        "三個錐標相距 8 公尺，放在跑動終點，標出三名跑動者各自的通道"),
     "rg_handling_wide": _t(
-        "six cones 8 m apart mark the lanes across the full width, one per player",
-        "六个锥标相距 8 米，横贯全宽标出六条通道，每人一条",
-        "六個錐標相距 8 米，橫貫全寬標出六條通道，每人一條"),
+        "six cones 12 m apart at the end of the run mark the lanes across the width, one per player",
+        "六个锥标相距 12 米，放在跑动终点，横贯场宽标出六条通道，每人一条",
+        "六個錐標相距 12 公尺，放在跑動終點，橫貫場寬標出六條通道，每人一條"),
     "rg_kick_": _t(
         "the shaded zone is where the kick has to land",
         "阴影区是踢球要落的区域",
@@ -69,9 +75,13 @@ GEAR = {
         "阴影区是开球要落的区域，必须过十米线",
         "陰影區是開球要落的區域，必須過十米線"),
     "rg_defence_tackle": _t(
-        "the two cones stand 5 m apart and mark the channel the carrier runs through; the tackle is made inside it",
-        "两个锥标相距 5 米，标出持球者跑动的通道，擒抱在通道内完成",
-        "兩個錐標相距 5 米，標出持球者跑動的通道，擒抱在通道內完成"),
+        "each pair of cones stands 5 m apart and marks a channel the carrier runs through; the tackle is made inside it",
+        "每对锥标相距 5 米，标出持球者跑动的通道，擒抱在通道内完成",
+        "每對錐標相距 5 公尺，標出持球者跑動的通道，擒抱在通道內完成"),
+    "rg_game_": _t(
+        "the four cones mark a reduced area 50 m wide and 50 m long, from their try line back to their 10 m line; each side scores over the end line it attacks",
+        "四个锥标围出宽 50 米、长 50 米的缩小场地，从对方达阵线到对方 10 米线；双方各自越过所进攻的端线得分",
+        "四個錐標圍出寬 50 公尺、長 50 公尺的縮小場地，從對方達陣線到對方 10 公尺線；雙方各自越過所進攻的端線得分"),
     "rg_kick_at_goal": _t(
         "the square is the tee on the kicking spot; the shaded zone is the target between the posts",
         "方块是放球的踢球点，阴影区是门柱之间的目标",

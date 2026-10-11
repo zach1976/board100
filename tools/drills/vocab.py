@@ -696,7 +696,7 @@ add("the switch", "换向", "換向", "スイッチ", "스위치",
     "การสลับทิศ", "đổi hướng")
 add("the loop", "绕后", "繞後", "ループ", "루프",
     "el loop", "la boucle", "loop", "loop", "การอ้อมหลัง", "vòng sau")
-add("the cut-out", "越位传球", "越位傳球", "カットアウト", "컷아웃",
+add("the cut-out", "长距离跳传", "長距離跳傳", "カットアウト", "컷아웃",
     "el pase largo", "la passe sautée longue", "cut-out", "cut-out",
     "การส่งข้ามยาว", "chuyền cắt xa")
 add("with a dummy runner", "带假跑动", "帶假跑動", "ダミーランナー付き",

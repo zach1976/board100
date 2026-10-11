@@ -566,6 +566,15 @@ def to_canvas(drill: Drill, sport: str) -> None:
                         else (fx(t[0]), fy(t[1]))) if isinstance(t, tuple)
                        else t), ph)
                      for (t, ph) in drill.ball_to]
+    # A second ball placed loose (multiball: both start in the coach's
+    # basket) is in author coordinates too. Only a tuple is touched — an
+    # index needs nothing — so every existing ball2 is unchanged.
+    if isinstance(drill.ball2, tuple):
+        drill.ball2 = (fx(drill.ball2[0]), fy(drill.ball2[1]))
+        drill.ball2_to = [(((Spot(fx(t.x), fy(t.y)) if isinstance(t, Spot)
+                             else (fx(t[0]), fy(t[1]))) if isinstance(t, tuple)
+                            else t), ph)
+                          for (t, ph) in drill.ball2_to]
     drill.rel = False
 
 
@@ -1121,7 +1130,8 @@ def _second_ball(drill: Drill, sport: str, home_ids, idx: int,
         drill.ball_holders = []
         resolve_ball(drill, sport)
         prune_degenerate_ball_legs(drill, sport)
-        bx, by = ball_start(drill, sport)
+        bx, by = (ball_start(drill, sport) if isinstance(drill.ball, int)
+                  else drill.ball)
         attached = (home_ids[drill.ball] if isinstance(drill.ball, int)
                     else None)
         holder0 = (carrier_id(drill.ball) if isinstance(drill.ball, int)
@@ -1199,6 +1209,11 @@ def build_board(drill: Drill, sport: str) -> dict:
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
                                  drill.ball_moves, carriers, holders, holder0))
+            # A loose first ball can have a second one too (multiball: both
+            # in the coach's basket). Only drills that set ball2 reach this.
+            if drill.ball2 is not None:
+                players.append(_second_ball(drill, sport, home_ids,
+                                            len(players), carrier_id))
 
     ball_xy = None
     for pd in players:

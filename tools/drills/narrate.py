@@ -27,6 +27,32 @@ from __future__ import annotations
 
 from .intents import RESET, RUN_WHY, why_text
 
+import json as _json
+from pathlib import Path as _Path
+
+# The gear / flow / rules lines are authored in English and Chinese only.
+# Every other locale used to fall back to the English sentence, so a Japanese
+# coach read "【続け方】Pass, set, hit back and forth…" mid-note. The other
+# eight live in i18n/*.json, keyed by the English text; a sport's own file
+# (i18n/<sport>.json) and the shared one are merged. A sentence with no entry
+# raises at generation time instead of shipping in English.
+_I18N: dict = {}
+for _f in sorted((_Path(__file__).parent / "i18n").glob("*.json")):
+    for _en, _tr in _json.loads(_f.read_text(encoding="utf-8")).items():
+        _I18N.setdefault(_en, {}).update(_tr)
+
+
+def _localized(text: dict, loc: str, what: str, drill_id: str) -> str:
+    if text.get(loc):
+        return text[loc]
+    if loc in ("en", "en-GB"):
+        return text["en"]
+    hit = _I18N.get(text["en"], {}).get(loc)
+    if not hit:
+        raise ValueError(f"{drill_id}: {what} has no {loc} text (add it to "
+                         f"tools/drills/i18n/): {text['en'][:80]!r}")
+    return hit
+
 LOCALES = ["en", "en-GB", "zh-CN", "zh-TW", "ja-JP", "ko-KR", "es-ES",
            "fr-FR", "id-ID", "ms-MY", "th-TH", "vi-VN"]
 
@@ -498,7 +524,7 @@ RUN = {
 # is "forward" depends on which half the player is in, which is more theory
 # than a warm-up needs — up/down/left/right in pitch terms is unambiguous.
 DIR = {
-    "up": {"en": "up the board", "en-GB": "up the board", "zh-CN": "向前",
+    "up": {"en": "forward", "en-GB": "forward", "zh-CN": "向前",
            "zh-TW": "向前", "ja-JP": "前方", "ko-KR": "앞으로",
            "es-ES": "hacia delante", "fr-FR": "vers l'avant",
            "id-ID": "ke depan", "ms-MY": "ke hadapan", "th-TH": "ไปข้างหน้า",
@@ -602,7 +628,7 @@ def _ball_at(sport: str, loc: str) -> str:
     return SETUP_BALL_AT[loc]
 
 # Sports where a ball_to leg reads as a throw / a hit rather than a kick-pass.
-THROW_SPORTS = {"baseball", "handball", "waterPolo", "rugby", "basketball"}
+THROW_SPORTS = {"baseball", "handball", "waterPolo", "basketball"}
 HIT_SPORTS = {"volleyball", "tennis", "badminton", "tableTennis",
               "pickleball", "sepakTakraw", "beachTennis", "footvolley"}
 
@@ -721,6 +747,136 @@ def _is_near_net(sport: str, target) -> bool:
 
 def _net_leg() -> tuple[dict, dict]:
     return HIT_NET, NET_WORD
+
+
+# Rugby's balls to a place, which are never "played into space": a kick
+# goes forward, the ball goes back on the ground (presented at a ruck,
+# struck back in the scrum), a 9 feeds the scrum, a hooker throws in.
+RUGBY_KICK = {
+    "en": "{a} kicks", "en-GB": "{a} kicks",
+    "zh-CN": "{a}踢球", "zh-TW": "{a}踢球",
+    "ja-JP": "{a}がキック", "ko-KR": "{a}가 킥한다",
+    "es-ES": "{a} patea", "fr-FR": "{a} tape au pied",
+    "id-ID": "{a} menendang bola", "ms-MY": "{a} menyepak bola",
+    "th-TH": "{a} เตะบอล", "vi-VN": "{a} đá bóng",
+}
+RUGBY_BACK = {
+    "en": "{a} plays the ball back", "en-GB": "{a} plays the ball back",
+    "zh-CN": "{a}把球向后送出", "zh-TW": "{a}把球向後送出",
+    "ja-JP": "{a}がボールを後ろへ出す", "ko-KR": "{a}가 공을 뒤로 내준다",
+    "es-ES": "{a} saca el balón hacia atrás",
+    "fr-FR": "{a} renvoie le ballon vers l'arrière",
+    "id-ID": "{a} mengeluarkan bola ke belakang",
+    "ms-MY": "{a} mengeluarkan bola ke belakang",
+    "th-TH": "{a} ส่งบอลออกไปด้านหลัง", "vi-VN": "{a} đưa bóng ra phía sau",
+}
+RUGBY_FEED = {
+    "en": "{a} feeds the ball into the scrum",
+    "en-GB": "{a} feeds the ball into the scrum",
+    "zh-CN": "{a}把球送入争球通道", "zh-TW": "{a}把球送入爭球通道",
+    "ja-JP": "{a}がスクラムにボールを投入", "ko-KR": "{a}가 스크럼에 공을 넣는다",
+    "es-ES": "{a} introduce el balón en la melé",
+    "fr-FR": "{a} introduit le ballon en mêlée",
+    "id-ID": "{a} memasukkan bola ke scrum",
+    "ms-MY": "{a} memasukkan bola ke dalam scrum",
+    "th-TH": "{a} ป้อนบอลเข้าสกรัม", "vi-VN": "{a} đưa bóng vào scrum",
+}
+RUGBY_THROW_IN = {
+    "en": "{a} throws in", "en-GB": "{a} throws in",
+    "zh-CN": "{a}掷边线球", "zh-TW": "{a}擲邊線球",
+    "ja-JP": "{a}がスローイン", "ko-KR": "{a}가 스로인한다",
+    "es-ES": "{a} lanza la touche", "fr-FR": "{a} lance en touche",
+    "id-ID": "{a} melempar lineout", "ms-MY": "{a} membaling lineout",
+    "th-TH": "{a} โยนไลน์เอาต์", "vi-VN": "{a} ném biên",
+}
+RUGBY_TAKE = {
+    "en": "{a} takes the ball", "en-GB": "{a} takes the ball",
+    "zh-CN": "{a}拿到球", "zh-TW": "{a}拿到球",
+    "ja-JP": "{a}がボールを確保", "ko-KR": "{a}가 공을 잡는다",
+    "es-ES": "{a} se hace con el balón", "fr-FR": "{a} récupère le ballon",
+    "id-ID": "{a} menguasai bola", "ms-MY": "{a} menguasai bola",
+    "th-TH": "{a} เก็บบอลได้", "vi-VN": "{a} giữ được bóng",
+}
+RUGBY_TRY = {
+    "en": "{a} scores the try", "en-GB": "{a} scores the try",
+    "zh-CN": "{a}持球冲入达阵区达阵", "zh-TW": "{a}持球衝入達陣區達陣",
+    "ja-JP": "{a}がインゴールにトライ", "ko-KR": "{a}가 인골에 트라이",
+    "es-ES": "{a} posa el ensayo", "fr-FR": "{a} aplatit l'essai",
+    "id-ID": "{a} mencetak try", "ms-MY": "{a} menjaringkan try",
+    "th-TH": "{a} วางทรัย", "vi-VN": "{a} ghi try",
+}
+
+
+def _rugby_spot_leg(drill, prev, from_xy, target) -> dict:
+    """Which of the rugby place legs this is, from where it goes. A side
+    attacks toward the other one, so "back" for it is away from them."""
+    from .engine import court_rect
+    left, top, w, h = court_rect("rugby")
+    if from_xy is None:
+        return RUGBY_KICK
+    if from_xy[0] < left or from_xy[0] > left + w:
+        return RUGBY_THROW_IN
+    metre = h / 144.0
+    own, other = ((drill.away, drill.home) if prev in drill.away
+                  else (drill.home, drill.away))
+    sign = 1.0
+    if own and other:
+        mean = lambda side: sum(p.y for p in side) / len(side)
+        sign = 1.0 if mean(other) <= mean(own) else -1.0
+    dy = sign * (target[1] - from_xy[1]) / metre
+    dist = ((target[0] - from_xy[0]) ** 2
+            + (target[1] - from_xy[1]) ** 2) ** 0.5 / metre
+    if dy > 1.5:
+        return RUGBY_BACK
+    if dist < 12.0 and abs(dy) <= 3.0:
+        return RUGBY_FEED
+    return RUGBY_KICK
+
+
+RUGBY_ZONE_WORD = {
+    "en": "the landing zone", "en-GB": "the landing zone",
+    "zh-CN": "落点区", "zh-TW": "落點區", "ja-JP": "落下ゾーン",
+    "ko-KR": "낙하 지점", "es-ES": "la zona de caída",
+    "fr-FR": "la zone de chute", "id-ID": "zona jatuh",
+    "ms-MY": "zon jatuhan", "th-TH": "โซนตก", "vi-VN": "vùng bóng rơi",
+}
+RUGBY_TOUCH_WORD = {
+    "en": "the line of touch", "en-GB": "the line of touch",
+    "zh-CN": "边线球中线", "zh-TW": "邊線球中線", "ja-JP": "ラインオブタッチ",
+    "ko-KR": "라인 오브 터치", "es-ES": "la línea de touche",
+    "fr-FR": "la ligne de touche", "id-ID": "garis lemparan",
+    "ms-MY": "garisan lontaran", "th-TH": "แนวไลน์เอาต์", "vi-VN": "đường ném biên",
+}
+RUGBY_GROUND_WORD = {
+    "en": "the ground", "en-GB": "the ground",
+    "zh-CN": "地面", "zh-TW": "地面", "ja-JP": "地面", "ko-KR": "땅",
+    "es-ES": "el suelo", "fr-FR": "le sol", "id-ID": "tanah",
+    "ms-MY": "tanah", "th-TH": "พื้น", "vi-VN": "mặt sân",
+}
+
+
+def _rugby_place_word(drill, t) -> dict:
+    """Where a rugby ball to a place goes, for the ball-path line: a kick
+    to its marked landing zone, a lineout throw down the line of touch,
+    and anything else is put on the ground (a ruck, the scrum tunnel)."""
+    if any(getattr(m, "shape", "") == "zone"
+           and abs(m.x - t[0]) + abs(m.y - t[1]) < 120 for m in drill.markers):
+        return RUGBY_ZONE_WORD
+    if drill.off_surface:
+        return RUGBY_TOUCH_WORD
+    return RUGBY_GROUND_WORD
+
+
+def _rugby_carry(sport, route, k, legs) -> dict:
+    """A rugby carry: over the try line it is the try; straight after a
+    ball to a place it is the man taking it; otherwise a carry."""
+    from .engine import court_rect
+    _, top, _, h = court_rect(sport)
+    if k < len(legs) and legs[k][1] < top + h * 22.0 / 144.0:
+        return RUGBY_TRY
+    if k > 0 and isinstance(route[k - 1][0], tuple):
+        return RUGBY_TAKE
+    return CARRY
 
 
 def _spot_leg(sport: str) -> tuple[dict, dict]:
@@ -891,6 +1047,8 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 tbl = (_far_end(sport) if shooty
                        else _net_leg() if _is_near_net(sport, target)
                        else _spot_leg(sport))[0]
+                if sport == "rugby" and not shooty:
+                    tbl = _rugby_spot_leg(drill, prev, from_xy, target)
                 if prev:
                     add(ph, tbl, a=_label(prev))
                 # Whoever ran onto it plays the next one. The target was
@@ -904,7 +1062,12 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 # ball somebody ran onto: the batter standing there did
                 # not take it, and the next leg was reading "P wins the
                 # ball off B".
-                prev = None if shooty else _standing_on(drill, target, ph)
+                # A rugby ball on the grass belongs to whoever is over it
+                # when it is next played — the 9 who arrives at the ruck,
+                # not the tackled man or the jackal who was nearest as it
+                # was placed — so it is asked again on the next leg.
+                prev = (None if shooty or sport == "rugby"
+                        else _standing_on(drill, target, ph))
                 last_shooty = shooty
             else:
                 t = (drill.away[int(target[1:])] if isinstance(target, str)
@@ -917,7 +1080,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     # the ball rides that player's run for this beat. The
                     # board draws it the same way (the escorted rule), and
                     # "2 passes to 2" is not a sentence.
-                    add(ph, HIT_MOVE if sport in HIT_SPORTS else CARRY,
+                    add(ph, (_rugby_carry(sport, route, k, legs)
+                             if sport == "rugby"
+                             else HIT_MOVE if sport in HIT_SPORTS else CARRY),
                         a=_label(t))
                 elif (sport not in HIT_SPORTS
                       and (prev in drill.away) != (t in drill.away)):
@@ -1005,10 +1170,22 @@ def sequence_texts(drill, sport: str) -> dict | None:
             prev3 = t3
     for p in people:
         for i, (x, y, ph) in enumerate(p.moves):
-            if i > 0:
-                continue  # narrate a player's first leg; chains stay terse
             if p is carrier or (id(p), ph) in carried:
                 continue  # "1 carries the ball on" already said this leg
+            if i > 0:
+                # A later leg. It used to go unsaid ("chains stay terse"),
+                # so a footwork drill's second and third stations were on
+                # the board and nowhere in the text. Its direction is from
+                # where the last leg ended, not from where he started.
+                ox, oy = p.moves[i - 1][0], p.moves[i - 1][1]
+                dx, dy = x - ox, y - oy
+                if dx == 0 and dy == 0:
+                    continue
+                d = ("right" if dx > 0 else "left") if abs(dx) > abs(dy) else \
+                    ("down" if dy > 0 else "up")
+                add(ph, RUN, a=_label(p), dir_key=_facing(p, drill, d),
+                    why=p.why.get(ph))
+                continue
             prev_stop = stops.get(ph - 1)
             is_follow = (prev_stop is not None
                          and passer_on.get(ph - 1) is p
@@ -1103,7 +1280,9 @@ def sequence_texts(drill, sport: str) -> dict | None:
                                          HIT_MOVE, PASS_SPOT, HIT_SPOT, HIT_NET,
                                          HIT_DEEP,
                                          KICK_POSTS, PITCH, SHOOT, SHOOT_HOOP,
-                                         PASS_IN, PASS_IN_NET, FEED)
+                                         PASS_IN, PASS_IN_NET, FEED,
+                                         RUGBY_KICK, RUGBY_BACK, RUGBY_FEED,
+                                         RUGBY_THROW_IN, RUGBY_TAKE, RUGBY_TRY)
                              if id(t) == tid)
                 # Same letter several times over ("D, D, D") is a count.
                 names, counts = [], {}
@@ -1179,6 +1358,8 @@ def route_texts(drill, sport: str) -> dict | None:
                            else (None, None)))
                 if shooty:
                     stops.append(_far_end(sport)[1][loc])
+                elif sport == "rugby":
+                    stops.append(_rugby_place_word(drill, t)[loc])
                 elif sx is not None and abs(t[0]-sx) + abs(t[1]-sy) < 120:
                     stops.append(BACK_TO_START[loc])
                 elif _is_near_net(sport, t):
@@ -1224,7 +1405,7 @@ def setup_texts(drill, sport: str) -> dict:
     """The 组织 census — overridden by a hand-written drill.setup when given."""
     hand = getattr(drill, "setup", None)
     if hand:
-        return {loc: hand.get(loc, hand["en"]) for loc in LOCALES}
+        return {loc: _localized(hand, loc, "setup", drill.id) for loc in LOCALES}
     # A side whose players wear letters gets them listed: "5 v 3" is a
     # count, and a coach looking at the board still has to work out which
     # dot is B. A side wearing shirt numbers is already named by them.
@@ -1299,7 +1480,7 @@ def compose_note(drill, sport: str) -> None:
         parts.append(SECTION["setup"][loc] + setup[loc] + DOT[loc].rstrip())
         if drill.gear:
             parts.append(SECTION["gear"][loc]
-                         + (drill.gear.get(loc) or drill.gear["en"])
+                         + _localized(drill.gear, loc, "gear", drill.id)
                          + DOT[loc].rstrip())
         if route:
             parts.append(SECTION["route"][loc] + route[loc])
@@ -1307,10 +1488,10 @@ def compose_note(drill, sport: str) -> None:
             parts.append(SECTION["seq"][loc] + seq[loc])
         if drill.flow:
             parts.append(SECTION["flow"][loc]
-                         + (drill.flow.get(loc) or drill.flow["en"]))
+                         + _localized(drill.flow, loc, "flow", drill.id))
         if drill.rules:
             parts.append(SECTION["rules"][loc]
-                         + (drill.rules.get(loc) or drill.rules["en"]))
+                         + _localized(drill.rules, loc, "rules", drill.id))
         parts.append(SECTION["point"][loc] + point)
         # One section per line: as a single run-on paragraph the note made
         # the reader find the section markers themselves.

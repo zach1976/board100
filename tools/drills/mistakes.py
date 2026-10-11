@@ -370,12 +370,12 @@ add("handball", "Goalkeeping",
     "手還沒揮出來就先倒向一邊——提前動的門將，等於已經被打穿了。",
     "腕が振り出される前に片側へ跳ぶ——先に動いたGKは、すでに破られている。",
     "팔이 나오기 전에 한쪽으로 먼저 움직인다 — 미리 움직인 골키퍼는 이미 뚫린 골키퍼다.",
-    "Tirarse a un lado antes de que salga el brazo: un portero que ya se movio es un portero ya batido.",
-    "Partir d'un cote avant que le bras ne parte : un gardien deja lance est un gardien deja battu.",
+    "Tirarse a un lado antes de que salga el brazo: un portero que ya se movió es un portero ya batido.",
+    "Partir d’un côté avant que le bras ne parte : un gardien déjà lancé est un gardien déjà battu.",
     "Menjatuhkan diri ke satu sisi sebelum lengan diayun — kiper yang sudah bergerak adalah kiper yang sudah dikalahkan.",
     "Melompat ke satu sisi sebelum lengan dihayun; penjaga gol yang sudah bergerak sudah kalah.",
     "ทิ้งตัวไปข้างหนึ่งก่อนแขนจะเหวี่ยงออกมา ผู้รักษาประตูที่ขยับก่อนคือคนที่โดนยิงผ่านไปแล้ว",
-    "Do nguoi sang mot ben truoc khi tay vung ra — thu mon da di chuyen la thu mon da bi danh bai.")
+    "Đổ người sang một bên trước khi tay vung ra — thủ môn đã di chuyển trước là thủ môn đã bị đánh bại.")
 
 add("fieldHockey", "Goalkeeping",
     "Going to ground early — once you are down the shooter has the whole top of the goal and all the time he wants.",
@@ -383,12 +383,12 @@ add("fieldHockey", "Goalkeeping",
     "過早倒地——一旦你躺下，整個上半門和所有時間都歸射門的人了。",
     "早く倒れすぎる——寝てしまえばゴール上半分と時間のすべては相手のものだ。",
     "너무 일찍 넘어진다 — 눕는 순간 골문 위쪽 전부와 시간이 슈터의 것이 된다.",
-    "Irse al suelo pronto: una vez abajo, el tirador tiene toda la parte alta de la porteria y todo el tiempo.",
-    "Se coucher trop tot : une fois au sol, le tireur a tout le haut du but et tout le temps qu il veut.",
+    "Irse al suelo pronto: una vez abajo, el tirador tiene toda la parte alta de la portería y todo el tiempo.",
+    "Se coucher trop tôt : une fois au sol, le tireur a tout le haut du but et tout le temps qu’il veut.",
     "Terlalu cepat menjatuhkan diri — begitu tergeletak, penembak punya seluruh bagian atas gawang.",
     "Terlalu awal menjatuhkan diri; setelah rebah, penembak memiliki seluruh bahagian atas gol.",
     "ล้มตัวลงเร็วเกินไป พอลงไปแล้วคนยิงก็ได้ประตูส่วนบนทั้งหมดและมีเวลาเหลือเฟือ",
-    "Nga nguoi qua som — mot khi da nam xuong, nguoi sut co ca nua tren khung thanh va bao nhieu thoi gian tuy y.")
+    "Ngã người quá sớm — một khi đã nằm xuống, người sút có cả nửa trên khung thành và bao nhiêu thời gian tùy ý.")
 
 add("waterPolo", "Goalkeeping",
     "Dropping in the water as the arm comes back — you cannot rise again in time, and the shooter is aiming at where you were.",
@@ -396,12 +396,12 @@ add("waterPolo", "Goalkeeping",
     "對方引臂時自己反而沉下去——再想升起來已經來不及，而射門瞄的正是你剛才在的位置。",
     "相手が腕を引く瞬間に沈んでしまう——もう上がり直せないし、シュートは今いた場所を狙っている。",
     "상대가 팔을 당길 때 오히려 가라앉는다 — 다시 뜰 시간이 없고, 슛은 방금 있던 자리를 노린다.",
-    "Hundirse justo cuando el brazo va atras: ya no subes a tiempo y el tiro apunta a donde estabas.",
-    "S enfoncer au moment ou le bras part en arriere : impossible de remonter a temps, et le tir vise l endroit ou tu etais.",
+    "Hundirse justo cuando el brazo va atrás: ya no subes a tiempo y el tiro apunta a donde estabas.",
+    "S'enfoncer au moment où le bras part en arrière : impossible de remonter à temps, et le tir vise l'endroit où tu étais.",
     "Tenggelam saat lengan penembak ditarik ke belakang — tak sempat naik lagi, dan tembakan menuju tempatmu tadi.",
     "Tenggelam ketika lengan penembak ditarik ke belakang; tiada masa untuk naik semula.",
     "จมลงตอนที่คู่แข่งเหวี่ยงแขนถอยหลัง ขึ้นไม่ทันแล้ว และลูกยิงเล็งไปที่เดิมที่คุณเพิ่งอยู่",
-    "Chim xuong dung luc doi thu keo tay ra sau — khong kip nhoi len, va cu sut nham dung cho ban vua o.")
+    "Chìm xuống đúng lúc đối thủ kéo tay ra sau — không kịp nhô lên nữa, và cú sút nhắm đúng chỗ bạn vừa ở.")
 
 add("waterPolo", "Perimeter shot",
     "Winding up from a flat body, so the block reads the shot a full second before it leaves.",
@@ -410,11 +410,11 @@ add("waterPolo", "Perimeter shot",
     "体が水平のまま振りかぶる。ブロックは1秒前にコースを読み切っている。",
     "몸이 누운 채로 팔을 감는다 — 블록은 1초 먼저 코스를 읽는다.",
     "Armar el brazo con el cuerpo plano: el bloqueo lee el tiro un segundo antes de que salga.",
-    "Armer le bras corps a plat : le contre lit le tir une seconde avant qu il parte.",
+    "Armer le bras le corps à plat : le contre lit le tir une seconde avant qu'il parte.",
     "Menarik lengan dengan badan mendatar, sehingga blok membaca tembakan satu detik lebih awal.",
     "Menarik lengan dengan badan mendatar, blok membaca tembakan sesaat lebih awal.",
     "เหวี่ยงแขนทั้งที่ตัวยังราบกับน้ำ ทำให้ฝ่ายบล็อกอ่านทางล่วงหน้าเป็นวินาที",
-    "Vung tay khi than nguoi con nam ngang, khien hang chan doc duoc cu sut truoc ca giay.")
+    "Vung tay khi thân người còn nằm ngang, khiến hàng chắn đọc được cú sút trước cả giây.")
 
 # ══ basketball ═══════════════════════════════════════════════════════════════
 add("basketball", "Ball screen",
@@ -634,7 +634,10 @@ add("waterPolo", "Counter-attack", "Going on the rebound, not the shot — two s
 add("waterPolo", "Centre forward", "Fighting for position after the pass — win it before the ball is thrown.", "传球后才拼位置——要在球传出前赢下来。", "傳球後才拼位置——要在球傳出前贏下來。", "パス後に位置を争う——投げる前に取る。", "패스 후 자리 다툼 — 던지기 전에.", "Pelear la posición tras el pase: gánala antes del lanzamiento.", "Lutter la position après la passe — gagne-la avant.", "Berebut posisi setelah umpan.", "Berebut kedudukan selepas umpan.", "แย่งตำแหน่งหลังส่งบอล", "Tranh vị trí sau đường chuyền.")
 add("waterPolo", "Six on five", "Holding the ball past the fourth pass — the block recovers and the ejection is wasted.", "球过了第四传还不出手——封堵补回来，罚出白费。", "球過了第四傳還不出手——封堵補回來，罰出白費。", "4本目を過ぎても持つ——ブロックが戻り退水が無駄。", "네 번째 패스 넘겨 쥐고 있다 — 블록 복구, 퇴수 낭비.", "Retener más allá del cuarto pase: el bloque se recupera.", "Garder au-delà de la quatrième passe — le bloc se replace.", "Menahan lewat umpan keempat.", "Menahan melepasi umpan keempat.", "ถือเกินจ่ายที่สี่", "Giữ quá đường chuyền thứ tư.")
 add("waterPolo", "Defence", "Two defenders each assuming the other has the centre — every 2m goal starts there.", "两个人都以为对方盯中锋——每个两米球都是这么丢的。", "兩個人都以為對方盯中鋒——每個兩米球都是這麼丟的。", "二人が互いにセンター担当と思う——2mの失点はそこから。", "둘 다 상대가 센터를 맡는다고 여긴다.", "Dos creyendo que el otro lleva al boya.", "Deux comptant l'un sur l'autre pour la pointe.", "Dua mengira yang lain menjaga center.", "Dua menyangka yang lain menjaga center.", "สองคนคิดว่าอีกคนดูเซ็นเตอร์", "Hai người tưởng người kia kèm trung phong.")
-add("waterPolo", "Restart", "Waiting to play the free throw — the advantage lasts only while they turn.", "任意球慢慢来——优势只在对方转身那一瞬。", "任意球慢慢來——優勢只在對方轉身那一瞬。", "フリースローを待つ——優位は相手が振り向く間だけ。", "프리스로를 기다린다 — 이점은 돌아서는 동안만.", "Esperar para sacar el libre: la ventaja dura lo que tardan en girarse.", "Attendre pour jouer le coup franc — l'avantage ne dure que le retournement.", "Menunda lemparan bebas.", "Melengahkan lemparan bebas.", "รอเล่นฟรีโทรว์", "Chần chừ ném phạt.")
+add("waterPolo", "Restart the five-metre penalty", "Pausing or faking after the whistle — the throw must be one movement, and the hitch is both a foul and the keeper's cue.", "哨响后停顿或做假动作——点球必须一个动作完成，那一下停顿既是犯规，也是给门将的提示。", "哨響後停頓或做假動作——點球必須一個動作完成，那一下停頓既是犯規，也是給門將的提示。", "笛の後に間を作る・フェイクする——ペナルティは一つの動作で、その間は反則でありGKへの合図になる。", "휘슬 후 멈칫하거나 페이크한다 — 페널티는 한 동작이고, 그 멈춤은 반칙이자 골키퍼에게 주는 신호다.", "Pararse o fintar tras el silbato: el lanzamiento es un solo movimiento, y ese parón es falta y aviso para el portero.", "Marquer un temps ou feinter après le coup de sifflet — le tir se fait d'un seul geste, et l'arrêt est à la fois une faute et un signal pour le gardien.", "Berhenti sejenak atau menipu setelah peluit — lemparan harus satu gerakan, dan jeda itu pelanggaran sekaligus isyarat bagi kiper.", "Berhenti seketika atau menipu selepas wisel — lemparan mesti satu gerakan, dan jeda itu kesalahan serta isyarat kepada penjaga gol.", "หยุดชะงักหรือหลอกหลังเสียงนกหวีด ลูกโทษต้องยิงในจังหวะเดียว การสะดุดนั้นเป็นทั้งฟาวล์และสัญญาณให้ผู้รักษาประตู", "Khựng lại hoặc làm động tác giả sau tiếng còi — quả ném phải liền một động tác, và cái khựng đó vừa là phạm lỗi vừa là tín hiệu cho thủ môn.")
+add("waterPolo", "Restart the quick free throw", "Waiting to play the free throw — the advantage lasts only while they turn.", "任意球慢慢来——优势只在对方转身那一瞬。", "任意球慢慢來——優勢只在對方轉身那一瞬。", "フリースローを待つ——優位は相手が振り向く間だけ。", "프리스로를 기다린다 — 이점은 돌아서는 동안만.", "Esperar para sacar el libre: la ventaja dura lo que tardan en girarse.", "Attendre pour jouer le coup franc — l'avantage ne dure que le retournement.", "Menunda lemparan bebas — keuntungan hanya ada selama lawan berbalik.", "Melengahkan lemparan bebas — kelebihan hanya ada selagi lawan berpusing.", "รอเล่นฟรีโทรว์ ความได้เปรียบมีแค่ตอนที่คู่แข่งยังหันตัวอยู่", "Chần chừ ném phạt — lợi thế chỉ còn khi đối phương đang xoay người.")
+add("waterPolo", "Restart the swim-off", "Swimming the first strokes head-down — the sprinter cannot see the ball or the other sprinter, and arrives a hand late or past it.", "前几划埋头游——看不见球也看不见对手，结果晚到一只手，或者游过了球。", "前幾划埋頭游——看不見球也看不見對手，結果晚到一隻手，或者游過了球。", "最初のストロークを顔を沈めて泳ぐ——ボールも相手も見えず、手一つ遅れるか通り過ぎる。", "처음 스트로크를 고개 숙이고 헤엄친다 — 공도 상대도 보이지 않아 손 하나 늦거나 지나친다.", "Nadar las primeras brazadas con la cabeza dentro: no ves el balón ni al rival y llegas una mano tarde o te pasas.", "Nager les premiers mouvements tête dans l'eau — on ne voit ni le ballon ni l'adversaire, et on arrive une main trop tard ou on le dépasse.", "Berenang kayuhan awal dengan kepala di air — tak melihat bola maupun lawan, lalu terlambat satu tangan atau kebablasan.", "Berenang kayuhan awal dengan kepala di dalam air — tidak nampak bola atau lawan, lalu lewat satu tangan atau terlajak.", "ว่ายจังหวะแรกๆ แบบก้มหน้า มองไม่เห็นทั้งบอลและคู่แข่ง เลยถึงช้าไปหนึ่งช่วงมือหรือเลยบอลไป", "Bơi những nhịp đầu cúi đầu — không thấy bóng lẫn đối thủ, nên tới chậm nửa sải tay hoặc bơi quá bóng.")
+add("waterPolo", "Restart", "Treating the restart as a pause — a free throw taken late, a penalty with a hitch, a swim-off started on the second stroke all hand the edge back.", "把定位球当成暂停——任意球发得慢、点球出手有停顿、抢球第二下才发力，都会把优势还给对方。", "把定位球當成暫停——任意球發得慢、點球出手有停頓、搶球第二下才發力，都會把優勢還給對方。", "リスタートを一息つく時間にする——遅いフリースロー、間のあるペナルティ、2かき目から出るスイムオフは優位を返す。", "재개를 쉬는 시간으로 여긴다 — 늦은 프리스로, 멈칫하는 페널티, 두 번째 스트로크에 출발하는 스윔오프는 이점을 돌려준다.", "Tomar la reanudación como una pausa: un libre lento, un penalti con parón o una salida que arranca en la segunda brazada devuelven la ventaja.", "Prendre la reprise pour une pause — coup franc tardif, penalty avec un temps d'arrêt, départ à la nage lancé au deuxième mouvement rendent l'avantage.", "Menganggap restart sebagai jeda — lemparan bebas yang lambat, penalti yang tersendat, atau start renang yang telat satu kayuhan mengembalikan keuntungan.", "Menganggap mula semula sebagai rehat — lemparan bebas yang lambat, penalti yang tersekat, atau mula renang yang lewat satu kayuhan memulangkan kelebihan.", "มองการเริ่มเล่นใหม่เป็นช่วงพัก ฟรีโทรว์ช้า ลูกโทษที่สะดุด หรือออกตัวช้าไปหนึ่งจังหวะ ล้วนคืนความได้เปรียบให้คู่แข่ง", "Coi tình huống bóng chết là lúc nghỉ — ném phạt chậm, phạt đền bị khựng, tranh bóng chậm một nhịp đều trả lại lợi thế cho đối phương.")
 add("pickleball", "Dink", "Letting the dink rise — a ball above the net is a ball they attack.", "小球放高了——高过网的球就是被打死的球。", "小球放高了——高過網的球就是被打死的球。", "ディンクが浮く——ネットより高い球は叩かれる。", "딩크가 뜬다 — 네트 위 공은 맞는 공.", "Dejar subir el dink: una bola sobre la red la atacan.", "Laisser monter le dink — une balle au-dessus du filet est attaquée.", "Membiarkan dink naik.", "Membiarkan dink naik.", "ดิ้งก์ลอย", "Bỏ nhỏ bị nổi.")
 add("pickleball", "Third shot", "Admiring the drop from the baseline — the third shot buys the walk to the kitchen; go.", "站底线欣赏自己的落球——第三拍换的是上网的步子，快上。", "站底線欣賞自己的落球——第三拍換的是上網的步子，快上。", "ベースラインでドロップに見とれる——3球目は前進を買う球。", "베이스라인에서 감상한다 — 서드샷은 전진을 산다.", "Admirar el drop desde el fondo: el tercer golpe compra la subida.", "Admirer le drop du fond — la troisième frappe paie la montée.", "Mengagumi drop dari garis belakang.", "Mengagumi drop dari garisan belakang.", "ยืนชมดรอปจากเส้นหลัง", "Đứng ngắm cú thả từ cuối sân.")
 add("pickleball", "Speed-up", "Speeding up a low ball — you start a firefight from underneath.", "把低球加速——从下风位置主动开打。", "把低球加速——從下風位置主動開打。", "低い球を速くする——不利な位置から撃ち合いを始める。", "낮은 공을 빠르게 — 불리하게 난타 시작.", "Acelerar una bola baja: inicias un tiroteo en desventaja.", "Accélérer une balle basse — tu ouvres l'échange en dessous.", "Mempercepat bola rendah.", "Mempercepat bola rendah.", "เร่งลูกต่ำ", "Tăng tốc bóng thấp.")
