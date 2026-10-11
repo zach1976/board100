@@ -41,12 +41,12 @@ GEAR = {
     "st_attack_": ZONE, "st_spike_": ZONE, "st_block_at_the_net": ZONE,
     "st_serve_": SERVE,
     "st_tekong_": _t(
-        "the circle is the service circle; the tekong's kicking foot stays inside it until contact",
+        "the circle is the service circle; the tekong's supporting foot stays inside it until contact",
         "圆圈是发球圈，发球手的支撑脚在触球前不能出圈",
         "圓圈是發球圈，發球手的支撐腳在觸球前不能出圈"),
     "st_game_no_block": _t(
-        "the cone marks the line at the net nobody may cross to block",
-        "锥标标出网前的线，任何人不得越过去拦网",
-        "錐標標出網前的線，任何人不得越過去攔網"),
+        "the cones on the sidelines mark a line 1 m off the net on each side; nobody may go past it to block",
+        "边线上的锥标在两边各标出离网 1 米的线，任何人不得越过这条线去拦网",
+        "邊線上的錐標在兩邊各標出離網 1 公尺的線，任何人不得越過這條線去攔網"),
     "st_receive_header": SERVE,
 }

@@ -5,7 +5,7 @@ room they use is most of what a drill is about. So every board here places
 people outside the table (y below 0 or above 1) and is marked off_surface —
 that is not a mistake, it is where table tennis is played from.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 # Table corners in table coordinates; the net is y=0.5.
 FH, BH = 0.78, 0.22               # the home player's forehand / backhand side
@@ -19,7 +19,8 @@ def mirror(pt):
 
 
 def tt(drill_id, category, minutes, name, note, home, away, markers=(),
-       ball=None, ball_to=None, free=False, rel=True) -> Drill:
+       ball=None, ball_to=None, free=False, rel=True, ball2=None,
+       ball2_to=None) -> Drill:
     """A table tennis board — always off the table, because that is where the
     player stands.
 
@@ -33,7 +34,8 @@ def tt(drill_id, category, minutes, name, note, home, away, markers=(),
     return Drill(id=drill_id, category=category, minutes=minutes, rel=rel,
                  free=free, off_surface=True, name=name, note=note,
                  home=home, away=away, markers=list(markers), ball=ball,
-                 ball_to=ball_to or [])
+                 ball_to=ball_to or [], ball2=ball2,
+                 ball2_to=ball2_to or [])
 
 
 WARM_NAME = {
@@ -104,39 +106,73 @@ FOOT_NOTE = {
 }
 
 
+FOOT_PURPOSE = {
+    "en": "Footwork with the ball: the feeder sets the pattern and the pace, so the worker learns to arrive in position for every ball and hit it the same way, again and again.",
+    "en-GB": "Footwork with the ball: the feeder sets the pattern and the pace, so the worker learns to arrive in position for every ball and hit it the same way, again and again.",
+    "zh-CN": "带球的步法训练：喂球的人定好线路和节奏，练习者每一球都要先移动到位，再用同样的动作击球，一遍又一遍。",
+    "zh-TW": "帶球的步法訓練：餵球的人定好線路和節奏，練習者每一球都要先移動到位，再用同樣的動作擊球，一遍又一遍。",
+    "ja-JP": "ボールを使ったフットワーク：送る側がコースとテンポを決め、練習者は毎球まず位置に入り、同じ形で打つことを繰り返す。",
+    "ko-KR": "공을 쓰는 풋워크: 주는 쪽이 코스와 템포를 정하고, 연습자는 매 공마다 먼저 자리에 들어가 같은 동작으로 치는 것을 반복한다.",
+    "es-ES": "Juego de pies con bola: quien alimenta marca el patrón y el ritmo, y el jugador aprende a llegar colocado a cada bola y a golpearla igual, una y otra vez.",
+    "fr-FR": "Jeu de jambes avec balle : le distributeur fixe le parcours et le rythme, et le joueur apprend à arriver placé sur chaque balle et à la frapper de la même façon, encore et encore.",
+    "id-ID": "Footwork dengan bola: pengumpan menentukan pola dan tempo, jadi pemain belajar tiba di posisi untuk setiap bola dan memukulnya dengan cara yang sama, berulang-ulang.",
+    "ms-MY": "Kerja kaki dengan bola: pengumpan menetapkan corak dan rentak, jadi pemain belajar tiba di kedudukan untuk setiap bola dan memukulnya dengan cara yang sama, berulang kali.",
+    "th-TH": "ฟุตเวิร์กกับลูก: คนป้อนกำหนดทางลูกและจังหวะ ผู้ฝึกต้องเข้าตำแหน่งให้ทันทุกลูกแล้วตีด้วยท่าเดิมซ้ำแล้วซ้ำเล่า",
+    "vi-VN": "Di chuyển chân có bóng: người tiếp bóng định đường bóng và nhịp, người tập học cách vào đúng vị trí cho từng quả và đánh cùng một cách, lặp đi lặp lại.",
+}
+# The stations the feet get to, on the floor just behind the end line —
+# never on the table, which is where the ball bounces, not where anyone stands.
+STATION_Y = 1.12
+CONE_Y = 1.05
+
+
 def footwork_family() -> list[Drill]:
-    """The three classic patterns: two-one, Falkenberg, side to side."""
+    """Short-then-long, the Falkenberg, and side to side — each drawn as the
+    feeder's balls and the worker's returns, not a man shuffling alone."""
     out = []
-    # "Two-one" IS the Falkenberg, and the board drew a third side-to-side
-    # pattern anyway — three boards for one and a half drills. Replaced with
-    # the pattern that was genuinely missing: the short ball at the table
-    # and the step back to loop the next one.
+    feeder = (0.50, -0.12)
+    # In and out: the short ball at the table, then the step back to loop
+    # the long one. (The id is the old name; the drill is this pattern.)
     out.append(tt(
-        "tt_footwork_two_one", "warmup", 10,
-        suffixed(FOOT_NAME, "in and out"), FOOT_NOTE,
-        home=[P(*HOME_READY, "1", moves=[(0.44, 1.02, 0), (0.50, 1.16, 1),
-                                        (FH, 1.24, 2), (0.50, 1.16, 3)])],
-        away=[P(*AWAY_READY, "2", moves=[(0.44, -0.10, 0), (0.62, -0.14, 2)])],
-        markers=[M(0.44, NEAR, "cone", ""), M(FH, DEEP, "cone", "")],
-        ball=AWAY_READY, free=True,
+        "tt_footwork_two_one", "possession", 10,
+        suffixed(FOOT_NAME, {
+            "en": "short, then long", "en-GB": "short, then long",
+            "zh-CN": "一短一长", "zh-TW": "一短一長",
+            "ja-JP": "ショートのあとロング", "ko-KR": "짧게, 그다음 길게",
+            "es-ES": "corta y luego larga", "fr-FR": "courte puis longue",
+            "id-ID": "pendek lalu panjang", "ms-MY": "pendek kemudian panjang",
+            "th-TH": "สั้นแล้วยาว", "vi-VN": "ngắn rồi dài"}), FOOT_NOTE,
+        home=[P(0.50, 1.14, "1", moves=[(0.44, 1.03, 0), (FH, 1.16, 2)])],
+        # The feeder takes each return and is already set for the next.
+        away=[P(*feeder, "2", moves=[(0.40, -0.12, 1), (0.50, -0.12, 3)])],
+        markers=[M(0.44, CONE_Y, "cone", ""), M(FH, 1.20, "cone", "")],
+        ball=feeder, ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3)],
+        free=True,
     ))
+    # Falkenberg: backhand from the backhand corner, forehand from the same
+    # corner, then across to the wide forehand.
+    stations = [(BH, STATION_Y), (0.42, STATION_Y), (FH + 0.06, STATION_Y)]
     out.append(tt(
-        "tt_footwork_falkenberg", "warmup", 10,
+        "tt_footwork_falkenberg", "possession", 10,
         suffixed(FOOT_NAME, "Falkenberg"), FOOT_NOTE,
-        home=[P(*HOME_READY, "1", moves=[(BH, 1.14, 0), (BH - 0.08, 1.20, 1),
-                                        (FH, 1.14, 2), (0.50, 1.16, 3)])],
-        away=[P(*AWAY_READY, "2", moves=[(0.46, -0.10, 1)])],
-        markers=[M(BH, DEEP, "cone", ""), M(FH, DEEP, "cone", ""), M(0.50, NEAR, "cone", "")],
-        ball=AWAY_READY,
+        home=[P(*stations[0], "1", moves=[stations[1] + (2,), stations[2] + (4,)])],
+        away=[P(*feeder, "2", moves=[(0.42, -0.12, 1), (0.58, -0.12, 3),
+                                    (0.50, -0.12, 5)])],
+        markers=[M(x, CONE_Y, "cone", "") for x, _ in stations],
+        ball=feeder,
+        ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3), (0, 4), ("a0", 5)],
     ))
+    sides = [(BH - 0.06, STATION_Y), (FH + 0.06, STATION_Y)]
     out.append(tt(
-        "tt_footwork_side_to_side", "warmup", 8,
+        "tt_footwork_side_to_side", "possession", 8,
         suffixed(FOOT_NAME, "side to side"), FOOT_NOTE,
-        home=[P(*HOME_READY, "1", moves=[(BH - 0.06, 1.16, 0), (FH + 0.06, 1.16, 1),
-                                        (0.50, 1.16, 2)])],
-        away=[P(*AWAY_READY, "2", moves=[(0.50, -0.10, 0)])],
-        ball=AWAY_READY,
+        home=[P(0.50, 1.14, "1", moves=[sides[0] + (0,), sides[1] + (2,)])],
+        away=[P(*feeder, "2", moves=[(0.58, -0.12, 1), (0.50, -0.12, 3)])],
+        markers=[M(x, CONE_Y, "cone", "") for x, _ in sides],
+        ball=feeder, ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3)],
     ))
+    for d in out:
+        d.purpose = FOOT_PURPOSE
     return out
 
 
@@ -227,15 +263,19 @@ LOOP_FLAT_NOTE = {
 
 
 def loop_family() -> list[Drill]:
-    specs = [("vs_backspin", "against backspin", 1.24, FH),
-             ("vs_block", "against the block", 1.14, FH),
-             ("from_backhand", "from the backhand corner", 1.18, BH),
-             # 1.30 of a table length behind the table is off the canvas
-             # now that the table is drawn taller; 1.18 is the same spot on
-             # the floor it used to be.
+    # 2 gives the ball the drill is named against (a push, a block, a loop);
+    # 1 loops it into the zone and recovers. 1 never starts with the ball:
+    # that would be a serve, and no loop drill starts with one.
+    specs = [("vs_backspin", "against backspin", 1.16, FH),
+             ("vs_block", "against the block", 1.12, FH),
+             # From the backhand corner: 1 stays in it and pivots — the
+             # whole point is not drifting to the middle first.
+             ("from_backhand", "from the backhand corner", 1.14, BH - 0.04),
              ("counter_loop", "counter-loop", 1.18, FH)]
     out = []
     for key, label, depth, x in specs:
+        feeder = (1 - x, -0.12)
+        zone = (FH if x < 0.5 else BH, 1 - DEEP)
         out.append(tt(
             f"tt_loop_{key}", "attacking", 10,
             suffixed(LOOP_NAME, label),
@@ -244,10 +284,11 @@ def loop_family() -> list[Drill]:
             # where the racket starts below. Taught the other way round it
             # puts every ball into the net.
             LOOP_NOTE if key == "vs_backspin" else LOOP_FLAT_NOTE,
-            home=[P(x, depth, "1", moves=[(x, depth - 0.10, 0), (0.50, 1.18, 1)])],
-            away=[P(1 - x, -0.18, "2", moves=[(1 - x, -0.10, 1)])],
-            markers=[M(1 - x, 1 - DEEP, "zone", "")],
-            ball=0, free=(key == "vs_backspin"),
+            home=[P(0.50, 1.14, "1", moves=[(x, depth, 0), (0.50, 1.14, 2)])],
+            away=[P(*feeder, "2", moves=[(zone[0], -0.10, 1)])],
+            markers=[M(*zone, "zone", "")],
+            ball=feeder, ball_to=[(0, 0), (Spot(*zone), 1)],
+            free=(key == "vs_backspin"),
         ))
     return out
 
@@ -279,19 +320,23 @@ SHORT_NOTE = {
 
 
 def short_family() -> list[Drill]:
+    # 2 serves short; 1 steps in under the table and plays the stroke the
+    # drill is named for into the zone on 2's half, then gets back out.
     specs = [("touch", "the short touch", (0.50, 0.42)),
              ("flick", "the flick", (BH, 0.30)),
              ("banana", "the banana flick", (FH, 0.34)),
              ("long_push", "the long push", (BH, 0.08))]
     out = []
     for key, label, land in specs:
+        server = (0.50, -0.12)
         out.append(tt(
             f"tt_short_{key}", "attacking", 8,
             suffixed(SHORT_NAME, label), SHORT_NOTE,
-            home=[P(*HOME_READY, "1", moves=[(0.40, 1.02, 0), (0.50, 1.16, 2)])],
-            away=[P(*AWAY_READY, "2", moves=[(land[0], -0.10, 1)])],
-            markers=[M(*land, "zone", ""), M(0.40, NEAR, "cone", "")],
-            ball=AWAY_READY, free=(key == "touch"),
+            home=[P(*HOME_READY, "1", moves=[(0.42, 1.02, 0), (0.50, 1.14, 2)])],
+            away=[P(*server, "2", moves=[(land[0], -0.10, 1)])],
+            markers=[M(*land, "zone", "")],
+            ball=server, ball_to=[(0, 0), (Spot(*land), 1)],
+            free=(key == "touch"),
         ))
     return out
 
@@ -323,18 +368,21 @@ KILL_NOTE = {
 
 
 def kill_family() -> list[Drill]:
+    # 2 gives the high or loose ball, 1 moves in and finishes into the zone.
     specs = [("smash", "the smash", (BH, 0.06)), ("wide_forehand", "from the wide forehand", (BH, 0.14)),
              ("into_the_body", "into the body", (0.50, 0.10))]
     out = []
     for key, label, land in specs:
         x = FH + 0.10 if key == "wide_forehand" else 0.50
+        feeder = (0.50, -0.12)
         out.append(tt(
             f"tt_kill_{key}", "finishing", 8,
             suffixed(KILL_NAME, label), KILL_NOTE,
-            home=[P(x, 1.18, "1", moves=[(x, 1.08, 1), (0.50, 1.16, 2)])],
-            away=[P(*AWAY_READY, "2", moves=[(land[0], -0.12, 2)])],
+            home=[P(0.50, 1.16, "1", moves=[(x, 1.08, 0), (0.50, 1.14, 2)])],
+            away=[P(*feeder, "2", moves=[(land[0], -0.10, 1)])],
             markers=[M(*land, "zone", "")],
-            ball=AWAY_READY, free=(key == "smash"),
+            ball=feeder, ball_to=[(0, 0), (Spot(*land), 1)],
+            free=(key == "smash"),
         ))
     return out
 
@@ -368,25 +416,35 @@ DEF_NOTE = {
 def defence_family() -> list[Drill]:
     # Three different strokes at three different distances: a chop block is
     # played *at* the table with a short sideways action, a deep chop from
-    # two to four metres, a lob from four to five. They used to be one board
-    # at three depths, with the same shuffle and the same incoming ball.
-    specs = [("chop_block", "the chop block", 1.04, (0.36, 0.02),
-              [(BH, 1.02, 0), (0.50, 1.06, 1)]),
-             ("deep_chop", "the deep chop", 1.18, (0.50, 0.06),
-              [(BH, 1.32, 0), (FH, 1.30, 1), (0.50, 1.28, 2)]),
-             # 1.40 is as far back as the board goes; a lob is played from
-             # further still, and the board says "deep" as clearly as it can.
-             ("lob", "the lob and recover", 1.24, (0.50, 0.10),
-              [(FH + 0.06, 1.40, 0), (0.50, 1.34, 2)])]
+    # well back, a lob from further back still. The board shows as much floor
+    # as a phone has — 0.55 m behind the table — so "deep" is drawn as the
+    # back of the board, never off it.
+    feeder = (0.50, -0.12)
+    specs = [("chop_block", "the chop block", (0.36, 0.04),
+              [(BH, 1.02, 0), (0.50, 1.06, 2)],
+              [(0, 0), (Spot(0.36, 0.04), 1)]),
+             ("deep_chop", "the deep chop", (0.50, 0.06),
+              [(BH, 1.18, 0), (FH, 1.18, 2)],
+              [(0, 0), ("a0", 1), (0, 2), (Spot(0.50, 0.06), 3)]),
+             ("lob", "the lob and recover", (0.50, 0.10),
+              [(FH + 0.06, 1.20, 0), (0.50, 1.12, 2)],
+              [(0, 0), (Spot(0.50, 0.10), 1)])]
     out = []
-    for key, label, depth, target, path in specs:
+    for key, label, target, path, route in specs:
         out.append(tt(
             f"tt_defence_{key}", "defending", 10,
-            suffixed(DEF_NAME, label), DEF_NOTE,
-            home=[P(0.50, depth, "1", moves=path)],
-            away=[P(*AWAY_READY, "2", moves=[(BH, -0.12, 0), (FH, -0.10, 1)])],
+            suffixed(DEF_NAME, {
+                "en": "the chop block", "en-GB": "the chop block",
+                "zh-CN": "侧切挡", "zh-TW": "側切擋", "ja-JP": "チョップブロック",
+                "ko-KR": "촙 블록", "es-ES": "bloqueo cortado",
+                "fr-FR": "bloc coupé", "id-ID": "blok potong",
+                "ms-MY": "blok potong", "th-TH": "บล็อกตัด",
+                "vi-VN": "chặn cắt"} if key == "chop_block" else label),
+            DEF_NOTE,
+            home=[P(0.50, 1.10, "1", moves=path)],
+            away=[P(*feeder, "2", moves=[(target[0] + 0.06, -0.10, 1)])],
             markers=[M(*target, "zone", "")],
-            ball=AWAY_READY, free=(key == "chop_block"),
+            ball=feeder, ball_to=route, free=(key == "chop_block"),
         ))
     return out
 
@@ -416,24 +474,41 @@ SERVE_NOTE = {
 }
 
 
+def _through(src, zone, y):
+    """Where a receiver standing at depth y meets a serve from src that
+    bounces in zone — so the line drawn to him crosses the zone it names."""
+    sx, sy = src
+    zx, zy = zone
+    return (sx + (zx - sx) * (sy - y) / (sy - zy), y)
+
+
 def serve_family() -> list[Drill]:
-    specs = [("short_backspin", "short backspin", (0.50, 0.38)),
-             ("long_fast", "long and fast", (BH, 0.06)),
-             ("sidespin_wide", "sidespin wide", (FH + 0.08, 0.30)),
-             ("third_ball", "serve and third ball", (0.50, 0.36))]
+    server = (BH - 0.10, 1.14)
+    specs = [("short_backspin", "short backspin", (0.50, 0.38), -0.10),
+             ("long_fast", "long and fast", (BH, 0.06), -0.12),
+             ("sidespin_wide", "sidespin wide", (FH + 0.08, 0.30), -0.08),
+             ("third_ball", "serve and third ball", (0.50, 0.36), -0.10)]
     out = []
-    for key, label, land in specs:
-        home = [P(BH - 0.10, 1.14, "S", moves=[(0.50, 1.16, 1)])]
+    for key, label, land, depth in specs:
+        receive = _through(server, land, depth)
+        markers = [M(*land, "zone", "")]
         if key == "third_ball":
-            home = [P(BH - 0.10, 1.14, "S",
-                      moves=[(0.50, 1.16, 1), (FH, 1.14, 3)])]
+            # Serve short, take the push with the forehand, attack it deep.
+            attack = (0.20, 0.12)
+            home = [P(*server, "S", moves=[(0.62, 1.12, 1)])]
+            route = [("a0", 0), (0, 1), (Spot(*attack), 2)]
+            markers.append(M(*attack, "zone", ""))
+        else:
+            home = [P(*server, "S", moves=[(0.50, 1.14, 1)])]
+            route = [("a0", 0), (0, 1)]
         out.append(tt(
             f"tt_serve_{key}", "setpiece", 8,
             suffixed(SERVE_NAME, label), SERVE_NOTE,
             home=home,
-            away=[P(*AWAY_READY, "R", moves=[(land[0], -0.10, 2)])],
-            markers=[M(*land, "zone", "")],
-            ball=0, free=(key in ("short_backspin", "third_ball")),
+            away=[P(0.50, -0.14, "R", moves=[receive + (0,)])],
+            markers=markers,
+            ball=0, ball_to=route,
+            free=(key in ("short_backspin", "third_ball")),
         ))
     return out
 
@@ -500,19 +575,30 @@ def game_family() -> list[Drill]:
              ("full_match", "full match", 0.50), ("doubles", "doubles rotation", FH)]
     out = []
     for key, label, x in specs:
-        home = [P(x, 1.16, "1", moves=[(x, 1.08, 0)])]
-        away = [P(1 - x, -0.16, "A", moves=[(1 - x, -0.08, 0)])]
+        home = [P(x, 1.14, "1", moves=[(x, 1.08, 0)])]
+        away = [P(1 - x, -0.14, "A", moves=[(1 - x, -0.08, 0)])]
+        route = [("a0", 0), (0, 1)]
+        markers = []
+        if key == "half_table":
+            # The backhand diagonal: each side's backhand half is shaded.
+            markers = [M(0.25, 0.75, "zone", ""), M(0.75, 0.25, "zone", "")]
         if key == "serve_receive":
-            # A serve-and-receive game is two balls and stop: the server
-            # short to the middle, the receiver's third-ball answer. It was
-            # byte-identical to the full match.
-            home = [P(0.50, 1.14, "1", moves=[(0.44, 1.06, 0), (0.56, 1.16, 2)])]
-            away = [P(0.44, -0.14, "A", moves=[(0.50, -0.06, 1)])]
+            # A serve-and-receive game is two balls and stop: the serve, and
+            # the receiver's answer; the server is back in position for it.
+            home = [P(0.50, 1.14, "1", moves=[(0.56, 1.14, 1)])]
+            away = [P(0.44, -0.14, "A",
+                      moves=[_through((0.50, 1.14), (0.44, 0.06), -0.12) + (0,)])]
+            markers = [M(0.44, 0.06, "zone", "")]
         if key == "doubles":
-            home = [P(BH, 1.14, "1", moves=[(BH - 0.14, 1.24, 1)]),
-                    P(BH - 0.16, 1.26, "2", moves=[(FH, 1.14, 1)])]
-            away = [P(FH, -0.14, "A", moves=[(FH + 0.14, -0.24, 1)]),
-                    P(FH + 0.16, -0.26, "B", moves=[(BH, -0.14, 1)])]
+            # ITTF 2.2.2 and 2.8.3: serve from the server's right half to the
+            # receiver's right half (diagonal), then strict alternation —
+            # 1, A, 2, B. Each hitter steps out sideways on the same movement
+            # so the partner can step in; the depth stays on the board.
+            home = [P(FH, 1.10, "1", moves=[(FH + 0.16, 1.18, 0), (0.50, 1.10, 3)]),
+                    P(BH, 1.18, "2", moves=[(0.46, 1.10, 1), (BH - 0.10, 1.18, 2)])]
+            away = [P(BH, -0.10, "A", moves=[(BH - 0.16, -0.18, 1)]),
+                    P(FH, -0.18, "B", moves=[(0.54, -0.10, 1), (FH + 0.10, -0.18, 3)])]
+            route = [("a0", 0), (1, 1), ("a1", 2), (0, 3)]
         out.append(tt(
             f"tt_game_{key}", "ssg", 15,
             suffixed(GAME_NAME, label),
@@ -521,11 +607,8 @@ def game_family() -> list[Drill]:
             # three, and nothing at all about doubles rotation.
             GAME_NOTE if key == "half_table" else
             (DOUBLES_GAME_NOTE if key == "doubles" else OPEN_GAME_NOTE),
-            home=home, away=away,
-            markers=([M(0.50, DEEP, "cone", ""), M(0.50, 1 - DEEP, "cone", "")]
-                     if key == "half_table" else
-                     ([M(0.44, 0.06, "zone", "")] if key == "serve_receive" else [])),
-            ball=0, free=(key in ("full_match", "half_table")),
+            home=home, away=away, markers=markers,
+            ball=0, ball_to=route, free=(key in ("full_match", "half_table")),
         ))
     return out
 
@@ -537,9 +620,11 @@ def table_tennis_library() -> list[Drill]:
 
 def multiball() -> list[Drill]:
     """Multiball — the other canonical feeding drill. The coach stands beside
-    the table with a basket; the player never waits for a rally to restart."""
-    return [tt(
-        "tt_multiball", "warmup", 10,
+    the far end of the table with a basket; the player never waits for a
+    rally to restart. Two balls, alternated: forehand corner, backhand corner."""
+    basket = (-0.12, 0.20)
+    d = tt(
+        "tt_multiball", "possession", 10,
         {"en": "Multiball", "en-GB": "Multiball",
          "zh-CN": "多球训练", "zh-TW": "多球訓練",
          "ja-JP": "多球練習", "ko-KR": "다구 연습",
@@ -562,14 +647,21 @@ def multiball() -> list[Drill]:
          "ms-MY": "Satu bola sesaat, tiada masa berfikir antara pukulan.",
          "th-TH": "วินาทีละลูก ไม่มีเวลาคิดระหว่างจังหวะ ได้จำนวนซ้ำสิบเท่าของการโต้",
          "vi-VN": "Mỗi giây một bóng, không kịp nghĩ giữa hai cú đánh."},
-        home=[P(*HOME_READY, "1",
-                moves=[(FH, 1.14, 0), (BH, 1.14, 1), (FH, 1.14, 2),
-                       (0.50, 1.16, 3)])],
+        home=[P(0.50, 1.14, "1", moves=[(FH, 1.10, 0), (0.56, 1.14, 1),
+                                        (BH, 1.10, 2), (0.44, 1.14, 3)])],
         # Beside the table, in the room — but the table is drawn 650 of the
         # canvas's 1000 units wide, so -0.28 of a table width is off the
         # canvas altogether. -0.12 is the furthest out a coach fits.
-        away=[P(-0.12, 0.20, "C", moves=[(-0.12, 0.24, 1)])],
-        markers=[M(FH, DEEP, "zone", ""), M(BH, DEEP, "zone", "")],
-        ball=(-0.12, 0.20), free=True,
-    )]
-
+        away=[P(*basket, "C", coach=True)],
+        markers=[M(0.75, 0.22, "zone", ""), M(0.25, 0.22, "zone", "")],
+        ball=basket, ball_to=[(0, 0), (Spot(0.75, 0.22), 1)],
+        ball2=basket, ball2_to=[(0, 2), (Spot(0.25, 0.22), 3)],
+        free=True,
+    )
+    d.purpose = FOOT_PURPOSE
+    d.setup = {
+        "en": "a coach with a basket of balls beside the far end of the table, one player at the near end",
+        "en-GB": "a coach with a basket of balls beside the far end of the table, one player at the near end",
+        "zh-CN": "教练带一筐球站在球台远端的侧边，一名练习者在近端",
+        "zh-TW": "教練帶一筐球站在球檯遠端的側邊，一名練習者在近端"}
+    return [d]

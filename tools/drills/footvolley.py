@@ -5,11 +5,14 @@ players, and a high net. The court is portrait with the net at y=0.5 and home
 at the bottom — the same shape as volleyball, but every drill is limited by
 what a foot, thigh, chest or head can actually do with the ball.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 LEFT, RIGHT = (0.30, 0.74), (0.70, 0.74)
 SET_POINT = (0.44, 0.60)
 NET = 0.5
+# Behind the baseline, as far back as the phone shows: the serve is struck
+# from there, never from inside the court.
+HOME_SERVE_Y, AWAY_SERVE_Y = 1.025, -0.025
 
 
 def mirror(pt):
@@ -97,6 +100,9 @@ CONTROL_NOTE = {
 
 
 def control_family() -> list[Drill]:
+    # F feeds, 1 controls (chest, shoulder, the high ball) and the control
+    # is the touch that puts it on the square for 2 — the second touch is
+    # the point of the drill, so it is drawn.
     specs = [("chest control", "chest control", (0.44, 0.66)),
              ("the shoulder pass", "the shoulder pass", (0.52, 0.62)),
              ("the high feed", "the high feed", SET_POINT)]
@@ -106,11 +112,11 @@ def control_family() -> list[Drill]:
             id=f"fv_control_{key.replace(' ', '_')}", category="possession",
             minutes=10, rel=True, free=(key != "the shoulder pass"),
             name=suffixed(CONTROL_NAME, label), note=CONTROL_NOTE,
-            home=[P(*RIGHT, "1", moves=[(target[0] + 0.14, target[1] + 0.06, 0)]),
+            home=[P(*RIGHT, "1", moves=[(target[0] + 0.14, target[1] + 0.08, 0)]),
                   P(*LEFT, "2", moves=[target + (1,)])],
-            away=[P(0.50, 0.28, "F", moves=[(0.50, 0.36, 0)])],
+            away=[P(0.50, 0.28, "F", moves=[(0.50, 0.32, 1)])],
             markers=[M(*target, "square", "")],
-            ball=(0.50, 0.28),
+            ball=(0.50, 0.28), ball_to=[(0, 0), (1, 1)],
         ))
     return out
 
@@ -140,21 +146,49 @@ SERVE_NOTE = {
 }
 
 
+LONG_SERVE_NOTE = {
+    "en": "Long and fast means flat and to the baseline: the receiver should still be moving back when it arrives. Hang it up and it is a free ball; drop it short and it is an easy chest control.",
+    "en-GB": "Long and fast means flat and to the baseline: the receiver should still be moving back when it arrives. Hang it up and it is a free ball; drop it short and it is an easy chest control.",
+    "zh-CN": "又长又快，就是要平、要压底线：球到的时候，接球人应该还在往后退。发高了就是送过去的机会球，发短了就是一个轻松的胸部停球。",
+    "zh-TW": "又長又快，就是要平、要壓底線：球到的時候，接球人應該還在往後退。發高了就是送過去的機會球，發短了就是一個輕鬆的胸部停球。",
+    "ja-JP": "ロングで速いとは、低く速くベースラインまで。届いた時に相手がまだ下がっている状態にする。高く上げればチャンスボール、短ければ楽な胸トラップになる。",
+    "ko-KR": "길고 빠르다는 건 낮고 평평하게 베이스라인까지라는 뜻이다. 공이 도착할 때 리시버가 아직 뒤로 물러나고 있어야 한다. 띄우면 찬스볼, 짧으면 편한 가슴 트래핑이다.",
+    "es-ES": "Largo y rápido es plano y hasta la línea de fondo: el receptor tiene que seguir retrocediendo cuando llega. Si lo cuelgas es un balón regalado; si se queda corto, un control de pecho fácil.",
+    "fr-FR": "Long et rapide, c'est tendu et jusqu'à la ligne de fond : le receveur doit encore reculer quand il arrive. Trop haut, c'est une balle facile ; trop court, un contrôle de poitrine tranquille.",
+    "id-ID": "Panjang dan cepat berarti datar sampai garis belakang: penerima harus masih mundur saat bola tiba. Terlalu tinggi jadi bola gratis; terlalu pendek jadi kontrol dada yang mudah.",
+    "ms-MY": "Panjang dan laju bermaksud rata hingga ke garisan belakang: penerima mesti masih berundur ketika bola tiba. Terlalu tinggi jadi bola percuma; terlalu pendek jadi kawalan dada yang mudah.",
+    "th-TH": "ยาวและเร็วคือเสิร์ฟเรียดไปถึงเส้นหลัง ตอนลูกมาถึงคนรับต้องยังถอยหลังอยู่ ถ้าโยนสูงจะกลายเป็นลูกง่าย ถ้าสั้นก็กลายเป็นลูกที่รับด้วยอกได้สบาย",
+    "vi-VN": "Dài và nhanh là bóng căng, sát đường biên ngang: khi bóng tới, người đỡ vẫn phải đang lùi. Bổng lên là bóng cho không; ngắn quá là một cú đỡ ngực dễ dàng.",
+}
+
+
 def serve_family() -> list[Drill]:
+    # The serve is struck from behind the baseline and lands IN the zone;
+    # the receiver nearer the zone moves onto it as it comes.
     specs = [("long and fast", "long and fast", (0.50, 0.06)),
-             ("in the corner", "in the corner", (0.14, 0.10)),
+             ("in the corner", {"en": "in the corner", "en-GB": "in the corner",
+                                "zh-CN": "打底角", "zh-TW": "打底角",
+                                "ja-JP": "コーナーへ", "ko-KR": "코너로",
+                                "es-ES": "a la esquina", "fr-FR": "dans le coin",
+                                "id-ID": "ke sudut", "ms-MY": "ke penjuru",
+                                "th-TH": "ลงมุม", "vi-VN": "vào góc"},
+              (0.14, 0.10)),
              ("at the seam", "at the seam", (0.50, 0.28))]
     out = []
     for key, label, land in specs:
+        near_left = land[0] <= 0.50
+        mover = (0.30, 0.26) if near_left else (0.70, 0.26)
+        other = (0.70, 0.26) if near_left else (0.30, 0.26)
         out.append(Drill(
             id=f"fv_serve_{key.replace(' ', '_')}", category="setpiece",
             minutes=8, rel=True, free=(key == "long and fast"), off_surface=True,
-            name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(0.50, 1.04, "S", moves=[(0.50, 0.96, 0), (0.50, 0.80, 1)])],
-            away=[P(0.30, 0.26, "R", moves=[(land[0], land[1] + 0.06, 1)]),
-                  P(0.70, 0.26, "R")],
+            name=suffixed(SERVE_NAME, label),
+            note=LONG_SERVE_NOTE if key == "long and fast" else SERVE_NOTE,
+            home=[P(0.50, HOME_SERVE_Y, "S", moves=[(0.50, 0.80, 1)])],
+            away=[P(*mover, "A", moves=[land + (0,)]),
+                  P(*other, "B", moves=[(0.54 if near_left else 0.46, 0.36, 1)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), ("a1", 1)],
         ))
     return out
 
@@ -190,8 +224,10 @@ def attack_family() -> list[Drill]:
     # not tell them apart. The attacker's height relative to the net and
     # what the blocker does now differ on each board.
     # (key, label, target, where the attacker strikes from, blocker's move)
+    # Attacker and blocker each keep about 0.6 m off the net line: nobody
+    # crosses, and the board must not read as contact over the tape.
     specs = [("the shark attack", "the shark attack", (0.28, 0.30),
-              (0.52, 0.525), (0.50, 0.475)),
+              (0.52, 0.535), (0.50, 0.465)),
              ("the sombrero", "the sombrero", (0.50, 0.30),
               (0.50, 0.575), (0.50, 0.455)),
              ("cross-court", "cross-court", (0.74, 0.24),
@@ -243,21 +279,27 @@ FINISH_NOTE = {
 
 
 def finishing_family() -> list[Drill]:
-    specs = [("the bicycle kick", "the bicycle kick", (0.34, 0.22)),
-             ("the header", "the header", (0.62, 0.28)),
-             ("the drop", "the drop", (0.50, 0.44))]
+    # D sends a free ball over, 1 takes it and sets 2 at the net, and 2 —
+    # the finisher — plays the finish the drill is named for into the zone.
+    specs = [("the bicycle kick", "the bicycle kick", (0.34, 0.22), (0.46, 0.56)),
+             ("the header", "the header", (0.62, 0.28), (0.54, 0.545)),
+             ("the drop", "the drop", (0.50, 0.44), (0.50, 0.545))]
     out = []
-    for key, label, land in specs:
+    for key, label, land, hit in specs:
+        feed = (0.25 if land[0] >= 0.5 else 0.75,)
         out.append(Drill(
             id=f"fv_finish_{key.replace(' ', '_')}", category="finishing",
             minutes=10, rel=True, free=(key == "the header"),
             name=suffixed(FINISH_NAME, label), note=FINISH_NOTE,
-            home=[P(*LEFT, "1", moves=[SET_POINT + (0,)]),
-                  P(*RIGHT, "2", moves=[(0.52, 0.56, 1)])],
-            away=[P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 2)]),
-                  P(0.34, 0.46, "B")],
+            home=[P(*LEFT, "1", moves=[(0.36, 0.70, 0)]),
+                  P(*RIGHT, "2", moves=[hit + (1,)])],
+            # The feeder starts across the court from the zone, so the
+            # finish is played away from him, not back to where he stood.
+            away=[P(feed[0], 0.24, "D", moves=[(feed[0], 0.18, 1)]),
+                  P(0.40, 0.46, "B", moves=[(0.44, 0.465, 2)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=(feed[0], 0.24),
+            ball_to=[(0, 0), (1, 1), (Spot(*land), 2)],
         ))
     return out
 
@@ -289,8 +331,8 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("the block", "the block", (0.44, 0.53), (0.66, 0.80)),
-             ("covering the block", "covering the block", (0.40, 0.53), (0.56, 0.86)),
+    specs = [("the block", "the block", (0.44, 0.535), (0.66, 0.80)),
+             ("covering the block", "covering the block", (0.40, 0.535), (0.56, 0.86)),
              ("the dig", "the dig", (0.34, 0.70), (0.68, 0.72))]
     out = []
     for key, label, first, second in specs:
@@ -300,7 +342,7 @@ def defence_family() -> list[Drill]:
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
             home=[P(*LEFT, "1", moves=[first + (1,)]),
                   P(*RIGHT, "2", moves=[second + (1,)])],
-            away=[P(0.44, 0.36, "A", moves=[(0.44, 0.45, 1)]),
+            away=[P(0.44, 0.36, "A", moves=[(0.44, 0.465, 1)]),
                   P(0.66, 0.30, "F", moves=[(0.56, 0.40, 0)])],
             ball=(0.66, 0.30),
         ))
@@ -333,19 +375,34 @@ GAME_NOTE = {
 
 
 def game_family() -> list[Drill]:
-    specs = [("1v1", "1v1", [(0.50, 0.76)]), ("2v2", "2v2", [LEFT, RIGHT]),
-             ("4v4", "4v4", [(0.20, 0.66), (0.44, 0.80), (0.60, 0.66), (0.82, 0.80)])]
+    """Every game opens with the serve from behind the baseline: the server
+    strikes it and runs in, the far side receives and sets."""
     out = []
-    for key, label, spots in specs:
+    out.append(Drill(
+        id="fv_game_1v1", category="ssg", minutes=15, rel=True, free=False,
+        off_surface=True, name=suffixed(GAME_NAME, "1v1"), note=GAME_NOTE,
+        home=[P(0.50, HOME_SERVE_Y, "1", moves=[(0.50, 0.76, 0)])],
+        away=[P(0.50, 0.26, "A", moves=[(0.44, 0.22, 0)])],
+        ball=0, ball_to=[("a0", 0), (0, 1)],
+    ))
+    # 2v2 and 4v4: serve, receive, set — A receives, B comes in to set.
+    for key, label, home_xy, away_xy in [
+            ("2v2", "2v2", [(0.30, HOME_SERVE_Y), (0.70, 0.72)],
+             [(0.30, 0.26), (0.70, 0.26)]),
+            ("4v4", "4v4", [(0.44, HOME_SERVE_Y), (0.20, 0.66), (0.62, 0.66), (0.82, 0.82)],
+             [(0.20, 0.34), (0.44, 0.20), (0.60, 0.34), (0.82, 0.18)])]:
+        home = [P(*home_xy[0], "1", moves=[(home_xy[0][0], 0.80, 0)])] + [
+            P(x, y, str(i + 2)) for i, (x, y) in enumerate(home_xy[1:])]
+        away = [P(x, y, chr(65 + i)) for i, (x, y) in enumerate(away_xy)]
+        away[1].moves = [(0.52, 0.40, 1)]
+        away[0].moves = [(away_xy[0][0] + 0.06, 0.42, 2)]
         out.append(Drill(
             id=f"fv_game_{key}", category="ssg", minutes=15, rel=True,
-            free=(key in ("2v2", "4v4")),
+            free=True, off_surface=True,
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, str(i + 1), moves=[(x, y - 0.05, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            away=[P(*mirror((x, y)), chr(65 + i), moves=[(x, 1 - y + 0.05, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            ball=0,
+            home=home, away=away,
+            ball=0, ball_to=[("a0", 0), ("a1", 1), ("a0", 2),
+                             (Spot(0.56, 0.93), 3)],
         ))
     return out
 
@@ -387,6 +444,8 @@ RECEIVE_NOTE = {
 
 
 def receive_family() -> list[Drill]:
+    # The server stays behind his baseline and serves from there; 1 takes it
+    # on the named surface and the first touch goes up to 2 on the square.
     specs = [("chest", "chest control", 0.34), ("thigh", "with the thigh", 0.66)]
     out = []
     for key, label, x in specs:
@@ -394,14 +453,11 @@ def receive_family() -> list[Drill]:
             id=f"fv_receive_{key}", category="possession", minutes=10, rel=True,
             off_surface=True, free=(key == "chest"),
             name=suffixed(RECEIVE_NAME, label), note=RECEIVE_NOTE,
-            home=[P(x, 0.74, "1", moves=[(x, 0.70, 0), (SET_POINT[0] + 0.10,
-                                          SET_POINT[1] + 0.10, 1)]),
+            home=[P(x, 0.76, "1", moves=[(x, 0.70, 0)]),
                   P(1 - x, 0.70, "2", moves=[SET_POINT + (1,)])],
-            # Behind the baseline, which is where the serve family already
-            # puts him — these two boards drew a foot fault.
-            away=[P(0.50, -0.025, "S", moves=[(0.50, 0.10, 0)])],
+            away=[P(0.50, AWAY_SERVE_Y, "S", moves=[(0.50, 0.20, 1)])],
             markers=[M(*SET_POINT, "square", "")],
-            ball=(0.50, 0.04),
+            ball=(0.50, AWAY_SERVE_Y), ball_to=[(0, 0), (1, 1)],
         ))
     return out
 
@@ -433,23 +489,30 @@ COMBO_NOTE = {
 
 
 def combo_family() -> list[Drill]:
-    # The hit is taken at the net on the attacker's OWN side; 0.42 is past it.
-    specs = [("quick", "off the quick set", (0.40, 0.53)),
-             ("back", "from the back court", (0.56, 0.55)),
-             ("second_ball", "attacking the second ball", (0.36, 0.53))]
+    # Three touches, drawn: D sends it over, 2 receives it to 1, 1 sets it
+    # onto the square, and 2 attacks into the zone. "Attacking the second
+    # ball" is the variation where 1 plays the pass straight over instead
+    # of setting.
+    # (key, label, square, attack landing, where 2 hits from)
+    specs = [("quick", "off the quick set", (0.48, 0.555), (0.28, 0.24), (0.30, 0.60)),
+             ("back", "from the back court", (0.64, 0.68), (0.30, 0.10), (0.38, 0.58)),
+             ("second_ball", "attacking the second ball", (0.44, 0.56), (0.24, 0.20), None)]
     out = []
-    for key, label, hit in specs:
+    for key, label, square, land, setter in specs:
+        second = key == "second_ball"
+        home = [P(*LEFT, "1", moves=[(square if second else setter) + (1,)]),
+                P(*RIGHT, "2", moves=[(0.68, 0.70, 0)] + ([] if second else [square + (2,)]))]
+        route = ([(1, 0), (0, 1), (Spot(*land), 2)] if second else
+                 [(1, 0), (0, 1), (1, 2), (Spot(*land), 3)])
         out.append(Drill(
             id=f"fv_combo_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "quick"),
             name=suffixed(COMBO_NAME, label), note=COMBO_NOTE,
-            home=[P(*LEFT, "1", moves=[SET_POINT + (0,)]),
-                  P(*RIGHT, "2", moves=[(hit[0] + 0.10, hit[1] + 0.12, 0),
-                                        hit + (1,)])],
-            away=[P(0.44, 0.46, "B", moves=[(0.42, 0.455, 1)]),
+            home=home,
+            away=[P(0.44, 0.46, "B", moves=[(0.44, 0.465, 2 if second else 3)]),
                   P(0.66, 0.30, "D", moves=[(0.56, 0.24, 1)])],
-            markers=[M(*SET_POINT, "square", "")],
-            ball=0,
+            markers=[M(*square, "square", ""), M(*land, "zone", "")],
+            ball=(0.66, 0.30), ball_to=route,
         ))
     return out
 
@@ -498,13 +561,12 @@ def block_timing() -> list[Drill]:
 def game3_family() -> list[Drill]:
     return [Drill(
         id="fv_game_3v3", category="ssg", minutes=15, rel=True, free=True,
-        name=suffixed(GAME_NAME, "3v3"), note=GAME_NOTE,
-        home=[P(0.26, 0.66, "1", moves=[(0.28, 0.62, 0)]),
-              P(0.74, 0.66, "2", moves=[(0.72, 0.62, 0)]),
-              P(0.50, 0.88, "3", moves=[(0.50, 0.82, 0)])],
-        away=[P(0.26, 0.34, "A", moves=[(0.28, 0.38, 0)]),
-              P(0.74, 0.34, "B", moves=[(0.72, 0.38, 0)]),
-              P(0.50, 0.12, "C", moves=[(0.50, 0.18, 0)])],
-        ball=0,
+        off_surface=True, name=suffixed(GAME_NAME, "3v3"), note=GAME_NOTE,
+        home=[P(0.26, 0.66, "1"),
+              P(0.74, 0.66, "2"),
+              P(0.50, HOME_SERVE_Y, "3", moves=[(0.50, 0.84, 0)])],
+        away=[P(0.26, 0.30, "A", moves=[(0.30, 0.42, 2)]),
+              P(0.74, 0.34, "B", moves=[(0.56, 0.40, 1)]),
+              P(0.50, 0.14, "C")],
+        ball=2, ball_to=[("a2", 0), ("a1", 1), ("a0", 2), (Spot(0.70, 0.80), 3)],
     )]
-

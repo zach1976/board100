@@ -203,14 +203,18 @@ typedef _Held = ({String id, Offset middle, Offset across, double weight});
 ({double anchor, double ahead, double side}) ballHoldAt(SportType sport) =>
     switch (sport) {
       SportType.soccer ||
-      SportType.footvolley ||
-      SportType.sepakTakraw ||
       SportType.fieldHockey => (
         anchor: _kFeetAnchor,
         ahead: _kFeetAhead,
         side: _kFeetSide,
       ),
-      SportType.volleyball => (
+      // Footvolley and sepak takraw are volleyball without hands: the ball
+      // is met in the air — chest, shoulder, head, a raised foot — never
+      // dribbled along the sand. Drawn at the shoes, a chest control read as
+      // a ball lying at the player's feet.
+      SportType.volleyball ||
+      SportType.footvolley ||
+      SportType.sepakTakraw => (
         anchor: _kChestAnchor,
         ahead: _kHandAhead,
         side: _kHandSide,

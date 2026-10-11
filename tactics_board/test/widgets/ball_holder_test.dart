@@ -76,6 +76,11 @@ void main() {
         closeTo(kPlayerIconSize * 0.15, 0.01), reason: 'volleyball');
     expect(held(SportType.volleyball).dx,
         closeTo(kPlayerIconSize * 0.40, 0.01), reason: 'volleyball');
+    // 足排球、藤球同理：胸停、肩传、头球都在上半身，球不画在沙地上的脚边。
+    for (final s in [SportType.footvolley, SportType.sepakTakraw]) {
+      expect(held(s).dy, closeTo(kPlayerIconSize * 0.15, 0.01), reason: s.name);
+      expect(held(s).dx, closeTo(kPlayerIconSize * 0.40, 0.01), reason: s.name);
+    }
     // 球在左边，就挂在左胯 —— 只有距离是定死的，哪一边还是看球在哪。
     final left = PlayerIcon(
       id: 'b', label: '', team: PlayerTeam.neutral,

@@ -39,8 +39,12 @@ GEAR = {
         "阴影区是发球要落的区域",
         "陰影區是發球要落的區域"),
     "fv_attack_": ZONE, "fv_finish_": ZONE,
+    "fv_combo_second_ball": _t(
+        "the square is where the pass has to reach the player who attacks the second ball; the shaded zone is where that attack has to land",
+        "方块是一传要送到的位置，由那里的人第二下直接进攻；阴影区是这次进攻要落的区域",
+        "方塊是一傳要送到的位置，由那裡的人第二下直接進攻；陰影區是這次進攻要落的區域"),
     "fv_combo_": _t(
-        "the square is where the set has to be placed for the attacker",
-        "方块是二传要把球送到的攻击点",
-        "方塊是二傳要把球送到的攻擊點"),
+        "the square is where the set has to be placed for the attacker; the shaded zone is where the attack has to land",
+        "方块是二传要把球送到的攻击点，阴影区是进攻要落的区域",
+        "方塊是二傳要把球送到的攻擊點，陰影區是進攻要落的區域"),
 }

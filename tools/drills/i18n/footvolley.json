@@ -1,0 +1,22 @@
+{
+ "the square is where the pass has to reach the player who attacks the second ball; the shaded zone is where that attack has to land": {
+  "ja-JP": "四角はパスを届ける場所で、そこにいる選手が2本目で直接攻撃する。網掛けゾーンはその攻撃を落とす場所",
+  "ko-KR": "사각형은 패스가 도착해야 할 곳으로, 거기 있는 선수가 두 번째 터치로 바로 공격한다. 음영 구역은 그 공격이 떨어져야 할 곳이다",
+  "es-ES": "el cuadrado es donde tiene que llegar el pase al jugador que ataca de segunda; la zona sombreada es donde tiene que caer ese ataque",
+  "fr-FR": "le carré est l'endroit où la passe doit arriver pour le joueur qui attaque en deuxième touche ; la zone ombrée est l'endroit où cette attaque doit tomber",
+  "id-ID": "kotak adalah tempat umpan harus sampai ke pemain yang menyerang di sentuhan kedua; zona berarsir adalah tempat serangan itu harus jatuh",
+  "ms-MY": "petak ialah tempat hantaran mesti sampai kepada pemain yang menyerang pada sentuhan kedua; zon berlorek ialah tempat serangan itu mesti jatuh",
+  "th-TH": "สี่เหลี่ยมคือจุดที่ลูกส่งต้องไปถึงคนที่จะบุกในสัมผัสที่สอง โซนแรเงาคือจุดที่ลูกบุกนั้นต้องตก",
+  "vi-VN": "Ô vuông là nơi đường chuyền phải tới người tấn công ngay chạm thứ hai; vùng tô đậm là nơi cú tấn công đó phải rơi"
+ },
+ "the square is where the set has to be placed for the attacker; the shaded zone is where the attack has to land": {
+  "ja-JP": "四角はアタッカーへのトスを置く場所、網掛けゾーンは攻撃を落とす場所",
+  "ko-KR": "사각형은 공격수를 위해 토스를 놓아야 할 곳, 음영 구역은 공격이 떨어져야 할 곳이다",
+  "es-ES": "el cuadrado es donde hay que colocar el pase para el atacante; la zona sombreada es donde tiene que caer el ataque",
+  "fr-FR": "le carré est l'endroit où la passe doit être placée pour l'attaquant ; la zone ombrée est l'endroit où l'attaque doit tomber",
+  "id-ID": "kotak adalah tempat umpan harus diletakkan untuk penyerang; zona berarsir adalah tempat serangan harus jatuh",
+  "ms-MY": "petak ialah tempat umpanan mesti diletakkan untuk penyerang; zon berlorek ialah tempat serangan mesti jatuh",
+  "th-TH": "สี่เหลี่ยมคือจุดที่ต้องเซ็ตลูกให้ตัวบุก โซนแรเงาคือจุดที่ลูกบุกต้องตก",
+  "vi-VN": "Ô vuông là nơi phải đặt đường chuyền cho người tấn công; vùng tô đậm là nơi cú tấn công phải rơi"
+ }
+}

@@ -42,7 +42,6 @@ class FootvolleyCourtPainter extends CourtPainterBase {
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
 
-    final scX = cw / fieldW;
     Offset o(double x, double y) => Offset(left + x * (cw / fieldW), top + y * (ch / fieldH));
 
     final line = Paint()
@@ -75,13 +74,8 @@ class FootvolleyCourtPainter extends CourtPainterBase {
     // Net posts — short tabs extending just outside the court
     canvas.drawLine(o(-0.30, fieldH / 2), o(0, fieldH / 2), netPaint);
     canvas.drawLine(o(fieldW, fieldH / 2), o(fieldW + 0.30, fieldH / 2), netPaint);
-
-    // Center service mark on each baseline
-    final dot = Paint()
-      ..color = Colors.white.withValues(alpha: 0.45)
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(o(fieldW / 2, 0), 0.12 * scX, dot);
-    canvas.drawCircle(o(fieldW / 2, fieldH), 0.12 * scX, dot);
+    // No centre service mark: footvolley serves from anywhere behind the
+    // baseline, and the court has no such marking.
   }
 
   /// One side of the net filling the canvas: net at the TOP edge, baseline at
@@ -106,7 +100,6 @@ class FootvolleyCourtPainter extends CourtPainterBase {
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
 
-    final scX = cw / fieldW;
     Offset o(double x, double y) => Offset(left + x * (cw / fieldW), top + y * (ch / fieldH));
 
     final line = Paint()
@@ -140,11 +133,6 @@ class FootvolleyCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(-0.30, 0), o(0, 0), netPaint);
     canvas.drawLine(o(fieldW, 0), o(fieldW + 0.30, 0), netPaint);
 
-    // Center service mark on the baseline
-    final dot = Paint()
-      ..color = Colors.white.withValues(alpha: 0.45)
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(o(fieldW / 2, fieldH), 0.12 * scX, dot);
   }
 
   void _drawSand(Canvas canvas, Size size) {

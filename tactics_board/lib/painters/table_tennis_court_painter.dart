@@ -83,14 +83,14 @@ class TableTennisCourtPainter extends CourtPainterBase {
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(0, 1.37), o(1.525, 1.37), netLine);
-    // Net posts (extend slightly outside table)
+    canvas.drawLine(o(-0.1525, 1.37), o(1.6775, 1.37), netLine);
+    // Net posts: ITTF 2.2.2 puts them 15.25 cm outside the sidelines.
     final postPaint = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(-0.04, 1.25), o(-0.04, 1.49), postPaint);
-    canvas.drawLine(o(1.565, 1.25), o(1.565, 1.49), postPaint);
+    canvas.drawLine(o(-0.1525, 1.25), o(-0.1525, 1.49), postPaint);
+    canvas.drawLine(o(1.6775, 1.25), o(1.6775, 1.49), postPaint);
   }
 
   /// One end of the table filling the canvas: net at the TOP edge, end line at
@@ -145,14 +145,14 @@ class TableTennisCourtPainter extends CourtPainterBase {
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(0, 0), o(1.525, 0), netLine);
-    // Net posts (extend slightly outside table)
+    canvas.drawLine(o(-0.1525, 0), o(1.6775, 0), netLine);
+    // Net posts: ITTF 2.2.2 puts them 15.25 cm outside the sidelines.
     final postPaint = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(-0.04, -0.12), o(-0.04, 0.12), postPaint);
-    canvas.drawLine(o(1.565, -0.12), o(1.565, 0.12), postPaint);
+    canvas.drawLine(o(-0.1525, -0.12), o(-0.1525, 0.12), postPaint);
+    canvas.drawLine(o(1.6775, -0.12), o(1.6775, 0.12), postPaint);
   }
 
   @override
