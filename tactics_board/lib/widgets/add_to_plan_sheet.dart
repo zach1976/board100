@@ -87,6 +87,12 @@ class AddToPlanSheet {
     return boardName;
   }
 
+  /// [_saveDrillAsBoard] for the plan editor, which picks a drill from the
+  /// library itself and adds the item to the plan it already has open.
+  static Future<String> saveDrillAsBoard(
+          SportType sport, Drill drill, String locale) =>
+      _saveDrillAsBoard(sport, drill, locale);
+
   /// The drill's board, written into the coach's own boards.
   ///
   /// Saved through a throwaway [TacticsState] rather than the live one: the

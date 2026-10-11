@@ -115,6 +115,19 @@ class Drill {
 
   String localizedName(String locale) => _pick(name, locale);
 
+  /// The name as a title: the family heading set off from the variant by a
+  /// middle dot. The generated name is the two run together, which read as
+  /// one broken phrase — "Set piece the scrum", "Rally control half-long
+  /// pushes". The raw [localizedName] stays what search and saved boards use.
+  String displayName(String locale) {
+    final full = localizedName(locale);
+    if (familyName == null) return full;
+    final head = _pick(familyName!, locale);
+    if (head.isEmpty || !full.startsWith('$head ')) return full;
+    final rest = full.substring(head.length).trim();
+    return rest.isEmpty ? full : '$head · $rest';
+  }
+
   /// The family heading, or the drill's own name when it stands alone.
   String localizedFamilyName(String locale) =>
       familyName == null ? localizedName(locale) : _pick(familyName!, locale);

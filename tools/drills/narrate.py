@@ -1411,6 +1411,10 @@ def setup_texts(drill, sport: str) -> dict:
     # dot is B. A side wearing shirt numbers is already named by them.
     def lettered(side):
         labels = [_label(p) for p in side if _label(p)]
+        # Six defenders all called D read "red: D, D, D, D, D, D" — no name
+        # tells one dot from another, and the count is already in "9 v 6".
+        if len(set(labels)) < len(labels):
+            return None
         return (labels if len(labels) == len(side) and 2 <= len(labels) <= 8
                 and all(not l[0].isdigit() and l.upper() not in ("GK", "K")
                         for l in labels) else None)

@@ -240,7 +240,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
               style: const TextStyle(color: T.text)),
         ),
         body: Center(
-          child: Text('practice_no_items'.tr(),
+          child: Text('plan_no_items'.tr(),
               style: const TextStyle(color: T.textDim)),
         ),
       );

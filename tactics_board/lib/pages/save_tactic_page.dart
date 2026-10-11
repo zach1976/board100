@@ -29,7 +29,10 @@ class SaveTacticPage extends StatefulWidget {
 
 class _SaveTacticPageState extends State<SaveTacticPage> {
   late final _nameCtrl = TextEditingController(
-      text: widget.initial?.name ?? widget.state.currentTacticName ?? '');
+      text: widget.initial?.name ??
+          widget.state.currentTacticName ??
+          widget.state.openedDrillName ??
+          '');
   late final _descCtrl =
       TextEditingController(text: widget.initial?.description ?? '');
   late final _pointsCtrl =

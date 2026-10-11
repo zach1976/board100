@@ -1897,12 +1897,17 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       Color color,
       int order, {
       String labelText = '',
+      bool own = false,
     }) {
       return _MarkerEntry(
         key: key,
         label: label,
         glyph: shapeGlyph(shape, color),
-        defaultOrder: order,
+        // The shared pieces past the four shapes make room for the sport's
+        // own, which come straight after the shapes.
+        defaultOrder: own || order < 4
+            ? order
+            : order + state.sportType.markers.length,
         onTap: () {
           if (shape == MarkerShape.text) {
             Navigator.pop(sheetCtx);
@@ -1962,16 +1967,46 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_flag', 'marker_flag'.tr(), MarkerShape.cornerFlag, Colors.yellow, 23),
       // And this sport's own equipment, which no other sport's sheet shows.
       // See SportType.markers: thirty-two pieces in one list is not a list,
-      // it is a search.
+      // it is a search. Straight after the four shapes, not after the 24
+      // shared pieces: a table-tennis net was the 19th card of the strip,
+      // behind a soccer goal and a corner flag.
       for (var i = 0; i < state.sportType.markers.length; i++)
         shapeEntry(
           _markerKey(state.sportType.markers[i]),
           _markerKey(state.sportType.markers[i]).tr(),
           state.sportType.markers[i],
           Colors.white,
-          24 + i,
+          4 + i,
+          own: true,
         ),
-    ];
+    ].where((e) => !_offSport(state.sportType, e.key)).toList();
+  }
+
+  /// Shared equipment that has no place in this sport: a soccer goal, a
+  /// mini goal or a corner flag on a net court or in a pool, a net bag of
+  /// footballs anywhere but a football pitch (the art is footballs; racket
+  /// sports have their own hopper), and floor drills — ladder, hurdle —
+  /// on a table-tennis table or in the water.
+  static bool _offSport(SportType sport, String key) {
+    const goals = {SportType.soccer, SportType.fieldHockey, SportType.handball};
+    switch (key) {
+      case 'marker_goal':
+      case 'marker_minigoal':
+        return !goals.contains(sport);
+      case 'marker_flag':
+        return !{...goals, SportType.rugby}.contains(sport) ||
+            sport == SportType.handball;
+      case 'marker_ballbag':
+        return sport != SportType.soccer;
+      case 'marker_ladder':
+      case 'marker_hurdle':
+      case 'marker_rebounder':
+        return sport == SportType.tableTennis || sport == SportType.waterPolo;
+      case 'marker_mannequin':
+      case 'marker_pole':
+        return sport == SportType.tableTennis;
+    }
+    return false;
   }
 
   /// Returns the markers ordered by 3-day usage (DESC), tied items by
@@ -4193,24 +4228,41 @@ class _TeamSportSetup extends StatefulWidget {
 }
 
 class _TeamSportSetupState extends State<_TeamSportSetup> {
-  int? _selectedCount;
+  /// The format picked: home and away numbers both. Keyed by the home count
+  /// alone, the water-polo power play (six against five) was offered as
+  /// "6v6" — and being the only formation of its count, its name was never
+  /// shown either.
+  (int, int)? _selectedCount;
   SportFormation? _selectedFormation;
   _TeamOption _teamOption = _TeamOption.both;
 
-  List<int> get _distinctCounts {
-    final counts = <int>{};
+  static (int, int) _countOf(SportFormation f) => (f.homeCount, f.awayCount);
+
+  List<(int, int)> get _distinctCounts {
+    final counts = <(int, int)>{};
     for (final f in widget.state.sportType.formations) {
-      counts.add(f.homeCount);
+      counts.add(_countOf(f));
     }
-    return counts.toList()..sort((a, b) => b.compareTo(a));
+    return counts.toList()
+      ..sort((a, b) =>
+          a.$1 != b.$1 ? b.$1.compareTo(a.$1) : b.$2.compareTo(a.$2));
   }
 
   List<SportFormation> get _formationsForCount {
     if (_selectedCount == null) return [];
     return widget.state.sportType.formations
-        .where((f) => f.homeCount == _selectedCount)
+        .where((f) => _countOf(f) == _selectedCount)
         .toList();
   }
+
+  /// A formation whose name is only its numbers ("7v7" under the 7v7 chip)
+  /// says nothing the chip above it did not; it is the standard set-up.
+  static bool _plainName(SportFormation f) =>
+      f.nameKey == 'formation_${f.homeCount}v${f.homeCount}' &&
+      f.homeCount == f.awayCount;
+
+  static String _formationName(SportFormation f) =>
+      _plainName(f) ? 'formation_standard'.tr() : f.nameKey.tr();
 
   void _apply() {
     if (_selectedFormation == null) return;
@@ -4300,6 +4352,11 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
     if (_selectedCount != null && formations.length == 1 && _selectedFormation == null) {
       _selectedFormation = formations.first;
     }
+    // The formation row: several to choose from, or one with a name of its
+    // own (the power play) that the count chip cannot say.
+    final showFormations = _selectedCount != null &&
+        (formations.length > 1 ||
+            (formations.length == 1 && !_plainName(formations.first)));
     // A single-half pitch shows one goal, so formations add one team attacking
     // it — the "both teams" option doesn't apply. Force single-team selection.
     final halfPitch = widget.state.isSoccerHalfPitch;
@@ -4342,7 +4399,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                     ),
                     child: Center(
                       child: Text(
-                        '${count}v$count',
+                        '${count.$1}v${count.$2}',
                         style: TextStyle(
                           color: selected ? Colors.white : Colors.white70,
                           fontSize: 15,
@@ -4357,7 +4414,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           ),
 
           // Row 2: Formation (only if multiple formations for selected count)
-          if (_selectedCount != null && formations.length > 1) ...[
+          if (showFormations) ...[
             const SizedBox(height: 12),
             Text('formation_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
@@ -4381,7 +4438,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                           ),
                         ),
                         child: Text(
-                          f.nameKey.tr(),
+                          _formationName(f),
                           style: TextStyle(
                             color: selected ? Colors.white : Colors.white70,
                             fontSize: 15,
@@ -4830,7 +4887,20 @@ class _MarkerCard extends StatelessWidget {
           children: [
             child,
             SizedBox(height: 4 * s),
-            Text(label, style: const TextStyle(color: Colors.white60, fontSize: 11), overflow: TextOverflow.ellipsis),
+            // Two lines, centred, in a band of two lines' height so every
+            // card in the strip stays the same size. On one line "Water
+            // goal" and "Lane rope" came out as "Water g…" and "Lane r…".
+            SizedBox(
+              height: MediaQuery.textScalerOf(context).scale(10.5) * 1.15 * 2 + 1,
+              child: Text(
+                label,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    color: Colors.white60, fontSize: 10.5, height: 1.15),
+              ),
+            ),
           ],
         ),
       ),

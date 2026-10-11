@@ -548,7 +548,10 @@ class _AccountCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [const Color(0xFF16302A), T.surface],
+            // From the app's own chrome, not a fixed teal: on a re-hued
+            // single-sport app (the footvolley sand, say) the hard-coded
+            // teal corner was the one piece of the hub left on the page.
+            colors: [T.surfaceHi, T.surface],
           ),
         ),
         child: Row(

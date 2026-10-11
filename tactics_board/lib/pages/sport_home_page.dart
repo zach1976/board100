@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -299,13 +301,18 @@ class _SportHomePageState extends State<SportHomePage> {
               state.currentTacticMeta = null;
               // See drill_library_page: the board prints its own steps.
               state.openedDrill(
-                  DrillNote.parse(drill.localizedNote(_locale)).beats);
+                  DrillNote.parse(drill.localizedNote(_locale)).beats,
+                  beatsFor: (l) =>
+                      DrillNote.parse(drill.localizedNote(l)).beats,
+                  name: drill.displayName(_locale),
+                  nameFor: drill.displayName,
+                  id: drill.id);
               RecentBoardsService.instance.record(
                 state.sportType,
                 RecentBoard(
                   kind: RecentBoardKind.drill,
                   id: drill.id,
-                  label: drill.localizedName(_locale),
+                  label: drill.displayName(_locale),
                   openedAt: DateTime.now(),
                 ),
               );
@@ -340,6 +347,12 @@ class _SportHomePageState extends State<SportHomePage> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
+    // The language is switched from this page's menu: the drill note on the
+    // board follows it, as the Recent row's name does.
+    final tag = _locale;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) state.localizeDrill(tag);
+    });
     if (_intro == null) {
       return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
@@ -645,14 +658,18 @@ class _SportHomePageState extends State<SportHomePage> {
             children: [
               SportGlyph(sport: sport, size: 26),
               const SizedBox(width: T.s8),
+              // Shrunk to fit rather than cut: "Table Tennis Bo…" and
+              // "Sepak Takraw B…" lost the one word that says what the app is.
               Expanded(
-                child: Text(
+                child: FittedBox(
+                 fit: BoxFit.scaleDown,
+                 alignment: Alignment.centerLeft,
+                 child: Text(
                   // The app's own name, not the sport's: this is the home
                   // page of 足球战术板 / Soccer Board, which is what the
                   // store calls it and what the icon on the phone says.
                   'home_board_title'.tr(args: [sport.displayName]),
                   maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: T.text,
                       fontSize: 24,
@@ -660,6 +677,7 @@ class _SportHomePageState extends State<SportHomePage> {
                       shadows: _hasArt ? const [
                         Shadow(color: Colors.black87, blurRadius: 8),
                       ] : null),
+                 ),
                 ),
               ),
               const SizedBox(width: T.s8),
@@ -1100,7 +1118,12 @@ class _RecentRow extends StatelessWidget {
                   const SizedBox(width: T.s12),
                   Expanded(
                     child: Text(
-                      recent.label,
+                      // The drill's name in the language the app is in
+                      // now, not the one it was opened in: the stored label
+                      // is only for a drill the library no longer has.
+                      drill != null
+                          ? drill.displayName(_localeTag(context))
+                          : recent.label,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
@@ -1233,7 +1256,7 @@ class _TodayRow extends StatelessWidget {
                     const SizedBox(height: T.s8),
                   ],
                   Text(
-                    d.localizedName(locale),
+                    d.displayName(locale),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -1246,18 +1269,38 @@ class _TodayRow extends StatelessWidget {
                             : null),
                   ),
                   const SizedBox(height: 6),
+                  // As many whole lines as the room left under the title.
+                  // A fixed count did not know a title had wrapped onto a
+                  // second line, and the last line of the purpose was cut
+                  // through the middle of its letters and ran into the
+                  // minutes underneath.
                   Expanded(
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        _firstLine(d.localizedNote(locale)),
-                        maxLines: path != null ? 3 : 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: path != null ? Colors.white70 : T.textDim,
-                            fontSize: 12.5,
-                            height: 1.35),
-                      ),
+                    child: LayoutBuilder(
+                      builder: (context, box) {
+                        final line = 12.5 *
+                            1.35 *
+                            MediaQuery.textScalerOf(context).scale(1);
+                        final fit = (box.maxHeight / line).floor();
+                        final lines =
+                            math.min(fit, path != null ? 3 : 2);
+                        if (lines < 1) return const SizedBox.shrink();
+                        return ClipRect(
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              _firstLine(d.localizedNote(locale)),
+                              maxLines: lines,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: path != null
+                                      ? Colors.white70
+                                      : T.textDim,
+                                  fontSize: 12.5,
+                                  height: 1.35),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Row(
@@ -1613,4 +1656,12 @@ class _HomeMenu extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The app's language as the drill library keys it ('zh-CN', 'en').
+String _localeTag(BuildContext context) {
+  final l = context.locale;
+  return l.countryCode == null
+      ? l.languageCode
+      : '${l.languageCode}-${l.countryCode}';
 }

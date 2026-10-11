@@ -109,6 +109,28 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
   bool _starred = false;
   Map<String, DrillMark> _marks = const {};
 
+  /// The selected chip in each filter row. Opened from a home-page category,
+  /// the chosen one ("Set pieces") sat past the right edge of its row, so the
+  /// list was filtered by something the coach could not see; it is scrolled
+  /// into view once the chips are laid out.
+  final GlobalKey _activeCategory = GlobalKey();
+  final GlobalKey _activeLevel = GlobalKey();
+  bool _revealed = false;
+
+  void _revealActive() {
+    if (_revealed) return;
+    _revealed = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      for (final k in [_activeCategory, _activeLevel]) {
+        final c = k.currentContext;
+        if (c != null && c.mounted) {
+          Scrollable.ensureVisible(c,
+              alignment: 0.5, duration: const Duration(milliseconds: 250));
+        }
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -163,7 +185,11 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     // Its own words come with it, so the board can print the step it is
     // standing on under the court.
     widget.state
-        .openedDrill(DrillNote.parse(drill.localizedNote(_locale)).beats);
+        .openedDrill(DrillNote.parse(drill.localizedNote(_locale)).beats,
+            beatsFor: (l) => DrillNote.parse(drill.localizedNote(l)).beats,
+            name: drill.displayName(_locale),
+            nameFor: drill.displayName,
+            id: drill.id);
     // A drill is never saved — it is a starting shape the coach edits — so
     // without this the thing they most recently had on the board is exactly
     // the thing the home page cannot offer them again.
@@ -172,7 +198,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
       RecentBoard(
         kind: RecentBoardKind.drill,
         id: drill.id,
-        label: drill.localizedName(_locale),
+        label: drill.displayName(_locale),
         openedAt: DateTime.now(),
       ),
     );
@@ -184,7 +210,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     // back from the board should return them to the list they were browsing.
     if (widget.onLoaded == null) Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(drill.localizedName(_locale))),
+      SnackBar(content: Text(drill.displayName(_locale))),
     );
     widget.onLoaded?.call();
   }
@@ -419,6 +445,10 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
+                  Builder(builder: (_) {
+                    _revealActive();
+                    return const SizedBox.shrink();
+                  }),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -459,6 +489,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         for (final c in categories) ...[
                           const SizedBox(width: 6),
                           _CategoryChip(
+                            key: _filter == c ? _activeCategory : null,
                             label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
                             count: countForCategory(c),
                             selected: _filter == c,
@@ -474,8 +505,11 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        // "All levels", not a second bare "All": two rows
+                        // of chips both led by "All" did not say which was
+                        // the category and which the level.
                         _CategoryChip(
-                          label: 'drill_cat_all'.tr(),
+                          label: 'drills_all_levels'.tr(),
                           count: countForLevel(null),
                           selected: _level == null,
                           onTap: () => setState(() => _level = null),
@@ -483,6 +517,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         for (final l in DrillLevel.values) ...[
                           const SizedBox(width: 6),
                           _CategoryChip(
+                            key: _level == l ? _activeLevel : null,
                             label: l.labelKey.tr(),
                             count: countForLevel(l),
                             selected: _level == l,
@@ -563,7 +598,8 @@ class _CategoryChip extends StatelessWidget {
   final VoidCallback onTap;
   final int? count;
   const _CategoryChip(
-      {required this.label,
+      {super.key,
+      required this.label,
       required this.selected,
       required this.onTap,
       this.count});
@@ -638,16 +674,32 @@ class _UsageTag extends StatelessWidget {
       2 => T.textDim,
       _ => T.textOff,
     };
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: color.withValues(alpha: 0.6)),
+    // The repeat glyph the detail page puts beside the same word, and a
+    // tooltip that says what it measures: on its own "Regular" beside a
+    // drill's name read as a difficulty level.
+    return Tooltip(
+      message: 'drill_usage_hint'.tr(),
+      triggerMode: TooltipTriggerMode.longPress,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: color.withValues(alpha: 0.6)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.repeat_rounded, size: 11, color: color),
+            const SizedBox(width: 3),
+            Flexible(
+              child: Text('drill_usage_$usage'.tr(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: T.meta.copyWith(color: color, height: 1.2)),
+            ),
+          ],
+        ),
       ),
-      child: Text('drill_usage_$usage'.tr(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: T.meta.copyWith(color: color, height: 1.2)),
     );
   }
 }

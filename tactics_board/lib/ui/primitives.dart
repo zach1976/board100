@@ -913,6 +913,7 @@ Future<String?> promptForName(
   String initial = '',
   Set<String> taken = const {},
   String? takenMessage,
+  String? confirmLabel,
 }) {
   final ctrl = TextEditingController(text: initial);
   // A suggested name is a suggestion: selected, so the first keystroke
@@ -961,7 +962,9 @@ Future<String?> promptForName(
               onPressed: typed.isEmpty || clash
                   ? null
                   : () => Navigator.pop(ctx, typed),
-              child: Text('confirm'.tr()),
+              // Every caller names something new — a plan, a board — so
+              // the button says so; "Apply" read as changing a setting.
+              child: Text(confirmLabel ?? 'create'.tr()),
             ),
           ],
         );

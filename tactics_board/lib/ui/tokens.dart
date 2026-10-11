@@ -48,7 +48,10 @@ class T {
   // ── Text ────────────────────────────────────────────────────────────────
   static const text = Color(0xFFF4F7F5);
   static const textDim = Color(0xFFA9BAB8);
-  static const textOff = Color(0xFF718A88);
+  // Lifted from 0xFF718A88, which was 3.2:1 on the hub's surfaceHi and
+  // under 3:1 on some re-hued chromes (audit 2026-10-11 m13): 4.5:1 on the
+  // teal card now, still a clear step below textDim.
+  static const textOff = Color(0xFF8BA4A1);
   static const textDisabled = Color(0xFF506765);
 
   // ── Accent ──────────────────────────────────────────────────────────────

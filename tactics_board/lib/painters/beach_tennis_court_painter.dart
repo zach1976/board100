@@ -52,6 +52,17 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     // Court boundary
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
 
+    // Singles court, 4.5 m wide inside the 8 m doubles court (ITF beach
+    // tennis rules). Lighter than the boundary: most play is doubles, and a
+    // singles game is the one place these lines are the edge.
+    final singles = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
+      ..strokeWidth = 1.4
+      ..style = PaintingStyle.stroke;
+    for (final x in const [1.75, 6.25]) {
+      canvas.drawLine(o(x, 0), o(x, fieldH), singles);
+    }
+
     // Net: the same band, mesh and tape as the tennis court — a faint
     // dashed line read as a centre line, not a 1.70 m net.
     final netBand = Paint()
@@ -104,6 +115,17 @@ class BeachTennisCourtPainter extends CourtPainterBase {
 
     // Court boundary
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
+
+    // Singles court, 4.5 m wide inside the 8 m doubles court (ITF beach
+    // tennis rules). Lighter than the boundary: most play is doubles, and a
+    // singles game is the one place these lines are the edge.
+    final singles = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
+      ..strokeWidth = 1.4
+      ..style = PaintingStyle.stroke;
+    for (final x in const [1.75, 6.25]) {
+      canvas.drawLine(o(x, 0), o(x, fieldH), singles);
+    }
 
     // Net: the same band, mesh and tape as the tennis court — a faint
     // dashed line read as a centre line, not a 1.70 m net.

@@ -52,18 +52,26 @@ const double kBallDrawFactor = 0.58;
 /// object. The others keep the football's figure until each is looked at.
 double ballDrawFactor(SportType sport) => switch (sport) {
       SportType.fieldHockey => 0.40,
+      // A 40mm ball at a player's hip, drawn at the football's fraction,
+      // was as big as the player's head (audit 2026-10-11 m15). Smaller
+      // than the hockey ball, as it is in life, and still plainly a ball.
+      SportType.tableTennis => 0.34,
       _ => kBallDrawFactor,
     };
 
 /// The figure a brand-new player of this sport gets: holding, if the sport
 /// has something to hold. A coach who wants an empty-handed feeder turns it
 /// off on that one player.
+///
+/// The swimmer holds nothing; every other body — plain, or barefoot on
+/// sand — is what an empty-handed player is drawn as, and the implement
+/// figure what a holding one is.
 PlayerFigure newPlayerFigure(SportType sport) =>
-    sport.playerBody != PlayerFigure.plain
+    sport.playerBody == PlayerFigure.water
         ? sport.playerBody
         : (sport.implementHeldByDefault
-            ? (sport.playerImplement ?? PlayerFigure.plain)
-            : PlayerFigure.plain);
+            ? (sport.playerImplement ?? sport.playerBody)
+            : sport.playerBody);
 
 /// Where the shirt number sits on a token.
 ///
@@ -409,11 +417,12 @@ class TopDownPlayerPainter extends CustomPainter {
     // A referee or a coach holds nothing and wears no kit the sport
     // dictates: the plain figure, whatever the sport's players are drawn as.
     if (player.isMarker) return PlayerFigure.plain;
-    if (sport.playerBody != PlayerFigure.plain) return sport.playerBody;
+    final body = sport.playerBody;
+    if (body == PlayerFigure.water) return body;
     final held = sport.playerImplement;
-    if (held == null) return PlayerFigure.plain;
+    if (held == null) return body;
     final holds = player.holdsImplement ?? sport.implementHeldByDefault;
-    return holds ? held : PlayerFigure.plain;
+    return holds ? held : body;
   }
 
   /// The figure's silhouette in [c], stamped eight ways round itself at
@@ -1776,12 +1785,41 @@ bool isTextElement(PlayerIcon p) =>
 /// a caption that climbs three or four lines up into the court is covering
 /// the thing it describes. What will not fit is an ellipsis away — tapping
 /// the element opens the whole of it to read and to edit.
-double textElementMaxWidth(BuildContext context, String label) {
-  if (label.length <= 40) return 150.0;
+///
+/// Length is measured as it reads, not in characters: a Chinese or Japanese
+/// character is as wide as two Latin ones, so a 30-character Chinese step
+/// was given the short label's 150 points and cut to "5 名 …" (audit
+/// 2026-10-11 M2). And a drill's own step note always gets the caption's
+/// width and three lines: it is a sentence, not a label, and the third line
+/// is what kept the 90th-percentile step whole.
+double textElementMaxWidth(BuildContext context, String label,
+    {bool note = false}) {
+  if (!note && textReadLength(label) <= 40) return 150.0;
   return (MediaQuery.sizeOf(context).shortestSide * 0.8).clamp(280.0, 520.0);
 }
 
-int textElementMaxLines(String label) => label.length <= 40 ? 3 : 2;
+int textElementMaxLines(String label, {bool note = false}) =>
+    note || textReadLength(label) <= 40 ? 3 : 2;
+
+/// The id the drill's step note is placed under (TacticsState.kDrillNoteId).
+const String kDrillNoteElementId = 'drill_note';
+
+/// How long [s] reads, in Latin-character widths: CJK ideographs, kana,
+/// Hangul and full-width forms count two.
+int textReadLength(String s) {
+  var n = 0;
+  for (final r in s.runes) {
+    final wide = (r >= 0x1100 && r <= 0x115F) ||
+        (r >= 0x2E80 && r <= 0xA4CF) ||
+        (r >= 0xAC00 && r <= 0xD7A3) ||
+        (r >= 0xF900 && r <= 0xFAFF) ||
+        (r >= 0xFE30 && r <= 0xFE4F) ||
+        (r >= 0xFF00 && r <= 0xFF60) ||
+        (r >= 0xFFE0 && r <= 0xFFE6);
+    n += wide ? 2 : 1;
+  }
+  return n;
+}
 
 /// What the longest step in the drill library needs, with room to edit it.
 /// The other elements cap at 12 because they are a name under a token; this
@@ -1941,7 +1979,9 @@ class TextElementChip extends StatelessWidget {
     final faces = textFontFamily(player.font);
     final body = ConstrainedBox(
       constraints: BoxConstraints(
-          maxWidth: textElementMaxWidth(context, player.label) * scale),
+          maxWidth: textElementMaxWidth(context, player.label,
+                  note: player.id == kDrillNoteElementId) *
+              scale),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: 8 * scale, vertical: 4.5 * scale),
@@ -1957,7 +1997,8 @@ class TextElementChip extends StatelessWidget {
         ),
         child: Text(
           empty ? 'T' : player.label,
-          maxLines: textElementMaxLines(player.label),
+          maxLines: textElementMaxLines(player.label,
+              note: player.id == kDrillNoteElementId),
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: TextStyle(

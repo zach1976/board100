@@ -105,7 +105,15 @@ class RecentPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  r.label,
+                                  // Named in the app's language now; the
+                                  // stored label only for a drill that has
+                                  // left the library.
+                                  drill != null
+                                      ? drill.displayName(
+                                          context.locale.countryCode == null
+                                              ? context.locale.languageCode
+                                              : '${context.locale.languageCode}-${context.locale.countryCode}')
+                                      : r.label,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(

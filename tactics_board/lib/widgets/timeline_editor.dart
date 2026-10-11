@@ -204,7 +204,19 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 // Players created from an uploaded photo show their avatar
                 // here instead of the colour dot + number.
                 ? _PlayerRowAvatar(player: player)
-                : Row(
+                // The ball has no number and no team colour: its row was an
+                // empty grey dot nobody could name. It says what it is.
+                : player.isBall
+                    ? FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text('timeline_ball'.tr(),
+                            style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600)),
+                      )
+                    : Row(
                     children: [
                       Container(
                         width: 14, height: 14,
@@ -359,7 +371,11 @@ class _TimelineEditorState extends State<TimelineEditor> {
                                       color: c, size: 16,
                                     )
                                   : (stroke.isFullSpan && i == phaseCount ~/ 2)
-                                      ? Text('ALL', style: TextStyle(color: c, fontSize: 9, fontWeight: FontWeight.bold))
+                                      ? FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: Text('timeline_all_steps'.tr(),
+                                              style: TextStyle(color: c, fontSize: 9, fontWeight: FontWeight.bold)),
+                                        )
                                       : Icon(Icons.draw_outlined, color: c.withValues(alpha: 0.5), size: 10),
                             )
                           : null,

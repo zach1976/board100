@@ -26,7 +26,9 @@ import '../services/drill_library_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
+import '../models/court_layout.dart';
 import '../widgets/sport_glyph.dart';
+import '../widgets/toolbar.dart' as board show courtPainterFor;
 import 'intro_page.dart';
 import 'sport_home_page.dart';
 
@@ -276,8 +278,15 @@ class _Court extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paint = CustomPaint(
-        painter: courtPainterFor(sport), child: const SizedBox.expand());
+    // In the colour the board itself is drawn in. Each painter's own default
+    // is not always its sport's first surface: the pickleball court was blue
+    // here and on the Continue card, and green the moment it was opened.
+    final color =
+        context.select<TacticsState, Color>((s) => s.courtColor(sport));
+    final painter = sport.courtSurfaces.isEmpty || sport == SportType.soccer
+        ? courtPainterFor(sport)
+        : board.courtPainterFor(sport, CourtLayout.full, color);
+    final paint = CustomPaint(painter: painter, child: const SizedBox.expand());
     return ClipRRect(
       borderRadius: T.brSm,
       child: sport.isLandscapeCourt
@@ -347,9 +356,8 @@ class _ContinueCard extends StatelessWidget {
                       const SizedBox(height: T.s4),
                       Text(
                         boards == null
-                            ? 'hub_drills_n'.tr(args: ['$drills'])
-                            : '${'hub_drills_n'.tr(args: ['$drills'])} · '
-                                '${'hub_boards_n'.tr(args: ['$boards'])}',
+                            ? _drillsN(drills)
+                            : '${_drillsN(drills)} · ${_boardsN(boards!)}',
                         style: T.meta,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -414,7 +422,7 @@ class _SportCard extends StatelessWidget {
                 if (drills != null)
                   Padding(
                     padding: const EdgeInsets.only(left: 26, top: 2),
-                    child: Text('hub_drills_n'.tr(args: ['$drills']),
+                    child: Text(_drillsN(drills!),
                         style: T.caption,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis),
@@ -427,3 +435,10 @@ class _SportCard extends StatelessWidget {
     );
   }
 }
+
+/// "1 board", not "1 boards": the counts on the picker's cards, singular
+/// when there is one.
+String _drillsN(int n) =>
+    n == 1 ? 'hub_drills_one'.tr() : 'hub_drills_n'.tr(args: ['$n']);
+String _boardsN(int n) =>
+    n == 1 ? 'hub_boards_one'.tr() : 'hub_boards_n'.tr(args: ['$n']);

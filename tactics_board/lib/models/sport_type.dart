@@ -348,9 +348,11 @@ extension SportTypeExtension on SportType {
       case SportType.sepakTakraw:
         return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFC44E3B, 0xFF4C5157]);
       case SportType.beachTennis:
-        return _surfaces(const [0xFFEAC478, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+        // Sand only: dry, golden, wet, and the plain grey. A blue option
+        // was offered for a sport that is never played on anything but sand.
+        return _surfaces(const [0xFFEAC478, 0xFFD4A85C, 0xFFB08A55, 0xFF4C5157]);
       case SportType.footvolley:
-        return _surfaces(const [0xFFE5B880, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+        return _surfaces(const [0xFFE5B880, 0xFFD4A85C, 0xFFB08A55, 0xFF4C5157]);
       case SportType.soccer:
         return const []; // soccer uses its own turf palette
     }
@@ -457,8 +459,14 @@ extension SportTypeExtension on SportType {
   ///
   /// One sport is not played in boots. The app was putting a footballer in
   /// white boots and socks in a swimming pool.
-  PlayerFigure get playerBody =>
-      this == SportType.waterPolo ? PlayerFigure.water : PlayerFigure.plain;
+  ///
+  /// And two are played barefoot on sand: beach tennis and footvolley drew
+  /// their players in socks and boots (audit 2026-10-11 m9).
+  PlayerFigure get playerBody => switch (this) {
+        SportType.waterPolo => PlayerFigure.water,
+        SportType.beachTennis || SportType.footvolley => PlayerFigure.barefoot,
+        _ => PlayerFigure.plain,
+      };
 
   /// What a player of this sport holds, when they are holding it — null for
   /// the sports where nobody carries anything.
@@ -473,8 +481,10 @@ extension SportTypeExtension on SportType {
         return PlayerFigure.racket;
       case SportType.tableTennis:
       case SportType.pickleball:
-      case SportType.beachTennis:
         return PlayerFigure.paddle;
+      // The same paddle, held by the barefoot body (see playerBody).
+      case SportType.beachTennis:
+        return PlayerFigure.barefootPaddle;
       case SportType.fieldHockey:
         return PlayerFigure.stick;
       case SportType.baseball:
@@ -649,14 +659,18 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            homePositions: [Offset(0.5, 0.78)],
-            awayPositions: [Offset(0.5, 0.22)],
+            // On the baselines (1.0 / 0.0 of the court rect — formations
+            // must stay inside 0..1); 0.78 was 1.2 m behind the service
+            // line, in no-man's-land.
+            homePositions: [Offset(0.5, 1.0)],
+            awayPositions: [Offset(0.5, 0.0)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
-            // Server at baseline right, partner at net left
-            homePositions: [Offset(0.7, 0.78), Offset(0.3, 0.60)],
-            awayPositions: [Offset(0.3, 0.22), Offset(0.7, 0.40)],
+            // Server at the baseline right, partner at net left;
+            // receiver at his baseline, partner at his net.
+            homePositions: [Offset(0.7, 1.0), Offset(0.3, 0.60)],
+            awayPositions: [Offset(0.3, 0.0), Offset(0.7, 0.40)],
           ),
         ];
 
@@ -817,13 +831,17 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            homePositions: [Offset(0.5, 0.75)],
-            awayPositions: [Offset(0.5, 0.25)],
+            // Singles: on the baselines, ready to serve and return (the
+            // test keeps formations inside 0..1).
+            homePositions: [Offset(0.5, 1.0)],
+            awayPositions: [Offset(0.5, 0.0)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
-            homePositions: [Offset(0.33, 0.72), Offset(0.67, 0.72)],
-            awayPositions: [Offset(0.33, 0.28), Offset(0.67, 0.28)],
+            // Doubles: all four just behind their kitchen lines (0.66 /
+            // 0.34) — 0.72 / 0.28 was in the transition zone.
+            homePositions: [Offset(0.33, 0.68), Offset(0.67, 0.68)],
+            awayPositions: [Offset(0.33, 0.32), Offset(0.67, 0.32)],
           ),
         ];
 
@@ -1026,7 +1044,7 @@ extension SportTypeExtension on SportType {
               Offset(0.18, 0.80), // 13 outside center
               Offset(0.07, 0.78), // 11 left wing
               Offset(0.93, 0.78), // 14 right wing
-              Offset(0.50, 0.90), // 15 full-back
+              Offset(0.50, 0.82), // 15 full-back, in front of his try line
             ],
             awayPositions: [
               Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
@@ -1038,7 +1056,7 @@ extension SportTypeExtension on SportType {
               Offset(0.82, 0.20),
               Offset(0.93, 0.22),
               Offset(0.07, 0.22),
-              Offset(0.50, 0.10),
+              Offset(0.50, 0.18),
             ],
           ),
           // 13v13 Rugby League
@@ -1049,26 +1067,26 @@ extension SportTypeExtension on SportType {
               Offset(0.40, 0.66), Offset(0.50, 0.66), Offset(0.60, 0.66),
               Offset(0.42, 0.71), Offset(0.58, 0.71),
               Offset(0.50, 0.74),
-              // Backs (7)
-              Offset(0.50, 0.79), // halfback
-              Offset(0.42, 0.82), // five-eighth
-              Offset(0.30, 0.84), // center L
-              Offset(0.70, 0.84), // center R
-              Offset(0.10, 0.85), // wing L
-              Offset(0.90, 0.85), // wing R
-              Offset(0.50, 0.92), // fullback
+              // Backs (7) — all in front of the try line (y 0.847)
+              Offset(0.50, 0.77), // halfback
+              Offset(0.40, 0.78), // five-eighth
+              Offset(0.28, 0.79), // center L
+              Offset(0.70, 0.79), // center R
+              Offset(0.10, 0.78), // wing L
+              Offset(0.90, 0.78), // wing R
+              Offset(0.50, 0.82), // fullback
             ],
             awayPositions: [
               Offset(0.60, 0.34), Offset(0.50, 0.34), Offset(0.40, 0.34),
               Offset(0.58, 0.29), Offset(0.42, 0.29),
               Offset(0.50, 0.26),
-              Offset(0.50, 0.21),
-              Offset(0.58, 0.18),
-              Offset(0.70, 0.16),
-              Offset(0.30, 0.16),
-              Offset(0.90, 0.15),
-              Offset(0.10, 0.15),
-              Offset(0.50, 0.08),
+              Offset(0.50, 0.23),
+              Offset(0.60, 0.22),
+              Offset(0.72, 0.21),
+              Offset(0.30, 0.21),
+              Offset(0.90, 0.22),
+              Offset(0.10, 0.22),
+              Offset(0.50, 0.18),
             ],
           ),
           // 7s — Rugby Sevens
@@ -1076,15 +1094,17 @@ extension SportTypeExtension on SportType {
             nameKey: 'formation_7v7',
             homePositions: [
               Offset(0.42, 0.65), Offset(0.50, 0.65), Offset(0.58, 0.65), // forwards
-              Offset(0.50, 0.74),                                         // scrum-half
-              Offset(0.32, 0.80),                                         // fly-half
-              Offset(0.10, 0.85), Offset(0.90, 0.85),                     // wings
+              Offset(0.50, 0.71),                                         // scrum-half
+              Offset(0.36, 0.74),                                         // fly-half
+              Offset(0.22, 0.77),                                         // centre
+              Offset(0.08, 0.79),                                         // wing
             ],
             awayPositions: [
               Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
-              Offset(0.50, 0.26),
-              Offset(0.68, 0.20),
-              Offset(0.90, 0.15), Offset(0.10, 0.15),
+              Offset(0.50, 0.29),
+              Offset(0.64, 0.26),
+              Offset(0.78, 0.23),
+              Offset(0.92, 0.21),
             ],
           ),
         ];
@@ -1241,18 +1261,67 @@ extension SportTypeExtension on SportType {
               Offset(0.50, 0.26), // point
             ],
           ),
-          // Power play 6v5 (man-up attack)
+          // Power play 6 on 5, 4-2: six field attackers + GK against five
+          // field defenders + GK (it was 5 on 4, with a defender standing
+          // outside the attack). Two on the posts at 2.5 m, four out at
+          // 4.5-6 m; the man-down has two on the posts and a zone of three,
+          // all goal-side. Same spots as the wp_manup_four_two drill.
           SportFormation(
             nameKey: 'formation_6v5',
             homePositions: [
               Offset(0.50, 0.97),
-              Offset(0.20, 0.10), Offset(0.50, 0.08), Offset(0.80, 0.10),
-              Offset(0.30, 0.20), Offset(0.70, 0.20),
+              Offset(0.14, 0.153), Offset(0.37, 0.213),
+              Offset(0.63, 0.213), Offset(0.86, 0.153),
+              Offset(0.36, 0.083), Offset(0.64, 0.083),
             ],
             awayPositions: [
-              Offset(0.50, 0.03),
-              Offset(0.30, 0.16), Offset(0.50, 0.14), Offset(0.70, 0.16),
-              Offset(0.50, 0.24),
+              Offset(0.50, 0.037),
+              Offset(0.425, 0.053), Offset(0.575, 0.053),
+              Offset(0.23, 0.147), Offset(0.50, 0.153), Offset(0.77, 0.147),
+            ],
+          ),
+          // Power play 6 on 5, 3-3: three on the 2 m, three out.
+          SportFormation(
+            nameKey: 'formation_6v5_33',
+            homePositions: [
+              Offset(0.50, 0.97),
+              Offset(0.20, 0.213), Offset(0.50, 0.253), Offset(0.80, 0.213),
+              Offset(0.30, 0.083), Offset(0.50, 0.13), Offset(0.70, 0.083),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.037),
+              Offset(0.365, 0.053), Offset(0.635, 0.053),
+              Offset(0.32, 0.16), Offset(0.58, 0.177), Offset(0.70, 0.153),
+            ],
+          ),
+          // Power play 6 on 5, umbrella: the point at 9 m, three across the
+          // 5 m, two on the posts.
+          SportFormation(
+            nameKey: 'formation_6v5_umbrella',
+            homePositions: [
+              Offset(0.50, 0.97),
+              Offset(0.50, 0.307), Offset(0.16, 0.167), Offset(0.50, 0.187),
+              Offset(0.84, 0.167), Offset(0.35, 0.083), Offset(0.65, 0.083),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.037),
+              Offset(0.42, 0.053), Offset(0.58, 0.053),
+              Offset(0.27, 0.13), Offset(0.50, 0.113), Offset(0.73, 0.13),
+            ],
+          ),
+          // Even strength 3-3: three on the 2 m (posts and the hole set),
+          // three out at 6-7 m, every defender goal-side of his man.
+          SportFormation(
+            nameKey: 'formation_wp_33',
+            homePositions: [
+              Offset(0.50, 0.97),
+              Offset(0.22, 0.22), Offset(0.50, 0.25), Offset(0.78, 0.22),
+              Offset(0.28, 0.09), Offset(0.42, 0.09), Offset(0.72, 0.09),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.037),
+              Offset(0.29, 0.17), Offset(0.57, 0.20), Offset(0.71, 0.17),
+              Offset(0.21, 0.06), Offset(0.35, 0.06), Offset(0.79, 0.06),
             ],
           ),
           // 5+1 (training / shorter sides) — each team in its own half.

@@ -23,6 +23,8 @@ import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
 import '../services/recent_boards_service.dart';
+import '../services/drill_library_service.dart';
+import '../models/drill_note.dart';
 import '../services/sync_service.dart';
 
 class _BoardSnapshot {
@@ -2319,10 +2321,17 @@ class TacticsState extends ChangeNotifier {
       // read back on the next launch, and a drill restored that way came
       // back as a shape with no caption under it.
       if (drillBeats.isNotEmpty) 'drillBeats': drillBeats,
+      // And which drill they came from, so a board read back after a
+      // restart can still put them into a newly chosen language.
+      if (drillBeats.isNotEmpty && _drillId != null) 'drillId': _drillId,
     };
   }
 
   void loadFromJson(Map<String, dynamic> json) {
+    _drillName = null;
+    _nameFor = null;
+    _beatsFor = null;
+    _drillId = json['drillId'] as String?;
     final carried = json['drillBeats'];
     drillBeats = carried is List
         ? carried.map((b) => b.toString()).toList(growable: false)
@@ -2401,9 +2410,84 @@ class TacticsState extends ChangeNotifier {
 
   /// A drill has just landed on the board: these are its beats, and it
   /// wants its note.
-  void openedDrill(List<String> beats) {
+  void openedDrill(List<String> beats,
+      {List<String> Function(String locale)? beatsFor,
+      String? name,
+      String Function(String locale)? nameFor,
+      String? id}) {
     drillBeats = beats;
     noteWanted = beats.isNotEmpty;
+    _beatsFor = beatsFor;
+    _beatsAsOpened = beats;
+    _drillName = name;
+    _nameFor = nameFor;
+    _drillId = id;
+  }
+
+  String Function(String locale)? _nameFor;
+
+  /// The library id of the drill on the board, kept with the board.
+  String? _drillId;
+
+  /// The name of the drill on the board, while what is on the board is still
+  /// that drill and not yet a board of the coach's own — what "Save" offers
+  /// as the name, instead of an empty field.
+  String? get openedDrillName =>
+      drillBeats.isNotEmpty && currentTacticName == null ? _drillName : null;
+  String? _drillName;
+
+  /// The drill's steps in another language, and the steps as the library
+  /// wrote them when it was opened — so a language switch can put the note
+  /// on the board into the new language, and leave alone any the coach has
+  /// rewritten. Before this the sentence under the court stayed in the
+  /// language the drill was opened in ("Dink cross-court" under zh-CN).
+  List<String> Function(String locale)? _beatsFor;
+  List<String> _beatsAsOpened = const [];
+
+  /// Put the drill's steps into [locale], when they are still the library's
+  /// own words. A board loaded from disk, a blank one, or one whose steps
+  /// the coach has edited, keeps what it has.
+  Future<void> localizeDrill(String locale) async {
+    if (drillBeats.isEmpty) return;
+    // Read back from disk: find the drill again, and take its steps as the
+    // library's own only if they still read as the library wrote them in
+    // one of its languages — anything else is the coach's.
+    if (_beatsFor == null && _drillId != null) {
+      final id = _drillId!, sport = _sportType, before = drillBeats;
+      final all = await DrillLibraryService.instance.forSport(sport);
+      final d = all.where((x) => x.id == id).firstOrNull;
+      if (d == null || _drillId != id || !identical(drillBeats, before)) {
+        return;
+      }
+      List<String> parse(String l) => DrillNote.parse(d.localizedNote(l)).beats;
+      _beatsFor = parse;
+      _nameFor = d.displayName;
+      final unedited = d.note.keys.any((l) {
+        final b = parse(l);
+        if (b.length != before.length) return false;
+        for (var i = 0; i < b.length; i++) {
+          if (b[i] != before[i]) return false;
+        }
+        return true;
+      });
+      if (unedited) _beatsAsOpened = drillBeats;
+    }
+    // The name "Save" offers follows the language too.
+    if (_nameFor != null) _drillName = _nameFor!(locale);
+    final f = _beatsFor;
+    if (f == null) return;
+    if (!identical(drillBeats, _beatsAsOpened)) return;
+    final next = f(locale);
+    if (next.length != drillBeats.length) return;
+    var same = true;
+    for (var i = 0; i < next.length; i++) {
+      if (next[i] != drillBeats[i]) same = false;
+    }
+    if (same) return;
+    drillBeats = next;
+    _beatsAsOpened = next;
+    _syncDrillNote();
+    notifyListeners();
   }
 
   /// Put the drill's step note on the board, under the court.
@@ -2412,7 +2496,7 @@ class TacticsState extends ChangeNotifier {
   /// tablet draws it in landscape: the canvas itself is laid out upright
   /// inside a RotatedBox, so the screen's "below the court" is the canvas's
   /// right-hand margin, and the note is turned a quarter back to read level.
-  void placeDrillNote({required bool sideways}) {
+  void placeDrillNote({required bool sideways, double maxWidth = 320}) {
     if (!noteWanted) return;
     if (drillBeats.isEmpty || _canvasSize.isEmpty) return;
     noteWanted = false;
@@ -2463,13 +2547,48 @@ class TacticsState extends ChangeNotifier {
 
     final flip = crowd(over) < crowd(under);
     final band = flip ? over : under;
+    // Kept on the board, whole. The band under a rugby pitch or a pool is a
+    // sliver, and a chip centred in it hung over the board's edge, its last
+    // line cut off by the frame. The chip's size is measured for the
+    // longest of the drill's steps (the note changes words at every beat),
+    // the way TextElementChip lays it out: 13pt semibold, 1.25 line height,
+    // three lines at most, 8 by 4.5 of padding and a 1pt border.
+    var chipW = 0.0, chipH = 0.0;
+    for (final b in drillBeats) {
+      final tp = TextPainter(
+        text: TextSpan(
+          text: b,
+          style: const TextStyle(
+              fontSize: 13, height: 1.25, fontWeight: FontWeight.w600),
+        ),
+        maxLines: 3,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+      )..layout(maxWidth: maxWidth - 18);
+      chipW = math.max(chipW, tp.width + 18);
+      chipH = math.max(chipH, tp.height + 11);
+      tp.dispose();
+    }
+    // Sideways the chip lies on its side: its height runs across the canvas.
+    final extentX = sideways ? chipH : chipW;
+    final extentY = sideways ? chipW : chipH;
+    const margin = 6.0;
+    double fit(double c, double extent, double size) {
+      final lo = extent / 2 + margin, hi = size - extent / 2 - margin;
+      return lo > hi ? size / 2 : c.clamp(lo, hi);
+    }
+
+    final at = Offset(
+      fit(band.center.dx, extentX, w),
+      fit(band.center.dy, extentY, h),
+    );
     _players.add(PlayerIcon(
       id: kDrillNoteId,
       label: drillBeats.first,
       team: PlayerTeam.neutral,
       markerShape: MarkerShape.text,
       customColor: const Color(0xFF263238),
-      position: band.center,
+      position: at,
       rotation: sideways ? -math.pi / 2 : 0,
     ));
     notifyListeners();

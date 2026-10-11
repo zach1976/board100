@@ -87,7 +87,15 @@ class TacticsBoardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.locale;
+    final locale = context.locale;
+    // A language switch puts the drill's step note into the new language
+    // (unless the coach has rewritten it). After the frame: it notifies.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!context.mounted) return;
+      context.read<TacticsState>().localizeDrill(locale.countryCode == null
+          ? locale.languageCode
+          : '${locale.languageCode}-${locale.countryCode}');
+    });
     final topPad = MediaQuery.of(context).padding.top;
     final bottomPad = MediaQuery.of(context).padding.bottom;
     final isLandscape =
@@ -379,6 +387,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     WidgetsBinding.instance.addPostFrameCallback(
                       (_) => context.read<TacticsState>().placeDrillNote(
                         sideways: isLandscape,
+                        maxWidth: textElementMaxWidth(context, '', note: true),
                       ),
                     );
                   }
@@ -3578,8 +3587,9 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
     final at = state.animatedPositions[p.id] ?? p.position;
     double w, h;
     if (isTextElement(p)) {
-      w = textElementMaxWidth(context, p.label) * p.scale;
-      h = 30 * p.scale * textElementMaxLines(p.label);
+      final note = p.id == TacticsState.kDrillNoteId;
+      w = textElementMaxWidth(context, p.label, note: note) * p.scale;
+      h = 30 * p.scale * textElementMaxLines(p.label, note: note);
       // A chip laid on its side — the drill note, sideways — is tall, not
       // wide.
       final quarter = (p.rotation / (math.pi / 2)).round();
@@ -3624,10 +3634,22 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       final atRest =
           (panel.localToGlobal(Offset.zero) & panel.size).shift(-_drag);
       final board = _onScreen(canvas, Offset.zero & canvas.size);
+      // Drawing with nothing selected, the bar has no one element to keep
+      // clear of — so it keeps clear of all of them. Resting at the foot
+      // it hid a table-tennis server and his ball, the very player a coach
+      // draws a line from (audit 2026-10-11 M3); now it settles wherever it
+      // covers the fewest figures, which on most boards is open court.
+      final drawing =
+          state.isDrawingMode && state.selectedStrokeId == null;
       final slot = _slotFor(
         atRest,
         _targetRect(state, canvas),
-        _textRects(state, canvas),
+        [
+          ..._textRects(state, canvas),
+          if (drawing)
+            for (final p in state.players)
+              if (!isTextElement(p)) _elementRect(state, canvas, p),
+        ],
         board.top,
       );
       if (slot != _drag) setState(() => _drag = slot);

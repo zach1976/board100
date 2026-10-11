@@ -8,7 +8,11 @@ import '../config_constants.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
+import '../models/drill.dart';
 import '../models/practice.dart';
+import '../services/drill_library_service.dart';
+import '../services/purchase_service.dart';
+import '../widgets/add_to_plan_sheet.dart';
 import '../services/ad_service.dart';
 import '../services/practice_service.dart';
 import '../state/tactics_state.dart';
@@ -427,19 +431,19 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text('practice_add_tactic'.tr(),
+                  child: Text('plan_new_board'.tr(),
                       style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
                   leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-                  title: Text('tactic_new_blank'.tr(),
+                  title: Text('plan_blank_board'.tr(),
                       style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
                 const Divider(color: T.border, height: 1),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-                  child: Text('tactic_copy_from'.tr(),
+                  child: Text('plan_copy_board'.tr(),
                       style: const TextStyle(color: T.textDim, fontSize: 13)),
                 ),
                 ...existing.map((n) => ListTile(
@@ -457,7 +461,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
 
     final name = await promptForName(
       context,
-      title: 'practice_add_tactic'.tr(),
+      title: 'plan_new_board'.tr(),
       hint: 'tactics_name'.tr(),
     );
     if (name == null || name.isEmpty) return;
@@ -487,6 +491,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
     final names = await widget.state.listSavedTactics();
     if (!mounted) return;
     const newSentinel = '__save_current__';
+    const librarySentinel = '__from_library__';
     final picked = await TacticalSheet.show(
       context,
       builder: (ctx) => TacticalSheet(
@@ -498,16 +503,31 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text(
-                  'practice_pick_tactic'.tr(),
+                  'plan_add_title'.tr(),
                   style: const TextStyle(color: T.text, fontWeight: FontWeight.bold),
                 ),
               ),
+              // The sport's own library first: a plan is mostly drills, and
+              // until this row the only way to put one in was to leave the
+              // editor, find it, and "Add to plan" from its page.
+              ListTile(
+                leading: const Icon(Icons.menu_book_outlined, color: _kAccent),
+                title: Text('plan_from_library'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                onTap: () => Navigator.pop(ctx, librarySentinel),
+              ),
               ListTile(
                 leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-                title: Text('practice_add_tactic'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                title: Text('plan_new_board'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, newSentinel),
               ),
-              if (names.isNotEmpty) const Divider(color: T.border, height: 1),
+              if (names.isNotEmpty) ...[
+                const Divider(color: T.border, height: 1),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+                  child: Text('home_mine'.tr(),
+                      style: const TextStyle(color: T.textDim, fontSize: 13)),
+                ),
+              ],
               ...names.map((n) => ListTile(
                     leading: const Icon(Icons.description_outlined, color: T.textDim),
                     title: Text(n, style: const TextStyle(color: T.text)),
@@ -522,8 +542,40 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
       await _saveCurrentAsNew();
       return;
     }
+    if (picked == librarySentinel) {
+      await _addFromLibrary();
+      return;
+    }
     setState(() {
       _p.items.add(PracticeItem(tacticName: picked));
+      _dirty = true;
+    });
+    await _saveIfDirty();
+  }
+
+  /// A drill from the sport's library, copied into the coach's boards (a
+  /// plan item is a saved board — see AddToPlanSheet) and added here.
+  Future<void> _addFromLibrary() async {
+    final sport = widget.state.sportType;
+    final l = context.locale;
+    final locale = l.countryCode == null
+        ? l.languageCode
+        : '${l.languageCode}-${l.countryCode}';
+    final all = await DrillLibraryService.instance.forSport(sport);
+    if (!mounted) return;
+    final drill = await TacticalSheet.show<Drill>(
+      context,
+      builder: (_) => _DrillPicker(drills: all, locale: locale),
+    );
+    if (drill == null || !mounted) return;
+    final board =
+        await AddToPlanSheet.saveDrillAsBoard(sport, drill, locale);
+    if (!mounted) return;
+    setState(() {
+      _p.items.add(PracticeItem(
+        tacticName: board,
+        durationMinutes: drill.minutes > 0 ? drill.minutes : 10,
+      ));
       _dirty = true;
     });
     await _saveIfDirty();
@@ -651,7 +703,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 24),
                 child: Text(
-                  'practice_no_items'.tr(),
+                  'plan_no_items'.tr(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: T.textOff),
                 ),
@@ -706,7 +758,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
             ElevatedButton.icon(
               onPressed: _addItem,
               icon: const Icon(Icons.add_rounded),
-              label: Text('practice_add_tactic'.tr()),
+              label: Text('plan_add_drill'.tr()),
               style: ElevatedButton.styleFrom(
                 backgroundColor: _kAccent,
                 foregroundColor: Colors.black,
@@ -934,6 +986,101 @@ class _DurationFieldState extends State<_DurationField> {
           final n = int.tryParse(v);
           if (n != null && n >= 0) widget.onChanged(n);
         },
+      ),
+    );
+  }
+}
+
+/// The sport's drill library as a list to pick one from, with a search box.
+/// Locked drills are shown but cannot be picked, as in the library itself.
+class _DrillPicker extends StatefulWidget {
+  final List<Drill> drills;
+  final String locale;
+  const _DrillPicker({required this.drills, required this.locale});
+
+  @override
+  State<_DrillPicker> createState() => _DrillPickerState();
+}
+
+class _DrillPickerState extends State<_DrillPicker> {
+  String _q = '';
+
+  bool _unlocked(Drill d) =>
+      d.free ||
+      !PurchaseService.instance.isStoreEnabled ||
+      PurchaseService.instance.hasPro;
+
+  @override
+  Widget build(BuildContext context) {
+    final q = _q.trim().toLowerCase();
+    final shown = q.isEmpty
+        ? widget.drills
+        : widget.drills
+            .where((d) =>
+                d.localizedName(widget.locale).toLowerCase().contains(q))
+            .toList();
+    return TacticalSheet(
+      maxHeightFraction: 0.85,
+      padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
+      child: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+              child: Text('plan_from_library'.tr(),
+                  style: const TextStyle(
+                      color: T.text, fontWeight: FontWeight.bold)),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              child: TextField(
+                style: const TextStyle(color: T.text),
+                decoration: InputDecoration(
+                  isDense: true,
+                  prefixIcon:
+                      const Icon(Icons.search, color: T.textDim, size: 20),
+                  hintText: 'drills_search'.tr(),
+                  hintStyle: const TextStyle(color: T.textOff),
+                  filled: true,
+                  fillColor: T.surfaceHi,
+                  border: OutlineInputBorder(
+                      borderRadius: T.brSm, borderSide: BorderSide.none),
+                ),
+                onChanged: (v) => setState(() => _q = v),
+              ),
+            ),
+            Flexible(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: shown.length,
+                itemBuilder: (context, i) {
+                  final d = shown[i];
+                  final open = _unlocked(d);
+                  return ListTile(
+                    dense: true,
+                    enabled: open,
+                    leading: Icon(
+                        open ? Icons.add_circle_outline : Icons.lock_outline,
+                        color: open ? _kAccent : T.textOff),
+                    title: Text(d.displayName(widget.locale),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: open ? T.text : T.textOff,
+                            fontSize: 14.5)),
+                    trailing: Text(
+                        'drills_minutes'.tr(args: ['${d.minutes}']),
+                        style:
+                            const TextStyle(color: T.textDim, fontSize: 12)),
+                    onTap: open ? () => Navigator.pop(context, d) : null,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

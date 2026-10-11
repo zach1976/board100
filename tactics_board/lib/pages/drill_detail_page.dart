@@ -344,7 +344,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(d.localizedName(widget.locale), style: T.display),
+              Text(d.displayName(widget.locale), style: T.display),
               const SizedBox(height: T.s12),
               Wrap(
                 spacing: T.s16,

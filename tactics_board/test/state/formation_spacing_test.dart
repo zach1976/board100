@@ -42,7 +42,16 @@ void main() {
   // power play, six attackers packed round the 2m line against five, and the
   // preset draws them where a coach draws them. Spacing it out would be
   // drawing a different drill. Everything else must clear.
-  const known = {'waterPolo': {'formation_6v5'}};
+  // The other man-up shapes and the 3-3 set (three on the 2 m line) are
+  // the same kind of board: bodies round the posts by design.
+  const known = {
+    'waterPolo': {
+      'formation_6v5',
+      'formation_6v5_33',
+      'formation_6v5_umbrella',
+      'formation_wp_33',
+    }
+  };
 
   test('no formation puts two figures inside each other', () {
     var checked = 0;
