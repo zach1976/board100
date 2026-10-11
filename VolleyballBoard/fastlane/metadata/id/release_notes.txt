@@ -24,3 +24,4 @@ JUGA
 - Layar pembuka untuk mode lanskap
 - Penjelasan tiap langkah latihan tertulis di papan dan berganti sesuai langkahnya; geser, ubah gaya, atau tulis ulang seperti teks biasa
 - Dalam mode lanskap, kontrol pindah ke sisi Dynamic Island sehingga tidak ada bagian lapangan yang tertutup
+- Tampilan aplikasi kini memakai warna amber khas voli, agar layar dan papan terasa serasi

@@ -24,3 +24,4 @@ JUGA
 - Skrin pelancaran untuk landskap
 - Penerangan setiap langkah latihan tertulis pada papan dan bertukar mengikut langkah; alih, gayakan atau tulis semula seperti teks biasa
 - Dalam landskap, kawalan beralih ke sisi Dynamic Island supaya tiada apa di gelanggang terlindung
+- Rupa aplikasi kini menggunakan warna ambar bola tampar, supaya skrin dan papan sepadan

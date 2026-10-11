@@ -24,3 +24,4 @@ ET AUSSI
 - Un écran de lancement en paysage
 - L'explication de chaque étape de l'exercice s'affiche sur le tableau et change avec l'étape ; déplacez-la, changez son style ou réécrivez-la comme n'importe quel texte
 - En paysage, les commandes passent du côté de la Dynamic Island : plus rien du terrain n'est caché derrière
+- L'interface prend désormais l'ambre du volley-ball, pour que les écrans et le tableau aillent ensemble

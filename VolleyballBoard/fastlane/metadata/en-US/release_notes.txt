@@ -24,3 +24,4 @@ ALSO
 - A launch screen for landscape
 - Each drill step's explanation is written on the board and changes with the step; move it, restyle it or rewrite it like any text
 - In landscape the controls move to the Dynamic Island's side, so nothing on the court sits behind it
+- The app's chrome is now in volleyball's own amber, so the screens and the board belong together

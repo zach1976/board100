@@ -24,3 +24,4 @@ NGOÀI RA
 - Màn hình khởi động cho chế độ ngang
 - Lời giải thích từng bước của bài tập hiện ngay trên bảng và đổi theo bước; kéo, đổi kiểu hoặc viết lại như mọi đoạn chữ
 - Khi xoay ngang, các nút điều khiển chuyển sang phía Dynamic Island nên không còn gì trên sân bị che
+- Giao diện ứng dụng chuyển sang tông hổ phách của bóng chuyền, để màn hình và bảng chiến thuật đồng bộ với nhau
