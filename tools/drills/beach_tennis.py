@@ -4,7 +4,7 @@ A small court with a high net and no bounce: every ball is a volley, so there
 is no baseline game to fall back on. Home is the bottom half, the net is at
 y=0.5, and the two players cover the width between them.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 BASE = (0.50, 0.90)
 # Base position is 1.5-2 m off the net, not 3.5: the library's own
@@ -130,21 +130,42 @@ SERVE_NOTE = {
 }
 
 
+SERVE_LABEL = {
+    # Their own words: 平抽对抗 ("flat exchange") and 劈吊 ("sliced drop")
+    # were rally terms, not serves.
+    "flat": {"en": "flat", "en-GB": "flat", "zh-CN": "平击", "zh-TW": "平擊",
+             "ja-JP": "フラット", "ko-KR": "플랫", "es-ES": "plano",
+             "fr-FR": "à plat", "id-ID": "datar", "ms-MY": "rata",
+             "th-TH": "แบบเรียบ", "vi-VN": "thẳng"},
+    "sliced": {"en": "sliced", "en-GB": "sliced", "zh-CN": "切削",
+               "zh-TW": "切削", "ja-JP": "スライス", "ko-KR": "슬라이스",
+               "es-ES": "cortado", "fr-FR": "slicé", "id-ID": "slice",
+               "ms-MY": "slice", "th-TH": "แบบสไลซ์", "vi-VN": "cắt"},
+}
+
+
 def serve_family() -> list[Drill]:
-    specs = [("flat", "flat exchange", (0.32, 0.30)), ("sliced", "sliced", (0.68, 0.32)),
+    # The server serves from behind his baseline (he used to walk 1.6 m in
+    # first) and follows it in; the serve goes to R where R stands, and R
+    # volleys it back — nothing bounces. Four distinct labels: S and P
+    # serve, R receives with his partner N (both sides used to field a P,
+    # and both receivers were "R").
+    specs = [("flat", SERVE_LABEL["flat"], (0.32, 0.30)),
+             ("sliced", SERVE_LABEL["sliced"], (0.68, 0.32)),
              ("jump", "jump", (0.50, 0.22))]
     out = []
     for key, label, land in specs:
+        r_at = (land[0], land[1] - 0.06)
+        n_at = (0.70, 0.32) if land[0] < 0.6 else (0.30, 0.32)
         out.append(Drill(
             id=f"bt_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "flat"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(0.32, 1.043, "S", moves=[(0.32, 0.94, 0), (0.34, 0.74, 1)]),
-                  P(*RIGHT, "P", moves=[(0.70, 0.66, 1)])],
-            away=[P(land[0], land[1] - 0.06, "R", moves=[(land[0], land[1], 1)]),
-                  P(0.70, 0.30, "R")],
+            home=[P(0.32, 1.043, "S", moves=[(0.34, 0.74, 1)]),
+                  P(*RIGHT, "P", moves=[(0.70, 0.62, 1)])],
+            away=[P(*r_at, "R", moves=[(land[0], land[1], 0)]), P(*n_at, "N")],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
     return out
 
@@ -175,20 +196,23 @@ ATTACK_NOTE = {
 
 
 def attack_family() -> list[Drill]:
-    specs = [("approach", "approach", (0.30, 0.30)),
+    # A feeds, 1 plays the drilled shot INTO the zone and the pair take the
+    # net behind it. The zone is open court — A and B no longer walk onto
+    # it, which read as "hit it to him".
+    specs = [("approach", "approach", (0.50, 0.12)),
              ("the drop", "the drop", (0.32, 0.44)),
-             ("cross-court", "cross-court", (0.74, 0.28))]
+             ("cross-court", "cross-court", (0.82, 0.26))]
     out = []
     for key, label, land in specs:
         out.append(Drill(
             id=f"bt_attack_{key.replace('-', '_').replace(' ', '_')}",
             category="attacking", minutes=10, rel=True, free=(key == "approach"),
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
-            home=[P(*LEFT, "1", moves=[NET_L + (1,)]), P(*RIGHT, "2", moves=[NET_R + (1,)])],
-            away=[P(land[0], land[1] - 0.06, "A", moves=[(land[0], land[1], 2)]),
-                  P(0.66, 0.28, "B")],
+            home=[P(*LEFT, "1", moves=[(0.30, 0.64, 0), NET_L + (1,)]),
+                  P(*RIGHT, "2", moves=[NET_R + (1,)])],
+            away=[P(0.30, 0.22, "A"), P(0.64, 0.22, "B")],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=(0.30, 0.22), ball_to=[(0, 0), (Spot(*land), 1)],
         ))
     return out
 
@@ -219,20 +243,33 @@ SMASH_NOTE = {
 }
 
 
+JUMP_SMASH = {
+    # "jump" alone is the vocabulary's jump SERVE (跳发, ジャンプサーブ…).
+    "en": "jump", "en-GB": "jump", "zh-CN": "跳起", "zh-TW": "跳起",
+    "ja-JP": "ジャンプ", "ko-KR": "점프", "es-ES": "en salto",
+    "fr-FR": "sauté", "id-ID": "lompat", "ms-MY": "lompat",
+    "th-TH": "กระโดด", "vi-VN": "bật nhảy",
+}
+
+
 def smash_family() -> list[Drill]:
-    specs = [("straight", "straight", (0.30, 0.24)), ("cross-court", "cross-court", (0.74, 0.26)),
-             ("jump", "jump", (0.50, 0.18))]
+    # A LOBS (the feed used to be a flat drive at chest height), 1 gets
+    # under it and the smash itself is drawn into the zone — the sand
+    # between A and B or beside them, not where A walks to.
+    specs = [("straight", "straight", (0.20, 0.22)),
+             ("cross-court", "cross-court", (0.80, 0.22)),
+             ("jump", JUMP_SMASH, (0.50, 0.22))]
     out = []
     for key, label, land in specs:
         out.append(Drill(
             id=f"bt_smash_{key.replace('-', '_')}", category="finishing",
             minutes=10, rel=True, free=(key == "straight"),
             name=suffixed(SMASH_NAME, label), note=SMASH_NOTE,
-            home=[P(*LEFT, "1", moves=[(0.32, 0.68, 1)]), P(*RIGHT, "2")],
-            away=[P(land[0], land[1] - 0.05, "A", moves=[(land[0], land[1], 2)]),
-                  P(0.62, 0.30, "B")],
+            home=[P(*LEFT, "1", moves=[(0.32, 0.74, 0)]),
+                  P(*RIGHT, "2", moves=[(0.68, 0.64, 1)])],
+            away=[P(0.34, 0.34, "A"), P(0.66, 0.34, "B")],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=(0.34, 0.34), ball_to=[(0, 0), (Spot(*land), 1)],
         ))
     return out
 
@@ -263,25 +300,58 @@ DEF_NOTE = {
 }
 
 
+DROP_DEF_NOTE = {
+    "en": "Start forward the moment you see the short swing: there is no bounce to wait for, so a drop you reach late is a drop that has already landed. Lift it deep and get back.",
+    "en-GB": "Start forward the moment you see the short swing: there is no bounce to wait for, so a drop you reach late is a drop that has already landed. Lift it deep and get back.",
+    "zh-CN": "一看到对方小挥拍就向前启动：没有落地可以等，晚到一步的吊球就已经落在沙上了。挑深，然后退回位置。",
+    "zh-TW": "一看到對方小揮拍就向前啟動：沒有落地可以等，晚到一步的吊球就已經落在沙上了。挑深，然後退回位置。",
+    "ja-JP": "小さなスイングが見えた瞬間に前へ。待てるバウンドはないので、遅れて届いたドロップはもう砂に落ちている。深く上げて戻る。",
+    "ko-KR": "작은 스윙이 보이는 순간 앞으로 출발하라. 기다릴 바운드가 없으니 늦게 닿은 드롭은 이미 모래에 떨어진 공이다. 깊게 올리고 돌아가라.",
+    "es-ES": "Arranca hacia delante en cuanto veas el gesto corto: no hay bote que esperar, y una dejada a la que llegas tarde ya ha tocado la arena. Levántala profunda y vuelve.",
+    "fr-FR": "Pars vers l'avant dès que tu vois le geste court : aucun rebond à attendre, un amorti atteint en retard a déjà touché le sable. Remonte-le long et replace-toi.",
+    "id-ID": "Maju begitu melihat ayunan pendek: tidak ada pantulan untuk ditunggu, drop yang terlambat dijangkau sudah menyentuh pasir. Angkat dalam lalu kembali.",
+    "ms-MY": "Mara sebaik nampak hayunan pendek: tiada lantunan untuk ditunggu, drop yang lambat dicapai sudah menyentuh pasir. Angkat dalam dan kembali.",
+    "th-TH": "ออกตัวไปข้างหน้าทันทีที่เห็นวงสวิงสั้น ไม่มีการเด้งให้รอ ลูกหยอดที่ไปถึงช้าก็ตกทรายไปแล้ว งัดให้ลึกแล้วกลับที่",
+    "vi-VN": "Lao lên ngay khi thấy vung vợt ngắn: không có nảy để chờ, quả bỏ nhỏ tới muộn là đã chạm cát. Nâng sâu rồi lùi về.",
+}
+LOB_DEF_NOTE = {
+    "en": "Turn and run, don't backpedal, and answer the lob with height and depth: a lob played back over them buys the time to get back to the net. Smashing it from behind your head is their point.",
+    "en-GB": "Turn and run, don't backpedal, and answer the lob with height and depth: a lob played back over them buys the time to get back to the net. Smashing it from behind your head is their point.",
+    "zh-CN": "转身跑，不要倒退，用高度和深度回应高球：再挑回他们头顶，才能换来回到网前的时间。从脑后硬扣，就是送分。",
+    "zh-TW": "轉身跑，不要倒退，用高度和深度回應高球：再挑回他們頭頂，才能換來回到網前的時間。從腦後硬扣，就是送分。",
+    "ja-JP": "後ろ向きに下がらず振り向いて走り、高さと深さでロブに答える。相手の頭上へ返すロブがネットへ戻る時間を買う。頭の後ろから叩けば相手の得点だ。",
+    "ko-KR": "뒷걸음질 말고 돌아서 뛰어라. 로브에는 높이와 깊이로 답하라. 상대 머리 위로 다시 띄운 로브가 네트로 돌아갈 시간을 산다.",
+    "es-ES": "Gira y corre, no retrocedas de espaldas, y responde al globo con altura y profundidad: un globo devuelto sobre ellos compra el tiempo de volver a la red.",
+    "fr-FR": "Tourne-toi et cours, ne recule pas en pas chassés, et réponds au lob par de la hauteur et de la longueur : un lob renvoyé au-dessus d'eux te rend le temps de remonter au filet.",
+    "id-ID": "Berbalik dan lari, jangan mundur, dan jawab lob dengan tinggi dan dalam: lob balik di atas mereka memberi waktu kembali ke net.",
+    "ms-MY": "Pusing dan lari, jangan berundur, dan balas lob dengan tinggi dan dalam: lob balik di atas mereka memberi masa untuk kembali ke jaring.",
+    "th-TH": "หมุนตัววิ่ง อย่าถอยหลัง ตอบลูกโด่งด้วยความสูงและความลึก โด่งกลับข้ามหัวเขาจะได้เวลากลับขึ้นหน้าเน็ต",
+    "vi-VN": "Quay người chạy, đừng lùi giật lùi, đáp bóng bổng bằng độ cao và độ sâu: trả bổng qua đầu họ để có thời gian lên lưới lại.",
+}
+
+
 def defence_family() -> list[Drill]:
-    specs = [("the block", "the block", (0.36, 0.46)),
-             ("the lob", "the lob", (0.44, 0.08)),
-             ("the drop", "the drop", (0.62, 0.44))]
+    """1 is the defender: A attacks him — a drive at his body, a drop short
+    in front of him, a lob over him — and 1's defensive ball is drawn into
+    the zone. The drop and lob drills used to show 1 HITTING the drop and
+    the lob, i.e. the opposite drill."""
+    specs = [
+        # key, label, where A's ball takes 1, zone for 1's reply, note
+        ("the block", "the block", (0.32, 0.66), (0.36, 0.44), DEF_NOTE),
+        ("the drop", "the drop", (0.34, 0.57), (0.40, 0.10), DROP_DEF_NOTE),
+        ("the lob", "the lob", (0.36, 0.90), (0.44, 0.08), LOB_DEF_NOTE),
+    ]
     out = []
-    for key, label, to in specs:
+    for key, label, meet, to, note in specs:
         out.append(Drill(
             id=f"bt_defence_{key.replace(' ', '_')}", category="defending",
             minutes=10, rel=True, free=(key == "the block"),
-            name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            ball_moves=[(0.34, 0.68, 0), to + (1,)],
-            # Where the BALL goes, not where the player runs: the lob used
-            # to send its defender 1.9 m into the opponents' court, because
-            # the target was encoded as his own movement.
-            home=[P(*LEFT, "1", moves=[(0.34, 0.68, 0), (0.38, 0.62, 2)]),
-                  P(*RIGHT, "2", moves=[(0.66, 0.64, 2)])],
-            away=[P(0.34, 0.30, "A", moves=[(0.34, 0.40, 0)]), P(0.68, 0.32, "B")],
+            name=suffixed(DEF_NAME, label), note=note,
+            home=[P(*LEFT, "1", moves=[meet + (0,), LEFT + (1,)]),
+                  P(*RIGHT, "2", moves=[(0.64, 0.68, 1)])],
+            away=[P(0.34, 0.36, "A"), P(0.68, 0.34, "B")],
             markers=[M(*to, "zone", "")],
-            ball=(0.34, 0.30),
+            ball=(0.34, 0.36), ball_to=[(0, 0), (Spot(*to), 1)],
         ))
     return out
 
@@ -312,26 +382,40 @@ GAME_NOTE = {
 
 
 def game_family() -> list[Drill]:
-    specs = [("half_court", "half-court singles", [(0.30, 0.74)]),
-             # King of the court has a queue waiting to challenge; without
-             # it the board was the full-doubles game with a new title.
-             ("king_of_the_court", "king of the court",
-              [LEFT, RIGHT, (0.14, 0.96), (0.86, 0.96)]),
-             ("full_doubles", "full doubles", [LEFT, RIGHT])]
+    # The point starts with the server BEHIND his baseline (he used to
+    # stand 5 m in); he serves and moves up. King of the court is 2 v 2 on
+    # the sand with the challenging pairs queuing off it, behind the
+    # sidelines — not 4 v 4 with the queue standing in the corners.
     out = []
-    for key, label, spots in specs:
+    specs = [
+        ("half_court", "half-court singles",
+         [P(0.28, 1.043, "1", moves=[(0.28, 0.72, 0)])],
+         [P(0.28, 0.28, "A")]),
+        ("king_of_the_court", "king of the court",
+         [P(0.30, 1.043, "1", moves=[LEFT + (0,)]), P(*RIGHT, "2"),
+          P(1.07, 0.84, "3"), P(1.07, 0.96, "4")],
+         [P(0.70, 0.335, "A"), P(0.30, 0.335, "B"),
+          P(-0.07, 0.16, "C"), P(-0.07, 0.04, "D")]),
+        ("full_doubles", "full doubles",
+         [P(0.30, 1.043, "1", moves=[LEFT + (0,)]), P(*RIGHT, "2")],
+         [P(0.70, 0.335, "A"), P(0.30, 0.335, "B")]),
+    ]
+    for key, label, home, away in specs:
         out.append(Drill(
             id=f"bt_game_{key}", category="ssg", minutes=15, rel=True,
-            free=(key != "king_of_the_court"),
+            free=(key != "king_of_the_court"), off_surface=True,
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, str(i + 1), moves=[(x, y - 0.05, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            away=[P(*mirror((x, y)), chr(65 + i), moves=[(x, 1 - y + 0.05, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            markers=([M(0.50, 0.26, "cone", ""), M(0.50, 0.74, "cone", "")]
+            home=home, away=away,
+            markers=([M(0.50, 1.0, "cone", ""), M(0.50, 0.0, "cone", "")]
                      if key == "half_court" else []),
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
+    out[1].setup = {
+        "en": "2 v 2 on the sand; the challenging pairs (3, 4 and C, D) queue off the court beside the sidelines",
+        "en-GB": "2 v 2 on the sand; the challenging pairs (3, 4 and C, D) queue off the court beside the sidelines",
+        "zh-CN": "场上 2 对 2；挑战的组合（3、4 和 C、D）在边线外的场外排队",
+        "zh-TW": "場上 2 對 2；挑戰的組合（3、4 和 C、D）在邊線外的場外排隊",
+    }
     return out
 
 
@@ -368,20 +452,25 @@ RETURN_NOTE = {
 
 
 def return_family() -> list[Drill]:
-    specs = [("block", "the block", (0.30, 0.10)),
-             ("attacking", "on the attack", (0.70, 0.35))]
+    # R meets the serve 3-4 m off the net — it is a volley, nothing bounces
+    # — and the return itself is drawn into the zone; then R takes the net.
+    # He used to sprint to the tape to take the serve with his head over
+    # the net, and the return was never hit. Labels: R and his partner N
+    # against S and P.
+    specs = [("block", "the block", (0.20, 0.10), (0.34, 0.74)),
+             ("attacking", "on the attack", (0.64, 0.36), (0.36, 0.70))]
     out = []
-    for key, label, to in specs:
+    for key, label, to, meet in specs:
         out.append(Drill(
             id=f"bt_return_{key}", category="possession", minutes=8, rel=True,
             free=(key == "block"), off_surface=True,   # the server behind the line
             name=suffixed(RETURN_NAME, label), note=RETURN_NOTE,
-            home=[P(0.34, 0.80, "R", moves=[(to[0], min(to[1] + 0.42, 0.72), 1)]),
-                  P(0.70, 0.66, "P", moves=[(0.68, 0.60, 1)])],
-            away=[P(0.30, -0.043, "S", moves=[(0.32, 0.20, 1)]),
+            home=[P(0.34, 0.80, "R", moves=[meet + (0,), NET_L + (1,)]),
+                  P(0.70, 0.66, "N", moves=[(0.68, 0.60, 1)])],
+            away=[P(0.30, -0.043, "S", moves=[(0.40, 0.30, 1)]),
                   P(0.72, 0.32, "P")],
             markers=[M(*to, "zone", "")],
-            ball=(0.30, -0.02),
+            ball=(0.30, -0.043), ball_to=[(0, 0), (Spot(*to), 1)],
         ))
     return out
 
@@ -459,27 +548,29 @@ LOB_NOTE = {
 
 
 def lob_family() -> list[Drill]:
-    # "recover" is the home pair's man stepping UP to the net after the lob
-    #  comes back — 0.06 was that point mirrored, i.e. the far baseline, and
-    #  he walked the length of the court and through the net to get there.
-    specs = [("over", "over the net pair", (0.66, 0.90)),
-             ("recover", "recovering it", (0.34, 0.58))]
     out = []
-    for key, label, land in specs:
-        home = ([P(0.30, 0.72, "1", moves=[(0.34, 0.80, 1)]),
-                 P(0.70, 0.66, "2", moves=[(land[0], land[1], 1)])]
-                if key == "recover" else
-                [P(0.30, 0.86, "1", moves=[(0.32, 0.80, 1)]),
-                 P(0.70, 0.86, "2")])
-        out.append(Drill(
-            id=f"bt_lob_{key}", category="attacking", minutes=8, rel=True,
-            free=(key == "over"),
-            name=suffixed(LOB_NAME, label), note=LOB_NOTE,
-            home=home,
-            away=[P(0.32, 0.42, "A", moves=[(0.30, 0.24, 1)]),
-                  P(0.68, 0.42, "B", moves=[(0.66, 0.30, 1)])],
-            markers=[M(*land, "zone", "")] if key == "over" else [],
-            ball=0,
-        ))
+    # Over the net pair: A and B are at the net, 1 lobs over them into the
+    # zone by THEIR baseline, and they turn and chase it while 1 and 2 take
+    # the net. (The zone used to be in 1's own half and the lob was never
+    # drawn.)
+    out.append(Drill(
+        id="bt_lob_over", category="attacking", minutes=8, rel=True, free=True,
+        name=suffixed(LOB_NAME, "over the net pair"), note=LOB_NOTE,
+        home=[P(0.30, 0.80, "1", moves=[(0.32, 0.70, 1)]),
+              P(0.70, 0.80, "2", moves=[(0.68, 0.68, 1)])],
+        away=[P(0.32, 0.38, "A", moves=[(0.34, 0.22, 1)]),
+              P(0.68, 0.38, "B", moves=[(0.62, 0.24, 1)])],
+        markers=[M(0.46, 0.08, "zone", "")],
+        ball=(0.32, 0.38), ball_to=[(0, 0), (Spot(0.46, 0.08), 1)],
+    ))
+    # Recovering it: the lob goes over the home pair, 2 turns and runs it
+    # down, 1 covers forward.
+    out.append(Drill(
+        id="bt_lob_recover", category="attacking", minutes=8, rel=True,
+        name=suffixed(LOB_NAME, "recovering it"), note=LOB_NOTE,
+        home=[P(0.30, 0.66, "1", moves=[(0.34, 0.60, 1)]),
+              P(0.70, 0.66, "2", moves=[(0.62, 0.90, 0), (0.66, 0.70, 1)])],
+        away=[P(0.32, 0.38, "A"), P(0.68, 0.38, "B")],
+        ball=(0.32, 0.38), ball_to=[(1, 0), ("a0", 1)],
+    ))
     return out
-

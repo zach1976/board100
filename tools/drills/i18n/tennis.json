@@ -1,0 +1,42 @@
+{
+ "Play each point out and keep score; serve alternates every two points. Games to 11, then swap ends and opponents.": {
+  "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。11点で1ゲーム、その後コートと相手を替える。",
+  "ko-KR": "한 점씩 끝까지 치며 점수를 세고, 두 점마다 서브를 바꾼다. 11점 한 게임, 그 후 코트와 상대를 바꾼다.",
+  "es-ES": "Cada punto se juega hasta el final y se cuenta; el saque cambia cada dos puntos. Juegos a 11, luego cambio de lado y de rival.",
+  "fr-FR": "Chaque point se joue jusqu'au bout et compte ; le service change tous les deux points. Jeux en 11, puis on change de côté et d'adversaire.",
+  "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Gim sampai 11, lalu tukar sisi dan tukar lawan.",
+  "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Permainan hingga 11, kemudian tukar sisi dan tukar lawan.",
+  "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม เกมละ 11 แต้ม แล้วสลับฝั่งและสลับคู่แข่ง",
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ."
+ },
+ "Play each point out and keep score; serve alternates every two points. First to seven points wins the game, then swap ends and opponents.": {
+  "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。先に7点取った方がゲームを取り、その後コートと相手を替える。",
+  "ko-KR": "한 점씩 끝까지 치며 점수를 세고, 두 점마다 서브를 바꾼다. 먼저 7점을 낸 쪽이 게임을 가져가고, 그 후 코트와 상대를 바꾼다.",
+  "es-ES": "Cada punto se juega hasta el final y se cuenta; el saque cambia cada dos puntos. Gana el juego quien llega antes a siete puntos; luego cambio de lado y de rival.",
+  "fr-FR": "Chaque point se joue jusqu'au bout et compte ; le service change tous les deux points. Le premier à sept points gagne le jeu, puis on change de côté et d'adversaire.",
+  "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Yang pertama mencapai tujuh poin memenangi gim, lalu tukar sisi dan tukar lawan.",
+  "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Yang pertama mencapai tujuh mata memenangi permainan, kemudian tukar sisi dan tukar lawan.",
+  "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม ใครได้ 7 แต้มก่อนชนะเกมนั้น แล้วสลับฝั่งและสลับคู่แข่ง",
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ai đạt bảy điểm trước thắng ván, rồi đổi sân và đổi đối thủ."
+ },
+ "the two cones mark the deep targets the rally is aimed at, about 1.5 m inside each baseline in the corner the pattern is played to": {
+  "ja-JP": "2つのコーンは、このラリーで狙う深いターゲット。各ベースラインの約1.5m内側、そのパターンで打つコーナーに置く",
+  "ko-KR": "두 콘은 랠리가 노리는 깊은 목표다. 각 베이스라인 안쪽 약 1.5m, 이 패턴이 향하는 코너에 놓는다",
+  "es-ES": "los dos conos marcan los objetivos profundos de la rally, a unos 1,5 m dentro de cada línea de fondo, en la esquina a la que se juega el patrón",
+  "fr-FR": "les deux plots marquent les cibles profondes de l'échange, à environ 1,5 m à l'intérieur de chaque ligne de fond, dans le coin où se joue le schéma",
+  "id-ID": "dua kerucut menandai target dalam yang dituju reli, sekitar 1,5 m di dalam setiap garis belakang, di sudut tujuan pola ini",
+  "ms-MY": "dua kon menandakan sasaran dalam yang dituju rali, kira-kira 1.5 m di dalam setiap garisan belakang, di sudut yang dituju corak ini",
+  "th-TH": "กรวยสองอันคือเป้าลึกที่การโต้มุ่งไป ห่างเข้ามาจากเส้นหลังแต่ละฝั่งราว 1.5 ม. ที่มุมซึ่งแบบฝึกนี้ตีไป",
+  "vi-VN": "hai nón đánh dấu mục tiêu sâu mà pha đôi công nhắm tới, cách mỗi vạch cuối sân khoảng 1,5 m vào trong, ở góc mà bài tập đánh tới"
+ },
+ "two cones on the centre marks of both baselines: the line between them splits the court lengthwise, and only the half the players stand in is in — singles sideline to that line, about 4 m wide": {
+  "ja-JP": "両ベースラインのセンターマークにコーンを1つずつ。2つを結ぶ線がコートを縦に二分し、選手がいる側の半面だけがイン——シングルスサイドラインからその線まで、幅約4m",
+  "ko-KR": "양쪽 베이스라인의 센터 마크에 콘을 하나씩 놓는다. 두 콘을 잇는 선이 코트를 세로로 나누고, 선수가 선 쪽 절반만 인이다 — 단식 사이드라인부터 그 선까지 폭 약 4m",
+  "es-ES": "dos conos en las marcas centrales de ambas líneas de fondo: la línea entre ellos divide la pista a lo largo y solo vale la mitad donde están los jugadores, de la línea lateral de individuales a esa línea, unos 4 m de ancho",
+  "fr-FR": "deux plots sur les marques centrales des deux lignes de fond : la ligne entre eux coupe le court dans la longueur, et seule la moitié où se trouvent les joueurs est bonne — du couloir de simple à cette ligne, environ 4 m de large",
+  "id-ID": "dua kerucut di tanda tengah kedua garis belakang: garis di antaranya membagi lapangan memanjang, dan hanya separuh tempat para pemain berada yang masuk — dari garis samping tunggal ke garis itu, lebar sekitar 4 m",
+  "ms-MY": "dua kon di tanda tengah kedua-dua garisan belakang: garisan di antaranya membahagi gelanggang memanjang, dan hanya separuh tempat pemain berada yang dikira masuk — dari garisan tepi perseorangan ke garisan itu, lebar kira-kira 4 m",
+  "th-TH": "กรวยสองอันวางที่จุดกึ่งกลางของเส้นหลังทั้งสองฝั่ง เส้นที่ลากระหว่างกรวยแบ่งคอร์ทตามยาว และนับเฉพาะครึ่งที่ผู้เล่นยืนอยู่ — จากเส้นข้างประเภทเดี่ยวถึงเส้นนั้น กว้างราว 4 ม.",
+  "vi-VN": "hai nón đặt ở vạch giữa của hai vạch cuối sân: đường nối hai nón chia sân theo chiều dọc, chỉ nửa sân có người chơi là trong — từ biên đơn tới đường đó, rộng khoảng 4 m"
+ }
+}

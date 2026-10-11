@@ -1,0 +1,42 @@
+{
+ "a beach-tennis court has no centre line: two cones in the middle of the two baselines mark it, and only the half the players stand in, about 4 m wide, is in": {
+  "ja-JP": "ビーチテニスのコートにセンターラインはない。両ベースラインの中央に置いた2つのコーンがその代わりで、選手がいる側の半面（幅約4m）だけがイン",
+  "ko-KR": "비치 테니스 코트에는 센터라인이 없다. 양쪽 베이스라인 가운데 놓은 콘 두 개가 그 역할을 하고, 선수가 선 쪽 절반(폭 약 4m)만 인이다",
+  "es-ES": "una pista de beach tenis no tiene línea central: dos conos en el centro de las dos líneas de fondo la marcan, y solo vale la mitad donde están los jugadores, de unos 4 m de ancho",
+  "fr-FR": "un terrain de beach tennis n'a pas de ligne centrale : deux plots au milieu des deux lignes de fond la remplacent, et seule la moitié où se trouvent les joueurs, environ 4 m de large, est bonne",
+  "id-ID": "lapangan tenis pantai tidak punya garis tengah: dua kerucut di tengah kedua garis belakang menandainya, dan hanya separuh tempat para pemain berada, lebar sekitar 4 m, yang masuk",
+  "ms-MY": "gelanggang tenis pantai tiada garisan tengah: dua kon di tengah kedua-dua garisan belakang menandakannya, dan hanya separuh tempat pemain berada, lebar kira-kira 4 m, yang dikira masuk",
+  "th-TH": "คอร์ทเทนนิสชายหาดไม่มีเส้นกลาง ใช้กรวยสองอันวางกึ่งกลางเส้นหลังทั้งสองฝั่งแทน และนับเฉพาะครึ่งที่ผู้เล่นยืนอยู่ กว้างราว 4 ม.",
+  "vi-VN": "sân tennis bãi biển không có vạch giữa: hai nón đặt ở giữa hai vạch cuối sân thay cho nó, chỉ nửa sân có người chơi, rộng khoảng 4 m, là trong"
+ },
+ "A ball that lands inside the opponents' lines wins the point. Nothing may bounce: any ball that touches the sand on your side loses the point, and so does a ball out or into the net. Serve changes every two points, and a ball on the line is in.": {
+  "ja-JP": "相手コートのライン内に落ちた球が得点。バウンドは一切なし：自陣の砂に触れた球は失点、アウトやネットも失点。2ポイントごとにサーブ交代、ライン上はイン。",
+  "ko-KR": "상대 코트 라인 안에 떨어진 공이 점수다. 바운드는 전혀 없다: 우리 쪽 모래에 닿은 공은 실점이고, 아웃이나 네트도 실점이다. 두 점마다 서브를 바꾸고, 라인에 걸친 공은 인이다.",
+  "es-ES": "La bola que cae dentro de las líneas del rival gana el punto. Nada puede botar: cualquier bola que toque la arena de tu lado pierde el punto, igual que una bola fuera o a la red. El saque cambia cada dos puntos y la bola en la línea es buena.",
+  "fr-FR": "Une balle qui tombe dans les lignes adverses gagne le point. Rien ne doit rebondir : toute balle qui touche le sable de ton côté perd le point, tout comme une balle dehors ou dans le filet. Le service change tous les deux points, et une balle sur la ligne est bonne.",
+  "id-ID": "Bola yang jatuh di dalam garis lawan memenangi poin. Tidak boleh ada pantulan: bola yang menyentuh pasir di sisimu kehilangan poin, begitu juga bola keluar atau masuk net. Servis bergantian tiap dua poin, dan bola di garis dihitung masuk.",
+  "ms-MY": "Bola yang jatuh di dalam garisan lawan memenangi mata. Tiada lantunan dibenarkan: bola yang menyentuh pasir di sebelah anda kehilangan mata, begitu juga bola keluar atau masuk jaring. Servis bertukar setiap dua mata, dan bola di garisan dikira masuk.",
+  "th-TH": "ลูกที่ตกในเส้นของฝ่ายตรงข้ามได้แต้ม ห้ามกระดอนเลย ลูกที่แตะทรายฝั่งเราเสียแต้ม ลูกออกหรือติดเน็ตก็เสียแต้ม สลับเสิร์ฟทุกสองแต้ม ลูกที่ทับเส้นถือว่าดี",
+  "vi-VN": "Bóng rơi trong vạch sân đối phương là ghi điểm. Không được nảy: bóng chạm cát bên phần sân mình là mất điểm, bóng ra ngoài hay vào lưới cũng vậy. Đổi giao bóng sau mỗi hai điểm, bóng trên vạch là trong."
+ },
+ "2 v 2 on the sand; the challenging pairs (3, 4 and C, D) queue off the court beside the sidelines": {
+  "ja-JP": "コート上は2対2。挑戦するペア（3・4とC・D）はサイドラインの外で順番を待つ",
+  "ko-KR": "코트 위에서 2 대 2, 도전하는 조(3·4와 C·D)는 사이드라인 밖에서 줄을 선다",
+  "es-ES": "2 contra 2 en la arena; las parejas aspirantes (3, 4 y C, D) esperan fuera de la pista, junto a las líneas laterales",
+  "fr-FR": "2 contre 2 sur le sable ; les paires challengers (3, 4 et C, D) attendent hors du terrain, le long des lignes de côté",
+  "id-ID": "2 lawan 2 di pasir; pasangan penantang (3, 4 dan C, D) mengantre di luar lapangan di samping garis samping",
+  "ms-MY": "2 lawan 2 di atas pasir; pasangan pencabar (3, 4 dan C, D) beratur di luar gelanggang di tepi garisan sisi",
+  "th-TH": "บนทราย 2 ต่อ 2 คู่ท้าชิง (3, 4 และ C, D) ต่อคิวอยู่นอกคอร์ทข้างเส้นข้าง",
+  "vi-VN": "2 đấu 2 trên cát; các cặp thách đấu (3, 4 và C, D) xếp hàng ngoài sân cạnh đường biên dọc"
+ },
+ "Play each point out and keep score; serve alternates every two points. Games to 11, then swap ends and opponents.": {
+  "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。11点で1ゲーム、その後コートと相手を替える。",
+  "ko-KR": "한 점씩 끝까지 치며 점수를 세고, 두 점마다 서브를 바꾼다. 11점 한 게임, 그 후 코트와 상대를 바꾼다.",
+  "es-ES": "Cada punto se juega hasta el final y se cuenta; el saque cambia cada dos puntos. Juegos a 11, luego cambio de lado y de rival.",
+  "fr-FR": "Chaque point se joue jusqu'au bout et compte ; le service change tous les deux points. Jeux en 11, puis on change de côté et d'adversaire.",
+  "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Gim sampai 11, lalu tukar sisi dan tukar lawan.",
+  "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Permainan hingga 11, kemudian tukar sisi dan tukar lawan.",
+  "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม เกมละ 11 แต้ม แล้วสลับฝั่งและสลับคู่แข่ง",
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ."
+ }
+}

@@ -5,7 +5,7 @@ every pattern here is about the same two things: where the ball is hit from,
 and whether the player got back to the middle before the next one arrives —
 so most drills carry the recovery step as their last phase.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 # These fractions are of the COURT, not the canvas, so 1.0 IS the baseline
 # and anything less than that is inside the court. A groundstroke is taken
@@ -22,6 +22,31 @@ BASE_D, BASE_A = (0.72, 1.04), (0.28, 1.04)   # deuce / ad corners, home side
 WIDE_D, WIDE_A = (0.93, 1.00), (0.07, 1.00)
 SERVICE_D, SERVICE_A = (0.74, 0.62), (0.26, 0.62)   # service box centres
 NET_D, NET_A = (0.68, 0.58), (0.32, 0.58)
+# The server stands just either side of the centre mark, BEHIND the line,
+# and serves from there: nobody walks into the court before the toss. The
+# "S moves into position to hit" step the serve drills used to open with
+# put him 1.4 m inside his baseline when the ball left the racket.
+SRV_D, SRV_A = (0.57, 1 + BEHIND), (0.43, 1 + BEHIND)
+# Singles sidelines are at 1.37 m of the 10.97 m width: 0.125 / 0.875. A
+# target or a corner inside them is at least 0.4 m in; 0.164 is 1.8 m.
+IN_L, IN_R = 0.17, 0.83
+
+
+def through(frm, via, y):
+    """The point at depth [y] on the line from [frm] through [via].
+
+    Where a receiver has to stand to meet a ball that bounced at [via]:
+    the serve is drawn to him, and with him on this line the arrow crosses
+    the shaded zone instead of running to wherever he happened to wait.
+    """
+    t = (y - frm[1]) / (via[1] - frm[1])
+    return (frm[0] + (via[0] - frm[0]) * t, y)
+
+
+def recover(pt, k=0.5):
+    """Half way back to the middle along the baseline: the middle of the
+    angles the other player has, not the centre mark."""
+    return (0.5 + (pt[0] - 0.5) * k, pt[1])
 
 
 def mirror(pt):
@@ -60,23 +85,56 @@ RALLY_NOTE = {
 
 
 def rally_family() -> list[Drill]:
-    """The four rally patterns a baseline point is actually built from."""
-    specs = [
-        ("crosscourt_fh", "cross-court forehand", BASE_D, mirror(BASE_D)),
-        ("crosscourt_bh", "cross-court backhand", BASE_A, mirror(BASE_A)),
-        ("down_the_line", "down the line", BASE_D, mirror(BASE_A)),
-        ("figure_eight", "figure of eight", BASE_C, mirror(BASE_D)),
-    ]
+    """The four rally patterns a baseline point is actually built from.
+
+    Both players START in the corners the pattern is played from, and every
+    ball goes corner to corner. The players used to stand on the centre
+    marks and shuffle to a corner only after the ball had gone, so all four
+    drills drew the same vertical line down the T — "cross-court" and "down
+    the line" were names on one picture. Between shots each recovers half
+    way to the middle and steps back out to meet the next ball.
+    """
+    # The rally corners: 1.3 m inside the singles sidelines, so the diagonal
+    # reads as one on a phone.
+    RALLY_D, RALLY_A = (0.77, 1.04), (0.23, 1.04)
+
+    def cone_on(frm, to, y):
+        return through(frm, to, y)
+
     out = []
-    for key, label, frm, to in specs:
+    for key, label in [("crosscourt_fh", "cross-court forehand"),
+                       ("crosscourt_bh", "cross-court backhand"),
+                       ("down_the_line", "down the line"),
+                       ("figure_eight", "figure of eight")]:
+        if key == "figure_eight":
+            # 1 always cross-court, 2 always down the line: both run the
+            # width of the court, which is the figure of eight.
+            a1, b1 = RALLY_D, mirror(RALLY_D)
+            a2 = RALLY_A
+            b2 = mirror(RALLY_A)
+            # …and 2's second down-the-line ball takes 1 back to where he
+            # started: the loop closes.
+            home = [P(*a1, "1", moves=[recover(a1, 0.5) + (0,), a2 + (1,),
+                                       recover(a2, 0.5) + (2,), a1 + (3,)])]
+            away = [P(*b1, "2", moves=[recover(b1, 0.5) + (1,), b2 + (2,),
+                                       recover(b2, 0.5) + (3,)])]
+            ball_to = [("a0", 0), (0, 1), ("a0", 2), (0, 3)]
+            cones = [cone_on(a1, b1, 0.07), cone_on(b1, a2, 0.93)]
+        else:
+            a1, b1 = {"crosscourt_fh": (RALLY_D, mirror(RALLY_D)),
+                      "crosscourt_bh": (RALLY_A, mirror(RALLY_A)),
+                      "down_the_line": (RALLY_D, mirror(RALLY_A))}[key]
+            home = [P(*a1, "1", moves=[recover(a1) + (0,), a1 + (1,)])]
+            away = [P(*b1, "2", moves=[recover(b1) + (1,)])]
+            ball_to = [("a0", 0), (0, 1)]
+            cones = [cone_on(a1, b1, 0.07), cone_on(b1, a1, 0.93)]
         out.append(Drill(
             id=f"tn_rally_{key}", category="possession", minutes=10, rel=True,
             free=(key in ("crosscourt_fh", "figure_eight")),
             name=suffixed(RALLY_NAME, label), note=RALLY_NOTE,
-            home=[P(*BASE_C, "1", moves=[frm + (0,), BASE_C + (1,)])],
-            away=[P(*mirror(BASE_C), "2", moves=[to + (1,), mirror(BASE_C) + (2,)])],
-            markers=[M(*BASE_C, "cone", ""), M(*mirror(BASE_C), "cone", "")],
-            ball=0,
+            home=home, away=away,
+            markers=[M(*c, "cone", "") for c in cones],
+            ball=0, ball_to=ball_to,
         ))
     return out
 
@@ -111,22 +169,32 @@ def serve_family() -> list[Drill]:
     # to be 0.8 m outside the court — a fault. And every target sat 2.4 m
     # past the net in a 6.4 m box; a serve target belongs on the service
     # line, at y 0.25.
-    specs = [("deuce_wide", "deuce wide", BASE_D, (0.165, 0.255)),
-             ("deuce_t", "deuce down the T", BASE_D, (0.435, 0.25)),
-             ("deuce_body", "deuce at the body", BASE_D, (0.285, 0.27)),
-             ("ad_wide", "ad wide", BASE_A, (0.835, 0.255)),
-             ("ad_t", "ad down the T", BASE_A, (0.565, 0.25))]
+    # The serve is drawn to the receiver, so the receiver stands on the
+    # line from the server through the zone — where that serve really
+    # takes him. Every deuce variant used to draw the same arrow to a man
+    # waiting in the middle, crossing the service line metres from the
+    # "wide" zone; only the shading moved.
+    specs = [("deuce_wide", "deuce wide", SRV_D, (0.165, 0.255)),
+             ("deuce_t", "deuce down the T", SRV_D, (0.435, 0.25)),
+             ("deuce_body", "deuce at the body", SRV_D, (0.33, 0.27)),
+             ("ad_wide", "ad wide", SRV_A, (0.835, 0.255)),
+             ("ad_t", "ad down the T", SRV_A, (0.565, 0.25))]
     out = []
     for key, label, stand, target in specs:
+        r0 = (0.24 if stand is SRV_D else 0.76, -BEHIND)
+        meet = through(stand, target, -0.02)
         out.append(Drill(
             id=f"tn_serve_{key}", category="setpiece", minutes=8, rel=True,
             free=(key == "deuce_wide"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=[P(stand[0], 1 + BEHIND, "S", moves=[(stand[0], 0.94, 0), (0.5, 0.99, 1)])],
-            away=[P(1 - stand[0], -BEHIND, "R",
-                    moves=[(target[0], target[1] - 0.16, 1)])],
+            # Served from behind the line; he recovers to the middle while
+            # the return is on its way.
+            home=[P(*stand, "S", moves=[(0.5, 1 + BEHIND * 0.7, 1)])],
+            # R meets the serve, returns it, and recovers to the middle —
+            # not on toward the alley.
+            away=[P(*r0, "R", moves=[meet + (0,), (0.5, -BEHIND * 0.7, 1)])],
             markers=[M(*target, "zone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
     return out
 
@@ -159,26 +227,63 @@ PLUS_ONE_NOTE = {
 
 
 def plus_one_family() -> list[Drill]:
-    specs = [
-        ("serve_plus_one", "serve", BASE_D, (0.30, 0.86), (0.10, 0.30)),
-        ("return_plus_one", "return", BASE_A, (0.62, 0.90), (0.90, 0.28)),
-        ("inside_out", "inside-out forehand", BASE_A, (0.34, 0.92), (0.90, 0.30)),
-        # The target is the corner of the AWAY court the finishing ball goes
-        # to, and the away player runs there; 0.56 is over the net.
-        ("approach", "approach", BASE_C, (0.62, 0.72), (0.70, 0.42)),
-    ]
+    """The ball the drill is named for is drawn, into its zone.
+
+    These used to stop one ball early: feed, reply, and the board ended with
+    the ball on 1's racket while 2 walked onto the target — "hit it to him".
+    Now the last leg is 1's shot into the zone, the zone is inside the
+    singles lines (three of them sat in the doubles alley, out in a 1v1),
+    and 2 is left where a real opponent would be: recovering, short of it.
+    """
     out = []
-    for key, label, start, second, target in specs:
-        out.append(Drill(
-            id=f"tn_{key}", category="attacking", minutes=10, rel=True,
-            free=(key in ("serve_plus_one", "approach")),
-            name=suffixed(PLUS_ONE_NAME, label), note=PLUS_ONE_NOTE,
-            home=[P(*start, "1", moves=[second + (1,), (0.5, min(second[1], 0.94), 2)])],
-            away=[P(*mirror(BASE_C), "2",
-                    moves=[(0.34, 0.06, 0), (target[0], target[1], 2)])],
-            markers=[M(*target, "zone", "")],
-            ball=0,
-        ))
+    # Serve +1: a wide deuce serve, the return comes back, and the +1 goes
+    # to the open court on the other side.
+    serve_via = (0.18, 0.26)
+    r_meet = through(SRV_D, serve_via, -0.02)
+    out.append(Drill(
+        id="tn_serve_plus_one", category="attacking", minutes=10, rel=True, off_surface=True,
+        free=True, name=suffixed(PLUS_ONE_NAME, "serve"), note=PLUS_ONE_NOTE,
+        home=[P(*SRV_D, "1", moves=[(0.52, 1 + BEHIND * 0.7, 1)])],
+        away=[P(0.24, -BEHIND, "2", moves=[r_meet + (0,), (0.36, -BEHIND * 0.7, 1)])],
+        markers=[M(0.80, 0.10, "zone", "")],
+        ball=0, ball_to=[("a0", 0), (0, 1), (Spot(0.80, 0.10), 2)],
+    ))
+    # Return +1: 2 serves from his ad side diagonally into 1's ad box, 1
+    # returns deep, and plays the +1 off the next ball.
+    srv2 = (0.57, -BEHIND)
+    meet1 = through(srv2, (0.30, 0.73), 1.02)
+    out.append(Drill(
+        id="tn_return_plus_one", category="attacking", minutes=10, rel=True,
+        name=suffixed(PLUS_ONE_NAME, "return"), note=PLUS_ONE_NOTE,
+        off_surface=True,
+        home=[P(0.24, 1 + BEHIND, "1",
+                moves=[meet1 + (0,), (0.48, 1 + BEHIND * 0.7, 1), (0.58, 0.97, 2)])],
+        away=[P(*srv2, "2", moves=[(0.50, -BEHIND * 0.7, 0)])],
+        markers=[M(0.20, 0.10, "zone", "")],
+        ball=(srv2[0], srv2[1]),
+        ball_to=[(0, 0), ("a0", 1), (0, 2), (Spot(0.20, 0.10), 3)],
+    ))
+    # Inside-out forehand: the ball comes to the backhand corner, 1 runs
+    # round it and hits the forehand cross to the far ad corner.
+    out.append(Drill(
+        id="tn_inside_out", category="attacking", minutes=10, rel=True, off_surface=True,
+        name=suffixed(PLUS_ONE_NAME, "inside-out forehand"), note=PLUS_ONE_NOTE,
+        home=[P(*BASE_C, "1", moves=[(0.36, 1.02, 0), (0.52, 1 + BEHIND, 1)])],
+        away=[P(*mirror(BASE_C), "2")],
+        markers=[M(0.80, 0.10, "zone", "")],
+        ball=mirror(BASE_C), ball_to=[(0, 0), (Spot(0.80, 0.10), 1)],
+    ))
+    # Approach: a short ball, 1 steps in and approaches deep into the
+    # corner (2 m from the baseline — an approach goes deep), and follows
+    # it in.
+    out.append(Drill(
+        id="tn_approach", category="attacking", minutes=10, rel=True,
+        free=True, name=suffixed(PLUS_ONE_NAME, "approach"), note=PLUS_ONE_NOTE,
+        home=[P(*BASE_C, "1", moves=[(0.58, 0.74, 0), (0.64, 0.62, 1)])],
+        away=[P(*mirror(BASE_C), "2")],
+        markers=[M(0.80, 0.09, "zone", "")],
+        ball=mirror(BASE_C), ball_to=[(0, 0), (Spot(0.80, 0.09), 1)],
+    ))
     return out
 
 
@@ -209,21 +314,30 @@ NET_NOTE = {
 
 
 def net_family() -> list[Drill]:
-    specs = [("first_volley", "first volley", (0.56, 0.70), (0.62, 0.60), (0.20, 0.26)),
-             ("second_volley", "second volley", (0.62, 0.60), (0.66, 0.55), (0.86, 0.24)),
-             ("overhead", "overhead", (0.60, 0.60), (0.56, 0.72), (0.30, 0.18)),
-             ("drop_volley", "drop volley", (0.60, 0.60), (0.64, 0.56), (0.72, 0.44))]
+    # (start, where the volley is struck, where 1 goes after it, zone).
+    # The feed comes from 2 on the far baseline, 1 moves to meet it, and
+    # the volley/overhead itself is the last leg — into the zone, which the
+    # feeder no longer walks onto. Each finishes with 1 still moving
+    # forward through the shot (the overhead is struck going back).
+    specs = [("first_volley", "first volley", (0.56, 0.78), (0.58, 0.70), (0.60, 0.64), (0.22, 0.12)),
+             ("second_volley", "second volley", (0.60, 0.66), (0.63, 0.59), (0.64, 0.56), (0.80, 0.26)),
+             ("overhead", "overhead", (0.58, 0.60), (0.56, 0.72), (0.57, 0.66), (0.30, 0.18)),
+             ("drop_volley", "drop volley", (0.60, 0.62), (0.62, 0.58), None, (0.72, 0.43))]
     out = []
-    for key, label, start, hit, target in specs:
+    for key, label, start, hit, after, target in specs:
+        moves = [hit + (0,)] + ([after + (1,)] if after else [])
+        # On the drop volley the feeder sprints in for it and gets nowhere
+        # near: he stops 3 m short of the net, not on top of it.
+        away_moves = [(0.66, 0.24, 1)] if key == "drop_volley" else []
         out.append(Drill(
             id=f"tn_net_{key}", category="finishing", minutes=8, rel=True,
             free=(key == "first_volley"),
             name=suffixed(NET_NAME, label), note=NET_NOTE,
-            home=[P(*start, "1", moves=[hit + (1,)])],
-            away=[P(*mirror(BASE_C), "2",
-                    moves=[(0.40, 0.05, 0), (target[0], target[1] + 0.06, 2)])],
+            home=[P(*start, "1", moves=moves)],
+            away=[P(*mirror(BASE_C), "2", moves=away_moves)],
             markers=[M(*target, "zone", "")],
             ball=mirror(BASE_C),        # fed from the far baseline
+            ball_to=[(0, 0), (Spot(*target), 1)],
         ))
     return out
 
@@ -255,29 +369,37 @@ DEFEND_NOTE = {
 
 
 def defend_family() -> list[Drill]:
-    specs = [("slice", "the slice", WIDE_A, (0.5, 0.06)),
-             ("lob", "the lob", WIDE_D, (0.5, 0.04)),
-             ("block_return", "the block return", BASE_A, (0.5, 0.10))]
+    # A lob answers a player at the net, and a block return answers a
+    # serve; both used to be drawn against a second baseliner, so neither
+    # had the premise it is named for. The attacking ball goes to a corner
+    # INSIDE the singles lines (it used to pull 1 into the doubles alley,
+    # which in a 1v1 is out), 1's defensive ball is drawn into the deep
+    # zone, and 2 no longer walks onto it.
+    srv2 = (0.43, -BEHIND)                       # 2's deuce half: canvas left
+    block_meet = through(srv2, (0.70, 0.73), 1.02)   # into 1's deuce box
+    specs = [
+        # key, label, 2's spot, where 1 is pulled to, zone, 2's move on 1's shot
+        ("slice", "the slice", mirror(BASE_C), (IN_L, 1.0), (0.50, 0.07), None),
+        ("lob", "the lob", (0.48, 0.30), (IN_R, 1.0), (0.40, 0.07), (0.47, 0.23)),
+        ("block_return", "the block return", srv2, block_meet, (0.50, 0.08), None),
+    ]
     out = []
-    for key, label, pulled, target in specs:
+    for key, label, two, pulled, target, chase in specs:
+        start = (0.76, 1 + BEHIND) if key == "block_return" else BASE_C
+        away_moves = ([(0.50, -BEHIND * 0.7, 0)] if key == "block_return"
+                      else [chase + (1,)] if chase else [])
         out.append(Drill(
             id=f"tn_defend_{key}", category="defending", minutes=8, rel=True,
             free=(key == "slice"),
             off_surface=(key == "block_return"),
             name=suffixed(DEFEND_NAME, label), note=DEFEND_NOTE,
-            home=[P(*BASE_C, "1", moves=[pulled + (0,), BASE_C + (2,)])],
-            # A lob answers a player at the net, and a block return answers
-            # a serve; both used to be drawn against a second baseliner, so
-            # neither had the premise it is named for.
-            away=[P(*({"lob": (0.48, 0.30), "block_return": (0.44, -BEHIND)}
-                      .get(key, mirror(BASE_C))), "2",
-                    moves=[(mirror(pulled)[0], 0.10 if key == "slice" else 0.24, 0),
-                           (target[0], target[1], 1)])],
+            home=[P(*start, "1", moves=[pulled + (0,), (0.5, 1 + BEHIND * 0.7, 1)])],
+            # On the lob 2 stays at the net to be lobbed, then turns and
+            # chases it.
+            away=[P(*two, "2", moves=away_moves)],
             markers=[M(*target, "zone", "")],
-            ball=({"lob": (0.48, 0.32), "block_return": (0.44, 0.0)}
-                  .get(key, mirror(BASE_C))),
-            # The ball crosses the net; on the lob it goes over the net man.
-            ball_moves=[(pulled[0], pulled[1] - 0.03, 0), target + (1,)],
+            ball=two,
+            ball_to=[(0, 0), (Spot(*target), 1)],
         ))
     return out
 
@@ -308,25 +430,35 @@ DOUBLES_NOTE = {
 
 
 def doubles_family() -> list[Drill]:
+    # The back player stands BEHIND the baseline (0.94 was 1.4 m inside it),
+    # and the opponents take the shape each formation is played against —
+    # all four used to face the same one-up-one-back pair.
+    back_l, back_r = (0.28, 1.02), (0.72, 1.02)
     specs = [
-        ("one_up_one_back", "one up one back", [(0.72, 0.94), (0.30, 0.60)],
-         [(0.60, 0.90), (0.40, 0.58)]),
-        ("both_back", "both back", [(0.28, 0.94), (0.72, 0.94)],
-         [(0.36, 0.90), (0.66, 0.90)]),
+        ("one_up_one_back", "one up one back", [back_r, (0.30, 0.62)],
+         [(0.62, 1.01), (0.40, 0.60)],
+         [(0.28, -0.02), (0.70, 0.38)]),            # the same shape
+        ("both_back", "both back", [back_l, back_r],
+         [(0.36, 1.01), (0.64, 1.01)],
+         [(0.32, 0.38), (0.68, 0.38)]),              # against two at the net
         ("both_up", "both up", [(0.30, 0.60), (0.70, 0.60)],
-         [(0.38, 0.56), (0.62, 0.56)]),
-        ("australian", "the Australian formation", [(0.60, 0.99), (0.66, 0.60)],
-         [(0.28, 0.90), (0.44, 0.57)]),
+         [(0.38, 0.57), (0.62, 0.57)],
+         [(0.30, -0.02), (0.70, -0.02)]),            # against two back
+        # Australian: server and net man on the SAME side; the server
+        # crosses behind after the serve.
+        ("australian", "the Australian formation", [SRV_D, (0.66, 0.60)],
+         [(0.30, 1.02), (0.56, 0.58)],
+         [(0.26, -0.02), (0.70, 0.38)]),
     ]
     out = []
-    for key, label, start, end in specs:
+    for key, label, start, end, opp in specs:
         out.append(Drill(
             id=f"tn_doubles_{key}", category="attacking", minutes=12, rel=True,
-            free=(key == "one_up_one_back"),
+            free=(key == "one_up_one_back"), off_surface=(key == "australian"),
             name=suffixed(DOUBLES_NAME, label), note=DOUBLES_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[end[i] + (0,)])
                   for i, (x, y) in enumerate(start)],
-            away=[P(0.30, 0.06, "A", moves=[(0.30, 0.10, 0)]), P(0.70, 0.40, "B")],
+            away=[P(*opp[0], "A"), P(*opp[1], "B")],
             ball=0,
         ))
     return out
@@ -361,7 +493,9 @@ WARM_NOTE = {
 def warmup_family() -> list[Drill]:
     specs = [("mini_tennis", "mini tennis", (0.50, 0.60), (0.50, 0.40)),
              ("service_box", "service box rally", (0.74, 0.62), (0.26, 0.38)),
-             ("baseline_feed", "baseline feed", (0.50, 0.94), (0.50, 0.06))]
+             # Behind the baselines: a "baseline" feed 1.4 m inside them
+             # was a mid-court rally.
+             ("baseline_feed", "baseline feed", (0.50, 1.02), (0.50, -0.02))]
     out = []
     for key, label, h, a in specs:
         out.append(Drill(
@@ -403,26 +537,47 @@ GAME_NOTE = {
 
 
 def game_family() -> list[Drill]:
+    # Every point starts with the server behind his baseline and the serve
+    # going diagonally into the right box; the return comes back to where
+    # he has recovered. The players used to open by stepping 1-5 m INTO the
+    # court before anyone had hit a ball.
+    rec = (0.5, 1 + BEHIND * 0.7)
     specs = [
-        ("half_court", "half-court singles", [(0.70, 0.94)], [(0.70, 0.06)]),
-        ("first_to_seven", "first to seven", [(0.50, 0.96)], [(0.50, 0.04)]),
-        ("approach_only", "approach and volley only", [(0.50, 0.80)], [(0.50, 0.10)]),
-        ("doubles_set", "doubles set", [(0.30, 0.94), (0.70, 0.60)],
-         [(0.70, 0.06), (0.30, 0.40)]),
+        # Half-court singles is a rally down one half, not a serve.
+        ("half_court", "half-court singles",
+         [P(0.70, 1.02, "1")], [P(0.70, -0.02, "A")], [("a0", 0), (0, 1)]),
+        ("first_to_seven", "first to seven",
+         [P(*SRV_D, "1", moves=[rec + (0,)])],
+         [P(0.26, -0.02, "A", moves=[(0.5, -BEHIND * 0.7, 1)])],
+         [("a0", 0), (0, 1)]),
+        # Approach-and-volley only: serve, follow it in, volley the return.
+        ("approach_only", "approach and volley only",
+         [P(*SRV_D, "1", moves=[(0.60, 0.84, 0), (0.58, 0.72, 1)])],
+         [P(0.26, -0.02, "A", moves=[(0.5, -BEHIND * 0.7, 1)])],
+         [("a0", 0), (0, 1)]),
+        ("doubles_set", {
+            "en": "doubles to eleven", "en-GB": "doubles to eleven",
+            "zh-CN": "双打 11 分制", "zh-TW": "雙打 11 分制",
+            "ja-JP": "ダブルス 11点ゲーム", "ko-KR": "복식 11점 게임",
+            "es-ES": "dobles a 11", "fr-FR": "double en 11 points",
+            "id-ID": "ganda sampai 11", "ms-MY": "beregu hingga 11",
+            "th-TH": "ประเภทคู่ 11 แต้ม", "vi-VN": "đôi đến 11 điểm"},
+         [P(*SRV_D, "1", moves=[(0.62, 1 + BEHIND * 0.7, 0)]), P(0.30, 0.62, "2")],
+         [P(0.26, -0.02, "A", moves=[(0.40, -BEHIND * 0.7, 1)]), P(0.70, 0.38, "B")],
+         [("a0", 0), (0, 1)]),
     ]
     out = []
-    for key, label, home, away in specs:
+    for key, label, home, away, ball_to in specs:
         out.append(Drill(
             id=f"tn_game_{key}", category="ssg", minutes=20, rel=True,
-            free=(key in ("first_to_seven", "doubles_set")),
+            free=(key in ("first_to_seven", "doubles_set")), off_surface=True,
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.05, 0)])
-                  for i, (x, y) in enumerate(home)],
-            away=[P(x, y, chr(65 + i), moves=[(x, y + 0.05, 0)])
-                  for i, (x, y) in enumerate(away)],
-            markers=([M(0.5, 0.30, "cone", ""), M(0.5, 0.70, "cone", "")]
+            home=home, away=away,
+            # The two centre marks: the line between them halves the court
+            # lengthwise, and only the half the players stand in is in.
+            markers=([M(0.5, 1.0, "cone", ""), M(0.5, 0.0, "cone", "")]
                      if key == "half_court" else []),
-            ball=0,
+            ball=0, ball_to=ball_to,
         ))
     return out
 
@@ -491,18 +646,26 @@ def gaps_family() -> list[Drill]:
     All four verified absent from every name and note in the library, along
     with the passing shot the drop shot sets up.
     """
+    second_via = (0.20, 0.26)
+    sv_via = (0.435, 0.25)
+    poach_r = through(SRV_D, sv_via, -0.02)
+    # N crosses on the returner's contact and meets the cross-court return
+    # on its line, 2 m off the net.
+    poach_n = through(poach_r, (0.62, 1.0), 0.58)
     return [
         Drill(
             id="tn_serve_second", category="setpiece", minutes=8, rel=True,
             level="foundation", free=True, off_surface=True,
             name=suffixed(SERVE_NAME, "the kicking second serve"),
             note=SECOND_NOTE,
-            home=[P(BASE_D[0], 1 + BEHIND, "S", moves=[(BASE_D[0], 0.94, 0), (0.5, 0.99, 2)])],
-            away=[P(0.28, -BEHIND, "R", moves=[(0.22, 0.16, 2)])],
-            markers=[M(0.20, 0.26, "zone", "")],
-            # …and the return comes back deep to the server's side: the
-            # kick serve has done its job when the return is neutral
-            ball=0, ball_moves=[(0.20, 0.26, 1), (0.16, 0.10, 2), (0.56, 0.86, 3)],
+            # Served from behind the line, to R standing where the kick
+            # takes him; ONE return, back to the server who has recovered.
+            home=[P(*SRV_D, "S", moves=[(0.5, 1 + BEHIND * 0.7, 1)])],
+            away=[P(0.24, -BEHIND, "R",
+                    moves=[through(SRV_D, second_via, -0.02) + (0,),
+                           (0.48, -BEHIND * 0.7, 1)])],
+            markers=[M(*second_via, "zone", "")],
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ),
         Drill(
             id="tn_serve_and_volley", category="attacking", minutes=10, rel=True,
@@ -514,34 +677,42 @@ def gaps_family() -> list[Drill]:
                   "id-ID": "Servis dan voli", "ms-MY": "Servis dan voli",
                   "th-TH": "เสิร์ฟแล้วขึ้นวอลเลย์", "vi-VN": "Giao bóng lên lưới"},
             note=SV_NOTE,
-            home=[P(BASE_D[0], 1 + BEHIND, "S",
-                    moves=[(BASE_D[0], 0.94, 0), (0.62, 0.74, 1), (0.60, 0.60, 2)])],
-            away=[P(0.28, -BEHIND, "R", moves=[(0.26, 0.14, 1)])],
-            markers=[M(0.435, 0.25, "zone", ""), M(0.30, 0.30, "zone", "")],
+            # Serve from behind the line, follow it in, split-step on the
+            # service line as R strikes the return, and volley it deep.
+            home=[P(*SRV_D, "S",
+                    moves=[(0.60, 0.86, 0), (0.60, 0.75, 1), (0.60, 0.68, 2)])],
+            away=[P(0.24, -BEHIND, "R",
+                    moves=[through(SRV_D, sv_via, -0.02) + (0,),
+                           (0.46, -BEHIND * 0.7, 1)])],
+            markers=[M(*sv_via, "zone", ""), M(0.20, 0.12, "zone", "")],
             ball=0, off_surface=True,
-            ball_moves=[(0.435, 0.25, 1), (0.60, 0.60, 2), (0.30, 0.30, 3)],
+            ball_to=[("a0", 0), (0, 1), (Spot(0.20, 0.12), 2)],
         ),
         Drill(
             id="tn_attack_drop_shot", category="attacking", minutes=8, rel=True,
             name=suffixed(RALLY_NAME, "the drop shot and the pass"), note=DROP_NOTE,
-            home=[P(*BASE_C, "1", moves=[(0.56, 0.80, 0), (0.54, 0.66, 1),
-                                         (0.58, 0.80, 3)])],
-            away=[P(*mirror(BASE_C), "2",
-                    moves=[(0.44, 0.26, 0), (0.46, 0.40, 2)])],
-            markers=[M(0.42, 0.42, "zone", ""), M(0.86, 0.72, "zone", "")],
+            # 2 stays deep until the drop is struck; 1 takes the short ball
+            # inside the baseline, plays the drop and follows it in; 2
+            # sprints up for it and tries to pass.
+            home=[P(*BASE_C, "1", moves=[(0.56, 0.82, 0), (0.55, 0.67, 1)])],
+            away=[P(*mirror(BASE_C), "2", moves=[(0.42, 0.33, 1)])],
+            markers=[M(0.40, 0.385, "zone", ""), M(0.82, 0.86, "zone", "")],
             ball=mirror(BASE_C),
-            ball_moves=[(0.56, 0.80, 0), (0.42, 0.42, 1), (0.86, 0.72, 3)],
+            ball_to=[(0, 0), (Spot(0.40, 0.385), 1), (Spot(0.82, 0.86), 2)],
         ),
         Drill(
             id="tn_doubles_poach", category="attacking", minutes=10, rel=True,
             name=suffixed(DOUBLES_NAME, "the poach"), note=POACH_NOTE,
-            home=[P(BASE_D[0], 1 + BEHIND, "S", moves=[(BASE_D[0], 0.94, 0), (0.66, 0.86, 2)]),
-                  P(0.30, 0.66, "N", moves=[(0.44, 0.60, 1), (0.56, 0.56, 2)])],
-            away=[P(0.28, -BEHIND, "R", moves=[(0.30, 0.16, 1)]),
-                  P(0.70, 0.34, "P", moves=[(0.72, 0.28, 2)])],
-            markers=[M(0.435, 0.25, "zone", ""), M(0.78, 0.20, "zone", "")],
+            # S serves from behind the line; R meets the serve on its line;
+            # N crosses on R's contact and volleys the return into the gap
+            # between R and P. S switches behind him.
+            home=[P(*SRV_D, "S", moves=[(0.34, 1 + BEHIND * 0.7, 1)]),
+                  P(0.30, 0.62, "N", moves=[poach_n + (1,)])],
+            away=[P(0.24, -BEHIND, "R", moves=[poach_r + (0,), (0.36, -BEHIND * 0.7, 1)]),
+                  P(0.70, 0.38, "P")],
+            markers=[M(*sv_via, "zone", ""), M(0.58, 0.12, "zone", "")],
             ball=0, off_surface=True,
-            ball_moves=[(0.435, 0.25, 1), (0.44, 0.60, 2), (0.78, 0.20, 3)],
+            ball_to=[("a0", 0), (1, 1), (Spot(0.58, 0.12), 2)],
         ),
     ]
 

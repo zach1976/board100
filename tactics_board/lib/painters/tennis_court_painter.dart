@@ -70,8 +70,12 @@ class TennisCourtPainter extends CourtPainterBase {
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(0, 23.77 / 2 - 0.5), o(0, 23.77 / 2 + 0.5), postPaint);
-    canvas.drawLine(o(10.97, 23.77 / 2 - 0.5), o(10.97, 23.77 / 2 + 0.5), postPaint);
+    // ITF: the posts stand 0.914 m outside the doubles sidelines, and the
+    // net runs out to them.
+    canvas.drawLine(o(-0.914, 23.77 / 2), o(0, 23.77 / 2), netLine);
+    canvas.drawLine(o(10.97, 23.77 / 2), o(10.97 + 0.914, 23.77 / 2), netLine);
+    canvas.drawLine(o(-0.914, 23.77 / 2 - 0.5), o(-0.914, 23.77 / 2 + 0.5), postPaint);
+    canvas.drawLine(o(10.97 + 0.914, 23.77 / 2 - 0.5), o(10.97 + 0.914, 23.77 / 2 + 0.5), postPaint);
 
     // Service lines (6.4m from net)
     canvas.drawLine(o(1.372, 23.77 / 2 - 6.4), o(10.97 - 1.372, 23.77 / 2 - 6.4), p);
@@ -81,8 +85,9 @@ class TennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(10.97 / 2, 23.77 / 2 - 6.4), o(10.97 / 2, 23.77 / 2 + 6.4), p);
 
     // Center marks at baseline
-    canvas.drawLine(o(10.97 / 2, 0), o(10.97 / 2, 0.2), p);
-    canvas.drawLine(o(10.97 / 2, 23.77 - 0.2), o(10.97 / 2, 23.77), p);
+    // ITF: the centre mark is 0.10 m long.
+    canvas.drawLine(o(10.97 / 2, 0), o(10.97 / 2, 0.1), p);
+    canvas.drawLine(o(10.97 / 2, 23.77 - 0.1), o(10.97 / 2, 23.77), p);
   }
 
   // Half court: home side only (net at top edge, baseline at bottom).
@@ -134,8 +139,10 @@ class TennisCourtPainter extends CourtPainterBase {
       ..color = const Color(0xFFFFEB3B)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(0, -0.5), o(0, 0.5), postPaint);
-    canvas.drawLine(o(10.97, -0.5), o(10.97, 0.5), postPaint);
+    canvas.drawLine(o(-0.914, 0), o(0, 0), netLine);
+    canvas.drawLine(o(10.97, 0), o(10.97 + 0.914, 0), netLine);
+    canvas.drawLine(o(-0.914, -0.5), o(-0.914, 0.5), postPaint);
+    canvas.drawLine(o(10.97 + 0.914, -0.5), o(10.97 + 0.914, 0.5), postPaint);
 
     // Service line (6.4m from net)
     canvas.drawLine(o(1.372, 6.4), o(10.97 - 1.372, 6.4), p);
@@ -144,7 +151,7 @@ class TennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(10.97 / 2, 0), o(10.97 / 2, 6.4), p);
 
     // Center mark at baseline
-    canvas.drawLine(o(10.97 / 2, halfLen - 0.2), o(10.97 / 2, halfLen), p);
+    canvas.drawLine(o(10.97 / 2, halfLen - 0.1), o(10.97 / 2, halfLen), p);
   }
 
   @override

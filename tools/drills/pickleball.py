@@ -5,7 +5,7 @@ the geometry that matters is three bands: the non-volley zone at the net, the
 transition zone behind it, and the baseline. Home is the bottom half; the net
 is y=0.5 and the home kitchen line is y=0.66.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 KITCHEN = 0.66          # home non-volley zone line
 KITCHEN_AWAY = 0.34
@@ -20,6 +20,27 @@ B_L, B_R = (0.28, BASELINE), (0.72, BASELINE)
 
 def mirror(pt):
     return (pt[0], 1.0 - pt[1])
+
+
+# Behind the kitchen lines, feet never on or over them: a dink is played
+# from just behind the line, and every "step in" the boards used to draw
+# put a foot in the non-volley zone.
+KH, KA = KITCHEN + 0.02, KITCHEN_AWAY - 0.02
+# The serve: underhand, from behind the baseline, diagonally into the far
+# service court past the kitchen. Home serves from his right (canvas right),
+# so it lands canvas LEFT on the far side, where the returner waits behind
+# his baseline. The returner's partner waits at the kitchen line — the
+# serving partner stays back with the server (two-bounce rule).
+SRV = (0.72, 1 + BEHIND)
+SRV_PARTNER = (0.28, 1.02)
+RET = (0.28, -0.02)
+RET_PARTNER = (0.70, KA)
+
+
+def through(frm, via, y):
+    """The point at depth [y] on the line from [frm] through [via]."""
+    t = (y - frm[1]) / (via[1] - frm[1])
+    return (frm[0] + (via[0] - frm[0]) * t, y)
 
 
 DINK_NAME = {
@@ -49,20 +70,30 @@ DINK_NOTE = {
 
 
 def dink_family() -> list[Drill]:
-    specs = [("straight", "straight", K_R, mirror(K_R)),
-             ("cross", "cross-court", K_R, mirror(K_L)),
-             ("to_backhand", "to the backhand", K_L, mirror(K_L)),
-             ("pull", "pulling them wide", K_R, (0.92, 0.36))]
+    """Both start where the pattern is played from, so the ball goes the
+    way the name says. 2 used to stand straight across and slide wide only
+    after the ball had arrived: "cross-court" and "pulling wide" were drawn
+    as straight dinks."""
+    specs = [
+        # key, label, 1's spot, 2's spot, where the dink takes 2
+        ("straight", "straight", (0.70, KH), (0.70, KA), None),
+        ("cross", "cross-court", (0.70, KH), (0.30, KA), None),
+        ("to_backhand", "to the backhand", (0.30, KH), (0.50, KA), (0.66, KA)),
+        ("pull", "pulling them wide", (0.70, KH), (0.30, KA), (0.08, KA)),
+    ]
     out = []
-    for key, label, frm, to in specs:
+    for key, label, one, two, pulled in specs:
+        two_moves = ([pulled + (0,), (two[0], two[1], 1)] if pulled
+                     else [(two[0] + (0.05 if two[0] < 0.5 else -0.05), KA, 1)])
         out.append(Drill(
             id=f"pb_dink_{key}", category="possession", minutes=10, rel=True,
             free=(key in ("straight", "cross")),
             name=suffixed(DINK_NAME, label), note=DINK_NOTE,
-            home=[P(*frm, "1", moves=[(frm[0], KITCHEN + 0.02, 0), frm + (1,)])],
-            away=[P(*mirror(K_R), "2", moves=[(to[0], max(to[1], 0.30), 1)])],
+            home=[P(*one, "1", moves=[(one[0] + (0.05 if one[0] < 0.5 else -0.05), KH, 0),
+                                      one + (1,)])],
+            away=[P(*two, "2", moves=two_moves)],
             markers=[M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
     return out
 
@@ -95,23 +126,34 @@ THIRD_NOTE = {
 
 
 def third_shot_family() -> list[Drill]:
-    specs = [("drop", "drop", (0.44, 0.40)), ("drive", "drive", (0.30, 0.30)),
-             ("fifth", "the fifth from the transition zone", (0.56, 0.42))]
+    """Serve, return, THIRD shot — in that order, from where the rules put
+    everybody. It used to open with a ball from the centre line landing in
+    the receivers' kitchen, with the receiving team already at the line,
+    and the third shot itself was never drawn."""
     out = []
-    for key, label, land in specs:
-        start = (0.50, BASELINE) if key != "fifth" else (0.50, TRANSITION)
+    for key, label, land in [("drop", "drop", (0.44, 0.42)),
+                             ("drive", "drive", (0.50, 0.24)),
+                             ("fifth", "the fifth from the transition zone", (0.40, 0.42))]:
+        if key == "fifth":
+            # The third is dropped to B, B blocks it back to 1 in the
+            # transition zone, and 1 plays the fifth into the kitchen.
+            home = [P(*SRV, "1", moves=[(0.66, 1.0, 1), (0.64, 0.88, 2),
+                                        (0.62, TRANSITION, 3), (0.62, 0.74, 4)]),
+                    P(*SRV_PARTNER, "2", moves=[(0.34, 0.88, 2), (0.36, TRANSITION, 3)])]
+            ball_to = [("a0", 0), (0, 1), ("a1", 2), (0, 3), (Spot(*land), 4)]
+        else:
+            home = [P(*SRV, "1", moves=[(0.66, 1.0, 1), (0.64, TRANSITION, 2)]),
+                    P(*SRV_PARTNER, "2", moves=[(0.36, TRANSITION, 2)])]
+            ball_to = [("a0", 0), (0, 1), (Spot(*land), 2)]
         out.append(Drill(
             id=f"pb_third_{key}", category="attacking", minutes=12, rel=True,
-            free=(key == "drop"),
+            free=(key == "drop"), off_surface=True,
             name=suffixed(THIRD_NAME, label), note=THIRD_NOTE,
-            home=[P(*start, "1",
-                    moves=[(start[0], TRANSITION, 1), (start[0], KITCHEN, 2)]),
-                  P(0.78, BASELINE, "2",
-                    moves=[(0.76, TRANSITION, 1), (0.74, KITCHEN, 2)])],
-            away=[P(*mirror(K_L), "A", moves=[(land[0], land[1] - 0.04, 1)]),
-                  P(*mirror(K_R), "B")],
+            home=home,
+            # The returner follows his return to the kitchen line.
+            away=[P(*RET, "A", moves=[(0.32, KA, 1)]), P(*RET_PARTNER, "B")],
             markers=[M(*land, "zone", ""), M(0.5, KITCHEN, "cone", "")],
-            ball=0,
+            ball=0, ball_to=ball_to,
         ))
     return out
 
@@ -160,32 +202,37 @@ ERNIE_NOTE = {
 
 
 def speedup_family() -> list[Drill]:
-    specs = [("shoulder", "at the shoulder", (0.34, 0.40)),
-             ("hip", "at the hip", (0.42, 0.42)),
-             ("ernie", "the Ernie", (0.06, 0.44))]
+    """The dink, the ball that sits up, and the speed-up itself — drawn,
+    into a zone at A's shoulder or hip BEHIND his kitchen line. A used to
+    walk onto a target inside his own kitchen and the attacking ball was
+    never hit."""
     out = []
-    for key, label, land in specs:
-        # The Ernie is run around the *outside* of the sideline and the
-        # player may not touch the non-volley zone. It used to finish at
-        # x 0.06 inside the line and 0.27 m from the net, inside the
-        # kitchen — a fault, on the board teaching the shot.
-        # …and he lands on HIS side of it: 0.46 put him over the net, which
-        # is the other half of the same fault.
-        run = [(0.66, KITCHEN - 0.02, 1)] if key != "ernie" else [
-            (0.03, KITCHEN + 0.04, 1), (-0.05, 0.56, 2)]
+    for key, label, land in [("shoulder", "at the shoulder", (0.22, 0.27)),
+                             ("hip", "at the hip", (0.37, 0.28))]:
         out.append(Drill(
             id=f"pb_speedup_{key}", category="attacking", minutes=10, rel=True,
-            free=(key == "shoulder"), off_surface=(key == "ernie"),
-            # The Ernie is a poach at the sideline, not a speed-up off a
-            # dink, so it does not share the family's coaching point.
-            name=suffixed(SPEEDUP_NAME, label),
-            note=ERNIE_NOTE if key == "ernie" else SPEEDUP_NOTE,
-            home=[P(*K_R, "1", moves=run), P(*K_L, "2")],
-            away=[P(*mirror(K_R), "A", moves=[(land[0], land[1] - 0.04, 2)]),
-                  P(*mirror(K_L), "B")],
+            free=(key == "shoulder"),
+            name=suffixed(SPEEDUP_NAME, label), note=SPEEDUP_NOTE,
+            home=[P(0.70, KH, "1", moves=[(0.64, KH, 1)]),
+                  P(0.30, KH, "2", moves=[(0.34, KH, 1)])],
+            away=[P(0.30, KA, "A"), P(0.70, KA, "B")],
             markers=[M(*land, "zone", ""), M(0.5, KITCHEN, "cone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1), (Spot(*land), 2)],
         ))
+    # The Ernie: 1 dinks wide down his line, slips out past the sideline
+    # while A sets up, and volleys A's next dink down the line from OUTSIDE
+    # the court beside the post — he never touches the kitchen, and he
+    # stays on his side of the net.
+    out.append(Drill(
+        id="pb_speedup_ernie", category="attacking", minutes=10, rel=True,
+        off_surface=True,
+        name=suffixed(SPEEDUP_NAME, "the Ernie"), note=ERNIE_NOTE,
+        home=[P(0.30, KH, "1", moves=[(0.02, 0.72, 1), (-0.05, 0.56, 2)]),
+              P(0.70, KH, "2", moves=[(0.56, KH, 1)])],
+        away=[P(0.30, KA, "A", moves=[(0.12, KA, 0)]), P(0.70, KA, "B")],
+        markers=[M(0.38, 0.26, "zone", ""), M(0.5, KITCHEN, "cone", "")],
+        ball=0, ball_to=[("a0", 0), (0, 2), (Spot(0.38, 0.26), 3)],
+    ))
     return out
 
 
@@ -217,20 +264,27 @@ PUTAWAY_NOTE = {
 
 
 def putaway_family() -> list[Drill]:
-    specs = [("overhead", "the overhead", (0.50, 0.20)),
-             ("roll_volley", "the roll volley", (0.24, 0.40)),
-             ("atp", "around the post", (0.02, 0.48))]
+    """The ball that sits up, and the put-away itself, drawn into the
+    zone; the defenders stay behind their line instead of walking onto it.
+    Around the post is played from OUTSIDE the sideline, the ball going
+    round the post rather than over the net."""
     out = []
-    for key, label, land in specs:
+    specs = [
+        # key, label, where 1 meets the pop-up, zone
+        ("overhead", "the overhead", (0.62, 0.78), (0.50, 0.25)),
+        ("roll_volley", "the roll volley", (0.64, KH), (0.20, 0.28)),
+        ("atp", "around the post", (1.06, 0.58), (0.88, 0.42)),
+    ]
+    for key, label, meet, land in specs:
         out.append(Drill(
             id=f"pb_putaway_{key}", category="finishing", minutes=8, rel=True,
-            free=(key == "overhead"),
+            free=(key == "overhead"), off_surface=(key == "atp"),
             name=suffixed(PUTAWAY_NAME, label), note=PUTAWAY_NOTE,
-            home=[P(*K_R, "1", moves=[(0.60, KITCHEN + 0.06, 1)]), P(*K_L, "2")],
-            away=[P(*mirror(K_L), "A", moves=[(land[0], land[1] - 0.05, 2)]),
-                  P(*mirror(K_R), "B")],
+            home=[P(0.70, KH, "1", moves=[meet + (1,)]),
+                  P(0.30, KH, "2", moves=[(0.36, KH, 1)])],
+            away=[P(0.30, KA, "A"), P(0.70, KA, "B")],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1), (Spot(*land), 2)],
         ))
     return out
 
@@ -268,20 +322,27 @@ def defend_family() -> list[Drill]:
     specs = [("block", "the block", (0.62, KITCHEN + 0.01)),
              ("reset", "the reset from transition", (0.50, KITCHEN + 0.02)),
              ("lob", "the lob over your head", (0.50, 0.92)),
-             ("counter", "the counter in a firefight", (0.40, KITCHEN + 0.02))]
+             # Held at the line, a step toward the middle — not on top of
+             # his partner (0.40 left them 0.6 m apart).
+             ("counter", "the counter in a firefight", (0.54, KITCHEN + 0.02))]
+    # A attacks, 1 meets it where the spec says, and 1's defensive ball —
+    # soft, back down into A's kitchen — is drawn: the drill is named for
+    # it. (A used to "move into position" with the ball, and the board
+    # ended on A's attack.)
+    reply = {"lob": (0.40, 0.40)}
     out = []
     for key, label, to in specs:
-        start = (0.62, TRANSITION) if key == "reset" else K_R
+        start = (0.62, TRANSITION) if key == "reset" else (0.70, KH)
         out.append(Drill(
             id=f"pb_defend_{key}", category="defending", minutes=10, rel=True,
             free=(key in ("block", "reset")),
             name=suffixed(DEFEND_NAME, label), note=DEFEND_NOTE,
-            home=[P(*start, "1", moves=[(to[0], min(to[1], BASELINE), 1)]),
-                  P(*K_L, "2")],
-            away=[P(*mirror(K_R), "A", moves=[(0.68, KITCHEN_AWAY - 0.03, 0)]),
-                  P(*mirror(K_L), "B")],
+            home=[P(*start, "1", moves=[(to[0], min(to[1], BASELINE), 0)]),
+                  P(0.30, KH, "2", moves=[(0.34, KH, 1)])],
+            away=[P(0.66, KA, "A"), P(0.30, KA, "B")],
             markers=[M(0.5, KITCHEN, "cone", "")],
-            ball=mirror(K_R),
+            ball=(0.66, KA),
+            ball_to=[(0, 0), (Spot(*reply.get(key, (0.56, 0.42))), 1)],
         ))
     return out
 
@@ -296,49 +357,67 @@ SERVE_NAME = {
 }
 SERVE_NOTE = {
     "en": "Both go deep, for different reasons: the serve to keep them back, "
-          "the return to buy the time you need to walk in behind it.",
+          "the return to buy the time you need to walk in behind it."
+             " The serve itself is underhand: contact below the waist, paddle moving upward, one foot behind the baseline, and diagonally past the kitchen.",
     "en-GB": "Both go deep, for different reasons: the serve to keep them "
-             "back, the return to buy the time you need to walk in behind it.",
-    "zh-CN": "两拍都要打深，理由不同：发球是把人压在后面，接发球是给自己换来跟着上网的时间。",
-    "zh-TW": "兩拍都要打深，理由不同：發球是把人壓在後面，接發球是給自己換來跟著上網的時間。",
-    "ja-JP": "どちらも深く、理由は別。サーブは相手を下げるため、リターンは前に詰める時間を買うため。",
-    "ko-KR": "둘 다 깊게, 이유는 다르다. 서브는 상대를 뒤에 묶고, 리턴은 앞으로 갈 시간을 산다.",
+             "back, the return to buy the time you need to walk in behind it."
+             " The serve itself is underhand: contact below the waist, paddle moving upward, one foot behind the baseline, and diagonally past the kitchen.",
+    "zh-CN": "两拍都要打深，理由不同：发球是把人压在后面，接发球是给自己换来跟着上网的时间。" "发球本身必须下手：击球点低于腰部、拍头向上挥，一只脚在底线后，斜线发过厨房区。",
+    "zh-TW": "兩拍都要打深，理由不同：發球是把人壓在後面，接發球是給自己換來跟著上網的時間。" "發球本身必須下手：擊球點低於腰部、拍頭向上揮，一隻腳在底線後，斜線發過廚房區。",
+    "ja-JP": "どちらも深く、理由は別。サーブは相手を下げるため、リターンは前に詰める時間を買うため。" "サーブはアンダーハンド：腰より下で打ち、パドルは下から上へ、片足はベースラインの後ろ、対角へキッチンを越えて。",
+    "ko-KR": "둘 다 깊게, 이유는 다르다. 서브는 상대를 뒤에 묶고, 리턴은 앞으로 갈 시간을 산다. " "서브는 언더핸드로: 허리 아래에서 맞히고 패들은 아래에서 위로, 한 발은 베이스라인 뒤, 대각선으로 키친 너머에.",
     "es-ES": "Ambos profundos, por motivos distintos: el saque para fijarlos "
-             "atrás, el resto para comprar el tiempo de subir tras él.",
+             "atrás, el resto para comprar el tiempo de subir tras él."
+             " El saque es por abajo: contacto por debajo de la cintura, pala hacia arriba, un pie detrás de la línea de fondo y en diagonal, más allá de la cocina.",
     "fr-FR": "Les deux profonds, pour des raisons différentes : le service "
-             "pour les tenir au fond, le retour pour gagner le temps de monter.",
-    "id-ID": "Keduanya dalam, dengan alasan berbeda.",
-    "ms-MY": "Kedua-duanya dalam, atas sebab berbeza.",
-    "th-TH": "ทั้งคู่ต้องลึก แต่ด้วยเหตุผลต่างกัน",
-    "vi-VN": "Cả hai đều sâu, vì lý do khác nhau.",
+             "pour les tenir au fond, le retour pour gagner le temps de monter."
+             " Le service se fait par en dessous : contact sous la taille, raquette montante, un pied derrière la ligne de fond, en diagonale au-delà de la cuisine.",
+    "id-ID": "Keduanya dalam, dengan alasan berbeda."
+             " Servisnya underhand: kontak di bawah pinggang, paddle mengayun ke atas, satu kaki di belakang garis belakang, menyilang melewati kitchen.",
+    "ms-MY": "Kedua-duanya dalam, atas sebab berbeza."
+             " Servis dibuat dari bawah: sentuhan di bawah pinggang, pedal dihayun ke atas, sebelah kaki di belakang garisan belakang, secara pepenjuru melepasi kitchen.",
+    "th-TH": "ทั้งคู่ต้องลึก แต่ด้วยเหตุผลต่างกัน"
+             " การเสิร์ฟต้องตีลูกล่าง: จุดกระทบต่ำกว่าเอว ไม้เหวี่ยงขึ้น เท้าข้างหนึ่งอยู่หลังเส้นหลัง และเสิร์ฟทแยงให้เลยเขตครัว",
+    "vi-VN": "Cả hai đều sâu, vì lý do khác nhau."
+             " Giao bóng phải từ dưới lên: điểm chạm dưới thắt lưng, vợt vung lên, một chân sau vạch cuối sân, chéo sân và qua khỏi vùng bếp.",
 }
 
 
 def serve_family() -> list[Drill]:
-    # A pickleball serve must be diagonal. Serving from the right court at
-    # x 0.72, the ball has to land in the far LEFT box (x < 0.5) — the
-    # "deep to the forehand" target sat at 0.74, straight ahead, which is a
-    # fault. And for a right-handed receiver on the far side the forehand
-    # is screen-left, so the two targets were mirrored the wrong way round.
-    specs = [("deep_backhand", "deep to the backhand", (0.40, 0.07)),
-             ("deep_forehand", "deep to the forehand", (0.16, 0.08)),
-             ("return_and_in", "return and come in", (0.34, 0.08))]
+    # A pickleball serve is underhand, from behind the baseline, and
+    # diagonal: from the right court (x 0.72) it lands in the far LEFT
+    # court, past the kitchen. The receiver stands on the line from the
+    # server through the zone, behind his baseline — the "deep" serve used
+    # to be drawn landing at R 2.2 m inside it, the same path for both
+    # targets. For a right-handed receiver on the far side the backhand is
+    # screen-right of him.
     out = []
-    for key, label, land in specs:
-        home = [P(0.72, 1 + BEHIND, "S", moves=[(0.72, BASELINE, 1)])]
-        if key == "return_and_in":
-            home = [P(0.72, BASELINE, "R",
-                      moves=[(0.72, TRANSITION, 1), (0.72, KITCHEN, 2)])]
+    for key, label, land in [("deep_backhand", "deep to the backhand", (0.40, 0.07)),
+                             ("deep_forehand", "deep to the forehand", (0.16, 0.08))]:
         out.append(Drill(
             id=f"pb_serve_{key}", category="setpiece", minutes=8, rel=True,
-            free=(key == "deep_backhand"), off_surface=(key != "return_and_in"),
+            free=(key == "deep_backhand"), off_surface=True,
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
-            home=home,
-            # The receiver stands in the diagonal box he must return from.
-            away=[P(0.28, 0.13, "R", moves=[(land[0], land[1] + 0.07, 1)])],
+            # The server stays back after the serve: the return must bounce.
+            home=[P(*SRV, "S", moves=[(0.66, 1 + BEHIND * 0.7, 1)])],
+            away=[P(*RET, "R", moves=[through(SRV, land, -0.02) + (0,),
+                                      (0.30, KA, 1)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
+    # Return and come in: S serves from the far side; R returns deep and
+    # walks in to the kitchen behind it while S stays back — the two-bounce
+    # rule is what buys him the walk.
+    srv_far = (0.28, -BEHIND)
+    out.append(Drill(
+        id="pb_serve_return_and_in", category="setpiece", minutes=8, rel=True,
+        off_surface=True,
+        name=suffixed(SERVE_NAME, "return and come in"), note=SERVE_NOTE,
+        home=[P(0.72, 1.02, "R", moves=[(0.70, TRANSITION, 1), (0.70, KH, 2)])],
+        away=[P(*srv_far, "S", moves=[(0.36, -BEHIND * 0.7, 0)])],
+        markers=[M(0.36, 0.07, "zone", "")],
+        ball=srv_far, ball_to=[(0, 0), ("a0", 1)],
+    ))
     return out
 
 
@@ -429,19 +508,22 @@ WARM_NOTE = {
 
 
 def warmup_family() -> list[Drill]:
-    specs = [("dink_warm", "dinking", K_R, mirror(K_R)),
-             ("hands", "hand speed", (0.50, KITCHEN), (0.50, KITCHEN_AWAY)),
+    specs = [("dink_warm", "dinking", (0.70, KH), (0.70, KA)),
+             ("hands", "hand speed", (0.50, KH), (0.50, KA)),
              ("transition", "transition footwork", (0.50, BASELINE), (0.50, 0.20))]
     out = []
     for key, label, h, a in specs:
-        moves = ([(h[0], h[1] - 0.02, 0), h + (1,)] if key != "transition"
-                 else [(h[0], TRANSITION, 0), (h[0], KITCHEN, 1), h + (2,)])
+        # Side steps along the line, not steps over it into the kitchen.
+        moves = ([(h[0] - 0.06, h[1], 0), h + (1,)] if key != "transition"
+                 else [(h[0], TRANSITION, 0), (h[0], KH, 1), h + (2,)])
+        a_moves = ([(a[0] + 0.06, a[1], 0)] if key != "transition"
+                   else [(a[0], a[1] + 0.02, 0)])
         out.append(Drill(
             id=f"pb_warm_{key}", category="warmup", minutes=6, rel=True,
             free=(key == "dink_warm"),
             name=suffixed(WARM_NAME, label), note=WARM_NOTE,
             home=[P(*h, "1", moves=moves)],
-            away=[P(*a, "2", moves=[(a[0], a[1] + 0.02, 0)])],
+            away=[P(*a, "2", moves=a_moves)],
             markers=[M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
             ball=0,
         ))
@@ -474,27 +556,41 @@ GAME_NOTE = {
 
 
 def game_family() -> list[Drill]:
+    # Every game starts the way the rules start a point: the serve from
+    # behind the baseline, diagonal, the returner back and his partner at
+    # the kitchen line, the serving partner back. Dinks-only starts at the
+    # line with the feet behind it — it used to step everyone 0.5 m INTO
+    # the kitchen on the first beat.
+    serve_start = dict(
+        home=[P(*SRV, "1", moves=[(0.66, 1.0, 1), (0.64, TRANSITION, 2)]),
+              P(*SRV_PARTNER, "2", moves=[(0.36, TRANSITION, 2)])],
+        away=[P(*RET, "A", moves=[(0.32, KA, 1)]), P(*RET_PARTNER, "B")],
+        ball_to=[("a0", 0), (0, 1), ("a1", 2)])
     specs = [
-        # Dinks only is played inside the kitchen line, which is what makes
-        # it a different game; it was the full-doubles board unchanged.
-        ("dink_only", "dinks only",
-         [(K_L[0] + 0.06, KITCHEN - 0.01), (K_R[0] - 0.06, KITCHEN - 0.01)]),
-        ("skinny_singles", "skinny singles", [(0.72, BASELINE)]),
-        ("third_shot", "third shot game", [(0.30, BASELINE), (0.70, BASELINE)]),
-        ("full_doubles", "full doubles", [K_L, K_R]),
+        ("dink_only", "dinks only", dict(
+            home=[P(0.64, KH, "1", moves=[(0.58, KH, 1)]), P(0.30, KH, "2", moves=[(0.36, KH, 1)])],
+            away=[P(0.36, KA, "A", moves=[(0.42, KA, 0)]), P(0.70, KA, "B", moves=[(0.64, KA, 0)])],
+            ball_to=[("a0", 0), (0, 1)])),
+        # Skinny singles is a rally in one half, down the line.
+        ("skinny_singles", "skinny singles", dict(
+            home=[P(0.72, 1.02, "1")], away=[P(0.72, -0.02, "A")],
+            ball_to=[("a0", 0), (0, 1)])),
+        ("third_shot", "third shot game", serve_start),
+        ("full_doubles", "full doubles", dict(
+            home=[P(*SRV, "1", moves=[(0.66, 1.0, 1)]), P(*SRV_PARTNER, "2", moves=[(0.34, 1.0, 1)])],
+            away=[P(*RET, "A", moves=[(0.32, KA, 1)]), P(*RET_PARTNER, "B")],
+            ball_to=[("a0", 0), (0, 1)])),
     ]
     out = []
-    for key, label, home in specs:
+    for key, label, spec in specs:
         out.append(Drill(
             id=f"pb_game_{key}", category="ssg", minutes=15, rel=True,
             free=(key in ("dink_only", "full_doubles")),
+            off_surface=(key != "dink_only"),
             name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, f"{i + 1}", moves=[(x, y - 0.04, 0)])
-                  for i, (x, y) in enumerate(home)],
-            away=[P(*mirror((x, y)), chr(65 + i), moves=[(x, 1 - y + 0.04, 0)])
-                  for i, (x, y) in enumerate(home)],
+            home=spec["home"], away=spec["away"],
             markers=[M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
-            ball=0,
+            ball=0, ball_to=spec["ball_to"],
         ))
     return out
 
@@ -536,32 +632,41 @@ def gaps_family() -> list[Drill]:
     library is built around had no drill, and only the defensive lob
     existed. Both verified absent from every name and note.
     """
+    serve_land, return_land = (0.34, 0.10), (0.66, 0.90)
+    r_meet = through(SRV, serve_land, -0.02)
     return [
         Drill(
             id="pb_two_bounce_rule", category="possession", minutes=10, rel=True,
             level="foundation", free=True, off_surface=True,
             name=suffixed(SHAPE_NAME, "the two-bounce sequence"),
             note=TWO_BOUNCE_NOTE,
-            home=[P(0.72, 1 + BEHIND, "S", moves=[(0.72, 0.96, 1), (0.66, TRANSITION, 3)]),
-                  P(0.30, KITCHEN, "P")],
-            away=[P(0.28, 0.13, "R", moves=[(0.30, 0.22, 2), (0.32, KITCHEN_AWAY, 3)]),
-                  P(0.70, KITCHEN_AWAY, "B")],
-            markers=[M(0.34, 0.10, "zone", ""), M(0.66, 0.86, "zone", ""),
+            # P is the SERVER's partner and stays back beside him; the
+            # returner's partner B is the one at the kitchen. S is at the
+            # return's landing point when it arrives, plays the third, and
+            # only then does the serving team walk in.
+            home=[P(*SRV, "S", moves=[(0.66, 0.94, 1), (0.64, TRANSITION, 2)]),
+                  P(*SRV_PARTNER, "P", moves=[(0.36, TRANSITION, 2)])],
+            away=[P(*RET, "R", moves=[r_meet + (0,), (0.32, KA, 1)]),
+                  P(*RET_PARTNER, "B")],
+            markers=[M(*serve_land, "zone", ""), M(*return_land, "zone", ""),
                      M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
             ball=0,
-            ball_moves=[(0.34, 0.10, 1), (0.66, 0.86, 2), (0.40, 0.40, 3)],
+            ball_to=[("a0", 0), (0, 1), (Spot(0.42, 0.42), 2)],
         ),
         Drill(
             id="pb_attack_lob", category="attacking", minutes=8, rel=True,
             name=suffixed(SHAPE_NAME, "the offensive lob"), note=LOB_NOTE,
-            home=[P(*K_R, "1", moves=[(0.68, KITCHEN - 0.03, 0),
-                                      (0.66, 0.52, 2)]),
-                  P(*K_L, "2", moves=[(0.32, 0.54, 2)])],
-            away=[P(*mirror(K_R), "A", moves=[(0.28, 0.22, 2)]),
-                  P(*mirror(K_L), "B")],
-            markers=[M(0.24, 0.14, "zone", ""), M(0.5, KITCHEN, "cone", "")],
-            ball=0,
-            ball_moves=[(0.24, 0.14, 1)],
+            # A dinks, 1 lobs it over A's backhand shoulder (screen-right
+            # of a far-side right-hander) into the deep
+            # zone, A turns and chases, and 1 and 2 step back off the line
+            # to cover the reply — nobody walks into the kitchen.
+            home=[P(0.70, KH, "1", moves=[(0.66, KH, 0), (0.64, 0.74, 2)]),
+                  P(0.30, KH, "2", moves=[(0.34, 0.74, 2)])],
+            away=[P(0.66, KA, "A", moves=[(0.74, 0.22, 1)]),
+                  P(0.30, KA, "B")],
+            markers=[M(0.80, 0.10, "zone", ""), M(0.5, KITCHEN, "cone", "")],
+            ball=(0.66, KA),
+            ball_to=[(0, 0), (Spot(0.80, 0.10), 1)],
         ),
     ]
 
