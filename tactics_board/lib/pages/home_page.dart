@@ -4558,10 +4558,10 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       ),
       child: Stack(
         alignment: Alignment.center,
-        children: const [
-          Icon(Icons.shield_outlined, color: kAccent, size: 44),
+        children: [
+          const Icon(Icons.shield_outlined, color: kAccent, size: 44),
           Padding(
-            padding: EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.only(bottom: 4),
             child: Icon(Icons.star_rounded, color: T.bg0, size: 20),
           ),
         ],
@@ -4755,7 +4755,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               ),
               child: Text(
                 badge,
-                style: const TextStyle(
+                style: TextStyle(
                   color: T.bg0,
                   fontSize: 10.5,
                   fontWeight: FontWeight.w800,

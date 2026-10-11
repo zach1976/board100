@@ -146,7 +146,7 @@ class _DrillReportPageState extends State<DrillReportPage> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(T.s12),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: T.surface, borderRadius: T.brMd),
                     child: Row(
                       children: [
@@ -219,7 +219,7 @@ class _DrillReportPageState extends State<DrillReportPage> {
             Container(
               padding: const EdgeInsets.fromLTRB(
                   T.screenX, T.s12, T.screenX, T.s12),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: T.bg1,
                 border: Border(top: BorderSide(color: T.border)),
               ),

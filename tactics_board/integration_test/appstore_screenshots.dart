@@ -17,6 +17,7 @@ import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/services/recent_boards_service.dart';
 import 'package:tactics_board/services/working_board_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/ui/tokens.dart';
 import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
 import 'package:tactics_board/pages/sport_selection_page.dart';
@@ -453,6 +454,9 @@ void _orient(WidgetTester t) {
 Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
     Widget home) async {
   _orient(t);
+  // The chrome a single-sport build wears is set in its main(), which this
+  // harness does not go through — without this every shot came out teal.
+  T.palette = sport.chrome;
   await EasyLocalization.ensureInitialized();
   // The figures, the ball and the equipment decode like any other asset. A
   // test that shoots the moment it pumps catches the board drawn with the

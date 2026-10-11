@@ -16,17 +16,28 @@ class T {
   // ── Surfaces ────────────────────────────────────────────────────────────
   // Four steps, deepest first. Background0 is the page behind everything;
   // Surface is a sheet; SurfaceHi is a row or card sitting on a sheet.
-  static const bg0 = Color(0xFF071D1F);
-  static const bg1 = Color(0xFF0B272A);
-  static const surface = Color(0xFF103338);
-  static const surfaceHi = Color(0xFF153D42);
+  //
+  // These six are the only tokens that change per app: a single-sport build
+  // takes its chrome's hue from the sport (navy for a volleyball hall, green
+  // for a pitch) so the app and its store set are one colour family. The hub
+  // keeps the teal they all started from. [palette] is set once, in main(),
+  // before the first frame — which is why these are getters and not consts,
+  // and why nothing below may write `const Foo(color: T.bg0)`.
+  static SportPalette _p = SportPalette.teal;
+  static SportPalette get palette => _p;
+  static set palette(SportPalette p) => _p = p;
+
+  static Color get bg0 => _p.bg0;
+  static Color get bg1 => _p.bg1;
+  static Color get surface => _p.surface;
+  static Color get surfaceHi => _p.surfaceHi;
 
   /// A sheet sits a step above the page but below an elevated surface, so it
   /// does not read as a card the page is wearing. §25.
-  static const sheet = Color(0xFF0D292C);
+  static Color get sheet => _p.sheet;
 
   /// The tinted ground a coach's note sits on — barely a surface at all. §11.
-  static const tint = Color(0xFF0B292A);
+  static Color get tint => _p.tint;
 
   /// The one border. Low-contrast on purpose: contrast between surfaces does
   /// most of the separating, and a line is only added where that is not
@@ -220,4 +231,58 @@ class T {
   /// An all-caps eyebrow above a group.
   static const label = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w600, color: textDim, letterSpacing: 0.6);
+}
+
+/// The six chrome surfaces of one app, deepest first.
+///
+/// Every sport's set is the teal reference with its hue replaced — the same
+/// six lightness and saturation steps, so the surface ladder (page, sheet,
+/// card) separates identically in every app and only the colour family moves.
+class SportPalette {
+  const SportPalette({
+    required this.bg0,
+    required this.bg1,
+    required this.surface,
+    required this.surfaceHi,
+    required this.sheet,
+    required this.tint,
+  });
+
+  final Color bg0;
+  final Color bg1;
+  final Color surface;
+  final Color surfaceHi;
+  final Color sheet;
+  final Color tint;
+
+  /// What every app shipped with before 2.1, and what the hub still uses.
+  static const teal = SportPalette(
+    bg0: Color(0xFF071D1F),
+    bg1: Color(0xFF0B272A),
+    surface: Color(0xFF103338),
+    surfaceHi: Color(0xFF153D42),
+    sheet: Color(0xFF0D292C),
+    tint: Color(0xFF0B292A),
+  );
+
+  /// The teal ladder re-hued. [hue] is in degrees; [saturation] scales the
+  /// reference's own, so a sand-coloured chrome can sit a little quieter than
+  /// a blue one without a second ladder.
+  factory SportPalette.hue(double hue, {double saturation = 1.0}) {
+    Color re(Color c) {
+      final h = HSLColor.fromColor(c);
+      return h
+          .withHue(hue % 360)
+          .withSaturation((h.saturation * saturation).clamp(0.0, 1.0))
+          .toColor();
+    }
+    return SportPalette(
+      bg0: re(teal.bg0),
+      bg1: re(teal.bg1),
+      surface: re(teal.surface),
+      surfaceHi: re(teal.surfaceHi),
+      sheet: re(teal.sheet),
+      tint: re(teal.tint),
+    );
+  }
 }

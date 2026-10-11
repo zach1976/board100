@@ -84,7 +84,7 @@ class RecentPage extends StatelessWidget {
                     onTap: () => Navigator.of(context).pop(r),
                     child: Container(
                       padding: const EdgeInsets.all(T.s12),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           color: T.surface, borderRadius: T.brSm),
                       child: Row(
                         children: [

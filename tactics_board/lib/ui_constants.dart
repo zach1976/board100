@@ -21,10 +21,10 @@ const Color kAccent = T.accent;
 const Color kAccentFill = T.accentFill;
 
 /// Base surface for modal sheets and dialogs.
-const Color kSurface = T.surface;
+Color get kSurface => T.surface;
 
 /// Raised surface for cards / list rows / panels sitting on [kSurface].
-const Color kSurfaceHi = T.surfaceHi;
+Color get kSurfaceHi => T.surfaceHi;
 
 /// Destructive action colour (delete / clear-all).
 const Color kDanger = T.danger;

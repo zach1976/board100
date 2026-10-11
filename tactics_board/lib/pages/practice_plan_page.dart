@@ -15,8 +15,8 @@ import '../state/tactics_state.dart';
 import 'practice_history_page.dart';
 import 'practice_run_page.dart';
 
-const _kBg = T.bg1;
-const _kCard = T.surface;
+Color get _kBg => T.bg1;
+Color get _kCard => T.surface;
 const _kAccent = T.accent;
 
 class PracticePlanPage extends StatefulWidget {

@@ -11,8 +11,8 @@ import '../widgets/attendance_sheet.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
 
-const _kBg = T.bg1;
-const _kCard = T.surface;
+Color get _kBg => T.bg1;
+Color get _kCard => T.surface;
 const _kAccent = T.accent;
 
 class PracticeRunPage extends StatefulWidget {

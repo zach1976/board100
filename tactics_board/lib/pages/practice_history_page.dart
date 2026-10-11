@@ -9,8 +9,8 @@ import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
 import '../services/practice_history_service.dart';
 
-const _kBg = T.bg1;
-const _kCard = T.surface;
+Color get _kBg => T.bg1;
+Color get _kCard => T.surface;
 const _kAccent = T.accent;
 
 class PracticeHistoryPage extends StatefulWidget {

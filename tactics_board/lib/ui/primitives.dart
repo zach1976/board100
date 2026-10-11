@@ -64,7 +64,7 @@ class TacticalSheet extends StatelessWidget {
     final maxH = mq.size.height * fraction;
     return Container(
       constraints: BoxConstraints(maxHeight: maxH),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.surface,
         borderRadius: T.brSheet,
         boxShadow: T.shadowSheet,
@@ -756,9 +756,9 @@ class CoachNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.tint,
-        border: Border(left: BorderSide(color: T.accent, width: 2.5)),
+        border: const Border(left: BorderSide(color: T.accent, width: 2.5)),
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(T.rSm),
           bottomRight: Radius.circular(T.rSm),

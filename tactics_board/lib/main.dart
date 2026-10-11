@@ -43,6 +43,10 @@ void main() => mainReal();
 /// must have finished writing [ConfigConstants] before calling it.
 Future<void> mainReal() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // A single-sport app wears its sport's colour family; the hub stays teal.
+  // Set before the first frame, because T's surfaces are read, not watched.
+  final fs = fixedSport;
+  if (fs != null) T.palette = fs.chrome;
   // Before anything awaited: the app-open ad's cold-start window is measured
   // from here, not from AdService.init() further down. See AdService.
   AdService.markLaunch();
@@ -118,7 +122,7 @@ class TacticsBoardApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle.light,
             ),
-            sliderTheme: const SliderThemeData(
+            sliderTheme: SliderThemeData(
               thumbColor: T.accent,
               activeTrackColor: T.accent,
               inactiveTrackColor: T.surfaceHi,
@@ -128,7 +132,7 @@ class TacticsBoardApp extends StatelessWidget {
             // They each used to set their own background, corner radius and
             // title style, so a confirm looked different depending on which
             // screen raised it.
-            dialogTheme: const DialogThemeData(
+            dialogTheme: DialogThemeData(
               backgroundColor: T.surface,
               surfaceTintColor: Colors.transparent,
               elevation: 16,
@@ -149,7 +153,7 @@ class TacticsBoardApp extends StatelessWidget {
               surfaceTintColor: Colors.transparent,
               elevation: 0,
             ),
-            snackBarTheme: const SnackBarThemeData(
+            snackBarTheme: SnackBarThemeData(
               backgroundColor: T.surfaceHi,
               contentTextStyle: T.body,
               behavior: SnackBarBehavior.floating,

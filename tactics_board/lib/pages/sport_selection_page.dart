@@ -134,7 +134,7 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
   @override
   Widget build(BuildContext context) {
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       // The count is every sport's library together, the hub's own; the
@@ -178,7 +178,7 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
                   Container(
                     width: 36,
                     height: 36,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: T.surfaceHi, shape: BoxShape.circle),
                     child: IconButton(
                       icon: const Icon(Icons.language_rounded,
@@ -266,25 +266,7 @@ CustomPainter courtPainterFor(SportType sport) {
 }
 
 /// Accent colour for each sport card.
-Color sportAccentFor(SportType sport) {
-  switch (sport) {
-    case SportType.badminton:    return const Color(0xFF43A047);
-    case SportType.tableTennis:  return const Color(0xFF1E88E5);
-    case SportType.tennis:       return const Color(0xFF5C6BC0);
-    case SportType.basketball:   return const Color(0xFFE65100);
-    case SportType.volleyball:   return const Color(0xFFFFA000);
-    case SportType.pickleball:   return const Color(0xFF00897B);
-    case SportType.soccer:       return const Color(0xFF66BB6A);
-    case SportType.fieldHockey:  return const Color(0xFF42A5F5);
-    case SportType.rugby:        return const Color(0xFF8D6E63);
-    case SportType.baseball:     return const Color(0xFFD32F2F);
-    case SportType.handball:     return const Color(0xFF1976D2);
-    case SportType.waterPolo:    return const Color(0xFF0288D1);
-    case SportType.sepakTakraw:  return const Color(0xFFD4A017);
-    case SportType.beachTennis:  return const Color(0xFFE6B058);
-    case SportType.footvolley:   return const Color(0xFFFBC02D);
-  }
-}
+Color sportAccentFor(SportType sport) => sport.accent;
 
 /// The court, upright, in a rounded frame — the one picture that tells the
 /// sports apart at a glance.

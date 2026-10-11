@@ -427,7 +427,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     final locked = widget.onLoad == null;
     return Container(
       padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s12),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.bg1,
         border: Border(top: BorderSide(color: T.border)),
       ),

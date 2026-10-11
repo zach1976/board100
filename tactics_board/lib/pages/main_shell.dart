@@ -107,7 +107,7 @@ class _MainShellState extends State<MainShell> {
     // Hold the empty background rather than flashing the tabs for one frame
     // while the preference is read.
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       return IntroPage(
@@ -278,9 +278,9 @@ class _TabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.surface,
-        border: Border(top: BorderSide(color: T.border)),
+        border: const Border(top: BorderSide(color: T.border)),
       ),
       child: SafeArea(
         top: false,
@@ -545,10 +545,10 @@ class _AccountCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: T.brLg,
           border: Border.all(color: T.border),
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF16302A), T.surface],
+            colors: [const Color(0xFF16302A), T.surface],
           ),
         ),
         child: Row(

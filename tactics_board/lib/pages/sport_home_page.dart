@@ -341,7 +341,7 @@ class _SportHomePageState extends State<SportHomePage> {
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       // The count is this app's own library — right in the hub and in each of
@@ -718,17 +718,17 @@ class _SportHomePageState extends State<SportHomePage> {
         // last centimetre.
         Positioned.fill(
           child: DecoratedBox(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0x73000000),
-                  Color(0x1F000000),
-                  Color(0xB3071D1F),
+                  const Color(0x73000000),
+                  const Color(0x1F000000),
+                  T.bg0.withAlpha(0xB3),
                   T.bg0,
                 ],
-                stops: [0, .38, .80, 1],
+                stops: const [0, .38, .80, 1],
               ),
             ),
           ),
@@ -927,7 +927,7 @@ class _BoardCardState extends State<_BoardCard> {
       behavior: HitTestBehavior.opaque,
       onTap: hasBoard ? onOpen : onNew,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             color: T.surface, borderRadius: T.brLg),
         clipBehavior: Clip.antiAlias,
         // The board is portrait and the card is wide, so the thumbnail keeps
@@ -1083,7 +1083,7 @@ class _RecentRow extends StatelessWidget {
             onTap: () => onTap(recent),
             child: Container(
               padding: const EdgeInsets.all(T.s12),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brSm),
               child: Row(
                 children: [
@@ -1181,7 +1181,7 @@ class _TodayRow extends StatelessWidget {
             onTap: () => onTap(d),
             child: Container(
               clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brMd),
               child: Stack(
                 fit: StackFit.expand,
@@ -1434,7 +1434,7 @@ class _BoardRow extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             horizontal: T.s12, vertical: T.s12),
         decoration:
-            const BoxDecoration(color: T.surfaceHi, borderRadius: T.brMd),
+            BoxDecoration(color: T.surfaceHi, borderRadius: T.brMd),
         child: Row(
           children: [
             Icon(isDrill ? Icons.menu_book_outlined : Icons.dashboard_outlined,
@@ -1482,7 +1482,7 @@ class _LearnBlock extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(T.s16),
             decoration:
-                const BoxDecoration(color: T.surface, borderRadius: T.brMd),
+                BoxDecoration(color: T.surface, borderRadius: T.brMd),
             child: Row(
               children: [
                 const Icon(Icons.school_outlined, size: 20, color: T.accent),
@@ -1518,7 +1518,7 @@ class _LearnBlock extends StatelessWidget {
                   onTap: () => onLevel(l),
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: T.s12),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: T.surfaceHi, borderRadius: T.brMd),
                     alignment: Alignment.center,
                     child: Text(l.labelKey.tr(),
