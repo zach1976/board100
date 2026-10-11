@@ -22,6 +22,86 @@ LW, LB, CB, RB, RW = ((0.055, 0.185), (0.26, 0.31), (0.50, 0.34),
 PIVOT = (0.632, 0.208)
 BACKCOURT = (LB, CB, RB)
 
+# The goal mouth: posts at 8.5 and 11.5 m across the 20 m court, the goal
+# line at y = 0. A shot ends in the net — a metre inside a post, a quarter
+# of a metre over the line. Every shot used to end at (10, 1.6 m), on the
+# keeper's feet, and the shooting drills aimed at squares beside the frame.
+GOAL_L, GOAL_R = (0.45, -0.006), (0.55, -0.006)
+# The shaded target over a corner of the frame, its square inside the posts.
+ZONE_L, ZONE_R = (0.47, -0.0125), (0.53, -0.0125)
+# "Shoot here": resolved by aim_shots into the corner away from the shooter's
+# side, once the board knows where the shooter stands.
+SHOT = (0.50, 0.04)
+
+
+def _m(xm: float, ym: float) -> tuple[float, float]:
+    """Metres on the 20 x 40 m court to the court-relative units."""
+    return (xm / 20.0, ym / 40.0)
+
+
+def crescent(n: int, r: float = 6.6, half: float = 50.0,
+             outward: float = 0.0) -> list[tuple[float, float]]:
+    """n defenders spread evenly along the goal-area line, r metres out.
+
+    The 6 m line is two quarter circles round the posts joined by the 3 m
+    straight in front of the goal. A wall drawn as a straight row at 6.8 m
+    put the outside defenders 3.6 m off the line, on the 9 m dashes; this
+    follows the arc, from [half] degrees either side of straight out.
+    ``outward`` pushes every point that many metres further out, radially.
+    """
+    import math
+    r = r + outward
+    arc = math.radians(half) * r
+    total = 2 * arc + 3.0
+    out = []
+    for i in range(n):
+        s = total * (i / (n - 1) if n > 1 else 0.5)
+        if s <= arc:
+            th = math.radians(90 + half) - s / r
+            x, y = 8.5 + r * math.cos(th), r * math.sin(th)
+        elif s <= arc + 3.0:
+            x, y = 8.5 + (s - arc), r
+        else:
+            th = math.radians(90) - (s - arc - 3.0) / r
+            x, y = 11.5 + r * math.cos(th), r * math.sin(th)
+        out.append(_m(x, y))
+    return out
+
+
+def onto_arc(p, r: float = 6.8) -> tuple[float, float]:
+    """The point on the r-metre crescent between [p] and the goal."""
+    import math
+    xm, ym = p[0] * 20, p[1] * 40
+    if 8.5 <= xm <= 11.5:
+        return _m(xm, r)
+    px = 8.5 if xm < 8.5 else 11.5
+    d = math.hypot(xm - px, ym) or 1.0
+    return _m(px + (xm - px) * r / d, ym * r / d)
+
+
+def aim_shots(drills) -> None:
+    """Every SHOT target becomes a corner of the goal mouth.
+
+    The far corner from the shooter's side — a wing or a back on the left
+    shoots across the keeper to the right-hand post, and the reverse. A
+    shooter in the middle goes to the left.
+    """
+    from .engine import _pos_at
+    for d in drills:
+        legs = list(d.ball_to)
+        for k, (t, ph) in enumerate(legs):
+            if t != SHOT:
+                continue
+            prev = legs[k - 1][0] if k else d.ball
+            if isinstance(prev, int):
+                sx = _pos_at(d.home[prev], ph)[0]
+            elif isinstance(prev, str):
+                sx = _pos_at(d.away[int(prev[1:])], ph)[0]
+            else:
+                sx = prev[0]
+            legs[k] = (GOAL_R if sx < 0.45 else GOAL_L, ph)
+        d.ball_to = legs
+
 
 def defence_line(n: int, y: float, spread: float = 0.66) -> list[tuple[float, float]]:
     """n defenders evenly across the goal area, the shape of a flat wall."""
@@ -62,16 +142,17 @@ def warmup_family() -> list[Drill]:
     out = []
     for key, label in specs:
         if key == "star_passing":
-            spots = ring(5, 0.5, 0.40, 0.26, 0.13)
+            # Clear of halfway: centred at 14 m, the two bottom points of
+            # the star stood on the halfway line.
+            spots = ring(5, 0.5, 0.36, 0.26, 0.12)
             # A beat each, round the star — not `i % 2`. The ball makes five
-            # passes, one a beat, and the whole point of star passing is that
-            # you follow the one you made: on `i % 2` the five of them had
-            # finished checking in by beat two and the ball went on being
-            # passed for three more beats between men standing still. Each
-            # steps in on the beat the pass is travelling to him.
+            # passes, one a beat, and each player steps in on the beat the
+            # pass is travelling to him. The passes go ACROSS the ring —
+            # 1 to 3 to 5 to 2 to 4 and home — which is what draws the star;
+            # passing to the next man round drew a circle.
+            beat = {2: 0, 4: 1, 1: 2, 3: 3, 0: 4}
             home = [P(x, y, f"{i + 1}",
-                      moves=[(x + (0.5 - x) * 0.2, y,
-                              (i - 1) % len(spots))])
+                      moves=[(x + (0.5 - x) * 0.2, y, beat[i])])
                     for i, (x, y) in enumerate(spots)]
             away = []
         elif key == "three_lane":
@@ -92,7 +173,7 @@ def warmup_family() -> list[Drill]:
             # The star goes round and back to the man it started with; the
             # three lanes finish on the middle man's shot. Two passes and a
             # stop was a diagram of a triangle.
-            ball_to=(([(1, 0), (2, 1), (3, 2), (4, 3), (0, 4)] if key == "star_passing"
+            ball_to=(([(2, 0), (4, 1), (1, 2), (3, 3), (0, 4)] if key == "star_passing"
                       else [(1, 0), (2, 1), ((0.50, 0.04), 2)])
                      if not away else [(1, 0), ((0.50, 0.04), 1)]),
         ))
@@ -143,9 +224,16 @@ def circulation_family() -> list[Drill]:
                 P(*RB, "RB", moves=[(RB[0] - 0.04, RB[1] - 0.05, 2)]),
                 P(*RW, "RW", moves=[(0.91, 0.215, 2), (0.945, 0.185, 3)])]
         if key != "wide":
-            home.append(P(*PIVOT, "PIV", moves=[(0.36, SIX + 0.02, 1)]))
+            # Through the pivot, he shows for the ball in front of the CB;
+            # with a late runner, he holds his screen in the left gap.
+            home.append(P(*PIVOT, "PIV", moves=[
+                (0.55, SIX + 0.03, 1) if key == "with_pivot"
+                else (0.36, SIX + 0.02, 1)]))
         if key == "second_wave":
-            home.append(P(0.50, 0.52, "6", moves=[(0.44, 0.34, 2)]))
+            # The late runner arrives from deep into the space the swing
+            # opened and is the one who gets the ball and shoots over the
+            # wall — he used to run in after the ball had gone past him.
+            home.append(P(0.50, 0.52, "6", moves=[(0.42, 0.27, 2)]))
         out.append(Drill(
             id=f"hb_circulation_{key}", category="possession", minutes=12,
 # A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
@@ -153,11 +241,14 @@ tight=True,
             rel=True, free=(key == "with_pivot"),
             name=suffixed(CIRC_NAME, label), note=CIRC_NOTE,
             home=home,
-            away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
+            away=[P(x, y, "D") for x, y in crescent(6)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=1,
-            # swung along the back line and out to the flying wing
-            ball_to=[(2, 0), (3, 1), (4, 2)],
+            # swung along the back line and out to the flying wing; or in
+            # to the pivot, who lays it off; or to the late runner
+            ball_to={"wide": [(2, 0), (3, 1), (4, 2)],
+                     "with_pivot": [(2, 0), (5, 1), (3, 2), (4, 3)],
+                     "second_wave": [(2, 0), (3, 1), (6, 2)]}[key],
         ))
     return out
 
@@ -203,7 +294,7 @@ def attack_family() -> list[Drill]:
             tight=True, free=free,
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
             home=home,
-            away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
+            away=[P(x, y, "D") for x, y in crescent(6)]
                  + [P(*GOAL, "GK", role="GK")],
             ball=0,
             # the entry pass, and the strike the move earns
@@ -285,14 +376,16 @@ def shooting_family() -> list[Drill]:
     # abandoned his angle and shot from the middle, which is the one thing
     # a wing shot is not.
     specs = [
-        # key, label, start, release, keeper's corner
-        ("jump_nine", "the jump shot from 9 m", CB, (0.50, NINE), (0.38, 0.03)),
-        ("wing_angle", "from the wing angle", LW, (0.045, SIX - 0.01), (0.60, 0.04)),
-        ("pivot_turn", "the pivot's turn", PIVOT, (0.60, SIX - 0.005), (0.40, 0.04)),
-        ("break_through", "after breaking through", LB, (0.34, SIX + 0.02), (0.58, 0.03)),
+        # key, label, start, release, the corner it goes in, its zone.
+        # Each one into the net between the posts — they used to be aimed
+        # at squares beside the frame, 1.2 m out inside the goal area.
+        ("jump_nine", "the jump shot from 9 m", CB, (0.50, NINE), GOAL_L, ZONE_L),
+        ("wing_angle", "from the wing angle", LW, (0.045, SIX - 0.01), GOAL_R, ZONE_R),
+        ("pivot_turn", "the pivot's turn", PIVOT, (0.60, SIX + 0.005), GOAL_L, ZONE_L),
+        ("break_through", "after breaking through", LB, (0.34, SIX + 0.02), GOAL_R, ZONE_R),
     ]
     out = []
-    for key, label, frm, release, target in specs:
+    for key, label, frm, release, target, zone in specs:
         # Goal-side of the shooter and toward the middle, so a wing's marker
         # never ends up off the sideline.
         dx = 0.06 if frm[0] < 0.5 else -0.06
@@ -301,10 +394,12 @@ def shooting_family() -> list[Drill]:
             free=(key in ("jump_nine", "wing_angle")),
             name=suffixed(SHOT_NAME, label), note=SHOT_NOTE,
             home=[P(*frm, "S", moves=[release + (0,)])],
-            away=[P(*GOAL, "GK", role="GK", moves=[(target[0] * 0.5 + 0.25, 0.05, 1)]),
+            # The keeper's weight goes the wrong way: he leans to the
+            # other post, which is the corner the shooter reads open.
+            away=[P(*GOAL, "GK", role="GK", moves=[(1.0 - target[0] * 0.5 - 0.25, 0.05, 1)]),
                   P(frm[0] + dx, SIX + 0.03, "D",
                     moves=[(release[0] + dx * 0.6, SIX + 0.045, 0)])],
-            markers=[M(*target, "zone", "")],
+            markers=[M(*zone, "zone", "")],
             ball=0,
             # carried into the release point, struck at the marked corner
             ball_to=[(0, 0), (target, 1)],
@@ -339,25 +434,31 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    """The four systems, described by how far the front line stands out."""
-    specs = [("six_zero", "6-0", [(6, SIX + 0.015)]),
-             ("five_one", "5-1", [(5, SIX + 0.015), (1, NINE)]),
-             ("three_two_one", "3-2-1", [(3, SIX + 0.015), (2, NINE - 0.03), (1, NINE + 0.03)]),
-             ("four_two", "4-2", [(4, SIX + 0.015), (2, NINE - 0.02)])]
-    # The advanced players in a 4-2 or a 3-2-1 are the half-defenders, who
-    # press the backs from inside; drawn on the wings they marked nobody.
-    FRONT_SPREAD = 0.34
+    """The four systems, described by how far the front line stands out.
+
+    The back line follows the 6 m arc, not a straight row at 6.8 m that
+    left the outside defenders 3.6 m off the line. The advanced players in
+    a 4-2 or a 3-2-1 are the half-backs, who stand at about 9 m opposite the
+    backs (6 and 14 m across): drawn in front of the outside defenders near
+    the sidelines, they left both backs free.
+    """
+    HALF_BACKS = [_m(6.0, 8.6), _m(14.0, 8.6)]
+    specs = [("six_zero", "6-0", crescent(6), []),
+             ("five_one", "5-1", crescent(5), [_m(10.0, 9.6)]),
+             ("three_two_one", "3-2-1", crescent(3), HALF_BACKS + [_m(10.0, 10.8)]),
+             ("four_two", "4-2", crescent(4), HALF_BACKS)]
     out = []
-    for key, label, rows in specs:
+    for key, label, back, front in specs:
         away = []
-        for n, y in rows:
-            for x, yy in defence_line(n, y, 0.66 if y < NINE else FRONT_SPREAD):
-                # Stepping out is stepping *away* from your own goal. The
-                # first version subtracted, which walked all six defenders
-                # to 5.6 m — inside the goal area, where no field player may
-                # stand — and drew the opposite of "step out together".
-                away.append(P(x, yy, "D", moves=[(x + (0.5 - x) * 0.10, yy + 0.035, 0),
-                                                 (x, yy, 1)]))
+        # Stepping out is stepping *away* from your own goal, toward the
+        # ball side's attackers, and back together.
+        out_line = {xy: o for xy, o in zip(back, crescent(len(back), outward=1.2))}
+        for x, y in back:
+            ox, oy = out_line[(x, y)]
+            away.append(P(x, y, "D", moves=[(ox, oy, 0), (x, y, 1)]))
+        for x, y in front:
+            away.append(P(x, y, "D", moves=[(x + (0.5 - x) * 0.10, y + 0.03, 0),
+                                            (x, y, 1)]))
         away.append(P(*GOAL, "GK", role="GK"))
         out.append(Drill(
             id=f"hb_defence_{key}", category="defending", minutes=12, rel=True,
@@ -365,7 +466,7 @@ def defence_family() -> list[Drill]:
 tight=True,
             free=(key in ("six_zero", "five_one")),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
-            home=[P(*p, lbl, moves=[(p[0], p[1] - 0.04, 0)]) for p, lbl in
+            home=[P(*p, lbl, moves=[(p[0], p[1] - 0.03, 0)]) for p, lbl in
                   ((LW, "LW"), (LB, "LB"), (CB, "CB"), (RB, "RB"),
                    (RW, "RW"), (PIVOT, "PIV"))],
             away=away, ball=2,
@@ -406,33 +507,41 @@ def break_family() -> list[Drill]:
              ("third_wave", "third wave", 5)]
     out = []
     for key, label, n in specs:
+        # Everyone starts outside his own goal area: the centre back of a
+        # third wave used to stand 5.6 m from his own goal, inside it.
         starts = [(0.10, 0.72), (0.90, 0.72), (0.30, 0.80),
-                  (0.70, 0.80), (0.50, 0.86)][:n]
+                  (0.70, 0.80), (0.50, 0.78)][:n]
+
+        def runs(i, x, y):
+            # The wings (the first wave) finish on the 6 m line; the backs
+            # behind them stop at about 10 m, where the wall is not set yet.
+            lane = x + (0.5 - x) * 0.35
+            end = SIX + 0.03 if i < 2 else (0.26 if i < 4 else 0.29)
+            return [(x + (0.5 - x) * 0.20, 0.40, i // 2), (lane, end, i // 2 + 1)]
+
+        home = [P(0.50, 0.95, "GK", role="GK", moves=[(0.42, 0.88, 0)])] + [
+            P(x, y, f"{i + 1}", moves=runs(i, x, y))
+            for i, (x, y) in enumerate(starts)]
+        # The keeper has just saved it and throws the outlet; the ball then
+        # goes to the wave the drill is named for, who finishes. The third
+        # wave used to arrive after the shot had already been taken.
+        if n == 1:
+            ball_to = [(1, 1), (SHOT, 2)]
+        elif n == 3:
+            ball_to = [(2, 1), (3, 2), (SHOT, 3)]
+        else:
+            ball_to = [(2, 1), (4, 2), (5, 3), (SHOT, 4)]
         out.append(Drill(
             id=f"hb_break_{key}", category="attacking", minutes=10, rel=True,
             free=(key == "first_wave"),
             name=suffixed(BREAK_NAME, label), note=BREAK_NOTE,
-            # The waves ARE the stagger. Every runner used to start on phase
-            # 0, so "second wave" and "third wave" left at the same instant
-            # as the first and the concept was never drawn. Wings go on the
-            # save; each later wave is one beat behind the one in front.
-            home=[P(0.50, 0.95, "GK", role="GK",
-                    moves=[(0.42, 0.88, 0)])] + [
-                # They keep their lanes: converging to 0.7 of the way in put
-                # all five of a third wave inside five metres, which is a
-                # pile-up, not a break.
-                P(x, y, f"{i + 1}",
-                  moves=[(x + (0.5 - x) * 0.20, 0.40, i // 2),
-                         (x + (0.5 - x) * 0.35, SIX + 0.03, i // 2 + 1)])
-                for i, (x, y) in enumerate(starts)
-            ],
-            away=[P(0.44, 0.30, "D", moves=[(0.46, 0.20, 1)]),
+            # The waves ARE the stagger. Wings go on the save; each later
+            # wave is one beat behind the one in front.
+            home=home,
+            away=[P(0.44, 0.30, "D", moves=[(0.40, 0.19, 1)]),
                   P(*GOAL, "GK", role="GK")],
-            ball=1,
-            # outlet forward, finished before the wall is set. The first
-            # wave is one runner: he takes it the whole way himself.
-            ball_to=([(1, 1), ((0.50, 0.04), 2)] if len(starts) < 2
-                     else [(2, 1), ((0.50, 0.04), 2)]),
+            ball=0,
+            ball_to=ball_to,
         ))
     return out
 
@@ -485,47 +594,131 @@ PENALTY_NOTE = {
 }
 
 
+THROW_OFF_NOTE = {
+    "en": "Everyone in his own half until the ball leaves the thrower's hand, "
+          "then run. A throw-off rehearsed to the second scores before the "
+          "defence has finished getting back.",
+    "en-GB": "Everyone in his own half until the ball leaves the thrower's "
+             "hand, then run. A throw-off rehearsed to the second scores "
+             "before the defence has finished getting back.",
+    "zh-CN": "球离开开球人的手之前，所有人都在本方半场，球一出手再跑。练到分秒不差的开球，能在对方退防到位之前就进球。",
+    "zh-TW": "球離開開球人的手之前，所有人都在本方半場，球一出手再跑。練到分秒不差的開球，能在對方退防到位之前就進球。",
+    "ja-JP": "ボールが投げ手の手を離れるまで全員が自陣に残り、離れた瞬間に走る。秒単位で練習したスローオフは、守備が戻りきる前に得点する。",
+    "ko-KR": "공이 던지는 선수의 손을 떠날 때까지 모두 자기 진영에 있다가, 떠나는 순간 뛴다. 초 단위로 맞춘 스로오프는 수비가 다 돌아오기 전에 득점한다.",
+    "es-ES": "Todos en su propio campo hasta que el balón sale de la mano del "
+             "lanzador, y entonces a correr: un saque de centro ensayado al "
+             "segundo marca antes de que la defensa termine de replegar.",
+    "fr-FR": "Tout le monde dans sa moitié jusqu’à ce que le ballon quitte la "
+             "main du lanceur, puis on court : un engagement répété à la "
+             "seconde marque avant que la défense ait fini de se replier.",
+    "id-ID": "Semua tetap di setengah lapangan sendiri sampai bola lepas dari "
+             "tangan pelempar, lalu lari. Lemparan awal yang dilatih sampai "
+             "hitungan detik mencetak gol sebelum pertahanan selesai kembali.",
+    "ms-MY": "Semua kekal di separuh gelanggang sendiri sehingga bola lepas "
+             "dari tangan pelempar, kemudian lari. Lemparan permulaan yang "
+             "dilatih hingga ke saat menjaringkan gol sebelum pertahanan "
+             "sempat kembali.",
+    "th-TH": "ทุกคนอยู่ในแดนตัวเองจนกว่าบอลจะหลุดจากมือคนเปิดเกม แล้วจึงวิ่ง การเปิดเกมที่ซ้อมจนแม่นถึงวินาทีจะได้ประตูก่อนที่แนวรับจะกลับมาตั้งได้ทัน",
+    "vi-VN": "Mọi người ở yên trong phần sân nhà cho đến khi bóng rời tay "
+             "người ném, rồi mới chạy. Một pha phát bóng được tập đến từng "
+             "giây sẽ ghi bàn trước khi hàng thủ kịp lùi về.",
+}
+THROW_IN_NOTE = {
+    "en": "One foot on the sideline and the ball in play at once. A throw-in "
+          "taken while the defence is still turning round is worth more than "
+          "any routine run after it has set.",
+    "en-GB": "One foot on the sideline and the ball in play at once. A "
+             "throw-in taken while the defence is still turning round is worth "
+             "more than any routine run after it has set.",
+    "zh-CN": "一只脚踩在边线上，马上把球发出去。趁防守还在转身时发的边线球，比等对方站好后再打的任何配合都值钱。",
+    "zh-TW": "一隻腳踩在邊線上，馬上把球發出去。趁防守還在轉身時發的邊線球，比等對方站好後再打的任何配合都值錢。",
+    "ja-JP": "片足をサイドラインに置いて、すぐにボールを入れる。守備がまだ向き直っている間のスローインは、整った後のどんなセットプレーより価値がある。",
+    "ko-KR": "한 발을 사이드라인에 두고 바로 공을 넣어라. 수비가 아직 몸을 돌리는 중에 하는 스로인은, 수비가 자리 잡은 뒤의 어떤 패턴보다 값지다.",
+    "es-ES": "Un pie sobre la línea de banda y el balón en juego al instante: "
+             "un saque de banda hecho mientras la defensa aún se gira vale más "
+             "que cualquier jugada lanzada cuando ya está colocada.",
+    "fr-FR": "Un pied sur la ligne de touche et le ballon en jeu tout de "
+             "suite : une remise en jeu jouée pendant que la défense se "
+             "retourne vaut plus que n’importe quelle combinaison lancée une "
+             "fois qu’elle est en place.",
+    "id-ID": "Satu kaki di garis samping dan bola langsung dimainkan. Lemparan "
+             "ke dalam saat pertahanan masih berbalik lebih berharga daripada "
+             "pola apa pun setelah mereka siap.",
+    "ms-MY": "Sebelah kaki di garisan tepi dan bola terus dimainkan. Lemparan "
+             "ke dalam ketika pertahanan masih berpusing lebih bernilai "
+             "daripada sebarang corak selepas mereka bersedia.",
+    "th-TH": "เท้าข้างหนึ่งอยู่บนเส้นข้างแล้วส่งบอลเข้าเล่นทันที ลูกทุ่มที่เล่นตอนแนวรับยังหันตัวไม่ทัน มีค่ากว่าแผนใด ๆ ที่เล่นหลังจากเขาตั้งแนวเสร็จแล้ว",
+    "vi-VN": "Một chân đặt trên đường biên và đưa bóng vào cuộc ngay. Một quả "
+             "ném biên thực hiện khi hàng thủ còn đang xoay người đáng giá hơn "
+             "bất kỳ bài phối hợp nào chạy sau khi họ đã đứng vào vị trí.",
+}
+
+
 def setpiece_family() -> list[Drill]:
+    # The taker stands behind the 7 m line and does not touch or cross it
+    # before the ball has left his hand (Rule 14.6): no step in. He used to
+    # walk from 7.0 to 6.4 m first.
     out = [Drill(
         id="hb_set_seven_metre", category="setpiece", minutes=6, rel=True,
         free=True, name=suffixed(SET_NAME, "the 7 m throw"),
         # Its own point: there is no defence to rehearse a routine against,
         # so the shared free-throw note said nothing about this drill.
         note=PENALTY_NOTE,
-        home=[P(0.50, SEVEN_M, "S", moves=[(0.50, SEVEN_M - 0.015, 0)])],
-        away=[P(*GOAL, "GK", role="GK", moves=[(0.42, 0.05, 1)]),
-              # The three team-mates who may stand behind the 9 m line and
-              # must be on the board for the rebound to exist.
-              P(0.30, NINE + 0.03, "D", moves=[(0.36, NINE - 0.01, 1)]),
-              P(0.70, NINE + 0.03, "D", moves=[(0.64, NINE - 0.01, 1)])],
-        markers=[M(0.50, SEVEN_M, "square", ""), M(0.38, 0.03, "zone", "")],
+        home=[P(0.50, SEVEN_M + 0.008, "S")],
+        away=[P(*GOAL, "GK", role="GK", moves=[(0.53, 0.05, 0)]),
+              # The two team-mates who must stand outside the 9 m line until
+              # the throw, and follow in for the rebound once it is gone.
+              P(0.30, NINE + 0.03, "D", moves=[(0.36, NINE - 0.005, 1)]),
+              P(0.70, NINE + 0.03, "D", moves=[(0.64, NINE - 0.005, 1)])],
+        markers=[M(0.50, SEVEN_M, "square", ""), M(*ZONE_L, "zone", "")],
         ball=0,
-            # seven metres: one strike at the marked corner
-            ball_to=[((0.38, 0.03), 1)],
+        # seven metres: one strike at the marked corner
+        ball_to=[(GOAL_L, 0)],
     )]
-    # The 9 m throw is taken on the 9 m line, not four metres behind it.
-    routines = [("nine_metre", "the 9 m free throw", (0.50, NINE), (0.30, NINE + 0.02)),
-                ("throw_off", "the throw-off", (0.50, 0.50), (0.34, 0.44)),
-                # the thrower stands outside the line, which is what the
-                # off_surface flag is for
-                ("sideline", "the sideline throw", (-0.02, 0.30), (0.22, 0.26))]
-    for key, label, thrower, runner in routines:
-        out.append(Drill(
-            id=f"hb_set_{key}", category="setpiece", minutes=8, rel=True,
-# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
-tight=True,
-            free=(key == "nine_metre"), off_surface=(key == "sideline"),
-            name=suffixed(SET_NAME, label), note=SET_NOTE,
-            home=[P(*thrower, "1", moves=[(thrower[0], thrower[1] - 0.03, 1)]),
-                  P(*runner, "2", moves=[(runner[0] + (0.5 - runner[0]) * 0.5,
-                                          SIX + 0.04, 1)]),
-                  P(*PIVOT, "PIV", moves=[(0.62, SIX + 0.02, 0)])],
-            away=[P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
-                 + [P(*GOAL, "GK", role="GK")],
-            ball=0,
-            # thrown to the 2 cutting off the routine, struck at goal
-            ball_to=[(1, 1), ((0.50, 0.04), 2)],
-        ))
+    wall = crescent(6)
+    # The 9 m free throw: thrower on the line, every attacker outside it
+    # when the throw is taken (Rule 13.7) — the pivot used to wait among the
+    # defenders. They go in as the ball does.
+    out.append(Drill(
+        id="hb_set_nine_metre", category="setpiece", minutes=8, rel=True,
+        tight=True, free=True,
+        name=suffixed(SET_NAME, "the 9 m free throw"), note=SET_NOTE,
+        home=[P(0.50, NINE, "1", moves=[(0.50, NINE - 0.015, 0)]),
+              P(0.28, 0.26, "2", moves=[(0.36, 0.22, 0)]),
+              P(0.68, 0.255, "PIV", moves=[(0.62, SIX + 0.03, 0)])],
+        away=[P(x, y, "D") for x, y in wall] + [P(*GOAL, "GK", role="GK")],
+        ball=0,
+        # played to the 2 cutting off the routine, struck at goal
+        ball_to=[(1, 0), (SHOT, 1)],
+    ))
+    # The throw-off: every attacker in his own half until the ball goes
+    # (Rule 10.3). The runner and the pivot used to start in the
+    # opponents' half, the pivot already on their 6 m line.
+    out.append(Drill(
+        id="hb_set_throw_off", category="setpiece", minutes=8, rel=True,
+        tight=True, name=suffixed(SET_NAME, "the throw-off"),
+        note=THROW_OFF_NOTE,
+        home=[P(0.50, 0.50, "1", moves=[(0.50, 0.42, 1)]),
+              P(0.30, 0.54, "2", moves=[(0.36, 0.34, 0), (0.38, 0.25, 1)]),
+              P(0.68, 0.54, "PIV", moves=[(0.64, 0.32, 0), (0.62, SIX + 0.03, 1)])],
+        away=[P(x, y, "D") for x, y in wall] + [P(*GOAL, "GK", role="GK")],
+        ball=0,
+        # thrown to the 2 on the run, carried in, struck at goal
+        ball_to=[(1, 0), (1, 1), (SHOT, 2)],
+    ))
+    # The thrower stands with a foot on the line, which is what the
+    # off_surface flag is for.
+    out.append(Drill(
+        id="hb_set_sideline", category="setpiece", minutes=8, rel=True,
+        tight=True, off_surface=True,
+        name=suffixed(SET_NAME, "the sideline throw"), note=THROW_IN_NOTE,
+        home=[P(-0.02, 0.30, "1", moves=[(-0.02, 0.27, 1)]),
+              P(0.22, 0.26, "2", moves=[(0.34, 0.22, 1)]),
+              P(*PIVOT, "PIV", moves=[(0.62, SIX + 0.03, 0)])],
+        away=[P(x, y, "D") for x, y in wall] + [P(*GOAL, "GK", role="GK")],
+        ball=0,
+        ball_to=[(1, 1), (SHOT, 2)],
+    ))
     return out
 
 
@@ -557,25 +750,37 @@ GAME_NOTE = {
 def game_family() -> list[Drill]:
     out = []
     for n in (3, 4, 5, 6):
-        spots = ring(n, 0.5, 0.32, 0.30, 0.09)
+        spots = ring(n, 0.5, 0.37, 0.30, 0.09)
+        # Half the ring adjusts on each pass, not all of it on the
+        # first: with everyone moving on beat zero, the second pass went
+        # round an arc that had already stopped.
+        # The man at the top of the ring moves across, not in: stepping in
+        # he walked into the middle of three defenders.
+        steps = [(x - 0.06, y) if i == 0 else (x + (0.5 - x) * 0.15, y - 0.02)
+                 for i, (x, y) in enumerate(spots)]
+        # Goal-side of their man, on the line between him and the goal
+        # and clear of him — on the goal-area arc, stepping out a metre
+        # as he comes. They used to step onto the very spot their man
+        # stepped to, so the board drew pairs standing on each other.
+        home = [P(x, y, f"{i + 1}", moves=[(sx, sy, i % 2)])
+                for i, ((x, y), (sx, sy)) in enumerate(zip(spots, steps))]
+        # Each takes the arc spot in the order his man stands round the
+        # goal; projecting each man straight onto the arc piled the two
+        # central defenders on one point.
+        import math
+        order = sorted(range(n), key=lambda i: -math.atan2(spots[i][1] * 40,
+                                                            spots[i][0] * 20 - 10))
+        half = min(50.0, 15.0 + 6.0 * n)
+        line, stepped = crescent(n, 6.8, half), crescent(n, 6.8, half, outward=0.5)
+        slot = {i: k for k, i in enumerate(order)}
+        away = [P(*line[slot[i]], "D", moves=[(*stepped[slot[i]], i % 2)])
+                for i in range(n)]
         out.append(Drill(
             id=f"hb_game_{n}v{n}", category="ssg", minutes=15, rel=True,
             free=(n == 4),
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
-            # Half the ring adjusts on each pass, not all of it on the
-            # first: with everyone moving on beat zero, the second pass went
-            # round an arc that had already stopped.
-            home=[P(x, y, f"{i + 1}",
-                    moves=[(x + (0.5 - x) * 0.2, y - 0.04, i % 2)])
-                  for i, (x, y) in enumerate(spots)],
-            # Goal-side of their man. The first version put the defence
-            # *behind* the attack, so every board drew a defence that had
-            # already been beaten and an open path to the keeper.
-            away=[P(0.5 + (x - 0.5) * 0.8, max(y - 0.10, SIX + 0.02), "D",
-                    moves=[(0.5 + (x - 0.5) * 0.8, max(y - 0.05, SIX + 0.02),
-                            i % 2)])
-                  for i, (x, y) in enumerate(spots)]
-                 + [P(*GOAL, "GK", role="GK")],
+            home=home,
+            away=away + [P(*GOAL, "GK", role="GK")],
             ball=0,
             # two passes round the arc against matched defence
             ball_to=[(1 % n, 0), (2 % n, 1)],
@@ -589,25 +794,27 @@ ONE_V_ONE_NOTE = {
     "zh-TW": "全速中變向一次，用靠近防守人的那隻腳蹬地。讓他看著你做出來的假動作，不叫假動作。",
     "ja-JP": "スピードの中で一度だけ方向を変える。相手に近い側の足で踏み切る。準備を見られるフェイントはフェイントではない。",
     "ko-KR": "속도를 유지한 채 한 번만 방향을 바꾼다. 수비수 쪽 발로 밟아라. 준비 과정을 보여주는 페인트는 페인트가 아니다.",
-    "es-ES": "Cambia de direccion una sola vez, a velocidad, apoyando el pie mas cercano al defensor. Una finta que te ve preparar no es una finta.",
-    "fr-FR": "Change de direction une seule fois, a pleine vitesse, en appui sur le pied le plus proche du defenseur. Une feinte qu il te voit preparer n en est pas une.",
+    "es-ES": "Cambia de dirección una sola vez, a velocidad, apoyando el pie más cercano al defensor. Una finta que te ve preparar no es una finta.",
+    "fr-FR": "Change de direction une seule fois, à pleine vitesse, en appui sur le pied le plus proche du défenseur. Une feinte qu’il te voit préparer n’en est pas une.",
     "id-ID": "Ubah arah sekali saja, dalam kecepatan, bertumpu pada kaki terdekat dengan bek. Gerak tipu yang terlihat disiapkan bukan gerak tipu.",
     "ms-MY": "Tukar arah sekali sahaja, dalam kelajuan, bertumpu pada kaki terdekat dengan pemain bertahan.",
     "th-TH": "เปลี่ยนทิศทางครั้งเดียวด้วยความเร็ว ลงน้ำหนักที่เท้าข้างที่ใกล้กองหลัง หลอกที่เขาเห็นคุณตั้งท่าไม่ใช่การหลอก",
-    "vi-VN": "Doi huong mot lan duy nhat, o toc do cao, tru chan gan hau ve nhat. Dong tac gia ma anh ta nhin thay ban chuan bi thi khong con la dong tac gia.",
+    "vi-VN": "Đổi hướng một lần duy nhất, ở tốc độ cao, trụ chân gần hậu vệ nhất. Động tác giả mà đối thủ nhìn thấy bạn chuẩn bị thì không còn là động tác giả.",
 }
+# Man to man is what the board draws: six defenders, each with one attacker.
+# It used to be drawn and coached as 5+1 — one marker and a 5-0 behind him.
 MANMARK_NOTE = {
-    "en": "The marker follows one man everywhere and the five behind him play a short 5-0. If the five drift to watch the marker, the system has cost you a defender instead of gaining one.",
-    "zh-CN": "盯人的那个全场跟死一个人，身后五个人打紧凑的 5-0。如果这五个人跟着去看盯人的，这套体系就不是多赚一个人，而是少了一个人。",
-    "zh-TW": "盯人的那個全場跟死一個人，身後五個人打緊湊的 5-0。如果這五個人跟著去看盯人的，這套體系就不是多賺一個人，而是少了一個人。",
-    "ja-JP": "マンマークは一人にどこまでもつき、後ろの5人は短い5-0を組む。5人がマークを見に流れれば、このシステムは一人得るどころか一人失う。",
-    "ko-KR": "전담 수비는 한 명을 끝까지 따라가고 뒤의 다섯은 좁은 5-0을 선다. 다섯이 전담 수비를 보러 흘러가면 한 명을 얻는 대신 한 명을 잃는다.",
-    "es-ES": "El marcador sigue a un hombre a todas partes y los cinco de detras juegan un 5-0 corto. Si los cinco se van a mirarlo, el sistema te ha costado un defensor en vez de ganarlo.",
-    "fr-FR": "Le marqueur suit un seul homme partout et les cinq derriere jouent un 5-0 resserre. Si les cinq derivent pour le regarder, le systeme coute un defenseur au lieu d en gagner un.",
-    "id-ID": "Penjaga khusus mengikuti satu orang ke mana pun dan lima di belakangnya bermain 5-0 rapat.",
-    "ms-MY": "Penjaga khusus mengikut satu orang ke mana sahaja dan lima di belakang bermain 5-0 rapat.",
-    "th-TH": "คนประกบตามคนเดียวทุกที่ ส่วนอีกห้าคนยืน 5-0 แคบ ถ้าห้าคนไหลไปมองคนประกบ ระบบนี้ทำให้เสียคนแทนที่จะได้คน",
-    "vi-VN": "Nguoi kem theo mot nguoi di khap noi, nam nguoi phia sau danh 5-0 hep. Neu nam nguoi troi theo de nhin, he thong nay mat mot hau ve thay vi duoc them mot.",
+    "en": "Every defender takes one attacker and stays between him and the goal, a step off, on the ball side. Switch only by calling it: two defenders on one man leave an attacker free behind them.",
+    "zh-CN": "每个防守人盯住一个进攻人，站在他和球门之间，隔一步，偏向有球一侧。换人必须喊出来：两个人盯同一个人，身后就空出一个进攻人。",
+    "zh-TW": "每個防守人盯住一個進攻人，站在他和球門之間，隔一步，偏向有球一側。換人必須喊出來：兩個人盯同一個人，身後就空出一個進攻人。",
+    "ja-JP": "守備は一人ずつ相手を持ち、相手とゴールの間に、一歩離れてボール側に立つ。マークの受け渡しは必ず声で。二人が同じ相手につけば、背後で一人が空く。",
+    "ko-KR": "수비수마다 공격수 한 명을 맡아 그와 골 사이, 한 걸음 떨어진 공 쪽에 선다. 마크 교대는 반드시 콜로 한다. 두 명이 한 사람을 잡으면 뒤에서 공격수 한 명이 빈다.",
+    "es-ES": "Cada defensor toma a un atacante y se queda entre él y la portería, a un paso, del lado del balón. Solo se cambia de marca cantándolo: dos defensores sobre un hombre dejan a un atacante libre detrás.",
+    "fr-FR": "Chaque défenseur prend un attaquant et reste entre lui et le but, à un pas, côté ballon. On ne change de marquage qu’en l’annonçant : deux défenseurs sur un homme laissent un attaquant libre derrière eux.",
+    "id-ID": "Setiap bek menjaga satu penyerang dan berdiri di antara dia dan gawang, selangkah jauhnya, di sisi bola. Bertukar jagaan hanya dengan berteriak: dua bek pada satu orang membiarkan satu penyerang bebas di belakang.",
+    "ms-MY": "Setiap pemain bertahan mengawal seorang penyerang dan berdiri di antara dia dan gol, selangkah jauhnya, di sebelah bola. Tukar kawalan hanya dengan memanggilnya: dua pemain bertahan pada seorang membiarkan seorang penyerang bebas di belakang.",
+    "th-TH": "กองหลังแต่ละคนประกบผู้บุกหนึ่งคน ยืนระหว่างเขากับประตู ห่างหนึ่งก้าว ค่อนไปทางฝั่งบอล จะสลับประกบต้องตะโกนบอกเท่านั้น สองคนประกบคนเดียวคือปล่อยผู้บุกอีกคนว่างอยู่ข้างหลัง",
+    "vi-VN": "Mỗi hậu vệ kèm một cầu thủ tấn công và đứng giữa anh ta với khung thành, cách một bước, lệch về phía có bóng. Chỉ đổi người kèm khi đã hô lên: hai hậu vệ cùng kèm một người là bỏ trống một cầu thủ tấn công phía sau.",
 }
 RETURN_NOTE = {
     "en": "Sprint to the six metre line first and sort out who marks whom there. Running back watching the ball is how a five-on-four becomes a goal.",
@@ -615,12 +822,12 @@ RETURN_NOTE = {
     "zh-TW": "先衝回 6 米線，回到位再分誰盯誰。一邊往回跑一邊看球，五打四就是這樣變成一個球的。",
     "ja-JP": "まず6mラインまで全力で戻り、そこで誰が誰につくかを決める。ボールを見ながら戻るから、5対4が失点になる。",
     "ko-KR": "먼저 6미터 라인까지 전력으로 돌아가서 거기서 누가 누구를 잡을지 정한다. 공을 보며 돌아오면 5대4가 실점이 된다.",
-    "es-ES": "Corre primero a la linea de seis metros y reparte alli las marcas. Volver mirando el balon es como un cinco contra cuatro acaba en gol.",
-    "fr-FR": "Sprinte d abord jusqu a la ligne des six metres et repartis les marquages la-bas. Revenir en regardant le ballon, c est ainsi qu un cinq contre quatre devient un but.",
+    "es-ES": "Corre primero a la línea de seis metros y reparte allí las marcas. Volver mirando el balón es como un cinco contra cuatro acaba en gol.",
+    "fr-FR": "Sprinte d’abord jusqu’à la ligne des six mètres et répartis les marquages là-bas. Revenir en regardant le ballon, c’est ainsi qu’un cinq contre quatre devient un but.",
     "id-ID": "Sprint dulu ke garis enam meter dan bagi penjagaan di sana.",
     "ms-MY": "Pecut dahulu ke garisan enam meter dan bahagikan penjagaan di sana.",
     "th-TH": "วิ่งกลับถึงเส้นหกเมตรก่อน แล้วค่อยแบ่งว่าใครประกบใคร",
-    "vi-VN": "Chay het suc ve vach sau met truoc, roi moi phan ai kem ai o do.",
+    "vi-VN": "Chạy hết sức về vạch sáu mét trước, rồi mới phân ai kèm ai ở đó. Vừa chạy về vừa nhìn bóng là cách một pha năm đánh bốn biến thành bàn thua.",
 }
 BLOCK_NOTE = {
     "en": "Two hands up and together, arms locked, and take the ball with the hands rather than the face. A block that flinches is a deflection into your own goal.",
@@ -628,12 +835,12 @@ BLOCK_NOTE = {
     "zh-TW": "雙手舉起併攏、手臂鎖住，用手去擋球而不是用臉。縮一下的封擋，就是把球折射進自家球門。",
     "ja-JP": "両手を上げて揃え、腕を固める。顔ではなく手でボールを受ける。ひるんだブロックは自陣ゴールへの軌道変更だ。",
     "ko-KR": "두 손을 위로 모으고 팔을 고정한 채 얼굴이 아니라 손으로 공을 받는다. 움찔하는 블록은 자기 골문으로 굴절시킨다.",
-    "es-ES": "Dos manos arriba y juntas, brazos firmes, y recibe el balon con las manos y no con la cara. Un bloqueo que se encoge es un desvio a tu propia porteria.",
-    "fr-FR": "Deux mains hautes et jointes, bras verrouilles, et prends le ballon avec les mains plutot qu avec le visage. Un contre qui recule devie dans ton propre but.",
+    "es-ES": "Dos manos arriba y juntas, brazos firmes, y recibe el balón con las manos y no con la cara. Un bloqueo que se encoge es un desvío a tu propia portería.",
+    "fr-FR": "Deux mains hautes et jointes, bras verrouillés, et prends le ballon avec les mains plutôt qu’avec le visage. Un contre qui recule dévie dans ton propre but.",
     "id-ID": "Dua tangan naik dan rapat, lengan terkunci, dan sambut bola dengan tangan bukan wajah.",
     "ms-MY": "Dua tangan naik dan rapat, lengan terkunci, dan sambut bola dengan tangan bukan muka.",
     "th-TH": "ยกสองมือชิดกัน ล็อกแขน และรับบอลด้วยมือไม่ใช่ด้วยหน้า",
-    "vi-VN": "Hai tay gio len sat nhau, khoa canh tay, va don bong bang tay chu khong phai bang mat.",
+    "vi-VN": "Hai tay giơ lên sát nhau, khóa cánh tay, và đón bóng bằng tay chứ không phải bằng mặt. Một pha chắn bóng mà co người lại là đổi hướng bóng vào khung thành nhà.",
 }
 TRANSITION_GAME_NOTE = {
     "en": "Both goals live, so every turnover is a run the length of the court. The team that stops arguing about the whistle first gets the goal.",
@@ -641,31 +848,65 @@ TRANSITION_GAME_NOTE = {
     "zh-TW": "兩邊球門都算，所以每次丟球都要跑一整個全場。誰先不跟裁判理論，誰就先進球。",
     "ja-JP": "両ゴールとも生きているので、ターンオーバーはすべてコート全長のランになる。笛に文句を言うのをやめたチームが得点する。",
     "ko-KR": "양쪽 골이 모두 살아 있어 턴오버마다 코트를 끝까지 달려야 한다. 휘슬에 항의를 먼저 그만두는 팀이 득점한다.",
-    "es-ES": "Las dos porterias cuentan, asi que cada perdida es una carrera de cancha entera. Marca el equipo que deja antes de discutir el silbato.",
-    "fr-FR": "Les deux buts comptent, donc chaque perte de balle est une course sur toute la longueur. L equipe qui arrete la premiere de discuter l arbitrage marque.",
+    "es-ES": "Las dos porterías cuentan, así que cada pérdida es una carrera de cancha entera. Marca el equipo que antes deja de discutir el silbato.",
+    "fr-FR": "Les deux buts comptent, donc chaque perte de balle est une course sur toute la longueur. L’équipe qui arrête la première de discuter l’arbitrage marque.",
     "id-ID": "Kedua gawang hidup, jadi setiap kehilangan bola berarti lari sepanjang lapangan.",
     "ms-MY": "Kedua-dua gol hidup, jadi setiap kehilangan bola bermakna berlari sepanjang gelanggang.",
     "th-TH": "ประตูสองฝั่งใช้ได้ทั้งคู่ ทุกการเสียบอลจึงต้องวิ่งยาวทั้งสนาม",
-    "vi-VN": "Ca hai khung thanh deu tinh, nen moi lan mat bong la mot pha chay het chieu dai san.",
+    "vi-VN": "Cả hai khung thành đều tính, nên mỗi lần mất bóng là một pha chạy hết chiều dài sân. Đội nào thôi cãi trọng tài trước sẽ ghi bàn.",
 }
 GK_NAME = {"en": "Goalkeeping", "en-GB": "Goalkeeping", "zh-CN": "门将训练",
            "zh-TW": "門將訓練", "ja-JP": "GK練習", "ko-KR": "골키퍼 훈련",
-           "es-ES": "Porteria", "fr-FR": "Gardien de but", "id-ID": "Latihan kiper",
+           "es-ES": "Portería", "fr-FR": "Gardien de but", "id-ID": "Latihan kiper",
            "ms-MY": "Latihan penjaga gol", "th-TH": "ฝึกผู้รักษาประตู",
-           "vi-VN": "Tap thu mon"}
+           "vi-VN": "Tập thủ môn"}
 GK_NOTE = {
     "en": "Move on the shooter's plant foot, not on the ball. By the time you can see the ball the ball has already been thrown.",
     "zh-CN": "看射门者的支撑脚起动，不是看球。等你看得见球的时候，球已经出手了。",
     "zh-TW": "看射門者的支撐腳起動，不是看球。等你看得見球的時候，球已經出手了。",
     "ja-JP": "動き出すのはシューターの踏み切り足に対してで、ボールに対してではない。ボールが見えた時にはもう投げ終わっている。",
     "ko-KR": "슈터의 디딤발을 보고 움직여라. 공이 보일 때는 이미 던져진 뒤다.",
-    "es-ES": "Muevete con el pie de apoyo del lanzador, no con el balon: cuando ves el balon ya esta lanzado.",
-    "fr-FR": "Bouge sur le pied d appui du tireur, pas sur le ballon : quand tu vois le ballon, il est deja parti.",
+    "es-ES": "Muévete con el pie de apoyo del lanzador, no con el balón: cuando ves el balón ya está lanzado.",
+    "fr-FR": "Bouge sur le pied d’appui du tireur, pas sur le ballon : quand tu vois le ballon, il est déjà parti.",
     "id-ID": "Bergeraklah pada kaki tumpu penembak, bukan pada bola.",
     "ms-MY": "Bergerak pada kaki tumpuan penembak, bukan pada bola.",
     "th-TH": "ขยับตามเท้าหลักของคนยิง ไม่ใช่ตามบอล",
-    "vi-VN": "Di chuyen theo chan tru cua nguoi sut, khong phai theo bong.",
+    "vi-VN": "Di chuyển theo chân trụ của người ném, không phải theo bóng. Khi bạn thấy được bóng thì bóng đã rời tay rồi.",
 }
+
+
+def _marking(xm: float, ym: float, gap: float = 2.0) -> tuple[float, float]:
+    """A man-marker's spot: [gap] metres from his man toward the goal."""
+    import math
+    dx, dy = 10.0 - xm, -ym
+    d = math.hypot(dx, dy) or 1.0
+    return _m(xm + dx * gap / d, ym + dy * gap / d)
+
+
+def _man_to_man() -> Drill:
+    """Six defenders, each on one attacker, moving as their men move."""
+    # name, start, [(x, y, phase)] in metres
+    men = [("LW", (1.6, 9.0), [(2.6, 10.6, 1)]),
+           ("LB", (5.0, 13.0), [(5.6, 11.6, 0), (6.6, 13.0, 1)]),
+           ("CB", (10.0, 14.5), [(10.6, 13.6, 0)]),
+           ("RB", (15.0, 13.0), [(14.4, 12.0, 0)]),
+           ("RW", (18.4, 9.0), [(17.8, 10.0, 1)]),
+           ("PIV", (12.6, 9.6), [(8.8, 9.4, 0)])]
+    home, away = [], []
+    for lbl, (x, y), mv in men:
+        home.append(P(*_m(x, y), lbl, moves=[(*_m(mx, my), ph) for mx, my, ph in mv]))
+        away.append(P(*_marking(x, y), "D",
+                      moves=[(*_marking(mx, my), ph) for mx, my, ph in mv]))
+    return Drill(
+        id="hb_defence_man_to_man", category="defending", minutes=12, rel=True,
+        level="advanced", tight=True,
+        name=suffixed(DEF_NAME, "man to man"), note=MANMARK_NOTE,
+        home=home, away=away + [P(*GOAL, "GK", role="GK")],
+        ball=2,
+        # CB to LB as the pivot cuts across, LB out to the wing: every
+        # marker goes with his own man and stays goal-side of him
+        ball_to=[(1, 0), (0, 1)],
+    )
 
 
 def gaps_family() -> list[Drill]:
@@ -677,7 +918,7 @@ def gaps_family() -> list[Drill]:
     game; and — on boards that draw a goalkeeper twenty-eight times out of
     thirty — no goalkeeping at all.
     """
-    wall = [P(x, y, "D") for x, y in defence_line(6, SIX + 0.015)]
+    returns = [(0.24, 0.24), (0.50, 0.22), (0.76, 0.24)]
     return [
         Drill(
             id="hb_attack_one_v_one", category="attacking", minutes=10, rel=True,
@@ -685,51 +926,44 @@ def gaps_family() -> list[Drill]:
             name=suffixed(ATTACK_NAME, "one against one"), note=ONE_V_ONE_NOTE,
             home=[P(*CB, "CB", moves=[(0.42, 0.28, 0), (0.58, 0.235, 1)])],
             away=[P(0.50, SIX + 0.05, "D", moves=[(0.44, SIX + 0.035, 0)]),
-                  P(*GOAL, "GK", role="GK", moves=[(0.58, 0.05, 1)])],
-            markers=[M(0.62, 0.03, "zone", "")],
+                  P(*GOAL, "GK", role="GK", moves=[(0.53, 0.05, 1)])],
+            markers=[M(*ZONE_L, "zone", "")],
             ball=0,
-            # carried at the defender both ways, finished
-            ball_to=[(0, 0), (0, 1), ((0.58, 0.04), 2)],
+            # carried at the defender both ways, finished across the keeper
+            ball_to=[(0, 0), (0, 1), (GOAL_L, 2)],
         ),
-        Drill(
-            id="hb_defence_man_to_man", category="defending", minutes=12, rel=True,
-            level="advanced", tight=True,
-            name=suffixed(DEF_NAME, "man to man"), note=MANMARK_NOTE,
-            home=[P(*p, lbl) for p, lbl in ((LW, "LW"), (LB, "LB"), (CB, "CB"),
-                                            (RB, "RB"), (RW, "RW"), (PIVOT, "PIV"))],
-            away=[P(x, y, "D") for x, y in defence_line(5, SIX + 0.015, 0.56)]
-                 + [P(CB[0] + 0.05, CB[1] + 0.04, "M",
-                      moves=[(CB[0] + 0.02, CB[1] + 0.01, 0)]),
-                    P(*GOAL, "GK", role="GK")],
-            ball=2,
-            # their extra man plays it into the CB — the switch the marking must survive
-            ball_to=[("a5", 0), (2, 1)],
-        ),
+        _man_to_man(),
         Drill(
             id="hb_defence_return", category="defending", minutes=10, rel=True,
             name=suffixed(DEF_NAME, "getting back"), note=RETURN_NOTE, free=True,
-            home=[P(0.28, 0.44, "1", moves=[(0.24, 0.24, 0)]),
-                  P(0.50, 0.40, "2", moves=[(0.50, 0.22, 0)]),
-                  P(0.72, 0.44, "3", moves=[(0.76, 0.24, 0)])],
-            away=[P(0.22, 0.66, "D", moves=[(0.20, 0.34, 0), (0.22, SIX + 0.05, 1)]),
-                  P(0.50, 0.72, "D", moves=[(0.50, 0.38, 0), (0.50, SIX + 0.05, 1)]),
-                  P(0.78, 0.66, "D", moves=[(0.80, 0.34, 0), (0.78, SIX + 0.05, 1)]),
+            home=[P(0.28, 0.44, "1", moves=[(*returns[0], 0)]),
+                  P(0.50, 0.40, "2", moves=[(*returns[1], 0)]),
+                  P(0.72, 0.44, "3", moves=[(*returns[2], 0)])],
+            # They lost it at the other end and sprint back to the 6 m line,
+            # each to the arc in front of an attacker.
+            away=[P(0.22, 0.66, "D", moves=[(0.20, 0.34, 0), (*onto_arc(returns[0]), 1)]),
+                  P(0.50, 0.72, "D", moves=[(0.50, 0.38, 0), (*onto_arc(returns[1]), 1)]),
+                  P(0.78, 0.66, "D", moves=[(0.80, 0.34, 0), (*onto_arc(returns[2]), 1)]),
                   P(*GOAL, "GK", role="GK")],
             ball=1,
-            # lost up top; their D carries it back the whole length
-            ball_to=[("a1", 0), ("a1", 1)],
+            # The attack moves the ball across while the defence gets back;
+            # it used to be passed to a defender, who dribbled toward his
+            # own goal.
+            ball_to=[(0, 0), (2, 1), (SHOT, 2)],
         ),
         Drill(
             id="hb_defence_block", category="defending", minutes=8, rel=True,
-            level="foundation",
+            level="foundation", tight=True,
             name=suffixed(DEF_NAME, "blocking the shot"), note=BLOCK_NOTE,
-            home=[P(*CB, "CB", moves=[(0.50, 0.30, 0)])],
-            away=[P(0.44, SIX + 0.05, "D", moves=[(0.46, SIX + 0.075, 0)]),
-                  P(0.58, SIX + 0.05, "D", moves=[(0.56, SIX + 0.075, 0)]),
+            home=[P(0.50, 0.38, "CB", moves=[(0.50, 0.35, 0)])],
+            # A double block, shoulder to shoulder in the shooter's lane.
+            away=[P(0.45, SIX + 0.05, "D", moves=[(0.465, SIX + 0.08, 0)]),
+                  P(0.55, SIX + 0.05, "D", moves=[(0.535, SIX + 0.08, 0)]),
                   P(*GOAL, "GK", role="GK", moves=[(0.44, 0.05, 1)])],
             ball=0,
-            # the CB winds up and the two hands go up in front of it
-            ball_to=[((0.50, 0.06), 1)],
+            # the CB winds up and the shot meets the four hands of the block
+            # — it used to fly through the gap between them to the keeper
+            ball_to=[("a0", 1)],
         ),
         Drill(
             id="hb_game_transition", category="ssg", minutes=18, rel=True,
@@ -739,40 +973,66 @@ def gaps_family() -> list[Drill]:
                   P(0.50, 0.58, "2", moves=[(0.50, 0.30, 0), (0.50, 0.78, 2)]),
                   P(0.76, 0.62, "3", moves=[(0.80, 0.34, 0), (0.76, 0.80, 2)]),
                   P(0.50, 0.92, "GK", role="GK")],
-            away=[P(0.30, 0.40, "D", moves=[(0.28, 0.66, 1)]),
-                  P(0.50, 0.36, "D", moves=[(0.50, 0.62, 1)]),
-                  P(0.70, 0.40, "D", moves=[(0.72, 0.66, 1)]),
+            away=[P(0.30, 0.40, "D", moves=[(0.28, 0.66, 2), (0.36, 0.74, 3)]),
+                  P(0.44, 0.43, "D", moves=[(0.50, 0.62, 2)]),
+                  # steps into the lane and intercepts the pass to 3
+                  P(0.70, 0.40, "D", moves=[(0.66, 0.33, 1), (0.68, 0.55, 2)]),
                   P(*GOAL, "GK", role="GK")],
             ball=1,
-            # attack, turnover, and the ball comes back the other way
-            ball_to=[(1, 0), ("a1", 1)],
+            # attack; the pass to the wing is intercepted; carried the
+            # other way, laid off, and finished in the far goal
+            ball_to=[(1, 0), ("a2", 1), ("a2", 2), ("a0", 3), ((0.55, 1.006), 4)],
         ),
-    ] + [
+        # The keeper's drills: every shot into the goal mouth, the keeper
+        # moving to it — the zones used to sit outside both posts.
         Drill(
-            id=f"hb_gk_{key}", category="goalkeeping", minutes=10, rel=True,
-            level=lvl, free=(key == "angles"),
-            name=suffixed(GK_NAME, label), note=GK_NOTE,
-            home=home, away=[P(*GOAL, "GK", role="GK", moves=[gk_end + (1,)])],
-            markers=mk, ball=0,
-            # the serve each keeper drill answers, at the marked corner
-            ball_to=[(gk_end, 1)] if key != 'outlet' else [(1, 1)],
-        )
-        for key, label, lvl, home, gk_end, mk in [
-            ("angles", "angles", "foundation",
-             [P(0.30, NINE + 0.02, "1", moves=[(0.34, NINE - 0.01, 0)]),
-              P(0.70, NINE + 0.02, "2", moves=[(0.66, NINE - 0.01, 0)])],
-             (0.40, 0.055), [M(0.30, 0.03, "zone", ""), M(0.70, 0.03, "zone", "")]),
-            ("one_v_one", "one against one", "development",
-             [P(0.50, 0.42, "1", moves=[(0.50, 0.26, 0), (0.44, SIX - 0.005, 1)])],
-             (0.46, 0.06), [M(0.36, 0.03, "zone", "")]),
-            ("seven_metre", "saving the 7 m", "development",
-             [P(0.50, SEVEN_M, "1", moves=[(0.50, SEVEN_M - 0.015, 0)])],
-             (0.60, 0.055), [M(0.50, SEVEN_M, "square", "")]),
-            ("outlet", "the outlet pass", "development",
-             [P(0.12, 0.46, "1", moves=[(0.10, 0.22, 1)]),
-              P(0.88, 0.46, "2", moves=[(0.90, 0.22, 1)])],
-             (0.50, 0.14), [M(0.10, 0.16, "zone", ""), M(0.90, 0.16, "zone", "")]),
-        ]
+            id="hb_gk_angles", category="goalkeeping", minutes=10, rel=True,
+            level="foundation", free=True,
+            name=suffixed(GK_NAME, "angles"), note=GK_NOTE,
+            home=[P(0.30, NINE + 0.02, "1", moves=[(0.34, NINE - 0.01, 0)]),
+                  P(0.70, NINE + 0.02, "2", moves=[(0.66, NINE - 0.01, 0)])],
+            away=[P(*GOAL, "GK", role="GK", moves=[(0.46, 0.05, 1)])],
+            markers=[M(0.46, ZONE_L[1], "zone", ""), M(0.54, ZONE_R[1], "zone", "")],
+            ball=0,
+            ball_to=[(GOAL_L, 1)],
+        ),
+        Drill(
+            id="hb_gk_one_v_one", category="goalkeeping", minutes=10, rel=True,
+            level="development",
+            name=suffixed(GK_NAME, "one against one"), note=GK_NOTE,
+            home=[P(0.50, 0.42, "1", moves=[(0.50, 0.26, 0), (0.44, SIX + 0.012, 1)])],
+            away=[P(*GOAL, "GK", role="GK", moves=[(0.47, 0.065, 1)])],
+            markers=[M(*ZONE_R, "zone", "")],
+            ball=0,
+            ball_to=[(GOAL_R, 2)],
+        ),
+        Drill(
+            id="hb_gk_seven_metre", category="goalkeeping", minutes=10, rel=True,
+            level="development",
+            name=suffixed(GK_NAME, "saving the 7 m"), note=GK_NOTE,
+            # behind the line, and no step over it before the release
+            home=[P(0.50, SEVEN_M + 0.008, "1")],
+            away=[P(*GOAL, "GK", role="GK", moves=[(0.535, 0.05, 0)])],
+            markers=[M(0.50, SEVEN_M, "square", "")],
+            ball=0,
+            ball_to=[(GOAL_R, 0)],
+        ),
+        # The keeper has the ball after a save and throws the first pass of
+        # the break to his own near wing, sprinting away up the sideline;
+        # the back breaking up the middle is the second option. It used to
+        # be the attackers running at him, and the ball went from one of
+        # them to the other into empty court.
+        Drill(
+            id="hb_gk_outlet", category="goalkeeping", minutes=10, rel=True,
+            level="development",
+            name=suffixed(GK_NAME, "the outlet pass"), note=GK_NOTE,
+            home=[P(*GOAL, "GK", role="GK", moves=[(0.44, 0.07, 0)]),
+                  P(0.06, 0.17, "LW", moves=[(0.08, 0.38, 0), (0.10, 0.58, 1)]),
+                  P(0.32, 0.30, "B", moves=[(0.36, 0.42, 0), (0.40, 0.55, 1)])],
+            markers=[M(0.10, 0.62, "zone", ""), M(0.40, 0.59, "zone", "")],
+            ball=0,
+            ball_to=[(1, 1)],
+        ),
     ]
 
 
@@ -787,7 +1047,6 @@ FINISH_AT_GOAL = [
 # The star and the three lanes come back round to the start: the next
 # man goes; the keeper's outlet pass is carried over halfway.
 BACK_TO_START = ["hb_warm_star_passing", "hb_warm_three_lane"]
-OVER_HALFWAY = ["hb_gk_outlet"]
 
 
 def handball_library() -> list[Drill]:
@@ -795,6 +1054,6 @@ def handball_library() -> list[Drill]:
     drills = (warmup_family() + circulation_family() + attack_family()
               + break_family() + shooting_family() + defence_family()
               + setpiece_family() + game_family() + gaps_family())
-    finish_with(drills, (0.50, 0.04), FINISH_AT_GOAL)
-    finish_with(drills, (0.50, 0.45), OVER_HALFWAY)
+    finish_with(drills, SHOT, FINISH_AT_GOAL)
+    aim_shots(drills)
     return drills

@@ -69,9 +69,13 @@ class HandballCourtPainter extends CourtPainterBase {
       // 6m line — solid
       _drawCrescent(canvas, o, goalLeft, goalRight, goalY, goal6,
           bottom: bottom, paint: p);
-      // 9m line — dashed
+      // 9m line — dashed, and only on the court: radius 9 from posts
+      // 8.5 m from the sidelines runs past them, and was drawn outside.
+      canvas.save();
+      canvas.clipRect(Rect.fromLTWH(left, top, cw, ch));
       _drawCrescent(canvas, o, goalLeft, goalRight, goalY, goal9,
           bottom: bottom, paint: dashed, dashed: true);
+      canvas.restore();
       // Penalty mark at 7m
       final dy = bottom ? -7.0 : 7.0;
       canvas.drawLine(
@@ -90,6 +94,12 @@ class HandballCourtPainter extends CourtPainterBase {
 
     drawZone(0, bottom: false);          // top goal
     drawZone(fieldH, bottom: true);      // bottom goal
+
+    // Substitution lines (IHF Rule 1:9): on the bench-side sideline, 4.5 m
+    // either side of halfway, 15 cm inside and 15 cm outside the line.
+    for (final dy in const [-4.5, 4.5]) {
+      canvas.drawLine(o(-0.15, fieldH / 2 + dy), o(0.15, fieldH / 2 + dy), p);
+    }
 
     // ── Goals (3m wide × ~1m deep, drawn as small rectangle outside line) ─
     const goalDepth = 1.0;
@@ -155,9 +165,15 @@ class HandballCourtPainter extends CourtPainterBase {
     // 6m line — solid.
     _drawCrescent(canvas, o, goalLeft, goalRight, 0, goal6,
         bottom: false, paint: p);
-    // 9m line — dashed.
+    // 9m line — dashed, clipped to the court (it runs past the sidelines).
+    canvas.save();
+    canvas.clipRect(Rect.fromLTWH(left, top, cw, ch));
     _drawCrescent(canvas, o, goalLeft, goalRight, 0, goal9,
         bottom: false, paint: dashed, dashed: true);
+    canvas.restore();
+
+    // Substitution line end mark, 4.5 m from halfway (IHF Rule 1:9).
+    canvas.drawLine(o(-0.15, fieldH - 4.5), o(0.15, fieldH - 4.5), p);
     // Penalty mark at 7m.
     canvas.drawLine(
       o(fieldW / 2 - 0.5, 7.0),
