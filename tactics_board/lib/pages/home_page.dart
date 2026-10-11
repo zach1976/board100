@@ -453,7 +453,12 @@ class TacticsBoardHomePage extends StatelessWidget {
                             final runName = tuple.$2;
                             final inPlanMode =
                                 planName != null || runName != null;
-                            return GestureDetector(
+                            // Named for VoiceOver: a bare GestureDetector
+                            // was a silent, unlabelled spot on the screen.
+                            return Semantics(
+                              button: true,
+                              label: 'common_back'.tr(),
+                              child: GestureDetector(
                               onTap: () async {
                                 final state = context.read<TacticsState>();
                                 if (runName != null) {
@@ -469,6 +474,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                                   final startIdx = state.runningItemIndex;
                                   state.runningPlanName = null;
                                   state.editingFromPlan = null;
+                                  // The run page that opened this board is
+                                  // right underneath: go back to it. Pushing
+                                  // a fresh one each time is what looped.
+                                  if (!context.mounted) return;
+                                  if (Navigator.of(context).canPop()) {
+                                    Navigator.of(context).pop();
+                                    return;
+                                  }
                                   final p =
                                       await PracticeService.load(
                                         state.sportType,
@@ -532,6 +545,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                                   color: inPlanMode ? T.accent : Colors.white,
                                   size: 16 * uiScale(context),
                                 ),
+                              ),
                               ),
                             );
                           },

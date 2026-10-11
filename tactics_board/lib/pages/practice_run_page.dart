@@ -10,6 +10,7 @@ import '../services/practice_history_service.dart';
 import '../widgets/attendance_sheet.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
+import 'home_page.dart' show TacticsBoardHomePage;
 
 Color get _kBg => T.bg1;
 Color get _kCard => T.surface;
@@ -47,7 +48,9 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     super.initState();
     AdService.instance.pushAdSuppression(); // live practice run stays ad-free
     _idx = widget.initialIndex.clamp(0, widget.practice.items.length - 1);
-    widget.state.runningPlanName = null;
+    // Not cleared here any more: the board clears it before it pops back to
+    // this page, and notifying listeners from initState would rebuild the
+    // board's back button in the middle of this build.
     _startedAt = DateTime.now();
     _resetItem();
   }
@@ -187,12 +190,21 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     widget.state.editingFromPlan = null;
     await widget.state.loadTactics(it.tacticName);
     if (!mounted) return;
-    Navigator.of(context).popUntil((r) => r.isFirst);
+    // On top of this page, not instead of it. It used to popUntil the first
+    // route — which stopped being the board when the sport's home page went
+    // in front of it — so "open on board" landed on the home page, and the
+    // board's Back then had to rebuild a run page to return to.
     if (widget.state.hasMoves) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         widget.state.startAnimation();
       });
     }
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
+    );
+    widget.state.runningPlanName = null;
+    if (!mounted) return;
+    setState(() {});
   }
 
   Future<void> _showCompleteDialog() async {

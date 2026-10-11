@@ -2633,7 +2633,17 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String? runningPlanName;
+  /// The plan being run while its board is open. Notifies: the board's back
+  /// button reads it through a Selector, and as a bare field a cleared name
+  /// never reached it — every Back pushed one more run page, endlessly.
+  String? _runningPlanName;
+  String? get runningPlanName => _runningPlanName;
+  set runningPlanName(String? v) {
+    if (_runningPlanName == v) return;
+    _runningPlanName = v;
+    notifyListeners();
+  }
+
   int runningItemIndex = 0;
 
   /// Persist the board as `<name>.json`.
