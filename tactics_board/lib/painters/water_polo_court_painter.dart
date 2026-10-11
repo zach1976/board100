@@ -77,22 +77,34 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     // Pool boundary (white)
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), whiteLine);
 
-    // Goal lines (red, full width)
-    canvas.drawLine(o(0, 0), o(fieldW, 0), redLine);
-    canvas.drawLine(o(0, fieldH), o(fieldW, fieldH), redLine);
+    // World Aquatics markings: goal lines and halfway white, 2 m red,
+    // 6 m yellow, the 5 m penalty line marked in yellow (ticks at the sides
+    // and the penalty mark in the middle). They were painted with the goal
+    // line red and the 2 m white — the other way round.
+    // Goal lines (white, full width)
+    canvas.drawLine(o(0, 0), o(fieldW, 0), whiteLine);
+    canvas.drawLine(o(0, fieldH), o(fieldW, fieldH), whiteLine);
 
-    // 2m line — white, close to goal
-    canvas.drawLine(o(0, 2), o(fieldW, 2), whiteLine);
-    canvas.drawLine(o(0, fieldH - 2), o(fieldW, fieldH - 2), whiteLine);
+    // Re-entry areas: the corner an excluded player waits in, one at each
+    // goal line, on the side away from the table.
+    _drawReentry(canvas, o(0, 0), o(2, 2));
+    _drawReentry(canvas, o(0, fieldH - 2), o(2, fieldH));
+
+    // 2m line — red, close to goal
+    canvas.drawLine(o(0, 2), o(fieldW, 2), redLine);
+    canvas.drawLine(o(0, fieldH - 2), o(fieldW, fieldH - 2), redLine);
 
     // 6m line — yellow
     canvas.drawLine(o(0, 6), o(fieldW, 6), yellowLine);
     canvas.drawLine(o(0, fieldH - 6), o(fieldW, fieldH - 6), yellowLine);
 
-    // 5m mark — short yellow ticks (penalty mark)
+    // 5m — yellow ticks at both sides and the penalty mark
     final yellowFill = Paint()..color = const Color(0xFFFFEB3B)..style = PaintingStyle.fill;
-    canvas.drawCircle(o(fieldW / 2, 5), 0.18 * scX, yellowFill);
-    canvas.drawCircle(o(fieldW / 2, fieldH - 5), 0.18 * scX, yellowFill);
+    for (final y in [5.0, fieldH - 5]) {
+      canvas.drawLine(o(0, y), o(0.8, y), yellowLine);
+      canvas.drawLine(o(fieldW - 0.8, y), o(fieldW, y), yellowLine);
+      canvas.drawCircle(o(fieldW / 2, y), 0.18 * scX, yellowFill);
+    }
 
     // Halfway line (white)
     canvas.drawLine(o(0, fieldH / 2), o(fieldW, fieldH / 2), whiteLine);
@@ -161,19 +173,24 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     // Pool boundary (white). Halfway line is the bottom edge.
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), whiteLine);
 
-    // Goal line (red, full width, at the top).
-    canvas.drawLine(o(0, 0), o(fieldW, 0), redLine);
+    // Goal line (white, full width, at the top).
+    canvas.drawLine(o(0, 0), o(fieldW, 0), whiteLine);
 
-    // 2m line — white, close to goal.
-    canvas.drawLine(o(0, 2), o(fieldW, 2), whiteLine);
+    // Re-entry area in the corner.
+    _drawReentry(canvas, o(0, 0), o(2, 2));
+
+    // 2m line — red, close to goal.
+    canvas.drawLine(o(0, 2), o(fieldW, 2), redLine);
 
     // 6m line — yellow.
     canvas.drawLine(o(0, 6), o(fieldW, 6), yellowLine);
 
-    // 5m mark — yellow penalty dot.
+    // 5m — yellow side ticks and the penalty mark.
     final yellowFill = Paint()
       ..color = const Color(0xFFFFEB3B)
       ..style = PaintingStyle.fill;
+    canvas.drawLine(o(0, 5), o(0.8, 5), yellowLine);
+    canvas.drawLine(o(fieldW - 0.8, 5), o(fieldW, 5), yellowLine);
     canvas.drawCircle(o(fieldW / 2, 5), 0.18 * scX, yellowFill);
 
     // Halfway line (white) at the bottom edge + centre spot.
@@ -190,6 +207,22 @@ class WaterPoloCourtPainter extends CourtPainterBase {
       Rect.fromLTWH(o(goalLeft, -goalDepth).dx, o(goalLeft, -goalDepth).dy,
           goalW * scX, goalDepth * scY),
         pitch: size);
+  }
+
+  /// The re-entry area: a red-edged, lightly tinted box between two corners.
+  void _drawReentry(Canvas canvas, Offset a, Offset b) {
+    final r = Rect.fromPoints(a, b);
+    canvas.drawRect(
+        r,
+        Paint()
+          ..color = const Color(0xFFE53935).withValues(alpha: 0.18)
+          ..style = PaintingStyle.fill);
+    canvas.drawRect(
+        r,
+        Paint()
+          ..color = const Color(0xFFE53935)
+          ..strokeWidth = 1.2
+          ..style = PaintingStyle.stroke);
   }
 
   void _drawWater(Canvas canvas, Size size) {
