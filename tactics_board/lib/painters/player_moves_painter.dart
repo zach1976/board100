@@ -472,6 +472,20 @@ class PlayerMovesPainter extends CustomPainter {
         }
         continue;
       }
+      // A person's short run — the start copy and the end copy all but
+      // touching — leaves no gap between the two bodies for a shaft and a
+      // head. Squeezed in there the head landed on his feet pointing along
+      // the run, and a table tennis player stepping back from the table
+      // read as one who had turned his back on it. Beside the two figures
+      // instead, parallel to the run: it still says which way he went, and
+      // it sits on nobody.
+      if (person && dist < startRadius + endRadius + _arrowSize + 6) {
+        if (layer != RouteLayer.shafts) {
+          _drawBeside(canvas, color, from, to,
+              player.scale * kFigureScale, strong: strong, style: style);
+        }
+        continue;
+      }
       // Two tokens far enough apart to read can still be closer than the two
       // clearances want. Shrinking both in proportion keeps a short arrow
       // pointing the right way; at full radius the offsets would cross over
@@ -514,6 +528,29 @@ class PlayerMovesPainter extends CustomPainter {
     if (uy > 1e-6) t = 0;
     if (t == double.infinity) t = hw;
     return t + 4.0 * scale;
+  }
+
+  /// A short person run drawn alongside the figures rather than between
+  /// them: the same direction and span, moved sideways (in screen space,
+  /// via [footward]) past the body's half-width, at least a readable length.
+  void _drawBeside(Canvas canvas, Color color, Offset from, Offset to,
+      double scale,
+      {bool strong = false, _Line style = _Line.dash}) {
+    final delta = to - from;
+    final dist = delta.distance;
+    if (dist < 0.5) return;
+    final dir = delta / dist;
+    final right = Offset(footward.dy, -footward.dx);
+    // To the figure's right on screen, unless the run itself is sideways,
+    // in which case below the feet keeps it off both bodies.
+    final sideways = (dir.dx * right.dx + dir.dy * right.dy).abs() > 0.7;
+    final side = sideways ? footward * (8.0 * scale) : right * (18.0 * scale);
+    final mid = (from + to) / 2 + side;
+    final half = max(dist / 2, 10.0 * scale);
+    final tail = mid - dir * half;
+    final tip = mid + dir * half;
+    _drawLine(canvas, color, tail, tip, strong: strong, fade: true, style: style);
+    _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
   /// The stub for a move the icons are too big to show — see
