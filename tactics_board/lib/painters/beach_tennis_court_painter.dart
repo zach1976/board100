@@ -31,12 +31,14 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     const fieldH = 16.0;
     const ratio = fieldW / fieldH;
 
+    // At SportType.fieldRect's 0.84 (tools/drills/engine.py COURT) — room
+    // behind the far baseline.
     double cw, ch;
     if (w / h > ratio) {
-      ch = h * 0.85;
+      ch = h * 0.84;
       cw = ch * ratio;
     } else {
-      cw = w * 0.85;
+      cw = w * 0.84;
       ch = cw / ratio;
     }
     final left = (w - cw) / 2;

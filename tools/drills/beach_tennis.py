@@ -4,7 +4,7 @@ A small court with a high net and no bounce: every ball is a volley, so there
 is no baseline game to fall back on. Home is the bottom half, the net is at
 y=0.5, and the two players cover the width between them.
 """
-from .engine import Drill, M, P, Spot, suffixed
+from .engine import Drill, M, P, Spot, figure_clear, suffixed
 
 BASE = (0.50, 0.90)
 # Base position is 1.5-2 m off the net, not 3.5: the library's own
@@ -12,6 +12,10 @@ BASE = (0.50, 0.90)
 # exchange more often than not, and only one board moved them up.
 LEFT, RIGHT = (0.28, 0.665), (0.72, 0.665)
 NET_L, NET_R = (0.30, 0.60), (0.70, 0.60)
+# Behind the far baseline with the FEET behind it: the figure hangs half its
+# height below its point, toward the net, so a far man written 0.043 past
+# the line stood on it (tools/check_baselines.py). The near side is 1.043.
+FAR_BACK = -figure_clear("beachTennis")
 
 
 def mirror(pt):
@@ -150,12 +154,16 @@ def serve_family() -> list[Drill]:
     # volleys it back — nothing bounces. Four distinct labels: S and P
     # serve, R receives with his partner N (both sides used to field a P,
     # and both receivers were "R").
-    specs = [("flat", SERVE_LABEL["flat"], (0.32, 0.30)),
-             ("sliced", SERVE_LABEL["sliced"], (0.68, 0.32)),
-             ("jump", "jump", (0.50, 0.22))]
+    # The serve is hit deep, so R waits behind his baseline, feet behind it,
+    # and takes it there, a step across to where it is aimed; the zone is
+    # the deep target in front of him. He used to wait 4-6 m inside the
+    # court, and the serves were aimed at mid-court.
+    specs = [("flat", SERVE_LABEL["flat"], (0.32, 0.10)),
+             ("sliced", SERVE_LABEL["sliced"], (0.68, 0.12)),
+             ("jump", "jump", (0.50, 0.08))]
     out = []
     for key, label, land in specs:
-        r_at = (land[0], land[1] - 0.06)
+        r_at = (0.40 if land[0] <= 0.5 else 0.60, FAR_BACK)
         n_at = (0.70, 0.32) if land[0] < 0.6 else (0.30, 0.32)
         out.append(Drill(
             id=f"bt_serve_{key}", category="setpiece", minutes=8, rel=True,
@@ -163,7 +171,7 @@ def serve_family() -> list[Drill]:
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
             home=[P(0.32, 1.043, "S", moves=[(0.34, 0.74, 1)]),
                   P(*RIGHT, "P", moves=[(0.70, 0.62, 1)])],
-            away=[P(*r_at, "R", moves=[(land[0], land[1], 0)]), P(*n_at, "N")],
+            away=[P(*r_at, "R", moves=[(land[0], FAR_BACK, 0)]), P(*n_at, "N")],
             markers=[M(*land, "zone", "")],
             ball=0, ball_to=[("a0", 0), (0, 1)],
         ))
@@ -390,15 +398,15 @@ def game_family() -> list[Drill]:
     specs = [
         ("half_court", "half-court singles",
          [P(0.28, 1.043, "1", moves=[(0.28, 0.72, 0)])],
-         [P(0.28, 0.28, "A")]),
+         [P(0.28, FAR_BACK, "A")]),
         ("king_of_the_court", "king of the court",
          [P(0.30, 1.043, "1", moves=[LEFT + (0,)]), P(*RIGHT, "2"),
           P(1.07, 0.84, "3"), P(1.07, 0.96, "4")],
-         [P(0.70, 0.335, "A"), P(0.30, 0.335, "B"),
+         [P(0.70, FAR_BACK, "A"), P(0.30, 0.335, "B"),
           P(-0.07, 0.16, "C"), P(-0.07, 0.04, "D")]),
         ("full_doubles", "full doubles",
          [P(0.30, 1.043, "1", moves=[LEFT + (0,)]), P(*RIGHT, "2")],
-         [P(0.70, 0.335, "A"), P(0.30, 0.335, "B")]),
+         [P(0.70, FAR_BACK, "A"), P(0.30, 0.335, "B")]),
     ]
     for key, label, home, away in specs:
         out.append(Drill(
@@ -467,10 +475,10 @@ def return_family() -> list[Drill]:
             name=suffixed(RETURN_NAME, label), note=RETURN_NOTE,
             home=[P(0.34, 0.80, "R", moves=[meet + (0,), NET_L + (1,)]),
                   P(0.70, 0.66, "N", moves=[(0.68, 0.60, 1)])],
-            away=[P(0.30, -0.043, "S", moves=[(0.40, 0.30, 1)]),
+            away=[P(0.30, FAR_BACK, "S", moves=[(0.40, 0.30, 1)]),
                   P(0.72, 0.32, "P")],
             markers=[M(*to, "zone", "")],
-            ball=(0.30, -0.043), ball_to=[(0, 0), (Spot(*to), 1)],
+            ball=(0.30, FAR_BACK), ball_to=[(0, 0), (Spot(*to), 1)],
         ))
     return out
 

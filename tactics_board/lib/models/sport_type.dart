@@ -600,11 +600,12 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:      aspect = 68 / 105;    scaleW = 0.90; scaleH = 0.90; break;
       case SportType.basketball:  aspect = 15 / 28;     scaleW = 0.90; scaleH = 0.90; break;
       case SportType.badminton:   aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
-      // 0.82: room for a receiver with his feet behind the far baseline
-      // (boards from the 0.88 court: TacticsState._fromLegacyPickleball).
+      // Pickleball, tennis, volleyball and beach tennis: room for a man
+      // with his feet behind the far baseline (boards from the old
+      // courts: TacticsState.kCourtRedraws).
       case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.82; scaleH = 0.82; break;
-      case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.85; scaleH = 0.85; break;
-      case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.84; scaleH = 0.84; break;
+      case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.84; scaleH = 0.84; break;
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
       case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
@@ -612,7 +613,7 @@ extension SportTypeExtension on SportType {
       case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
       case SportType.waterPolo:   aspect = 20 / 25;     scaleW = 0.88; scaleH = 0.88; break;
       case SportType.sepakTakraw: aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
-      case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.84; scaleH = 0.84; break;
       case SportType.footvolley:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
     }
     double cw, ch;
@@ -661,18 +662,20 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            // On the baselines (1.0 / 0.0 of the court rect — formations
-            // must stay inside 0..1); 0.78 was 1.2 m behind the service
-            // line, in no-man's-land.
-            homePositions: [Offset(0.5, 1.0)],
-            awayPositions: [Offset(0.5, 0.0)],
+            // Behind the baselines, ready to serve and return; 0.78 was
+            // 1.2 m behind the service line, in no-man's-land. A person is
+            // drawn centred on his point, so the far man stands 0.05 past
+            // his line (tools/drills/tennis.py FAR_BACK): on it, his feet
+            // were in the court.
+            homePositions: [Offset(0.5, 1.04)],
+            awayPositions: [Offset(0.5, -0.05)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
             // Server at the baseline right, partner at net left;
             // receiver at his baseline, partner at his net.
-            homePositions: [Offset(0.7, 1.0), Offset(0.3, 0.60)],
-            awayPositions: [Offset(0.3, 0.0), Offset(0.7, 0.40)],
+            homePositions: [Offset(0.7, 1.04), Offset(0.3, 0.60)],
+            awayPositions: [Offset(0.3, -0.05), Offset(0.7, 0.40)],
           ),
         ];
 

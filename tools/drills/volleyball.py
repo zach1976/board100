@@ -6,7 +6,7 @@ generated per rotation rather than drawn once. The court is portrait with the
 net across the middle at y=0.5; home defends the bottom half, and away is the
 same shape mirrored through the net.
 """
-from .engine import Drill, M, P, court_rect, suffixed
+from .engine import Drill, M, P, court_rect, figure_clear, suffixed
 
 NET = 0.5
 
@@ -54,19 +54,20 @@ def ball_spot(pt):
     return (ax, y - 70.0 / _H)
 
 
-# The server stands as far behind the line as the board can show him.
+# The server stands behind the end line.
 #
 # A serve is struck from behind the line, and written as 0.04 of the court
 # (0.72 m) the token sat half over it — the one thing a coach would correct
-# on a board about serve receive. But the margin outside the end line is only
-# 54 units of the 730 the board is drawn in (1.6 m of court), and a figure is
-# 67 units tall: 25 above its own point and 42 below. Standing him far enough
-# back to clear the line takes his head off the card. 0.043 is 0.78 m, the
-# deepest point whose head is still drawn; getting him wholly into the
-# service zone needs the COURT drawn smaller, which is a change to
-# SportType.fieldRect and the painter together.
+# on a board about serve receive. A figure is drawn centred on its point,
+# half of it below: a near server 0.043 back has all of him behind his line,
+# but a far one had his feet on it (0.4pt behind), because the margin outside
+# the end line was 54pt of the 730 the board is drawn in, about one figure.
+# The court is now drawn at 0.84 (engine.COURT), and the far server stands
+# half a figure and 3pt of air past his line (FAR_BACK): feet behind it,
+# head on the board.
 SERVE_BACK = 0.043
-SERVE_SPOT = (0.5, -SERVE_BACK)
+FAR_BACK = -figure_clear("volleyball")
+SERVE_SPOT = (0.5, FAR_BACK)
 
 # ── serve receive, one drill per rotation ────────────────────────────────────
 

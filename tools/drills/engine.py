@@ -40,11 +40,15 @@ SPORT_INDEX = {
 # A table tennis table is the odd one out: it is drawn small on purpose,
 # because the players stand well back from it and the room matters.
 COURT = {
+    # Tennis, volleyball and beach tennis at 0.84 (were 0.85) for the same
+    # reason as pickleball below: room for a far-side man with his feet
+    # behind the baseline (COURT_REDRAW). Badminton stays: nobody plays a
+    # shuttle from outside the court (tools/check_baselines.py).
     "badminton":   (6.1 / 13.4,     0.88, 0.88),
     "tableTennis": (1.525 / 2.74,   0.65, 0.55),
-    "tennis":      (10.97 / 23.77,  0.85, 0.85),
+    "tennis":      (10.97 / 23.77,  0.84, 0.84),
     "basketball":  (15 / 28,        0.90, 0.90),
-    "volleyball":  (9 / 18,         0.85, 0.85),
+    "volleyball":  (9 / 18,         0.84, 0.84),
     # 0.82, not 0.88: a far-side receiver stands with his FEET behind the
     # baseline, so the whole 52pt figure has to fit above it on the phone.
     # Boards carry "pbCourt": 2 (see to_display_frame).
@@ -56,8 +60,22 @@ COURT = {
     "handball":    (20 / 40,        0.90, 0.90),
     "waterPolo":   (20 / 25,        0.88, 0.88),
     "sepakTakraw": (6.1 / 13.4,     0.88, 0.88),
-    "beachTennis": (8 / 16,         0.85, 0.85),
+    "beachTennis": (8 / 16,         0.84, 0.84),
     "footvolley":  (9 / 18,         0.85, 0.85),
+}
+
+# Courts redrawn at a new scale, and how a board says which one it was
+# drawn on: sport -> (board key, current version, the old scale). A board
+# carrying the key at that version is on the court COURT gives; one without
+# it was drawn at the old scale, and the app carries it across line for line
+# (TacticsState._fromLegacyCourt, the same table in kCourtRedraws). Each was
+# shrunk so a far-side man stands wholly on the board with his FEET behind
+# the baseline (tools/check_baselines.py).
+COURT_REDRAW = {
+    "pickleball":  ("pbCourt", 2, 0.88),
+    "tennis":      ("court", 2, 0.85),
+    "beachTennis": ("court", 2, 0.85),
+    "volleyball":  ("court", 2, 0.85),
 }
 
 
@@ -91,6 +109,19 @@ def court_rect(sport: str) -> tuple[float, float, float, float]:
     # Back into the authoring canvas, whose fractions are what the app keeps.
     return (left / DISPLAY_W * CANVAS_W, top / DISPLAY_H * CANVAS_H,
             cw / DISPLAY_W * CANVAS_W, ch / DISPLAY_H * CANVAS_H)
+
+
+def figure_clear(sport: str, clear_pt: float = 3.0) -> float:
+    """Half a drawn figure plus ``clear_pt`` of air, in fractions of the
+    court's LENGTH on the phone board.
+
+    The app draws a person upright and centred on his point, FIGURE_PT
+    tall, so his feet are half a figure below it. A far-side man this far
+    past his baseline (y = -figure_clear) has his feet behind it; written
+    a hair past the line, he stood on it or in the court
+    (tools/check_baselines.py).
+    """
+    return (FIGURE_PT[1] / 2 + clear_pt) / (court_rect(sport)[3] * DISPLAY_H / CANVAS_H)
 
 TEAM_HOME, TEAM_AWAY, TEAM_NEUTRAL = 0, 1, 2
 # MarkerShape enum order in lib/models/player_icon.dart
@@ -557,10 +588,11 @@ def to_display_frame(board: dict) -> dict:
     # read by the app as drawn on the old pool and carried across.
     if board.get("sportType") == SPORT_INDEX["waterPolo"]:
         board["poolLength"] = 25
-    # The pickleball court shrank (0.88 → 0.82) to fit a receiver behind
-    # the far baseline; a board without this is read as the old court.
-    if board.get("sportType") == SPORT_INDEX["pickleball"]:
-        board["pbCourt"] = 2
+    # A court redrawn smaller to fit a man behind the far baseline (see
+    # COURT_REDRAW); a board without its key is read as the old court.
+    for sport, (key, version, _) in COURT_REDRAW.items():
+        if board.get("sportType") == SPORT_INDEX[sport]:
+            board[key] = version
     return board
 
 

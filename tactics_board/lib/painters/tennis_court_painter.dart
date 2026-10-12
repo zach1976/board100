@@ -29,14 +29,15 @@ class TennisCourtPainter extends CourtPainterBase {
     final w = size.width;
     final h = size.height;
 
-    // Full court 23.77m x 10.97m (portrait)
+    // Full court 23.77m x 10.97m (portrait), at SportType.fieldRect's 0.84
+    // (tools/drills/engine.py COURT) — room behind the far baseline.
     const courtRatio = 23.77 / 10.97;
     double cw, ch;
     if (h / w > courtRatio) {
-      cw = w * 0.85;
+      cw = w * 0.84;
       ch = cw * courtRatio;
     } else {
-      ch = h * 0.85;
+      ch = h * 0.84;
       cw = ch / courtRatio;
     }
     final left = (w - cw) / 2;

@@ -29,6 +29,7 @@
   "board": {
    "canvasHeight": "2.0.0",
    "canvasWidth": "2.0.0",
+   "court": "2.1.0",
    "figureScale": "2.0.0",
    "pbCourt": "2.1.0",
    "players": "2.0.0",

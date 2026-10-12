@@ -5,7 +5,7 @@ shape describing where the player is pulled and how they recover. The court is
 portrait with the net at y=0.5 and home at the bottom; doubles adds a partner
 whose position is the other half of the answer.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, figure_clear, suffixed
 
 BASE = (0.50, 0.72)
 # The four corners a singles player is worked between, plus the net tape.
@@ -14,6 +14,11 @@ RL, RR = (0.14, 0.94), (0.86, 0.94)
 NET_L, NET_R = (0.22, 0.545), (0.78, 0.545)
 # Where a feeder stands, just the other side of the net.
 FEED = (0.50, 0.44)
+# A far-side server stands in his service court with his FEET behind his
+# short service line (0.352): the figure hangs half its height below its
+# point, toward the net, so at 0.315 his feet were over the line, in the
+# front court (tools/check_baselines.py).
+SRV_FAR_Y = 0.5 - 1.98 / 13.4 - figure_clear("badminton")
 
 
 def mirror(pt):
@@ -818,20 +823,20 @@ def gaps_family() -> list[Drill]:
             name=suffixed(RETURN_NAME, "against the short serve"),
             note=RETURN_NOTE,
             home=[P(0.36, 0.71, "R", moves=[(0.40, 0.625, 0), (0.38, 0.68, 1)])],
-            away=[P(0.62, 0.315, "S", moves=[(0.60, 0.28, 1)])],
+            away=[P(0.62, SRV_FAR_Y, "S", moves=[(0.60, SRV_FAR_Y - 0.035, 1)])],
             markers=[M(0.66, 0.40, "zone", ""), M(0.50, 0.352, "cone", ""),
                      M(0.50, 0.648, "cone", "")],
-            ball=(0.615, 0.335),
+            ball=(0.615, SRV_FAR_Y + 0.02),
             ball_moves=[(0.40, 0.625, 0), (0.66, 0.40, 1)],
         ),
         Drill(
             id="bd_return_flick_serve", category="setpiece", minutes=8, rel=True,
             name=suffixed(RETURN_NAME, "against the flick"), note=RETURN_NOTE,
             home=[P(0.36, 0.71, "R", moves=[(0.34, 0.84, 0), (0.40, 0.70, 2)])],
-            away=[P(0.62, 0.315, "S", moves=[(0.58, 0.26, 1)])],
+            away=[P(0.62, SRV_FAR_Y, "S", moves=[(0.58, SRV_FAR_Y - 0.055, 1)])],
             markers=[M(0.70, 0.24, "zone", ""), M(0.50, 0.352, "cone", ""),
                      M(0.50, 0.648, "cone", "")],
-            ball=(0.615, 0.335),
+            ball=(0.615, SRV_FAR_Y + 0.02),
             ball_moves=[(0.34, 0.86, 0), (0.70, 0.24, 1)],
         ),
         Drill(

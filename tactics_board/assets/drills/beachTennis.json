@@ -1,7 +1,7 @@
 {
   "sport": "beachTennis",
   "version": 5,
-  "minClient": "2.0.0",
+  "minClient": "2.1.0",
   "drills": [
     {
       "id": "bt_warm_volley_exchange",
@@ -81,17 +81,17 @@
             "sportType": null,
             "position": [
               201.0,
-              464.28000000000003
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
                 201.0,
-                439.46000000000004
+                438.584
               ],
               [
                 201.0,
-                464.28000000000003
+                463.112
               ]
             ],
             "movePhases": [
@@ -113,17 +113,17 @@
             "sportType": null,
             "position": [
               201.0,
-              265.72
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [
               [
                 201.0,
-                290.54
+                291.416
               ],
               [
                 201.0,
-                265.72
+                266.88800000000003
               ]
             ],
             "movePhases": [
@@ -145,17 +145,17 @@
             "sportType": 13,
             "position": [
               201.0,
-              440.28000000000003
+              439.1120000000001
             ],
             "scale": 1.0,
             "moves": [
               [
                 201.0,
-                314.54
+                315.416
               ],
               [
                 201.0,
-                440.28000000000003
+                439.1120000000001
               ]
             ],
             "movePhases": [
@@ -182,7 +182,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -262,18 +263,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              157.565,
-              427.05
+              158.07600000000002,
+              426.32000000000005
             ],
             "scale": 1.0,
             "moves": [
               [
-                157.565,
-                402.22999999999996
+                158.07600000000002,
+                401.792
               ],
               [
-                157.565,
-                427.05
+                158.07600000000002,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -295,18 +296,18 @@
             "team": 1,
             "sportType": null,
             "position": [
-              244.43500000000003,
-              302.95
+              243.924,
+              303.68
             ],
             "scale": 1.0,
             "moves": [
               [
-                244.43500000000003,
-                327.77000000000004
+                243.924,
+                328.208
               ],
               [
-                244.43500000000003,
-                302.95
+                243.924,
+                303.68
               ]
             ],
             "movePhases": [
@@ -328,18 +329,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              157.565,
-              403.05
+              158.07600000000002,
+              402.32000000000005
             ],
             "scale": 1.0,
             "moves": [
               [
-                228.63088941115558,
-                345.8318406729651
+                228.11988941115555,
+                346.2698406729651
               ],
               [
-                173.36911058884442,
-                408.98815932703496
+                173.88011058884445,
+                408.25815932703495
               ]
             ],
             "movePhases": [
@@ -366,7 +367,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -446,18 +448,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              464.28000000000003
+              139.68,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                439.46000000000004
+                139.68,
+                438.584
               ],
               [
-                138.95000000000002,
-                464.28000000000003
+                139.68,
+                463.112
               ]
             ],
             "movePhases": [
@@ -478,14 +480,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              228.49000000000004
+              139.68,
+              230.096
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                253.31
+                139.68,
+                254.62400000000002
               ]
             ],
             "movePhases": [
@@ -505,18 +507,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              440.28000000000003
+              139.68,
+              439.1120000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                252.49000000000004
+                139.68,
+                254.09600000000003
               ],
               [
-                138.95000000000002,
-                440.28000000000003
+                139.68,
+                439.1120000000001
               ]
             ],
             "movePhases": [
@@ -543,7 +545,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -623,18 +626,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              464.28000000000003
+              139.68,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                439.46000000000004
+                139.68,
+                438.584
               ],
               [
-                138.95000000000002,
-                464.28000000000003
+                139.68,
+                463.112
               ]
             ],
             "movePhases": [
@@ -656,14 +659,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              269.255,
-              240.9
+              268.452,
+              242.36
             ],
             "scale": 1.0,
             "moves": [
               [
-                269.255,
-                265.72
+                268.452,
+                266.888
               ]
             ],
             "movePhases": [
@@ -684,18 +687,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              440.28000000000003
+              139.68,
+              439.1120000000001
             ],
             "scale": 1.0,
             "moves": [
               [
-                257.1620953874219,
-                261.63069362156244
+                256.3590953874219,
+                263.0906936215624
               ],
               [
-                151.0429046125781,
-                443.5493063784376
+                151.7729046125781,
+                442.3813063784376
               ]
             ],
             "movePhases": [
@@ -722,7 +725,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -802,18 +806,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              151.36,
-              551.15
+              151.94400000000002,
+              548.96
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                513.9200000000001
+                151.94400000000002,
+                512.168
               ],
               [
-                138.95000000000002,
-                427.05
+                139.68,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -834,14 +838,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              263.05,
-              464.28000000000003
+              262.32,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                427.05
+                256.18800000000005,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -861,14 +865,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              28.068500000000004
+              139.68,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                169.97500000000002,
-                240.9
+                170.34000000000003,
+                242.36
               ]
             ],
             "movePhases": [
@@ -888,8 +892,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              269.255,
-              253.31
+              268.452,
+              254.62400000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -909,8 +913,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              107.92500000000003,
-              116.80000000000001
+              109.02000000000001,
+              119.72000000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -929,18 +933,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              28.068500000000004
+              139.68,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                150.74717306199045,
-                489.9278253769266
+                151.33451247634628,
+                488.17574031153976
               ],
               [
-                107.92500000000003,
-                116.80000000000001
+                109.02000000000001,
+                119.72000000000003
               ]
             ],
             "movePhases": [
@@ -967,7 +971,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -1047,18 +1052,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              151.36,
-              551.15
+              151.94400000000002,
+              548.96
             ],
             "scale": 1.0,
             "moves": [
               [
-                157.565,
-                489.1
+                158.07600000000002,
+                487.64
               ],
               [
-                138.95000000000002,
-                427.05
+                139.68,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -1079,14 +1084,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              263.05,
-              464.28000000000003
+              262.32,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                427.05
+                256.18800000000005,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -1106,14 +1111,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              28.068500000000004
+              139.68,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                169.97500000000002,
-                240.9
+                170.34000000000003,
+                242.36
               ]
             ],
             "movePhases": [
@@ -1133,8 +1138,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              269.255,
-              253.31
+              268.452,
+              254.62400000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -1154,8 +1159,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              244.43500000000003,
-              278.13
+              243.924,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -1174,18 +1179,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              28.068500000000004
+              139.68,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                156.59674453267638,
-                465.11953959261837
+                157.11329778585355,
+                463.65931601378145
               ],
               [
-                244.43500000000003,
-                278.13
+                243.924,
+                279.15200000000004
               ]
             ],
             "movePhases": [
@@ -1212,7 +1217,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -1256,18 +1262,18 @@
         "vi-VN": "Giao bóng thẳng"
       },
       "note": {
-        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向前移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
-        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向前移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
-        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが前方へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
-        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 앞으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
-        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza hacia delante; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
-        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace vers l'avant ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
-        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke depan; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
-        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke hadapan; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
-        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปข้างหน้า • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
-        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển lên phía trước; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
+        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves left; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves left; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向左移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向左移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが左へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 왼쪽으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza a la izquierda; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace à gauche ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke kiri; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke kiri; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปทางซ้าย • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển sang trái; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1292,14 +1298,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              145.155,
-              701.9314999999999
+              145.812,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                513.9200000000001
+                151.94400000000002,
+                512.168
               ]
             ],
             "movePhases": [
@@ -1319,14 +1325,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                439.46000000000004
+                262.32,
+                438.584
               ]
             ],
             "movePhases": [
@@ -1346,14 +1352,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              145.155,
-              203.67000000000002
+              170.34000000000003,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                240.9
+                145.812,
+                29.400000000000038
               ]
             ],
             "movePhases": [
@@ -1373,8 +1379,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              263.05,
-              253.31
+              262.32,
+              254.62400000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -1393,8 +1399,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              145.155,
-              240.9
+              145.812,
+              119.72000000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -1413,18 +1419,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              145.9466481865969,
-              677.9445599461152
+              146.60364818659687,
+              673.9806599461151
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                264.9
+                145.812,
+                53.400000000000034
               ],
               [
-                150.7621613123435,
-                489.9274472199488
+                151.62323905868664,
+                488.170143587009
               ]
             ],
             "movePhases": [
@@ -1451,7 +1457,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -1495,18 +1502,18 @@
         "vi-VN": "Giao bóng cắt"
       },
       "note": {
-        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向前移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
-        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向前移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
-        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが前方へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
-        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 앞으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
-        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza hacia delante; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
-        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace vers l'avant ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
-        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke depan; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
-        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke hadapan; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
-        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปข้างหน้า • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
-        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển lên phía trước; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
+        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves right; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves right; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向右移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向右移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが右へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 오른쪽으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza a la derecha; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace à droite ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke kanan; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke kanan; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปทางขวา • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển sang phải; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1531,14 +1538,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              145.155,
-              701.9314999999999
+              145.812,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                513.9200000000001
+                151.94400000000002,
+                512.168
               ]
             ],
             "movePhases": [
@@ -1558,14 +1565,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                439.46000000000004
+                262.32,
+                438.584
               ]
             ],
             "movePhases": [
@@ -1585,14 +1592,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              216.08
+              231.65999999999997,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                253.31
+                256.18800000000005,
+                29.400000000000038
               ]
             ],
             "movePhases": [
@@ -1612,8 +1619,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              253.31
+              139.68,
+              254.62400000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -1632,8 +1639,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              256.845,
-              253.31
+              256.18800000000005,
+              131.98400000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -1652,18 +1659,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              145.9466481865969,
-              677.9445599461152
+              146.60364818659687,
+              673.9806599461151
             ],
             "scale": 1.0,
             "moves": [
               [
-                251.04688547873096,
-                276.5990933270973
+                252.2786795649667,
+                53.079468189472344
               ],
               [
-                160.6545389898737,
-                491.79283242333725
+                157.06829276632294,
+                488.7214304503833
               ]
             ],
             "movePhases": [
@@ -1690,7 +1697,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -1734,18 +1742,18 @@
         "vi-VN": "Giao bóng nhảy phát bóng"
       },
       "note": {
-        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves forward; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
-        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向前移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
-        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向前移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
-        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが前方へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
-        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 앞으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
-        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza hacia delante; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
-        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace vers l'avant ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
-        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke depan; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
-        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke hadapan; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
-        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปข้างหน้า • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
-        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển lên phía trước; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
+        "en": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves right; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "en-GB": "Purpose: Rehearse the serve and its patterns — the one ball you start with full control of, placed to set up the point you want.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 2 v 2, blue: S, P, red: R, N, ball with S.\nEquipment: the shaded zone is where the serve has to land.\nBall path: S → R → S\nSequence: Step 1: S plays it to R, R moves right; Step 2: R plays it to S, S, P move forward.\nHow it continues: Ten serves, then the server and the receiver swap; the returner plays every ball as if the rally were live, and the server collects the balls between sets.\nCoaching point: Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.",
+        "zh-CN": "【目的】发球：练发球和发球后的套路。发球是你唯一能完全掌控的球，发到你想打的位置。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】2 对 2，蓝方：S、P，红方：R、N，球在 S 手中。\n【器材】阴影区是发球要落的区域。\n【球路】S → R → S\n【流程】第1步：S把球击向R，R向右移动；第2步：R把球击向S，S、P向前移动。\n【连贯】连发 10 个球后发球者与接发者互换；接发者每一球都当真回合来打，发球者在组间捡球。\n【要点】发低球、打脚下。这项运动没有落地，低于网带的球只能往上挑，而挑起来的球都会被砸回来。",
+        "zh-TW": "【目的】發球：練發球和發球後的套路。發球是你唯一能完全掌控的球，發到你想打的位置。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】2 對 2，藍方：S、P，紅方：R、N，球在 S 手中。\n【器材】陰影區是發球要落的區域。\n【球路】S → R → S\n【流程】第1步：S把球擊向R，R向右移動；第2步：R把球擊向S，S、P向前移動。\n【連貫】連發 10 個球後發球者與接發者互換；接發者每一球都當真回合來打，發球者在組間撿球。\n【要點】發低球、打腳下。這項運動沒有落地，低於網帶的球只能往上挑，而挑起來的球都會被砸回來。",
+        "ja-JP": "【目的】サーブとそのパターンを反復する。完全に主導権を持って始められる唯一のボールを、狙った展開に置く。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】2対2、青：S・P、赤：R・N、ボールはS。\n【用具】網掛けゾーンはサーブを落とすエリア。\n【ボールの道筋】S → R → S\n【流れ】ステップ1：SがRへ打つ、Rが右へ移動。ステップ2：RがSへ打つ、S・Pが前方へ移動。\n【続け方】10本サーブしたらサーバーとレシーバーを交代。レシーバーは毎球本番のように返し、サーバーはセット間に球を集める。\n【ポイント】低く、足元へ。ここにバウンドは存在しない。白帯より低い球は上げるしかなく、上げた球は必ず叩き返される。",
+        "ko-KR": "【목적】서브와 그 패턴을 반복한다. 완전한 주도권으로 시작하는 유일한 공을, 원하는 전개로 배치한다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】2대2, 청팀: S, P, 홍팀: R, N, 공은 S.\n【장비】음영 구역은 서브가 떨어져야 할 곳.\n【볼 경로】S → R → S\n【진행】1단계: S가 R 쪽으로 친다, R은 오른쪽으로 이동; 2단계: R이 S 쪽으로 친다, S, P는 앞으로 이동.\n【이어가기】서브 열 개 후 서버와 리시버가 교대한다. 리시버는 모든 공을 실전처럼 받고, 서버는 세트 사이에 공을 줍는다.\n【포인트】낮게, 발밑으로 서브하라. 여기엔 바운드가 없어 네트보다 낮은 공은 띄울 수밖에 없고, 띄운 공은 되받아 내리꽂힌다.",
+        "es-ES": "Objetivo: Ensayar el saque y sus patrones: la única bola que empiezas con control total, colocada para armar el punto que quieres.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 2 contra 2, azules: S, P, rojos: R, N, balón con S.\nMaterial: la zona sombreada es donde tiene que caer el saque.\nRecorrido del balón: S → R → S\nSecuencia: Paso 1: S la juega hacia R, R se desplaza a la derecha; Paso 2: R la juega hacia S, S, P se desplaza hacia delante.\nContinuidad: Diez saques y cambio entre sacador y restador; el restador juega cada bola como si el punto fuera real y el sacador recoge las bolas entre series.\nPunto clave: Saca bajo y a los pies. Aquí nada bota: una bola por debajo de la cinta hay que levantarla, y todo lo que se levanta vuelve abajo.",
+        "fr-FR": "Objectif : Répéter le service et ses schémas : la seule balle que tu débutes en plein contrôle, placée pour construire le point voulu.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 2 contre 2, les bleus : S, P, les rouges : R, N, ballon avec S.\nMatériel : la zone ombrée est l’endroit où le service doit tomber.\nTrajet du ballon : S → R → S\nDéroulé : Étape 1 : S joue vers R, R se déplace à droite ; Étape 2 : R joue vers S, S, P se déplace vers l'avant.\nEnchaînement : Dix services puis serveur et relanceur permutent ; le relanceur joue chaque balle comme un vrai échange et le serveur ramasse entre les séries.\nPoint clé : Sers bas, dans les pieds. Rien ne rebondit ici : une balle sous la bande doit être relevée, et tout ce qui est relevé revient au sol.",
+        "id-ID": "Tujuan: Melatih servis dan polanya — satu bola yang kamu mulai dengan kendali penuh, ditempatkan untuk menyiapkan poin.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 2 lawan 2, tim biru: S, P, tim merah: R, N, bola pada S.\nPerlengkapan: zona berarsir adalah tempat servis harus jatuh.\nJalur bola: S → R → S\nUrutan: Langkah 1: S memukul ke R, R bergerak ke kanan; Langkah 2: R memukul ke S, S, P bergerak ke depan.\nKelanjutan: Sepuluh servis, lalu pengservis dan penerima bertukar; penerima memainkan tiap bola seperti reli sungguhan, pengservis mengumpulkan bola di antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak memantul.",
+        "ms-MY": "Tujuan: Melatih servis dan coraknya — satu bola yang anda mula dengan kawalan penuh, diletak untuk menyiapkan mata.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 2 lawan 2, pasukan biru: S, P, pasukan merah: R, N, bola dengan S.\nPeralatan: zon berlorek ialah tempat servis mesti jatuh.\nLaluan bola: S → R → S\nUrutan: Langkah 1: S memukul ke arah R, R bergerak ke kanan; Langkah 2: R memukul ke arah S, S, P bergerak ke hadapan.\nKesinambungan: Sepuluh servis, kemudian penservis dan penerima bertukar; penerima memainkan setiap bola seperti rali sebenar, penservis mengutip bola antara set.\nPoin utama: Servis rendah ke arah kaki mereka. Di sini bola tidak melantun.",
+        "th-TH": "จุดประสงค์: ซ้อมการเสิร์ฟและแพตเทิร์น — ลูกเดียวที่เริ่มด้วยการควบคุมเต็มที่ วางเพื่อจัดแต้มที่ต้องการ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 2 ต่อ 2 ทีมน้ำเงิน: S, P ทีมแดง: R, N บอลอยู่ที่ S\nอุปกรณ์: โซนแรเงาคือจุดที่ลูกเสิร์ฟต้องตก\nเส้นทางบอล: S → R → S\nลำดับ: ขั้นที่ 1: S ตีไปที่ R R ขยับไปทางขวา • ขั้นที่ 2: R ตีไปที่ S S, P ขยับไปข้างหน้า\nการต่อเนื่อง: เสิร์ฟ 10 ลูกแล้วสลับคนเสิร์ฟกับคนรับ คนรับตีทุกลูกเหมือนแต้มจริง คนเสิร์ฟเก็บลูกระหว่างชุด\nจุดเน้น: เสิร์ฟต่ำเข้าที่เท้า กีฬานี้ไม่มีการเด้ง ลูกที่ต่ำกว่าตาข่ายต้องงัดขึ้น",
+        "vi-VN": "Mục đích: Tập giao bóng và các bài của nó — quả duy nhất bạn bắt đầu với toàn quyền kiểm soát, đặt để dựng điểm bạn muốn.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 2 đấu 2, đội xanh: S, P, đội đỏ: R, N, bóng ở chỗ S.\nDụng cụ: Vùng tô đậm là nơi quả phát bóng phải rơi.\nĐường bóng: S → R → S\nTrình tự: Bước 1: S đánh sang R, R di chuyển sang phải; Bước 2: R đánh sang S, S, P di chuyển lên phía trước.\nTiếp nối: Mười quả giao bóng rồi người giao và người đỡ đổi vai; người đỡ đánh mọi quả như đang thi đấu, người giao nhặt bóng giữa các hiệp.\nĐiểm chính: Giao thấp và vào chân họ. Ở đây bóng không nảy."
       },
       "mistake": {
         "en": "A serve above their waist — anything they meet high, they meet comfortably.",
@@ -1770,14 +1778,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              145.155,
-              701.9314999999999
+              145.812,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                513.9200000000001
+                151.94400000000002,
+                512.168
               ]
             ],
             "movePhases": [
@@ -1797,14 +1805,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                439.46000000000004
+                262.32,
+                438.584
               ]
             ],
             "movePhases": [
@@ -1824,14 +1832,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              201.0,
-              154.03
+              170.34000000000003,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [
               [
                 201.0,
-                191.26000000000002
+                29.400000000000038
               ]
             ],
             "movePhases": [
@@ -1851,8 +1859,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              263.05,
-              253.31
+              262.32,
+              254.62400000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -1872,7 +1880,7 @@
             "sportType": null,
             "position": [
               201.0,
-              191.26000000000002
+              107.45600000000005
             ],
             "scale": 1.0,
             "moves": [],
@@ -1891,18 +1899,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              145.9466481865969,
-              677.9445599461152
+              146.60364818659687,
+              673.9806599461151
             ],
             "scale": 1.0,
             "moves": [
               [
-                198.39100940482743,
-                215.11776955363393
+                199.02559628250472,
+                53.31864816331271
               ],
               [
-                155.0916216109495,
-                490.2118790252645
+                154.39372896819012,
+                488.2933517725933
               ]
             ],
             "movePhases": [
@@ -1929,7 +1937,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -2009,18 +2018,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                451.87
+                139.68,
+                450.848
               ],
               [
-                138.95000000000002,
-                427.05
+                139.68,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2042,14 +2051,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                427.05
+                262.32,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2069,8 +2078,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2089,8 +2098,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              244.43500000000003,
-              191.26000000000002
+              243.924,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2111,7 +2120,7 @@
             "sportType": null,
             "position": [
               201.0,
-              129.21
+              131.98400000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -2130,18 +2139,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                427.87000000000006
+                139.68,
+                426.848
               ],
               [
                 201.0,
-                129.21
+                131.98400000000004
               ]
             ],
             "movePhases": [
@@ -2168,7 +2177,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -2248,18 +2258,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                451.87
+                139.68,
+                450.848
               ],
               [
-                138.95000000000002,
-                427.05
+                139.68,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2281,14 +2291,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                427.05
+                262.32,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2308,8 +2318,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2328,8 +2338,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              244.43500000000003,
-              191.26000000000002
+              243.924,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2349,8 +2359,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              145.155,
-              327.77000000000004
+              145.812,
+              328.208
             ],
             "scale": 1.0,
             "moves": [],
@@ -2369,18 +2379,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                427.87000000000006
+                139.68,
+                426.848
               ],
               [
-                145.155,
-                327.77000000000004
+                145.812,
+                328.208
               ]
             ],
             "movePhases": [
@@ -2407,7 +2417,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -2487,18 +2498,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                451.87
+                139.68,
+                450.848
               ],
               [
-                138.95000000000002,
-                427.05
+                139.68,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2520,14 +2531,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                427.05
+                262.32,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -2547,8 +2558,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2567,8 +2578,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              244.43500000000003,
-              191.26000000000002
+              243.924,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -2588,8 +2599,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              300.28000000000003,
-              216.08
+              299.11199999999997,
+              217.83200000000002
             ],
             "scale": 1.0,
             "moves": [],
@@ -2608,18 +2619,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.95000000000002,
-              191.26000000000002
+              139.68,
+              193.304
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                427.87000000000006
+                139.68,
+                426.848
               ],
               [
-                300.28000000000003,
-                216.08
+                299.11199999999997,
+                217.83200000000002
               ]
             ],
             "movePhases": [
@@ -2646,7 +2657,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -2726,14 +2738,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              551.15
+              139.68,
+              548.96
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                489.1
+                145.812,
+                487.64
               ]
             ],
             "movePhases": [
@@ -2753,14 +2765,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              263.05,
-              551.15
+              262.32,
+              548.96
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                476.69000000000005
+                256.18800000000005,
+                475.37600000000003
               ]
             ],
             "movePhases": [
@@ -2780,14 +2792,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              145.155,
-              290.54
+              145.812,
+              291.416
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                191.26000000000002
+                151.94400000000002,
+                193.304
               ]
             ],
             "movePhases": [
@@ -2808,14 +2820,14 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              290.54
+              256.18800000000005,
+              291.416
             ],
             "scale": 1.0,
             "moves": [
               [
-                238.23000000000005,
-                203.67000000000002
+                237.792,
+                205.568
               ]
             ],
             "movePhases": [
@@ -2836,8 +2848,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              188.59000000000003,
-              104.39
+              188.73600000000002,
+              107.45600000000005
             ],
             "scale": 1.0,
             "moves": [],
@@ -2856,18 +2868,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              145.155,
-              290.54
+              145.812,
+              291.416
             ],
             "scale": 1.0,
             "moves": [
               [
-                139.52126667071096,
-                527.1567998301407
+                140.25126667071095,
+                524.9667998301408
               ],
               [
-                188.59000000000003,
-                104.39
+                188.73600000000002,
+                107.45600000000005
               ]
             ],
             "movePhases": [
@@ -2894,7 +2906,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -2974,14 +2987,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              464.28000000000003
+              139.68,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                427.05
+                151.94400000000002,
+                426.32000000000005
               ]
             ],
             "movePhases": [
@@ -3001,18 +3014,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              263.05,
-              464.28000000000003
+              262.32,
+              463.112
             ],
             "scale": 1.0,
             "moves": [
               [
-                238.23000000000005,
-                613.2
+                237.792,
+                610.28
               ],
               [
-                250.64000000000001,
-                489.1
+                250.05599999999998,
+                487.64
               ]
             ],
             "movePhases": [
@@ -3034,8 +3047,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              145.155,
-              290.54
+              145.812,
+              291.416
             ],
             "scale": 1.0,
             "moves": [],
@@ -3054,8 +3067,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              290.54
+              256.18800000000005,
+              291.416
             ],
             "scale": 1.0,
             "moves": [],
@@ -3075,18 +3088,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              145.155,
-              290.54
+              145.812,
+              291.416
             ],
             "scale": 1.0,
             "moves": [
               [
-                231.5781443687477,
-                590.1402338116585
+                231.14014436874766,
+                587.2202338116584
               ],
               [
-                151.80685563125238,
-                313.59976618834145
+                152.46385563125236,
+                314.4757661883415
               ]
             ],
             "movePhases": [
@@ -3113,7 +3126,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -3193,14 +3207,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                513.9200000000001
+                145.812,
+                512.168
               ]
             ],
             "movePhases": [
@@ -3221,14 +3235,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                451.87
+                256.18800000000005,
+                450.848
               ]
             ],
             "movePhases": [
@@ -3249,8 +3263,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3269,8 +3283,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              250.64000000000001,
-              265.72
+              250.05599999999998,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3290,8 +3304,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              107.92500000000003,
-              191.26000000000002
+              109.02000000000001,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -3310,18 +3324,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.75481258784487,
-                489.92749648620503
+                146.4118125878449,
+                488.17549648620496
               ],
               [
-                107.92500000000003,
-                191.26000000000002
+                109.02000000000001,
+                193.304
               ]
             ],
             "movePhases": [
@@ -3348,7 +3362,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -3428,14 +3443,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                513.9200000000001
+                145.812,
+                512.168
               ]
             ],
             "movePhases": [
@@ -3456,14 +3471,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                451.87
+                256.18800000000005,
+                450.848
               ]
             ],
             "movePhases": [
@@ -3484,8 +3499,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3504,8 +3519,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              250.64000000000001,
-              265.72
+              250.05599999999998,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3525,8 +3540,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              294.07500000000005,
-              191.26000000000002
+              292.98,
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -3545,18 +3560,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.75481258784487,
-                489.92749648620503
+                146.4118125878449,
+                488.17549648620496
               ],
               [
-                294.07500000000005,
-                191.26000000000002
+                292.98,
+                193.304
               ]
             ],
             "movePhases": [
@@ -3583,7 +3598,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -3663,14 +3679,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                513.9200000000001
+                145.812,
+                512.168
               ]
             ],
             "movePhases": [
@@ -3691,14 +3707,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.845,
-                451.87
+                256.18800000000005,
+                450.848
               ]
             ],
             "movePhases": [
@@ -3719,8 +3735,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3739,8 +3755,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              250.64000000000001,
-              265.72
+              250.05599999999998,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3761,7 +3777,7 @@
             "sportType": null,
             "position": [
               201.0,
-              191.26000000000002
+              193.304
             ],
             "scale": 1.0,
             "moves": [],
@@ -3780,18 +3796,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              265.72
+              151.94400000000002,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.75481258784487,
-                489.92749648620503
+                146.4118125878449,
+                488.17549648620496
               ],
               [
                 201.0,
-                191.26000000000002
+                193.304
               ]
             ],
             "movePhases": [
@@ -3818,7 +3834,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -3885,18 +3902,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.155,
-                464.28000000000003
+                145.812,
+                463.112
               ],
               [
-                132.74500000000003,
-                467.38250000000005
+                133.54800000000003,
+                466.178
               ]
             ],
             "movePhases": [
@@ -3918,14 +3935,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                244.43500000000003,
-                476.69000000000005
+                243.924,
+                475.37600000000003
               ]
             ],
             "movePhases": [
@@ -3946,8 +3963,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -3966,8 +3983,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              265.72
+              256.18800000000005,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -3987,8 +4004,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              157.565,
-              327.77000000000004
+              158.07600000000002,
+              328.208
             ],
             "scale": 1.0,
             "moves": [],
@@ -4007,18 +4024,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [
               [
-                145.95455592558332,
-                440.2933222325003
+                146.61155592558333,
+                439.1253222325003
               ],
               [
-                157.565,
-                327.77000000000004
+                158.07600000000002,
+                328.208
               ]
             ],
             "movePhases": [
@@ -4045,7 +4062,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -4112,18 +4130,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                408.43499999999995
+                151.94400000000002,
+                407.924
               ],
               [
-                132.74500000000003,
-                467.38250000000005
+                133.54800000000003,
+                466.178
               ]
             ],
             "movePhases": [
@@ -4144,14 +4162,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                244.43500000000003,
-                476.69000000000005
+                243.924,
+                475.37600000000003
               ]
             ],
             "movePhases": [
@@ -4172,8 +4190,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -4192,8 +4210,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              265.72
+              256.18800000000005,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -4213,8 +4231,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              169.97500000000002,
-              116.80000000000001
+              170.34000000000003,
+              119.72000000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -4233,18 +4251,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [
               [
-                151.36,
-                384.435
+                151.94400000000002,
+                383.924
               ],
               [
-                169.97500000000002,
-                116.80000000000001
+                170.34000000000003,
+                119.72000000000003
               ]
             ],
             "movePhases": [
@@ -4271,7 +4289,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -4338,18 +4357,18 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              467.38250000000005
+              133.54800000000003,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                157.565,
-                613.2
+                158.07600000000002,
+                610.28
               ],
               [
-                132.74500000000003,
-                467.38250000000005
+                133.54800000000003,
+                466.178
               ]
             ],
             "movePhases": [
@@ -4371,14 +4390,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [
               [
-                244.43500000000003,
-                476.69000000000005
+                243.924,
+                475.37600000000003
               ]
             ],
             "movePhases": [
@@ -4399,8 +4418,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -4419,8 +4438,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              256.845,
-              265.72
+              256.18800000000005,
+              266.88800000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -4440,8 +4459,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              182.38500000000005,
-              104.39
+              182.604,
+              107.45600000000005
             ],
             "scale": 1.0,
             "moves": [],
@@ -4460,18 +4479,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              151.36,
-              278.13
+              151.94400000000002,
+              279.15200000000004
             ],
             "scale": 1.0,
             "moves": [
               [
-                157.12063174385548,
-                589.204114168197
+                157.63163174385554,
+                586.2841141681969
               ],
               [
-                182.38500000000005,
-                104.39
+                182.604,
+                107.45600000000005
               ]
             ],
             "movePhases": [
@@ -4498,7 +4517,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -4578,14 +4598,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              151.36,
-              489.1
+              151.94400000000002,
+              487.64
             ],
             "scale": 1.0,
             "moves": [
               [
-                188.59000000000003,
-                439.46000000000004
+                188.73600000000002,
+                438.584
               ]
             ],
             "movePhases": [
@@ -4605,14 +4625,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              250.64000000000001,
-              489.1
+              250.05599999999998,
+              487.64
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                501.51000000000005
+                262.32,
+                499.90399999999994
               ]
             ],
             "movePhases": [
@@ -4634,13 +4654,13 @@
             "sportType": null,
             "position": [
               201.0,
-              240.9
+              242.36
             ],
             "scale": 1.0,
             "moves": [
               [
-                207.20500000000004,
-                290.54
+                207.132,
+                291.416
               ]
             ],
             "movePhases": [
@@ -4660,8 +4680,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              120.33500000000001,
-              228.49000000000004
+              121.284,
+              230.096
             ],
             "scale": 1.0,
             "moves": [],
@@ -4682,17 +4702,17 @@
             "sportType": 13,
             "position": [
               201.0,
-              240.9
+              242.36
             ],
             "scale": 1.0,
             "moves": [
               [
-                210.18183363014106,
-                314.35466904112803
+                210.10883363014102,
+                315.230669041128
               ],
               [
-                192.6717954652138,
-                415.8096523116433
+                192.8333160537086,
+                414.93633624317147
               ]
             ],
             "movePhases": [
@@ -4719,7 +4739,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -4799,14 +4820,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              439.46000000000004
+              133.54800000000003,
+              438.584
             ],
             "scale": 1.0,
             "moves": [
               [
-                263.05,
-                451.87
+                262.32,
+                450.848
               ]
             ],
             "movePhases": [
@@ -4827,14 +4848,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              538.74
+              268.452,
+              536.696
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                538.74
+                139.68,
+                536.696
               ]
             ],
             "movePhases": [
@@ -4856,13 +4877,13 @@
             "sportType": null,
             "position": [
               201.0,
-              240.9
+              242.36
             ],
             "scale": 1.0,
             "moves": [
               [
-                207.20500000000004,
-                290.54
+                207.132,
+                291.416
               ]
             ],
             "movePhases": [
@@ -4882,8 +4903,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              120.33500000000001,
-              228.49000000000004
+              121.284,
+              230.096
             ],
             "scale": 1.0,
             "moves": [],
@@ -4904,17 +4925,17 @@
             "sportType": 13,
             "position": [
               201.0,
-              240.9
+              242.36
             ],
             "scale": 1.0,
             "moves": [
               [
-                210.18183363014106,
-                314.35466904112803
+                210.10883363014102,
+                315.230669041128
               ],
               [
-                254.4376732251764,
-                429.4684860439377
+                253.6972149134981,
+                428.45050957468675
               ]
             ],
             "movePhases": [
@@ -4941,7 +4962,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -5021,14 +5043,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              701.9314999999999
+              133.54800000000003,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                132.74500000000003,
-                501.51000000000005
+                133.54800000000003,
+                499.90399999999994
               ]
             ],
             "movePhases": [
@@ -5048,8 +5070,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              132.74500000000003,
-              228.49000000000004
+              133.54800000000003,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [],
@@ -5069,7 +5091,7 @@
             "sportType": null,
             "position": [
               201.0,
-              675.25
+              671.5999999999999
             ],
             "scale": 1.0,
             "moves": [],
@@ -5089,7 +5111,7 @@
             "sportType": null,
             "position": [
               201.0,
-              54.75
+              58.400000000000034
             ],
             "scale": 1.0,
             "moves": [],
@@ -5108,18 +5130,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              132.74500000000003,
-              677.9314999999999
+              133.54800000000003,
+              673.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                132.74500000000003,
-                252.49000000000004
+                133.54800000000003,
+                53.400000000000034
               ],
               [
-                132.74500000000003,
-                477.51000000000005
+                133.54800000000003,
+                475.90399999999994
               ]
             ],
             "movePhases": [
@@ -5146,7 +5168,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -5226,14 +5249,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              701.9314999999999
+              139.68,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                132.74500000000003,
-                467.38250000000005
+                133.54800000000003,
+                466.178
               ]
             ],
             "movePhases": [
@@ -5253,8 +5276,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [],
@@ -5274,8 +5297,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              377.84250000000003,
-              575.97
+              375.762,
+              573.4879999999999
             ],
             "scale": 1.0,
             "moves": [],
@@ -5295,8 +5318,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              377.84250000000003,
-              650.4300000000001
+              375.762,
+              647.0719999999999
             ],
             "scale": 1.0,
             "moves": [],
@@ -5316,8 +5339,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              263.05,
-              262.6175
+              262.32,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [],
@@ -5336,8 +5359,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              262.6175
+              139.68,
+              263.822
             ],
             "scale": 1.0,
             "moves": [],
@@ -5356,8 +5379,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              24.157499999999995,
-              154.03
+              26.238000000000017,
+              156.51200000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -5376,8 +5399,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              24.157499999999995,
-              79.57000000000001
+              26.238000000000017,
+              82.92800000000004
             ],
             "scale": 1.0,
             "moves": [],
@@ -5396,18 +5419,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.31530142897685,
-              677.939894015324
+              139.04530142897684,
+              673.9759940153239
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.52565878503145,
-                285.71366790098875
+                257.9897647687018,
+                53.00612341833418
               ],
               [
-                146.25878886389089,
-                447.54875323994025
+                140.46935862055662,
+                443.1976867983562
               ]
             ],
             "movePhases": [
@@ -5434,7 +5457,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -5514,14 +5538,14 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              701.9314999999999
+              139.68,
+              697.9675999999998
             ],
             "scale": 1.0,
             "moves": [
               [
-                132.74500000000003,
-                467.38250000000005
+                133.54800000000003,
+                466.178
               ]
             ],
             "movePhases": [
@@ -5541,8 +5565,8 @@
             "team": 0,
             "sportType": null,
             "position": [
-              269.255,
-              467.38250000000005
+              268.452,
+              466.178
             ],
             "scale": 1.0,
             "moves": [],
@@ -5562,8 +5586,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              263.05,
-              262.6175
+              262.32,
+              29.400000000000038
             ],
             "scale": 1.0,
             "moves": [],
@@ -5582,8 +5606,8 @@
             "team": 1,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              262.6175
+              139.68,
+              263.822
             ],
             "scale": 1.0,
             "moves": [],
@@ -5602,18 +5626,18 @@
             "team": 2,
             "sportType": 13,
             "position": [
-              138.31530142897685,
-              677.939894015324
+              139.04530142897684,
+              673.9759940153239
             ],
             "scale": 1.0,
             "moves": [
               [
-                256.52565878503145,
-                285.71366790098875
+                257.9897647687018,
+                53.00612341833418
               ],
               [
-                146.25878886389089,
-                447.54875323994025
+                140.46935862055662,
+                443.1976867983562
               ]
             ],
             "movePhases": [
@@ -5640,7 +5664,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -5707,26 +5732,26 @@
             "team": 0,
             "sportType": null,
             "position": [
-              138.95000000000002,
-              625.61
+              139.68,
+              622.544
             ],
             "scale": 1.0,
             "moves": [
               [
-                138.95000000000002,
-                414.64000000000004
+                139.68,
+                414.056
               ],
               [
-                24.157499999999995,
-                439.46000000000004
+                26.238000000000017,
+                438.584
               ],
               [
-                24.157499999999995,
-                625.61
+                26.238000000000017,
+                622.544
               ],
               [
-                138.95000000000002,
-                625.61
+                139.68,
+                622.544
               ]
             ],
             "movePhases": [
@@ -5749,8 +5774,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              126.54000000000002,
-              638.02
+              127.41600000000001,
+              634.8079999999999
             ],
             "scale": 1.0,
             "moves": [],
@@ -5769,8 +5794,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              126.54000000000002,
-              402.2300000000001
+              127.41600000000001,
+              401.79200000000003
             ],
             "scale": 1.0,
             "moves": [],
@@ -5786,7 +5811,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -5854,25 +5880,25 @@
             "sportType": null,
             "position": [
               201.0,
-              501.51000000000005
+              499.90399999999994
             ],
             "scale": 1.0,
             "moves": [
               [
-                58.285000000000004,
-                501.51000000000005
+                59.96400000000002,
+                499.90399999999994
               ],
               [
                 201.0,
-                501.51000000000005
+                499.90399999999994
               ],
               [
-                343.71500000000003,
-                501.51000000000005
+                342.03599999999994,
+                499.90399999999994
               ],
               [
                 201.0,
-                501.51000000000005
+                499.90399999999994
               ]
             ],
             "movePhases": [
@@ -5896,8 +5922,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              45.875,
-              520.125
+              47.70000000000002,
+              518.3
             ],
             "scale": 1.0,
             "moves": [],
@@ -5917,7 +5943,7 @@
             "sportType": null,
             "position": [
               201.0,
-              520.125
+              518.3
             ],
             "scale": 1.0,
             "moves": [],
@@ -5936,8 +5962,8 @@
             "team": 2,
             "sportType": null,
             "position": [
-              353.02250000000004,
-              520.125
+              351.234,
+              518.3
             ],
             "scale": 1.0,
             "moves": [],
@@ -5953,7 +5979,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     },
     {
@@ -6021,25 +6048,25 @@
             "sportType": null,
             "position": [
               201.0,
-              476.69000000000005
+              475.37600000000003
             ],
             "scale": 1.0,
             "moves": [
               [
                 201.0,
-                427.05
+                426.32000000000005
               ],
               [
                 201.0,
-                476.69000000000005
+                475.37600000000003
               ],
               [
                 201.0,
-                427.05
+                426.32000000000005
               ],
               [
                 201.0,
-                476.69000000000005
+                475.37600000000003
               ]
             ],
             "movePhases": [
@@ -6063,7 +6090,7 @@
             "sportType": null,
             "position": [
               201.0,
-              451.87
+              450.848
             ],
             "scale": 1.0,
             "moves": [],
@@ -6079,7 +6106,8 @@
         ],
         "strokes": [],
         "canvasWidth": 402.0,
-        "canvasHeight": 730.0
+        "canvasHeight": 730.0,
+        "court": 2
       }
     }
   ]

@@ -28,14 +28,15 @@ class VolleyballCourtPainter extends CourtPainterBase {
     final w = size.width;
     final h = size.height;
 
-    // Full court 18m x 9m (portrait)
+    // Full court 18m x 9m (portrait), at SportType.fieldRect's 0.84
+    // (tools/drills/engine.py COURT) — room behind the far end line.
     const courtRatio = 18.0 / 9.0;
     double cw, ch;
     if (h / w > courtRatio) {
-      cw = w * 0.85;
+      cw = w * 0.84;
       ch = cw * courtRatio;
     } else {
-      ch = h * 0.85;
+      ch = h * 0.84;
       cw = ch / courtRatio;
     }
     final left = (w - cw) / 2;

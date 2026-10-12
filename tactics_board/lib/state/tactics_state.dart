@@ -2346,7 +2346,7 @@ class TacticsState extends ChangeNotifier {
     final savedH = (page['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
     if (savedW <= 0 || savedH <= 0) return;
     _fromLegacyPool(page, Size(savedW, savedH));
-    _fromLegacyPickleball(page, Size(savedW, savedH));
+    _fromLegacyCourt(page, Size(savedW, savedH));
     if (savedW == _canvasSize.width && savedH == _canvasSize.height) return;
     final from = _sportType.fieldRect(Size(savedW, savedH));
     final to = _sportType.fieldRect(_canvasSize);
@@ -2409,31 +2409,41 @@ class TacticsState extends ChangeNotifier {
     ];
   }
 
-  /// Which pickleball court a page was drawn on. Every pickleball page
-  /// written since the court shrank says so (`pbCourt`); a page without it
-  /// was drawn on the old, larger one.
-  static const int kPickleballCourt = 2;
+  /// Courts redrawn smaller, so a man can stand with his feet behind the
+  /// far baseline and still be on the board: the key every page of that
+  /// sport written since carries, its value, and the scale of the court
+  /// before (SportType.fieldRect's; tools/drills/engine.py COURT_REDRAW).
+  /// A page without the key was drawn on the old, larger court.
+  static const Map<SportType, (String, int, double)> kCourtRedraws = {
+    SportType.pickleball: ('pbCourt', 2, 0.88),   // → 0.82
+    SportType.tennis: ('court', 2, 0.85),         // → 0.84
+    SportType.beachTennis: ('court', 2, 0.85),    // → 0.84
+    SportType.volleyball: ('court', 2, 0.85),     // → 0.84
+  };
 
-  /// A pickleball page saved on the old court, carried onto the new one.
+  /// A page saved on a sport's old court, carried onto the redrawn one
+  /// ([kCourtRedraws]).
   ///
-  /// The court is drawn at 0.82 of the board instead of 0.88, so a receiver
-  /// can stand with his feet behind the far baseline and still be on the
-  /// board. Saved positions are canvas points against the court the app
-  /// drew, so each point — players, their runs, drawn strokes — keeps its
-  /// place relative to the court lines: same fraction of the court, or the
-  /// same distance past a line in court units.
-  void _fromLegacyPickleball(Map<String, dynamic> page, Size saved) {
-    if (_sportType != SportType.pickleball) return;
-    if (page['pbCourt'] != null) return;
+  /// Saved positions are canvas points against the court the app drew, so
+  /// each point — players, their runs, drawn strokes — keeps its place
+  /// relative to the court lines: same fraction of the court, or the same
+  /// distance past a line in court units.
+  void _fromLegacyCourt(Map<String, dynamic> page, Size saved) {
+    final redraw = kCourtRedraws[_sportType];
+    if (redraw == null) return;
+    if (page[redraw.$1] != null) return;
     final to = _sportType.fieldRect(saved);
-    // SportType.fieldRect as it was for the old court.
-    const aspect = 6.1 / 13.41;
+    if (to.height <= 0) return;
+    // SportType.fieldRect as it was for the old court: same aspect, the
+    // old scale.
+    final aspect = to.width / to.height;
+    final scale = redraw.$3;
     double cw, ch;
     if (saved.width / saved.height > aspect) {
-      ch = saved.height * 0.88;
+      ch = saved.height * scale;
       cw = ch * aspect;
     } else {
-      cw = saved.width * 0.88;
+      cw = saved.width * scale;
       ch = cw / aspect;
     }
     final from = Rect.fromLTWH(
@@ -2501,8 +2511,7 @@ class TacticsState extends ChangeNotifier {
         'canvasHeight': _canvasSize.height,
         if (_sportType == SportType.waterPolo)
           'poolLength': kWaterPoloPoolLength,
-        if (_sportType == SportType.pickleball)
-          'pbCourt': kPickleballCourt,
+        if (kCourtRedraws[_sportType] case final r?) r.$1: r.$2,
       };
 
   /// Every page in order, with the live one written back into its slot.
@@ -2564,8 +2573,7 @@ class TacticsState extends ChangeNotifier {
       'canvasHeight': _canvasSize.height,
       if (_sportType == SportType.waterPolo)
         'poolLength': kWaterPoloPoolLength,
-      if (_sportType == SportType.pickleball)
-        'pbCourt': kPickleballCourt,
+      if (kCourtRedraws[_sportType] case final r?) r.$1: r.$2,
     };
     pages.insert(_pageIndex + 1,
         copyCurrent ? jsonDecode(jsonEncode(_pageJson())) as Map<String, dynamic> : blank);
