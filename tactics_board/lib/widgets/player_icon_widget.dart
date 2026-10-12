@@ -687,6 +687,14 @@ double playerFacing(PlayerIcon p) =>
 /// the left corner of his own half, and the other way round for the man
 /// across the net. The sideways half of the heading is kept either way;
 /// only the towards/away half is folded.
+/// Racket sports whose players stay square to the net whatever they do:
+/// they shuffle sideways, step in and step back, and never turn away.
+bool squareToNet(SportType sport) =>
+    sport == SportType.tableTennis ||
+    sport == SportType.tennis ||
+    sport == SportType.pickleball ||
+    sport == SportType.beachTennis;
+
 double faceAcrossNet(double h, PlayerIcon p, SportType sport, Offset at,
     Size court, {Offset? ball, Offset? ballFrom}) {
   if (!sport.hasNet) return h;
@@ -733,7 +741,11 @@ double faceAcrossNet(double h, PlayerIcon p, SportType sport, Offset at,
   // it — the ghost of a multiball player was drawn in profile because his
   // stored stance was 90 degrees, and the fold below only flips the
   // forward half of a heading, never the sideways half.
-  if (sport == SportType.tableTennis) return wantUp ? 0.0 : pi;
+  //
+  // Tennis, pickleball and beach tennis the same way: after the stroke the
+  // player recovers with a side-shuffle, square to the net — drawn along
+  // his travel he stood in profile, or angled off towards the sideline.
+  if (squareToNet(sport)) return wantUp ? 0.0 : pi;
   var faceNet = true;
   if (sport == SportType.badminton && court.height > 0 && court.width > 0) {
     // 0.82, not 0.80: the rear corners of the footwork boards sit at 0.89

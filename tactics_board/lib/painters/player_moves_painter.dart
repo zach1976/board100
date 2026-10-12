@@ -465,6 +465,11 @@ class PlayerMovesPainter extends CustomPainter {
       // moved is the dangling arrow all over again.
       if (player.isBall && dist < nudgeThreshold(player)) continue;
       if (dist < nudgeThreshold(player)) {
+        // A person's shift this small is a step on the spot. The stub drawn
+        // for it was an arrow from nowhere butted against his boots, with no
+        // start copy to explain it — it read as a stray mark, or as the way
+        // he faced. Say nothing; the next real run says where he goes.
+        if (person) continue;
         // A stub is all head: it exists to say where something arrives.
         if (layer != RouteLayer.shafts) {
           _drawNudge(canvas, color, from, to, endRadius,
@@ -480,6 +485,16 @@ class PlayerMovesPainter extends CustomPainter {
       // instead, parallel to the run: it still says which way he went, and
       // it sits on nobody.
       if (person && dist < startRadius + endRadius + _arrowSize + 6) {
+        // When the start copy is mostly behind the end copy — less than a
+        // body's width across or half its height up and down, on screen —
+        // nobody can see where the arrow comes from, and it reads as a
+        // stray mark. Then the move is too small to show at all.
+        final d = to - from;
+        final right = Offset(footward.dy, -footward.dx);
+        final across = (d.dx * right.dx + d.dy * right.dy).abs();
+        final along = (d.dx * footward.dx + d.dy * footward.dy).abs();
+        final k = player.scale * kFigureScale;
+        if (across < 24.0 * k && along < 28.0 * k) continue;
         if (layer != RouteLayer.shafts) {
           _drawBeside(canvas, color, from, to,
               player.scale * kFigureScale, strong: strong, style: style);
