@@ -66,10 +66,34 @@ double gViewZoom = 1.0;
 /// the board, capped at 1.6: a 13" iPad's 58pt figure is about the share of
 /// the pitch the phone's was at 26pt, room the generator's spacing (made
 /// for the phone) still clears with to spare.
-double boardFigureScaleFor(Size board) {
+///
+/// Upright, on a court whose players stand behind its baselines, the figure
+/// is also never bigger for its court than on the 402x730 board the drills
+/// are written on (tools/drills/engine.py figure_clear): a far server
+/// stands half a figure past the far baseline in fractions of the court, so
+/// on a shorter court — the phone's own board, under its toolbars — his
+/// feet were on the line and his head off the top of the board. Turned
+/// sideways the figure stands across the court and has the room.
+double boardFigureScaleFor(Size board,
+    {SportType? sport, bool sideways = false}) {
   if (board.isEmpty) return 1.0;
-  return (board.shortestSide / 500).clamp(1.0, 1.6).toDouble();
+  final grown = (board.shortestSide / 500).clamp(1.0, 1.6).toDouble();
+  if (sport == null || sideways || !kBehindBaselineSports.contains(sport)) {
+    return grown;
+  }
+  final court = sport.fieldRect(board).height /
+      sport.fieldRect(const Size(402, 730)).height;
+  return min(grown, court);
 }
+
+/// The sports whose drills stand servers and receivers behind a baseline
+/// (tools/check_baselines.py), so whose figure keeps its court's share.
+const kBehindBaselineSports = {
+  SportType.tennis,
+  SportType.pickleball,
+  SportType.beachTennis,
+  SportType.volleyball,
+};
 
 /// How much of its 44pt cell a ball actually fills.
 ///

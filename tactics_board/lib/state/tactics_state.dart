@@ -3084,7 +3084,11 @@ class TacticsState extends ChangeNotifier {
               Offset(vis.center.dx, vis.top + ey / 2 + m),
             ];
       final cell =
-          kPlayerIconBase * boardFigureScaleFor(_canvasSize) * _figureScale / z;
+          kPlayerIconBase *
+              boardFigureScaleFor(_canvasSize,
+                  sport: _sportType, sideways: sideways) *
+              _figureScale /
+              z;
       double hits(Offset c) {
         final r = Rect.fromCenter(center: c, width: ex, height: ey);
         var a = 0.0;

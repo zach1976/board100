@@ -42,6 +42,42 @@ void main() {
     expect(kPlayerIconSize, closeTo(57.6, 1e-9));
   });
 
+  test('behind-the-baseline courts keep the drills\' figure-to-court share',
+      () {
+    const authored = Size(402, 730);
+    for (final sport in kBehindBaselineSports) {
+      // The board the drills are written and reviewed on: unchanged.
+      expect(boardFigureScaleFor(authored, sport: sport), 1.0,
+          reason: '$sport');
+      // The phone's own board under its toolbars is shorter: the figure
+      // shrinks with the court, not past it.
+      const phone = Size(386, 631.8);
+      final k = boardFigureScaleFor(phone, sport: sport);
+      expect(
+          k,
+          closeTo(
+              sport.fieldRect(phone).height /
+                  sport.fieldRect(authored).height,
+              1e-9),
+          reason: '$sport');
+      expect(k, lessThan(1.0));
+      // Sideways the figure stands across the court: as before.
+      expect(boardFigureScaleFor(phone, sport: sport, sideways: true), 1.0);
+      // A tablet still grows it, up to its court.
+      final tablet = boardFigureScaleFor(const Size(1016, 1111), sport: sport);
+      expect(tablet, greaterThan(1.4));
+      expect(tablet, lessThan(1.6));
+      expect(boardFigureScaleFor(const Size(826, 1360), sport: sport,
+          sideways: true), 1.6);
+    }
+    // Every other sport: as before.
+    for (final sport in SportType.values) {
+      if (kBehindBaselineSports.contains(sport)) continue;
+      expect(boardFigureScaleFor(const Size(386, 631.8), sport: sport), 1.0);
+      expect(boardFigureScaleFor(const Size(1016, 1111), sport: sport), 1.6);
+    }
+  });
+
   test('a tight drill carries the generator figure and keeps it', () {
     final d = drills(SportType.rugby)
         .firstWhere((d) => d.id == 'rg_set_lineout_seven');

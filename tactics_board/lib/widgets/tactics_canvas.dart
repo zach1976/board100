@@ -1147,7 +1147,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             // court grows under them. All of it is exactly 1 on a phone.
             gTightFigureScale = state.figureScale;
             gViewZoom = widget.preview ? 1.0 : state.frameZoom;
-            gBoardFigureScale = boardFigureScaleFor(newSize) / gViewZoom;
+            gBoardFigureScale = boardFigureScaleFor(newSize,
+                    sport: state.sportType, sideways: widget.boardTurns.isOdd) /
+                gViewZoom;
             if (!widget.preview && state.frameNeedsApply) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 if (mounted && state.frameNeedsApply) state.applyViewFrame();
