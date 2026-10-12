@@ -600,7 +600,9 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:      aspect = 68 / 105;    scaleW = 0.90; scaleH = 0.90; break;
       case SportType.basketball:  aspect = 15 / 28;     scaleW = 0.90; scaleH = 0.90; break;
       case SportType.badminton:   aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
-      case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.88; scaleH = 0.88; break;
+      // 0.82: room for a receiver with his feet behind the far baseline
+      // (boards from the 0.88 court: TacticsState._fromLegacyPickleball).
+      case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.82; scaleH = 0.82; break;
       case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.85; scaleH = 0.85; break;
       case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
@@ -831,17 +833,22 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            // Singles: on the baselines, ready to serve and return (the
-            // test keeps formations inside 0..1).
-            homePositions: [Offset(0.5, 1.0)],
-            awayPositions: [Offset(0.5, 0.0)],
+            // Singles: ready to serve and return, the FEET behind the
+            // baselines. A person is drawn centred on his point, half a
+            // figure (~0.043 of the court) above and below it, so the far
+            // man stands 0.05 past his line (tools/drills/pickleball.py
+            // FAR_BACK); on the line his feet were in the court.
+            homePositions: [Offset(0.5, 1.03)],
+            awayPositions: [Offset(0.5, -0.05)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
             // Doubles: all four just behind their kitchen lines (0.66 /
-            // 0.34) — 0.72 / 0.28 was in the transition zone.
-            homePositions: [Offset(0.33, 0.68), Offset(0.67, 0.68)],
-            awayPositions: [Offset(0.33, 0.32), Offset(0.67, 0.32)],
+            // 0.34) — 0.72 / 0.28 was in the transition zone — with the
+            // whole drawn figure clear of the kitchen (pickleball.py KH /
+            // KA): at 0.68 the near pair's heads were over it.
+            homePositions: [Offset(0.33, 0.71), Offset(0.67, 0.71)],
+            awayPositions: [Offset(0.33, 0.29), Offset(0.67, 0.29)],
           ),
         ];
 

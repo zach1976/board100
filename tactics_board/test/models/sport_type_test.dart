@@ -87,7 +87,11 @@ void main() {
         for (final formation in sport.formations) {
           for (final pos in [...formation.homePositions, ...formation.awayPositions]) {
             expect(pos.dx, inInclusiveRange(0.0, 1.0), reason: '${sport.name} dx=${pos.dx} out of range');
-            expect(pos.dy, inInclusiveRange(0.0, 1.0), reason: '${sport.name} dy=${pos.dy} out of range');
+            // Pickleball singles stands behind the baselines: a serve and
+            // its return are played with the feet behind the line, and
+            // the drawn figure reaches half its height past its point.
+            final slack = sport == SportType.pickleball ? 0.05 : 0.0;
+            expect(pos.dy, inInclusiveRange(-slack, 1.0 + slack), reason: '${sport.name} dy=${pos.dy} out of range');
           }
         }
       }

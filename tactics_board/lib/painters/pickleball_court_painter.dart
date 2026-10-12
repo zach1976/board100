@@ -29,14 +29,15 @@ class PickleballCourtPainter extends CourtPainterBase {
     final w = size.width;
     final h = size.height;
 
-    // Court: 13.41m x 6.1m (portrait)
+    // Court: 13.41m x 6.1m (portrait), at SportType.fieldRect's 0.82
+    // (tools/drills/engine.py COURT) — room behind the far baseline.
     const courtRatio = 13.41 / 6.1;
     double cw, ch;
     if (h / w > courtRatio) {
-      cw = w * 0.88;
+      cw = w * 0.82;
       ch = cw * courtRatio;
     } else {
-      ch = h * 0.88;
+      ch = h * 0.82;
       cw = ch / courtRatio;
     }
     final left = (w - cw) / 2;

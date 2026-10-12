@@ -482,12 +482,14 @@ def _tennis():
 
 # ══ pickleball ═══════════════════════════════════════════════════════════
 def _pickleball():
+    # KH: behind the kitchen line with the whole drawn figure clear of it.
+    from .pickleball import KH
     return [
         Drill(
             id="pbfit_kitchen_shuffle", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_COURT, free=True, name=LATERAL_NAME, note=LATERAL_NOTE,
-            home=[P(0.50, 0.68, "A",
-                    moves=[(0.06, 0.68, 0), (0.50, 0.68, 1), (0.94, 0.68, 2), (0.50, 0.68, 3)],
+            home=[P(0.50, KH, "A",
+                    moves=[(0.06, KH, 0), (0.50, KH, 1), (0.94, KH, 2), (0.50, KH, 3)],
                     why={0: "shuffle", 1: "shuffle", 2: "shuffle", 3: "shuffle"})],
             # On the sidelines, as the setup line says (they were 1.1 m in).
             markers=[M(0.02, 0.70), M(0.50, 0.70), M(0.98, 0.70)],
@@ -521,7 +523,7 @@ def _pickleball():
                     "อย่าเคลื่อนที่ขณะลูก (สมมติ) กำลังมา สองก้าว สปลิตสเต็ป สองก้าว",
                     "Đừng di chuyển khi bóng (tưởng tượng) đang tới: hai bước, split-step, hai bước."),
             home=[P(0.50, 0.95, "A",
-                    moves=[(0.50, 0.82, 0), (0.50, 0.70, 1), (0.50, 0.82, 2), (0.50, 0.95, 3)],
+                    moves=[(0.50, 0.82, 0), (0.50, KH, 1), (0.50, 0.82, 2), (0.50, 0.95, 3)],
                     why={0: "decel", 1: "decel", 2: "backpedal", 3: "backpedal"})],
             markers=[M(0.42, 0.97), M(0.58, 0.97), M(0.42, 0.70), M(0.58, 0.70)],
             setup=_s("two cones on the baseline and two on the kitchen line; the player starts on the baseline",
@@ -538,7 +540,7 @@ def _pickleball():
             id="pbfit_four_corner", category="conditioning", minutes=8, rel=True,
             purpose=PURPOSE_COURT, name=REPEAT_NAME, note=REPEAT_NOTE,
             home=[P(0.50, 0.82, "A",
-                    moves=[(0.20, 0.70, 0), (0.50, 0.82, 1), (0.80, 0.70, 2), (0.50, 0.82, 3),
+                    moves=[(0.20, KH, 0), (0.50, 0.82, 1), (0.80, KH, 2), (0.50, 0.82, 3),
                            (0.20, 0.95, 4), (0.50, 0.82, 5), (0.80, 0.95, 6), (0.50, 0.82, 7)],
                     why={0: "sprint", 1: "reset", 2: "sprint", 3: "reset",
                          4: "sprint", 5: "reset", 6: "sprint", 7: "reset"})],

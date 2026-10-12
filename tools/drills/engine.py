@@ -45,7 +45,10 @@ COURT = {
     "tennis":      (10.97 / 23.77,  0.85, 0.85),
     "basketball":  (15 / 28,        0.90, 0.90),
     "volleyball":  (9 / 18,         0.85, 0.85),
-    "pickleball":  (6.1 / 13.41,    0.88, 0.88),
+    # 0.82, not 0.88: a far-side receiver stands with his FEET behind the
+    # baseline, so the whole 52pt figure has to fit above it on the phone.
+    # Boards carry "pbCourt": 2 (see to_display_frame).
+    "pickleball":  (6.1 / 13.41,    0.82, 0.82),
     "soccer":      (68 / 105,       0.90, 0.90),
     "fieldHockey": (55 / 91.4,      0.90, 0.90),
     "rugby":       (70 / 144,       0.92, 0.92),
@@ -554,6 +557,10 @@ def to_display_frame(board: dict) -> dict:
     # read by the app as drawn on the old pool and carried across.
     if board.get("sportType") == SPORT_INDEX["waterPolo"]:
         board["poolLength"] = 25
+    # The pickleball court shrank (0.88 → 0.82) to fit a receiver behind
+    # the far baseline; a board without this is read as the old court.
+    if board.get("sportType") == SPORT_INDEX["pickleball"]:
+        board["pbCourt"] = 2
     return board
 
 

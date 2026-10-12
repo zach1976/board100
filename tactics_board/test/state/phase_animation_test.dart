@@ -232,7 +232,10 @@ void main() {
           for (final pos in [...f.homePositions, ...f.awayPositions]) {
             expect(pos.dx, inInclusiveRange(0.0, 1.0),
                 reason: '${sport.name} ${f.nameKey} x=${pos.dx}');
-            expect(pos.dy, inInclusiveRange(0.0, 1.0),
+            // Pickleball singles: the feet behind the baselines (see
+            // sport_type_test).
+            final slack = sport == SportType.pickleball ? 0.05 : 0.0;
+            expect(pos.dy, inInclusiveRange(-slack, 1.0 + slack),
                 reason: '${sport.name} ${f.nameKey} y=${pos.dy}');
           }
         }

@@ -5,16 +5,34 @@ the geometry that matters is three bands: the non-volley zone at the net, the
 transition zone behind it, and the baseline. Home is the bottom half; the net
 is y=0.5 and the home kitchen line is y=0.66.
 """
-from .engine import Drill, M, P, Spot, suffixed
+from .engine import (CANVAS_H, CANVAS_W, DISPLAY_H, DISPLAY_W, FIGURE_PT,
+                     Drill, M, P, Spot, court_rect, suffixed)
 
 KITCHEN = 0.66          # home non-volley zone line
 KITCHEN_AWAY = 0.34
+# The app draws a person upright and centred on his point, FIGURE_PT tall,
+# so his feet are half a figure below the point and his head half a figure
+# above it. In court fractions on the phone board, plus a few points of air:
+# a near-side player this far behind his kitchen line has his HEAD clear of
+# it, a far-side one this far behind his has his FEET clear of it, and a
+# far-side player this far past his baseline stands behind it. A point on the
+# line drew half a man in the kitchen (tools/check_pickleball.py).
+_COURT_PT = court_rect("pickleball")[3] * DISPLAY_H / CANVAS_H
+HALF_FIGURE = FIGURE_PT[1] / 2 / _COURT_PT
+CLEAR = 3.0 / _COURT_PT
+KITCHEN_STAND = HALF_FIGURE + CLEAR
+FAR_BACK = -(HALF_FIGURE + CLEAR)       # far side, feet behind the baseline
+# …and across: a man this far outside the left sideline is drawn wholly off
+# the court (the Ernie plays from beside the post, never over the kitchen).
+_COURT_W_PT = court_rect("pickleball")[2] * DISPLAY_W / CANVAS_W
+OUTSIDE_L = -(FIGURE_PT[0] / 2 + 3.0) / _COURT_W_PT
 # Behind the baseline by more than half a figure, so the server is not drawn
 # standing on his own line. See BEHIND in tennis.py.
 BEHIND = 0.03
 BASELINE = 0.97
 TRANSITION = 0.80
-K_L, K_R = (0.30, KITCHEN), (0.70, KITCHEN)
+KH, KA = KITCHEN + KITCHEN_STAND, KITCHEN_AWAY - KITCHEN_STAND
+K_L, K_R = (0.30, KH), (0.70, KH)
 B_L, B_R = (0.28, BASELINE), (0.72, BASELINE)
 
 
@@ -22,10 +40,9 @@ def mirror(pt):
     return (pt[0], 1.0 - pt[1])
 
 
-# Behind the kitchen lines, feet never on or over them: a dink is played
-# from just behind the line, and every "step in" the boards used to draw
-# put a foot in the non-volley zone.
-KH, KA = KITCHEN + 0.02, KITCHEN_AWAY - 0.02
+# Behind the kitchen lines (KH / KA above), the whole figure clear of
+# them: a dink is played from just behind the line, and every "step in"
+# the boards used to draw put a foot in the non-volley zone.
 # The serve: underhand, from behind the baseline, diagonally into the far
 # service court past the kitchen. Home serves from his right (canvas right),
 # so it lands canvas LEFT on the far side, where the returner waits behind
@@ -33,7 +50,7 @@ KH, KA = KITCHEN + 0.02, KITCHEN_AWAY - 0.02
 # serving partner stays back with the server (two-bounce rule).
 SRV = (0.72, 1 + BEHIND)
 SRV_PARTNER = (0.28, 1.02)
-RET = (0.28, -0.02)
+RET = (0.28, FAR_BACK)
 RET_PARTNER = (0.70, KA)
 
 
@@ -227,7 +244,7 @@ def speedup_family() -> list[Drill]:
         id="pb_speedup_ernie", category="attacking", minutes=10, rel=True,
         off_surface=True,
         name=suffixed(SPEEDUP_NAME, "the Ernie"), note=ERNIE_NOTE,
-        home=[P(0.30, KH, "1", moves=[(0.02, 0.72, 1), (-0.05, 0.56, 2)]),
+        home=[P(0.30, KH, "1", moves=[(0.02, 0.72, 1), (OUTSIDE_L, 0.56, 2)]),
               P(0.70, KH, "2", moves=[(0.56, KH, 1)])],
         away=[P(0.30, KA, "A", moves=[(0.12, KA, 0)]), P(0.70, KA, "B")],
         markers=[M(0.38, 0.26, "zone", ""), M(0.5, KITCHEN, "cone", "")],
@@ -319,12 +336,12 @@ def defend_family() -> list[Drill]:
     # Where the DEFENDER ends up, not where the ball goes: 0.44 and 0.40 are
     # in the opponents' half, and a reset is a step up to your own kitchen
     # line, a counter is held at it.
-    specs = [("block", "the block", (0.62, KITCHEN + 0.01)),
-             ("reset", "the reset from transition", (0.50, KITCHEN + 0.02)),
+    specs = [("block", "the block", (0.62, KH)),
+             ("reset", "the reset from transition", (0.50, KH)),
              ("lob", "the lob over your head", (0.50, 0.92)),
              # Held at the line, a step toward the middle — not on top of
              # his partner (0.40 left them 0.6 m apart).
-             ("counter", "the counter in a firefight", (0.54, KITCHEN + 0.02))]
+             ("counter", "the counter in a firefight", (0.54, KH))]
     # A attacks, 1 meets it where the spec says, and 1's defensive ball —
     # soft, back down into A's kitchen — is drawn: the drill is named for
     # it. (A used to "move into position" with the ball, and the board
@@ -400,7 +417,7 @@ def serve_family() -> list[Drill]:
             name=suffixed(SERVE_NAME, label), note=SERVE_NOTE,
             # The server stays back after the serve: the return must bounce.
             home=[P(*SRV, "S", moves=[(0.66, 1 + BEHIND * 0.7, 1)])],
-            away=[P(*RET, "R", moves=[through(SRV, land, -0.02) + (0,),
+            away=[P(*RET, "R", moves=[through(SRV, land, FAR_BACK) + (0,),
                                       (0.30, KA, 1)])],
             markers=[M(*land, "zone", "")],
             ball=0, ball_to=[("a0", 0), (0, 1)],
@@ -408,13 +425,13 @@ def serve_family() -> list[Drill]:
     # Return and come in: S serves from the far side; R returns deep and
     # walks in to the kitchen behind it while S stays back — the two-bounce
     # rule is what buys him the walk.
-    srv_far = (0.28, -BEHIND)
+    srv_far = (0.28, FAR_BACK)
     out.append(Drill(
         id="pb_serve_return_and_in", category="setpiece", minutes=8, rel=True,
         off_surface=True,
         name=suffixed(SERVE_NAME, "return and come in"), note=SERVE_NOTE,
         home=[P(0.72, 1.02, "R", moves=[(0.70, TRANSITION, 1), (0.70, KH, 2)])],
-        away=[P(*srv_far, "S", moves=[(0.36, -BEHIND * 0.7, 0)])],
+        away=[P(*srv_far, "S", moves=[(0.36, FAR_BACK, 0)])],
         markers=[M(0.36, 0.07, "zone", "")],
         ball=srv_far, ball_to=[(0, 0), ("a0", 1)],
     ))
@@ -455,10 +472,10 @@ def shape_family() -> list[Drill]:
         # before the ball is struck, then one crosses. They used to straddle
         # it at 0.42 and 0.52, which is just standard positioning. The
         # server is also behind his baseline now, not 0.4 m inside it.
-        ("stacking", "stacking", [(0.30, 1.02), (0.36, KITCHEN)],
-         [(0.66, TRANSITION), (0.34, KITCHEN)]),
+        ("stacking", "stacking", [(0.30, 1.02), (0.36, KH)],
+         [(0.66, TRANSITION), (0.34, KH)]),
         ("switch_on_lob", "switching on the lob", [K_L, K_R],
-         [(0.66, TRANSITION), (0.30, KITCHEN)]),
+         [(0.66, TRANSITION), (0.30, KH)]),
     ]
     out = []
     for key, label, start, end in specs:
@@ -473,7 +490,7 @@ def shape_family() -> list[Drill]:
             name=suffixed(SHAPE_NAME, label), note=SHAPE_NOTE,
             home=[P(x, y, f"{i + 1}", moves=[end[i] + (0,)])
                   for i, (x, y) in enumerate(start)],
-            away=[P(*mirror(K_L), "A", moves=[(0.34, KITCHEN_AWAY - 0.03, 0)]),
+            away=[P(*mirror(K_L), "A", moves=[(0.34, KA - 0.01, 0)]),
                   P(*mirror(K_R), "B")],
             markers=[M(0.5, KITCHEN, "cone", ""), M(0.5, KITCHEN_AWAY, "cone", "")],
             ball=mirror(K_L),
@@ -573,7 +590,7 @@ def game_family() -> list[Drill]:
             ball_to=[("a0", 0), (0, 1)])),
         # Skinny singles is a rally in one half, down the line.
         ("skinny_singles", "skinny singles", dict(
-            home=[P(0.72, 1.02, "1")], away=[P(0.72, -0.02, "A")],
+            home=[P(0.72, 1.02, "1")], away=[P(0.72, FAR_BACK, "A")],
             ball_to=[("a0", 0), (0, 1)])),
         ("third_shot", "third shot game", serve_start),
         ("full_doubles", "full doubles", dict(
@@ -633,7 +650,7 @@ def gaps_family() -> list[Drill]:
     existed. Both verified absent from every name and note.
     """
     serve_land, return_land = (0.34, 0.10), (0.66, 0.90)
-    r_meet = through(SRV, serve_land, -0.02)
+    r_meet = through(SRV, serve_land, FAR_BACK)
     return [
         Drill(
             id="pb_two_bounce_rule", category="possession", minutes=10, rel=True,

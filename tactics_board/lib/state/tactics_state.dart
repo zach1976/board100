@@ -2346,6 +2346,7 @@ class TacticsState extends ChangeNotifier {
     final savedH = (page['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
     if (savedW <= 0 || savedH <= 0) return;
     _fromLegacyPool(page, Size(savedW, savedH));
+    _fromLegacyPickleball(page, Size(savedW, savedH));
     if (savedW == _canvasSize.width && savedH == _canvasSize.height) return;
     final from = _sportType.fieldRect(Size(savedW, savedH));
     final to = _sportType.fieldRect(_canvasSize);
@@ -2408,6 +2409,49 @@ class TacticsState extends ChangeNotifier {
     ];
   }
 
+  /// Which pickleball court a page was drawn on. Every pickleball page
+  /// written since the court shrank says so (`pbCourt`); a page without it
+  /// was drawn on the old, larger one.
+  static const int kPickleballCourt = 2;
+
+  /// A pickleball page saved on the old court, carried onto the new one.
+  ///
+  /// The court is drawn at 0.82 of the board instead of 0.88, so a receiver
+  /// can stand with his feet behind the far baseline and still be on the
+  /// board. Saved positions are canvas points against the court the app
+  /// drew, so each point — players, their runs, drawn strokes — keeps its
+  /// place relative to the court lines: same fraction of the court, or the
+  /// same distance past a line in court units.
+  void _fromLegacyPickleball(Map<String, dynamic> page, Size saved) {
+    if (_sportType != SportType.pickleball) return;
+    if (page['pbCourt'] != null) return;
+    final to = _sportType.fieldRect(saved);
+    // SportType.fieldRect as it was for the old court.
+    const aspect = 6.1 / 13.41;
+    double cw, ch;
+    if (saved.width / saved.height > aspect) {
+      ch = saved.height * 0.88;
+      cw = ch * aspect;
+    } else {
+      cw = saved.width * 0.88;
+      ch = cw / aspect;
+    }
+    final from = Rect.fromLTWH(
+        (saved.width - cw) / 2, (saved.height - ch) / 2, cw, ch);
+    if (from.width <= 0 || to.width <= 0) return;
+    Offset map(Offset p) => Offset(
+        to.left + (p.dx - from.left) / from.width * to.width,
+        to.top + (p.dy - from.top) / from.height * to.height);
+    for (final p in _players) {
+      if (p.id == kDrillNoteId) continue;
+      p.position = map(p.position);
+      p.moves = p.moves.map(map).toList();
+    }
+    _strokes = [
+      for (final s in _strokes) s.copyWith(points: s.points.map(map).toList())
+    ];
+  }
+
   /// Metres down the old 30 m pool → metres down the 25 m pool, keeping
   /// every line: the marks at each end stay where they are from their own
   /// goal line, the stretch between the 6 m lines (18 m → 13 m) is shared
@@ -2457,6 +2501,8 @@ class TacticsState extends ChangeNotifier {
         'canvasHeight': _canvasSize.height,
         if (_sportType == SportType.waterPolo)
           'poolLength': kWaterPoloPoolLength,
+        if (_sportType == SportType.pickleball)
+          'pbCourt': kPickleballCourt,
       };
 
   /// Every page in order, with the live one written back into its slot.
@@ -2518,6 +2564,8 @@ class TacticsState extends ChangeNotifier {
       'canvasHeight': _canvasSize.height,
       if (_sportType == SportType.waterPolo)
         'poolLength': kWaterPoloPoolLength,
+      if (_sportType == SportType.pickleball)
+        'pbCourt': kPickleballCourt,
     };
     pages.insert(_pageIndex + 1,
         copyCurrent ? jsonDecode(jsonEncode(_pageJson())) as Map<String, dynamic> : blank);
