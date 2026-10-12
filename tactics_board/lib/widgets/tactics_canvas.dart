@@ -1710,7 +1710,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           (animPos - chainEndAt(player, state.atStep)).distance > 0.5;
       final heading = player.facingLocked
           ? playerFacing(player)
-          : moving
+          // In motion too: a table tennis player steps back from the table
+          // facing it; drawn along his travel he spun round mid-step.
+          : moving && state.sportType != SportType.tableTennis
           ? playerHeadingAt(player, animPos)
           : faceAcrossNet(
               boardHeading(players, player, beat) ?? playerFacing(player),

@@ -145,7 +145,6 @@ def footwork_family() -> list[Drill]:
         home=[P(0.50, 1.14, "1", moves=[(0.44, 1.03, 0), (FH, 1.16, 2)])],
         # The feeder takes each return and is already set for the next.
         away=[P(*feeder, "2", moves=[(0.40, -0.12, 1), (0.50, -0.12, 3)])],
-        markers=[M(0.44, CONE_Y, "cone", ""), M(FH, 1.20, "cone", "")],
         ball=feeder, ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3)],
         free=True,
     ))
@@ -158,7 +157,6 @@ def footwork_family() -> list[Drill]:
         home=[P(*stations[0], "1", moves=[stations[1] + (2,), stations[2] + (4,)])],
         away=[P(*feeder, "2", moves=[(0.42, -0.12, 1), (0.58, -0.12, 3),
                                     (0.50, -0.12, 5)])],
-        markers=[M(x, CONE_Y, "cone", "") for x, _ in stations],
         ball=feeder,
         ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3), (0, 4), ("a0", 5)],
     ))
@@ -168,7 +166,6 @@ def footwork_family() -> list[Drill]:
         suffixed(FOOT_NAME, "side to side"), FOOT_NOTE,
         home=[P(0.50, 1.14, "1", moves=[sides[0] + (0,), sides[1] + (2,)])],
         away=[P(*feeder, "2", moves=[(0.58, -0.12, 1), (0.50, -0.12, 3)])],
-        markers=[M(x, CONE_Y, "cone", "") for x, _ in sides],
         ball=feeder, ball_to=[(0, 0), ("a0", 1), (0, 2), ("a0", 3)],
     ))
     for d in out:
@@ -622,7 +619,10 @@ def multiball() -> list[Drill]:
     """Multiball — the other canonical feeding drill. The coach stands beside
     the far end of the table with a basket; the player never waits for a
     rally to restart. Two balls, alternated: forehand corner, backhand corner."""
-    basket = (-0.12, 0.20)
+    # Behind the far end line, a little to one side, feeding over the net
+    # the way a multiball coach does — not beside the table, where the
+    # feed would come across the court instead of down it.
+    basket = (0.62, -0.12)
     d = tt(
         "tt_multiball", "possession", 10,
         {"en": "Multiball", "en-GB": "Multiball",
@@ -649,9 +649,6 @@ def multiball() -> list[Drill]:
          "vi-VN": "Mỗi giây một bóng, không kịp nghĩ giữa hai cú đánh."},
         home=[P(0.50, 1.14, "1", moves=[(FH, 1.10, 0), (0.56, 1.14, 1),
                                         (BH, 1.10, 2), (0.44, 1.14, 3)])],
-        # Beside the table, in the room — but the table is drawn 650 of the
-        # canvas's 1000 units wide, so -0.28 of a table width is off the
-        # canvas altogether. -0.12 is the furthest out a coach fits.
         away=[P(*basket, "C", coach=True)],
         markers=[M(0.75, 0.22, "zone", ""), M(0.25, 0.22, "zone", "")],
         ball=basket, ball_to=[(0, 0), (Spot(0.75, 0.22), 1)],
@@ -660,8 +657,8 @@ def multiball() -> list[Drill]:
     )
     d.purpose = FOOT_PURPOSE
     d.setup = {
-        "en": "a coach with a basket of balls beside the far end of the table, one player at the near end",
-        "en-GB": "a coach with a basket of balls beside the far end of the table, one player at the near end",
-        "zh-CN": "教练带一筐球站在球台远端的侧边，一名练习者在近端",
-        "zh-TW": "教練帶一筐球站在球檯遠端的側邊，一名練習者在近端"}
+        "en": "a coach with a basket of balls behind the far end of the table, one player at the near end",
+        "en-GB": "a coach with a basket of balls behind the far end of the table, one player at the near end",
+        "zh-CN": "教练带一筐球站在球台远端的端线后，一名练习者在近端",
+        "zh-TW": "教練帶一筐球站在球檯遠端的端線後，一名練習者在近端"}
     return [d]

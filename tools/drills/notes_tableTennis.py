@@ -32,9 +32,9 @@ GEAR = {
         "教练交替把球喂到正手位和反手位；教练那半台的两个阴影区，是正手和反手回球要落的位置",
         "教練交替把球餵到正手位和反手位；教練那半檯的兩個陰影區，是正手和反手回球要落的位置"),
     "tt_footwork_": _t(
-        "the cones stand on the floor just behind the end line and mark the spots the player has to get to for each ball",
-        "锥标放在端线后面的地上，标出每一球要移动到的击球位置",
-        "錐標放在端線後面的地上，標出每一球要移動到的擊球位置"),
+        "no markers: the table is the reference — for each ball the player gets level with the corner it is played to, behind the end line",
+        "不放标志物，以球台为参照：每一球都移动到与来球那一角对齐的位置，站在端线后",
+        "不放標誌物，以球檯為參照：每一球都移動到與來球那一角對齊的位置，站在端線後"),
     "tt_short_": _t(
         "the shaded zone on the far half is where the short-game stroke has to land",
         "对方半台的阴影区是台内球要落的区域",

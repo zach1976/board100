@@ -728,6 +728,12 @@ double faceAcrossNet(double h, PlayerIcon p, SportType sport, Offset at,
     return away >= 0 ? h : atan2(toBall.dx, -toBall.dy);
   }
   final wantUp = p.team == PlayerTeam.home;
+  // Table tennis is played square to the table. A player shuffles sideways,
+  // steps in and steps back, and never turns his shoulder or his back to
+  // it — the ghost of a multiball player was drawn in profile because his
+  // stored stance was 90 degrees, and the fold below only flips the
+  // forward half of a heading, never the sideways half.
+  if (sport == SportType.tableTennis) return wantUp ? 0.0 : pi;
   var faceNet = true;
   if (sport == SportType.badminton && court.height > 0 && court.width > 0) {
     // 0.82, not 0.80: the rear corners of the footwork boards sit at 0.89

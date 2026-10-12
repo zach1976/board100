@@ -68,5 +68,75 @@
   "ms-MY": "dua zon berlorek menandakan diagonal backhand yang dimainkan — separuh meja sisi backhand setiap pemain; bola yang jatuh di luar separuh itu dikira keluar",
   "th-TH": "โซนแรเงาสองโซนบอกแนวทแยงแบ็กแฮนด์ที่ใช้เล่น คือครึ่งโต๊ะฝั่งแบ็กแฮนด์ของแต่ละคน ลูกที่ตกนอกครึ่งนั้นถือว่าออก",
   "vi-VN": "Hai vùng tô đậm đánh dấu đường chéo trái tay được dùng — nửa bàn phía trái tay của mỗi người; bóng rơi ra ngoài nửa đó là bóng hỏng"
+ },
+ "one player behind the middle of the end line, in his playing stance": {
+  "ja-JP": "1人がエンドライン中央の後ろで構える",
+  "ko-KR": "선수 한 명이 엔드라인 중앙 뒤에서 준비 자세로 선다",
+  "es-ES": "un jugador detrás del centro de la línea de fondo, en posición de juego",
+  "fr-FR": "un joueur derrière le milieu de la ligne de fond, en position de jeu",
+  "id-ID": "satu pemain di belakang tengah garis akhir, dalam sikap siap memukul",
+  "ms-MY": "seorang pemain di belakang tengah garisan hujung, dalam sikap sedia memukul",
+  "th-TH": "ผู้เล่นหนึ่งคนยืนหลังกึ่งกลางเส้นท้ายโต๊ะในท่าเตรียมตี",
+  "vi-VN": "một người chơi đứng sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh"
+ },
+ "one player a step behind the middle of the end line, in his playing stance": {
+  "ja-JP": "1人がエンドライン中央から一歩下がって構える",
+  "ko-KR": "선수 한 명이 엔드라인 중앙에서 한 걸음 뒤에 준비 자세로 선다",
+  "es-ES": "un jugador un paso detrás del centro de la línea de fondo, en posición de juego",
+  "fr-FR": "un joueur un pas derrière le milieu de la ligne de fond, en position de jeu",
+  "id-ID": "satu pemain selangkah di belakang tengah garis akhir, dalam sikap siap memukul",
+  "ms-MY": "seorang pemain selangkah di belakang tengah garisan hujung, dalam sikap sedia memukul",
+  "th-TH": "ผู้เล่นหนึ่งคนยืนถอยหลังกึ่งกลางเส้นท้ายโต๊ะหนึ่งก้าวในท่าเตรียมตี",
+  "vi-VN": "một người chơi đứng lùi một bước sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh"
+ },
+ "no markers: the table is the reference — side-step until level with a corner of the table, play the stroke, side-step back; the feet stay behind the end line, never under the table": {
+  "ja-JP": "目印は置かない。台が基準——台の角の位置までサイドステップしてスイングし、戻る。足は常にエンドラインの後ろで、台の下に入れない",
+  "ko-KR": "표시물 없이 탁구대를 기준으로 한다 — 탁구대 모서리와 나란해질 때까지 사이드 스텝으로 이동해 스윙하고 돌아온다. 발은 늘 엔드라인 뒤에 두고 탁구대 아래로 넣지 않는다",
+  "es-ES": "sin marcas: la mesa es la referencia; desplazamiento lateral hasta quedar a la altura de una esquina de la mesa, golpe y vuelta; los pies siempre detrás de la línea de fondo, nunca bajo la mesa",
+  "fr-FR": "aucun repère : la table sert de référence — pas chassés jusqu’à l’aplomb d’un coin de la table, coup, retour ; les pieds restent derrière la ligne de fond, jamais sous la table",
+  "id-ID": "tanpa penanda: meja jadi acuan — geser ke samping sampai sejajar sudut meja, lakukan pukulan, geser kembali; kaki tetap di belakang garis akhir, tidak pernah di bawah meja",
+  "ms-MY": "tiada penanda: meja menjadi rujukan — langkah sisi hingga sejajar penjuru meja, buat pukulan, langkah sisi kembali; kaki kekal di belakang garisan hujung, tidak sekali-kali di bawah meja",
+  "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ใช้โต๊ะเป็นจุดอ้างอิง — สไลด์ข้างจนตรงกับมุมโต๊ะ ทำท่าตี แล้วสไลด์กลับ เท้าอยู่หลังเส้นท้ายโต๊ะเสมอ ห้ามเข้าใต้โต๊ะ",
+  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — bước ngang đến ngang góc bàn, thực hiện động tác đánh rồi bước ngang về; chân luôn ở sau đường cuối bàn, không bao giờ ở dưới bàn"
+ },
+ "no markers: close to the end line is the short-ball position, a big step back the deep one — step in to the table for the short ball and back out for the deep one": {
+  "ja-JP": "目印は置かない。エンドライン近くがストップ処理の位置、大きく一歩下がった所が中陣の位置——短い球は台へ踏み込み、長い球は下がる",
+  "ko-KR": "표시물 없이 — 엔드라인 가까이가 짧은 공을 처리하는 위치, 크게 한 걸음 뒤가 깊은 공의 위치다. 짧은 공은 탁구대로 들어가고 긴 공은 물러난다",
+  "es-ES": "sin marcas: pegado a la línea de fondo es la posición de la bola corta y un paso largo atrás la de la bola larga; entrar a la mesa para la corta y salir para la larga",
+  "fr-FR": "aucun repère : près de la ligne de fond, c’est la position de la balle courte, un grand pas en arrière celle de la balle longue — entrer vers la table pour la courte, ressortir pour la longue",
+  "id-ID": "tanpa penanda: dekat garis akhir adalah posisi bola pendek, satu langkah besar ke belakang posisi bola panjang — masuk ke meja untuk bola pendek dan mundur untuk bola panjang",
+  "ms-MY": "tiada penanda: dekat garisan hujung ialah kedudukan bola pendek, satu langkah besar ke belakang kedudukan bola panjang — masuk ke meja untuk bola pendek dan keluar untuk bola panjang",
+  "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ชิดเส้นท้ายโต๊ะคือตำแหน่งรับลูกสั้น ถอยหลังหนึ่งก้าวใหญ่คือตำแหน่งลูกยาว — ลูกสั้นก้าวเข้าโต๊ะ ลูกยาวถอยออกมา",
+  "vi-VN": "không đặt vật đánh dấu: sát đường cuối bàn là vị trí xử lý bóng ngắn, lùi một bước dài là vị trí bóng dài — bóng ngắn bước vào bàn, bóng dài lùi ra"
+ },
+ "no markers: the two forward points are level with the forehand and backhand corners of the table, the back point a big step behind the middle; the path between them is a figure of eight": {
+  "ja-JP": "目印は置かない。前の2点は台のフォア側とバック側の角の位置、後ろの1点は中央から大きく一歩下がった所。3点を結ぶ動きが8の字になる",
+  "ko-KR": "표시물 없이 — 앞의 두 지점은 탁구대 포핸드·백핸드 모서리와 나란한 곳, 뒤의 한 지점은 중앙에서 크게 한 걸음 뒤다. 세 지점을 잇는 경로가 8자다",
+  "es-ES": "sin marcas: los dos puntos delanteros a la altura de las esquinas de derecha y revés de la mesa, el trasero un paso largo detrás del centro; el recorrido entre ellos es un ocho",
+  "fr-FR": "aucun repère : les deux points avant sont à l’aplomb des coins coup droit et revers de la table, le point arrière un grand pas derrière le milieu ; le trajet entre eux dessine un huit",
+  "id-ID": "tanpa penanda: dua titik depan sejajar sudut forehand dan backhand meja, titik belakang satu langkah besar di belakang tengah; lintasan di antaranya membentuk angka delapan",
+  "ms-MY": "tiada penanda: dua titik hadapan sejajar penjuru forehand dan backhand meja, titik belakang satu langkah besar di belakang tengah; laluan di antaranya membentuk angka lapan",
+  "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง สองจุดหน้าตรงกับมุมโฟร์แฮนด์และแบ็คแฮนด์ของโต๊ะ จุดหลังอยู่ถอยจากกึ่งกลางหนึ่งก้าวใหญ่ เส้นทางระหว่างสามจุดเป็นเลขแปด",
+  "vi-VN": "không đặt vật đánh dấu: hai điểm phía trước ngang góc thuận tay và trái tay của bàn, điểm phía sau lùi một bước dài sau chính giữa; đường đi giữa chúng là hình số tám"
+ },
+ "no markers: the table is the reference — for each ball the player gets level with the corner it is played to, behind the end line": {
+  "ja-JP": "目印は置かない。台が基準——1球ごとに、送られた角の位置までエンドラインの後ろで移動する",
+  "ko-KR": "표시물 없이 탁구대를 기준으로 한다 — 공마다 그 공이 오는 모서리와 나란한 위치로, 엔드라인 뒤에서 이동한다",
+  "es-ES": "sin marcas: la mesa es la referencia; en cada bola el jugador se coloca a la altura de la esquina a la que va, detrás de la línea de fondo",
+  "fr-FR": "aucun repère : la table sert de référence — à chaque balle, le joueur se place à l’aplomb du coin où elle est jouée, derrière la ligne de fond",
+  "id-ID": "tanpa penanda: meja jadi acuan — setiap bola, pemain bergerak sejajar dengan sudut tujuan bola, di belakang garis akhir",
+  "ms-MY": "tiada penanda: meja menjadi rujukan — setiap bola, pemain bergerak sejajar dengan penjuru tujuan bola, di belakang garisan hujung",
+  "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ใช้โต๊ะเป็นจุดอ้างอิง — ทุกลูกให้ขยับไปตรงกับมุมที่ลูกถูกส่งมา อยู่หลังเส้นท้ายโต๊ะ",
+  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — mỗi quả, người chơi di chuyển ngang với góc bóng được đưa tới, ở sau đường cuối bàn"
+ },
+ "a coach with a basket of balls behind the far end of the table, one player at the near end": {
+  "ja-JP": "コーチがボールかごを持って台の向こう側のエンドラインの後ろに立ち、手前に練習者が1人",
+  "ko-KR": "코치가 공 바구니를 들고 탁구대 반대편 엔드라인 뒤에 서고, 가까운 쪽에 선수 한 명",
+  "es-ES": "un entrenador con una cesta de bolas detrás del fondo opuesto de la mesa y un jugador en el fondo cercano",
+  "fr-FR": "un entraîneur avec un panier de balles derrière le fond opposé de la table, un joueur au fond proche",
+  "id-ID": "pelatih dengan keranjang bola di belakang ujung jauh meja, satu pemain di ujung dekat",
+  "ms-MY": "jurulatih dengan bakul bola di belakang hujung jauh meja, seorang pemain di hujung dekat",
+  "th-TH": "โค้ชถือตะกร้าลูกยืนหลังเส้นท้ายโต๊ะฝั่งตรงข้าม ผู้เล่นหนึ่งคนอยู่ฝั่งใกล้",
+  "vi-VN": "huấn luyện viên với một giỏ bóng đứng sau đầu bàn phía xa, một người chơi ở đầu bàn phía gần"
  }
 }
