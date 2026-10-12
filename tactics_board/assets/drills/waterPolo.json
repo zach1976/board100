@@ -1,6 +1,6 @@
 {
   "sport": "waterPolo",
-  "version": 4,
+  "version": 5,
   "minClient": "2.1.0",
   "drills": [
     {

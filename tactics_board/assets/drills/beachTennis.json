@@ -1,6 +1,6 @@
 {
   "sport": "beachTennis",
-  "version": 4,
+  "version": 5,
   "minClient": "2.0.0",
   "drills": [
     {
