@@ -608,7 +608,7 @@ extension SportTypeExtension on SportType {
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
       case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
       case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
-      case SportType.waterPolo:   aspect = 20 / 30;     scaleW = 0.88; scaleH = 0.88; break;
+      case SportType.waterPolo:   aspect = 20 / 25;     scaleW = 0.88; scaleH = 0.88; break;
       case SportType.sepakTakraw: aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
       case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.85; scaleH = 0.85; break;
       case SportType.footvolley:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
@@ -1236,29 +1236,31 @@ extension SportTypeExtension on SportType {
         ];
 
       case SportType.waterPolo:
-        // Pool 20m × 30m portrait. Goal y=0/1, 2m=0.067, 5m=0.167, 6m=0.20.
+        // Pool 20m × 25m portrait (World Aquatics 2025 field of play).
+        // Goal y=0/1, 2m=0.08, 5m=0.20, 6m=0.24, halfway 0.50. Moved from
+        // the old 30 m pool line for line (goal, 2 m, 5 m, 6 m, halfway).
         return const [
           // 7v7 — each team spread in its own half (own goal end), meeting
           // near the halfway line. Home defends the bottom goal, away the top.
           SportFormation(
             nameKey: 'formation_7v7',
             homePositions: [
-              Offset(0.50, 0.96), // GK
-              Offset(0.50, 0.56), // hole set (CF) — most advanced, near centre
-              Offset(0.10, 0.66), // LW
-              Offset(0.90, 0.66), // RW
-              Offset(0.30, 0.64), // L flat/driver
-              Offset(0.70, 0.64), // R flat/driver
-              Offset(0.50, 0.74), // point
+              Offset(0.50, 0.952), // GK
+              Offset(0.50, 0.552), // hole set (CF) — most advanced, near centre
+              Offset(0.10, 0.639), // LW
+              Offset(0.90, 0.639), // RW
+              Offset(0.30, 0.621), // L flat/driver
+              Offset(0.70, 0.621), // R flat/driver
+              Offset(0.50, 0.708), // point
             ],
             awayPositions: [
-              Offset(0.50, 0.04), // GK
-              Offset(0.50, 0.44), // hole set (CF)
-              Offset(0.90, 0.34), // LW
-              Offset(0.10, 0.34), // RW
-              Offset(0.70, 0.36), // L flat/driver
-              Offset(0.30, 0.36), // R flat/driver
-              Offset(0.50, 0.26), // point
+              Offset(0.50, 0.048), // GK
+              Offset(0.50, 0.448), // hole set (CF)
+              Offset(0.90, 0.361), // LW
+              Offset(0.10, 0.361), // RW
+              Offset(0.70, 0.379), // L flat/driver
+              Offset(0.30, 0.379), // R flat/driver
+              Offset(0.50, 0.292), // point
             ],
           ),
           // Power play 6 on 5, 4-2: six field attackers + GK against five
@@ -1269,29 +1271,29 @@ extension SportTypeExtension on SportType {
           SportFormation(
             nameKey: 'formation_6v5',
             homePositions: [
-              Offset(0.50, 0.97),
-              Offset(0.14, 0.153), Offset(0.37, 0.213),
-              Offset(0.63, 0.213), Offset(0.86, 0.153),
-              Offset(0.36, 0.083), Offset(0.64, 0.083),
+              Offset(0.50, 0.964),
+              Offset(0.14, 0.184), Offset(0.37, 0.251),
+              Offset(0.63, 0.251), Offset(0.86, 0.184),
+              Offset(0.36, 0.10), Offset(0.64, 0.10),
             ],
             awayPositions: [
-              Offset(0.50, 0.037),
-              Offset(0.425, 0.053), Offset(0.575, 0.053),
-              Offset(0.23, 0.147), Offset(0.50, 0.153), Offset(0.77, 0.147),
+              Offset(0.50, 0.044),
+              Offset(0.425, 0.064), Offset(0.575, 0.064),
+              Offset(0.23, 0.176), Offset(0.50, 0.184), Offset(0.77, 0.176),
             ],
           ),
           // Power play 6 on 5, 3-3: three on the 2 m, three out.
           SportFormation(
             nameKey: 'formation_6v5_33',
             homePositions: [
-              Offset(0.50, 0.97),
-              Offset(0.20, 0.213), Offset(0.50, 0.253), Offset(0.80, 0.213),
-              Offset(0.30, 0.083), Offset(0.50, 0.13), Offset(0.70, 0.083),
+              Offset(0.50, 0.964),
+              Offset(0.20, 0.251), Offset(0.50, 0.286), Offset(0.80, 0.251),
+              Offset(0.30, 0.10), Offset(0.50, 0.156), Offset(0.70, 0.10),
             ],
             awayPositions: [
-              Offset(0.50, 0.037),
-              Offset(0.365, 0.053), Offset(0.635, 0.053),
-              Offset(0.32, 0.16), Offset(0.58, 0.177), Offset(0.70, 0.153),
+              Offset(0.50, 0.044),
+              Offset(0.365, 0.064), Offset(0.635, 0.064),
+              Offset(0.32, 0.192), Offset(0.58, 0.212), Offset(0.70, 0.184),
             ],
           ),
           // Power play 6 on 5, umbrella: the point at 9 m, three across the
@@ -1299,14 +1301,14 @@ extension SportTypeExtension on SportType {
           SportFormation(
             nameKey: 'formation_6v5_umbrella',
             homePositions: [
-              Offset(0.50, 0.97),
-              Offset(0.50, 0.307), Offset(0.16, 0.167), Offset(0.50, 0.187),
-              Offset(0.84, 0.167), Offset(0.35, 0.083), Offset(0.65, 0.083),
+              Offset(0.50, 0.964),
+              Offset(0.50, 0.333), Offset(0.16, 0.20), Offset(0.50, 0.224),
+              Offset(0.84, 0.20), Offset(0.35, 0.10), Offset(0.65, 0.10),
             ],
             awayPositions: [
-              Offset(0.50, 0.037),
-              Offset(0.42, 0.053), Offset(0.58, 0.053),
-              Offset(0.27, 0.13), Offset(0.50, 0.113), Offset(0.73, 0.13),
+              Offset(0.50, 0.044),
+              Offset(0.42, 0.064), Offset(0.58, 0.064),
+              Offset(0.27, 0.156), Offset(0.50, 0.136), Offset(0.73, 0.156),
             ],
           ),
           // Even strength 3-3: three on the 2 m (posts and the hole set),
@@ -1314,30 +1316,30 @@ extension SportTypeExtension on SportType {
           SportFormation(
             nameKey: 'formation_wp_33',
             homePositions: [
-              Offset(0.50, 0.97),
-              Offset(0.22, 0.22), Offset(0.50, 0.25), Offset(0.78, 0.22),
-              Offset(0.28, 0.09), Offset(0.42, 0.09), Offset(0.72, 0.09),
+              Offset(0.50, 0.964),
+              Offset(0.22, 0.257), Offset(0.50, 0.283), Offset(0.78, 0.257),
+              Offset(0.28, 0.108), Offset(0.42, 0.108), Offset(0.72, 0.108),
             ],
             awayPositions: [
-              Offset(0.50, 0.037),
-              Offset(0.29, 0.17), Offset(0.57, 0.20), Offset(0.71, 0.17),
-              Offset(0.21, 0.06), Offset(0.35, 0.06), Offset(0.79, 0.06),
+              Offset(0.50, 0.044),
+              Offset(0.29, 0.204), Offset(0.57, 0.24), Offset(0.71, 0.204),
+              Offset(0.21, 0.072), Offset(0.35, 0.072), Offset(0.79, 0.072),
             ],
           ),
           // 5+1 (training / shorter sides) — each team in its own half.
           SportFormation(
             nameKey: 'formation_5v5',
             homePositions: [
-              Offset(0.50, 0.96), // GK
-              Offset(0.50, 0.60), // hole
-              Offset(0.24, 0.70), Offset(0.76, 0.70),
-              Offset(0.50, 0.80),
+              Offset(0.50, 0.952), // GK
+              Offset(0.50, 0.587), // hole
+              Offset(0.24, 0.673), Offset(0.76, 0.673),
+              Offset(0.50, 0.76),
             ],
             awayPositions: [
-              Offset(0.50, 0.04),
-              Offset(0.50, 0.40),
-              Offset(0.76, 0.30), Offset(0.24, 0.30),
-              Offset(0.50, 0.20),
+              Offset(0.50, 0.048),
+              Offset(0.50, 0.413),
+              Offset(0.76, 0.327), Offset(0.24, 0.327),
+              Offset(0.50, 0.24),
             ],
           ),
         ];

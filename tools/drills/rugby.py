@@ -18,9 +18,12 @@ Three laws the boards are held to, by tools/check_rugby_passes.py:
 * A kick has a kicker, and the chasers start level with him or behind him.
 
 A drawn figure is about 4-5 m wide and 8-11 m tall at this scale, so a
-scrum, a lineout or a maul cannot be drawn at true spacing; those boards
-are tight=True and keep the shape (single files, a 3-4-1 pack) at the
-closest spacing at which the numbers can still be read.
+scrum or a maul cannot be drawn at true spacing at the whole pitch's
+scale; those boards are tight=True and keep the shape (single files, a
+3-4-1 pack) at the closest spacing at which the numbers can still be read.
+The lineouts (and the mauls that start from one) are drawn at Law 18's
+true spacing instead and open on a close-up of it (Drill.view — the
+board's viewWindow; see _lineout).
 """
 from .engine import Drill, M, P, Spot, suffixed
 from .vocab import V
@@ -929,18 +932,39 @@ def defence_family() -> list[Drill]:
 
 # ── set pieces ────────────────────────────────────────────────────────────
 def _lineout(b, jumpers, line_y, d_label="D"):
-    """Two single files, at right angles to touch, from the 5 m line in:
-    ours on our side of the line of touch, theirs on theirs. The thrower
-    stands outside the touchline on it."""
+    """Law 18: two straight single files, at right angles to touch, 1 m
+    apart — ours 0.5 m on our side of the line of touch, theirs 0.5 m on
+    theirs — everyone between the 5 m and 15 m lines. The thrower stands
+    outside the touchline on the line of touch, and the throw goes straight
+    down it (the middle of the gap).
+
+    At the whole pitch's scale a figure is 4 m wide and that cannot be
+    drawn, so these boards open on a close-up (_lineout_view, the board's
+    view window) where the tight figure is about 0.7 m wide. The two files
+    are staggered — each man opposite a gap in the other file — because a
+    figure is drawn twice as tall as it is wide and two files 1 m apart,
+    man opposite man, would draw every pair as one."""
+    n = len(jumpers)
+    lo, hi = 5.1, 14.9
+    step = (hi - lo) / (2 * n - 1)
     keys = []
     for i, lbl in enumerate(jumpers):
-        b.put(lbl, 6.0 + 4.4 * i, line_y + 4.0)
+        b.put(lbl, lo + step * 2 * i, line_y + 0.5)
         keys.append(lbl)
-    dk = [f"{d_label}#{i}" for i in range(len(jumpers))]
+    dk = [f"{d_label}#{i}" for i in range(n)]
     for i, k in enumerate(dk):
-        b.put(k, 6.0 + 4.4 * i, line_y - 4.0)
-    b.put("2", -1.5, line_y)
+        b.put(k, lo + step * (2 * i + 1), line_y - 0.5)
+    b.put("2", -0.8, line_y)
     return keys, dk
+
+
+def _lineout_view(line_y, up, down):
+    """The close-up a lineout board opens on: touch (and the thrower just
+    outside it) to past the 15 m line, [up] metres toward the try line and
+    [down] back from the line of touch. Its width sets the zoom (the phone
+    is fitted by width: about 5x, a tight figure 0.7 m wide); keep
+    up + down under 30 m or the height would bind instead."""
+    return (-1.2 / W, (line_y - up) / L, 15.4 / W, (line_y + down) / L)
 
 
 def setpiece_family() -> list[Drill]:
@@ -989,26 +1013,33 @@ def setpiece_family() -> list[Drill]:
         line_y = 66.0
         keys, dk = _lineout(b, jumpers, line_y)
         jx = b.x(jumper)
-        b.put("9", jx + 2.0, line_y + 12.0)
-        b.put("10", jx + 22.0, line_y + 24.0)
+        # The receiver: 2 m or more behind his own file (Law 18), between
+        # the 5 m and 15 m lines. The 10 is a back: 10 m behind the line of
+        # touch until the lineout is over.
+        b.put("9", jx + 1.0, line_y + 3.0)
+        b.put("10", 14.6, line_y + 13.5)
         jd = min(dk, key=lambda k: abs(b.x(k) - jx))
-        b.go(jd, jx + 1.5, line_y - 4.5, 0)         # their jumper contests
-        b.go("10", jx + 21.0, line_y + 22.0, 0)
-        b.go("9", jx + 3.5, line_y + 13.0, 1)
-        b.go("10", jx + 20.0, line_y + 21.0, 2)
-        b.go("10", jx + 18.0, line_y + 20.0, 3)
-        b.go("10", jx + 16.0, line_y + 13.0, 4)     # and takes it up
-        b.go(jd, jx, line_y - 4.0, 2)
+        jdx = b.x(jd)
+        b.go(jd, jx, line_y - 0.5, 0)               # their jumper contests,
+        b.go("10", 14.2, line_y + 12.6, 0)          # on his own side of the gap
+        b.go("9", jx + 0.2, line_y + 2.6, 1)
+        b.go("10", 13.7, line_y + 11.6, 2)
+        b.go("10", 13.0, line_y + 10.5, 3)
+        b.go("10", 14.0, line_y + 6.0, 4)           # and takes it up
+        b.go(jd, jdx, line_y - 0.5, 2)
         home = ["2"] + keys + ["9", "10"]
         out.append(Drill(
             id=f"rg_set_{key}", category="setpiece", minutes=12, rel=True,
-            tight=True, free=(key == "lineout_five"), off_surface=True,
+            # The thrower stands just outside touch, inside the surface
+            # check's tolerance — no off_surface needed.
+            tight=True, free=(key == "lineout_five"),
+            view=_lineout_view(line_y, 6.0, 14.0),
             name=suffixed(SET_NAME, dashed(label)), note=SET_NOTE,
             home=b.players(home), away=b.players(dk),
             ball=0, ball_spot=pt(-0.3, line_y),
             # straight down the middle of the gap to the jumper's mark,
             # taken, given back to the 9 and on to the 10
-            ball_to=[(spot(jx, line_y + 0.5), 0), (home.index(jumper), 1),
+            ball_to=[(spot(jx, line_y), 0), (home.index(jumper), 1),
                      (home.index("9"), 2), (home.index("10"), 3),
                      (home.index("10"), 4)],
         ))
@@ -1265,10 +1296,17 @@ def breakdown_family() -> list[Drill]:
 
 
 # ── games ─────────────────────────────────────────────────────────────────
+# The area is shaded with the app's zone, which is a token-sized wash 1.2
+# times as wide as it is deep, so it cannot be square: at this scale it
+# covers 60 m across (5 m line to 5 m line) and 50 m down (their try line
+# to halfway), measured off the render (scale 6.0 drew 42.2 x 35.1 m).
+GAME_ZONE_SCALE = 8.55
+
+
 def game_family() -> list[Drill]:
-    """A reduced area, 50 m by 50 m, marked by four cones from their try
-    line back to their 10 m line. Two passes along the line and a carry
-    into the defender who comes up to meet it."""
+    """A reduced area, 60 m by 50 m, shaded and marked by four cones: 5 m
+    line to 5 m line, their try line back to halfway. Two passes along the
+    line and a carry into the defender who comes up to meet it."""
     out = []
     for n, label in [(5, "touch 5v5"), (7, "sevens 7v7"), (8, "contact 8v8")]:
         b = Board()
@@ -1291,7 +1329,8 @@ def game_family() -> list[Drill]:
             tight=True, free=(n == 5),
             name=suffixed(GAME_NAME, dashed(label)), note=GAME_NOTE,
             home=b.players(hk), away=b.players(ak),
-            markers=[mk(10, 22), mk(60, 22), mk(10, 72), mk(60, 72)],
+            markers=[M(35 / W, 47 / L, "zone", "", GAME_ZONE_SCALE),
+                     mk(5, 22), mk(65, 22), mk(5, 72), mk(65, 72)],
             ball=0,
             ball_to=[(1, 0), (2, 1), (2, 2)],
         ))
@@ -1451,19 +1490,22 @@ def maul_family() -> list[Drill]:
         keys, dk = _lineout(b, ["4", "5", "6", "7", "8"], line_y)
         jx = b.x("5")
         jd = min(dk, key=lambda k: abs(b.x(k) - jx))
-        b.go(jd, jx + 1.5, line_y - 4.5, 0)
-        b.go("4", 6.0, line_y + 5.5, 1)              # bind on the jumper
-        b.go("6", 14.8, line_y + 5.5, 1)
-        b.go("7", 8.2, line_y + 13.8, 1)
-        b.go("8", 12.6, line_y + 13.8, 1)
-        b.go(jd, jx, line_y + 1.0, 2)                # their front engages
-        b.go("2", 3.5, line_y + 21.5, 2)             # the thrower joins
+        b.go(jd, jx, line_y - 0.5, 0)
+        # The pod binds on the jumper: one either side of him, two behind
+        # them — a row clear of the next by a figure's height at this zoom.
+        b.go("4", jx - 0.75, line_y + 0.9, 1)
+        b.go("6", jx + 0.75, line_y + 0.9, 1)
+        b.go("7", jx - 0.4, line_y + 2.5, 1)
+        b.go("8", jx + 0.4, line_y + 2.5, 1)
+        b.go(jd, jx, line_y - 0.6, 2)                # their front engages
+        b.go("2", jx, line_y + 4.1, 2)               # the thrower joins
         # their pod binds onto the front of it: two beside their jumper,
         # two behind them
         others = [k for k in dk if k != jd]
-        for k, (x, y) in zip(others, [(6.0, line_y), (14.8, line_y),
-                                      (8.2, line_y - 8.0),
-                                      (12.6, line_y - 8.0)]):
+        for k, (x, y) in zip(others, [(jx - 0.75, line_y - 1.0),
+                                      (jx + 0.75, line_y - 1.0),
+                                      (jx - 0.4, line_y - 2.6),
+                                      (jx + 0.4, line_y - 2.6)]):
             b.go(k, x, y, 2)
         mauls = ["5", "4", "6", "7", "8", "2"]
         if key == "drive":
@@ -1471,17 +1513,22 @@ def maul_family() -> list[Drill]:
             b.shift(dk, 0, -4.0, 3)
             b.shift(mauls, 0, -5.0, 4)
             b.shift(dk, 0, -5.0, 4)
-            ball_to = [(spot(jx, line_y + 0.5), 0), (2, 1), (5, 2), (5, 3), (5, 4)]
+            ball_to = [(spot(jx, line_y), 0), (2, 1), (5, 2), (5, 3), (5, 4)]
+            view = _lineout_view(line_y, 15.0, 7.0)
         else:
-            b.put("D#x", 30.0, 33.0)
+            # A sixth defender comes in from his own side, behind the
+            # hindmost of theirs, and holds it up.
+            b.put("D#x", 13.5, line_y - 7.0)
             dk = dk + ["D#x"]
             b.shift(mauls, 0, -1.0, 3)               # held where it formed
-            b.go("D#x", 17.5, 52.0, 3)               # round to the ball
-            ball_to = [(spot(jx, line_y + 0.5), 0), (2, 1), (5, 2), (5, 3)]
+            b.go("D#x", jx, line_y - 4.2, 3)
+            ball_to = [(spot(jx, line_y), 0), (2, 1), (5, 2), (5, 3)]
+            view = _lineout_view(line_y, 9.0, 7.0)
         home = ["2"] + keys
         out.append(Drill(
             id=f"rg_maul_{key}", category="setpiece", minutes=12, rel=True,
-            tight=True, free=(key == "drive"), off_surface=True,
+            tight=True, free=(key == "drive"),
+            view=view,
             name=MAUL_NAMES[key], note=MAUL_NOTE,
             home=b.players(home), away=b.players(dk),
             ball=0, ball_spot=pt(-0.3, line_y),

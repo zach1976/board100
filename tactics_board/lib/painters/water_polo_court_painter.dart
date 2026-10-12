@@ -41,9 +41,11 @@ class WaterPoloCourtPainter extends CourtPainterBase {
     final w = size.width;
     final h = size.height;
 
-    // FINA: 30m × 20m. Portrait = 20 wide × 30 tall.
+    // World Aquatics 2025: 25 m between the goal lines × 20 m (it was drawn
+    // 30 m, the old maximum). Portrait = 20 wide × 25 tall. Must match
+    // SportType.fieldRect and tools/drills/engine.py COURT.
     const fieldW = 20.0;
-    const fieldH = 30.0;
+    const fieldH = 25.0;
     const ratio = fieldW / fieldH;
 
     double cw, ch;
@@ -130,16 +132,16 @@ class WaterPoloCourtPainter extends CourtPainterBase {
         pitch: size);
   }
 
-  /// One goal end (20m × 15m) scaled to fill the board: goal at the top, the
+  /// One goal end (20m × 12.5m) scaled to fill the board: goal at the top, the
   /// halfway line forming the bottom edge with a centre spot on it. Distances
   /// are measured from the goal line at y = 0.
   void _paintHalf(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
 
-    // Top half of the 20m × 30m pool: 20 wide × 15 tall.
+    // Top half of the 20m × 25m pool: 20 wide × 12.5 tall.
     const fieldW = 20.0;
-    const fieldH = 15.0; // half of the full 30m length
+    const fieldH = 12.5; // half of the full 25m length
     const ratio = fieldW / fieldH;
 
     double cw, ch;

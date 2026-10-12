@@ -26,7 +26,7 @@ Map<int, String> ballEscorts(PlayerIcon ball, List<PlayerIcon> players) {
   // At the receiver's feet the ball sits ~38pt from the receiver's point;
   // one and a half icons covers that with room, while the next cone is
   // hundreds of points away.
-  const near = kPlayerIconSize * 1.5;
+  final near = kPlayerIconSize * 1.5;
   final out = <int, String>{};
   if (ball.moves.isEmpty) return out;
   ball.syncPhases();
@@ -338,9 +338,12 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  static const _strokeWidth = 2.8;
-  static const _arrowSize = 13.0;
-  static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
+  // On the figures' scale (gBoardFigureScale): a tablet board's arrows
+  // grow with its players, and are exactly these on a phone.
+  static double get _strokeWidth => 2.8 * gBoardFigureScale;
+  static double get _arrowSize => 13.0 * gBoardFigureScale;
+  // half of 28.0 dot + shadow margin
+  static double get _waypointRadius => 17.0 * gBoardFigureScale;
 
   void _paintMoves(Canvas canvas, PlayerIcon player,
       {bool whole = false,
@@ -415,7 +418,7 @@ class PlayerMovesPainter extends CustomPainter {
     // meets nothing but the shoe. See [_personClear].
     final iconRadius = player.isBall || player.isMarker
         ? kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3
-        : 5.0 * player.scale;
+        : 5.0 * player.scale * kFigureScale;
     final person = !player.isBall && !player.isMarker && footward != Offset.zero;
 
     for (int i = 0; i < points.length - 1; i++) {
@@ -442,10 +445,10 @@ class PlayerMovesPainter extends CustomPainter {
       // Offset both ends: start from source edge, end at destination edge
       final isLastSegment = i == points.length - 2;
       final startRadius = i == 0
-          ? (person ? _personClear(to - from, player.scale) : iconRadius)
+          ? (person ? _personClear(to - from, player.scale * kFigureScale) : iconRadius)
           : _waypointRadius;
       final endRadius = isLastSegment
-          ? (person ? _personClear(from - to, player.scale) : iconRadius)
+          ? (person ? _personClear(from - to, player.scale * kFigureScale) : iconRadius)
           : _waypointRadius;
       final dist = (to - from).distance;
       // A ball that has not left yet has no line. Mid-flight the line ends
@@ -549,7 +552,7 @@ class PlayerMovesPainter extends CustomPainter {
     // pitch markings both.
     final outlinePaint = Paint()
       ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
-      ..strokeWidth = width + 1.6
+      ..strokeWidth = width + 1.6 * gBoardFigureScale
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -583,8 +586,8 @@ class PlayerMovesPainter extends CustomPainter {
       for (final metric in metrics) {
         double start = 0;
         bool draw = true;
-        const dashLen = 12.0;
-        const gapLen = 7.0;
+        final dashLen = 12.0 * gBoardFigureScale;
+        final gapLen = 7.0 * gBoardFigureScale;
         while (start < metric.length) {
           final seg = draw ? dashLen : gapLen;
           final end = (start + seg).clamp(0.0, metric.length);
@@ -628,7 +631,7 @@ class PlayerMovesPainter extends CustomPainter {
   void _drawArrowHead(Canvas canvas, Color color, Offset from, Offset to,
       {bool strong = false}) {
     final angle = atan2(to.dy - from.dy, to.dx - from.dx);
-    final size = strong ? _arrowSize + 2 : _arrowSize;
+    final size = strong ? _arrowSize + 2 * gBoardFigureScale : _arrowSize;
 
     // A dark rim round the head, so it reads on light turf and over a
     // white line. It used to be a second, bigger triangle filled behind the
@@ -642,7 +645,7 @@ class PlayerMovesPainter extends CustomPainter {
       Paint()
         ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
         ..style = PaintingStyle.stroke
-        ..strokeWidth = strong ? 3.0 : 2.4
+        ..strokeWidth = (strong ? 3.0 : 2.4) * gBoardFigureScale
         ..strokeJoin = StrokeJoin.round,
     );
     canvas.drawPath(

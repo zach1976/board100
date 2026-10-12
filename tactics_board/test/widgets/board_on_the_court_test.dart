@@ -120,6 +120,10 @@ void main() {
       for (final drill in loadShipped(sportName)) {
         // A throw-in taker stands behind the line by the rules.
         if (drill.offSurface) continue;
+        // A lineout at Law 18's spacing opens on its own close-up
+        // (viewWindow): the screen is not the court courtOnScreen finds,
+        // and the thrower stands outside touch. test/state/view_window_test.
+        if (drill.board['viewWindow'] != null) continue;
         state.loadFromJson(Map<String, dynamic>.from(drill.board));
         await tester.pump(const Duration(milliseconds: 60));
         final court = courtOnScreen();
@@ -154,7 +158,7 @@ void main() {
         // feet sits that far from his point — a server standing behind the
         // baseline has his ball behind him. Half a figure is 26pt; the
         // misplacement this test is here for was three times that.
-        const ballSlack = kPlayerIconSize * 0.5;
+        final ballSlack = kPlayerIconSize * 0.5;
         final forBalls = Rect.fromLTRB(
           court.left - ballSlack - net - apron,
           court.top - ballSlack,

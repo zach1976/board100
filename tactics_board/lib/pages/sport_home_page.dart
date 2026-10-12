@@ -307,7 +307,8 @@ class _SportHomePageState extends State<SportHomePage> {
                       DrillNote.parse(drill.localizedNote(l)).beats,
                   name: drill.displayName(_locale),
                   nameFor: drill.displayName,
-                  id: drill.id);
+                  id: drill.id,
+                  frame: drill.frame);
               RecentBoardsService.instance.record(
                 state.sportType,
                 RecentBoard(

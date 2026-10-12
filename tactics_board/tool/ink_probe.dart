@@ -21,7 +21,7 @@ void main() {
   testWidgets('ink bounds', (t) async {
     await t.runAsync(PlayerArt.warm);
     const pad = 60.0;
-    const box = kPlayerIconSize + pad * 2;
+    final box = kPlayerIconSize + pad * 2;
     final key = GlobalKey();
     for (final sport in [SportType.soccer, SportType.fieldHockey,
                          SportType.basketball, SportType.rugby]) {

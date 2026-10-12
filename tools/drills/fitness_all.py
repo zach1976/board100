@@ -910,8 +910,9 @@ def _water_polo():
             # Line to line: the figure is drawn centred on its point and is
             # ~2.7 m long, so 1.35 m off a line puts the head (going out) or
             # the feet (pushing off) on it. It used to stop 1-2.5 m short.
-            home=[P(0.50, 0.955, "A",
-                    moves=[(0.50, 0.045, 0), (0.50, 0.955, 1)],
+            # (1.35 m of the 25 m pool is 0.054.)
+            home=[P(0.50, 0.946, "A",
+                    moves=[(0.50, 0.054, 0), (0.50, 0.946, 1)],
                     why={0: "swim", 1: "swim"})],
             setup=_s("the group on one goal line in lanes an arm's length apart; the far goal line is the finish",
                      "全组在一侧门线排开，彼此相隔一臂；对面门线是终点",

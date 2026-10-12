@@ -28,6 +28,7 @@ from __future__ import annotations
 from .intents import RESET, RUN_WHY, why_text
 
 import json as _json
+import re as _re
 from pathlib import Path as _Path
 
 # The gear / flow / rules lines are authored in English and Chinese only.
@@ -218,6 +219,44 @@ CARRY = {
     "es-ES": "{a} conduce el balón", "fr-FR": "{a} conduit le ballon",
     "id-ID": "{a} menggiring bola", "ms-MY": "{a} membawa bola",
     "th-TH": "{a} พาบอลไป", "vi-VN": "{a} dẫn bóng di chuyển",
+}
+# Two balls carried on one beat, one each: "A, B carries the ball on the
+# move" was one verb with two subjects.
+CARRY_EACH = {
+    "en": "{a} each carry a ball on the move",
+    "en-GB": "{a} each carry a ball on the move",
+    "zh-CN": "{a}各自带球推进", "zh-TW": "{a}各自帶球推進",
+    "ja-JP": "{a}がそれぞれボールを運ぶ", "ko-KR": "{a}가 각자 공을 몰고 이동",
+    "es-ES": "{a} conducen cada uno su balón",
+    "fr-FR": "{a} conduisent chacun leur ballon",
+    "id-ID": "{a} masing-masing menggiring bola",
+    "ms-MY": "{a} masing-masing membawa bola",
+    "th-TH": "{a} ต่างคนต่างพาบอลไป", "vi-VN": "{a} mỗi người dẫn một quả bóng di chuyển",
+}
+# The last two names of a list joined the way the language joins them.
+AND_LAST = {
+    "en": " and ", "en-GB": " and ", "zh-CN": "和", "zh-TW": "和",
+    "ja-JP": "と", "ko-KR": ", ", "es-ES": " y ", "fr-FR": " et ",
+    "id-ID": " dan ", "ms-MY": " dan ", "th-TH": " และ ", "vi-VN": " và ",
+}
+# The ball put up by hand for a team-mate to strike — the inside player's
+# toss to the tekong — is not a shot "played to" him.
+TOSS = {
+    "en": "{a} tosses it to {b}", "en-GB": "{a} tosses it to {b}",
+    "zh-CN": "{a}把球抛给{b}", "zh-TW": "{a}把球拋給{b}",
+    "ja-JP": "{a}が{b}へトスを上げる", "ko-KR": "{a}가 {b}에게 토스한다",
+    "es-ES": "{a} se la lanza a {b}", "fr-FR": "{a} lance la balle à {b}",
+    "id-ID": "{a} melambungkan bola ke {b}", "ms-MY": "{a} melambung bola kepada {b}",
+    "th-TH": "{a} โยนลูกให้ {b}", "vi-VN": "{a} tung bóng cho {b}",
+}
+# A coach feeding from the basket (multiball) is feeding, not playing.
+FEEDS = {
+    "en": "{a} feeds it to {b}", "en-GB": "{a} feeds it to {b}",
+    "zh-CN": "{a}给{b}喂球", "zh-TW": "{a}給{b}餵球",
+    "ja-JP": "{a}が{b}へ球出しする", "ko-KR": "{a}가 {b}에게 공을 넣어 준다",
+    "es-ES": "{a} le da bola a {b}", "fr-FR": "{a} distribue la balle à {b}",
+    "id-ID": "{a} mengumpan bola ke {b}", "ms-MY": "{a} menyuap bola kepada {b}",
+    "th-TH": "{a} ป้อนลูกให้ {b}", "vi-VN": "{a} mớm bóng cho {b}",
 }
 # A ball that starts loose (a served ball, an opponent's pass into the
 # board): there is no holder to name, so the ball itself is the subject.
@@ -663,6 +702,25 @@ _SUBJ = {
 }
 
 
+# Korean particles agree with the sound before them: 은/이/을 after a final
+# consonant, 는/가/를 after a vowel. The templates write the vowel form after
+# every label, which is wrong for "1번" (ends in ㄴ) and for the letters read
+# with a final consonant — L 엘, M 엠, N 엔, R 알. "1번는" was in every note.
+_KO_SWAP = {"는": "은", "가": "이", "를": "을"}
+_KO_BACK = {v: k for k, v in _KO_SWAP.items()}
+_KO_LABEL = _re.compile(r"(\d+번|\b[A-Z][A-Z0-9]*)(는|은|가|이|를|을)(?=[\s,.;:)]|$)")
+
+
+def _ko_particles(text: str) -> str:
+    def fix(m):
+        word, p = m.group(1), m.group(2)
+        closed = word.endswith("번") or word[-1] in "LMNR" or word[-1].isdigit() and word[-1] in "013678"
+        if closed:
+            return word + _KO_SWAP.get(p, p)
+        return word + _KO_BACK.get(p, p)
+    return _KO_LABEL.sub(fix, text)
+
+
 def _subj(label, loc):
     label = str(label)
     if not label:
@@ -691,6 +749,22 @@ def _pass_in(sport: str, from_xy=None, to_xy=None) -> dict:
         if (from_xy[1] < net) == (to_xy[1] < net):
             return FEED
     return PASS_IN_NET
+
+
+def _feed_or_toss(sport: str, giver, taker, from_xy, to_xy) -> dict | None:
+    """FEEDS for a coach feeding a player, TOSS for a sepak takraw inside
+    player putting the ball up for his tekong (same side of the net), else
+    None and the leg keeps its ordinary verb."""
+    if getattr(giver, "coach", False):
+        return FEEDS
+    if (sport == "sepakTakraw" and _label(taker).upper() == "T"
+            and from_xy is not None and to_xy is not None):
+        from .engine import court_rect
+        _, top, _, ch = court_rect(sport)
+        net = top + ch / 2
+        if (from_xy[1] < net) == (to_xy[1] < net):
+            return TOSS
+    return None
 
 
 def _far_end(sport: str) -> tuple[dict, dict]:
@@ -897,7 +971,34 @@ def _facing(p, drill, d: str) -> str:
     other team stands, and a move toward them reads 向前 whichever way it
     is drawn. With nobody to face, up the board stays forward.
     """
-    if d not in ("up", "down") or not (drill.home and drill.away):
+    if d not in ("up", "down"):
+        return d
+    # A side with a goalkeeper defends the goal he stands in, and forward
+    # is away from it — for him and for every team-mate. The centroids
+    # below cannot know that: on a 7 m throw the keeper's side was two
+    # rebounders out at 9 m, its average fell below the shooter's, and the
+    # keeper stepping off his line at the shooter read "GK moves back".
+    # A side without one attacks the goal the other side's keeper is in.
+    # (Labelled GK: baseball's pitcher carries the GK role for the
+    # fielding code, and a mound has no goal behind it.)
+    mine = drill.away if p in drill.away else drill.home
+    theirs = drill.home if p in drill.away else drill.away
+
+    def keeper_of(side):
+        return next((q for q in side if _label(q).upper() == "GK"), None)
+
+    from .engine import CANVAS_H
+    keeper = keeper_of(mine)
+    if keeper is not None:
+        if keeper.y < CANVAS_H / 2:           # his goal is at the top
+            return "down" if d == "up" else "up"
+        return d
+    keeper = keeper_of(theirs)
+    if keeper is not None:
+        if keeper.y > CANVAS_H / 2:           # the goal attacked is below
+            return "down" if d == "up" else "up"
+        return d
+    if not (drill.home and drill.away):
         return d
     home_cy = sum(q.y for q in drill.home) / len(drill.home)
     away_cy = sum(q.y for q in drill.away) / len(drill.away)
@@ -1114,12 +1215,16 @@ def sequence_texts(drill, sport: str) -> dict | None:
                             and ((from_xy[0] - to_xy[0]) ** 2
                                  + (from_xy[1] - to_xy[1]) ** 2) ** 0.5
                             < HANDOFF_NEAR)
-                    add(ph, HANDS_OFF if near else _pass_verb(sport),
-                        a=_label(prev), b=_label(t))
+                    verb = HANDS_OFF if near else _pass_verb(sport)
+                    if sport in HIT_SPORTS:
+                        verb = _feed_or_toss(sport, prev, t, from_xy,
+                                             _pos_at(t, ph)) or verb
+                    add(ph, verb, a=_label(prev), b=_label(t))
                 prev = t
                 last_shooty = False
 
     narrate_route(route)
+    carried2: set = set()
     # The second ball's passes, through the same sentences. Its legs are
     # resolved the way the board resolves them — the ball fields are swapped
     # out, resolve_ball runs, and the first ball's state goes back — so a
@@ -1135,7 +1240,18 @@ def sequence_texts(drill, sport: str) -> dict | None:
             drill.ball_carriers, drill.ball_holders = [], []
             resolve_ball(drill, sport)
             prune_degenerate_ball_legs(drill, sport)
-            narrate_route(_narration_route(drill, sport))
+            route2 = _narration_route(drill, sport)
+            narrate_route(route2)
+            # Its carrier's run is the carry, like the first ball's below:
+            # "B carries the ball on the move, B moves forward" said it twice.
+            prev2c = _holder(drill)
+            for (target, ph) in route2:
+                t2 = None if isinstance(target, tuple) else (
+                    drill.away[int(target[1:])] if isinstance(target, str)
+                    else drill.home[target])
+                if t2 is not None and t2 is prev2c:
+                    carried2.add((id(t2), ph))
+                prev2c = t2
         finally:
             (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
              drill.ball_carriers, drill.ball_holders) = keep
@@ -1160,7 +1276,7 @@ def sequence_texts(drill, sport: str) -> dict | None:
                if drill.ball_follow is not None else None)
     # Beats on which a player's run IS the ball's leg (a carry, a toss-and-
     # hit): the ball clause already says he moved.
-    carried = set()
+    carried = set(carried2)
     if route:
         prev3 = _holder(drill)
         for (target, ph) in route:
@@ -1241,6 +1357,12 @@ def sequence_texts(drill, sport: str) -> dict | None:
                 # even on a beat that already has one: "A gets back to the
                 # cone" is what closes the rondo's loop.
                 if i == 0 or (ph in beats and not p.why.get(ph)):
+                    continue
+                # A leg the loop above already said would be counted twice:
+                # "2 Bs gets back to the cone" for one B, "2 the players
+                # move back" for one swimmer. Only the carry legs it skipped
+                # (whose reason is worth adding to the carry) are left.
+                if p is not carrier and (id(p), ph) not in carried:
                     continue
                 px, py = p.moves[i - 1][:2]
                 dx, dy = x - px, y - py
@@ -1328,6 +1450,13 @@ def sequence_texts(drill, sport: str) -> dict | None:
                         run = RUN_WHY[loc].format(run=run,
                                                   why=why_text(why, loc))
                     rendered.append(run)
+                elif table is CARRY and len(names) > 1:
+                    # one ball each (the drill's two balls): "A and B
+                    # each carry a ball", not "A, B carries the ball"
+                    subj = [_subj(x, loc) for x in names]
+                    both = (LIST.get(loc, ", ").join(subj[:-1])
+                            + AND_LAST[loc] + subj[-1])
+                    rendered.append(CARRY_EACH[loc].format(a=both))
                 else:
                     rendered.append(table[loc].format(a=joined))
             parts.append(BEAT[loc].format(n=ph + 1) + AND[loc].join(rendered))
@@ -1502,4 +1631,6 @@ def compose_note(drill, sport: str) -> None:
         # One section per line: as a single run-on paragraph the note made
         # the reader find the section markers themselves.
         new[loc] = "\n".join(parts)
+        if loc == "ko-KR":
+            new[loc] = _ko_particles(new[loc])
     drill.note = new

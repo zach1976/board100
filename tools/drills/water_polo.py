@@ -4,14 +4,16 @@ Attacking upward, goal at the top. Every spot is written in METRES — x
 across the 20 m width from the left side, y down the pool from the attacked
 goal line — and converted to court fractions in one place (`_r`). The lines
 that matter: 2 m (nobody without the ball ahead of it inside it), 5 m (the
-penalty line), 6 m (the free-throw-shot line), halfway at 15 m.
+penalty line), 6 m (the free-throw-shot line), halfway at 12.5 m.
 
-Pool length: the board draws the 30 m field of play the painter, the app's
-court rect (SportType.fieldRect, engine.COURT) and every saved board share.
-World Aquatics 2025 lists 25 m for senior competition, but changing the
-aspect would re-map every user's saved water polo board and every formation
-preset, so the length stays 30 m; because the spots here are in metres, a
-switch is POOL_L plus those three places.
+Pool length: 25 m between the goal lines (World Aquatics 2025 competition
+regulations), the field of play the painter, the app's court rect
+(SportType.fieldRect, engine.COURT) and every saved board share. It was
+drawn 30 m, the old maximum; boards saved on that pool are carried onto
+this one line for line when they are opened (TacticsState, legacy pool).
+Spots at the attacking end are metres from the goal line and did not move;
+spots up the pool (counters, the swim-off, the outlet) are measured from
+the far goal line or halfway, as they always were.
 
 What the board can and cannot draw: a figure is ~1.5 m wide and ~3 m tall on
 this court and stands on its feet, so two people need 1.5 m across or 3 m of
@@ -20,7 +22,7 @@ to the inside rather than straight under their man.
 """
 from .engine import Drill, M, P, suffixed
 
-POOL_W, POOL_L = 20.0, 30.0
+POOL_W, POOL_L = 20.0, 25.0
 
 
 def _r(x: float, y: float) -> tuple[float, float]:
@@ -54,7 +56,15 @@ GOAL_MOUTH_X = (8.5, 11.5)
 # 4/5 wings, plus the centre forward (off the keeper's line by a body width).
 PT, LF, RF, LW, RW = (10.0, 7.9), (5.2, 6.4), (14.8, 6.4), (1.8, 4.1), (18.2, 4.1)
 PERIMETER = [PT, LF, RF, LW, RW]
-CF_SPOT = (8.4, 2.7)
+# The app draws a person CENTRED on his point, ~2.9 m of pool tall (1.9 m on
+# a tight board). A centre or a post whose point was at 2.5-2.8 m had his
+# cap at about 1 m: on the board he stood inside 2 m, offside, although his
+# point was legal. So every drill with a set two-metre player is tight=True
+# and that player's point is at TWO_M_SET, where the drawn top edge (half a
+# tight figure, ~0.96 m) clears the line — still the 3 m a centre sets at.
+# tools/check_water_polo.py judges the rule on the drawn figure.
+TWO_M_SET = 3.1
+CF_SPOT = (8.4, 3.1)
 HOLE_D = (6.8, 1.7)          # the hole defender, goal-side of the centre
 
 
@@ -456,13 +466,13 @@ def perimeter_family() -> list[Drill]:
     # ball arrives. The CF has his own defender (H).
     home = [pl(*s, str(i + 1), [(*popped(s), 0)] if i == 1 else [])
             for i, s in enumerate(PERIMETER)]
-    home.append(pl(*CF_SPOT, "CF", [(7.9, 3.0, 1)], why={1: "wp_seal"}))
+    home.append(pl(*CF_SPOT, "CF", [(7.9, 3.2, 1)], why={1: "wp_seal"}))
     away = [_perimeter_d(i, s, [(*pressed(s), 0)] if i == 1 else [])
             for i, s in enumerate(PERIMETER)]
     away += [pl(*HOLE_D, "H", [(7.0, 2.0, 1)]), keeper()]
     out.append(Drill(
         id="wp_perimeter_with_centre", category="possession", minutes=12,
-        rel=True, free=True,
+        rel=True, free=True, tight=True,
         name=suffixed(PERIM_NAME, "through the centre"), note=PERIM_NOTE,
         home=home, away=away, ball=3, ball_to=[(1, 0), (5, 1)],
     ))
@@ -487,7 +497,7 @@ def perimeter_family() -> list[Drill]:
             keeper(moves=[(9.1, 1.1, 2)])]
     out.append(Drill(
         id="wp_perimeter_drive_and_kick", category="possession", minutes=12,
-        rel=True,
+        rel=True, tight=True,
         name=suffixed(PERIM_NAME, "drive and kick"), note=PERIM_NOTE,
         home=home, away=away, ball=0,
         ball_to=[(1, 0), (1, 1), (3, 2), (SHOT_R, 3)],
@@ -498,13 +508,13 @@ def perimeter_family() -> list[Drill]:
 MAN_UP_SHAPES = {
     # 4-2: four out (wings at 4.5 m, flats at 6 m), two on the posts at 2.5.
     "four_two": [(2.8, 4.6), (7.4, 6.4), (12.6, 6.4), (17.2, 4.6),
-                 (7.2, 2.5), (12.8, 2.5)],
+                 (7.2, TWO_M_SET), (12.8, TWO_M_SET)],
     # 3-3: three out at 6-7.5 m, three on the 2 m (posts and the middle).
     "three_three": [(4.0, 6.4), (10.0, 7.6), (16.0, 6.4),
-                    (6.0, 2.5), (10.0, 3.9), (14.0, 2.5)],
+                    (6.0, TWO_M_SET + 0.3), (10.0, 4.1), (14.0, TWO_M_SET + 0.3)],
     # umbrella: the point at 9 m, three across the 5 m, two on the posts.
     "umbrella": [(10.0, 9.2), (3.2, 5.0), (16.8, 5.0), (10.0, 5.6),
-                 (7.0, 2.5), (13.0, 2.5)],
+                 (7.0, TWO_M_SET), (13.0, TWO_M_SET)],
 }
 # The man-down answer to each shape: two on the posts, three in a zone
 # placed against THAT shape's outside players.
@@ -609,7 +619,7 @@ def centre_family() -> list[Drill]:
         tight=True,
         name=suffixed(CENTRE_NAME, "drawing the exclusion"), note=CENTRE_NOTE,
         home=[pl(*feeder, "1", [(10.0, 6.6, 2)]),
-              pl(8.4, 2.8, "CF", [(8.2, 2.6, 1)], why={1: "wp_seal"})],
+              pl(8.4, TWO_M_SET, "CF", [(8.2, TWO_M_SET, 1)], why={1: "wp_seal"})],
         away=[pl(7.2, 1.9, "D", [(7.6, 2.2, 1), (1.0, 1.0, 2)],
                  why={2: "wp_excluded"}),
               keeper(10.4, 1.1, moves=[(10.9, 1.1, 2)])],
@@ -668,7 +678,7 @@ def defence_family() -> list[Drill]:
             for i, s in enumerate(PERIMETER)] + [cf()]
     out.append(Drill(
         id="wp_defence_press", category="defending", minutes=12, rel=True,
-        free=True, name=suffixed(DEF_NAME, "pressing"), note=DEF_NOTE,
+        free=True, tight=True, name=suffixed(DEF_NAME, "pressing"), note=DEF_NOTE,
         home=home, away=away, ball=0,
         ball_to=[("a1", 1), ("a1", 2)],
     ))
@@ -682,11 +692,11 @@ def defence_family() -> list[Drill]:
         away.append(pl(*start(s), f"D{i + 1}", mv, why=why))
     away += [pl(*HOLE_D, "H"), keeper()]
     home = [att(i, s, [(5.0, 6.9, 1)] if i == 1 else [])
-            for i, s in enumerate(PERIMETER)] + [cf([(8.0, 3.0, 2)], {2: "wp_seal"})]
+            for i, s in enumerate(PERIMETER)] + [cf([(8.0, 3.2, 2)], {2: "wp_seal"})]
     away[1].moves.append((6.3 / POOL_W, 5.4 / POOL_L, 1))
     out.append(Drill(
         id="wp_defence_drop", category="defending", minutes=12, rel=True,
-        free=True, name=suffixed(DEF_NAME, "dropping off"), note=DEF_NOTE,
+        free=True, tight=True, name=suffixed(DEF_NAME, "dropping off"), note=DEF_NOTE,
         home=home, away=away, ball=0,
         ball_to=[(1, 1), ("a1", 2)],
     ))
@@ -704,10 +714,11 @@ def defence_family() -> list[Drill]:
                 why={0: "wp_front", 1: "wp_front"}),
              keeper(11.0, 1.1, moves=[(10.1, 1.1, 1)])]
     home = [att(i, s, [(5.0, 6.9, 1)] if i == 1 else [])
-            for i, s in enumerate(PERIMETER)] + [cf([(8.0, 3.0, 2)], {2: "wp_seal"})]
+            for i, s in enumerate(PERIMETER)] + [cf([(8.0, 3.2, 2)], {2: "wp_seal"})]
     out.append(Drill(
         id="wp_defence_front_the_centre", category="defending", minutes=12,
-        rel=True, name=suffixed(DEF_NAME, "fronting the centre"), note=DEF_NOTE,
+        rel=True, tight=True,
+        name=suffixed(DEF_NAME, "fronting the centre"), note=DEF_NOTE,
         home=home, away=away, ball=0,
         ball_to=[(1, 1), ("a2", 2)],
     ))
@@ -769,23 +780,23 @@ def counter_family() -> list[Drill]:
     out = []
     # (label, start, beat-0 swim, beat-1 swim, beat-2 step)
     att = {
-        2: [("1", (7.0, 21.0), (7.5, 9.5), (8.2, 5.6), None),
-            ("2", (13.0, 21.5), (13.0, 8.5), (12.8, 4.6), (12.4, 3.6))],
-        3: [("1", (6.0, 20.5), (6.5, 9.5), (7.0, 6.0), None),
-            ("2", (14.0, 21.0), (13.5, 8.5), (13.0, 4.8), None),
-            ("3", (10.0, 23.0), (10.0, 12.5), (10.0, 8.6), (10.0, 6.6))],
-        4: [("1", (5.5, 20.5), (6.0, 9.5), (6.6, 6.0), None),
-            ("2", (14.5, 21.0), (15.0, 8.5), (15.8, 5.4), None),
-            ("3", (10.0, 23.0), (10.0, 12.5), (10.0, 8.8), None),
-            ("4", (11.5, 21.5), (12.0, 7.0), (12.3, 2.8), (12.8, 3.2))],
+        2: [("1", (7.0, 16.0), (7.5, 8.5), (8.2, 5.6), None),
+            ("2", (13.0, 16.5), (13.0, 7.8), (12.8, 4.6), (12.4, 3.6))],
+        3: [("1", (6.0, 15.5), (6.5, 8.5), (7.0, 6.0), None),
+            ("2", (14.0, 16.0), (13.5, 7.8), (13.0, 4.8), None),
+            ("3", (10.0, 18.0), (10.0, 10.7), (10.0, 8.6), (10.0, 6.6))],
+        4: [("1", (5.5, 15.5), (6.0, 8.5), (6.6, 6.0), None),
+            ("2", (14.5, 16.0), (15.0, 7.8), (15.8, 5.4), None),
+            ("3", (10.0, 18.0), (10.0, 10.7), (10.0, 8.8), None),
+            ("4", (11.5, 16.5), (12.0, 6.7), (12.3, TWO_M_SET), (12.8, 3.3))],
     }
     dfn = {
-        2: [((10.0, 23.5), (10.0, 11.0), (9.6, 5.2), (10.8, 4.2))],
-        3: [((8.5, 24.0), (8.3, 12.0), (8.4, 4.6), (9.0, 5.0)),
-            ((12.0, 24.5), (12.0, 11.5), (11.8, 3.6), None)],
-        4: [((7.0, 25.0), (7.8, 12.0), (8.0, 4.8), None),
-            ((11.6, 25.5), (11.6, 11.0), (11.5, 5.8), (11.0, 4.6)),
-            ((14.0, 25.0), (13.6, 11.5), (14.8, 4.0), None)],
+        2: [((10.0, 18.5), (10.0, 9.6), (9.6, 5.2), (10.8, 4.2))],
+        3: [((8.5, 19.0), (8.3, 10.3), (8.4, 4.6), (9.0, 5.0)),
+            ((12.0, 19.5), (12.0, 10.0), (11.8, 3.6), None)],
+        4: [((7.0, 20.0), (7.8, 10.3), (8.0, 4.8), None),
+            ((11.6, 20.5), (11.6, 9.6), (11.5, 5.8), (11.0, 4.6)),
+            ((14.0, 20.0), (13.6, 10.0), (14.8, 4.0), None)],
     }
     # who receives the lay-off on beat 2, the corner he finishes in, and
     # where the keeper has gone
@@ -807,7 +818,8 @@ def counter_family() -> list[Drill]:
         away.append(keeper(moves=[(*gk_to, 2)]))
         out.append(Drill(
             id=f"wp_counter_{n}v{n - 1}", category="attacking", minutes=10,
-            rel=True, free=(n == 3),
+            # the 4v3's fourth man sets at two metres: see TWO_M_SET
+            rel=True, free=(n == 3), tight=(n == 4),
             name=suffixed(COUNTER_NAME, f"{n}v{n - 1}"), note=COUNTER_NOTE,
             purpose=COUNTER_PURPOSE,
             home=home, away=away, ball=0,
@@ -888,10 +900,11 @@ def setpiece_family() -> list[Drill]:
         ball_to=[(SHOT_R, 0)],
     ), Drill(
         id="wp_set_free_throw", category="setpiece", minutes=8, rel=True,
+        tight=True,
         name=suffixed(SET_NAME, "the quick free throw"), note=SET_NOTE,
         home=[pl(4.8, 9.0, "1"),
               pl(13.6, 8.4, "2", [(12.2, 5.2, 0)], why={0: "run_behind"}),
-              pl(*CF_SPOT, "CF", [(8.0, 3.0, 0)], why={0: "wp_seal"})],
+              pl(*CF_SPOT, "CF", [(8.0, 3.2, 0)], why={0: "wp_seal"})],
         away=[pl(6.4, 7.6, "D1", [(5.8, 8.2, 0)]),
               pl(12.0, 6.4, "D2", [(12.6, 6.0, 0)]),
               pl(*HOLE_D, "H"),
@@ -905,16 +918,16 @@ def setpiece_family() -> list[Drill]:
         # The home sprinter gets there a stroke first and plays it back.
         id="wp_set_swim_off", category="setpiece", minutes=6, rel=True, free=True,
         name=suffixed(SET_NAME, "the swim-off"), note=SWIM_OFF_NOTE,
-        home=[pl(11.6, 28.9, "1", [(10.6, 15.6, 0), (10.4, 15.1, 1)],
+        home=[pl(11.6, 23.9, "1", [(10.6, 13.1, 0), (10.4, 12.6, 1)],
                  why={0: "swim"}),
-              pl(5.0, 28.9, "2", [(6.0, 23.0, 0)]),
-              pl(15.0, 28.9, "3", [(14.0, 23.0, 0), (14.5, 21.0, 2)]),
-              keeper(10.0, 28.9)],
-        away=[pl(8.4, 1.1, "A", [(9.4, 12.6, 0)], why={0: "swim"}),
-              pl(5.0, 1.1, "B", [(6.0, 7.0, 0)]),
-              pl(15.0, 1.1, "C", [(14.0, 7.0, 0)]),
+              pl(5.0, 23.9, "2", [(6.0, 18.0, 0)]),
+              pl(15.0, 23.9, "3", [(14.0, 18.0, 0), (14.5, 16.0, 2)]),
+              keeper(10.0, 23.9)],
+        away=[pl(8.4, 1.1, "A", [(9.4, 10.1, 0)], why={0: "swim"}),
+              pl(5.0, 1.1, "B", [(6.0, 6.7, 0)]),
+              pl(15.0, 1.1, "C", [(14.0, 6.7, 0)]),
               keeper(10.0, 1.1)],
-        ball=_r(10.0, 15.0),
+        ball=_r(10.0, 12.5),
         ball_to=[(0, 1), (2, 2)],
     )]
     return out
@@ -926,14 +939,14 @@ def game_family() -> list[Drill]:
     in two rings and shoot from twelve metres."""
     out = []
     games = {
-        3: dict(home=[(5.0, 6.6), (15.0, 6.6), (11.6, 2.8)],
+        3: dict(home=[(5.0, 6.6), (15.0, 6.6), (11.6, TWO_M_SET)],
                 away=[(6.4, 5.0), (13.4, 5.2), (13.2, 1.9)],
                 ball=0,
-                moves={1: [(14.6, 7.2, 0)], 2: [(11.9, 3.1, 1)]},
+                moves={1: [(14.6, 7.2, 0)], 2: [(11.9, 3.3, 1)]},
                 amoves={1: [(13.4, 5.8, 0)], 2: [(12.8, 2.2, 1)]},
                 gk=[(9.3, 1.1, 1)],
                 route=[(1, 0), (2, 1), (SHOT_R, 2)]),
-        4: dict(home=[(10.0, 8.2), (3.6, 5.0), (15.4, 6.2), (8.4, 2.8)],
+        4: dict(home=[(10.0, 8.2), (3.6, 5.0), (15.4, 6.2), (8.4, TWO_M_SET)],
                 away=[(11.4, 6.6), (5.0, 3.6), (14.0, 4.8), (6.8, 1.9)],
                 ball=0,
                 moves={2: [(15.2, 6.8, 0), (12.8, 5.0, 1)]},
@@ -942,12 +955,12 @@ def game_family() -> list[Drill]:
                 gk=[(10.9, 1.1, 1)],
                 route=[(2, 0), (2, 1), (SHOT_L, 2)]),
         6: dict(home=[(10.0, 8.4), (5.4, 6.8), (14.6, 6.8), (2.0, 4.2),
-                      (18.0, 4.2), (8.4, 2.8)],
+                      (18.0, 4.2), (8.4, TWO_M_SET)],
                 away=[(11.4, 7.0), (6.8, 5.3), (13.2, 5.3), (3.4, 2.8),
                       (16.6, 2.8), (6.8, 1.8)],
                 ball=0,
                 moves={1: [(5.2, 7.4, 0)], 3: [(2.6, 4.8, 1)],
-                       5: [(8.0, 3.1, 2)]},
+                       5: [(8.0, 3.3, 2)]},
                 amoves={1: [(6.8, 5.8, 0)], 3: [(3.8, 3.4, 1)],
                         5: [(6.8, 2.2, 2)]},
                 gk=[(10.9, 1.1, 2)],
@@ -962,6 +975,7 @@ def game_family() -> list[Drill]:
         away.append(keeper(moves=g["gk"]))
         out.append(Drill(
             id=f"wp_game_{n}v{n}", category="ssg", minutes=15, rel=True,
+            tight=True,          # each has a centre at two metres
             free=(n == 4),
             name=suffixed(GAME_NAME, f"{n}v{n}"), note=GAME_NOTE,
             home=home, away=away, ball=g["ball"], ball_to=g["route"],
@@ -1034,7 +1048,7 @@ def gaps_family() -> list[Drill]:
         level="development", tight=True,
         name=suffixed(WP_GK_NAME, "the two-metre shot"), note=WP_GK_NOTE,
         home=[pl(10.6, 7.6, "1"),
-              pl(8.4, 2.9, "CF", [(8.9, 2.5, 1)], why={1: "turn"})],
+              pl(8.4, TWO_M_SET, "CF", [(8.9, 2.5, 1)], why={1: "turn"})],
         away=[pl(7.2, 2.0, "D", [(7.8, 2.2, 1)]),
               keeper(10.6, 1.1, moves=[(10.4, 1.1, 1)], why={1: "set_gk"})],
         ball=0,
@@ -1059,10 +1073,10 @@ def gaps_family() -> list[Drill]:
         level="development",
         name=suffixed(WP_GK_NAME, "the outlet that starts the counter"),
         note=WP_GK_NOTE,
-        home=[keeper(10.0, 28.9),
-              pl(3.0, 25.0, "1", [(2.6, 19.0, 0), (2.8, 14.0, 1)], why={0: "swim"}),
-              pl(17.0, 25.0, "2", [(17.4, 19.0, 0), (17.2, 15.0, 1)], why={0: "swim"})],
-        away=[pl(15.4, 22.6, "D", [(16.0, 17.6, 0), (16.2, 13.8, 1)])],
+        home=[keeper(10.0, 23.9),
+              pl(3.0, 20.0, "1", [(2.6, 14.0, 0), (2.8, 11.5, 1)], why={0: "swim"}),
+              pl(17.0, 20.0, "2", [(17.4, 14.0, 0), (17.2, 12.5, 1)], why={0: "swim"})],
+        away=[pl(15.4, 17.6, "D", [(16.0, 12.6, 0), (16.2, 11.3, 1)])],
         ball=0,
         ball_to=[(1, 1)],
     ))

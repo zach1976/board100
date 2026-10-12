@@ -25,7 +25,51 @@ import 'tactics_canvas.dart' show chainEndAt, turnVector;
 /// tools/drills/engine.py's SPACING_APART is this number: the generator
 /// spaces boards by the size they are drawn at, so the two must move
 /// together.
-const double kPlayerIconSize = 36.0;
+///
+/// That is the size on a phone. A tablet board is two and a half times
+/// the phone's, and at a fixed 36 its players came out a third of the size
+/// they are on the phone relative to the pitch they stand on — dots on a
+/// 13" screen. So the cell is [kPlayerIconBase] times [kFigureScale], and
+/// everything sized off the figure (its hit box, the ball at its feet, the
+/// fan-out, its badge, the arrowheads) follows the one factor.
+double get kPlayerIconSize => kPlayerIconBase * kFigureScale;
+
+/// The figure's cell on a phone board: 36pt. See [kPlayerIconSize].
+const double kPlayerIconBase = 36.0;
+
+/// How much bigger than on a phone the board draws everything that sits
+/// ON it — figures, arrows, waypoints — set from the board's on-screen size
+/// by [boardFigureScaleFor] (and divided by a view zoom, which magnifies
+/// the board itself). 1.0 on every phone board.
+double gBoardFigureScale = 1.0;
+
+/// The board's own figure size: 1.0, or the generator's tight figure for a
+/// scrum, a wall, a lineout (the board JSON's "figureScale", see
+/// tools/drills/engine.py TIGHT_FIGURE_SCALE). Set by TacticsState.
+double gTightFigureScale = 1.0;
+
+/// The one factor every figure-derived size is multiplied by.
+double get kFigureScale => gBoardFigureScale * gTightFigureScale;
+
+/// The view's zoom onto a drill's half or close-up (TacticsState.frameZoom;
+/// 1.0 unzoomed). The transform magnifies everything on the canvas, so the
+/// few details a figure draws at a fixed size — its outline, its drop
+/// shadow, the shadows on its number — are drawn this much smaller to stay
+/// their size on the screen. At a lineout's 5x they were a white blob round
+/// every man and every number printed twice.
+double gViewZoom = 1.0;
+
+/// The figure growth for a board drawn [board] big on screen.
+///
+/// Exactly 1 up to a 500pt short side — every phone, upright or sideways,
+/// so a phone board is pixel for pixel what it was — then in proportion to
+/// the board, capped at 1.6: a 13" iPad's 58pt figure is about the share of
+/// the pitch the phone's was at 26pt, room the generator's spacing (made
+/// for the phone) still clears with to spare.
+double boardFigureScaleFor(Size board) {
+  if (board.isEmpty) return 1.0;
+  return (board.shortestSide / 500).clamp(1.0, 1.6).toDouble();
+}
 
 /// How much of its 44pt cell a ball actually fills.
 ///
@@ -478,12 +522,13 @@ class TopDownPlayerPainter extends CustomPainter {
     // came with was a soft grey smear under the boots, and stamping the
     // outline from a silhouette that included it painted that smear white.
     // The shadow belongs to the painter, the same one the drawn token cast.
+    final unzoom = 1 / gViewZoom;
     canvas.drawImageRect(
       art,
       src,
-      dst.shift(const Offset(1.5, 2)),
+      dst.shift(Offset(1.5 * unzoom, 2 * unzoom)),
       _silhouettePaint(Colors.black, 0.32)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3),
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3 * unzoom),
     );
 
     // The stroke the drawn shape used to carry. A token is ringed in the
@@ -497,7 +542,7 @@ class TopDownPlayerPainter extends CustomPainter {
     // what you see: 2.5pt of it read as a glow round the player rather than
     // an edge on them.
     if (borderWidth > 0) {
-      final r = min(borderWidth, 2.2) * 0.52;
+      final r = min(borderWidth, 2.2) * 0.52 * unzoom;
       _stamp(canvas, art, src, dst, borderColor, r);
       // And white inside it, always. A player's arrow colour is often their
       // kit colour as well — the away side was ringed coral on coral, which
@@ -1028,18 +1073,20 @@ class PlayerIconWidget extends StatelessWidget {
                       labelAbove
                           // Above the hair: the figure's ink reaches 24pt
                           // over the middle, the badge is 13 tall.
-                          ? -(kPlayerIconSize * 0.5 + 14) * player.scale
+                          ? -(kPlayerIconSize * 0.5 + 14 * kFigureScale) *
+                              player.scale
                           : kPlayerIconSize * 0.5 * player.scale +
-                              11.7 * player.scale),
+                              11.7 * player.scale * kFigureScale),
                   BoardOrientation.counterTurns(context)),
               child: RotatedBox(
               // Upright on screen like the body above it.
               quarterTurns: BoardOrientation.counterTurns(context),
               child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 5 * kFigureScale, vertical: 1.5 * kFigureScale),
               decoration: BoxDecoration(
                 color: player.color.withValues(alpha: 0.9),
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(4 * kFigureScale),
                 boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 2)],
               ),
               child: Text(
@@ -1047,7 +1094,7 @@ class PlayerIconWidget extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
-                  fontSize: 12 * player.scale,
+                  fontSize: 12 * player.scale * kFigureScale,
                   height: 1.2,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -1104,12 +1151,18 @@ class _PlayerShape extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w800,
-                fontSize: 15 * player.scale,
+                fontSize: 15 * player.scale * kFigureScale,
                 height: 1,
-                shadows: const [
-                  Shadow(color: Colors.black, offset: Offset(0.8, 0.8), blurRadius: 1.5),
-                  Shadow(color: Colors.black, offset: Offset(-0.8, -0.8), blurRadius: 1.5),
-                  Shadow(color: Colors.black87, blurRadius: 3),
+                shadows: [
+                  Shadow(
+                      color: Colors.black,
+                      offset: Offset(0.8 / gViewZoom, 0.8 / gViewZoom),
+                      blurRadius: 1.5 / gViewZoom),
+                  Shadow(
+                      color: Colors.black,
+                      offset: Offset(-0.8 / gViewZoom, -0.8 / gViewZoom),
+                      blurRadius: 1.5 / gViewZoom),
+                  Shadow(color: Colors.black87, blurRadius: 3 / gViewZoom),
                 ],
               ),
             ),
@@ -1193,7 +1246,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
     // the old soft halo alone was not enough to tell home from away apart at a
     // glance, so the team colour is painted as an actual ring (with a thin
     // white outline for contrast against any pitch colour).
-    final ringWidth = (3.0 * p.scale).clamp(2.5, 5.0).toDouble();
+    final ringWidth = (3.0 * p.scale * kFigureScale).clamp(2.5, 5.0 * kFigureScale).toDouble();
     final body = Stack(
       children: [
         Container(
@@ -1276,7 +1329,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 10 * p.scale,
+                  fontSize: 10 * p.scale * kFigureScale,
                   height: 1,
                   shadows: const [
                     Shadow(color: Colors.black87, blurRadius: 2),
@@ -1778,7 +1831,7 @@ class _MarkerWidget extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 12 * player.scale,
+                fontSize: 12 * player.scale * kFigureScale,
                 height: 1,
                 shadows: const [Shadow(color: Colors.black87, blurRadius: 2)],
               ),
@@ -2025,11 +2078,15 @@ class TextElementChip extends StatelessWidget {
         decoration: BoxDecoration(
           color: player.color.withValues(alpha: 0.94),
           borderRadius: BorderRadius.circular(6 * scale),
+          // Fixed-point details, un-magnified by a view zoom (gViewZoom).
           border: isSelected
-              ? Border.all(color: T.accent, width: 2)
-              : Border.all(color: Colors.white24, width: 1),
-          boxShadow: const [
-            BoxShadow(color: Colors.black45, blurRadius: 4, offset: Offset(1, 1)),
+              ? Border.all(color: T.accent, width: 2 / gViewZoom)
+              : Border.all(color: Colors.white24, width: 1 / gViewZoom),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black45,
+                blurRadius: 4 / gViewZoom,
+                offset: Offset(1 / gViewZoom, 1 / gViewZoom)),
           ],
         ),
         child: Text(
@@ -2045,7 +2102,7 @@ class TextElementChip extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontFamily: faces.isEmpty ? null : faces.first,
             fontFamilyFallback: faces.length > 1 ? faces.sublist(1) : null,
-            shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
+            shadows: [Shadow(color: Colors.black54, blurRadius: 2 / gViewZoom)],
           ),
         ),
       ),
@@ -2369,7 +2426,7 @@ class _BallWidgetState extends State<_BallWidget>
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 11 * widget.player.scale,
+                fontSize: 11 * widget.player.scale * kFigureScale,
                 height: 1,
                 shadows: const [Shadow(color: Colors.black87, blurRadius: 3)],
               ),

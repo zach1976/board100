@@ -39,15 +39,15 @@
     "th-TH": "กรวยแต่ละคู่ห่างกัน 5 เมตร กำหนดช่องที่คนถือบอลวิ่งผ่าน และต้องแท็กเกิลภายในช่องนั้น",
     "vi-VN": "mỗi cặp cọc cách nhau 5 m đánh dấu một hành lang người cầm bóng chạy qua; cú truy cản diễn ra bên trong"
   },
-  "the four cones mark a reduced area 50 m wide and 50 m long, from their try line back to their 10 m line; each side scores over the end line it attacks": {
-    "ja-JP": "4つのコーンで幅50m・長さ50mの縮小エリアを作る（相手トライラインから相手10mラインまで）。各チームは攻める側のエンドラインを越えて得点する",
-    "ko-KR": "콘 4개로 폭 50m, 길이 50m의 축소 구역을 만든다(상대 트라이라인부터 상대 10m 라인까지). 각 팀은 자기가 공격하는 끝선을 넘어 득점한다",
-    "es-ES": "los cuatro conos marcan un área reducida de 50 m de ancho por 50 m de largo, de su línea de ensayo a su línea de 10 m; cada equipo marca más allá de la línea de fondo que ataca",
-    "fr-FR": "les quatre plots délimitent une zone réduite de 50 m sur 50 m, de leur ligne d'essai à leur ligne des 10 m ; chaque équipe marque derrière la ligne de fond qu'elle attaque",
-    "id-ID": "empat kerucut menandai area kecil selebar 50 m dan sepanjang 50 m, dari garis try lawan sampai garis 10 m lawan; tiap tim mencetak angka melewati garis ujung yang diserangnya",
-    "ms-MY": "empat kon menandakan kawasan kecil selebar 50 m dan sepanjang 50 m, dari garisan try lawan hingga garisan 10 m lawan; setiap pasukan menjaringkan mata melepasi garisan hujung yang diserangnya",
-    "th-TH": "กรวยสี่อันกำหนดพื้นที่ย่อกว้าง 50 เมตร ยาว 50 เมตร จากเส้นทรัยของคู่แข่งถึงเส้น 10 เมตรของคู่แข่ง แต่ละทีมทำแต้มเมื่อข้ามเส้นท้ายที่ตัวเองบุก",
-    "vi-VN": "bốn cọc đánh dấu khu vực thu nhỏ rộng 50 m, dài 50 m, từ vạch try đối phương đến vạch 10 m của họ; mỗi đội ghi điểm khi vượt qua đường cuối mà mình tấn công"
+  "the shaded area, with a cone at each corner, is a reduced pitch 60 m wide (5 m line to 5 m line) and 50 m long, from their try line back to halfway; each side scores over the end line it attacks": {
+    "ja-JP": "網掛けのエリアが縮小したピッチで、四隅にコーンを置く。幅60m（5mラインから5mライン）・長さ50m、相手トライラインからハーフウェーラインまで。各チームは攻める側のエンドラインを越えて得点する",
+    "ko-KR": "음영 구역이 축소된 경기장이며 네 모서리에 콘을 하나씩 둔다. 폭 60m(5m 라인에서 5m 라인까지), 길이 50m, 상대 트라이라인부터 하프웨이 라인까지. 각 팀은 자기가 공격하는 끝선을 넘어 득점한다",
+    "es-ES": "la zona sombreada, con un cono en cada esquina, es un campo reducido de 60 m de ancho (de línea de 5 m a línea de 5 m) por 50 m de largo, de su línea de ensayo a la línea de medio campo; cada equipo marca más allá de la línea de fondo que ataca",
+    "fr-FR": "la zone ombrée, avec un plot à chaque coin, est un terrain réduit de 60 m de large (d'une ligne des 5 m à l'autre) sur 50 m de long, de leur ligne d'essai à la ligne médiane ; chaque équipe marque derrière la ligne de fond qu'elle attaque",
+    "id-ID": "area berbayang, dengan satu kerucut di tiap sudut, adalah lapangan kecil selebar 60 m (garis 5 m ke garis 5 m) dan sepanjang 50 m, dari garis try lawan sampai garis tengah; tiap tim mencetak angka melewati garis ujung yang diserangnya",
+    "ms-MY": "kawasan berlorek, dengan satu kon di setiap penjuru, ialah padang kecil selebar 60 m (garisan 5 m ke garisan 5 m) dan sepanjang 50 m, dari garisan try lawan hingga garisan tengah; setiap pasukan menjaringkan mata melepasi garisan hujung yang diserangnya",
+    "th-TH": "พื้นที่แรเงาคือสนามย่อ มีกรวยที่มุมละอัน กว้าง 60 เมตร (จากเส้น 5 เมตรถึงเส้น 5 เมตร) ยาว 50 เมตร จากเส้นทรัยของคู่แข่งถึงเส้นกึ่งกลางสนาม แต่ละทีมทำแต้มเมื่อข้ามเส้นท้ายที่ตัวเองบุก",
+    "vi-VN": "vùng tô màu, mỗi góc một cọc, là sân thu nhỏ rộng 60 m (từ vạch 5 m đến vạch 5 m) và dài 50 m, từ vạch try đối phương đến vạch giữa sân; mỗi đội ghi điểm khi vượt qua đường cuối mà mình tấn công"
   },
   "After a try the side that conceded restarts with a tap kick from the middle of the area; when the ball goes out, the other side restarts with a tap where it left, and the coach has spare balls ready so nothing stops. Four-minute games, then swap ends or opponents.": {
     "ja-JP": "トライの後は失点側がエリア中央からタップキックで再開。ボールが出たら相手側が出た地点からタップで再開し、コーチは予備のボールを用意して止めない。1ゲーム4分、その後エンドか相手を替える。",

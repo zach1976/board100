@@ -5,13 +5,17 @@
 
 1. Two-metre rule: at no step is an attacker who does not have the ball
    inside the opponents' 2 m line while the ball is further out than he is.
+   Judged on the figure as DRAWN, not on its point: the app draws a person
+   centred on his point (FIGURE_PT tall, FIGURE_TIGHT on a tight board), so
+   a post whose point is at 2.5 m has his cap at about 1 m and reads as
+   standing inside the line. His drawn top edge must be outside 2 m.
 2. Every shot ends in the goal mouth: a ball leg that ends near the goal
    with nobody holding it must stop past the goal line, between the posts.
 3. Nobody follows his shot: the man who releases a shot does not swim on
    the same beat (that is how shooters used to end up on the keeper).
 
 Positions are converted to metres from the attacked goal line with the same
-court rect the generator uses (402x730 display frame, 20 x 30 m pool).
+court rect the generator uses (402x730 display frame, 20 x 25 m pool).
 """
 import json
 import sys
@@ -20,9 +24,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 from drills.engine import (CANVAS_H, CANVAS_W, DISPLAY_H, DISPLAY_W,  # noqa: E402
-                           court_rect)
+                           FIGURE_PT, FIGURE_TIGHT, court_rect)
 
-POOL_W, POOL_L = 20.0, 30.0
+POOL_W, POOL_L = 20.0, 25.0
 MOUTH_X = (8.5, 11.5)
 
 
@@ -31,6 +35,13 @@ def to_m(pt):
     sx, sy = DISPLAY_W / CANVAS_W, DISPLAY_H / CANVAS_H
     return ((pt[0] - left * sx) / (w * sx) * POOL_W,
             (pt[1] - top * sy) / (h * sy) * POOL_L)
+
+
+def half_figure_m(tight: bool) -> float:
+    """Half the drawn figure's height, in metres of pool."""
+    _, _, _, h = court_rect("waterPolo")
+    pt_per_m = h * DISPLAY_H / CANVAS_H / POOL_L
+    return (FIGURE_TIGHT if tight else FIGURE_PT)[1] / 2 / pt_per_m
 
 
 def at(p, step):
@@ -60,7 +71,9 @@ def check(drill) -> list[str]:
     ball = balls[0]
     steps = 1 + max([ph + 1 for p in b["players"] for ph in p.get("movePhases", [])],
                     default=0)
-    # 1. two-metre rule, home side attacking the top goal
+    # 1. two-metre rule, home side attacking the top goal, on the drawn
+    #    figure: its top edge is half a figure nearer the goal than its point
+    half = half_figure_m(bool(drill.get("tight")))
     for k in range(steps):
         bx, by = to_m(at(ball, k))
         if by < 0:
@@ -70,9 +83,10 @@ def check(drill) -> list[str]:
             if p["team"] != 0 or p.get("role") == "GK" or p["id"] == holder:
                 continue
             x, y = to_m(at(p, k))
-            if y < 2.0 and by > y + 0.05:
-                errs.append(f"step {k}: {p['label'] or p['id']} is {y:.1f} m "
-                            f"from the goal line, ahead of the ball at {by:.1f} m")
+            if y - half < 2.0 and by > y + 0.05:
+                errs.append(f"step {k}: {p['label'] or p['id']} is drawn from "
+                            f"{y - half:.1f} m (point {y:.1f} m), inside 2 m, "
+                            f"ahead of the ball at {by:.1f} m")
     # 2/3. shots
     prev_holder = ball.get("holder")
     for i, (mv, ph) in enumerate(zip(ball["moves"], ball["movePhases"])):

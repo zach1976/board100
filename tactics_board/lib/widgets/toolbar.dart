@@ -1236,16 +1236,30 @@ class _PrimaryToolbar extends StatelessWidget {
                     // ratio on its 1.4x button asked for 517pt and dropped
                     // every word on an iPad mini and in Split View, with
                     // ~90pt per icon to spare.
-                    final wide = roomy &&
+                    final tablet = uiScale(context) > 1;
+                    final words = [
+                      'mode_move'.tr(),
+                      'mode_draw'.tr(),
+                      'mode_select'.tr(),
+                      'add_label'.tr(),
+                    ];
+                    final inline = roomy &&
                         box.maxWidth >=
-                            (uiScale(context) > 1
-                                ? _labelledToolsWidth(context, [
-                                    'mode_move'.tr(),
-                                    'mode_draw'.tr(),
-                                    'mode_select'.tr(),
-                                    'add_label'.tr(),
-                                  ])
+                            (tablet
+                                ? _labelledToolsWidth(context, words)
                                 : barButton(context) * 8.4);
+                    // A tablet in half Split View (678pt) has ~370pt for
+                    // the four, and French or Spanish words beside their
+                    // icons want 450-500. Rather than drop the words there,
+                    // the word goes UNDER its icon, a step smaller: the bar
+                    // is 1.4 buttons tall on a tablet, room for both, and
+                    // each tool is then only as wide as its word.
+                    final stacked = !inline &&
+                        tablet &&
+                        roomy &&
+                        box.maxWidth >=
+                            _labelledToolsWidth(context, words, stacked: true);
+                    final wide = inline || stacked;
                     // Each tool is Flexible so the four of them share what
                     // the row has and a long word ellipsises. At their
                     // natural width they simply ran off the end: the label
@@ -1256,6 +1270,7 @@ class _PrimaryToolbar extends StatelessWidget {
                       children: [
                         Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.open_with_rounded,
                           label: 'mode_move'.tr(),
                           selected: !drawing && !selecting,
@@ -1268,6 +1283,7 @@ class _PrimaryToolbar extends StatelessWidget {
                         )),
                         Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.gesture_rounded,
                           label: 'mode_draw'.tr(),
                           selected: drawing,
@@ -1277,6 +1293,7 @@ class _PrimaryToolbar extends StatelessWidget {
                         )),
                         Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.highlight_alt_rounded,
                           label: 'mode_select'.tr(),
                           selected: selecting,
@@ -1288,6 +1305,7 @@ class _PrimaryToolbar extends StatelessWidget {
                         // anchored to this button, not to the whole row.
                         Flexible(child: Builder(builder: (btn) => _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.add_rounded,
                           label: 'add_label'.tr(),
                           selected: false,
@@ -1364,7 +1382,11 @@ class _PrimaryToolbar extends StatelessWidget {
 
 /// What four labelled [_Tool]s take side by side: padding, icon, gap and
 /// the word at its selected (bold) weight.
-double _labelledToolsWidth(BuildContext context, List<String> labels) {
+///
+/// [stacked]: the word under its icon at [_kStackedLabelSize] instead, so a
+/// tool is as wide as the wider of the two plus its padding.
+double _labelledToolsWidth(BuildContext context, List<String> labels,
+    {bool stacked = false}) {
   final dim = barButton(context);
   final scaler = MediaQuery.textScalerOf(context);
   var w = 0.0;
@@ -1372,16 +1394,29 @@ double _labelledToolsWidth(BuildContext context, List<String> labels) {
     final tp = TextPainter(
       text: TextSpan(
           text: l,
-          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
+          // In the font the label is drawn in, not the engine's default.
+          style: DefaultTextStyle.of(context).style.copyWith(
+              fontSize: stacked ? _kStackedLabelSize : 13,
+              fontWeight: FontWeight.w700)),
       maxLines: 1,
       textScaler: scaler,
       textDirection: ui.TextDirection.ltr,
     )..layout();
-    w += 22 + dim * 0.45 + 6 + tp.width;
+    w = math.max(
+        w,
+        stacked
+            ? 12 + math.max(tp.width, dim * 0.45)
+            : 22 + dim * 0.45 + 6 + tp.width);
     tp.dispose();
   }
-  return w;
+  // Four times the widest: the tools are Flexible, so each gets a quarter
+  // of the row, and a word longer than its quarter was ellipsised however
+  // short the other three were ("Tamb…" in Malay at 678pt).
+  return w * labels.length;
 }
+
+/// The word's size when it sits under its icon (a tablet in Split View).
+const double _kStackedLabelSize = 11.5;
 
 /// One tool in the primary capsule.
 ///
@@ -1396,12 +1431,16 @@ class _Tool extends StatelessWidget {
   final VoidCallback? onTap;
   final bool showLabel;
 
+  /// The word under the icon rather than beside it — see _PrimaryToolbar.
+  final bool stacked;
+
   const _Tool({
     required this.icon,
     required this.label,
     required this.selected,
     this.onTap,
     this.showLabel = true,
+    this.stacked = false,
   });
 
   @override
@@ -1426,9 +1465,30 @@ class _Tool extends StatelessWidget {
           child: Container(
             height: dim,
             constraints: BoxConstraints(minWidth: dim),
-            padding: EdgeInsets.symmetric(horizontal: showLabel ? 11 : 0),
+            padding: EdgeInsets.symmetric(
+                horizontal: showLabel ? (stacked ? 6 : 11) : 0),
             alignment: Alignment.center,
-            child: Row(
+            child: showLabel && stacked
+                ? Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(icon, size: dim * 0.45, color: tint),
+                      const SizedBox(height: 2),
+                      Text(
+                        label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: _kStackedLabelSize,
+                          height: 1.1,
+                          fontWeight:
+                              selected ? FontWeight.w700 : FontWeight.w500,
+                          color: tint,
+                        ),
+                      ),
+                    ],
+                  )
+                : Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(icon, size: dim * 0.45, color: tint),
@@ -5050,7 +5110,7 @@ class _PasteRow extends StatelessWidget {
                     width: kPlayerIconSize * p.scale,
                     height: kPlayerIconSize * p.scale +
                         (p.label.isNotEmpty && !p.labelInside
-                            ? 21 * p.scale
+                            ? 21 * p.scale * kFigureScale
                             : 0),
                     child: IgnorePointer(
                       child: PlayerIconWidget(

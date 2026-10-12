@@ -198,7 +198,8 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
             beatsFor: (l) => DrillNote.parse(drill.localizedNote(l)).beats,
             name: drill.displayName(_locale),
             nameFor: drill.displayName,
-            id: drill.id);
+            id: drill.id,
+            frame: drill.frame);
     // A drill is never saved — it is a starting shape the coach edits — so
     // without this the thing they most recently had on the board is exactly
     // the thing the home page cannot offer them again.

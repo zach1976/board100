@@ -236,8 +236,6 @@ def circulation_family() -> list[Drill]:
             home.append(P(0.50, 0.52, "6", moves=[(0.42, 0.27, 2)]))
         out.append(Drill(
             id=f"hb_circulation_{key}", category="possession", minutes=12,
-# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
-tight=True,
             rel=True, free=(key == "with_pivot"),
             name=suffixed(CIRC_NAME, label), note=CIRC_NOTE,
             home=home,
@@ -290,8 +288,7 @@ def attack_family() -> list[Drill]:
     def board(key, label, home, free=False):
         return Drill(
             id=f"hb_attack_{key}", category="attacking", minutes=12, rel=True,
-            # A defensive wall stands level and shoulder to shoulder.
-            tight=True, free=free,
+            free=free,
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
             home=home,
             away=[P(x, y, "D") for x, y in crescent(6)]
@@ -462,8 +459,6 @@ def defence_family() -> list[Drill]:
         away.append(P(*GOAL, "GK", role="GK"))
         out.append(Drill(
             id=f"hb_defence_{key}", category="defending", minutes=12, rel=True,
-# A defensive wall stands level and shoulder to shoulder; spreading it out would draw a different system.
-tight=True,
             free=(key in ("six_zero", "five_one")),
             name=suffixed(DEF_NAME, label), note=DEF_NOTE,
             home=[P(*p, lbl, moves=[(p[0], p[1] - 0.03, 0)]) for p, lbl in
@@ -681,7 +676,7 @@ def setpiece_family() -> list[Drill]:
     # defenders. They go in as the ball does.
     out.append(Drill(
         id="hb_set_nine_metre", category="setpiece", minutes=8, rel=True,
-        tight=True, free=True,
+        free=True,
         name=suffixed(SET_NAME, "the 9 m free throw"), note=SET_NOTE,
         home=[P(0.50, NINE, "1", moves=[(0.50, NINE - 0.015, 0)]),
               P(0.28, 0.26, "2", moves=[(0.36, 0.22, 0)]),
@@ -696,7 +691,7 @@ def setpiece_family() -> list[Drill]:
     # opponents' half, the pivot already on their 6 m line.
     out.append(Drill(
         id="hb_set_throw_off", category="setpiece", minutes=8, rel=True,
-        tight=True, name=suffixed(SET_NAME, "the throw-off"),
+        name=suffixed(SET_NAME, "the throw-off"),
         note=THROW_OFF_NOTE,
         home=[P(0.50, 0.50, "1", moves=[(0.50, 0.42, 1)]),
               P(0.30, 0.54, "2", moves=[(0.36, 0.34, 0), (0.38, 0.25, 1)]),
@@ -710,7 +705,7 @@ def setpiece_family() -> list[Drill]:
     # off_surface flag is for.
     out.append(Drill(
         id="hb_set_sideline", category="setpiece", minutes=8, rel=True,
-        tight=True, off_surface=True,
+        off_surface=True,
         name=suffixed(SET_NAME, "the sideline throw"), note=THROW_IN_NOTE,
         home=[P(-0.02, 0.30, "1", moves=[(-0.02, 0.27, 1)]),
               P(0.22, 0.26, "2", moves=[(0.34, 0.22, 1)]),
@@ -899,7 +894,7 @@ def _man_to_man() -> Drill:
                       moves=[(*_marking(mx, my), ph) for mx, my, ph in mv]))
     return Drill(
         id="hb_defence_man_to_man", category="defending", minutes=12, rel=True,
-        level="advanced", tight=True,
+        level="advanced",
         name=suffixed(DEF_NAME, "man to man"), note=MANMARK_NOTE,
         home=home, away=away + [P(*GOAL, "GK", role="GK")],
         ball=2,

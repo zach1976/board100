@@ -79,9 +79,9 @@ GEAR = {
         "每对锥标相距 5 米，标出持球者跑动的通道，擒抱在通道内完成",
         "每對錐標相距 5 公尺，標出持球者跑動的通道，擒抱在通道內完成"),
     "rg_game_": _t(
-        "the four cones mark a reduced area 50 m wide and 50 m long, from their try line back to their 10 m line; each side scores over the end line it attacks",
-        "四个锥标围出宽 50 米、长 50 米的缩小场地，从对方达阵线到对方 10 米线；双方各自越过所进攻的端线得分",
-        "四個錐標圍出寬 50 公尺、長 50 公尺的縮小場地，從對方達陣線到對方 10 公尺線；雙方各自越過所進攻的端線得分"),
+        "the shaded area, with a cone at each corner, is a reduced pitch 60 m wide (5 m line to 5 m line) and 50 m long, from their try line back to halfway; each side scores over the end line it attacks",
+        "阴影区是缩小的场地，四角各放一个锥标：宽 60 米（5 米线到 5 米线）、长 50 米，从对方达阵线到中线；双方各自越过所进攻的端线得分",
+        "陰影區是縮小的場地，四角各放一個錐標：寬 60 公尺（5 公尺線到 5 公尺線）、長 50 公尺，從對方達陣線到中線；雙方各自越過所進攻的端線得分"),
     "rg_kick_at_goal": _t(
         "the square is the tee on the kicking spot; the shaded zone is the target between the posts",
         "方块是放球的踢球点，阴影区是门柱之间的目标",

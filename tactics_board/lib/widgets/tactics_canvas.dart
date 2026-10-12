@@ -118,16 +118,16 @@ Offset chainEndAt(PlayerIcon player, int phaseLimit) {
 }
 
 /// How close two players have to be before the board fans them apart.
-const double _kFanThreshold = kPlayerIconSize * 0.9;
+double get _kFanThreshold => kPlayerIconSize * 0.9;
 
 /// How far each one moves when they are exactly on top of each other.
-const double _kFanRadius = kPlayerIconSize * 0.4;
+double get _kFanRadius => kPlayerIconSize * 0.4;
 
 /// How close a ball has to be to a player before it is drawn at their feet.
 ///
 /// The same reach the facing rules use for "this is his ball": the generator
 /// places a carried ball 24pt from its holder.
-const double _kHoldReach = kPlayerIconSize * 0.95;
+double get _kHoldReach => kPlayerIconSize * 0.95;
 
 /// Where a ball at the feet sits, in the holder's own frame.
 ///
@@ -148,9 +148,9 @@ const double _kHoldReach = kPlayerIconSize * 0.95;
 /// away it stands beside his shin, a third of it behind the leg (it is
 /// painted under him then — see the depth rule), which is what a ball a
 /// stride ahead of a man walking away looks like.
-const double _kFeetAnchor = kPlayerIconSize * 0.70;
-const double _kFeetAhead = kPlayerIconSize * 0.25;
-const double _kFeetSide = kPlayerIconSize * 0.40;
+double get _kFeetAnchor => kPlayerIconSize * 0.70;
+double get _kFeetAhead => kPlayerIconSize * 0.25;
+double get _kFeetSide => kPlayerIconSize * 0.40;
 
 /// A ball carried in the hands: held in front of the player, to one side.
 ///
@@ -170,9 +170,9 @@ const double _kFeetSide = kPlayerIconSize * 0.40;
 /// Same frame as the feet: the hands hang at 0.30 of a cell below the
 /// middle, the ball is held 0.20 of a cell ahead of them and 0.40 to the
 /// side, clear of the shirt and its number.
-const double _kHandAnchor = kPlayerIconSize * 0.30;
-const double _kHandAhead = kPlayerIconSize * 0.20;
-const double _kHandSide = kPlayerIconSize * 0.40;
+double get _kHandAnchor => kPlayerIconSize * 0.30;
+double get _kHandAhead => kPlayerIconSize * 0.20;
+double get _kHandSide => kPlayerIconSize * 0.40;
 
 /// A volleyball is played off the platform or above the head, never carried.
 ///
@@ -182,7 +182,7 @@ const double _kHandSide = kPlayerIconSize * 0.40;
 /// forehead, a dig in front of the knees — all of them nearer the top half
 /// of him than the floor. Still 0.40 out to the side, so it clears the
 /// shirt and its number.
-const double _kChestAnchor = kPlayerIconSize * -0.05;
+double get _kChestAnchor => kPlayerIconSize * -0.05;
 
 /// One ball on its way to a holder: where it would sit between his feet, how
 /// far across his facing the next one goes, and how much of the pull applies.
@@ -474,7 +474,7 @@ Offset turnVector(Offset v, int quarterTurns) {
 
 /// How far from a player's middle a standing marker has to be before the
 /// figure stops burying it: half the figure, plus half a cone.
-const double _kStandClear = kPlayerIconSize * 0.92;
+double get _kStandClear => kPlayerIconSize * 0.92;
 
 /// Draw-time lift for equipment a player is standing in front of.
 ///
@@ -1141,6 +1141,18 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             if (state.canvasSize != newSize) {
               state.setCanvasSizeSilent(newSize);
             }
+            // The figures' size on this board: grown on a tablet board,
+            // the drill's own (a tight scrum) on any, and shrunk by a
+            // half's zoom so they keep their size on the screen while the
+            // court grows under them. All of it is exactly 1 on a phone.
+            gTightFigureScale = state.figureScale;
+            gViewZoom = widget.preview ? 1.0 : state.frameZoom;
+            gBoardFigureScale = boardFigureScaleFor(newSize) / gViewZoom;
+            if (!widget.preview && state.frameNeedsApply) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (mounted && state.frameNeedsApply) state.applyViewFrame();
+              });
+            }
 
             final players = _inPaintOrder(state.players);
 
@@ -1302,7 +1314,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 ignoring: useViewer,
                 child: BoardOrientation(
                   quarterTurns: widget.boardTurns,
-                  child: _buildCanvasContent(state, players, canvasW, canvasH),
+                  // Keyed by the figure scale: the painters compare their
+                  // players, not the scale, so a board whose figures change
+                  // size (a half zoomed in, a rotation across the tablet
+                  // threshold) is built afresh rather than half-repainted.
+                  child: KeyedSubtree(
+                    key: ValueKey(kFigureScale),
+                    child: _buildCanvasContent(state, players, canvasW, canvasH),
+                  ),
                 ),
               ),
             );
@@ -1509,9 +1528,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         widget.boardTurns,
       );
       final badge = Rect.fromCenter(
-        center: at + Offset(0, (kPlayerIconSize * 0.5 + 11.7) * p.scale),
-        width: 26 * p.scale,
-        height: 13 * p.scale,
+        center: at +
+            Offset(0, (kPlayerIconSize * 0.5 + 11.7 * kFigureScale) * p.scale),
+        width: 26 * p.scale * kFigureScale,
+        height: 13 * p.scale * kFigureScale,
       );
       final mine = depthOf(p);
       for (final q in players) {
@@ -1522,10 +1542,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           widget.boardTurns,
         );
         final head = Rect.fromLTRB(
-          qa.dx - 12 * q.scale,
-          qa.dy - 24 * q.scale,
-          qa.dx + 12 * q.scale,
-          qa.dy - 6 * q.scale,
+          qa.dx - 12 * q.scale * kFigureScale,
+          qa.dy - 24 * q.scale * kFigureScale,
+          qa.dx + 12 * q.scale * kFigureScale,
+          qa.dy - 6 * q.scale * kFigureScale,
         );
         if (badge.overlaps(head)) return true;
       }
@@ -1900,9 +1920,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     drawnAt(b) + (feet[b.id] ?? Offset.zero) - gs,
                     widget.boardTurns,
                   );
-                  if (d.dx.abs() <= 14 * p.scale + r &&
-                      d.dy >= -24 * p.scale - r &&
-                      d.dy <= 26 * p.scale + r) {
+                  final k = p.scale * kFigureScale;
+                  if (d.dx.abs() <= 14 * k + r &&
+                      d.dy >= -24 * k - r &&
+                      d.dy <= 26 * k + r) {
                     return false;
                   }
                 }
@@ -1945,9 +1966,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   final mid = drawnAt(man);
                   bool on(Offset at) {
                     final d = turnVector(at - mid, widget.boardTurns);
-                    return d.dx.abs() <= 14 * man.scale + r &&
-                        d.dy >= -24 * man.scale - r &&
-                        d.dy <= 26 * man.scale + r;
+                    final k = man.scale * kFigureScale;
+                    return d.dx.abs() <= 14 * k + r &&
+                        d.dy >= -24 * k - r &&
+                        d.dy <= 26 * k + r;
                   }
 
                   if (on(ghostAt) && on(liveAt)) return false;
@@ -2055,7 +2077,8 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                                         alpha: 0.85,
                                       ),
                                       fontWeight: FontWeight.w800,
-                                      fontSize: 15 * player.scale,
+                                      fontSize:
+                                          15 * player.scale * kFigureScale,
                                       height: 1,
                                       shadows: const [
                                         Shadow(
@@ -2885,7 +2908,8 @@ class _WaypointDotState extends State<_WaypointDot> {
                       fontWeight: widget.player.labelInside
                           ? FontWeight.w800
                           : FontWeight.w600,
-                      fontSize: widget.player.labelInside ? 15 : 13,
+                      fontSize: (widget.player.labelInside ? 15 : 13) *
+                          kFigureScale,
                       height: 1,
                       shadows: const [
                         Shadow(color: Colors.black54, blurRadius: 2),
@@ -2910,8 +2934,10 @@ class _WaypointDotState extends State<_WaypointDot> {
       );
     }
 
-    // Larger hit area for easier dragging
-    const hitSize = 40.0;
+    // Larger hit area for easier dragging. Waypoints grow with the board's
+    // figures (see kFigureScale) — the tight factor is the figures' alone.
+    final k = gBoardFigureScale;
+    final hitSize = 40.0 * k;
     // An unselected chain's middle stops are diagram, not controls: a filled
     // coloured disc the size of a ball, carrying a number, is read as an
     // object standing on the pitch — every reviewer of the drill library
@@ -2935,14 +2961,14 @@ class _WaypointDotState extends State<_WaypointDot> {
             height: hitSize,
             child: Center(
               child: Container(
-                width: 13,
-                height: 13,
+                width: 13 * k,
+                height: 13 * k,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: const Color(0x59000000),
                   border: Border.all(
                     color: widget.player.moveColor,
-                    width: 2.5,
+                    width: 2.5 * k,
                   ),
                 ),
               ),
@@ -2964,8 +2990,8 @@ class _WaypointDotState extends State<_WaypointDot> {
           height: hitSize,
           child: Center(
             child: Container(
-              width: _dotSize,
-              height: _dotSize,
+              width: _dotSize * k,
+              height: _dotSize * k,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: widget.player.moveColor,
@@ -2973,7 +2999,9 @@ class _WaypointDotState extends State<_WaypointDot> {
                   color: widget.isPrimary
                       ? T.accent
                       : (widget.isSelected ? Colors.yellow : Colors.white),
-                  width: widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2),
+                  width:
+                      (widget.isPrimary ? 3.5 : (widget.isSelected ? 3 : 2)) *
+                          k,
                 ),
                 boxShadow: [
                   if (widget.isPrimary)
@@ -2998,9 +3026,9 @@ class _WaypointDotState extends State<_WaypointDot> {
               child: Center(
                 child: Text(
                   '${widget.index + 1}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 10 * k,
                     fontWeight: FontWeight.bold,
                     height: 1,
                   ),

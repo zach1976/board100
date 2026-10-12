@@ -51,7 +51,7 @@ COURT = {
     "rugby":       (70 / 144,       0.92, 0.92),
     "baseball":    (1.0,            0.95, 0.95),
     "handball":    (20 / 40,        0.90, 0.90),
-    "waterPolo":   (20 / 30,        0.88, 0.88),
+    "waterPolo":   (20 / 25,        0.88, 0.88),
     "sepakTakraw": (6.1 / 13.4,     0.88, 0.88),
     "beachTennis": (8 / 16,         0.85, 0.85),
     "footvolley":  (9 / 18,         0.85, 0.85),
@@ -144,6 +144,9 @@ class M:
     y: float
     shape: str = "cone"
     label: str = ""
+    # Drawn this many times a token's size. A zone is a token-sized wash
+    # unless it is told otherwise; a reduced playing area is far bigger.
+    scale: float = 1.0
 
 
 @dataclass
@@ -276,6 +279,12 @@ class Drill:
     # closer than the labels can be told apart. Everything else must not
     # overlap at all: see SPACING_* below for why the numbers are in points.
     tight: bool = False
+    # A close-up the board opens zoomed to: (x0, y0, x1, y1) in the drill's
+    # own coordinates (court-relative when rel=True), shipped as the board's
+    # "viewWindow". For a set piece that cannot be drawn at true spacing at
+    # the whole pitch's scale — a lineout's two files are 1 m apart. The
+    # spacing checks then measure the figures at that zoom (view_zoom).
+    view: tuple | None = None
     # foundation | development | advanced. Left None, it is derived from what
     # the drill demands (see derive_level); set it only where the rule is
     # wrong — a banana flick needs two players and years of table time.
@@ -328,7 +337,7 @@ def _marker(idx, m: M) -> dict:
         "team": TEAM_NEUTRAL,
         "sportType": None,
         "position": [m.x, m.y],
-        "scale": 1.0,
+        "scale": m.scale,
         "moves": [],
         "movePhases": [],
         "moveColor": MOVE_COLORS[0],
@@ -541,6 +550,10 @@ def to_display_frame(board: dict) -> dict:
         pd["moves"] = [[m[0] * sx, m[1] * sy] for m in pd["moves"]]
     board["canvasWidth"] = DISPLAY_W
     board["canvasHeight"] = DISPLAY_H
+    # Water polo moved from a 30 m pool to 25 m; a board without this is
+    # read by the app as drawn on the old pool and carried across.
+    if board.get("sportType") == SPORT_INDEX["waterPolo"]:
+        board["poolLength"] = 25
     return board
 
 
@@ -560,7 +573,10 @@ def to_canvas(drill: Drill, sport: str) -> None:
         drill.ball = (fx(drill.ball[0]), fy(drill.ball[1]))
     if drill.ball_spot is not None:
         drill.ball_spot = (fx(drill.ball_spot[0]), fy(drill.ball_spot[1]))
-    drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
+    if drill.view is not None:
+        x0, y0, x1, y1 = drill.view
+        drill.view = (fx(x0), fy(y0), fx(x1), fy(y1))
+    drill.ball_moves =[(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
     # ball_to point targets are author coordinates too; the player references
     # need nothing, they resolve to positions that are already transformed.
     drill.ball_to = [(((Spot(fx(t.x), fy(t.y)) if isinstance(t, Spot)
@@ -700,7 +716,7 @@ def space_out(drill: Drill, sport: str) -> None:
     """
     if sport in SPACING_UNCHECKED:
         return
-    fw, fh = FIGURE_TIGHT if drill.tight else FIGURE_PT
+    fw, fh = figure_box(drill)
     left, top, w, h = court_rect(sport)
     people = drill.home + drill.away
     side = [0] * len(drill.home) + [1] * len(drill.away)
@@ -749,7 +765,7 @@ def _standing_at(drill: Drill, point, phase: int):
     Read at the feet distance the board draws a held ball at, with a little
     slack: a pass into space beside a defender is not a pass to him.
     """
-    best, who = FEET_PT * 1.4, None
+    best, who = FEET_PT * 1.4 * _feet_scale, None
     for pl in drill.home + drill.away:
         d = _screen_gap(_pos_at(pl, phase), point)
         if d < best:
@@ -1152,6 +1168,8 @@ def build_board(drill: Drill, sport: str) -> dict:
     unlabel_lone_player(drill)
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
+    global _feet_scale
+    _feet_scale = 1.0 / view_zoom(drill)
     keep_keeper_inside_his_line(drill, sport)
     space_out(drill, sport)
     prune_degenerate_moves(drill)
@@ -1594,12 +1612,55 @@ SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 # apart along both — a diagonal pair needs less room than a column.
 FIGURE_PT = (26.0, 52.0)        # width, height of the drawn person
 FIGURE_TIGHT = (20.0, 34.0)     # a scrum, a wall, a lineout: heads still clear
+# …and the app draws a tight board's figures at that size: the board JSON
+# carries "figureScale", the largest uniform scale that fits the drawn
+# person inside FIGURE_TIGHT (34/52 — the height binds). Without it the
+# audit spaced these boards for a smaller man than the phone drew.
+TIGHT_FIGURE_SCALE = round(min(FIGURE_TIGHT[0] / FIGURE_PT[0],
+                               FIGURE_TIGHT[1] / FIGURE_PT[1]), 3)
+
+# How far the app may magnify a drill's own view window
+# (TacticsState._frameZoomFor — keep the two equal).
+VIEW_ZOOM_MAX = 8.0
+
+
+def view_zoom(drill: "Drill") -> float:
+    """The zoom the app opens [drill]'s view window at on the phone: the
+    window fitted to the canvas, as TacticsState.applyViewFrame does.
+    1.0 for a drill without one. Call after to_canvas."""
+    if drill.view is None:
+        return 1.0
+    x0, y0, x1, y1 = drill.view
+    z = min(BOARD_UNITS[0] / abs(x1 - x0), BOARD_UNITS[1] / abs(y1 - y0))
+    return max(1.0, min(VIEW_ZOOM_MAX, z))
+
+
+def figure_box(drill: "Drill") -> tuple:
+    """The figure the spacing checks keep apart, in board points.
+
+    FIGURE_PT, or FIGURE_TIGHT on a tight board. Under a view window the
+    app draws every figure 1/zoom the size on the canvas (it keeps its size
+    on the screen while the court grows), so the box shrinks by the zoom —
+    and it is the figure as drawn, FIGURE_PT at TIGHT_FIGURE_SCALE (17x34),
+    not FIGURE_TIGHT's wider box: at a lineout's true spacing the 3 pt of
+    label room FIGURE_TIGHT adds is what decides whether seven men a side
+    fit between the 5 m and 15 m lines.
+    """
+    if drill.view is None:
+        return FIGURE_TIGHT if drill.tight else FIGURE_PT
+    z = view_zoom(drill)
+    s = TIGHT_FIGURE_SCALE if drill.tight else 1.0
+    return (FIGURE_PT[0] * s / z, FIGURE_PT[1] * s / z)
 
 # How far the ball sits from the man carrying it, in points on the phone.
 # The player token is 36pt across and the ball is drawn at 0.58 of its own
 # 36pt cell — about 21pt — so 24pt between the two centres has their edges
 # just meeting: the ball is at his feet, not beside him on the grass.
 FEET_PT = 24.0
+# …divided by the zoom of the drill being built when it has a view window
+# (the app draws the man and his ball 1/zoom the size on the canvas). Set by
+# build_board for every drill, so it is never left over from the last one.
+_feet_scale = 1.0
 
 # Was a list of sports whose boards predated the rule. Empty since
 # 2026-09-07: space_out() applies the rule to every sport.
@@ -1665,8 +1726,8 @@ def at_the_feet_of(x: float, y: float, sport: str,
         hy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
     px, py = hx * DISPLAY_W / CANVAS_W, hy * DISPLAY_H / CANVAS_H
     length = math.hypot(px, py)
-    bx = x + px / length * FEET_PT * CANVAS_W / DISPLAY_W
-    by = y + py / length * FEET_PT * CANVAS_H / DISPLAY_H
+    bx = x + px / length * FEET_PT * _feet_scale * CANVAS_W / DISPLAY_W
+    by = y + py / length * FEET_PT * _feet_scale * CANVAS_H / DISPLAY_H
     # A ball pushed ahead at the touchline must not be pushed off it. Only
     # for a moving holder: a man standing outside the field of play — the
     # thrower, the corner taker — keeps his ball out there with him.
@@ -1721,7 +1782,7 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     people = [p for p in board["players"]
               if p["markerShape"] == 0 and p.get("sportType") is None]
 
-    fw, fh = FIGURE_TIGHT if drill.tight else FIGURE_PT
+    fw, fh = figure_box(drill)
 
     def covered(a, b):
         """How far two figures are apart on a phone, or None if they clear.
@@ -1970,6 +2031,16 @@ def build(sport: str, library) -> dict:
         # last, after the record is built. See to_display_frame.
         frame = frame_of(sport, board)
         board = to_display_frame(board)
+        if d.tight:
+            board["figureScale"] = TIGHT_FIGURE_SCALE
+        if d.view is not None:
+            # In the display frame's points, like the players. A board with
+            # its own window opens on that, never on a half as well.
+            sx, sy = DISPLAY_W / CANVAS_W, DISPLAY_H / CANVAS_H
+            x0, y0, x1, y1 = d.view
+            board["viewWindow"] = [round(min(x0, x1) * sx, 3), round(min(y0, y1) * sy, 3),
+                                   round(max(x0, x1) * sx, 3), round(max(y0, y1) * sy, 3)]
+            frame = None
         records.append({
                 "id": d.id,
                 "level": derive_level(d),
