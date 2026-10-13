@@ -37,6 +37,26 @@ TWO_BALL = _t(
     "两个球同时运，在锥标之间去回不丢球；丢了就捡起来从丢的地方继续。跑 6 趟后换一种运球方式。",
     "兩個球同時運，在錐標之間去回不丟球；丟了就撿起來從丟的地方繼續。跑 6 趟後換一種運球方式。")
 
+WEAVE = _t(
+    "Down and back is one rep: the three finish with a layup, the next three go on the make, and the first three weave back the other way. Ten reps; a dropped pass or a travel and that rep does not count.",
+    "去回算一次：三人以上篮结束，投进后下一组马上出发，第一组反方向八字传回来。做 10 次，掉球或走步的那一次不算。",
+    "去回算一次：三人以上籃結束，投進後下一組馬上出發，第一組反方向八字傳回來。做 10 次，掉球或走步的那一次不算。")
+
+MIKAN = _t(
+    "Thirty seconds without stopping, counting the makes; rest thirty while a partner goes, three rounds each. Then the reverse Mikan: the same steps, finishing on the far side of the rim.",
+    "连续 30 秒不停，数进球数；休息 30 秒换搭档上，每人 3 轮。然后做反向麦肯：同样的步伐，从篮筐另一侧反手上篮。",
+    "連續 30 秒不停，數進球數；休息 30 秒換搭檔上，每人 3 輪。然後做反向麥肯：同樣的步伐，從籃框另一側反手上籃。")
+
+HANDLE = _t(
+    "One player at a time, the next starting when the first passes the second cone; after the layup, rebound and dribble back down the sideline. A different move every round: crossover, between the legs, behind the back.",
+    "一次一人，前一人过第二个锥桶时下一人出发；上篮后自己抢篮板，沿边线运球回来。每一轮换一种变向：体前换手、胯下、背后。",
+    "一次一人，前一人過第二個錐桶時下一人出發；上籃後自己搶籃板，沿邊線運球回來。每一輪換一種變向：體前換手、胯下、背後。")
+
+ZIGZAG = _t(
+    "Baseline to baseline inside the left third of the court, the dribbler at three-quarter speed; swap roles at the far end and come back. Three lengths each, then the dribbler goes live.",
+    "在球场左侧三分之一宽的通道里从底线到底线，运球人用七八成速度；到另一端互换角色再回来。每人 3 趟，然后运球人全速对抗。",
+    "在球場左側三分之一寬的通道裡從底線到底線，運球人用七八成速度；到另一端互換角色再回來。每人 3 趟，然後運球人全速對抗。")
+
 FLOW = {
     "bb_layup_lines": LAYUP_LINES,
     "bb_two_ball_dribble": TWO_BALL,
@@ -50,6 +70,13 @@ FLOW = {
     "bb_press_break": PRESS_BREAK,
     "bb_3v3_no_dribble": GAME_RULES,
     "bb_transition_": SETPLAY_RULES,
+    "bb_set_flex": PATTERN_RULES,
+    "bb_weave": WEAVE,
+    "bb_mikan": MIKAN,
+    "bb_shoot_": SHOOTING,
+    "bb_handle_cones": HANDLE,
+    "bb_zigzag_1v1": ZIGZAG,
+    "bb_press_": PRESS_BREAK,
     "bb_": SETPLAY_RULES,
 }
 
@@ -58,6 +85,10 @@ GEAR = {
         "four cones in a line 4 m apart mark the lane to dribble down and back",
         "四个锥标排成一列、相距 4 米，标出来回运球的通道",
         "四個錐標排成一列、相距 4 米，標出來回運球的通道"),
+    "bb_handle_cones": _t(
+        "three cones in a zig-zag from just behind half court to the top of the arc, about 4 m apart; each one is a defender, and the hands change one step before it",
+        "三个锥桶从中线后一点到弧顶摆成之字形，相距约 4 米；每个锥桶当成一名防守人，离它一步时换手",
+        "三個錐桶從中線後一點到弧頂擺成之字形，相距約 4 米；每個錐桶當成一名防守人，離它一步時換手"),
 }
 
 

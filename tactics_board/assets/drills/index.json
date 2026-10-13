@@ -1,9 +1,9 @@
 {
   "badminton": 42,
   "baseball": 40,
-  "basketball": 58,
+  "basketball": 99,
   "beachTennis": 28,
-  "fieldHockey": 36,
+  "fieldHockey": 59,
   "footvolley": 30,
   "handball": 42,
   "pickleball": 35,
@@ -12,6 +12,6 @@
   "soccer": 137,
   "tableTennis": 35,
   "tennis": 38,
-  "volleyball": 44,
+  "volleyball": 92,
   "waterPolo": 37
 }

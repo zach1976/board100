@@ -53,6 +53,7 @@ import 'photo_crop_editor.dart';
 import 'photo_import_sheet.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
+import 'volleyball_rotation_widgets.dart';
 
 /// Tablet (shortestSide >= 600) gets 1.4× sizing for icons/buttons/fonts.
 /// Long-press-drag tuning shared by the add-sheet tiles. The stock 500ms hold
@@ -623,6 +624,10 @@ String _courtLayoutLabel(CourtLayout l) {
       return 'field_half_right'.tr();
     case CourtLayout.blank:
       return 'field_blank'.tr();
+    case CourtLayout.indoor:
+      return 'field_indoor'.tr();
+    case CourtLayout.hockey5s:
+      return 'field_hockey5s'.tr();
   }
 }
 
@@ -2701,10 +2706,10 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   /// at the chosen team's spawn area. Closes the sheet when done so the
   /// user can see the result.
   /// The formation to line a squad up in: the one whose size best fits the
-  /// squad without exceeding it (9 players -> 7v7, not 11v11), falling back to
+  /// squad without exceeding it (10 players -> 9v9, not 11v11), falling back to
   /// the smallest the sport defines.
   SportFormation? _formationForSquad(int size) {
-    final all = state.sportType.formations;
+    final all = state.formations;
     if (all.isEmpty) return null;
     final fitting = all.where((f) => f.homeCount <= size).toList()
       ..sort((a, b) => b.homeCount.compareTo(a.homeCount));
@@ -4533,11 +4538,32 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   SportFormation? _selectedFormation;
   _TeamOption _teamOption = _TeamOption.both;
 
+  /// Volleyball's "Rotation" chip under 6v6: the rotation controls in place
+  /// of the team row. Open already on a board that is a rotation board, so
+  /// rotating on is one tap.
+  bool _rotationMode = false;
+
+  /// On the full court only: the spots are laid out on its geometry.
+  bool get _offersRotation =>
+      widget.state.sportType == SportType.volleyball &&
+      widget.state.courtLayout(SportType.volleyball) == CourtLayout.full &&
+      _selectedCount == (6, 6);
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.state.sportType == SportType.volleyball &&
+        widget.state.rotation != null) {
+      _selectedCount = (6, 6);
+      _rotationMode = true;
+    }
+  }
+
   static (int, int) _countOf(SportFormation f) => (f.homeCount, f.awayCount);
 
   List<(int, int)> get _distinctCounts {
     final counts = <(int, int)>{};
-    for (final f in widget.state.sportType.formations) {
+    for (final f in widget.state.formations) {
       counts.add(_countOf(f));
     }
     return counts.toList()
@@ -4547,7 +4573,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
 
   List<SportFormation> get _formationsForCount {
     if (_selectedCount == null) return [];
-    return widget.state.sportType.formations
+    return widget.state.formations
         .where((f) => _countOf(f) == _selectedCount)
         .toList();
   }
@@ -4682,6 +4708,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                   onTap: () => setState(() {
                     _selectedCount = count;
                     _selectedFormation = null; // reset
+                    _rotationMode = false;
                   }),
                   child: Container(
                     width: 56 * s,
@@ -4718,12 +4745,49 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: formations.map((f) {
+                children: [
+                  // Volleyball: the six placed by rotation instead. First,
+                  // so a coach opening the sheet on a rotation board sees
+                  // the chip that is selected.
+                  if (_offersRotation)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: GestureDetector(
+                        key: const ValueKey('rotation-chip'),
+                        onTap: () => setState(() {
+                          _rotationMode = true;
+                          _selectedFormation = null;
+                        }),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: _rotationMode ? Colors.blue : Colors.white.withValues(alpha: 0.08),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: _rotationMode ? Colors.blue : Colors.white24,
+                              width: _rotationMode ? 2 : 1,
+                            ),
+                          ),
+                          child: Text(
+                            'rotation_label'.tr(),
+                            style: TextStyle(
+                              color: _rotationMode ? Colors.white : Colors.white70,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ...formations.map((f) {
                   final selected = _selectedFormation == f;
                   return Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: GestureDetector(
-                      onTap: () => setState(() => _selectedFormation = f),
+                      onTap: () => setState(() {
+                        _selectedFormation = f;
+                        _rotationMode = false;
+                      }),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
@@ -4745,13 +4809,25 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                       ),
                     ),
                   );
-                }).toList(),
+                })],
               ),
             ),
           ],
 
+          // Row 3 (volleyball rotation): system, rotation, libero, check.
+          if (_offersRotation && _rotationMode) ...[
+            const SizedBox(height: 12),
+            VolleyballRotationControls(
+              state: widget.state,
+              team: _teamOption == _TeamOption.away
+                  ? PlayerTeam.away
+                  : PlayerTeam.home,
+              onPlace: () => Navigator.of(widget.sheetCtx).maybePop(),
+            ),
+          ],
+
           // Row 3: Team selection
-          if (_selectedFormation != null || (_selectedCount != null && formations.length == 1)) ...[
+          if (!_rotationMode && (_selectedFormation != null || (_selectedCount != null && formations.length == 1))) ...[
             const SizedBox(height: 12),
             Text('team_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
@@ -4875,7 +4951,7 @@ class _QuickFormationRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formations = state.sportType.formations;
+    final formations = state.formations;
     final hasDoubles = formations.any((f) => f.nameKey == 'formation_doubles');
     final homeColor = PlayerIcon.teamColor(PlayerTeam.home);
     final awayColor = PlayerIcon.teamColor(PlayerTeam.away);

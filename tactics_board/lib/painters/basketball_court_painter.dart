@@ -145,8 +145,11 @@ class BasketballCourtPainter extends CourtPainterBase {
       double sc, {required bool isTop}) {
     const cx = 7.5;
     const courtW = 15.0;
-    const keyBaseW = 6.0; // key width at baseline (trapezoid)
-    const keyFtW = 3.6; // key width at free throw line (trapezoid)
+    // FIBA since 2010: a rectangle 4.9 m wide. The 6.0→3.6 m trapezoid was
+    // the old rule, and the board drew it under a store page promising an
+    // accurate court. Both ends kept as names so the path below is unchanged.
+    const keyBaseW = 4.9; // key width at the baseline
+    const keyFtW = 4.9; // key width at the free-throw line
     const keyD = 5.8; // key depth
     const basketDist = 1.575;
     const bbDist = 1.2;
@@ -160,7 +163,7 @@ class BasketballCourtPainter extends CourtPainterBase {
     if (isTop) {
       // --- TOP HALF ---
 
-      // Trapezoidal key (wide at baseline, narrow at free throw line)
+      // The key: a 4.9 m rectangle (FIBA)
       final keyPath = Path()
         ..moveTo(o(cx - keyBaseW / 2, 0).dx, o(0, 0).dy)
         ..lineTo(o(cx - keyFtW / 2, keyD).dx, o(0, keyD).dy)
@@ -205,7 +208,7 @@ class BasketballCourtPainter extends CourtPainterBase {
     } else {
       // --- BOTTOM HALF ---
 
-      // Trapezoidal key
+      // The key
       final keyPath = Path()
         ..moveTo(o(cx - keyBaseW / 2, 28).dx, o(0, 28).dy)
         ..lineTo(o(cx - keyFtW / 2, 28 - keyD).dx, o(0, 28 - keyD).dy)

@@ -62,7 +62,9 @@ class DrillThumbnail extends StatelessWidget {
         child: CustomPaint(
           painter: _ThumbPainter(
               scene, drill.offSurface, DefaultTextStyle.of(context).style,
-              sport: sport, pitch: pitch),
+              sport: sport, pitch: pitch,
+              layout: CourtLayoutPitch.fromBoard(drill.board['courtLayout']) ??
+                  CourtLayout.full),
         ),
       ),
     );
@@ -367,8 +369,12 @@ class _ThumbPainter extends CustomPainter {
   final SportType sport;
   final Rect pitch;
 
+  /// The pitch the drill is drawn on: full, or another one it names
+  /// (field hockey's indoor pitch).
+  final CourtLayout layout;
+
   const _ThumbPainter(this.scene, this.offSurface, this.base,
-      {required this.sport, required this.pitch});
+      {required this.sport, required this.pitch, this.layout = CourtLayout.full});
 
   /// The sport's own court, drawn by the board's own painter into the
   /// authored canvas and mapped onto the thumbnail's crop window, then
@@ -386,7 +392,7 @@ class _ThumbPainter extends CustomPainter {
     canvas.scale(sx, sy);
     final surfaces = sport.courtSurfaces;
     final colour = surfaces.isNotEmpty ? surfaces.first.color : sport.courtColor;
-    courtPainterFor(sport, CourtLayout.full, colour)
+    courtPainterFor(sport, layout, colour)
         .paint(canvas, const Size(w, h));
     canvas.restore();
     canvas.drawRect(Offset.zero & size,
@@ -574,5 +580,6 @@ class _ThumbPainter extends CustomPainter {
       old.scene.passes.length != scene.passes.length ||
       old.scene.window != scene.window ||
       old.offSurface != offSurface ||
-      old.sport != sport;
+      old.sport != sport ||
+      old.layout != layout;
 }

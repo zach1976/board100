@@ -1,0 +1,234 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:tactics_board/models/player_icon.dart';
+import 'package:tactics_board/models/volleyball_rotation.dart';
+
+/// The overlap rules (FIVB 7.4 / 7.5), the order of rotation, and the
+/// libero — judged in the team's frame: x from the team's left sideline,
+/// d back from the net, in metres.
+void main() {
+  // A legal base: front row at the net, back row deep, left to right
+  // 4-3-2 and 5-6-1.
+  Map<int, Offset> base() => {
+        4: const Offset(1.5, 2), 3: const Offset(4.5, 2), 2: const Offset(7.5, 2),
+        5: const Offset(1.5, 6), 6: const Offset(4.5, 6), 1: const Offset(7.5, 6),
+      };
+
+  group('overlap', () {
+    test('a legal base has no fault', () {
+      expect(VolleyballRotation.faults(base()), isEmpty);
+    });
+
+    for (final (front, back) in VolleyballRotation.depthPairs) {
+      test('back-row $back ahead of front-row $front is a fault', () {
+        final at = base();
+        at[back] = Offset(at[back]!.dx, at[front]!.dy - 0.5);
+        expect(VolleyballRotation.faults(at),
+            [OverlapFault(front, back, depth: true)]);
+      });
+    }
+
+    for (final (left, right) in VolleyballRotation.lateralPairs) {
+      test('$left right of $right is a fault', () {
+        final at = base();
+        at[left] = Offset(at[right]!.dx + 0.4, at[left]!.dy);
+        final faults = VolleyballRotation.faults(at);
+        expect(faults, contains(OverlapFault(left, right, depth: false)));
+        expect(faults.where((f) => f.depth), isEmpty);
+      });
+    }
+
+    test('level is a fault: neither is ahead', () {
+      final at = base();
+      at[5] = Offset(at[5]!.dx, at[4]!.dy);
+      expect(VolleyballRotation.faults(at),
+          [const OverlapFault(4, 5, depth: true)]);
+    });
+
+    test('the centre need not be between the outsides of the other row', () {
+      // 6 well left of 4 in depth terms is not a rule; only rows and
+      // columns are.
+      final at = base();
+      at[6] = const Offset(2.5, 6);
+      expect(VolleyballRotation.faults(at), isEmpty);
+    });
+
+    test('the server is exempt', () {
+      final at = base();
+      // Zone 1 in front of zone 2 and left of zone 6: two faults ...
+      at[1] = const Offset(3.0, 1.0);
+      expect(VolleyballRotation.faults(at), hasLength(2));
+      // ... and none when he is the server.
+      expect(VolleyballRotation.faults(at, exemptZone: 1), isEmpty);
+      // The exemption is his alone.
+      at[5] = const Offset(1.5, 1.0);
+      expect(VolleyballRotation.faults(at, exemptZone: 1),
+          [const OverlapFault(4, 5, depth: true)]);
+    });
+
+    test('a missing zone is not judged', () {
+      final at = base()..remove(6);
+      at[1] = const Offset(0.5, 6); // left of nobody now that 6 is gone
+      expect(VolleyballRotation.faults(at), isEmpty);
+    });
+  });
+
+  group('rotation order', () {
+    test('one rotation on: 2 to 1, 1 to 6, 6 to 5 ...', () {
+      const s = RotationSetup();
+      final next = s.rotated(1);
+      for (final role in s.lineup) {
+        final z = s.zoneOf(role)!;
+        final expected = z == 1 ? 6 : z - 1;
+        expect(next.zoneOf(role), expected, reason: role);
+      }
+    });
+
+    test('the setter goes 1, 6, 5, 4, 3, 2 and back to 1', () {
+      var s = const RotationSetup();
+      final zones = <int>[];
+      for (var i = 0; i < 7; i++) {
+        zones.add(s.zoneOf('S')!);
+        s = s.rotated(1);
+      }
+      expect(zones, [1, 6, 5, 4, 3, 2, 1]);
+      expect(s.rotation, 2);
+    });
+
+    test('back from rotation 1 is rotation 6', () {
+      expect(const RotationSetup().rotated(-1).rotation, 6);
+      expect(const RotationSetup(rotation: 6).rotated(1).rotation, 1);
+    });
+
+    test('opposites are three zones apart in both systems', () {
+      for (final sys in RotationSystem.values) {
+        for (var r = 1; r <= 6; r++) {
+          final s = RotationSetup(system: sys, rotation: r);
+          final l = s.lineup;
+          for (var i = 0; i < 3; i++) {
+            final a = s.zoneOf(l[i])!, b = s.zoneOf(l[i + 3])!;
+            expect(VolleyballRotation.isFront(a) != VolleyballRotation.isFront(b),
+                isTrue, reason: '${l[i]} / ${l[i + 3]} in R$r');
+          }
+        }
+      }
+    });
+
+    test('6-2: the back-row setter runs the offence', () {
+      for (var r = 1; r <= 6; r++) {
+        final s = RotationSetup(system: RotationSystem.sixTwo, rotation: r);
+        expect(VolleyballRotation.isFront(s.zoneOf(s.activeSetter)!), isFalse);
+      }
+    });
+  });
+
+  group('libero', () {
+    test('replaces the back-row middle', () {
+      // Rotation 1 of a 5-1: MB1 in 3 (front), MB2 in 6 (back).
+      const s = RotationSetup();
+      expect(s.zoneOf('MB2'), 6);
+      expect(s.liberoReplaces, 'MB2');
+      expect(s.zoneRoles[6], VolleyballRotation.liberoRole);
+      expect(s.zoneRoles.values, isNot(contains('MB2')));
+      expect(s.zoneRoles[3], 'MB1');
+    });
+
+    test('follows the middles round: always the one in the back row', () {
+      for (var r = 1; r <= 6; r++) {
+        final s = RotationSetup(rotation: r);
+        final mb = s.liberoReplaces!;
+        expect(VolleyballRotation.isFront(s.zoneOf(mb)!), isFalse,
+            reason: 'R$r');
+      }
+    });
+
+    test('does not serve: the middle serves for himself', () {
+      // Rotation 3 of a 5-1 has MB1 in zone 1.
+      const receive = RotationSetup(rotation: 3);
+      expect(receive.zoneOf('MB1'), 1);
+      expect(receive.liberoReplaces, 'MB1');
+      final serve = receive.copyWith(phase: RotationPhase.serve);
+      expect(serve.liberoReplaces, isNull);
+      expect(serve.zoneRoles[1], 'MB1');
+    });
+
+    test('none when switched off', () {
+      const s = RotationSetup(libero: false);
+      expect(s.liberoReplaces, isNull);
+      expect(s.zoneRoles[6], 'MB2');
+    });
+  });
+
+  group('base positions', () {
+    test('every rotation, both systems, both phases is legal and on court',
+        () {
+      for (final sys in RotationSystem.values) {
+        for (final ph in RotationPhase.values) {
+          for (final lib in [true, false]) {
+            for (var r = 1; r <= 6; r++) {
+              final s = RotationSetup(
+                  system: sys, rotation: r, phase: ph, libero: lib);
+              final at = VolleyballRotation.basePositions(s);
+              final serving = ph == RotationPhase.serve;
+              expect(at.keys.toSet(), {1, 2, 3, 4, 5, 6});
+              expect(
+                  VolleyballRotation.faults(at,
+                      exemptZone: serving ? 1 : null),
+                  isEmpty,
+                  reason: '$sys $ph libero=$lib R$r: $at');
+              for (final e in at.entries) {
+                if (serving && e.key == 1) {
+                  expect(e.value.dy, greaterThanOrEqualTo(9),
+                      reason: 'the server is behind the end line');
+                  continue;
+                }
+                expect(e.value.dx, inInclusiveRange(0, 9));
+                expect(e.value.dy, inInclusiveRange(0, 9));
+              }
+            }
+          }
+        }
+      }
+    });
+
+    test('a legal layout is left where it is', () {
+      expect(VolleyballRotation.legalize(base()), base());
+    });
+
+    test('legalize mends every fault', () {
+      final at = base();
+      at[5] = const Offset(1.5, 1.0);
+      at[3] = const Offset(8.0, 2.0);
+      expect(VolleyballRotation.faults(VolleyballRotation.legalize(at)),
+          isEmpty);
+    });
+
+    test('zones are read from where six stand', () {
+      final at = base();
+      final ids = {for (final e in at.entries) 'z${e.key}': e.value};
+      final zones = VolleyballRotation.inferZones(ids);
+      for (final z in at.keys) {
+        expect(zones[z], 'z$z');
+      }
+    });
+  });
+
+  group('json', () {
+    test('round-trips', () {
+      const s = RotationSetup(
+        team: PlayerTeam.away,
+        system: RotationSystem.sixTwo,
+        rotation: 4,
+        phase: RotationPhase.serve,
+        libero: false,
+        check: false,
+      );
+      expect(RotationSetup.fromJson(s.toJson()), s);
+    });
+
+    test('anything else reads as nothing, or as defaults', () {
+      expect(RotationSetup.fromJson(null), isNull);
+      expect(RotationSetup.fromJson('5-1'), isNull);
+      expect(RotationSetup.fromJson({'rot': 9}), const RotationSetup());
+    });
+  });
+}

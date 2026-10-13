@@ -143,7 +143,12 @@ void main() {
         // 只看落在底线附近的那一脚：中途的传球不是射门。
         if (end.dy > top + h * 0.085) continue;
         shots++;
-        if (end.dx < postL || end.dx > postR) {
+        // 室内场（board 的 courtLayout = indoor）：3 米球门、22 米宽的场地，
+        // 画在同一个框里但更窄——门柱在框宽的 0.4436 和 0.5564 处。
+        final indoor = board['courtLayout'] == 'indoor';
+        final l = indoor ? left + 0.4436 * w : postL;
+        final r = indoor ? left + 0.5564 * w : postR;
+        if (end.dx < l || end.dx > r) {
           wide.add('${d["id"]} x=${end.dx.toStringAsFixed(0)}');
         }
       }

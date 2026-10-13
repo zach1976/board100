@@ -28,6 +28,7 @@ import '../painters/beach_tennis_court_painter.dart';
 import '../painters/footvolley_court_painter.dart';
 import '../state/tactics_state.dart';
 import 'player_icon_widget.dart';
+import 'volleyball_rotation_widgets.dart';
 
 /// Paint order for everything standing on the board.
 ///
@@ -2221,6 +2222,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           ),
         // Players and the ball, over the ghosts and the routes.
         ...players.where((p) => !p.isMarker).map(playerIcon),
+        // A volleyball rotation board with its overlap check on: the
+        // pairs at fault, over the people they are about.
+        if (state.rotation?.check == true) ..._rotationFaults(state, canvasW, canvasH),
         // Animation driver (zero-size, drives per-frame updates)
         _AnimationDriver(
           isAnimating: state.isAnimating,
@@ -2243,6 +2247,47 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           ),
       ],
     );
+  }
+
+  /// The overlap faults of a volleyball rotation board, drawn at the feet
+  /// they are judged by (see TacticsState.rotationFaults). Nothing when the
+  /// six are legal.
+  List<Widget> _rotationFaults(
+      TacticsState state, double canvasW, double canvasH) {
+    final footward =
+        turnVector(const Offset(0, 1), (4 - widget.boardTurns) % 4);
+    final faults = state.rotationFaults(footward: footward);
+    if (faults.isEmpty) return const [];
+    final byId = {for (final p in state.players) p.id: p};
+    Offset feet(String id) {
+      final p = byId[id]!;
+      return p.position + footward * (26.0 * kFigureScale * p.scale);
+    }
+
+    final court = state.sportType.fieldRect(Size(canvasW, canvasH));
+    return [
+      IgnorePointer(
+        child: CustomPaint(
+          key: const ValueKey('rotation-faults'),
+          painter: RotationFaultPainter(
+            pairs: [for (final f in faults) (feet(f.a), feet(f.b))],
+            message: rotationFaultMessage(
+                faults, (id) => byId[id]?.label ?? ''),
+            // In the middle of the other half: the side being checked
+            // stands on its own, the front row right under the net.
+            messageAt: Offset(
+                court.center.dx,
+                court.top +
+                    court.height *
+                        (state.rotation!.team == PlayerTeam.away ? 0.75 : 0.25)),
+            counterTurns: (4 - widget.boardTurns) % 4,
+            figureScale: kFigureScale,
+            fontFamily: DefaultTextStyle.of(context).style.fontFamily,
+          ),
+          size: Size(canvasW, canvasH),
+        ),
+      ),
+    ];
   }
 
   /// Return strokes visible at the current playback step.

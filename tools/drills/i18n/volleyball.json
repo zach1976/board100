@@ -1,0 +1,92 @@
+{
+ "Hit, dig, set round the triangle without letting the ball drop; every ten contacts the three move on one role — hitter to digger, digger to setter, setter to hitter.": {
+  "ja-JP": "打つ・拾う・上げるを三角形で回し、ボールを落とさない。10回触るごとに役割を1つずつ交代——アタッカーはレシーバーへ、レシーバーはセッターへ、セッターはアタッカーへ。",
+  "ko-KR": "때리고, 받고, 올리기를 삼각형으로 돌리며 공을 떨어뜨리지 않는다. 10번 터치마다 역할을 하나씩 바꾼다 — 공격수는 수비로, 수비는 세터로, 세터는 공격수로.",
+  "es-ES": "Remate, defensa y colocación alrededor del triángulo sin que caiga el balón; cada diez contactos los tres cambian de papel: el atacante pasa a defender, el defensor a colocar y el colocador a atacar.",
+  "fr-FR": "Attaque, défense, passe autour du triangle sans laisser tomber le ballon ; toutes les dix touches, chacun change de rôle — l'attaquant défend, le défenseur passe, le passeur attaque.",
+  "id-ID": "Smes, dig, umpan berputar di segitiga tanpa bola jatuh; setiap sepuluh sentuhan ketiganya bergeser satu peran — penyerang ke penggali, penggali ke tosser, tosser ke penyerang.",
+  "ms-MY": "Rejam, dig, umpan berputar dalam segi tiga tanpa bola jatuh; setiap sepuluh sentuhan ketiga-tiganya beralih satu peranan — penyerang ke pertahanan, pertahanan ke pengumpan, pengumpan ke penyerang.",
+  "th-TH": "ตบ รับ เซต วนเป็นสามเหลี่ยมไม่ให้บอลตก ทุกสิบครั้งที่สัมผัสบอลให้ทั้งสามสลับบทบาทหนึ่งขั้น ตัวตบไปรับ คนรับไปเซต คนเซตไปตบ",
+  "vi-VN": "Đập, đỡ, chuyền vòng quanh tam giác không để bóng rơi; cứ mười lần chạm bóng thì ba người đổi vai một lượt — người đập sang đỡ, người đỡ sang chuyền, người chuyền sang đập."
+ },
+ "Count the contacts without the ball touching the floor; at 50 both take a step further apart and start again, and when it drops the count goes back to zero.": {
+  "ja-JP": "床に落とさずに続いた回数を数える。50回で2人とも1歩下がってやり直し、落ちたら0から数え直す。",
+  "ko-KR": "바닥에 떨어뜨리지 않은 터치 수를 센다. 50번이 되면 둘 다 한 걸음씩 물러나 다시 시작하고, 떨어지면 0부터 다시 센다.",
+  "es-ES": "Contad los contactos sin que el balón toque el suelo; al llegar a 50, los dos se separan un paso y vuelven a empezar, y si cae la cuenta vuelve a cero.",
+  "fr-FR": "Comptez les touches sans que le ballon touche le sol ; à 50, chacun recule d'un pas et on recommence, et s'il tombe on repart de zéro.",
+  "id-ID": "Hitung sentuhan tanpa bola menyentuh lantai; di angka 50 keduanya mundur satu langkah dan mulai lagi, dan jika bola jatuh hitungan kembali ke nol.",
+  "ms-MY": "Kira sentuhan tanpa bola menyentuh lantai; pada 50 kedua-duanya berundur selangkah dan mula semula, dan jika bola jatuh kiraan kembali ke sifar.",
+  "th-TH": "นับจำนวนครั้งที่สัมผัสโดยบอลไม่ตกพื้น ครบ 50 ครั้งให้ทั้งคู่ถอยห่างกันหนึ่งก้าวแล้วเริ่มใหม่ ถ้าบอลตกให้เริ่มนับจากศูนย์",
+  "vi-VN": "Đếm số lần chạm bóng mà bóng không chạm sàn; đến 50 thì cả hai lùi xa thêm một bước và bắt đầu lại, bóng rơi thì đếm lại từ đầu."
+ },
+ "One side serves; the receiving side must win that rally and then the free ball the coach sends in straight after. Both won is a big point, a split is a wash and nobody scores. First to three big points, then both sides rotate one position.": {
+  "ja-JP": "片方がサーブ。レシーブ側はそのラリーに勝ち、さらに直後にコーチが入れるフリーボールにも勝たなければならない。両方取れば大きな1点、1勝1敗はウォッシュで得点なし。大きな3点先取、その後両チーム1つローテーション。",
+  "ko-KR": "한 팀이 서브한다. 리시브 팀은 그 랠리와 곧바로 코치가 넣는 프리볼을 모두 이겨야 한다. 둘 다 이기면 큰 1점, 1승 1패는 워시로 무득점. 큰 점수 3점 선취 후 양 팀 모두 한 자리 로테이션.",
+  "es-ES": "Un equipo saca; el receptor tiene que ganar ese punto y después el balón libre que el entrenador mete justo a continuación. Los dos ganados es un punto grande; uno y uno es un wash y nadie puntúa. Al primero que llegue a tres puntos grandes, luego ambos rotan una posición.",
+  "fr-FR": "Une équipe sert ; l'équipe en réception doit gagner cet échange puis la balle libre que l'entraîneur envoie juste après. Les deux gagnés font un gros point, un partout est un wash et personne ne marque. Le premier à trois gros points, puis les deux équipes tournent d'un poste.",
+  "id-ID": "Satu tim servis; tim penerima harus memenangkan reli itu lalu bola bebas yang langsung dikirim pelatih. Menang keduanya satu poin besar, satu-satu dianggap wash dan tak ada yang mencetak poin. Pertama ke tiga poin besar, lalu kedua tim rotasi satu posisi.",
+  "ms-MY": "Satu pasukan servis; pasukan penerima mesti memenangi rali itu dan kemudian bola bebas yang terus dihantar jurulatih. Menang kedua-duanya satu mata besar, seri satu-satu dikira wash dan tiada mata. Pertama ke tiga mata besar, kemudian kedua-dua pasukan berputar satu kedudukan.",
+  "th-TH": "ฝ่ายหนึ่งเสิร์ฟ ฝ่ายรับต้องชนะแต้มนั้นและชนะฟรีบอลที่โค้ชส่งเข้ามาทันทีต่อจากนั้น ชนะทั้งสองลูกได้แต้มใหญ่ ชนะหนึ่งแพ้หนึ่งถือว่าวอชไม่มีใครได้แต้ม ใครได้แต้มใหญ่ครบสามก่อนชนะ แล้วทั้งสองฝ่ายหมุนหนึ่งตำแหน่ง",
+  "vi-VN": "Một bên phát bóng; bên đỡ phải thắng pha đó và thắng tiếp quả bóng tự do huấn luyện viên đưa vào ngay sau. Thắng cả hai được một điểm lớn, mỗi bên một quả là hòa, không ai ghi điểm. Ai đủ ba điểm lớn trước thắng, rồi hai bên xoay một vị trí."
+ },
+ "The challengers serve. If they win the rally they walk round the post to the kings' side and the kings go to the back of the line; only the kings' side scores. First pair to seven wins, then the pairs are reshuffled.": {
+  "ja-JP": "チャレンジャーがサーブ。ラリーに勝てばポールを回ってキング側へ移り、キングは列の最後尾へ。得点できるのはキング側だけ。7点先取のペアが勝ち、その後ペアを組み替える。",
+  "ko-KR": "도전자가 서브한다. 랠리를 이기면 폴을 돌아 킹 쪽으로 가고, 킹은 줄 맨 뒤로 간다. 득점은 킹 쪽에서만 한다. 먼저 7점을 낸 팀이 이기고, 그 뒤 짝을 다시 짠다.",
+  "es-ES": "Sacan los aspirantes. Si ganan el punto rodean el poste hasta el lado de los reyes y los reyes pasan al final de la fila; solo puntúa el lado de los reyes. Gana la primera pareja que llega a siete y se rehacen las parejas.",
+  "fr-FR": "Les challengers servent. S'ils gagnent l'échange, ils passent par le poteau côté rois et les rois retournent en fin de file ; seul le côté des rois marque. La première paire à sept gagne, puis on refait les paires.",
+  "id-ID": "Penantang melakukan servis. Jika menang reli mereka memutari tiang ke sisi raja dan raja pindah ke ujung antrean; hanya sisi raja yang mencetak poin. Pasangan pertama yang mencapai tujuh menang, lalu pasangan diacak ulang.",
+  "ms-MY": "Pencabar membuat servis. Jika menang rali mereka mengelilingi tiang ke sisi raja dan raja beratur di belakang; hanya sisi raja yang mendapat mata. Pasangan pertama ke tujuh menang, kemudian pasangan disusun semula.",
+  "th-TH": "ผู้ท้าชิงเป็นฝ่ายเสิร์ฟ ถ้าชนะแต้มให้เดินอ้อมเสาไปฝั่งราชา แล้วราชาไปต่อท้ายแถว ได้แต้มเฉพาะฝั่งราชาเท่านั้น คู่แรกที่ได้เจ็ดแต้มชนะ แล้วจับคู่ใหม่",
+  "vi-VN": "Người thách đấu phát bóng. Thắng pha bóng thì đi vòng qua cột sang phía vua và cặp vua xuống cuối hàng; chỉ phía vua được ghi điểm. Cặp nào đủ bảy điểm trước thắng, rồi xếp lại các cặp."
+ },
+ "the shaded zone is where this shot has to land": {
+  "ja-JP": "網掛けのエリアは、このショットを落とす場所",
+  "ko-KR": "음영 구역은 이 공격이 떨어져야 할 곳이다",
+  "es-ES": "la zona sombreada es donde tiene que caer este golpe",
+  "fr-FR": "la zone ombrée est l'endroit où cette frappe doit tomber",
+  "id-ID": "zona berarsir adalah tempat pukulan ini harus jatuh",
+  "ms-MY": "zon berlorek ialah tempat pukulan ini mesti jatuh",
+  "th-TH": "พื้นที่แรเงาคือจุดที่ลูกนี้ต้องตกลง",
+  "vi-VN": "vùng tô màu là nơi cú đánh này phải rơi xuống"
+ },
+ "one player on the end line in the middle of the court; the 3 m line and the net are the turning points": {
+  "ja-JP": "コート中央のエンドライン上に1人。3mラインとネットが折り返し地点",
+  "ko-KR": "코트 가운데 엔드라인 위에 한 명; 3m 라인과 네트가 반환점이다",
+  "es-ES": "un jugador en la línea de fondo, en el centro de la pista; la línea de 3 m y la red son los puntos de giro",
+  "fr-FR": "un joueur sur la ligne de fond, au milieu du terrain ; la ligne des 3 m et le filet sont les points de retour",
+  "id-ID": "satu pemain di garis akhir di tengah lapangan; garis 3 m dan net adalah titik balik",
+  "ms-MY": "seorang pemain di garisan hujung di tengah gelanggang; garisan 3 m dan jaring ialah titik pusingan",
+  "th-TH": "ผู้เล่นหนึ่งคนยืนบนเส้นหลังตรงกลางคอร์ท เส้น 3 เมตรและเน็ตคือจุดกลับตัว",
+  "vi-VN": "một người đứng trên vạch cuối giữa sân; vạch 3 m và lưới là các điểm quay lại"
+ },
+ "End line to the 3 m line and back, then to the net and back, is one run, about 15 seconds; rest 30 seconds. Eight runs, the next player starting as the last one finishes.": {
+  "ja-JP": "エンドラインから3mラインを往復し、続けてネットまで往復して1本、約15秒。休息30秒。8本、前の選手が終わったら次がスタート。",
+  "ko-KR": "엔드라인에서 3m 라인 왕복, 이어서 네트 왕복이 한 번, 약 15초; 30초 휴식. 8번, 앞 선수가 끝나면 다음 선수가 출발한다.",
+  "es-ES": "De la línea de fondo a la de 3 m y vuelta, luego a la red y vuelta, es una carrera de unos 15 segundos; 30 segundos de descanso. Ocho carreras, y el siguiente sale cuando termina el anterior.",
+  "fr-FR": "De la ligne de fond aux 3 m et retour, puis au filet et retour : une course d'environ 15 secondes ; 30 secondes de repos. Huit courses, le suivant part quand le précédent termine.",
+  "id-ID": "Garis akhir ke garis 3 m dan kembali, lalu ke net dan kembali, adalah satu lari, sekitar 15 detik; istirahat 30 detik. Delapan kali, pemain berikutnya mulai saat yang sebelumnya selesai.",
+  "ms-MY": "Garisan hujung ke garisan 3 m dan kembali, kemudian ke jaring dan kembali, ialah satu larian, kira-kira 15 saat; rehat 30 saat. Lapan larian, pemain seterusnya mula apabila yang sebelumnya selesai.",
+  "th-TH": "จากเส้นหลังไปเส้น 3 เมตรแล้วกลับ ต่อด้วยไปเน็ตแล้วกลับ นับเป็นหนึ่งเที่ยว ราว 15 วินาที พัก 30 วินาที ทำ 8 เที่ยว คนต่อไปออกตัวเมื่อคนก่อนจบ",
+  "vi-VN": "Từ vạch cuối lên vạch 3 m rồi về, tiếp lên lưới rồi về là một lượt, khoảng 15 giây; nghỉ 30 giây. Tám lượt, người sau xuất phát khi người trước xong."
+ },
+ "a hitter at the net on the left side of the court, nobody in front of him; a coach calls each block": {
+  "ja-JP": "コート左側のネット際にアタッカー、前には誰もいない。コーチが毎回ブロックの合図をする",
+  "ko-KR": "코트 왼쪽 네트 앞에 공격수, 앞에는 아무도 없다; 코치가 매번 블로킹 신호를 준다",
+  "es-ES": "un atacante en la red por el lado izquierdo, sin nadie delante; el entrenador marca cada bloqueo",
+  "fr-FR": "un attaquant au filet côté gauche, personne en face ; l'entraîneur annonce chaque contre",
+  "id-ID": "seorang penyerang di net sisi kiri lapangan, tanpa siapa pun di depannya; pelatih memberi aba-aba tiap blok",
+  "ms-MY": "seorang penyerang di jaring sebelah kiri gelanggang, tiada sesiapa di hadapannya; jurulatih memberi isyarat setiap sekatan",
+  "th-TH": "ตัวตบยืนที่เน็ตฝั่งซ้ายของคอร์ท ข้างหน้าไม่มีใคร โค้ชให้สัญญาณบล็อกทุกครั้ง",
+  "vi-VN": "một chủ công đứng ở lưới bên trái sân, phía trước không có ai; huấn luyện viên hô mỗi lần chắn"
+ },
+ "Block, open, approach and jump is one rep; six reps in a row, then 60 seconds' rest. Four sets, the last one timed.": {
+  "ja-JP": "ブロック、開く、助走してジャンプで1回。6回連続、その後60秒休息。4セット、最後のセットは計測する。",
+  "ko-KR": "블로킹, 빠지기, 도움닫기 점프가 1회; 연속 6회 후 60초 휴식. 4세트, 마지막 세트는 시간을 잰다.",
+  "es-ES": "Bloqueo, apertura, carrera y salto es una repetición; seis seguidas y 60 segundos de descanso. Cuatro series, la última cronometrada.",
+  "fr-FR": "Contre, ouverture, élan et saut font une répétition ; six d'affilée puis 60 secondes de repos. Quatre séries, la dernière chronométrée.",
+  "id-ID": "Blok, mundur, awalan dan lompat adalah satu repetisi; enam berturut-turut, lalu istirahat 60 detik. Empat set, set terakhir diukur waktunya.",
+  "ms-MY": "Sekat, undur, larian dan lompat ialah satu ulangan; enam berturut-turut, kemudian rehat 60 saat. Empat set, set terakhir diukur masa.",
+  "th-TH": "บล็อก ถอย วิ่งเข้าแล้วกระโดด นับเป็นหนึ่งครั้ง ทำต่อเนื่อง 6 ครั้งแล้วพัก 60 วินาที ทำ 4 เซต เซตสุดท้ายจับเวลา",
+  "vi-VN": "Chắn, lùi, chạy đà và bật là một lần; sáu lần liên tục rồi nghỉ 60 giây. Bốn hiệp, hiệp cuối bấm giờ."
+ }
+}

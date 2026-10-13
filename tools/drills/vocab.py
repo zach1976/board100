@@ -415,6 +415,104 @@ add("a down ball", "下手攻球", "下手攻球", "ダウンボール", "다운
 add("circulation", "球的转移", "球的轉移", "ボール回し", "볼 순환",
     "circulación", "circulation", "sirkulasi", "peredaran",
     "การหมุนบอล", "luân chuyển bóng")
+# The 2026-10 library expansion (passing, out-of-system, shots, middle
+# blocking, digging, counterattack, serving zones).
+add("three-person pepper", "三人垫传扣", "三人墊傳扣", "3人での対人", "3인 페퍼",
+    "pepper a tres", "pepper à trois", "pepper bertiga", "pepper bertiga",
+    "เป๊ปเปอร์สามคน", "chuyền ba người")
+add("partner passing", "两人对垫", "兩人對墊", "2人での対人パス", "2인 리시브 패스",
+    "pase de antebrazo por parejas", "manchettes à deux", "passing berpasangan",
+    "hantaran bawah berpasangan", "อันเดอร์เป็นคู่", "đệm bóng theo cặp")
+add("partner setting", "两人对传", "兩人對傳", "2人での対人トス", "2인 토스",
+    "toque de dedos por parejas", "passes hautes à deux", "umpan atas berpasangan",
+    "umpanan atas berpasangan", "เซตเป็นคู่", "chuyền cao tay theo cặp")
+add("hitting lines", "扣球排队练习", "扣球排隊練習", "スパイクの打ち込み", "스파이크 줄 연습",
+    "filas de remate", "attaque en file", "antrean smes", "barisan rejaman",
+    "ต่อแถวตบ", "xếp hàng đập bóng")
+add("to the target", "到目标点", "到目標點", "ターゲットへ", "목표 지점으로",
+    "al objetivo", "vers la cible", "ke target", "ke sasaran",
+    "ไปยังเป้าหมาย", "vào mục tiêu")
+add("on the move", "移动中", "移動中", "動きながら", "이동하며",
+    "en movimiento", "en déplacement", "sambil bergerak", "sambil bergerak",
+    "ขณะเคลื่อนที่", "khi di chuyển")
+add("with the hands", "上手接发", "上手接發", "オーバーハンドで", "오버핸드로",
+    "con dedos", "en passe haute", "dengan passing atas", "dengan hantaran atas",
+    "ด้วยมือบน", "bằng chuyền cao tay")
+add("with three passers", "三人接发", "三人接發", "3人レセプション", "3인 리시브",
+    "con tres receptores", "à trois réceptionneurs", "dengan tiga penerima",
+    "dengan tiga penerima", "สามคนรับ", "với ba người đỡ")
+add("with four passers", "四人接发", "四人接發", "4人レセプション", "4인 리시브",
+    "con cuatro receptores", "à quatre réceptionneurs", "dengan empat penerima",
+    "dengan empat penerima", "สี่คนรับ", "với bốn người đỡ")
+add("in a five-passer W", "五人W形接发", "五人W形接發", "5人のW型", "5인 W 대형",
+    "en W de cinco", "en W à cinq", "formasi W lima orang",
+    "formasi W lima orang", "ตัว W ห้าคน", "đội hình W năm người")
+add("from deep in the court", "后场深处", "後場深處", "コートの深い位置から",
+    "코트 깊은 곳에서", "desde el fondo", "depuis le fond du terrain",
+    "dari belakang lapangan", "dari belakang gelanggang", "จากท้ายคอร์ท",
+    "từ cuối sân")
+add("by the libero", "自由人传", "自由人傳", "リベロが上げる", "리베로가 올리는",
+    "por el líbero", "par le libéro", "oleh libero", "oleh libero",
+    "โดยลิเบโร", "do libero chuyền")
+add("with the forearms", "垫传", "墊傳", "アンダーで上げる", "언더로 올리는",
+    "de antebrazos", "en manchette", "dengan passing bawah",
+    "dengan hantaran bawah", "ด้วยการอันเดอร์", "bằng đệm bóng")
+add("off the block", "拦网后", "攔網後", "ブロックから", "블로킹 후",
+    "tras el bloqueo", "après le contre", "setelah blok", "selepas sekatan",
+    "หลังบล็อก", "sau khi chắn")
+add("to a pass off the net", "接离网的一传", "接離網的一傳", "ネットから離れたパスへ",
+    "네트에서 먼 리시브로", "a un pase lejos de la red",
+    "vers une réception loin du filet", "ke operan jauh dari net",
+    "ke hantaran jauh dari jaring", "ไปหาบอลที่ห่างเน็ต", "tới đường chuyền xa lưới")
+add("tipped over the block", "吊过拦网", "吊過攔網", "フェイントでブロックの上へ",
+    "블로킹 위로 페인트", "finta sobre el bloqueo", "feinte au-dessus du contre",
+    "tip melewati blok", "tip melepasi sekatan", "หยอดข้ามบล็อก",
+    "bỏ nhỏ qua hàng chắn")
+add("rolled to the seam", "推到结合部", "推到結合部", "継ぎ目へ", "이음새로",
+    "a la costura", "dans la couture", "ke celah", "ke celah",
+    "เข้ารอยต่อ", "vào khe")
+add("crossing behind the quick", "交叉", "交叉", "クイックの後ろを交差",
+    "속공 뒤로 교차", "cruzando por detrás del rápido",
+    "en croisant derrière la courte", "menyilang di belakang quick",
+    "menyilang di belakang bola pantas", "ตัดหลังบอลเร็ว",
+    "cắt chéo sau bóng nhanh")
+add("following the quick", "梯次", "梯次", "クイックの後に続く", "속공 뒤를 따라",
+    "siguiendo al rápido", "dans le sillage de la courte", "mengikuti quick",
+    "mengikut bola pantas", "ตามหลังบอลเร็ว", "theo sau bóng nhanh")
+add("reading the set", "看传球判断", "看傳球判斷", "トスを見て", "토스를 읽고",
+    "leyendo la colocación", "en lisant la passe", "membaca umpan",
+    "membaca umpanan", "อ่านการเซต", "đọc đường chuyền")
+add("committing to the quick", "盯快球起跳", "盯快球起跳", "クイックにコミット",
+    "속공에 커밋", "comprometido con el rápido", "engagé sur la courte",
+    "komit ke quick", "komit pada bola pantas", "ดักบอลเร็ว",
+    "chắn theo bóng nhanh")
+add("swinging to the pin", "摆臂移动到边", "擺臂移動到邊", "スイングでサイドへ",
+    "스윙으로 사이드까지", "con swing hasta la banda", "en swing jusqu'à l'aile",
+    "swing ke tepi", "ayun ke tepi", "สวิงไปริมเน็ต", "chạy vung tay ra biên")
+add("line and angle", "直线与斜线", "直線與斜線", "ストレートとクロス",
+    "스트레이트와 크로스", "paralela y diagonal", "ligne et diagonale",
+    "lurus dan silang", "lurus dan silang", "เส้นตรงและทแยง",
+    "đường thẳng và đường chéo")
+add("in pursuit", "追球", "追球", "ボールを追って", "볼을 쫓아",
+    "en persecución", "en poursuite", "mengejar bola", "mengejar bola",
+    "วิ่งตามบอล", "đuổi theo bóng")
+add("with topspin", "上旋", "上旋", "トップスピン", "톱스핀",
+    "con efecto", "lifté", "topspin", "topspin", "ท็อปสปิน", "xoáy lên")
+add("jump float", "跳飘", "跳飄", "ジャンプフローター", "점프 플로터",
+    "flotante en salto", "flottant sauté", "float lompat", "float lompat",
+    "กระโดดเสิร์ฟลูกลอย", "nhảy phát bóng nổi")
+add("to zone 1", "到1号位", "到1號位", "ゾーン1へ", "1번 자리로",
+    "a la zona 1", "en zone 1", "ke zona 1", "ke zon 1",
+    "ไปตำแหน่ง 1", "vào vị trí 1")
+add("to zone 5", "到5号位", "到5號位", "ゾーン5へ", "5번 자리로",
+    "a la zona 5", "en zone 5", "ke zona 5", "ke zon 5",
+    "ไปตำแหน่ง 5", "vào vị trí 5")
+add("from the dig", "防守起球后", "防守起球後", "ディグから", "디그에서",
+    "desde la defensa", "depuis la défense", "dari dig", "dari dig",
+    "จากการรับลูกตบ", "từ pha đỡ bóng")
+add("after the cover", "保护之后", "保護之後", "カバーの後", "커버 후",
+    "tras la cobertura", "après la couverture", "setelah cover",
+    "selepas perlindungan", "หลังคัฟเวอร์", "sau khi bọc lót")
 
 # ── pickleball ───────────────────────────────────────────────────────────────
 add("to the backhand", "打反手", "打反手", "バック側へ", "백핸드 쪽으로",

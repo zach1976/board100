@@ -372,7 +372,6 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:
         return const [CourtLayout.full, CourtLayout.blank]; // no symmetric half
       case SportType.waterPolo:
-      case SportType.fieldHockey:
         // Wide goal-end courts: also offer the half rotated to face left/right,
         // which fills a portrait screen better than the upright half.
         return const [
@@ -381,6 +380,18 @@ extension SportTypeExtension on SportType {
           CourtLayout.halfLeft,
           CourtLayout.halfRight,
           CourtLayout.blank,
+        ];
+      case SportType.fieldHockey:
+        // As water polo, plus the two other pitches hockey is played on:
+        // indoor (zaalhockey / Hallenhockey) and the Hockey5s court.
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.halfLeft,
+          CourtLayout.halfRight,
+          CourtLayout.blank,
+          CourtLayout.indoor,
+          CourtLayout.hockey5s,
         ];
       default:
         // Goal sports → one goal end; net sports → one side of the net.
@@ -625,6 +636,50 @@ extension SportTypeExtension on SportType {
       ch = cw / aspect;
     }
     return Rect.fromLTWH((w - cw) / 2, (h - ch) / 2, cw, ch);
+  }
+
+  /// The formations for the pitch on screen. Field hockey's indoor pitch
+  /// and Hockey5s court are other pitches with other numbers (5 + GK, 4 +
+  /// GK), drawn inside the same box as the full pitch but narrower
+  /// (FieldHockeyCourtPainter.indoorWidthShare / hockey5sWidthShare), so
+  /// their x's are pulled in to stay on it. Every other layout is a view of
+  /// the full pitch and offers [formations].
+  List<SportFormation> formationsOn(CourtLayout layout) {
+    if (this != SportType.fieldHockey) return formations;
+    switch (layout) {
+      case CourtLayout.indoor:
+        return const [
+        // GK + 2-1-2: two backs, a centre, two up front.
+        SportFormation(
+          nameKey: 'formation_indoor_212',
+          homePositions: [Offset(0.5, 0.94), Offset(0.3338, 0.78), Offset(0.6662, 0.78), Offset(0.5, 0.66), Offset(0.3338, 0.56), Offset(0.6662, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.6662, 0.22), Offset(0.3338, 0.22), Offset(0.5, 0.34), Offset(0.6662, 0.44), Offset(0.3338, 0.44)],
+        ),
+        // GK + 1-2-2: one back, two wide, two up front.
+        SportFormation(
+          nameKey: 'formation_indoor_122',
+          homePositions: [Offset(0.5, 0.94), Offset(0.5, 0.8), Offset(0.2923, 0.68), Offset(0.7077, 0.68), Offset(0.3754, 0.56), Offset(0.6246, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.5, 0.2), Offset(0.7077, 0.32), Offset(0.2923, 0.32), Offset(0.6246, 0.44), Offset(0.3754, 0.44)],
+        ),
+        ];
+      case CourtLayout.hockey5s:
+        return const [
+        // GK + 2-2: the box.
+        SportFormation(
+          nameKey: 'formation_5s_22',
+          homePositions: [Offset(0.5, 0.94), Offset(0.2828, 0.76), Offset(0.7172, 0.76), Offset(0.2828, 0.58), Offset(0.7172, 0.58)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.7172, 0.24), Offset(0.2828, 0.24), Offset(0.7172, 0.42), Offset(0.2828, 0.42)],
+        ),
+        // GK + 1-2-1: the diamond.
+        SportFormation(
+          nameKey: 'formation_5s_121',
+          homePositions: [Offset(0.5, 0.94), Offset(0.5, 0.8), Offset(0.2236, 0.68), Offset(0.7764, 0.68), Offset(0.5, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.5, 0.2), Offset(0.7764, 0.32), Offset(0.2236, 0.32), Offset(0.5, 0.44)],
+        ),
+        ];
+      default:
+        return formations;
+    }
   }
 
   List<SportFormation> get formations {
@@ -953,6 +1008,52 @@ extension SportTypeExtension on SportType {
               Offset(0.25, 0.29), Offset(0.75, 0.29),
               Offset(0.15, 0.41), Offset(0.5, 0.42), Offset(0.85, 0.41),
               Offset(0.5, 0.48), // FWD (away side of halfway)
+            ],
+          ),
+          // 9v9 (youth, U11-U12): keeper plus three lines
+          SportFormation(
+            nameKey: 'formation_9v9_332',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.2, 0.71), Offset(0.5, 0.70), Offset(0.8, 0.71), // DEF
+              Offset(0.18, 0.60), Offset(0.5, 0.59), Offset(0.82, 0.60), // MID
+              Offset(0.36, 0.52), Offset(0.64, 0.52), // FWD (home side of halfway)
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.8, 0.29), Offset(0.5, 0.30), Offset(0.2, 0.29),
+              Offset(0.82, 0.40), Offset(0.5, 0.41), Offset(0.18, 0.40),
+              Offset(0.64, 0.48), Offset(0.36, 0.48), // FWD (away side of halfway)
+            ],
+          ),
+          SportFormation(
+            nameKey: 'formation_9v9_323',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.2, 0.71), Offset(0.5, 0.70), Offset(0.8, 0.71), // DEF
+              Offset(0.36, 0.61), Offset(0.64, 0.61), // MID
+              Offset(0.15, 0.52), Offset(0.5, 0.51), Offset(0.85, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.8, 0.29), Offset(0.5, 0.30), Offset(0.2, 0.29),
+              Offset(0.64, 0.39), Offset(0.36, 0.39),
+              Offset(0.85, 0.48), Offset(0.5, 0.49), Offset(0.15, 0.48),
+            ],
+          ),
+          SportFormation(
+            nameKey: 'formation_9v9_233',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.3, 0.71), Offset(0.7, 0.71), // DEF
+              Offset(0.28, 0.60), Offset(0.5, 0.59), Offset(0.72, 0.60), // MID
+              Offset(0.15, 0.52), Offset(0.5, 0.51), Offset(0.85, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.7, 0.29), Offset(0.3, 0.29),
+              Offset(0.72, 0.40), Offset(0.5, 0.41), Offset(0.28, 0.40),
+              Offset(0.85, 0.48), Offset(0.5, 0.49), Offset(0.15, 0.48),
             ],
           ),
         ];

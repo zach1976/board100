@@ -323,6 +323,11 @@ class Drill:
     # the drill demands (see derive_level); set it only where the rule is
     # wrong — a banana flick needs two players and years of table time.
     level: str | None = None
+    # Another pitch the drill is played on, by CourtLayout name — field
+    # hockey's "indoor" pitch. Shipped as the board's "courtLayout" so the
+    # app draws its lines; coordinates stay fractions of the sport's court
+    # box (COURT), which that pitch is drawn inside. None: the usual pitch.
+    court: str | None = None
 
     @property
     def player_count(self) -> int:
@@ -2072,6 +2077,8 @@ def build(sport: str, library) -> dict:
         board = to_display_frame(board)
         if d.tight:
             board["figureScale"] = TIGHT_FIGURE_SCALE
+        if d.court is not None:
+            board["courtLayout"] = d.court
         if d.view is not None:
             # In the display frame's points, like the players. A board with
             # its own window opens on that, never on a half as well.

@@ -19,6 +19,7 @@ import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
+import '../models/volleyball_rotation.dart';
 import '../services/ad_service.dart';
 import '../services/working_board_service.dart';
 import '../services/auth_service.dart';
@@ -39,8 +40,9 @@ import '../widgets/player_icon_widget.dart'
 class _BoardSnapshot {
   final List<PlayerIcon> players;
   final List<DrawingStroke> strokes;
+  final RotationSetup? rotation;
 
-  _BoardSnapshot({required this.players, required this.strokes});
+  _BoardSnapshot({required this.players, required this.strokes, this.rotation});
 }
 
 /// Global key used to capture the board canvas as an image for sharing.
@@ -541,6 +543,8 @@ class TacticsState extends ChangeNotifier {
     _figureScale = 1.0;
     gTightFigureScale = 1.0;
     _clearViewFrame();
+    _boardPitch = null;
+    _boardOutdoor = false;
     _isAnimating = false;
     _animatedPositions = {};
     _targetStep = 0;
@@ -550,6 +554,7 @@ class TacticsState extends ChangeNotifier {
     _sportType = type;
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     _undoStack.clear();
     _redoStack.clear();
     _selectedPlayerId = null;
@@ -726,20 +731,48 @@ class TacticsState extends ChangeNotifier {
     _persistFieldPrefs();
   }
 
+  /// The pitch the board on screen was drawn on, when it is one of the
+  /// other pitches ([CourtLayoutPitch.isOwnPitch]: field hockey's indoor
+  /// pitch and Hockey5s court). Read from and written to the board's JSON
+  /// (`courtLayout`), so an indoor drill opens on the indoor lines and a
+  /// board drawn on them reopens on them, whatever the picker says.
+  CourtLayout? _boardPitch;
+
+  /// The board on screen was read back without a pitch — every board saved
+  /// before there were other pitches, and every outdoor drill. It is drawn
+  /// on the full pitch's lines, never on a pitch the picker last chose.
+  bool _boardOutdoor = false;
+
   /// Selected layout for [sport] (defaults to full, clamped to supported set).
   CourtLayout courtLayout(SportType sport) {
+    if (sport == _sportType) {
+      final pitch = _boardPitch;
+      if (pitch != null && sport.courtLayouts.contains(pitch)) return pitch;
+    }
     final i = _courtLayoutIndex[sport.index];
     if (i == null || i < 0 || i >= CourtLayout.values.length) return CourtLayout.full;
     final layout = CourtLayout.values[i];
-    return sport.courtLayouts.contains(layout) ? layout : CourtLayout.full;
+    if (!sport.courtLayouts.contains(layout)) return CourtLayout.full;
+    if (sport == _sportType && _boardOutdoor && layout.isOwnPitch) {
+      return CourtLayout.full;
+    }
+    return layout;
   }
 
   void setCourtLayout(SportType sport, CourtLayout layout) {
     if (courtLayout(sport) == layout) return;
     _courtLayoutIndex[sport.index] = layout.index;
+    if (sport == _sportType) {
+      _boardPitch = layout.isOwnPitch ? layout : null;
+      _boardOutdoor = false;
+    }
     notifyListeners();
     _persistFieldPrefs();
   }
+
+  /// The formations the picker offers on the pitch now on screen.
+  List<SportFormation> get formations =>
+      _sportType.formationsOn(courtLayout(_sportType));
 
   Future<void> _loadFieldPrefs() async {
     try {
@@ -966,6 +999,263 @@ class TacticsState extends ChangeNotifier {
   /// TIGHT_FIGURE_SCALE in tools/drills/engine.py). Kept with the board.
   double get figureScale => _figureScale;
   double _figureScale = 1.0;
+
+  // ── Volleyball rotations ─────────────────────────────────────────────────
+
+  /// The page's volleyball rotation (system, rotation, libero, check), or
+  /// null on a board that is not a rotation board. See [applyRotation].
+  RotationSetup? get rotation => _rotation;
+  RotationSetup? _rotation;
+
+  RotationSetup? _rotationFrom(Map<String, dynamic> page) =>
+      _sportType == SportType.volleyball
+          ? RotationSetup.fromJson(page['rotation'])
+          : null;
+
+  /// A point in [team]'s frame (metres; see volleyball_rotation.dart) on
+  /// this canvas, and back.
+  Offset _rotToCanvas(Offset m, PlayerTeam team, Rect c) {
+    final away = team == PlayerTeam.away;
+    final x = away ? 9 - m.dx : m.dx;
+    final y = away ? 9 - m.dy : 9 + m.dy;
+    return Offset(c.left + x / 9 * c.width, c.top + y / 18 * c.height);
+  }
+
+  Offset _rotFromCanvas(Offset p, PlayerTeam team, Rect c) {
+    final x = (p.dx - c.left) / c.width * 9;
+    final y = (p.dy - c.top) / c.height * 18;
+    return team == PlayerTeam.away ? Offset(9 - x, 9 - y) : Offset(x, y - 9);
+  }
+
+  List<PlayerIcon> _rotationSide(PlayerTeam team) =>
+      _players.where((p) => p.team == team && !p.isMarker).toList();
+
+  /// [team]'s players by rotation role (S, OH1 ... L).
+  Map<String, PlayerIcon> _byRotationRole(PlayerTeam team) => {
+        for (final p in _rotationSide(team))
+          if (p.role != null && VolleyballRotation.allRoles.contains(p.role))
+            p.role!: p,
+      };
+
+  /// The libero's shirt: a colour of its own, as the rules require.
+  static const Color kLiberoColor = Color(0xFFFFB300);
+
+  /// Put [s]'s side in [s]'s rotation: six players tagged with their roles
+  /// at legal starting spots for it (FIVB 7.4 / 7.5), the libero in for the
+  /// back-row middle, the middle he replaced waiting beside the court.
+  ///
+  /// The side's own players are used first — those already tagged keep
+  /// their role; six untagged ones are read into zones from where they
+  /// stand — and only the roles still missing get new players. Each moved
+  /// player's runs are cleared: they were drawn from the old spot.
+  void applyRotation(RotationSetup s) {
+    if (_sportType != SportType.volleyball || _canvasSize.isEmpty) return;
+    _saveSnapshot();
+    _resetAnimationState();
+    final c = _sportType.fieldRect(_canvasSize);
+    final byRole = _byRotationRole(s.team);
+    // A 5-1 board turned into a 6-2 keeps its people: the setter is the
+    // first setter, the opposite the second — and back again.
+    void rename(String from, String to) {
+      final p = byRole.remove(from);
+      if (p != null && !byRole.containsKey(to)) byRole[to] = p;
+    }
+    if (s.system == RotationSystem.sixTwo) {
+      rename('S', 'S1');
+      rename('OPP', 'S2');
+    } else {
+      rename('S1', 'S');
+      rename('S2', 'OPP');
+    }
+    final untagged = _rotationSide(s.team)
+        .where((p) => !byRole.values.contains(p))
+        .toList();
+    if (byRole.isEmpty && untagged.length == 6) {
+      final zones = VolleyballRotation.inferZones({
+        for (final p in untagged) p: _rotFromCanvas(p.position, s.team, c),
+      });
+      for (final e in zones.entries) {
+        byRole[_lineupRoleAt(s, e.key)] = e.value;
+      }
+      untagged.clear();
+    }
+    final wanted = [
+      ...s.lineup,
+      if (s.libero) VolleyballRotation.liberoRole,
+    ];
+    var colorIdx = _players.length;
+    var n = 0;
+    for (final role in wanted) {
+      if (byRole.containsKey(role)) continue;
+      if (untagged.isNotEmpty) {
+        byRole[role] = untagged.removeAt(0);
+        continue;
+      }
+      final p = PlayerIcon(
+        id: '${DateTime.now().microsecondsSinceEpoch}_r${n++}',
+        label: VolleyballRotation.displayLabel(role),
+        team: s.team,
+        position: c.center,
+        moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
+        customColor:
+            role == VolleyballRotation.liberoRole ? kLiberoColor : null,
+      );
+      _players.add(p);
+      byRole[role] = p;
+    }
+    // No libero: the one on the board leaves it.
+    if (!s.libero) {
+      final l = byRole.remove(VolleyballRotation.liberoRole);
+      if (l != null) _players.removeWhere((p) => p.id == l.id);
+    }
+
+    final base = VolleyballRotation.basePositions(s);
+    final spots = <String, Offset>{};
+    final zoneRoles = s.zoneRoles;
+    final k = kFigureScale;
+    for (final e in zoneRoles.entries) {
+      var at = _rotToCanvas(base[e.key]!, s.team, c);
+      if (s.phase == RotationPhase.serve && e.key == 1) {
+        // The server's FEET behind the end line: the figure is drawn
+        // centred on its point, its feet half a figure down the screen.
+        final half = _figureH / 2 * k;
+        at = s.team == PlayerTeam.away
+            ? Offset(at.dx, math.max(half, c.top - half - 4))
+            : Offset(at.dx,
+                math.min(_canvasSize.height - half, c.bottom + 4));
+      }
+      spots[e.value] = at;
+    }
+    // Off court: the middle the libero is in for — or the libero, when the
+    // middle is serving.
+    final bench = _rotToCanvas(VolleyballRotation.benchSpot, s.team, c);
+    final benchAt = Offset(
+        bench.dx
+            .clamp(_figureW / 2 * k, _canvasSize.width - _figureW / 2 * k)
+            .toDouble(),
+        bench.dy);
+    for (final role in byRole.keys) {
+      spots.putIfAbsent(role, () => benchAt);
+    }
+
+    for (var i = 0; i < _players.length; i++) {
+      final p = _players[i];
+      final role = byRole.entries
+          .where((e) => e.value.id == p.id)
+          .map((e) => e.key)
+          .firstOrNull;
+      if (role == null) continue;
+      _players[i] = p.copyWith(
+        role: role,
+        position: spots[role],
+        moves: <Offset>[],
+        movePhases: <int>[],
+        moveCarriers: <String?>[],
+        moveHolders: <String?>[],
+      );
+    }
+    _rotation = s;
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    notifyListeners();
+  }
+
+  /// The lineup role standing in [zone] at [s]'s rotation (no libero).
+  String _lineupRoleAt(RotationSetup s, int zone) {
+    for (var i = 0; i < 6; i++) {
+      if (VolleyballRotation.zoneFor(i, s.rotation) == zone) {
+        return s.lineup[i];
+      }
+    }
+    return s.lineup.first;
+  }
+
+  /// One rotation on (or back, [by] < 0), placing the side again.
+  void rotateBy(int by) {
+    final s = _rotation;
+    if (s == null) return;
+    applyRotation(s.rotated(by));
+  }
+
+  /// Turn the overlap check on or off. On a board with no rotation yet, a
+  /// side of exactly six drawn freehand is read into zones where it stands
+  /// (rotation 1 of a 5-1, no libero) and checked from then on; any other
+  /// board is given a rotation to check.
+  void setRotationCheck(bool on, {PlayerTeam team = PlayerTeam.home}) {
+    if (_sportType != SportType.volleyball) return;
+    final s = _rotation;
+    if (s != null) {
+      _rotation = s.copyWith(check: on);
+      notifyListeners();
+      return;
+    }
+    if (!on) return;
+    final side = _rotationSide(team);
+    if (side.length == 6 && !_canvasSize.isEmpty) {
+      _saveSnapshot();
+      final setup = RotationSetup(team: team, libero: false);
+      final c = _sportType.fieldRect(_canvasSize);
+      final zones = VolleyballRotation.inferZones({
+        for (final p in side) p.id: _rotFromCanvas(p.position, team, c),
+      });
+      for (final e in zones.entries) {
+        final i = _players.indexWhere((p) => p.id == e.value);
+        _players[i] =
+            _players[i].copyWith(role: _lineupRoleAt(setup, e.key));
+      }
+      _rotation = setup;
+      notifyListeners();
+      return;
+    }
+    applyRotation(RotationSetup(team: team));
+  }
+
+  /// Stop treating the page as a rotation board. The players stay.
+  void clearRotation() {
+    if (_rotation == null) return;
+    _saveSnapshot();
+    _rotation = null;
+    notifyListeners();
+  }
+
+  /// The overlap faults on the board at the moment of the serve — its
+  /// starting spots, so none while a beat is being shown or played — when
+  /// the page is a rotation board with the check on. Judged by the FEET
+  /// ([footward]: down the screen in the board's coordinates), as the rule
+  /// is; the server exempt when the side is serving.
+  List<RotationFault> rotationFaults({Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || !s.check || _sportType != SportType.volleyball) {
+      return const [];
+    }
+    if (_canvasSize.isEmpty || _isAnimating || _atStep > 0 || _targetStep > 0) {
+      return const [];
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final byRole = _byRotationRole(s.team);
+    final lineupRoles = <int, String>{
+      for (var z = 1; z <= 6; z++) z: _lineupRoleAt(s, z),
+    };
+    final who = <int, PlayerIcon>{};
+    s.zoneRoles.forEach((z, role) {
+      // No libero on the board: the middle plays on.
+      final p = byRole[role] ?? byRole[lineupRoles[z]!];
+      if (p != null) who[z] = p;
+    });
+    final feet = <int, Offset>{
+      for (final e in who.entries)
+        e.key: _rotFromCanvas(
+            e.value.position +
+                footward * (_figureH / 2 * kFigureScale * e.value.scale),
+            s.team,
+            c),
+    };
+    return [
+      for (final f in VolleyballRotation.faults(feet,
+          exemptZone: s.phase == RotationPhase.serve ? 1 : null))
+        RotationFault(who[f.a]!.id, who[f.b]!.id, f),
+    ];
+  }
 
   // Drawing mode
   void setDrawingMode(bool enabled) {
@@ -1651,6 +1941,7 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     _players.clear();
+    _rotation = null;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     // Map formation coords against the painted field rect so players stay
@@ -2281,6 +2572,7 @@ class TacticsState extends ChangeNotifier {
     _pageIndex = 0;
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _selectedStrokeId = null;
@@ -2300,6 +2592,7 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     // And it stops being "Board 1". The same rule loading a drill follows,
     // for the same reason: leaving the board autosaves whatever has a name,
     // so a board emptied and walked away from would be written over the
@@ -2312,6 +2605,8 @@ class TacticsState extends ChangeNotifier {
     _figureScale = 1.0;
     gTightFigureScale = 1.0;
     _clearViewFrame();
+    _boardPitch = null;
+    _boardOutdoor = false;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _isAnimating = false;
@@ -2496,11 +2791,13 @@ class TacticsState extends ChangeNotifier {
   _BoardSnapshot _currentSnapshot() => _BoardSnapshot(
         players: _players.map((p) => p.copyWith()).toList(),
         strokes: _strokes.map((s) => s.copyWith()).toList(),
+        rotation: _rotation,
       );
 
   void _restoreSnapshot(_BoardSnapshot snap) {
     _players = snap.players;
     _strokes = snap.strokes;
+    _rotation = snap.rotation;
   }
 
   // ── Save / Load tactics ──────────────────────────────────────────────────
@@ -2518,6 +2815,11 @@ class TacticsState extends ChangeNotifier {
         if (_sportType == SportType.waterPolo)
           'poolLength': kWaterPoloPoolLength,
         if (kCourtRedraws[_sportType] case final r?) r.$1: r.$2,
+        // A volleyball rotation board's system / rotation / check. Per page:
+        // a routine can be rotation 1 on one page and 2 on the next. An app
+        // without rotations ignores the key and keeps the players.
+        if (_rotation != null && _sportType == SportType.volleyball)
+          'rotation': _rotation!.toJson(),
       };
 
   /// Every page in order, with the live one written back into its slot.
@@ -2534,6 +2836,7 @@ class TacticsState extends ChangeNotifier {
     _strokes = (page['strokes'] as List)
         .map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>))
         .toList();
+    _rotation = _rotationFrom(page);
     _rescaleFromSaved(page);
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
@@ -2645,6 +2948,10 @@ class TacticsState extends ChangeNotifier {
       // board reads back the way it was left.
       if (_figureScale != 1.0) 'figureScale': _figureScale,
       if (_viewFrame != null) 'viewFrame': _viewFrame,
+      // Drawn on another pitch (indoor, Hockey5s): reopen on it. Apps that
+      // predate it ignore the key and draw the full pitch.
+      if (courtLayout(_sportType) case final l when l.isOwnPitch)
+        'courtLayout': l.name,
       // In this canvas's points, beside this canvas's size, like the players.
       if (_viewWindow != null && !_canvasSize.isEmpty)
         'viewWindow': () {
@@ -2682,6 +2989,8 @@ class TacticsState extends ChangeNotifier {
     final frame = json['viewFrame'];
     _viewFrame = frame == 'top' || frame == 'bottom' ? frame as String : null;
     _viewWindow = _windowFrom(json);
+    _boardPitch = CourtLayoutPitch.fromBoard(json['courtLayout']);
+    _boardOutdoor = _boardPitch == null;
     final raw = json['pages'];
     final pages = raw is List && raw.isNotEmpty
         ? raw.map((p) => Map<String, dynamic>.from(p as Map)).toList()
@@ -2701,6 +3010,7 @@ class TacticsState extends ChangeNotifier {
     }
     notePlacedSideways = null;
     _strokes = (live['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
+    _rotation = _rotationFrom(live);
     _rescaleFromSaved(live);
     _otherPages
       ..clear()
