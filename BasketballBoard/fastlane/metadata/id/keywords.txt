@@ -1,1 +1,1 @@
-basket,3v3,5v5,pick roll,horns,zona,man to man,serangan,papan,pelatih,lapangan,formasi
+bola,3x3,5v5,pick roll,horns,zona,serangan,pertahanan,pelatih,lapangan,set play,sesi,klub,drill

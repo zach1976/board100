@@ -1,0 +1,27 @@
+Nieuw in 2.0.0
+
+Een grote update: een ingebouwde oefenbibliotheek, trainingsplannen en een bord dat vanaf de grond opnieuw is getekend.
+
+EEN OEFENBIBLIOTHEEK — 44 OEFENINGEN
+Elke oefening is een geanimeerd bord met de opzet, de baan van de bal en het coachpunt. Open er een, druk op play, of zet hem op het bord en bewerk hem als je eigen oefening. Zoek erin of filter op categorie, niveau en groepsgrootte.
+
+TRAININGSPLANNEN EN JE SELECTIE
+Zet oefeningen en je eigen borden in een plan en leid het vanaf de zijlijn, onderdeel voor onderdeel, met een verslag van wat je echt hebt gedaan. Bewaar je spelers met hun foto en houd per training de aanwezigheid bij.
+
+HET BORD ALS KAART
+Het veld ligt op de donkere ondergrond van de sport, met afgeronde hoeken en een zachte schaduw, in plaats van over de rand van het scherm te lopen. Spelers, materiaal en bal werpen een schaduw, het speelvlak heeft een eigen textuur en netten hebben mazen.
+
+BEDIENING OPNIEUW GEBOUWD
+Een duidelijkere onderbalk met het gereedschap in de ene capsule en het afspelen in de andere; grotere hoekknoppen die vrij blijven van het Dynamic Island; zoom en volledig scherm zitten nu in de balk. Op de iPad liggend staat de bediening onder het bord, zodat het veld de volle breedte krijgt.
+
+DE BAL EN DE LOOPLIJNEN
+Een speler met de bal heeft hem voor zich, aan de kant waar hij naartoe kijkt — nooit achter zich, nooit onder de voeten. Lopen, dribbelen en passen zijn drie verschillende lijnen, onder de figuren getekend, van voet tot voet. En elke oefening in de bibliotheek is opnieuw verdeeld, zodat in geen enkele stap twee figuren elkaar overlappen.
+
+VERDER
+- Deel een bord als weblink; wie hem opent heeft geen app nodig
+- Exporteer een actie als video, naast een stilstaand beeld
+- Kopieer een speler met zijn looplijn naar de volgende pagina
+- Een opstartscherm voor liggend gebruik
+- De uitleg bij elke stap van een oefening staat op het bord en wisselt mee met de stap; verplaats, restyle of herschrijf hem zoals elke tekst
+- Liggend schuift de bediening naar de kant van het Dynamic Island, zodat niets op het veld erachter verdwijnt
+- De app heeft nu het amber van volleybal, zodat schermen en bord bij elkaar horen

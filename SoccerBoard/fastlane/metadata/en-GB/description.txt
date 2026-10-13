@@ -7,15 +7,16 @@ DRAW IT. PLAY IT. SHARE IT.
 - Drag players onto an accurate, full-colour pitch
 - Draw arrows, lines, and zones — colours and styles your way
 - Tap Play to animate movements step by step
-- Save unlimited tactics, share as crisp images or PDF
+- Write a note on each step — it changes as the play runs
+- Save unlimited tactics; export as PNG, PDF or video
 
 137 DRILLS, ALREADY WRITTEN
 
 Every drill is a board you can step through: what it trains, how to set it up, and the one thing to say while it runs. Warm-ups, rondos, finishing, crossing, set pieces, conditioning.
 
-- String drills into a practice plan and run the session from the touchline
+- String drills and your own boards into a practice plan, run it from the touchline, and keep a history of every session
 - Keep your squad with photos, and mark who turned up
-- Share a board as a link — your players open it in a browser
+- Share a board as a link — players open it in a browser, no app needed
 
 FORMATIONS, READY TO GO
 
@@ -25,13 +26,15 @@ Apply with one tap. Customise from there.
 BUILT FOR THE TOUCHLINE
 
 - Works offline — no Wi-Fi at the pitch? No problem.
+- iPad and Apple Pencil — the Pencil draws, a finger moves players; portrait or landscape
+- Optional sign-in with Apple or Google syncs your boards, plans and session history across devices
 - Dark theme — easy on the eyes during evening training
 - Undo/redo up to 50 steps — experiment fearlessly
 - AirPlay to TV — turn the changing room into a war room
-- Free, no account required
+- Free to download, no account needed. Pro removes ads and unlocks the full drill library.
 
-11 LANGUAGES
-English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+12 LANGUAGES
+English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
 
 From Sunday league to the national side — if you can coach it, you can draw it.
 

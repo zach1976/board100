@@ -101,6 +101,10 @@ LOCALE_MAP = {
     "en-US": "en-US", "en-GB": "en-GB", "es-ES": "es-ES", "fr-FR": "fr-FR",
     "id": "id", "ja": "ja", "ko": "ko", "ms": "ms", "th": "th", "vi": "vi",
     "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant",
+    # Store-only listings (2026-10-13): the app's UI has no German or Dutch,
+    # but these are field hockey's and soccer's biggest markets. A folder
+    # that exists is created on ASC by step_text; apps without one skip it.
+    "de-DE": "de-DE", "nl-NL": "nl-NL",
 }
 
 _tok = {"t": None, "exp": 0}
@@ -229,11 +233,18 @@ def step_text():
     info_locked = info_state in ("WAITING_FOR_REVIEW", "IN_REVIEW")
     print(f"appInfo {info['id']} ({info_state})"
           + ("  ← 已锁，名称沿用现值" if info_locked else ""))
-    ilocs = {d["attributes"]["locale"]: d["id"] for d in
-             get(f"/appInfos/{info['id']}/appInfoLocalizations")["data"]}
-    vlocs = {d["attributes"]["locale"]: d["id"] for d in
-             get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
-                 limit=40)["data"]}
+    iraw = get(f"/appInfos/{info['id']}/appInfoLocalizations")["data"]
+    ilocs = {d["attributes"]["locale"]: d["id"] for d in iraw}
+    vraw = get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
+               limit=40)["data"]
+    vlocs = {d["attributes"]["locale"]: d["id"] for d in vraw}
+    # A locale that is new to the listing (de-DE, nl-NL) starts with nothing,
+    # but review wants a privacy URL on the app side and a support URL on the
+    # version side for every language. Borrow them from en-US.
+    en_info = next((d["attributes"] for d in iraw
+                    if d["attributes"]["locale"] == "en-US"), {})
+    en_ver = next((d["attributes"] for d in vraw
+                   if d["attributes"]["locale"] == "en-US"), {})
     # Has this platform ever been on sale?
     hist = get(f"/apps/{aid}/appStoreVersions",
                **{"filter[platform]": PLATFORM, "limit": 20})["data"]
@@ -261,6 +272,25 @@ def step_text():
             patch(f"/appInfoLocalizations/{ilocs[locale]}",
                   {"data": {"type": "appInfoLocalizations",
                             "id": ilocs[locale], "attributes": attrs}})
+        elif locale not in ilocs and name:
+            # A new store language: the app-level record (name, subtitle,
+            # privacy URL) has to exist before the version's text means
+            # anything. It cannot be added while the appInfo is locked.
+            if info_locked:
+                print(f"  ! {locale}: appInfo 已锁，无法新建名称，跳过此语言")
+                continue
+            attrs = {"locale": locale, "name": name}
+            if sub:
+                attrs["subtitle"] = sub
+            for k in ("privacyPolicyUrl", "privacyChoicesUrl"):
+                if en_info.get(k):
+                    attrs[k] = en_info[k]
+            made = post("/appInfoLocalizations", {
+                "data": {"type": "appInfoLocalizations", "attributes": attrs,
+                         "relationships": {"appInfo": {
+                             "data": {"type": "appInfos", "id": info["id"]}}}}})
+            ilocs[locale] = made["data"]["id"]
+            print(f"  + {locale} appInfo: {name}")
         fields = [("description", read(folder, "description")),
                   ("keywords", read(folder, "keywords")),
                   ("promotionalText", read(folder, "promotional_text"))]
@@ -272,6 +302,9 @@ def step_text():
         body = {k: v for k, v in fields if v}
         if locale not in vlocs:
             body["locale"] = locale
+            for k in ("supportUrl", "marketingUrl"):
+                if en_ver.get(k):
+                    body[k] = en_ver[k]
             made = post("/appStoreVersionLocalizations", {
                 "data": {"type": "appStoreVersionLocalizations",
                          "attributes": body,

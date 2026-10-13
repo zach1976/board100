@@ -1,0 +1,1 @@
+Taktikboard,Trainer,Coach,Spielzüge,Formation,Standards,Ecke,Freistoß,Futsal,Jugend,Trainingsplan

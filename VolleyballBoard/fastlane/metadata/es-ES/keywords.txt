@@ -1,1 +1,1 @@
-voleibol,6v6,líbero,colocador,atacante,recepción,bloqueo,rotación,vóley playa,superliga,cev
+vóley,líbero,colocador,atacante,recepción,bloqueo,playa,entrenador,5-1,6-2,saque,alineación,6v6

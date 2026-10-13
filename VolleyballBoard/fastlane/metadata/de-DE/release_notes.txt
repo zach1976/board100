@@ -1,0 +1,27 @@
+Neu in 2.0.0
+
+Ein großes Update: eine eingebaute Übungsbibliothek, Trainingspläne und eine von Grund auf neu gezeichnete Tafel.
+
+EINE ÜBUNGSBIBLIOTHEK — 44 ÜBUNGEN
+Jede Übung ist eine animierte Tafel mit Aufbau, Ballweg und Coaching-Hinweis. Öffne eine, drück auf Play oder leg sie auf die Tafel und bearbeite sie wie deine eigene. Durchsuche sie oder filtere nach Kategorie, Niveau und Gruppengröße.
+
+TRAININGSPLÄNE UND DEIN KADER
+Verbinde Übungen und eigene Tafeln zu einem Plan und leite ihn vom Spielfeldrand aus, Punkt für Punkt, mit einem Protokoll dessen, was wirklich gelaufen ist. Leg deine Spielerinnen und Spieler mit Fotos an und hake die Anwesenheit pro Einheit ab.
+
+DIE TAFEL ALS KARTE
+Das Feld liegt auf dem dunklen Untergrund der Sportart, mit abgerundeten Ecken und weichem Schatten, statt über den Bildschirmrand hinauszulaufen. Spieler, Material und Ball werfen Kontaktschatten, die Spielfläche hat eine eigene Struktur, und Netze haben Maschen.
+
+NEUE BEDIENUNG
+Eine klarere untere Leiste mit den Werkzeugen in einer Kapsel und der Wiedergabe in einer anderen; größere Eckknöpfe, die der Dynamic Island ausweichen; Zoom und Vollbild sind in die Leiste gewandert. Auf dem iPad im Querformat liegt die Bedienung unter der Tafel, damit das Feld die ganze Breite bekommt.
+
+BALL UND LAUFWEGE
+Ein Spieler mit Ball hat ihn vor sich, auf der Seite, in die er schaut — nie hinter sich, nie unter den Füßen. Laufen, Dribbeln und Passen sind drei verschiedene Linien, unter den Figuren gezeichnet, von Fuß zu Fuß. Und jede Übung der Bibliothek wurde neu verteilt, damit sich bei keinem Schritt zwei Figuren überlappen.
+
+AUSSERDEM
+- Eine Tafel als Weblink teilen; wer ihn öffnet, braucht keine App
+- Einen Spielzug als Video exportieren, nicht nur als Standbild
+- Einen Spieler samt Laufweg auf die nächste Seite kopieren
+- Ein Startbildschirm für das Querformat
+- Die Erklärung jedes Übungsschritts steht auf der Tafel und wechselt mit dem Schritt; verschieben, umgestalten oder umschreiben wie jeden Text
+- Im Querformat rückt die Bedienung auf die Seite der Dynamic Island, damit nichts auf dem Feld dahinter verschwindet
+- Die Oberfläche der App trägt jetzt das Bernstein des Volleyballs, damit Bildschirme und Tafel zusammengehören

@@ -7,7 +7,16 @@ DIBUJA. JUEGA. COMPARTE.
 - Arrastra jugadores a un terreno en color a escala
 - Flechas, líneas, zonas — colores y estilos a tu gusto
 - Toca Play y los jugadores se mueven paso a paso
-- Guarda jugadas sin límite, exporta en imagen HD o PDF
+- Escribe una nota en cada paso: cambia mientras corre la jugada
+- Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
+
+92 EJERCICIOS, YA ESCRITOS
+
+Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Recepción en las seis rotaciones, colocación, ataque por todas las zonas, bloqueo, defensa, saque, juegos reducidos, físico.
+
+- Encadena ejercicios y tus propias pizarras en un plan, llévalo desde la banda y guarda el historial de cada sesión
+- Guarda tu plantilla con fotos y marca quién vino
+- Comparte una pizarra como enlace: tus jugadores la abren en el navegador, sin instalar nada
 
 FORMACIONES, LISTAS
 
@@ -17,13 +26,15 @@ Un toque para cargar, posiciones ajustables.
 HECHO PARA EL BANQUILLO
 
 - Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.
+- iPad y Apple Pencil: el Pencil dibuja y el dedo mueve jugadores; en vertical u horizontal
+- Inicio de sesión opcional con Apple o Google: sincroniza pizarras, planes e historial entre dispositivos
 - Tema oscuro — descansa la vista en entrenamiento nocturno
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
 - AirPlay a TV — el vestuario se vuelve sala de guerra
-- Gratis, sin cuenta
+- Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios.
 
-11 IDIOMAS
-Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+12 IDIOMAS
+Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
 

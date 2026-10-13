@@ -1,1 +1,1 @@
-bóng rổ,3v3,5v5,pick roll,horns,phòng ngự khu vực,kèm người,tấn công,sơ đồ,huấn luyện,sân,đội hình
+3x3,5v5,pick roll,horns,phòng ngự khu vực,kèm người,tấn công,huấn luyện,HLV,sân,đội hình,sơ đồ

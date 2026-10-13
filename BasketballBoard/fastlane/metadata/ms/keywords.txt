@@ -1,1 +1,1 @@
-bola keranjang,3v3,5v5,pick roll,horns,zon,man to man,serangan,papan,jurulatih,gelanggang
+3x3,5v5,pick roll,horns,zon,serangan,pertahanan,jurulatih,gelanggang,set play,sesi,kelab,drill

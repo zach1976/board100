@@ -1,0 +1,13 @@
+Neu in 2.0.1
+
+DIE TAFEL BLEIBT AUF DEM PLATZ
+Auf dem iPad, auf dem Mac und auf einem quer gehaltenen Telefon wurden Spieler und Ball am Fenster statt am Feld ausgerichtet, sodass der ganze Spielzug neben den Linien lag. Jetzt steht alles dort, wo die Linien es vorgeben — in jeder Größe.
+
+ZWEI BÄLLE, AUF JEDER SEITE EINER
+Ein Spieler, der sich mit zwei Bällen aufwärmt, hat jetzt einen auf jeder Seite statt einen vor und einen hinter sich.
+
+PLATZ FÜR DIE TASTEN
+Im Querformat lagen Menü, Seitenanzeige und Zoom-Tasten auf der Spielfläche. Die Tafel beginnt jetzt innerhalb davon, und auf dem iPad teilen sich Wiedergabe- und Werkzeugleiste eine Zeile, damit das Feld die Höhe zurückbekommt.
+
+DIE BILDER DREHEN SICH MIT
+Die Tafel auf dem Startbildschirm und die in einer Übung sind genauso ausgerichtet wie die Tafel, die du öffnest.

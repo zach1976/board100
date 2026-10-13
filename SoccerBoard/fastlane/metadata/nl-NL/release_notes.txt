@@ -1,0 +1,13 @@
+Nieuw in 2.2.1
+
+SCHOTEN GAAN ERIN
+Bij elke afrondingsoefening belandde de bal ver achter het doel: het doelwit was op het tekenvlak gezet in plaats van op het veld. Het schot eindigt nu in het net, precies waar de oefening dat zegt.
+
+HET BORD BLIJFT OP HET VELD
+Op de iPad, op de Mac en op een telefoon die je kantelt, werden spelers en bal tegen het venster geplaatst in plaats van tegen het veld, waardoor de hele actie meters naast de lijnen stond. Alles staat nu waar de lijnen het aangeven, op elk formaat.
+
+RUIMTE VOOR DE KNOPPEN
+Liggend stonden het menu, de paginateller en de zoomknoppen op het speelveld. Het bord begint nu binnen die knoppen, en op de iPad delen de afspeel- en gereedschapsbalk één rij, zodat het veld zijn hoogte terugkrijgt.
+
+DE PLAATJES DRAAIEN MEE
+Het bord op het beginscherm en dat bij een oefening staan op dezelfde manier gedraaid als het bord dat je opent.

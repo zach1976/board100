@@ -22,7 +22,7 @@ LOCALE_NAMES = {
     'en-US': 'English (US)', 'en-GB': 'English (UK)', 'zh-Hans': '简体中文',
     'zh-Hant': '繁體中文', 'ja': '日本語', 'ko': '한국어', 'es-ES': 'Español',
     'fr-FR': 'Français', 'id': 'Bahasa Indonesia', 'ms': 'Bahasa Melayu',
-    'th': 'ไทย', 'vi': 'Tiếng Việt',
+    'th': 'ไทย', 'vi': 'Tiếng Việt', 'de-DE': 'Deutsch', 'nl-NL': 'Nederlands',
 }
 PLAY_NAMES = dict(LOCALE_NAMES, **{'zh-CN': '简体中文', 'zh-TW': '繁體中文',
                                    'ja-JP': '日本語', 'ko-KR': '한국어'})

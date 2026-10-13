@@ -1,0 +1,13 @@
+Nieuw in 2.0.1
+
+HET BORD BLIJFT OP HET VELD
+Op de iPad, op de Mac en op een telefoon die je kantelt, werden spelers en bal tegen het venster geplaatst in plaats van tegen het veld, waardoor de hele actie naast de lijnen stond. Alles staat nu waar de lijnen het aangeven, op elk formaat.
+
+TWEE BALLEN, AAN ELKE KANT ÉÉN
+Een speler die met twee ballen opwarmt, heeft er nu aan elke kant één, in plaats van één voor en één achter zich.
+
+RUIMTE VOOR DE KNOPPEN
+Liggend stonden het menu, de paginateller en de zoomknoppen op het speelveld. Het bord begint nu binnen die knoppen, en op de iPad delen de afspeel- en gereedschapsbalk één rij, zodat het veld zijn hoogte terugkrijgt.
+
+DE PLAATJES DRAAIEN MEE
+Het bord op het beginscherm en dat bij een oefening staan op dezelfde manier gedraaid als het bord dat je opent.

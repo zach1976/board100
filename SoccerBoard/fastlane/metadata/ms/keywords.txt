@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,formasi,jurulatih,sepak penjuru,sepakan bebas,set piece,rancangan latihan
+futsal,4-4-2,4-3-3,3-5-2,jurulatih,penjuru,sepakan bebas,set piece,rancangan,sesi,drill,strategi

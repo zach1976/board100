@@ -7,7 +7,16 @@ VẼ. PHÁT. CHIA SẺ.
 - Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu
 - Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý
 - Chạm Play, cầu thủ tự di chuyển từng bước
-- Lưu không giới hạn, xuất ảnh HD hoặc PDF
+- Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
+- Lưu không giới hạn, xuất PNG, PDF hoặc video
+
+92 BÀI TẬP, ĐÃ VIẾT SẴN
+
+Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Đỡ bước một ở cả sáu vòng xoay, chuyền hai, tấn công mọi vị trí, chắn bóng, phòng thủ, phát bóng, đấu nhóm nhỏ, thể lực.
+
+- Nối bài tập và bảng của riêng bạn thành giáo án, chạy cả buổi ngay bên sân và lưu lịch sử từng buổi
+- Lưu đội hình kèm ảnh và đánh dấu ai có mặt
+- Chia sẻ bảng bằng đường link — cầu thủ mở bằng trình duyệt, không cần cài app
 
 ĐỘI HÌNH, SẴN SÀNG
 
@@ -17,13 +26,15 @@ Một chạm để tải, chỉnh vị trí.
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
 - Hoạt động offline — sân không Wi-Fi? Không sao.
+- iPad và Apple Pencil — bút để vẽ, ngón tay để kéo cầu thủ; dọc hay ngang đều được
+- Đăng nhập bằng Apple hoặc Google (tùy chọn) để đồng bộ bảng, giáo án và lịch sử buổi tập giữa các thiết bị
 - Giao diện tối — dịu mắt khi tập tối
 - Hoàn tác/làm lại 50 bước — thử thoải mái
 - AirPlay lên TV — phòng thay đồ thành phòng tác chiến
-- Miễn phí, không cần tài khoản
+- Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập.
 
-11 NGÔN NGỮ
-Tiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
+12 NGÔN NGỮ
+Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
 
 Từ giải làng đến đội tuyển — dạy được là vẽ được.
 

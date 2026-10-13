@@ -1,1 +1,1 @@
-basket,3v3,5v5,pick and roll,horns,zone,homme à homme,attaque,défense,lnb,euroleague,nba,wnba
+basket,3x3,pick and roll,horns,zone,individuelle,attaque,défense,entraîneur,playbook,remise en jeu

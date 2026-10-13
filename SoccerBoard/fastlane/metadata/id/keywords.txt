@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,formasi,pelatih,sepak pojok,tendangan bebas,set piece,tim,rencana latihan
+futsal,4-4-2,4-3-3,pelatih,pojok,tendangan bebas,set piece,rencana,sesi,drill,strategi,akademi,klub

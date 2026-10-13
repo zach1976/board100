@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,đội hình,huấn luyện,sơ đồ,phạt góc,đá phạt,sút phạt,đội bóng,kế hoạch tập
+futsal,4-4-2,4-3-3,3-5-2,huấn luyện,HLV,sơ đồ,phạt góc,sút phạt,kế hoạch,sân 7,trận đấu

@@ -1,1 +1,1 @@
-3v3,5v5,bloqueo continuación,horns,zona,hombre a hombre,ataque,defensa,acb,euroliga,nba,nbl
+3x3,bloqueo,continuación,horns,zona,individual,ataque,defensa,entrenador,básquet,saque,playbook

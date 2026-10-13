@@ -7,7 +7,16 @@ LUKIS · MAIN · KONGSI
 - Seret pemain ke padang berwarna mengikut skala
 - Anak panah, garisan, zon — warna dan gaya bebas
 - Ketik Play, pemain bergerak langkah demi langkah
-- Simpan taktik tanpa had, eksport ke gambar HD atau PDF
+- Tulis nota pada setiap langkah — nota bertukar semasa gerakan dimainkan
+- Simpan taktik tanpa had; eksport ke PNG, PDF atau video
+
+59 LATIHAN, SUDAH DITULIS
+
+Setiap latihan ialah papan yang dijalankan rentak demi rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan. Binaan dari belakang, kemasukan bulatan, pukulan dan pesongan, asakan, sudut penalti menyerang dan bertahan, penjaga gol, permainan kecil, kecergasan.
+
+- Rangkaikan latihan dan papan anda sendiri menjadi pelan, jalankan sesi dari tepi padang, dan simpan sejarah setiap sesi
+- Simpan skuad bersama fotonya dan tandakan siapa yang hadir
+- Kongsi papan sebagai pautan — pemain membukanya dalam pelayar, tanpa aplikasi
 
 FORMASI SEDIA GUNA
 
@@ -17,13 +26,15 @@ Satu sentuh muat, sesuaikan pasukan.
 DIBINA UNTUK TEPI PADANG
 
 - Berfungsi luar talian — padang tiada Wi-Fi? Tiada masalah.
+- iPad dan Apple Pencil — Pencil melukis, jari menggerakkan pemain; menegak atau melintang
+- Log masuk pilihan dengan Apple atau Google menyegerakkan papan, pelan dan sejarah sesi antara peranti
 - Tema gelap — selesa untuk latihan malam
 - Buat asal/buat semula 50 langkah — cuba dengan yakin
 - AirPlay ke TV — bilik persalinan jadi bilik strategi
-- Percuma, tiada akaun
+- Percuma dimuat turun, tanpa akaun. Pro membuang iklan dan membuka seluruh pustaka latihan.
 
-11 BAHASA
-Bahasa Melayu · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia
+12 BAHASA
+Bahasa Melayu · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia
 
 Dari liga kampung ke pasukan kebangsaan — jika boleh dilatih, boleh dilukis.
 

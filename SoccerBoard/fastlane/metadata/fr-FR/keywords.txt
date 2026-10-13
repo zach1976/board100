@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,4-2-3-1,corner,coup franc,coup arrêté,entraîneur,ligue 1,coupe du monde
+futsal,4-4-2,4-3-3,corner,coup franc,arrêté,entraîneur,entraînement,tableau,foot à 7,formation
