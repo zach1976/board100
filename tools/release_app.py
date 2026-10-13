@@ -675,12 +675,19 @@ def step_submit():
     items = get(f"/reviewSubmissions/{sub['id']}/items")["data"]
     if not any((i.get("relationships", {}).get("appStoreVersion", {}).get("data") or {}).get("id") == vid
                for i in items):
-        post("/reviewSubmissionItems", {
-            "data": {"type": "reviewSubmissionItems",
-                     "relationships": {
-                         "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
-                         "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
-        print("  + item")
+        try:
+            post("/reviewSubmissionItems", {
+                "data": {"type": "reviewSubmissionItems",
+                         "relationships": {
+                             "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                             "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
+            print("  + item")
+        except SystemExit as e:
+            # Items list with empty relationships, so the version an earlier
+            # run put on is only known by Apple refusing the duplicate.
+            if "already" not in str(e).lower():
+                raise
+            print("  = item already on the submission")
     # A first auto-renewable subscription only reaches the store when it is
     # reviewed WITH a version. Left READY_TO_SUBMIT it never does — the
     # yearly plans sat that way for months and the store showed only
@@ -717,6 +724,13 @@ def step_submit():
                 ok = True
                 break
             except SystemExit as e:
+                # Items come back with empty relationships, so a subscription
+                # put on the submission by an earlier run is only known by
+                # Apple refusing the duplicate.
+                if "already" in str(e).lower():
+                    print(f"  = subscription {pid} already on the submission")
+                    ok = True
+                    break
                 print(f"  ! {rel}: {str(e)[:200]}")
         if not ok:
             try:
@@ -729,6 +743,39 @@ def step_submit():
                 print(f"  ! subscriptionSubmissions: {str(e)[:200]}")
         if not ok:
             raise SystemExit(f"✗ 年订阅 {pid} 挂不上审核单，版本未送出（审核单保留为草稿）")
+    # "An auto-renewable subscription must be submitted with its subscription
+    # group": the group's display name is reviewed as a subscriptionGroupVersion
+    # on the same submission. A version Apple once REJECTED cannot be put on
+    # again, so a fresh one is created and carries the current name.
+    groups = {sb["relationships"]["group"]["data"]["id"] if sb.get("relationships", {}).get("group", {}).get("data") else None
+              for sb, _ in pending}
+    if pending and None in groups:
+        groups = {g["id"] for g in get(f"/apps/{aid}/subscriptionGroups")["data"]}
+    for gid in groups:
+        gvs = get(f"/subscriptionGroups/{gid}/versions")["data"]
+        gv = gvs[-1]["id"] if gvs else None
+        for attempt in ("current", "fresh"):
+            if attempt == "fresh":
+                gv = post("/subscriptionGroupVersions", {
+                    "data": {"type": "subscriptionGroupVersions", "relationships": {
+                        "subscriptionGroup": {"data": {"type": "subscriptionGroups", "id": gid}}}}})["data"]["id"]
+                print(f"  + new subscription group version {gv}")
+            if not gv:
+                continue
+            try:
+                post("/reviewSubmissionItems", {
+                    "data": {"type": "reviewSubmissionItems", "relationships": {
+                        "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                        "subscriptionGroupVersion": {"data": {"type": "subscriptionGroupVersions", "id": gv}}}}})
+                print(f"  + subscription group {gid} (version {gv})")
+                break
+            except SystemExit as e:
+                if "already" in str(e).lower():
+                    print(f"  = subscription group {gid} already on the submission")
+                    break
+                print(f"  ! group version ({attempt}): {str(e)[:160]}")
+                if attempt == "fresh":
+                    raise SystemExit("✗ 订阅组挂不上审核单，版本未送出（审核单保留为草稿）")
     patch(f"/reviewSubmissions/{sub['id']}",
           {"data": {"type": "reviewSubmissions", "id": sub["id"],
                     "attributes": {"submitted": True}}})
