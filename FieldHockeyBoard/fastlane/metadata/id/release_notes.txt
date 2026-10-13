@@ -1,13 +1,19 @@
-Yang Baru di 2.0.1
+Yang Baru di 2.2.0
 
-PAPAN TETAP DI DALAM LAPANGAN
-Di iPad, di Mac, dan di ponsel yang dimiringkan, pemain dan bola diletakkan terhadap jendela, bukan lapangan, sehingga seluruh pergerakan meleset dari garis. Kini semuanya berada di tempat yang ditunjukkan garis, pada ukuran layar apa pun.
+INDOOR DAN HOCKEY5S
+Dua lapangan baru di samping lapangan luar: lapangan indoor FIH dengan papan samping dan lingkaran 9 m, serta lapangan Hockey5s. Setiap papan mengingat lapangannya, dan daftar formasi mengikutinya: 2-1-2 dan 1-2-2 untuk indoor, 2-2 dan 1-2-1 untuk Hockey5s.
 
-DUA BOLA, SATU DI TIAP SISI
-Pemanasan dua bola kini menaruh satu bola di tiap sisi pemain, bukan satu di depan dan satu di belakang.
+65 LATIHAN
+Pustaka latihan bertambah dari 36 menjadi 65: serangan dan pertahanan penalty corner, pemicu pressing, counter-press, membangun serangan saat ditekan, umpan lambung, keunggulan jumlah, penjaga gawang, dan enam latihan indoor, masing-masing dengan catatan pelatih dalam bahasamu.
 
-RUANG UNTUK TOMBOL
-Saat dimiringkan, tombol menu, nomor halaman, dan zoom berada di atas lapangan. Papan kini dimulai di dalamnya, dan di iPad bar pemutaran dan bar alat berbagi satu baris.
+CATATAN DI PAPAN
+Tulis teks langsung di papan. Catatan tiap langkah latihan ada di papan dan berganti di setiap langkah. Pilih warna atau ketebalan saat garis dipilih untuk mengubah gayanya.
 
-GAMBAR KECIL IKUT BERPUTAR
-Papan di layar utama dan di sebuah drill digambar searah dengan papan yang Anda buka.
+BIRU HOKI
+Latar aplikasi kini memakai biru lapangan hoki, bukan toska gelap yang dipakai semua cabang olahraga.
+
+DIBUAT UNTUK iPAD
+Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
+
+PERBAIKAN KECIL
+Saat miring, bilah samping menjauh dari Dynamic Island. Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.

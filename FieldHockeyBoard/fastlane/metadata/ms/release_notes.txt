@@ -1,13 +1,19 @@
-Apa Yang Baharu dalam 2.0.1
+Apa Yang Baharu dalam 2.2.0
 
-PAPAN KEKAL DI DALAM PADANG
-Pada iPad, Mac dan telefon yang dipusing, pemain dan bola diletakkan terhadap tetingkap, bukan padang, jadi seluruh pergerakan tersasar dari garisan. Kini semuanya berada di tempat yang ditunjuk garisan, pada apa jua saiz skrin.
+DALAM DEWAN DAN HOCKEY5S
+Dua padang baharu di sebelah padang luar: padang dalam dewan FIH dengan papan sisi dan bulatan 9 m, serta gelanggang Hockey5s. Setiap papan mengingati padangnya, dan senarai formasi mengikutinya: 2-1-2 dan 1-2-2 dalam dewan, 2-2 dan 1-2-1 untuk Hockey5s.
 
-DUA BOLA, SATU DI SETIAP SISI
-Memanaskan badan dengan dua bola kini meletakkan satu bola di setiap sisi pemain, bukan satu di depan dan satu di belakang.
+65 LATIHAN
+Pustaka latihan bertambah daripada 36 kepada 65: serangan dan pertahanan sudut penalti, pencetus asakan, asakan balas, membina serangan ketika diasak, hantaran udara, kelebihan pemain, penjaga gol dan enam latihan dalam dewan, setiap satu dengan nota jurulatih dalam bahasa anda.
 
-RUANG UNTUK BUTANG
-Apabila dipusing, butang menu, nombor halaman dan zum berada di atas padang. Papan kini bermula di dalamnya, dan pada iPad bar main balik dan bar alat berkongsi satu baris.
+NOTA DI ATAS PAPAN
+Tulis teks terus di atas papan. Nota setiap langkah latihan berada di atas papan dan bertukar mengikut langkah. Pilih warna atau ketebalan semasa garisan dipilih untuk mengubah gayanya.
 
-GAMBAR KECIL TURUT BERPUSING
-Papan di skrin utama dan pada sesuatu latihan dilukis mengikut arah papan yang anda buka.
+BIRU HOKI
+Latar aplikasi kini memakai biru padang hoki, bukan biru kehijauan gelap yang dikongsi semua sukan.
+
+DIBUAT UNTUK iPAD
+Bar sisi menggantikan tab, pustaka latihan dan pelan di sebelah butirannya, dan panel yang dibuka di sebelah butangnya. Papan kekunci berfungsi (Space memainkan, anak panah melangkah, Cmd+Z membuat asal), dan Apple Pencil melukis sementara jari menggerakkan pemain.
+
+PEMBAIKAN KECIL
+Dalam mod landskap, bar sisi beralih jauh dari Dynamic Island. Kembali dari papan membawa anda semula ke pelan latihan yang sedang berjalan. Banyak label yang masih dalam bahasa Inggeris kini diterjemahkan.

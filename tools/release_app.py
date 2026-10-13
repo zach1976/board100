@@ -291,6 +291,12 @@ def step_text():
                              "data": {"type": "appInfos", "id": info["id"]}}}}})
             ilocs[locale] = made["data"]["id"]
             print(f"  + {locale} appInfo: {name}")
+            # Apple creates the version's localization along with it, so a
+            # POST below would 409 ("de-DE already exists"). Re-read, and
+            # give that empty record the en-US support URL like a new one.
+            vraw = get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
+                       limit=40)["data"]
+            vlocs = {d["attributes"]["locale"]: d["id"] for d in vraw}
         fields = [("description", read(folder, "description")),
                   ("keywords", read(folder, "keywords")),
                   ("promotionalText", read(folder, "promotional_text"))]
@@ -313,6 +319,10 @@ def step_text():
             vlocs[locale] = made["data"]["id"]
             print(f"  + {locale}")
         else:
+            have = {d["attributes"]["locale"]: d["attributes"] for d in vraw}
+            for k in ("supportUrl", "marketingUrl"):
+                if en_ver.get(k) and not have.get(locale, {}).get(k):
+                    body[k] = en_ver[k]
             patch(f"/appStoreVersionLocalizations/{vlocs[locale]}",
                   {"data": {"type": "appStoreVersionLocalizations",
                             "id": vlocs[locale], "attributes": body}})

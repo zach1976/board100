@@ -1,13 +1,19 @@
-Novedades de la versión 2.0.1
+Novedades de la versión 2.2.0
 
-LA PIZARRA SE QUEDA EN EL CAMPO
-En iPad, en Mac y en el móvil girado, los jugadores y el balón se colocaban respecto a la ventana y no al campo, así que toda la jugada quedaba fuera de las líneas. Ahora todo está donde dicen las líneas, a cualquier tamaño.
+SALA Y HOCKEY5S
+Dos campos nuevos junto al de exterior: la pista de sala de la FIH, con sus vallas laterales y su área de 9 m, y la pista de Hockey5s. Cada pizarra recuerda su campo y la lista de sistemas lo sigue: 2-1-2 y 1-2-2 en sala, 2-2 y 1-2-1 en Hockey5s.
 
-DOS BALONES, UNO A CADA LADO
-Quien calienta con dos balones los tiene uno a cada lado, no uno delante y otro detrás.
+65 EJERCICIOS
+La biblioteca ha pasado de 36 a 65 ejercicios: córner corto en ataque y defensa, señales de presión, contrapresión, salida ante la presión, pases aéreos, superioridades, portería y seis ejercicios de sala, cada uno con indicaciones del entrenador en tu idioma.
 
-SITIO PARA LOS BOTONES
-Girada la pantalla, el menú, el número de página y el zoom se apoyaban sobre la superficie de juego. La pizarra empieza ahora por dentro de ellos, y en iPad la barra de reproducción y la de herramientas comparten una fila.
+NOTAS EN LA PIZARRA
+Escribe texto directamente en la pizarra. La nota de cada paso de un ejercicio está en la pizarra y cambia con cada paso. Con una línea seleccionada, elige color o grosor para cambiarle el estilo.
 
-LAS MINIATURAS GIRAN CON LA PIZARRA
-La pizarra de la pantalla de inicio y la de un ejercicio se dibujan en el mismo sentido que la que abres.
+AZUL HOCKEY
+Los fondos de la app llevan ahora el azul de un campo de hockey en lugar del turquesa oscuro que compartían todos los deportes.
+
+HECHO PARA iPAD
+Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
+
+OTROS ARREGLOS
+En horizontal, la barra lateral se aparta de la Dynamic Island. Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. Muchas etiquetas que seguían en inglés ya están traducidas.

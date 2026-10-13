@@ -1,27 +1,13 @@
-Yang Baru di 2.0.0
+Yang Baru di 2.1.0
 
-Pembaruan besar: pustaka latihan bawaan, rencana latihan, dan papan yang digambar ulang sepenuhnya.
+SEMUA ENAM ROTASI
+Pilih rotasi dan papan menempatkan keenam pemainmu di posisinya, saat servis atau saat menerima. Maju atau mundur antar rotasi, pilih zona tosser, dan masukkan libero. Pemeriksaan tumpang tindih menandai dua pemain yang posisinya salah saat bola diservis.
 
-PUSTAKA LATIHAN — 44 LATIHAN
-Setiap latihan adalah papan beranimasi lengkap dengan susunan, jalur bola, dan poin kepelatihan. Buka lalu putar, atau taruh di papan dan sunting seperti milik Anda sendiri. Cari, atau saring menurut kategori, level, dan jumlah pemain.
+92 LATIHAN
+Pustaka latihan bertambah dari 44 menjadi 92: jauh lebih banyak servis dan penerimaan servis, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
 
-RENCANA LATIHAN DAN SKUAD ANDA
-Rangkai latihan dan papan Anda sendiri menjadi satu rencana dan jalankan dari pinggir lapangan, satu per satu, lengkap dengan catatan apa yang benar-benar dijalankan. Simpan pemain beserta fotonya dan tandai kehadiran tiap sesi.
+DIBUAT UNTUK iPAD
+Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
 
-PAPAN ADALAH SEBUAH KARTU
-Lapangan duduk di atas latar gelap olahraganya sendiri dengan sudut membulat dan bayangan lembut, bukan lagi memenuhi tepi layar. Pemain, peralatan, dan bola punya bayangan kontak, permukaan lapangan punya teksturnya sendiri, dan jaring punya anyaman.
-
-KONTROL DIBANGUN ULANG
-Bilah bawah yang lebih jelas dengan alat dalam satu kapsul dan pemutaran di kapsul lain; tombol sudut lebih besar dan menjauhi Dynamic Island; zoom dan layar penuh pindah ke bilah. Di iPad dalam posisi lanskap, kontrol berada di bawah papan sehingga lapangan memakai lebar penuh.
-
-BOLA DAN RUTE
-Pemain yang memegang bola menaruhnya di depan, pada sisi yang ia hadapi — tidak pernah di belakang, tidak pernah terinjak. Lari, giring, dan umpan adalah tiga garis berbeda, digambar di bawah figur, dari kaki ke kaki. Dan semua papan latihan di pustaka diatur ulang jaraknya agar tidak ada figur yang tumpang tindih di langkah mana pun.
-
-JUGA
-- Bagikan papan sebagai tautan web; penerimanya tak perlu aplikasi
-- Ekspor sebuah pergerakan sebagai video, bukan cuma gambar
-- Salin pemain beserta lariannya ke halaman berikutnya
-- Layar pembuka untuk mode lanskap
-- Penjelasan tiap langkah latihan tertulis di papan dan berganti sesuai langkahnya; geser, ubah gaya, atau tulis ulang seperti teks biasa
-- Dalam mode lanskap, kontrol pindah ke sisi Dynamic Island sehingga tidak ada bagian lapangan yang tertutup
-- Tampilan aplikasi kini memakai warna amber khas voli, agar layar dan papan terasa serasi
+PERBAIKAN KECIL
+Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Panah lari pendek ada di samping pemain, bukan melintasinya. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.

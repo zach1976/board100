@@ -10,7 +10,7 @@ DIBUJA. JUEGA. COMPARTE.
 - Escribe una nota en cada paso: cambia mientras corre la jugada
 - Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
 
-59 EJERCICIOS, YA ESCRITOS
+65 EJERCICIOS, YA ESCRITOS
 
 Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Salida de bola, entradas al área, tiro y desvíos, presión, córner corto en ataque y defensa, portería, juegos reducidos, físico.
 

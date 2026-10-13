@@ -10,7 +10,7 @@ VẼ. PHÁT. CHIA SẺ.
 - Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
 - Lưu không giới hạn, xuất PNG, PDF hoặc video
 
-59 BÀI TẬP, ĐÃ VIẾT SẴN
+65 BÀI TẬP, ĐÃ VIẾT SẴN
 
 Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Triển khai từ phần sân nhà, vào vòng tròn, dứt điểm và đổi hướng, pressing, phạt góc ngắn khi tấn công và phòng thủ, thủ môn, đấu nhóm nhỏ, thể lực.
 

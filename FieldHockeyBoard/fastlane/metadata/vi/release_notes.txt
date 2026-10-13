@@ -1,13 +1,19 @@
-Có gì mới trong 2.0.1
+Có gì mới trong 2.2.0
 
-BẢNG NẰM GỌN TRONG SÂN
-Trên iPad, trên Mac và trên điện thoại xoay ngang, cầu thủ và bóng được đặt theo cửa sổ chứ không theo sân, nên cả pha bóng lệch khỏi các đường kẻ. Giờ mọi thứ nằm đúng chỗ các đường kẻ chỉ ra, ở mọi kích thước màn hình.
+TRONG NHÀ VÀ HOCKEY5S
+Thêm hai loại sân bên cạnh sân ngoài trời: sân trong nhà của FIH với vách biên và vòng 9 m, và sân Hockey5s. Mỗi bảng nhớ sân của nó, danh sách đội hình cũng đổi theo: 2-1-2 và 1-2-2 trong nhà, 2-2 và 1-2-1 cho Hockey5s.
 
-HAI BÓNG, MỖI BÊN MỘT QUẢ
-Khởi động hai bóng giờ đặt mỗi bên người chơi một quả, không còn một trước một sau.
+65 BÀI TẬP
+Thư viện tăng từ 36 lên 65 bài: phạt góc ngắn khi tấn công và phòng thủ, tín hiệu pressing, phản pressing, triển khai bóng khi bị ép, chuyền bổng, hơn người, thủ môn và sáu bài trong nhà, mỗi bài đều có lời giảng bằng tiếng Việt.
 
-CHỪA CHỖ CHO CÁC NÚT
-Khi xoay ngang, nút menu, số trang và nút thu phóng nằm đè lên mặt sân. Bảng giờ bắt đầu từ phía trong chúng, và trên iPad thanh phát và thanh công cụ nằm chung một hàng.
+GHI CHÚ TRÊN BẢNG
+Viết chữ thẳng lên bảng. Ghi chú cho từng bước của bài tập nằm trên bảng và đổi theo từng bước. Chọn màu hoặc độ dày khi đang chọn một đường để đổi kiểu đường đó.
 
-ẢNH NHỎ XOAY THEO BẢNG
-Bảng ở màn hình chính và trong một bài tập được vẽ cùng chiều với bảng bạn mở.
+XANH KHÚC CÔN CẦU
+Nền của ứng dụng giờ mang màu xanh của sân khúc côn cầu thay cho màu xanh ngọc tối mà mọi môn dùng chung.
+
+LÀM CHO iPAD
+Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
+
+SỬA LỖI NHỎ
+Khi xoay ngang, thanh bên dời ra xa Dynamic Island. Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Nhiều nhãn còn tiếng Anh nay đã được dịch.

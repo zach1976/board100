@@ -1,27 +1,13 @@
-Nouveautés de la version 2.0.0
+Nouveautés de la version 2.1.0
 
-Une grosse mise à jour : une bibliothèque d'exercices, des plans d'entraînement et un tableau entièrement redessiné.
+LES SIX ROTATIONS
+Choisissez une rotation et le tableau place vos six joueurs là où ils se tiennent, au service ou en réception. Avancez ou reculez dans les rotations, choisissez la zone du passeur et faites entrer le libéro. Un contrôle des chevauchements signale deux joueurs qui seraient mal placés au moment du service.
 
-BIBLIOTHÈQUE D'EXERCICES — 44 EXERCICES
-Chaque exercice est un tableau animé avec sa disposition, le trajet du ballon et le point de coaching. Ouvrez-le et lancez la lecture, ou posez-le sur le tableau et modifiez-le comme le vôtre. Cherchez, ou filtrez par catégorie, niveau et effectif.
+92 EXERCICES
+La bibliothèque passe de 44 à 92 exercices : beaucoup plus de service et de réception, plus la passe, l'attaque, le contre et la défense, chacun avec des consignes d'entraîneur dans votre langue.
 
-PLANS D'ENTRAÎNEMENT ET VOTRE EFFECTIF
-Enchaînez exercices et tableaux personnels dans un plan et déroulez-le depuis la touche, un élément à la fois, avec le relevé de ce que vous avez vraiment fait. Gardez vos joueurs avec leur photo et faites l'appel à chaque séance.
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
 
-LE TABLEAU EST UNE CARTE
-Le terrain repose sur le fond sombre de son sport, avec des coins arrondis et une ombre douce, au lieu de déborder des bords de l'écran. Joueurs, matériel et ballon ont une ombre de contact, la surface de jeu a sa propre texture et les filets ont leurs mailles.
-
-COMMANDES REFAITES
-Une barre inférieure plus lisible, outils dans une capsule et lecture dans une autre ; des boutons d'angle plus grands qui évitent la Dynamic Island ; zoom et plein écran déplacés dans la barre. Sur iPad en paysage, les commandes passent sous le tableau et le terrain prend toute la largeur.
-
-LE BALLON ET LES TRACÉS
-Le porteur a le ballon devant lui, du côté où il regarde — jamais derrière, jamais sous les pieds. Course, conduite et passe sont trois tracés distincts, dessinés sous les silhouettes, des pieds aux pieds. Et tous les exercices de la bibliothèque ont été réespacés pour qu'aucune silhouette n'en chevauche une autre.
-
-ET AUSSI
-- Partagez un tableau par lien web : celui qui l'ouvre n'a pas besoin de l'app
-- Exportez une action en vidéo aussi bien qu'en image
-- Copiez un joueur avec sa course sur la page suivante
-- Un écran de lancement en paysage
-- L'explication de chaque étape de l'exercice s'affiche sur le tableau et change avec l'étape ; déplacez-la, changez son style ou réécrivez-la comme n'importe quel texte
-- En paysage, les commandes passent du côté de la Dynamic Island : plus rien du terrain n'est caché derrière
-- L'interface prend désormais l'ambre du volley-ball, pour que les écrans et le tableau aillent ensemble
+AUTRES CORRECTIONS
+Revenir d'un tableau vous ramène à la séance en cours. La flèche d'une course courte se place à côté du joueur et non sur lui. Beaucoup de libellés encore en anglais sont maintenant traduits.

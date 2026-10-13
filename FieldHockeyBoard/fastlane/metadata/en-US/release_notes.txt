@@ -1,13 +1,19 @@
-What's New in 2.0.1
+What's New in 2.2.0
 
-THE BOARD KEEPS TO THE PITCH
-On iPad, on a Mac and on a phone turned sideways, the players and the ball were placed against the window instead of against the pitch, so the whole move sat off the lines. Everything now stands where the lines say, at any size.
+INDOOR AND HOCKEY5S
+Two new pitches beside the outdoor one: the FIH indoor pitch with its side boards and 9 m circle, and the Hockey5s court. Each board remembers its pitch, and the formation list follows it: 2-1-2 and 1-2-2 indoors, 2-2 and 1-2-1 for Hockey5s.
 
-TWO BALLS, ONE EACH SIDE
-A player warming up with two balls has one at either side of him, instead of one in front and one behind.
+65 DRILLS
+The drill library has grown from 36 to 65: penalty corner attack and defence, pressing triggers, the counter-press, playing out of a press, aerial passes, overloads, goalkeeping and six indoor drills, each with coaching notes in your language.
 
-ROOM FOR THE BUTTONS
-Turned sideways, the menu, the page badge and the zoom buttons sat on the playing surface. The board now starts inside them, and on an iPad the playback and tool bars share one row so the pitch gets the height back.
+NOTES ON THE BOARD
+Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
 
-THE PICTURES TURN WITH THE BOARD
-The board on the home screen and the one on a drill are drawn the same way round as the board you open.
+FIELD HOCKEY BLUE
+The app's backgrounds now take the blue of a hockey pitch instead of the dark teal every sport shared.
+
+MADE FOR iPAD
+A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
+
+SMALLER FIXES
+Turned sideways, the side bar moves away from the Dynamic Island. Back from a board returns to the practice plan you were running. Many labels that were still in English are now translated.

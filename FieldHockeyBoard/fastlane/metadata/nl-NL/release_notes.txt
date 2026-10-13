@@ -1,13 +1,19 @@
-Nieuw in 2.0.1
+Nieuw in 2.2.0
 
-HET BORD BLIJFT OP HET VELD
-Op de iPad, op de Mac en op een telefoon die je kantelt, werden spelers en bal tegen het venster geplaatst in plaats van tegen het veld, waardoor de hele actie naast de lijnen stond. Alles staat nu waar de lijnen het aangeven, op elk formaat.
+ZAAL EN HOCKEY5S
+Twee nieuwe velden naast het buitenveld: het FIH-zaalveld met boarding en 9 m-cirkel, en het Hockey5s-veld. Elk bord onthoudt zijn veld en de opstellingen volgen mee: 2-1-2 en 1-2-2 in de zaal, 2-2 en 1-2-1 bij Hockey5s.
 
-TWEE BALLEN, AAN ELKE KANT ÉÉN
-Een speler die met twee ballen opwarmt, heeft er nu aan elke kant één, in plaats van één voor en één achter zich.
+65 OEFENINGEN
+De oefenbibliotheek is gegroeid van 36 naar 65: strafcorner aanvallend en verdedigend, druksignalen, tegendruk, opbouwen onder druk, scoops, overtal, keepen en zes zaaloefeningen, elk met coachaanwijzingen in je eigen taal.
 
-RUIMTE VOOR DE KNOPPEN
-Liggend stonden het menu, de paginateller en de zoomknoppen op het speelveld. Het bord begint nu binnen die knoppen, en op de iPad delen de afspeel- en gereedschapsbalk één rij, zodat het veld zijn hoogte terugkrijgt.
+NOTITIES OP HET BORD
+Schrijf tekst direct op het bord. De uitleg bij elke stap van een oefening staat op het bord en wisselt mee. Kies een kleur of dikte terwijl een lijn geselecteerd is om die aan te passen.
 
-DE PLAATJES DRAAIEN MEE
-Het bord op het beginscherm en dat bij een oefening staan op dezelfde manier gedraaid als het bord dat je opent.
+HOCKEYBLAUW
+De achtergronden van de app hebben nu het blauw van een hockeyveld in plaats van het donkere turquoise dat alle sporten deelden.
+
+GEMAAKT VOOR DE iPAD
+Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
+
+KLEINE VERBETERINGEN
+In liggende stand schuift de zijbalk weg van het Dynamic Island. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Veel labels die nog Engels waren, zijn nu vertaald.

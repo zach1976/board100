@@ -1,13 +1,19 @@
-Neu in 2.0.1
+Neu in 2.2.0
 
-DIE TAFEL BLEIBT AUF DEM PLATZ
-Auf dem iPad, auf dem Mac und auf einem quer gehaltenen Telefon wurden Spieler und Ball am Fenster statt am Feld ausgerichtet, sodass der ganze Spielzug neben den Linien lag. Jetzt steht alles dort, wo die Linien es vorgeben — in jeder Größe.
+HALLE UND HOCKEY5S
+Zwei neue Spielflächen neben dem Feld: die FIH-Halle mit Banden und 9-m-Kreis und das Hockey5s-Feld. Jedes Board merkt sich seine Spielfläche, und die Aufstellungen passen sich an: 2-1-2 und 1-2-2 in der Halle, 2-2 und 1-2-1 bei Hockey5s.
 
-ZWEI BÄLLE, AUF JEDER SEITE EINER
-Ein Spieler, der sich mit zwei Bällen aufwärmt, hat jetzt einen auf jeder Seite statt einen vor und einen hinter sich.
+65 ÜBUNGEN
+Die Übungsbibliothek ist von 36 auf 65 gewachsen: Strafecke in Angriff und Abwehr, Pressing-Auslöser, Gegenpressing, Spielaufbau gegen Pressing, Schlenzbälle, Überzahl, Torwartspiel und sechs Hallenübungen, jeweils mit Trainerhinweisen in deiner Sprache.
 
-PLATZ FÜR DIE TASTEN
-Im Querformat lagen Menü, Seitenanzeige und Zoom-Tasten auf der Spielfläche. Die Tafel beginnt jetzt innerhalb davon, und auf dem iPad teilen sich Wiedergabe- und Werkzeugleiste eine Zeile, damit das Feld die Höhe zurückbekommt.
+NOTIZEN AUF DEM BOARD
+Schreib Text direkt aufs Board. Der Hinweis zu jedem Übungsschritt steht auf dem Board und wechselt mit dem Schritt. Wähle bei markierter Linie Farbe oder Stärke, um sie umzugestalten.
 
-DIE BILDER DREHEN SICH MIT
-Die Tafel auf dem Startbildschirm und die in einer Übung sind genauso ausgerichtet wie die Tafel, die du öffnest.
+HOCKEYBLAU
+Die Hintergründe der App tragen jetzt das Blau eines Hockeyplatzes statt des dunklen Türkis, das alle Sportarten teilten.
+
+FÜR DAS iPAD GEMACHT
+Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+KLEINERE KORREKTUREN
+Im Querformat rückt die Seitenleiste von der Dynamic Island weg. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

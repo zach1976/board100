@@ -1,13 +1,19 @@
-Nouveautés de la version 2.0.1
+Nouveautés de la version 2.2.0
 
-LE TABLEAU RESTE SUR LE TERRAIN
-Sur iPad, sur Mac et sur un téléphone tourné, les joueurs et le ballon étaient placés par rapport à la fenêtre et non au terrain : toute l'action se retrouvait hors des lignes. Tout est maintenant là où les lignes le disent, à toutes les tailles.
+SALLE ET HOCKEY5S
+Deux nouveaux terrains à côté du terrain extérieur : la salle FIH avec ses bandes et son cercle de 9 m, et le terrain de Hockey5s. Chaque tableau garde son terrain, et la liste des systèmes suit : 2-1-2 et 1-2-2 en salle, 2-2 et 1-2-1 en Hockey5s.
 
-DEUX BALLONS, UN DE CHAQUE CÔTÉ
-À l'échauffement à deux ballons, il y en a un de chaque côté du joueur, et non un devant et un derrière.
+65 EXERCICES
+La bibliothèque passe de 36 à 65 exercices : petit corner en attaque et en défense, déclencheurs de pressing, contre-pressing, sortie de balle sous pression, passes aériennes, surnombres, gardien et six exercices en salle, chacun avec des consignes d'entraîneur dans votre langue.
 
-DE LA PLACE POUR LES BOUTONS
-À l'horizontale, le menu, le numéro de page et le zoom se posaient sur la surface de jeu. Le tableau commence maintenant en deçà, et sur iPad la barre de lecture et la barre d'outils tiennent sur une seule ligne.
+DES NOTES SUR LE TABLEAU
+Écrivez du texte directement sur le tableau. La consigne de chaque étape d'un exercice est sur le tableau et change avec l'étape. Ligne sélectionnée, choisissez une couleur ou une épaisseur pour la modifier.
 
-LES VIGNETTES TOURNENT AVEC LE TABLEAU
-Le tableau de l'accueil et celui d'un exercice sont orientés comme celui que vous ouvrez.
+BLEU HOCKEY
+Les fonds de l'app prennent maintenant le bleu d'un terrain de hockey au lieu du turquoise sombre commun à tous les sports.
+
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
+
+AUTRES CORRECTIONS
+En paysage, la barre latérale s'écarte de la Dynamic Island. Revenir d'un tableau vous ramène à la séance en cours. Beaucoup de libellés encore en anglais sont maintenant traduits.
