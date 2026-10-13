@@ -1,6 +1,6 @@
 {
   "sport": "soccer",
-  "version": 5,
+  "version": 6,
   "minClient": "2.0.0",
   "drills": [
     {

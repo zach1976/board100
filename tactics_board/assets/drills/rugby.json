@@ -1,6 +1,6 @@
 {
   "sport": "rugby",
-  "version": 5,
+  "version": 6,
   "minClient": "2.1.0",
   "drills": [
     {
