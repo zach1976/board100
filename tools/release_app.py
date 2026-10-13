@@ -681,6 +681,54 @@ def step_submit():
                          "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
                          "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
         print("  + item")
+    # A first auto-renewable subscription only reaches the store when it is
+    # reviewed WITH a version. Left READY_TO_SUBMIT it never does — the
+    # yearly plans sat that way for months and the store showed only
+    # Lifetime. The new review-submission model carries the subscription's
+    # pending version as an item of the same submission (that is what the
+    # subscription page's "Add for Review" does); /subscriptionSubmissions
+    # is the older route and answers "no pending version" for a version that
+    # was once withdrawn. Try the item first, then the old route, and never
+    # send the app alone when the user asked for both.
+    held = [i for i in items
+            if (i.get("relationships", {}).get("subscriptionVersion", {}).get("data") or {}).get("id")]
+    pending = []
+    for g in get(f"/apps/{aid}/subscriptionGroups")["data"]:
+        for sb in get(f"/subscriptionGroups/{g['id']}/subscriptions")["data"]:
+            if sb["attributes"].get("state") == "READY_TO_SUBMIT":
+                vers = get(f"/subscriptions/{sb['id']}/versions")["data"]
+                pending.append((sb, vers[-1]["id"] if vers else None))
+    for sb, sv in pending:
+        pid = sb["attributes"].get("productId")
+        if any(i["relationships"]["subscriptionVersion"]["data"]["id"] == sv for i in held):
+            print(f"  = subscription {pid} already on the submission")
+            continue
+        ok = False
+        for rel, typ, ident in (("subscriptionVersion", "subscriptionVersions", sv),
+                                ("subscription", "subscriptions", sb["id"])):
+            if not ident:
+                continue
+            try:
+                post("/reviewSubmissionItems", {
+                    "data": {"type": "reviewSubmissionItems", "relationships": {
+                        "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                        rel: {"data": {"type": typ, "id": ident}}}}})
+                print(f"  + subscription {pid} (as {rel})")
+                ok = True
+                break
+            except SystemExit as e:
+                print(f"  ! {rel}: {str(e)[:200]}")
+        if not ok:
+            try:
+                post("/subscriptionSubmissions", {
+                    "data": {"type": "subscriptionSubmissions", "relationships": {
+                        "subscription": {"data": {"type": "subscriptions", "id": sb["id"]}}}}})
+                print(f"  + subscription {pid} (subscriptionSubmissions)")
+                ok = True
+            except SystemExit as e:
+                print(f"  ! subscriptionSubmissions: {str(e)[:200]}")
+        if not ok:
+            raise SystemExit(f"✗ 年订阅 {pid} 挂不上审核单，版本未送出（审核单保留为草稿）")
     patch(f"/reviewSubmissions/{sub['id']}",
           {"data": {"type": "reviewSubmissions", "id": sub["id"],
                     "attributes": {"submitted": True}}})
