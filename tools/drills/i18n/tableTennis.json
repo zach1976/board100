@@ -7,7 +7,9 @@
   "id-ID": "pelatih bergantian mengumpan ke sudut forehand dan sudut backhand; dua zona berarsir di separuh meja pelatih adalah tempat pukulan forehand dan backhand harus kembali",
   "ms-MY": "jurulatih mengumpan berselang-seli ke sudut forehand dan sudut backhand; dua zon berlorek di separuh meja jurulatih ialah tempat pukulan forehand dan backhand mesti kembali",
   "th-TH": "โค้ชป้อนลูกสลับไปมุมโฟร์แฮนด์และมุมแบ็กแฮนด์ โซนแรเงาสองโซนบนฝั่งโต๊ะของโค้ชคือจุดที่ลูกโฟร์แฮนด์และแบ็กแฮนด์ต้องตีกลับไปลง",
-  "vi-VN": "Huấn luyện viên tiếp bóng luân phiên vào góc thuận tay và góc trái tay; hai vùng tô đậm bên nửa bàn của huấn luyện viên là nơi cú thuận tay và cú trái tay phải đánh trả về"
+  "vi-VN": "Huấn luyện viên tiếp bóng luân phiên vào góc thuận tay và góc trái tay; hai vùng tô đậm bên nửa bàn của huấn luyện viên là nơi cú thuận tay và cú trái tay phải đánh trả về",
+  "de-DE": "der Trainer spielt abwechselnd in die Vorhand- und die Rückhandecke; die beiden schraffierten Zonen auf der Trainerhälfte sind die Ziele für Vorhand und Rückhand",
+  "nl-NL": "de trainer speelt afwisselend naar de forehand- en de backhandhoek; de twee gearceerde zones op de helft van de trainer zijn waar de forehand en de backhand naartoe moeten"
  },
  "the cones stand on the floor just behind the end line and mark the spots the player has to get to for each ball": {
   "ja-JP": "コーンはエンドラインのすぐ後ろの床に置き、各球で入るべき打球位置を示す",
@@ -17,7 +19,9 @@
   "id-ID": "kerucut diletakkan di lantai tepat di belakang garis ujung meja dan menandai titik yang harus dicapai pemain untuk setiap bola",
   "ms-MY": "kon diletakkan di lantai betul-betul di belakang garisan hujung meja dan menandakan titik yang mesti dicapai pemain untuk setiap bola",
   "th-TH": "กรวยวางบนพื้นหลังเส้นท้ายโต๊ะ ใช้บอกจุดที่ผู้เล่นต้องเข้าไปตีในแต่ละลูก",
-  "vi-VN": "Các cọc đặt trên sàn ngay sau đường cuối bàn, đánh dấu những điểm người tập phải di chuyển tới cho từng quả"
+  "vi-VN": "Các cọc đặt trên sàn ngay sau đường cuối bàn, đánh dấu những điểm người tập phải di chuyển tới cho từng quả",
+  "de-DE": "die Hütchen stehen am Boden knapp hinter der Grundlinie und markieren die Punkte, die der Spieler für jeden Ball erreichen muss",
+  "nl-NL": "de pionnen staan op de vloer vlak achter de achterlijn en markeren de plekken die de speler voor elke bal moet halen"
  },
  "the shaded zone on the far half is where the short-game stroke has to land": {
   "ja-JP": "相手側コートの網掛けゾーンが、台上技術の打球を落とす場所",
@@ -27,7 +31,9 @@
   "id-ID": "zona berarsir di separuh meja lawan adalah tempat pukulan pendek harus jatuh",
   "ms-MY": "zon berlorek di separuh meja lawan ialah tempat pukulan pendek mesti jatuh",
   "th-TH": "โซนแรเงาบนโต๊ะฝั่งตรงข้ามคือจุดที่ลูกสั้นบนโต๊ะต้องตกลง",
-  "vi-VN": "Vùng tô đậm bên nửa bàn đối diện là nơi cú đánh bóng ngắn phải rơi vào"
+  "vi-VN": "Vùng tô đậm bên nửa bàn đối diện là nơi cú đánh bóng ngắn phải rơi vào",
+  "de-DE": "die schraffierte Zone auf der anderen Hälfte ist das Ziel für den Schlag im kurzen Spiel",
+  "nl-NL": "de gearceerde zone op de verre helft is waar de slag uit het korte spel moet landen"
  },
  "the shaded zone near the net is where the serve has to land; the deep one is where the third-ball attack has to go": {
   "ja-JP": "ネット際の網掛けゾーンがサーブを落とす場所、エンドライン寄りのゾーンが3球目攻撃を打ち込む場所",
@@ -37,7 +43,9 @@
   "id-ID": "zona berarsir dekat net adalah tempat servis harus jatuh; zona yang dalam adalah sasaran serangan bola ketiga",
   "ms-MY": "zon berlorek dekat jaring ialah tempat servis mesti jatuh; zon yang dalam ialah sasaran serangan bola ketiga",
   "th-TH": "โซนแรเงาใกล้เน็ตคือจุดที่ลูกเสิร์ฟต้องตก ส่วนโซนลึกคือจุดที่ลูกบุกลูกที่สามต้องตีไป",
-  "vi-VN": "Vùng tô đậm gần lưới là nơi quả giao bóng phải rơi; vùng sâu là nơi cú tấn công quả thứ ba phải đánh tới"
+  "vi-VN": "Vùng tô đậm gần lưới là nơi quả giao bóng phải rơi; vùng sâu là nơi cú tấn công quả thứ ba phải đánh tới",
+  "de-DE": "die schraffierte Zone nahe am Netz ist das Ziel für den Aufschlag; die tiefe ist das Ziel für den Angriff mit dem dritten Ball",
+  "nl-NL": "de gearceerde zone bij het net is waar de opslag moet landen; de diepe is waar de aanval met de derde bal naartoe moet"
  },
  "a coach with a basket of balls beside the far end of the table, one player at the near end": {
   "ja-JP": "コーチは球かごを持って台の向こう側の端の横に立ち、練習者が1人手前側に立つ",
@@ -47,7 +55,9 @@
   "id-ID": "pelatih dengan sekeranjang bola di samping ujung meja yang jauh, satu pemain di ujung yang dekat",
   "ms-MY": "jurulatih dengan sebakul bola di sisi hujung meja yang jauh, seorang pemain di hujung yang dekat",
   "th-TH": "โค้ชถือตะกร้าลูกยืนข้างปลายโต๊ะด้านไกล ผู้ฝึกหนึ่งคนอยู่ปลายโต๊ะด้านใกล้",
-  "vi-VN": "Huấn luyện viên cầm rổ bóng đứng cạnh đầu bàn phía xa, một người tập ở đầu bàn phía gần"
+  "vi-VN": "Huấn luyện viên cầm rổ bóng đứng cạnh đầu bàn phía xa, một người tập ở đầu bàn phía gần",
+  "de-DE": "ein Trainer mit einem Korb Bälle neben dem hinteren Ende der Platte, ein Spieler am vorderen Ende",
+  "nl-NL": "een trainer met een mand ballen naast het verre eind van de tafel, één speler aan het nabije eind"
  },
  "two cones on the floor just behind the end of the table and two a big step behind them; the player starts between the pairs": {
   "ja-JP": "台の端のすぐ後ろの床にコーンを2つ、その大きく一歩後ろにもう2つ。選手は2組の間からスタート",
@@ -57,7 +67,9 @@
   "id-ID": "dua kerucut di lantai tepat di belakang ujung meja dan dua lagi satu langkah besar di belakangnya; pemain mulai di antara kedua pasang",
   "ms-MY": "dua kon di lantai betul-betul di belakang hujung meja dan dua lagi satu langkah besar di belakangnya; pemain bermula di antara kedua-dua pasangan",
   "th-TH": "วางกรวยสองอันบนพื้นชิดหลังปลายโต๊ะ และอีกสองอันถอยหลังไปหนึ่งก้าวใหญ่ ผู้เล่นเริ่มยืนระหว่างสองคู่",
-  "vi-VN": "Hai cọc trên sàn ngay sau đầu bàn và hai cọc nữa lùi sau một bước dài; người tập bắt đầu đứng giữa hai cặp"
+  "vi-VN": "Hai cọc trên sàn ngay sau đầu bàn và hai cọc nữa lùi sau một bước dài; người tập bắt đầu đứng giữa hai cặp",
+  "de-DE": "zwei Hütchen am Boden knapp hinter dem Ende der Platte und zwei einen großen Schritt dahinter; der Spieler startet zwischen den Paaren",
+  "nl-NL": "twee pionnen op de vloer vlak achter het eind van de tafel en twee een grote stap daarachter; de speler begint tussen de paren"
  },
  "the two shaded zones mark the backhand diagonal in play — each player's backhand half of the table; a ball that lands outside that half is out": {
   "ja-JP": "2つの網掛けゾーンはバック対バックの対角を示す——それぞれのバック側半面。その半面の外に落ちた球はアウト",
@@ -67,7 +79,9 @@
   "id-ID": "dua zona berarsir menandai diagonal backhand yang dimainkan — separuh meja sisi backhand tiap pemain; bola yang jatuh di luar separuh itu dianggap keluar",
   "ms-MY": "dua zon berlorek menandakan diagonal backhand yang dimainkan — separuh meja sisi backhand setiap pemain; bola yang jatuh di luar separuh itu dikira keluar",
   "th-TH": "โซนแรเงาสองโซนบอกแนวทแยงแบ็กแฮนด์ที่ใช้เล่น คือครึ่งโต๊ะฝั่งแบ็กแฮนด์ของแต่ละคน ลูกที่ตกนอกครึ่งนั้นถือว่าออก",
-  "vi-VN": "Hai vùng tô đậm đánh dấu đường chéo trái tay được dùng — nửa bàn phía trái tay của mỗi người; bóng rơi ra ngoài nửa đó là bóng hỏng"
+  "vi-VN": "Hai vùng tô đậm đánh dấu đường chéo trái tay được dùng — nửa bàn phía trái tay của mỗi người; bóng rơi ra ngoài nửa đó là bóng hỏng",
+  "de-DE": "die beiden schraffierten Zonen markieren die Rückhanddiagonale im Spiel — die Rückhandhälfte jedes Spielers; ein Ball, der außerhalb dieser Hälfte landet, ist aus",
+  "nl-NL": "de twee gearceerde zones markeren de backhanddiagonaal die in het spel is — de backhandhelft van elke speler; een bal die buiten die helft landt, is uit"
  },
  "one player behind the middle of the end line, in his playing stance": {
   "ja-JP": "1人がエンドライン中央の後ろで構える",
@@ -77,7 +91,9 @@
   "id-ID": "satu pemain di belakang tengah garis akhir, dalam sikap siap memukul",
   "ms-MY": "seorang pemain di belakang tengah garisan hujung, dalam sikap sedia memukul",
   "th-TH": "ผู้เล่นหนึ่งคนยืนหลังกึ่งกลางเส้นท้ายโต๊ะในท่าเตรียมตี",
-  "vi-VN": "một người chơi đứng sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh"
+  "vi-VN": "một người chơi đứng sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh",
+  "de-DE": "ein Spieler hinter der Mitte der Grundlinie, in seiner Spielstellung",
+  "nl-NL": "één speler achter het midden van de achterlijn, in zijn speelhouding"
  },
  "one player a step behind the middle of the end line, in his playing stance": {
   "ja-JP": "1人がエンドライン中央から一歩下がって構える",
@@ -87,7 +103,9 @@
   "id-ID": "satu pemain selangkah di belakang tengah garis akhir, dalam sikap siap memukul",
   "ms-MY": "seorang pemain selangkah di belakang tengah garisan hujung, dalam sikap sedia memukul",
   "th-TH": "ผู้เล่นหนึ่งคนยืนถอยหลังกึ่งกลางเส้นท้ายโต๊ะหนึ่งก้าวในท่าเตรียมตี",
-  "vi-VN": "một người chơi đứng lùi một bước sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh"
+  "vi-VN": "một người chơi đứng lùi một bước sau giữa đường cuối bàn, trong tư thế chuẩn bị đánh",
+  "de-DE": "ein Spieler einen Schritt hinter der Mitte der Grundlinie, in seiner Spielstellung",
+  "nl-NL": "één speler een stap achter het midden van de achterlijn, in zijn speelhouding"
  },
  "no markers: the table is the reference — side-step until level with a corner of the table, play the stroke, side-step back; the feet stay behind the end line, never under the table": {
   "ja-JP": "目印は置かない。台が基準——台の角の位置までサイドステップしてスイングし、戻る。足は常にエンドラインの後ろで、台の下に入れない",
@@ -97,7 +115,9 @@
   "id-ID": "tanpa penanda: meja jadi acuan — geser ke samping sampai sejajar sudut meja, lakukan pukulan, geser kembali; kaki tetap di belakang garis akhir, tidak pernah di bawah meja",
   "ms-MY": "tiada penanda: meja menjadi rujukan — langkah sisi hingga sejajar penjuru meja, buat pukulan, langkah sisi kembali; kaki kekal di belakang garisan hujung, tidak sekali-kali di bawah meja",
   "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ใช้โต๊ะเป็นจุดอ้างอิง — สไลด์ข้างจนตรงกับมุมโต๊ะ ทำท่าตี แล้วสไลด์กลับ เท้าอยู่หลังเส้นท้ายโต๊ะเสมอ ห้ามเข้าใต้โต๊ะ",
-  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — bước ngang đến ngang góc bàn, thực hiện động tác đánh rồi bước ngang về; chân luôn ở sau đường cuối bàn, không bao giờ ở dưới bàn"
+  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — bước ngang đến ngang góc bàn, thực hiện động tác đánh rồi bước ngang về; chân luôn ở sau đường cuối bàn, không bao giờ ở dưới bàn",
+  "de-DE": "keine Markierungen: Der Tisch ist der Bezugspunkt — mit Sidesteps bis auf Höhe einer Tischecke, Schlag spielen, mit Sidesteps zurück; die Füße bleiben hinter der Grundlinie, nie unter dem Tisch",
+  "nl-NL": "geen markeringen: de tafel is het referentiepunt — zijwaarts schuiven tot je gelijk staat met een hoek van de tafel, de slag spelen, zijwaarts terug; de voeten blijven achter de achterlijn, nooit onder de tafel"
  },
  "no markers: close to the end line is the short-ball position, a big step back the deep one — step in to the table for the short ball and back out for the deep one": {
   "ja-JP": "目印は置かない。エンドライン近くがストップ処理の位置、大きく一歩下がった所が中陣の位置——短い球は台へ踏み込み、長い球は下がる",
@@ -107,7 +127,9 @@
   "id-ID": "tanpa penanda: dekat garis akhir adalah posisi bola pendek, satu langkah besar ke belakang posisi bola panjang — masuk ke meja untuk bola pendek dan mundur untuk bola panjang",
   "ms-MY": "tiada penanda: dekat garisan hujung ialah kedudukan bola pendek, satu langkah besar ke belakang kedudukan bola panjang — masuk ke meja untuk bola pendek dan keluar untuk bola panjang",
   "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ชิดเส้นท้ายโต๊ะคือตำแหน่งรับลูกสั้น ถอยหลังหนึ่งก้าวใหญ่คือตำแหน่งลูกยาว — ลูกสั้นก้าวเข้าโต๊ะ ลูกยาวถอยออกมา",
-  "vi-VN": "không đặt vật đánh dấu: sát đường cuối bàn là vị trí xử lý bóng ngắn, lùi một bước dài là vị trí bóng dài — bóng ngắn bước vào bàn, bóng dài lùi ra"
+  "vi-VN": "không đặt vật đánh dấu: sát đường cuối bàn là vị trí xử lý bóng ngắn, lùi một bước dài là vị trí bóng dài — bóng ngắn bước vào bàn, bóng dài lùi ra",
+  "de-DE": "keine Markierungen: Nah an der Grundlinie ist die Position für den kurzen Ball, einen großen Schritt dahinter die für den langen — für den kurzen Ball ran an den Tisch, für den langen wieder zurück",
+  "nl-NL": "geen markeringen: dicht bij de achterlijn is de positie voor de korte bal, een grote stap erachter die voor de lange — stap naar de tafel voor de korte bal en weer terug voor de lange"
  },
  "no markers: the two forward points are level with the forehand and backhand corners of the table, the back point a big step behind the middle; the path between them is a figure of eight": {
   "ja-JP": "目印は置かない。前の2点は台のフォア側とバック側の角の位置、後ろの1点は中央から大きく一歩下がった所。3点を結ぶ動きが8の字になる",
@@ -117,7 +139,9 @@
   "id-ID": "tanpa penanda: dua titik depan sejajar sudut forehand dan backhand meja, titik belakang satu langkah besar di belakang tengah; lintasan di antaranya membentuk angka delapan",
   "ms-MY": "tiada penanda: dua titik hadapan sejajar penjuru forehand dan backhand meja, titik belakang satu langkah besar di belakang tengah; laluan di antaranya membentuk angka lapan",
   "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง สองจุดหน้าตรงกับมุมโฟร์แฮนด์และแบ็คแฮนด์ของโต๊ะ จุดหลังอยู่ถอยจากกึ่งกลางหนึ่งก้าวใหญ่ เส้นทางระหว่างสามจุดเป็นเลขแปด",
-  "vi-VN": "không đặt vật đánh dấu: hai điểm phía trước ngang góc thuận tay và trái tay của bàn, điểm phía sau lùi một bước dài sau chính giữa; đường đi giữa chúng là hình số tám"
+  "vi-VN": "không đặt vật đánh dấu: hai điểm phía trước ngang góc thuận tay và trái tay của bàn, điểm phía sau lùi một bước dài sau chính giữa; đường đi giữa chúng là hình số tám",
+  "de-DE": "keine Markierungen: Die beiden vorderen Punkte liegen auf Höhe der Vorhand- und der Rückhandecke des Tisches, der hintere Punkt einen großen Schritt hinter der Mitte; der Weg dazwischen ist eine Acht",
+  "nl-NL": "geen markeringen: de twee voorste punten liggen gelijk met de forehand- en backhandhoek van de tafel, het achterste punt een grote stap achter het midden; de route ertussen is een acht"
  },
  "no markers: the table is the reference — for each ball the player gets level with the corner it is played to, behind the end line": {
   "ja-JP": "目印は置かない。台が基準——1球ごとに、送られた角の位置までエンドラインの後ろで移動する",
@@ -127,7 +151,9 @@
   "id-ID": "tanpa penanda: meja jadi acuan — setiap bola, pemain bergerak sejajar dengan sudut tujuan bola, di belakang garis akhir",
   "ms-MY": "tiada penanda: meja menjadi rujukan — setiap bola, pemain bergerak sejajar dengan penjuru tujuan bola, di belakang garisan hujung",
   "th-TH": "ไม่ต้องวางสิ่งบอกตำแหน่ง ใช้โต๊ะเป็นจุดอ้างอิง — ทุกลูกให้ขยับไปตรงกับมุมที่ลูกถูกส่งมา อยู่หลังเส้นท้ายโต๊ะ",
-  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — mỗi quả, người chơi di chuyển ngang với góc bóng được đưa tới, ở sau đường cuối bàn"
+  "vi-VN": "không đặt vật đánh dấu: lấy bàn làm mốc — mỗi quả, người chơi di chuyển ngang với góc bóng được đưa tới, ở sau đường cuối bàn",
+  "de-DE": "keine Markierungen: Der Tisch ist der Bezugspunkt — bei jedem Ball geht der Spieler hinter der Grundlinie auf Höhe der Ecke, in die gespielt wird",
+  "nl-NL": "geen markeringen: de tafel is het referentiepunt — bij elke bal komt de speler achter de achterlijn op gelijke hoogte met de hoek waar de bal naartoe wordt gespeeld"
  },
  "a coach with a basket of balls behind the far end of the table, one player at the near end": {
   "ja-JP": "コーチがボールかごを持って台の向こう側のエンドラインの後ろに立ち、手前に練習者が1人",
@@ -137,6 +163,256 @@
   "id-ID": "pelatih dengan keranjang bola di belakang ujung jauh meja, satu pemain di ujung dekat",
   "ms-MY": "jurulatih dengan bakul bola di belakang hujung jauh meja, seorang pemain di hujung dekat",
   "th-TH": "โค้ชถือตะกร้าลูกยืนหลังเส้นท้ายโต๊ะฝั่งตรงข้าม ผู้เล่นหนึ่งคนอยู่ฝั่งใกล้",
-  "vi-VN": "huấn luyện viên với một giỏ bóng đứng sau đầu bàn phía xa, một người chơi ở đầu bàn phía gần"
+  "vi-VN": "huấn luyện viên với một giỏ bóng đứng sau đầu bàn phía xa, một người chơi ở đầu bàn phía gần",
+  "de-DE": "ein Trainer mit einem Balleimer hinter dem anderen Tischende, ein Spieler am nahen Ende",
+  "nl-NL": "een trainer met een mand ballen achter het verre eind van de tafel, één speler aan het nabije eind"
+ },
+ "A ball that lands on the opponent's half of the table — the edge counts — wins the point; missing the table, the net, or letting it bounce twice on your own side loses it. Serve changes every two points.": {
+  "de-DE": "Ein Ball, der auf der gegnerischen Tischhälfte landet — die Kante zählt —, gewinnt den Punkt; wer den Tisch verfehlt, ins Netz spielt oder den Ball zweimal auf der eigenen Seite aufspringen lässt, verliert ihn. Der Aufschlag wechselt alle zwei Punkte.",
+  "nl-NL": "Een bal die op de tafelhelft van de tegenstander landt — de rand telt mee — wint het punt; mis je de tafel, speel je in het net of laat je de bal twee keer aan jouw kant stuiten, dan verlies je het. De opslag wisselt elke twee punten."
+ },
+ "Against topspin the bat starts behind the ball, not below it, and the arm drives forward rather than up. Brushing up against a ball that already spins forward sends it into the net.": {
+  "de-DE": "Gegen Topspin setzt der Schläger hinter dem Ball an, nicht darunter, und der Arm zieht nach vorn statt nach oben. Wer einen Ball, der schon vorwärts dreht, nach oben anstreicht, schickt ihn ins Netz.",
+  "nl-NL": "Tegen topspin begint het batje achter de bal, niet eronder, en de arm gaat naar voren in plaats van omhoog. Een bal die al voorwaarts draait nog eens omhoog borstelen, stuurt hem het net in."
+ },
+ "Backing off the table — every step back gives the far end half a second.": {
+  "de-DE": "Vom Tisch zurückweichen — jeder Schritt zurück schenkt der Gegenseite eine halbe Sekunde.",
+  "nl-NL": "Van de tafel weg zakken — elke stap terug geeft de overkant een halve seconde."
+ },
+ "Brush the ball, don't hit through it. Against backspin the racket starts below the ball and finishes above your own head.": {
+  "de-DE": "Streich den Ball an, schlag nicht durch ihn hindurch. Gegen Unterschnitt startet der Schläger unter dem Ball und endet über deinem eigenen Kopf.",
+  "nl-NL": "Borstel de bal, sla er niet doorheen. Tegen backspin begint het batje onder de bal en eindigt het boven je eigen hoofd."
+ },
+ "Change the spin, not just the direction. A defensive ball that comes back the same is a ball they get to hit again, harder.": {
+  "de-DE": "Wechsle den Schnitt, nicht nur die Richtung. Ein Abwehrball, der immer gleich zurückkommt, ist ein Ball, den sie noch einmal schlagen dürfen — härter.",
+  "nl-NL": "Wissel het effect, niet alleen de richting. Een verdedigende bal die steeds hetzelfde terugkomt, is een bal die ze nog eens mogen slaan, harder."
+ },
+ "Count the rally out loud and keep it alive. Warming up by hitting winners at each other warms up nothing.": {
+  "de-DE": "Zählt den Ballwechsel laut mit und haltet ihn am Leben. Wer sich beim Einspielen gegenseitig Gewinnschläge um die Ohren haut, wärmt gar nichts auf.",
+  "nl-NL": "Tel de rally hardop en houd hem gaande. Inslaan door elkaar winners te geven warmt helemaal niets op."
+ },
+ "Deciding the corner late — a sitter ends up three-quarter pace into the middle.": {
+  "de-DE": "Die Ecke zu spät wählen — ein Aufleger landet mit Dreiviertel-Tempo in der Mitte.",
+  "nl-NL": "Te laat de hoek kiezen — een makkelijke bal gaat op driekwart tempo door het midden."
+ },
+ "Every serve goes right half to right half, and you must alternate every ball — so the rotation is the drill: hit, and get out of your partner's way on the same movement.": {
+  "de-DE": "Jeder Aufschlag geht von der rechten Hälfte in die rechte Hälfte, und ihr müsst nach jedem Ball wechseln — die Rotation ist die Übung: schlagen und mit derselben Bewegung deinem Partner Platz machen.",
+  "nl-NL": "Elke opslag gaat van rechterhelft naar rechterhelft, en jullie moeten elke bal wisselen — de rotatie ís de oefening: slaan en in dezelfde beweging uit de weg gaan voor je partner."
+ },
+ "Falkenberg": {
+  "de-DE": "Falkenberg",
+  "nl-NL": "Falkenberg"
+ },
+ "Figure-eight footwork": {
+  "de-DE": "Beinarbeit in der Acht",
+  "nl-NL": "Voetenwerk in een acht"
+ },
+ "Footwork": {
+  "de-DE": "Beinarbeit",
+  "nl-NL": "Voetenwerk"
+ },
+ "Footwork with the ball: the feeder sets the pattern and the pace, so the worker learns to arrive in position for every ball and hit it the same way, again and again.": {
+  "de-DE": "Beinarbeit mit Ball: Der Zuspieler gibt Muster und Tempo vor, damit der Übende lernt, bei jedem Ball rechtzeitig in Position zu sein und ihn jedes Mal gleich zu schlagen, immer wieder.",
+  "nl-NL": "Voetenwerk met bal: de aangever bepaalt het patroon en het tempo, zodat de speler leert bij elke bal op tijd op zijn plek te staan en hem steeds op dezelfde manier te slaan, telkens weer."
+ },
+ "Hitting through the ball instead of brushing — against backspin, brush up and over.": {
+  "de-DE": "Durch den Ball schlagen statt ihn anzustreichen — gegen Unterschnitt nach oben und über den Ball streichen.",
+  "nl-NL": "Door de bal heen slaan in plaats van borstelen — tegen backspin borstel je omhoog en over de bal."
+ },
+ "In and out of the table": {
+  "de-DE": "Ran an den Tisch und wieder weg",
+  "nl-NL": "Naar de tafel toe en weer weg"
+ },
+ "In with a small step, out with two — the mistake is going in with a big step, because then there is no way back for the next ball.": {
+  "de-DE": "Rein mit einem kleinen Schritt, raus mit zwei — der Fehler ist, mit einem großen Schritt reinzugehen, denn dann kommst du für den nächsten Ball nicht mehr zurück.",
+  "nl-NL": "Erin met een kleine pas, eruit met twee — de fout is erin gaan met een grote pas, want dan kom je niet meer terug voor de volgende bal."
+ },
+ "Loop": {
+  "de-DE": "Topspin",
+  "nl-NL": "Topspin"
+ },
+ "Match play": {
+  "de-DE": "Spielpraxis",
+  "nl-NL": "Wedstrijdspel"
+ },
+ "Move with the legs, not by reaching. Every ball you stretch for is a ball you had time to step to.": {
+  "de-DE": "Beweg dich mit den Beinen, nicht durch Strecken. Jeden Ball, nach dem du dich streckst, hättest du auch erlaufen können.",
+  "nl-NL": "Beweeg met je benen, niet door te reiken. Elke bal waar je naar reikt, is een bal waar je tijd had om naartoe te stappen."
+ },
+ "Multiball": {
+  "de-DE": "Balleimertraining",
+  "nl-NL": "Multiball"
+ },
+ "One ball a second and no time to think between strokes — multiball buys ten times the repetitions of any rally.": {
+  "de-DE": "Ein Ball pro Sekunde und keine Zeit zum Nachdenken zwischen den Schlägen — Balleimertraining bringt zehnmal so viele Wiederholungen wie jeder Ballwechsel.",
+  "nl-NL": "Eén bal per seconde en geen tijd om na te denken tussen de slagen — multiball levert tien keer zoveel herhalingen op als welke rally ook."
+ },
+ "Pick the corner before the ball arrives. Deciding late is how a sitter ends up hit at three-quarter pace into the middle.": {
+  "de-DE": "Wähl die Ecke, bevor der Ball ankommt. Wer zu spät entscheidet, schlägt einen Aufleger mit Dreiviertel-Tempo in die Mitte.",
+  "nl-NL": "Kies de hoek voordat de bal aankomt. Te laat beslissen is hoe een makkelijke bal op driekwart tempo door het midden gaat."
+ },
+ "Play the ball early, on the rise. Every step back you take gives the other end an extra half second to choose with.": {
+  "de-DE": "Nimm den Ball früh, in der aufsteigenden Phase. Jeder Schritt zurück gibt der Gegenseite eine halbe Sekunde mehr zum Entscheiden.",
+  "nl-NL": "Speel de bal vroeg, in de opgaande fase. Elke stap terug geeft de overkant een halve seconde extra om te kiezen."
+ },
+ "Play the point you have, not the one you rehearsed. Most rallies end by the fifth ball, so the plan has to survive the first two or it was never a plan.": {
+  "de-DE": "Spiel den Punkt, den du hast, nicht den, den du geprobt hast. Die meisten Ballwechsel enden spätestens beim fünften Ball, also muss der Plan die ersten beiden überstehen — sonst war es nie ein Plan.",
+  "nl-NL": "Speel het punt dat je hebt, niet het punt dat je hebt ingestudeerd. De meeste rally's zijn na de vijfde bal voorbij, dus het plan moet de eerste twee overleven, anders was het nooit een plan."
+ },
+ "Rally control": {
+  "de-DE": "Ballwechsel-Kontrolle",
+  "nl-NL": "Rallycontrole"
+ },
+ "Reaching from outside — a short ball taken from off the table goes long.": {
+  "de-DE": "Von außen hineinstrecken — ein kurzer Ball, den du von außerhalb des Tisches nimmst, geht lang.",
+  "nl-NL": "Van buitenaf reiken — een korte bal die je van buiten de tafel neemt, gaat te lang."
+ },
+ "Reaching with the arm instead of the legs — every stretch was a ball you could step to.": {
+  "de-DE": "Mit dem Arm statt mit den Beinen hinlangen — jeden Ball, nach dem du dich gestreckt hast, hättest du auch erlaufen können.",
+  "nl-NL": "Met de arm reiken in plaats van met de benen — naar elke bal waar je naar reikte, had je ook kunnen stappen."
+ },
+ "Restrict the table and the tactic has nowhere to hide. Half-table games expose the player who only wins by hitting harder.": {
+  "de-DE": "Verkleinere den Tisch, und die Taktik kann sich nirgends verstecken. Spiele auf dem halben Tisch entlarven den Spieler, der nur gewinnt, weil er härter schlägt.",
+  "nl-NL": "Verklein de tafel en de tactiek kan zich nergens meer verstoppen. Spelletjes op een halve tafel ontmaskeren de speler die alleen wint door harder te slaan."
+ },
+ "Returning the same spin — a chop that comes back unchanged is a ball hit harder next.": {
+  "de-DE": "Mit demselben Schnitt zurückspielen — ein Unterschnittball, der unverändert zurückkommt, wird beim nächsten Mal härter geschlagen.",
+  "nl-NL": "Met hetzelfde effect terugspelen — een chop die onveranderd terugkomt, wordt de volgende keer harder geslagen."
+ },
+ "Serve to set up the third ball you already know you want to play. A great serve with no plan behind it wins one point by accident.": {
+  "de-DE": "Schlag so auf, dass du den dritten Ball vorbereitest, den du schon spielen willst. Ein toller Aufschlag ohne Plan dahinter gewinnt einen Punkt aus Zufall.",
+  "nl-NL": "Serveer om de derde bal voor te bereiden die je al weet te willen spelen. Een geweldige opslag zonder plan erachter wint per ongeluk één punt."
+ },
+ "Serving without a planned third ball — a great serve with no plan wins one point by luck.": {
+  "de-DE": "Aufschlagen ohne geplanten dritten Ball — ein toller Aufschlag ohne Plan gewinnt einen Punkt aus Glück.",
+  "nl-NL": "Serveren zonder geplande derde bal — een geweldige opslag zonder plan wint één punt met geluk."
+ },
+ "Short game": {
+  "de-DE": "Kurzes Spiel",
+  "nl-NL": "Kort spel"
+ },
+ "Step in with the right foot under the table and take it at the top of the bounce. Reaching from outside makes every short ball long.": {
+  "de-DE": "Geh mit dem rechten Fuß unter den Tisch und nimm den Ball am höchsten Punkt. Wer sich von außen hineinstreckt, spielt jeden kurzen Ball lang.",
+  "nl-NL": "Stap in met je rechtervoet onder de tafel en neem de bal op het hoogste punt. Van buitenaf reiken maakt van elke korte bal een lange."
+ },
+ "Trying to win by hitting harder — half-table games expose exactly that player.": {
+  "de-DE": "Gewinnen wollen, indem man härter schlägt — Spiele auf dem halben Tisch entlarven genau diesen Spieler.",
+  "nl-NL": "Willen winnen door harder te slaan — spelletjes op een halve tafel ontmaskeren precies die speler."
+ },
+ "a full game": {
+  "de-DE": "ein ganzer Satz",
+  "nl-NL": "een volledige game"
+ },
+ "against backspin": {
+  "de-DE": "gegen Unterschnitt",
+  "nl-NL": "tegen backspin"
+ },
+ "against the block": {
+  "de-DE": "gegen den Block",
+  "nl-NL": "tegen het blok"
+ },
+ "backhand to backhand": {
+  "de-DE": "Rückhand gegen Rückhand",
+  "nl-NL": "backhand op backhand"
+ },
+ "block against the drive": {
+  "de-DE": "Block gegen den Konterschlag",
+  "nl-NL": "blok tegen de drive"
+ },
+ "counter-drive": {
+  "de-DE": "Gegenkonter",
+  "nl-NL": "counterdrive"
+ },
+ "countering": {
+  "de-DE": "Topspin gegen Topspin",
+  "nl-NL": "topspin tegen topspin"
+ },
+ "doubles rotation": {
+  "de-DE": "Doppel mit Wechsel",
+  "nl-NL": "dubbelrotatie"
+ },
+ "down the middle": {
+  "de-DE": "über die Mitte",
+  "nl-NL": "door het midden"
+ },
+ "forehand to forehand": {
+  "de-DE": "Vorhand gegen Vorhand",
+  "nl-NL": "forehand op forehand"
+ },
+ "from the backhand corner": {
+  "de-DE": "aus der Rückhandecke",
+  "nl-NL": "vanuit de backhandhoek"
+ },
+ "from the wide forehand": {
+  "de-DE": "aus der weiten Vorhand",
+  "nl-NL": "vanuit de wijde forehand"
+ },
+ "half table": {
+  "de-DE": "halber Tisch",
+  "nl-NL": "halve tafel"
+ },
+ "half-long pushes": {
+  "de-DE": "halblange Schupfbälle",
+  "nl-NL": "halflange pushes"
+ },
+ "into the body": {
+  "de-DE": "auf den Körper",
+  "nl-NL": "op het lichaam"
+ },
+ "serve and receive only": {
+  "de-DE": "nur Aufschlag und Rückschlag",
+  "nl-NL": "alleen opslag en ontvangst"
+ },
+ "serve and third ball": {
+  "de-DE": "Aufschlag und dritter Ball",
+  "nl-NL": "opslag en derde bal"
+ },
+ "short backspin": {
+  "de-DE": "kurz mit Unterschnitt",
+  "nl-NL": "kort met backspin"
+ },
+ "short, then long": {
+  "de-DE": "kurz, dann lang",
+  "nl-NL": "kort, dan lang"
+ },
+ "side to side": {
+  "de-DE": "seitlich hin und her",
+  "nl-NL": "van links naar rechts"
+ },
+ "sidespin wide": {
+  "de-DE": "mit Seitenschnitt nach außen",
+  "nl-NL": "met zijspin wijd"
+ },
+ "the banana flick": {
+  "de-DE": "mit Bananen-Flip",
+  "nl-NL": "met de banaanflip"
+ },
+ "the chop block": {
+  "de-DE": "mit Schnittblock",
+  "nl-NL": "met het chopblok"
+ },
+ "the deep chop": {
+  "de-DE": "mit langer Unterschnittabwehr",
+  "nl-NL": "met de lange chop"
+ },
+ "the flick": {
+  "de-DE": "mit Flip",
+  "nl-NL": "met de flip"
+ },
+ "the lob and recover": {
+  "de-DE": "mit Ballonabwehr und zurück an den Tisch",
+  "nl-NL": "met de lob en terugkomen"
+ },
+ "the long push": {
+  "de-DE": "mit langem Schupf",
+  "nl-NL": "met de lange push"
+ },
+ "the smash": {
+  "de-DE": "mit Schuss",
+  "nl-NL": "met de smash"
+ },
+ "the touch": {
+  "de-DE": "mit Ablegen",
+  "nl-NL": "met kort terugleggen"
  }
 }

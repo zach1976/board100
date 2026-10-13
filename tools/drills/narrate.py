@@ -20,8 +20,8 @@ Verbs the narration knows, best first:
     pass-and-follow detected from geometry, not annotation
   - a run: any other movement, named by its dominant direction
 
-Twelve locales, the same set the drills ship. Adding a verb means adding
-twelve strings here — the price of text that is never machine-translated.
+Fourteen locales, the same set the drills ship. Adding a verb means adding
+fourteen strings here — the price of text that is never machine-translated.
 """
 from __future__ import annotations
 
@@ -45,6 +45,12 @@ for _f in sorted((_Path(__file__).parent / "i18n").glob("*.json")):
         _I18N.setdefault(_en, {}).update(_tr)
 
 
+# tools/drills/i18n_missing.py sets this to list every gap in one run
+# instead of stopping at the first: a miss is recorded and a marked
+# placeholder returned. The generator itself never sets it.
+_COLLECT = None  # dict: locale -> {english: {what, ...}}
+
+
 def _localized(text: dict, loc: str, what: str, drill_id: str) -> str:
     if text.get(loc):
         return text[loc]
@@ -52,12 +58,32 @@ def _localized(text: dict, loc: str, what: str, drill_id: str) -> str:
         return text["en"]
     hit = _I18N.get(text["en"], {}).get(loc)
     if not hit:
+        if _COLLECT is not None:
+            _COLLECT.setdefault(loc, {}).setdefault(text["en"], set()).add(what)
+            return f"[{loc}?] {text['en']}"
         raise ValueError(f"{drill_id}: {what} has no {loc} text (add it to "
                          f"tools/drills/i18n/): {text['en'][:80]!r}")
     return hit
 
 LOCALES = ["en", "en-GB", "zh-CN", "zh-TW", "ja-JP", "ko-KR", "es-ES",
-           "fr-FR", "id-ID", "ms-MY", "th-TH", "vi-VN"]
+           "fr-FR", "id-ID", "ms-MY", "th-TH", "vi-VN", "de-DE", "nl-NL"]
+
+# German and Dutch came after the other twelve. The drill texts written
+# positionally for twelve locales (names, purposes, mistakes, points…) get
+# these two from i18n/*.json by their English sentence, like the gear and
+# flow lines — and, like them, a missing one fails the build.
+EXTRA_LOCALES = ("de-DE", "nl-NL")
+
+
+def fill_extra(text, what: str, drill_id: str):
+    """[text] with de-DE / nl-NL added from the i18n tables where it has
+    none. Only these two: the other locales are left exactly as written."""
+    if not isinstance(text, dict) or "en" not in text:
+        return text
+    for loc in EXTRA_LOCALES:
+        if not text.get(loc):
+            text[loc] = _localized(text, loc, what, drill_id)
+    return text
 
 # ── section labels ──────────────────────────────────────────────────────────
 SECTION = {
@@ -68,6 +94,7 @@ SECTION = {
         "es-ES": "Objetivo: ", "fr-FR": "Objectif : ",
         "id-ID": "Tujuan: ", "ms-MY": "Tujuan: ",
         "th-TH": "จุดประสงค์: ", "vi-VN": "Mục đích: ",
+        "de-DE": "Ziel: ", "nl-NL": "Doel: ",
     },
     "freq": {
         "en": "Frequency: ", "en-GB": "Frequency: ",
@@ -76,6 +103,7 @@ SECTION = {
         "es-ES": "Frecuencia: ", "fr-FR": "Fréquence : ",
         "id-ID": "Frekuensi: ", "ms-MY": "Kekerapan: ",
         "th-TH": "ความถี่: ", "vi-VN": "Tần suất: ",
+        "de-DE": "Häufigkeit: ", "nl-NL": "Frequentie: ",
     },
     "origin": {
         "en": "Origin: ", "en-GB": "Origin: ",
@@ -84,6 +112,7 @@ SECTION = {
         "es-ES": "Origen: ", "fr-FR": "Origine : ",
         "id-ID": "Asal: ", "ms-MY": "Asal: ",
         "th-TH": "ที่มา: ", "vi-VN": "Nguồn gốc: ",
+        "de-DE": "Herkunft: ", "nl-NL": "Herkomst: ",
     },
     "setup": {
         "en": "Setup: ", "en-GB": "Setup: ",
@@ -92,6 +121,7 @@ SECTION = {
         "es-ES": "Montaje: ", "fr-FR": "Mise en place : ",
         "id-ID": "Persiapan: ", "ms-MY": "Persediaan: ",
         "th-TH": "การจัด: ", "vi-VN": "Bố trí: ",
+        "de-DE": "Aufbau: ", "nl-NL": "Opstelling: ",
     },
     "seq": {
         "en": "Sequence: ", "en-GB": "Sequence: ",
@@ -100,6 +130,7 @@ SECTION = {
         "es-ES": "Secuencia: ", "fr-FR": "Déroulé : ",
         "id-ID": "Urutan: ", "ms-MY": "Urutan: ",
         "th-TH": "ลำดับ: ", "vi-VN": "Trình tự: ",
+        "de-DE": "Ablauf: ", "nl-NL": "Verloop: ",
     },
     "route": {
         "en": "Ball path: ", "en-GB": "Ball path: ",
@@ -108,6 +139,7 @@ SECTION = {
         "es-ES": "Recorrido del balón: ", "fr-FR": "Trajet du ballon : ",
         "id-ID": "Jalur bola: ", "ms-MY": "Laluan bola: ",
         "th-TH": "เส้นทางบอล: ", "vi-VN": "Đường bóng: ",
+        "de-DE": "Ballweg: ", "nl-NL": "Balroute: ",
     },
     "gear": {
         "en": "Equipment: ", "en-GB": "Equipment: ",
@@ -116,6 +148,7 @@ SECTION = {
         "es-ES": "Material: ", "fr-FR": "Matériel : ",
         "id-ID": "Perlengkapan: ", "ms-MY": "Peralatan: ",
         "th-TH": "อุปกรณ์: ", "vi-VN": "Dụng cụ: ",
+        "de-DE": "Material: ", "nl-NL": "Materiaal: ",
     },
     "flow": {
         "en": "How it continues: ", "en-GB": "How it continues: ",
@@ -124,6 +157,7 @@ SECTION = {
         "es-ES": "Continuidad: ", "fr-FR": "Enchaînement : ",
         "id-ID": "Kelanjutan: ", "ms-MY": "Kesinambungan: ",
         "th-TH": "การต่อเนื่อง: ", "vi-VN": "Tiếp nối: ",
+        "de-DE": "So geht es weiter: ", "nl-NL": "Zo gaat het verder: ",
     },
     "rules": {
         "en": "Rules: ", "en-GB": "Rules: ",
@@ -132,6 +166,7 @@ SECTION = {
         "es-ES": "Reglas: ", "fr-FR": "Règles : ",
         "id-ID": "Aturan: ", "ms-MY": "Peraturan: ",
         "th-TH": "กติกา: ", "vi-VN": "Luật: ",
+        "de-DE": "Regeln: ", "nl-NL": "Regels: ",
     },
     "point": {
         "en": "Coaching point: ", "en-GB": "Coaching point: ",
@@ -140,6 +175,7 @@ SECTION = {
         "es-ES": "Punto clave: ", "fr-FR": "Point clé : ",
         "id-ID": "Poin utama: ", "ms-MY": "Poin utama: ",
         "th-TH": "จุดเน้น: ", "vi-VN": "Điểm chính: ",
+        "de-DE": "Coachingpunkt: ", "nl-NL": "Coachingpunt: ",
     },
 }
 
@@ -153,6 +189,7 @@ BEAT = {
     "es-ES": "Paso {n}: ", "fr-FR": "Étape {n} : ",
     "id-ID": "Langkah {n}: ", "ms-MY": "Langkah {n}: ",
     "th-TH": "ขั้นที่ {n}: ", "vi-VN": "Bước {n}: ",
+    "de-DE": "Schritt {n}: ", "nl-NL": "Stap {n}: ",
 }
 
 # separators: inside a beat / between beats / end of section
@@ -160,16 +197,19 @@ AND = {
     "en": ", ", "en-GB": ", ", "zh-CN": "，", "zh-TW": "，",
     "ja-JP": "、", "ko-KR": ", ", "es-ES": ", ", "fr-FR": ", ",
     "id-ID": ", ", "ms-MY": ", ", "th-TH": " ", "vi-VN": ", ",
+    "de-DE": ", ", "nl-NL": ", ",
 }
 SEMI = {
     "en": "; ", "en-GB": "; ", "zh-CN": "；", "zh-TW": "；",
     "ja-JP": "。", "ko-KR": "; ", "es-ES": "; ", "fr-FR": " ; ",
     "id-ID": "; ", "ms-MY": "; ", "th-TH": " • ", "vi-VN": "; ",
+    "de-DE": "; ", "nl-NL": "; ",
 }
 DOT = {
     "en": ". ", "en-GB": ". ", "zh-CN": "。", "zh-TW": "。",
     "ja-JP": "。", "ko-KR": ". ", "es-ES": ". ", "fr-FR": ". ",
     "id-ID": ". ", "ms-MY": ". ", "th-TH": " ", "vi-VN": ". ",
+    "de-DE": ". ", "nl-NL": ". ",
 }
 
 # ── verbs ───────────────────────────────────────────────────────────────────
@@ -182,6 +222,7 @@ PASS = {
     "es-ES": "{a} pasa a {b}", "fr-FR": "{a} passe à {b}",
     "id-ID": "{a} mengoper ke {b}", "ms-MY": "{a} menghantar kepada {b}",
     "th-TH": "{a} จ่ายให้ {b}", "vi-VN": "{a} chuyền cho {b}",
+    "de-DE": "{a} passt zu {b}", "nl-NL": "{a} passt naar {b}",
 }
 # Net sports: the ball crosses to the other side, "hit" reads better than
 # "pass" for a shuttle or a spiked ball.
@@ -192,6 +233,7 @@ HIT = {
     "es-ES": "{a} la juega hacia {b}", "fr-FR": "{a} joue vers {b}",
     "id-ID": "{a} memukul ke {b}", "ms-MY": "{a} memukul ke arah {b}",
     "th-TH": "{a} ตีไปที่ {b}", "vi-VN": "{a} đánh sang {b}",
+    "de-DE": "{a} spielt zu {b}", "nl-NL": "{a} speelt naar {b}",
 }
 THROW = {
     "en": "{a} throws to {b}", "en-GB": "{a} throws to {b}",
@@ -200,6 +242,7 @@ THROW = {
     "es-ES": "{a} lanza a {b}", "fr-FR": "{a} lance à {b}",
     "id-ID": "{a} melempar ke {b}", "ms-MY": "{a} membaling kepada {b}",
     "th-TH": "{a} ขว้างให้ {b}", "vi-VN": "{a} ném cho {b}",
+    "de-DE": "{a} wirft zu {b}", "nl-NL": "{a} gooit naar {b}",
 }
 PASS_SPOT = {
     "en": "{a} plays the ball into space", "en-GB": "{a} plays the ball into space",
@@ -210,6 +253,7 @@ PASS_SPOT = {
     "id-ID": "{a} memainkan bola ke titik berikutnya",
     "ms-MY": "{a} memainkan bola ke titik seterusnya",
     "th-TH": "{a} ส่งบอลไปจุดถัดไป", "vi-VN": "{a} đưa bóng tới điểm kế tiếp",
+    "de-DE": "{a} spielt den Ball in den freien Raum", "nl-NL": "{a} speelt de bal in de vrije ruimte",
 }
 CARRY = {
     "en": "{a} carries the ball on the move",
@@ -219,6 +263,7 @@ CARRY = {
     "es-ES": "{a} conduce el balón", "fr-FR": "{a} conduit le ballon",
     "id-ID": "{a} menggiring bola", "ms-MY": "{a} membawa bola",
     "th-TH": "{a} พาบอลไป", "vi-VN": "{a} dẫn bóng di chuyển",
+    "de-DE": "{a} nimmt den Ball mit", "nl-NL": "{a} neemt de bal mee",
 }
 # Two balls carried on one beat, one each: "A, B carries the ball on the
 # move" was one verb with two subjects.
@@ -232,12 +277,14 @@ CARRY_EACH = {
     "id-ID": "{a} masing-masing menggiring bola",
     "ms-MY": "{a} masing-masing membawa bola",
     "th-TH": "{a} ต่างคนต่างพาบอลไป", "vi-VN": "{a} mỗi người dẫn một quả bóng di chuyển",
+    "de-DE": "{a} nehmen jeweils einen Ball mit", "nl-NL": "{a} nemen elk een bal mee",
 }
 # The last two names of a list joined the way the language joins them.
 AND_LAST = {
     "en": " and ", "en-GB": " and ", "zh-CN": "和", "zh-TW": "和",
     "ja-JP": "と", "ko-KR": ", ", "es-ES": " y ", "fr-FR": " et ",
     "id-ID": " dan ", "ms-MY": " dan ", "th-TH": " และ ", "vi-VN": " và ",
+    "de-DE": " und ", "nl-NL": " en ",
 }
 # The ball put up by hand for a team-mate to strike — the inside player's
 # toss to the tekong — is not a shot "played to" him.
@@ -248,6 +295,7 @@ TOSS = {
     "es-ES": "{a} se la lanza a {b}", "fr-FR": "{a} lance la balle à {b}",
     "id-ID": "{a} melambungkan bola ke {b}", "ms-MY": "{a} melambung bola kepada {b}",
     "th-TH": "{a} โยนลูกให้ {b}", "vi-VN": "{a} tung bóng cho {b}",
+    "de-DE": "{a} wirft den Ball für {b} hoch", "nl-NL": "{a} gooit de bal op voor {b}",
 }
 # A coach feeding from the basket (multiball) is feeding, not playing.
 FEEDS = {
@@ -257,6 +305,7 @@ FEEDS = {
     "es-ES": "{a} le da bola a {b}", "fr-FR": "{a} distribue la balle à {b}",
     "id-ID": "{a} mengumpan bola ke {b}", "ms-MY": "{a} menyuap bola kepada {b}",
     "th-TH": "{a} ป้อนลูกให้ {b}", "vi-VN": "{a} mớm bóng cho {b}",
+    "de-DE": "{a} spielt {b} den Ball zu", "nl-NL": "{a} speelt {b} de bal toe",
 }
 # A ball that starts loose (a served ball, an opponent's pass into the
 # board): there is no holder to name, so the ball itself is the subject.
@@ -267,11 +316,13 @@ PASS_IN = {
     "es-ES": "el balón llega a {b}", "fr-FR": "le ballon arrive sur {b}",
     "id-ID": "bola dimainkan ke {b}", "ms-MY": "bola dimainkan kepada {b}",
     "th-TH": "บอลถูกส่งมาที่ {b}", "vi-VN": "bóng được đưa tới {b}",
+    "de-DE": "der Ball kommt zu {b}", "nl-NL": "de bal komt bij {b}",
 }
 GOAL_WORD = {
     "en": "goal", "en-GB": "goal", "zh-CN": "球门", "zh-TW": "球門",
     "ja-JP": "ゴール", "ko-KR": "골문", "es-ES": "portería", "fr-FR": "but",
     "id-ID": "gawang", "ms-MY": "gol", "th-TH": "ประตู", "vi-VN": "khung thành",
+    "de-DE": "Tor", "nl-NL": "doel",
 }
 # What the far end of the board is called in each sport. "goal" is right for
 # four of the fifteen; a basketball coach shoots at the basket, a rugby kicker
@@ -281,18 +332,21 @@ BASKET_WORD = {
     "en": "basket", "en-GB": "basket", "zh-CN": "篮筐", "zh-TW": "籃框",
     "ja-JP": "リング", "ko-KR": "림", "es-ES": "canasta", "fr-FR": "panier",
     "id-ID": "ring", "ms-MY": "jaring", "th-TH": "ห่วง", "vi-VN": "rổ",
+    "de-DE": "Korb", "nl-NL": "basket",
 }
 POSTS_WORD = {
     "en": "the posts", "en-GB": "the posts", "zh-CN": "门柱", "zh-TW": "門柱",
     "ja-JP": "ポスト", "ko-KR": "골포스트", "es-ES": "los palos",
     "fr-FR": "les poteaux", "id-ID": "tiang gawang", "ms-MY": "tiang gol",
     "th-TH": "เสาประตู", "vi-VN": "cột gôn",
+    "de-DE": "die Malstangen", "nl-NL": "de palen",
 }
 PLATE_WORD = {
     "en": "the plate", "en-GB": "the plate", "zh-CN": "本垒", "zh-TW": "本壘",
     "ja-JP": "ホームベース", "ko-KR": "홈플레이트", "es-ES": "el plato",
     "fr-FR": "le marbre", "id-ID": "home plate", "ms-MY": "home plate",
     "th-TH": "โฮมเพลต", "vi-VN": "gôn nhà",
+    "de-DE": "die Home Plate", "nl-NL": "de thuisplaat",
 }
 DEEP_WORD = {
     "en": "deep court", "en-GB": "deep court", "zh-CN": "后场深区",
@@ -300,6 +354,7 @@ DEEP_WORD = {
     "es-ES": "el fondo de la pista", "fr-FR": "le fond du court",
     "id-ID": "lapangan belakang", "ms-MY": "bahagian belakang gelanggang",
     "th-TH": "ท้ายคอร์ต", "vi-VN": "cuối sân",
+    "de-DE": "hinteres Feld", "nl-NL": "achterveld",
 }
 BACK_TO_START = {
     "en": "back to the start", "en-GB": "back to the start",
@@ -308,6 +363,7 @@ BACK_TO_START = {
     "es-ES": "de vuelta al inicio", "fr-FR": "retour au départ",
     "id-ID": "kembali ke awal", "ms-MY": "kembali ke permulaan",
     "th-TH": "กลับจุดเริ่ม", "vi-VN": "về điểm xuất phát",
+    "de-DE": "zurück zum Start", "nl-NL": "terug naar het begin",
 }
 NET_WORD = {
     "en": "the net", "en-GB": "the net", "zh-CN": "网前",
@@ -315,6 +371,7 @@ NET_WORD = {
     "es-ES": "la red", "fr-FR": "le filet",
     "id-ID": "depan net", "ms-MY": "depan jaring",
     "th-TH": "หน้าเน็ต", "vi-VN": "sát lưới",
+    "de-DE": "das Netz", "nl-NL": "het net",
 }
 HIT_NET = {
     "en": "{a} plays it to the net", "en-GB": "{a} plays it to the net",
@@ -323,6 +380,7 @@ HIT_NET = {
     "es-ES": "{a} la deja en la red", "fr-FR": "{a} la pose au filet",
     "id-ID": "{a} memukul ke depan net", "ms-MY": "{a} memukul ke depan jaring",
     "th-TH": "{a} ตีไปหน้าเน็ต", "vi-VN": "{a} đánh sát lưới",
+    "de-DE": "{a} spielt kurz ans Netz", "nl-NL": "{a} speelt kort bij het net",
 }
 SPOT_WORD = {
     "en": "the open space", "en-GB": "the open space", "zh-CN": "空当",
@@ -330,6 +388,7 @@ SPOT_WORD = {
     "es-ES": "el espacio libre", "fr-FR": "l'espace libre",
     "id-ID": "titik kosong", "ms-MY": "ruang kosong",
     "th-TH": "จุดว่าง", "vi-VN": "vị trí trống",
+    "de-DE": "der freie Raum", "nl-NL": "de vrije ruimte",
 }
 # A shot at a goal — soccer/hockey/handball/water polo.
 SHOOT = {
@@ -339,6 +398,7 @@ SHOOT = {
     "es-ES": "{a} remata", "fr-FR": "{a} frappe",
     "id-ID": "{a} menembak", "ms-MY": "{a} menjaring",
     "th-TH": "{a} ยิงประตู", "vi-VN": "{a} dứt điểm",
+    "de-DE": "{a} schließt ab", "nl-NL": "{a} rondt af",
 }
 # Basketball puts up a shot at the basket, not a 射门 at a goal — the word a
 # basketball coach uses is different in most languages.
@@ -349,6 +409,7 @@ SHOOT_HOOP = {
     "es-ES": "{a} lanza a canasta", "fr-FR": "{a} tire au panier",
     "id-ID": "{a} melepaskan tembakan", "ms-MY": "{a} melepaskan jaringan",
     "th-TH": "{a} ยิงเข้าห่วง", "vi-VN": "{a} ném rổ",
+    "de-DE": "{a} wirft auf den Korb", "nl-NL": "{a} schiet op de basket",
 }
 KICK_POSTS = {
     "en": "{a} kicks at the posts", "en-GB": "{a} kicks at the posts",
@@ -357,6 +418,7 @@ KICK_POSTS = {
     "es-ES": "{a} patea a los palos", "fr-FR": "{a} tente les poteaux",
     "id-ID": "{a} menendang ke tiang", "ms-MY": "{a} menendang ke tiang gol",
     "th-TH": "{a} เตะเข้าเสา", "vi-VN": "{a} đá vào cột gôn",
+    "de-DE": "{a} kickt auf das Mal", "nl-NL": "{a} trapt op de palen",
 }
 PITCH = {
     "en": "{a} pitches", "en-GB": "{a} pitches",
@@ -365,6 +427,7 @@ PITCH = {
     "es-ES": "{a} lanza", "fr-FR": "{a} lance",
     "id-ID": "{a} melempar", "ms-MY": "{a} membaling",
     "th-TH": "{a} ขว้าง", "vi-VN": "{a} ném bóng",
+    "de-DE": "{a} pitcht", "nl-NL": "{a} gooit de pitch",
 }
 # Net sports: a ball played to a point is hit there, deep or to a spot.
 HIT_DEEP = {
@@ -374,6 +437,7 @@ HIT_DEEP = {
     "es-ES": "{a} la juega al fondo", "fr-FR": "{a} joue long",
     "id-ID": "{a} memukul ke belakang", "ms-MY": "{a} memukul ke belakang",
     "th-TH": "{a} ตีลึก", "vi-VN": "{a} đánh sâu",
+    "de-DE": "{a} spielt lang", "nl-NL": "{a} speelt diep",
 }
 HIT_SPOT = {
     "en": "{a} plays it to the spot", "en-GB": "{a} plays it to the spot",
@@ -382,6 +446,7 @@ HIT_SPOT = {
     "es-ES": "{a} la coloca en el punto", "fr-FR": "{a} la place sur la zone",
     "id-ID": "{a} memukul ke titik sasaran", "ms-MY": "{a} memukul ke titik sasaran",
     "th-TH": "{a} ตีไปที่จุดเป้า", "vi-VN": "{a} đánh vào điểm rơi",
+    "de-DE": "{a} spielt auf den Zielpunkt", "nl-NL": "{a} plaatst de bal op de gekozen plek",
 }
 # In a net sport nobody carries the ball; a leg that stays with the holder
 # is the player getting under it — the toss, the approach, the set-up step.
@@ -393,6 +458,7 @@ HIT_MOVE = {
     "es-ES": "{a} se coloca para golpear", "fr-FR": "{a} se place pour frapper",
     "id-ID": "{a} mengambil posisi memukul", "ms-MY": "{a} mengambil posisi memukul",
     "th-TH": "{a} เข้าตำแหน่งตี", "vi-VN": "{a} vào vị trí đánh bóng",
+    "de-DE": "{a} geht in Schlagposition", "nl-NL": "{a} stelt zich op om te slaan",
 }
 # A loose ball fed from the player's own side of the net (a coach's toss,
 # a partner's throw) has not crossed anything.
@@ -403,6 +469,7 @@ FEED = {
     "es-ES": "{b} recibe el envío", "fr-FR": "{b} reçoit l'envoi",
     "id-ID": "{b} menerima umpan latihan", "ms-MY": "{b} menerima suapan",
     "th-TH": "{b} รับลูกป้อน", "vi-VN": "{b} nhận bóng mớm",
+    "de-DE": "{b} nimmt das Zuspiel an", "nl-NL": "{b} krijgt de bal aangespeeld",
 }
 # A loose ball in a net sport is on its way over the net, not "passed".
 PASS_IN_NET = {
@@ -412,6 +479,7 @@ PASS_IN_NET = {
     "es-ES": "la bola pasa al lado de {b}", "fr-FR": "la balle arrive côté {b}",
     "id-ID": "bola menyeberang ke {b}", "ms-MY": "bola menyeberang ke {b}",
     "th-TH": "ลูกข้ามมาฝั่ง {b}", "vi-VN": "bóng sang phần sân {b}",
+    "de-DE": "der Ball kommt zu {b} herüber", "nl-NL": "de bal komt over naar {b}",
 }
 # The ball going to the OTHER side in an invasion sport is never a pass: it
 # is a shot the keeper deals with, a kick downfield, a feed into the
@@ -424,6 +492,7 @@ SHOT_AT_KEEPER = {
     "id-ID": "{a} menembak, {b} menyelamatkan",
     "ms-MY": "{a} menembak, {b} menyelamat",
     "th-TH": "{a} ยิง {b} เซฟ", "vi-VN": "{a} sút, {b} cản phá",
+    "de-DE": "{a} schießt, {b} hält", "nl-NL": "{a} schiet, {b} redt",
 }
 KEEPER_OUT = {
     "en": "{a} distributes to {b}", "en-GB": "{a} distributes to {b}",
@@ -432,6 +501,7 @@ KEEPER_OUT = {
     "es-ES": "{a} saca para {b}", "fr-FR": "{a} relance sur {b}",
     "id-ID": "{a} mendistribusikan ke {b}", "ms-MY": "{a} mengagihkan kepada {b}",
     "th-TH": "{a} จ่ายออกให้ {b}", "vi-VN": "{a} phát bóng cho {b}",
+    "de-DE": "{a} eröffnet auf {b}", "nl-NL": "{a} speelt uit naar {b}",
 }
 KICK_TO = {
     "en": "{a} kicks to {b}", "en-GB": "{a} kicks to {b}",
@@ -440,6 +510,7 @@ KICK_TO = {
     "es-ES": "{a} patea hacia {b}", "fr-FR": "{a} tape vers {b}",
     "id-ID": "{a} menendang ke {b}", "ms-MY": "{a} menendang ke {b}",
     "th-TH": "{a} เตะไปหา {b}", "vi-VN": "{a} đá về phía {b}",
+    "de-DE": "{a} kickt zu {b}", "nl-NL": "{a} trapt naar {b}",
 }
 # A leg from one side to the other is a turnover: nobody passes to an
 # opponent. "The ball goes from 11 to 3" read as exactly that — 11 giving
@@ -453,6 +524,7 @@ CHANGES_HANDS = {
     "id-ID": "{b} merebut bola dari {a}",
     "ms-MY": "{b} merampas bola daripada {a}",
     "th-TH": "{b} แย่งบอลจาก {a}", "vi-VN": "{b} đoạt bóng từ {a}",
+    "de-DE": "{b} erobert den Ball von {a}", "nl-NL": "{b} verovert de bal op {a}",
 }
 # …and from a distance it was handed on, not won: the ball given to the
 # other side to start the next rep.
@@ -471,6 +543,7 @@ HANDS_OFF = {
     "ms-MY": "{a} menyerahkan bola terus kepada {b}",
     "th-TH": "{a} ส่งบอลมือต่อมือให้ {b}",
     "vi-VN": "{a} trao bóng tận tay cho {b}",
+    "de-DE": "{a} übergibt {b} den Ball aus der Hand", "nl-NL": "{a} geeft de bal uit de hand aan {b}",
 }
 # How far the ball may travel and still be a handoff rather than a pass: about
 # one figure's width on the drill canvas.
@@ -492,6 +565,7 @@ HANDS_OVER = {
     "id-ID": "{a} memberikan bola ke {b} untuk ulangan berikutnya",
     "ms-MY": "{a} memberikan bola kepada {b} untuk ulangan seterusnya",
     "th-TH": "{a} ส่งบอลให้ {b} เพื่อเริ่มรอบถัดไป", "vi-VN": "{a} trao bóng cho {b} để bắt đầu lượt tiếp",
+    "de-DE": "{a} gibt den Ball für die nächste Wiederholung an {b}", "nl-NL": "{a} geeft de bal aan {b} voor de volgende herhaling",
 }
 # Several players wearing the same letter doing the same thing: "3 Ds move
 # back", not "D, D, D moves back".
@@ -500,6 +574,7 @@ COUNTED = {
     "zh-TW": "{n} 名 {a}", "ja-JP": "{a}{n}人", "ko-KR": "{a} {n}명",
     "es-ES": "{n} {a}", "fr-FR": "{n} {a}", "id-ID": "{n} {a}",
     "ms-MY": "{n} {a}", "th-TH": "{a} {n} คน", "vi-VN": "{n} {a}",
+    "de-DE": "{n} {a}", "nl-NL": "{n} {a}",
 }
 # The whole side moving the same way is one idea, not ten subjects.
 ALL_MOVE = {
@@ -509,6 +584,7 @@ ALL_MOVE = {
     "es-ES": "todo el equipo bascula {dir}", "fr-FR": "tout le bloc coulisse {dir}",
     "id-ID": "seluruh tim bergerak {dir}", "ms-MY": "seluruh pasukan bergerak {dir}",
     "th-TH": "ทั้งทีมขยับ{dir}", "vi-VN": "cả đội di chuyển {dir}",
+    "de-DE": "die ganze Mannschaft verschiebt {dir}", "nl-NL": "het hele team schuift {dir}",
 }
 
 # With a known destination (the spot the receiver vacates) the follow reads
@@ -531,6 +607,7 @@ FOLLOW = {
     "ms-MY": "{a} naik di belakang {to}",
     "th-TH": "{a} ตามขึ้นไปด้านหลัง{to}",
     "vi-VN": "{a} theo lên phía sau {to}",
+    "de-DE": "{a} rückt hinter {to} nach", "nl-NL": "{a} sluit aan achter {to}",
 }
 # Across a net there is no support to run up in: the man who just played
 # the shuttle and now moves towards it is closing the net — a feeder
@@ -544,6 +621,7 @@ CLOSES_NET = {
     "es-ES": "{a} se adelanta", "fr-FR": "{a} avance",
     "id-ID": "{a} maju", "ms-MY": "{a} mara",
     "th-TH": "{a} ขยับเข้าไป", "vi-VN": "{a} tiến lên",
+    "de-DE": "{a} rückt vor", "nl-NL": "{a} komt naar voren",
 }
 FOLLOW_PLAIN = {
     "en": "{a} runs up in support", "en-GB": "{a} runs up in support",
@@ -552,6 +630,7 @@ FOLLOW_PLAIN = {
     "es-ES": "{a} sube en apoyo", "fr-FR": "{a} monte en soutien",
     "id-ID": "{a} maju mendukung", "ms-MY": "{a} naik menyokong",
     "th-TH": "{a} ขึ้นไปสนับสนุน", "vi-VN": "{a} dâng lên hỗ trợ",
+    "de-DE": "{a} rückt zur Unterstützung nach", "nl-NL": "{a} komt mee ter ondersteuning",
 }
 RUN = {
     "en": "{a} moves {dir}", "en-GB": "{a} moves {dir}",
@@ -560,7 +639,11 @@ RUN = {
     "es-ES": "{a} se desplaza {dir}", "fr-FR": "{a} se déplace {dir}",
     "id-ID": "{a} bergerak {dir}", "ms-MY": "{a} bergerak {dir}",
     "th-TH": "{a} ขยับ{dir}", "vi-VN": "{a} di chuyển {dir}",
+    "de-DE": "{a} bewegt sich {dir}", "nl-NL": "{a} beweegt {dir}",
 }
+# German and Dutch conjugate for several subjects, as English does.
+RUN_PLURAL = {"de-DE": (" bewegt sich ", " bewegen sich "),
+              "nl-NL": (" beweegt ", " bewegen ")}
 # Directions in board space: -y is toward the top of the phone. Whether that
 # is "forward" depends on which half the player is in, which is more theory
 # than a warm-up needs — up/down/left/right in pitch terms is unambiguous.
@@ -569,19 +652,23 @@ DIR = {
            "zh-TW": "向前", "ja-JP": "前方", "ko-KR": "앞으로",
            "es-ES": "hacia delante", "fr-FR": "vers l'avant",
            "id-ID": "ke depan", "ms-MY": "ke hadapan", "th-TH": "ไปข้างหน้า",
-           "vi-VN": "lên phía trước"},
+           "vi-VN": "lên phía trước",
+             "de-DE": "nach vorn", "nl-NL": "naar voren"},
     "down": {"en": "back", "en-GB": "back", "zh-CN": "向后", "zh-TW": "向後",
              "ja-JP": "後方", "ko-KR": "뒤로", "es-ES": "hacia atrás",
              "fr-FR": "vers l'arrière", "id-ID": "ke belakang",
-             "ms-MY": "ke belakang", "th-TH": "ถอยหลัง", "vi-VN": "lùi lại"},
+             "ms-MY": "ke belakang", "th-TH": "ถอยหลัง", "vi-VN": "lùi lại",
+             "de-DE": "nach hinten", "nl-NL": "naar achteren"},
     "left": {"en": "left", "en-GB": "left", "zh-CN": "向左", "zh-TW": "向左",
              "ja-JP": "左", "ko-KR": "왼쪽으로", "es-ES": "a la izquierda",
              "fr-FR": "à gauche", "id-ID": "ke kiri", "ms-MY": "ke kiri",
-             "th-TH": "ไปทางซ้าย", "vi-VN": "sang trái"},
+             "th-TH": "ไปทางซ้าย", "vi-VN": "sang trái",
+             "de-DE": "nach links", "nl-NL": "naar links"},
     "right": {"en": "right", "en-GB": "right", "zh-CN": "向右", "zh-TW": "向右",
               "ja-JP": "右", "ko-KR": "오른쪽으로", "es-ES": "a la derecha",
               "fr-FR": "à droite", "id-ID": "ke kanan", "ms-MY": "ke kanan",
-              "th-TH": "ไปทางขวา", "vi-VN": "sang phải"},
+              "th-TH": "ไปทางขวา", "vi-VN": "sang phải",
+             "de-DE": "nach rechts", "nl-NL": "naar rechts"},
 }
 
 # Separator between names in a list, per locale.
@@ -594,6 +681,7 @@ SETUP_PLAYERS = {
     "zh-TW": "{n} 人", "ja-JP": "{n}人", "ko-KR": "{n}명",
     "es-ES": "{n} jugadores", "fr-FR": "{n} joueurs", "id-ID": "{n} pemain",
     "ms-MY": "{n} pemain", "th-TH": "ผู้เล่น {n} คน", "vi-VN": "{n} cầu thủ",
+    "de-DE": "{n} Spieler", "nl-NL": "{n} spelers",
 }
 SETUP_VS = {
     "en": "{h} v {a}", "en-GB": "{h} v {a}", "zh-CN": "{h} 对 {a}",
@@ -601,6 +689,7 @@ SETUP_VS = {
     "es-ES": "{h} contra {a}", "fr-FR": "{h} contre {a}",
     "id-ID": "{h} lawan {a}", "ms-MY": "{h} lawan {a}",
     "th-TH": "{h} ต่อ {a}", "vi-VN": "{h} đấu {a}",
+    "de-DE": "{h} gegen {a}", "nl-NL": "{h} tegen {a}",
 }
 # Who the letters on the board are. A shirt number is a position a coach
 # already reads; a letter is not, and "5 v 3" left a reader working out
@@ -613,6 +702,7 @@ SETUP_SIDE = {
     "es-ES": "{side}: {names}", "fr-FR": "{side} : {names}",
     "id-ID": "{side}: {names}", "ms-MY": "{side}: {names}",
     "th-TH": "{side}: {names}", "vi-VN": "{side}: {names}",
+    "de-DE": "{side}: {names}", "nl-NL": "{side}: {names}",
 }
 # Named by the colour they are drawn in, because that is what a reader
 # matches the letters against: home is blue on every board, away red.
@@ -622,6 +712,7 @@ SIDE_KEEP = {
     "es-ES": "azules", "fr-FR": "les bleus",
     "id-ID": "tim biru", "ms-MY": "pasukan biru",
     "th-TH": "ทีมน้ำเงิน", "vi-VN": "đội xanh",
+    "de-DE": "Blau", "nl-NL": "blauw",
 }
 SIDE_PRESS = {
     "en": "red", "en-GB": "red",
@@ -629,12 +720,14 @@ SIDE_PRESS = {
     "es-ES": "rojos", "fr-FR": "les rouges",
     "id-ID": "tim merah", "ms-MY": "pasukan merah",
     "th-TH": "ทีมแดง", "vi-VN": "đội đỏ",
+    "de-DE": "Rot", "nl-NL": "rood",
 }
 SETUP_CONES = {
     "en": "{n} cones", "en-GB": "{n} cones", "zh-CN": "{n} 个锥标",
     "zh-TW": "{n} 個錐標", "ja-JP": "コーン{n}個", "ko-KR": "콘 {n}개",
     "es-ES": "{n} conos", "fr-FR": "{n} plots", "id-ID": "{n} kerucut",
     "ms-MY": "{n} kon", "th-TH": "กรวย {n} อัน", "vi-VN": "{n} cọc",
+    "de-DE": "{n} Hütchen", "nl-NL": "{n} pionnen",
 }
 # The languages that count. Until a drill was cut down to a single cone
 # every board had two or more and the plural was never wrong; "1 cones"
@@ -643,6 +736,7 @@ SETUP_CONES = {
 SETUP_CONE_1 = {
     "en": "1 cone", "en-GB": "1 cone", "es-ES": "1 cono", "fr-FR": "1 plot",
     "id-ID": "1 kerucut", "ms-MY": "1 kon",
+    "de-DE": "1 Hütchen", "nl-NL": "1 pion",
 }
 SETUP_BALL_AT = {
     "en": "ball with {a}", "en-GB": "ball with {a}", "zh-CN": "球在 {a} 脚下",
@@ -650,6 +744,7 @@ SETUP_BALL_AT = {
     "es-ES": "balón con {a}", "fr-FR": "ballon avec {a}",
     "id-ID": "bola pada {a}", "ms-MY": "bola dengan {a}",
     "th-TH": "บอลอยู่ที่ {a}", "vi-VN": "bóng ở chỗ {a}",
+    "de-DE": "Ball bei {a}", "nl-NL": "bal bij {a}",
 }
 # "At his feet" is a football phrase. Chinese names where the ball is, so a
 # setter, a pitcher or a server has it 手中 and a hockey player 杆下; the
@@ -690,6 +785,7 @@ LONE = {
     "zh-CN": "球员", "zh-TW": "球員", "ja-JP": "選手", "ko-KR": "선수",
     "es-ES": "el jugador", "fr-FR": "le joueur", "id-ID": "pemain",
     "ms-MY": "pemain", "th-TH": "ผู้เล่น", "vi-VN": "cầu thủ",
+    "de-DE": "der Spieler", "nl-NL": "de speler",
 }
 
 
@@ -835,6 +931,7 @@ RUGBY_KICK = {
     "es-ES": "{a} patea", "fr-FR": "{a} tape au pied",
     "id-ID": "{a} menendang bola", "ms-MY": "{a} menyepak bola",
     "th-TH": "{a} เตะบอล", "vi-VN": "{a} đá bóng",
+    "de-DE": "{a} kickt", "nl-NL": "{a} trapt",
 }
 RUGBY_BACK = {
     "en": "{a} plays the ball back", "en-GB": "{a} plays the ball back",
@@ -845,6 +942,7 @@ RUGBY_BACK = {
     "id-ID": "{a} mengeluarkan bola ke belakang",
     "ms-MY": "{a} mengeluarkan bola ke belakang",
     "th-TH": "{a} ส่งบอลออกไปด้านหลัง", "vi-VN": "{a} đưa bóng ra phía sau",
+    "de-DE": "{a} legt den Ball nach hinten ab", "nl-NL": "{a} speelt de bal naar achteren",
 }
 RUGBY_FEED = {
     "en": "{a} feeds the ball into the scrum",
@@ -856,6 +954,7 @@ RUGBY_FEED = {
     "id-ID": "{a} memasukkan bola ke scrum",
     "ms-MY": "{a} memasukkan bola ke dalam scrum",
     "th-TH": "{a} ป้อนบอลเข้าสกรัม", "vi-VN": "{a} đưa bóng vào scrum",
+    "de-DE": "{a} wirft den Ball ins Gedränge ein", "nl-NL": "{a} brengt de bal in de scrum in",
 }
 RUGBY_THROW_IN = {
     "en": "{a} throws in", "en-GB": "{a} throws in",
@@ -864,6 +963,7 @@ RUGBY_THROW_IN = {
     "es-ES": "{a} lanza la touche", "fr-FR": "{a} lance en touche",
     "id-ID": "{a} melempar lineout", "ms-MY": "{a} membaling lineout",
     "th-TH": "{a} โยนไลน์เอาต์", "vi-VN": "{a} ném biên",
+    "de-DE": "{a} wirft ein", "nl-NL": "{a} gooit in",
 }
 RUGBY_TAKE = {
     "en": "{a} takes the ball", "en-GB": "{a} takes the ball",
@@ -872,6 +972,7 @@ RUGBY_TAKE = {
     "es-ES": "{a} se hace con el balón", "fr-FR": "{a} récupère le ballon",
     "id-ID": "{a} menguasai bola", "ms-MY": "{a} menguasai bola",
     "th-TH": "{a} เก็บบอลได้", "vi-VN": "{a} giữ được bóng",
+    "de-DE": "{a} sichert den Ball", "nl-NL": "{a} pakt de bal",
 }
 RUGBY_TRY = {
     "en": "{a} scores the try", "en-GB": "{a} scores the try",
@@ -880,6 +981,7 @@ RUGBY_TRY = {
     "es-ES": "{a} posa el ensayo", "fr-FR": "{a} aplatit l'essai",
     "id-ID": "{a} mencetak try", "ms-MY": "{a} menjaringkan try",
     "th-TH": "{a} วางทรัย", "vi-VN": "{a} ghi try",
+    "de-DE": "{a} legt den Versuch", "nl-NL": "{a} scoort de try",
 }
 
 
@@ -915,6 +1017,7 @@ RUGBY_ZONE_WORD = {
     "ko-KR": "낙하 지점", "es-ES": "la zona de caída",
     "fr-FR": "la zone de chute", "id-ID": "zona jatuh",
     "ms-MY": "zon jatuhan", "th-TH": "โซนตก", "vi-VN": "vùng bóng rơi",
+    "de-DE": "die Landezone", "nl-NL": "de landingszone",
 }
 RUGBY_TOUCH_WORD = {
     "en": "the line of touch", "en-GB": "the line of touch",
@@ -922,12 +1025,14 @@ RUGBY_TOUCH_WORD = {
     "ko-KR": "라인 오브 터치", "es-ES": "la línea de touche",
     "fr-FR": "la ligne de touche", "id-ID": "garis lemparan",
     "ms-MY": "garisan lontaran", "th-TH": "แนวไลน์เอาต์", "vi-VN": "đường ném biên",
+    "de-DE": "die Einwurflinie", "nl-NL": "de inworplijn",
 }
 RUGBY_GROUND_WORD = {
     "en": "the ground", "en-GB": "the ground",
     "zh-CN": "地面", "zh-TW": "地面", "ja-JP": "地面", "ko-KR": "땅",
     "es-ES": "el suelo", "fr-FR": "le sol", "id-ID": "tanah",
     "ms-MY": "tanah", "th-TH": "พื้น", "vi-VN": "mặt sân",
+    "de-DE": "der Boden", "nl-NL": "de grond",
 }
 
 
@@ -1437,12 +1542,16 @@ def sequence_texts(drill, sport: str) -> dict | None:
                             tmpl = RUN[loc]
                             if loc in ("en", "en-GB") and len(rest) > 1:
                                 tmpl = tmpl.replace(" moves ", " move ")
+                            if len(rest) > 1 and loc in RUN_PLURAL:
+                                tmpl = tmpl.replace(*RUN_PLURAL[loc])
                             rendered.append(tmpl.format(
                                 a=joined, dir=DIR[dir_key][loc]))
                         continue
                     tmpl = RUN[loc]
                     if loc in ("en", "en-GB") and len(subjects) > 1:
                         tmpl = tmpl.replace(" moves ", " move ")
+                    if len(subjects) > 1 and loc in RUN_PLURAL:
+                        tmpl = tmpl.replace(*RUN_PLURAL[loc])
                     run = tmpl.format(a=joined, dir=DIR[dir_key][loc])
                     if why == "reset":
                         run = RESET[loc].format(a=joined)
@@ -1459,7 +1568,12 @@ def sequence_texts(drill, sport: str) -> dict | None:
                     rendered.append(CARRY_EACH[loc].format(a=both))
                 else:
                     rendered.append(table[loc].format(a=joined))
-            parts.append(BEAT[loc].format(n=ph + 1) + AND[loc].join(rendered))
+            body = AND[loc].join(rendered)
+            if loc == "de-DE":
+                # German starts a sentence after a colon with a capital:
+                # "Schritt 1: Der Spieler …", not "der Spieler".
+                body = body[:1].upper() + body[1:]
+            parts.append(BEAT[loc].format(n=ph + 1) + body)
         out[loc] = SEMI[loc].join(parts) + DOT[loc].strip() \
             if loc in ("zh-CN", "zh-TW", "ja-JP", "th-TH") \
             else SEMI[loc].join(parts) + "."
@@ -1579,7 +1693,10 @@ def setup_texts(drill, sport: str) -> dict:
             whos = [_subj(_label(drill.home[drill.ball]), loc)]
             if isinstance(getattr(drill, "ball2", None), int):
                 whos.append(_subj(_label(drill.home[drill.ball2]), loc))
-            bits.append(_ball_at(sport, loc).format(a=AND[loc].join(whos)))
+            at = _ball_at(sport, loc).format(a=AND[loc].join(whos))
+            if loc == "de-DE":
+                at = at.replace("bei der Spieler", "beim Spieler")  # dative
+            bits.append(at)
         out[loc] = AND[loc].join(bits)
     return out
 
@@ -1603,6 +1720,15 @@ def compose_note(drill, sport: str) -> None:
     setup = setup_texts(drill, sport)
     route = route_texts(drill, sport)
     new = {}
+    def extra(text, what):
+        # A copy: purpose and frequency are tables shared by many drills.
+        if text and any(not text.get(l) for l in EXTRA_LOCALES):
+            text = fill_extra(dict(text), what, drill.id)
+        return text
+    drill.note = extra(drill.note, "note")
+    purpose = extra(purpose, "purpose")
+    freq = extra(freq, "frequency")
+    origin = extra(origin, "origin")
     for loc in LOCALES:
         point = drill.note.get(loc) or drill.note["en"]
         parts = []

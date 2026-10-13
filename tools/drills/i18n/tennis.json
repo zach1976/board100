@@ -7,7 +7,9 @@
   "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Gim sampai 11, lalu tukar sisi dan tukar lawan.",
   "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Permainan hingga 11, kemudian tukar sisi dan tukar lawan.",
   "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม เกมละ 11 แต้ม แล้วสลับฝั่งและสลับคู่แข่ง",
-  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ."
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ.",
+  "de-DE": "Jeden Punkt ausspielen und zählen; der Aufschlag wechselt alle zwei Punkte. Spiele bis 11, dann Seiten und Gegner wechseln.",
+  "nl-NL": "Speel elk punt uit en houd de stand bij; de opslag wisselt elke twee punten. Games tot 11, dan van kant en tegenstander wisselen."
  },
  "Play each point out and keep score; serve alternates every two points. First to seven points wins the game, then swap ends and opponents.": {
   "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。先に7点取った方がゲームを取り、その後コートと相手を替える。",
@@ -17,7 +19,9 @@
   "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Yang pertama mencapai tujuh poin memenangi gim, lalu tukar sisi dan tukar lawan.",
   "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Yang pertama mencapai tujuh mata memenangi permainan, kemudian tukar sisi dan tukar lawan.",
   "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม ใครได้ 7 แต้มก่อนชนะเกมนั้น แล้วสลับฝั่งและสลับคู่แข่ง",
-  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ai đạt bảy điểm trước thắng ván, rồi đổi sân và đổi đối thủ."
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ai đạt bảy điểm trước thắng ván, rồi đổi sân và đổi đối thủ.",
+  "de-DE": "Spiel jeden Punkt aus und zähl mit; der Aufschlag wechselt alle zwei Punkte. Wer zuerst sieben Punkte hat, gewinnt das Spiel, dann Seiten und Gegner wechseln.",
+  "nl-NL": "Speel elk punt uit en houd de stand bij; de service wisselt om de twee punten. Wie eerst zeven punten heeft, wint de game; daarna wissel je van kant en van tegenstander."
  },
  "the two cones mark the deep targets the rally is aimed at, about 1.5 m inside each baseline in the corner the pattern is played to": {
   "ja-JP": "2つのコーンは、このラリーで狙う深いターゲット。各ベースラインの約1.5m内側、そのパターンで打つコーナーに置く",
@@ -27,7 +31,9 @@
   "id-ID": "dua kerucut menandai target dalam yang dituju reli, sekitar 1,5 m di dalam setiap garis belakang, di sudut tujuan pola ini",
   "ms-MY": "dua kon menandakan sasaran dalam yang dituju rali, kira-kira 1.5 m di dalam setiap garisan belakang, di sudut yang dituju corak ini",
   "th-TH": "กรวยสองอันคือเป้าลึกที่การโต้มุ่งไป ห่างเข้ามาจากเส้นหลังแต่ละฝั่งราว 1.5 ม. ที่มุมซึ่งแบบฝึกนี้ตีไป",
-  "vi-VN": "hai nón đánh dấu mục tiêu sâu mà pha đôi công nhắm tới, cách mỗi vạch cuối sân khoảng 1,5 m vào trong, ở góc mà bài tập đánh tới"
+  "vi-VN": "hai nón đánh dấu mục tiêu sâu mà pha đôi công nhắm tới, cách mỗi vạch cuối sân khoảng 1,5 m vào trong, ở góc mà bài tập đánh tới",
+  "de-DE": "die zwei Hütchen markieren die tiefen Ziele des Ballwechsels, etwa 1,5 m innerhalb jeder Grundlinie in der Ecke, in die das Muster gespielt wird",
+  "nl-NL": "de twee pionnen markeren de diepe doelen van de rally, ongeveer 1,5 m binnen elke baseline in de hoek waarop het patroon gespeeld wordt"
  },
  "two cones on the centre marks of both baselines: the line between them splits the court lengthwise, and only the half the players stand in is in — singles sideline to that line, about 4 m wide": {
   "ja-JP": "両ベースラインのセンターマークにコーンを1つずつ。2つを結ぶ線がコートを縦に二分し、選手がいる側の半面だけがイン——シングルスサイドラインからその線まで、幅約4m",
@@ -37,6 +43,232 @@
   "id-ID": "dua kerucut di tanda tengah kedua garis belakang: garis di antaranya membagi lapangan memanjang, dan hanya separuh tempat para pemain berada yang masuk — dari garis samping tunggal ke garis itu, lebar sekitar 4 m",
   "ms-MY": "dua kon di tanda tengah kedua-dua garisan belakang: garisan di antaranya membahagi gelanggang memanjang, dan hanya separuh tempat pemain berada yang dikira masuk — dari garisan tepi perseorangan ke garisan itu, lebar kira-kira 4 m",
   "th-TH": "กรวยสองอันวางที่จุดกึ่งกลางของเส้นหลังทั้งสองฝั่ง เส้นที่ลากระหว่างกรวยแบ่งคอร์ทตามยาว และนับเฉพาะครึ่งที่ผู้เล่นยืนอยู่ — จากเส้นข้างประเภทเดี่ยวถึงเส้นนั้น กว้างราว 4 ม.",
-  "vi-VN": "hai nón đặt ở vạch giữa của hai vạch cuối sân: đường nối hai nón chia sân theo chiều dọc, chỉ nửa sân có người chơi là trong — từ biên đơn tới đường đó, rộng khoảng 4 m"
+  "vi-VN": "hai nón đặt ở vạch giữa của hai vạch cuối sân: đường nối hai nón chia sân theo chiều dọc, chỉ nửa sân có người chơi là trong — từ biên đơn tới đường đó, rộng khoảng 4 m",
+  "de-DE": "zwei Hütchen auf den Mittelzeichen beider Grundlinien: Die Linie dazwischen teilt den Platz der Länge nach, und nur die Hälfte, in der die Spieler stehen, gilt — von der Einzelseitenlinie bis zu dieser Linie, etwa 4 m breit",
+  "nl-NL": "twee pionnen op de middenstreepjes van beide baselines: de lijn ertussen deelt de baan in de lengte, en alleen de helft waarin de spelers staan telt — van de enkelzijlijn tot die lijn, ongeveer 4 m breed"
+ },
+ "A toss that moves with the target — you announce the direction before you hit.": {
+  "de-DE": "Ein Ballwurf, der mit dem Ziel wandert — du verrätst die Richtung, bevor du schlägst.",
+  "nl-NL": "Een opgooi die met het doel meeschuift — je verraadt de richting voordat je slaat."
+ },
+ "At the net": {
+  "de-DE": "Am Netz",
+  "nl-NL": "Aan het net"
+ },
+ "Decide the second ball before you hit the first. Most points end on shot three, and nobody improvises well that early.": {
+  "de-DE": "Entscheide über den zweiten Ball, bevor du den ersten schlägst. Die meisten Punkte enden mit dem dritten Schlag, und so früh improvisiert niemand gut.",
+  "nl-NL": "Beslis over de tweede bal voordat je de eerste slaat. De meeste punten eindigen bij de derde slag, en zo vroeg improviseert niemand goed."
+ },
+ "Five balls, five trips, one clock: the test is not how fast you run out, it is how little time you spend turning round.": {
+  "de-DE": "Fünf Bälle, fünf Wege, eine Uhr: Getestet wird nicht, wie schnell du hinläufst, sondern wie wenig Zeit du beim Umdrehen verlierst.",
+  "nl-NL": "Vijf ballen, vijf ritjes, één klok: de test is niet hoe snel je heen loopt, maar hoe weinig tijd je kwijt bent met omdraaien."
+ },
+ "Going for angle on a defensive ball — short and wide is the last shot of the point.": {
+  "de-DE": "Bei einem Defensivball auf den Winkel gehen — kurz und breit ist der letzte Schlag des Punktes.",
+  "nl-NL": "Op een verdedigende bal voor de hoek gaan — kort en wijd is de laatste slag van het punt."
+ },
+ "Height and depth first, angle never. A defensive ball that lands short is the last shot you play in the point.": {
+  "de-DE": "Erst Höhe und Länge, Winkel nie. Ein Defensivball, der kurz landet, ist der letzte Schlag, den du in diesem Punkt spielst.",
+  "nl-NL": "Eerst hoogte en diepte, hoek nooit. Een verdedigende bal die kort landt, is de laatste slag die je in dat punt speelt."
+ },
+ "Improvising the second ball — most points end on shot three, too early to wing it.": {
+  "de-DE": "Beim zweiten Ball improvisieren — die meisten Punkte enden mit dem dritten Schlag, zu früh für Bauchgefühl.",
+  "nl-NL": "De tweede bal improviseren — de meeste punten eindigen bij de derde slag, te vroeg om op gevoel te spelen."
+ },
+ "Move forward through the volley. A volley hit standing still is a volley hit from wherever you happened to stop.": {
+  "de-DE": "Beweg dich beim Volley nach vorn. Ein Volley im Stand ist ein Volley von dort, wo du zufällig stehen geblieben bist.",
+  "nl-NL": "Beweeg naar voren door de volley heen. Een volley vanuit stilstand sla je vanaf waar je toevallig bent blijven staan."
+ },
+ "Move on the returner's contact, straight across and forward — never back. A poach that starts early is a signal, and a poach that starts late is a spectator.": {
+  "de-DE": "Starte im Treffmoment des Returnspielers, quer und nach vorn — nie zurück. Ein Poach, der zu früh startet, ist ein Signal, und einer, der zu spät startet, ist ein Zuschauer.",
+  "nl-NL": "Vertrek op het raakmoment van de returner, dwars en naar voren — nooit terug. Een poach die te vroeg start is een signaal, en een poach die te laat start is een toeschouwer."
+ },
+ "Moving as two, not one line — when your partner is pulled wide you watch instead of cross.": {
+  "de-DE": "Sich als zwei bewegen statt als eine Linie — wenn dein Partner nach außen gezogen wird, schaust du zu, statt zu kreuzen.",
+  "nl-NL": "Als twee bewegen in plaats van als één lijn — als je partner wijd wordt getrokken, kijk je toe in plaats van te kruisen."
+ },
+ "Not playing for real from the first ball — a drill you cannot lose teaches nothing.": {
+  "de-DE": "Nicht vom ersten Ball an ernsthaft spielen — eine Übung, die man nicht verlieren kann, bringt nichts bei.",
+  "nl-NL": "Niet vanaf de eerste bal echt spelen — een oefening die je niet kunt verliezen, leert je niets."
+ },
+ "Play it for points from the first ball. A drill you can't lose is a drill nobody concentrates in.": {
+  "de-DE": "Spiel ab dem ersten Ball um Punkte. Bei einer Übung, die man nicht verlieren kann, konzentriert sich niemand.",
+  "nl-NL": "Speel vanaf de eerste bal om punten. Bij een oefening die je niet kunt verliezen, concentreert niemand zich."
+ },
+ "Play it from inside the baseline off a short ball, and follow it in. A drop shot hit from behind the baseline gives the other player the two extra steps he needs.": {
+  "de-DE": "Spiel ihn von innerhalb der Grundlinie aus einem kurzen Ball und rück nach. Ein Stopp hinter der Grundlinie gibt dem anderen die zwei Schritte, die er braucht.",
+  "nl-NL": "Speel hem van binnen de baseline op een korte bal en kom erachteraan. Een dropshot van achter de baseline geeft de ander de twee extra stappen die hij nodig heeft."
+ },
+ "Plus one": {
+  "de-DE": "Plus eins",
+  "nl-NL": "Plus één"
+ },
+ "Point play": {
+  "de-DE": "Punktspiel",
+  "nl-NL": "Puntenspel"
+ },
+ "Rally": {
+  "de-DE": "Ballwechsel",
+  "nl-NL": "Rally"
+ },
+ "Recover to the middle of the angles they have, not to the centre mark. Standing on the T after a wide ball just looks tidy.": {
+  "de-DE": "Geh in die Mitte der Winkel zurück, die der Gegner hat, nicht auf das Mittelzeichen. Nach einem breiten Ball auf dem T zu stehen sieht nur ordentlich aus.",
+  "nl-NL": "Herstel naar het midden van de hoeken die de tegenstander heeft, niet naar het middenstreepje. Na een wijde bal op de T staan ziet er alleen netjes uit."
+ },
+ "Recovering to the centre mark, not the middle of their angles — tidy, and wrong.": {
+  "de-DE": "Zum Mittelzeichen zurückgehen statt in die Mitte ihrer Winkel — ordentlich, aber falsch.",
+  "nl-NL": "Herstellen naar het middenstreepje in plaats van naar het midden van hun hoeken — netjes, en fout."
+ },
+ "Same toss, different targets. A toss that moves with the target tells the returner where the ball is going before you hit it.": {
+  "de-DE": "Gleicher Ballwurf, verschiedene Ziele. Ein Ballwurf, der mit dem Ziel wandert, verrät dem Returnspieler die Richtung, bevor du schlägst.",
+  "nl-NL": "Dezelfde opgooi, verschillende doelen. Een opgooi die met het doel meeschuift, vertelt de returner waar de bal heen gaat voordat je slaat."
+ },
+ "Serve and volley": {
+  "de-DE": "Serve-and-Volley",
+  "nl-NL": "Serve-and-volley"
+ },
+ "Spider run": {
+  "de-DE": "Spider-Lauf",
+  "nl-NL": "Spiderloop"
+ },
+ "Spin first, speed second: a second serve that clears the net by a metre and kicks is worth two that clip the tape. Nobody ever lost a match to a kick serve that went in.": {
+  "de-DE": "Erst Spin, dann Tempo: Ein zweiter Aufschlag, der das Netz um einen Meter überquert und abspringt, ist zwei wert, die die Netzkante streifen. Noch nie hat jemand ein Match durch einen Kick-Aufschlag verloren, der drin war.",
+  "nl-NL": "Eerst spin, dan snelheid: een tweede service die een meter over het net gaat en wegspringt, is er twee waard die de netband raken. Niemand heeft ooit een wedstrijd verloren door een kick-service die erin ging."
+ },
+ "Split step where you land, not where you meant to get to. A serve-volleyer still running when the return is struck is volleying from his shoelaces.": {
+  "de-DE": "Split-Step dort, wo du landest, nicht dort, wo du hinwolltest. Ein Serve-and-Volley-Spieler, der beim Return noch läuft, volliert von seinen Schnürsenkeln.",
+  "nl-NL": "Split-step waar je landt, niet waar je naartoe wilde. Een serve-and-volleyer die nog loopt als de return geslagen wordt, volleert vanaf zijn veters."
+ },
+ "Start inside the service boxes and work back. Rhythm first, power later — the first ten minutes decide how the next hour feels.": {
+  "de-DE": "Starte in den Aufschlagfeldern und arbeite dich nach hinten. Erst Rhythmus, dann Kraft — die ersten zehn Minuten entscheiden, wie sich die nächste Stunde anfühlt.",
+  "nl-NL": "Begin in de servicevakken en werk naar achteren. Eerst ritme, kracht later — de eerste tien minuten bepalen hoe het volgende uur aanvoelt."
+ },
+ "The pair moves as one line, diagonally. When your partner is pulled wide, you are already crossing — not watching.": {
+  "de-DE": "Das Paar bewegt sich als eine Linie, diagonal. Wenn dein Partner nach außen gezogen wird, kreuzt du schon — statt zuzuschauen.",
+  "nl-NL": "Het koppel beweegt als één lijn, diagonaal. Als je partner wijd wordt getrokken, ben je al aan het kruisen — niet aan het kijken."
+ },
+ "Volleying flat-footed — a volley hit standing still comes from wherever you stopped.": {
+  "de-DE": "Volley aus dem Stand — ein Volley im Stehen kommt von dort, wo du stehen geblieben bist.",
+  "nl-NL": "Volleren vanuit stilstand — een volley vanuit stilstand komt van waar je toevallig stopte."
+ },
+ "ad down the T": {
+  "de-DE": "Vorteilseite durch die Mitte",
+  "nl-NL": "ad-kant door het midden"
+ },
+ "ad wide": {
+  "de-DE": "Vorteilseite nach außen",
+  "nl-NL": "ad-kant wijd"
+ },
+ "approach and volley only": {
+  "de-DE": "nur Angriffsschlag und Volley",
+  "nl-NL": "alleen naderen en volleren"
+ },
+ "baseline feed": {
+  "de-DE": "Zuspiel von der Grundlinie",
+  "nl-NL": "aangooi vanaf de baseline"
+ },
+ "both back": {
+  "de-DE": "beide hinten",
+  "nl-NL": "allebei achter"
+ },
+ "both up": {
+  "de-DE": "beide vorn",
+  "nl-NL": "allebei voor"
+ },
+ "cross-court backhand": {
+  "de-DE": "Rückhand cross",
+  "nl-NL": "backhand cross"
+ },
+ "cross-court forehand": {
+  "de-DE": "Vorhand cross",
+  "nl-NL": "forehand cross"
+ },
+ "deuce at the body": {
+  "de-DE": "Einstandseite auf den Körper",
+  "nl-NL": "deuce-kant op het lichaam"
+ },
+ "deuce down the T": {
+  "de-DE": "Einstandseite durch die Mitte",
+  "nl-NL": "deuce-kant door het midden"
+ },
+ "deuce wide": {
+  "de-DE": "Einstandseite nach außen",
+  "nl-NL": "deuce-kant wijd"
+ },
+ "doubles to eleven": {
+  "de-DE": "Doppel bis elf",
+  "nl-NL": "dubbel tot elf"
+ },
+ "drop volley": {
+  "de-DE": "Stoppvolley",
+  "nl-NL": "stopvolley"
+ },
+ "figure of eight": {
+  "de-DE": "in Achterform",
+  "nl-NL": "in een acht"
+ },
+ "first to seven": {
+  "de-DE": "wer zuerst sieben hat",
+  "nl-NL": "wie het eerst zeven heeft"
+ },
+ "first volley": {
+  "de-DE": "erster Volley",
+  "nl-NL": "eerste volley"
+ },
+ "inside-out forehand": {
+  "de-DE": "Inside-out-Vorhand",
+  "nl-NL": "inside-out forehand"
+ },
+ "mini tennis": {
+  "de-DE": "Kleinfeld",
+  "nl-NL": "minitennis"
+ },
+ "one up one back": {
+  "de-DE": "einer vorn, einer hinten",
+  "nl-NL": "één voor, één achter"
+ },
+ "overhead": {
+  "de-DE": "Schmetterball",
+  "nl-NL": "smash"
+ },
+ "return": {
+  "de-DE": "Return",
+  "nl-NL": "return"
+ },
+ "second volley": {
+  "de-DE": "zweiter Volley",
+  "nl-NL": "tweede volley"
+ },
+ "serve": {
+  "de-DE": "Aufschlag",
+  "nl-NL": "service"
+ },
+ "service box rally": {
+  "de-DE": "Ballwechsel im Aufschlagfeld",
+  "nl-NL": "rally in het servicevak"
+ },
+ "the Australian formation": {
+  "de-DE": "australische Aufstellung",
+  "nl-NL": "Australische formatie"
+ },
+ "the block return": {
+  "de-DE": "Block-Return",
+  "nl-NL": "de blokreturn"
+ },
+ "the drop shot and the pass": {
+  "de-DE": "Stopp und Passierschlag",
+  "nl-NL": "dropshot en passeerslag"
+ },
+ "the kicking second serve": {
+  "de-DE": "Kick als zweiter Aufschlag",
+  "nl-NL": "kick als tweede service"
+ },
+ "the poach": {
+  "de-DE": "Poach",
+  "nl-NL": "poach"
+ },
+ "the slice": {
+  "de-DE": "Slice",
+  "nl-NL": "slice"
  }
 }

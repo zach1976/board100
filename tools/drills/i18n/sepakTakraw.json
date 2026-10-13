@@ -7,6 +7,200 @@
   "id-ID": "kerucut di garis samping menandai garis 1 m dari net di tiap sisi; tidak ada yang boleh melewatinya untuk memblok",
   "ms-MY": "kon di garisan tepi menandakan garisan 1 m dari jaring di setiap pihak; tiada siapa boleh melepasinya untuk menyekat",
   "th-TH": "กรวยบนเส้นข้างบอกแนวห่างจากเน็ต 1 เมตรทั้งสองฝั่ง ห้ามใครล้ำแนวนี้ไปบล็อก",
-  "vi-VN": "Các cọc trên đường biên dọc đánh dấu một vạch cách lưới 1 m ở mỗi bên; không ai được vượt qua vạch đó để chắn"
+  "vi-VN": "Các cọc trên đường biên dọc đánh dấu một vạch cách lưới 1 m ở mỗi bên; không ai được vượt qua vạch đó để chắn",
+  "de-DE": "die Hütchen an den Seitenlinien markieren auf jeder Seite eine Linie 1 m vom Netz; niemand darf zum Blocken darüber hinaus",
+  "nl-NL": "de pionnen op de zijlijnen markeren aan elke kant een lijn op 1 m van het net; niemand mag eroverheen om te blokken"
+ },
+ "A flat first touch — cushion upward so the feeder can reach it.": {
+  "de-DE": "Eine flache erste Ballberührung — dämpf den Ball nach oben, damit der Zuspieler ihn erreicht.",
+  "nl-NL": "Een vlakke eerste aanraking — demp de bal omhoog zodat de aangever erbij kan."
+ },
+ "A full regu, block and all. The attack now has to beat a block, so the feed decides the point: set it tight to the net and the blocker wins; set it a metre off and the striker gets a look past him.": {
+  "de-DE": "Eine komplette Regu, mit Block und allem. Der Angriff muss jetzt einen Block schlagen, also entscheidet das Zuspiel den Punkt: Spielst du es eng ans Netz, gewinnt der Blocker; spielst du es einen Meter vom Netz weg, bekommt der Angreifer eine Lücke an ihm vorbei.",
+  "nl-NL": "Een volledige regu, met blok en al. De aanval moet nu langs een blok, dus de aangeving beslist het punt: geef je hem strak tegen het net, dan wint de blokker; geef je hem een meter van het net af, dan krijgt de aanvaller ruimte langs hem heen."
+ },
+ "A toss that drifts — the tekong's foot cannot fix an inconsistent throw.": {
+  "de-DE": "Ein Zuwurf, der wegdriftet — der Fuß des Tekong kann einen ungleichmäßigen Wurf nicht retten.",
+  "nl-NL": "Een aangooi die wegdrijft — de voet van de tekong kan een onregelmatige worp niet goedmaken."
+ },
+ "Ankle hops": {
+  "de-DE": "Sprunggelenk-Hüpfer",
+  "nl-NL": "Enkelsprongen"
+ },
+ "Back to the net, and the strike goes over your own shoulder — so the set has to be behind you, not in front. Turning to look for it is how the block gets there first.": {
+  "de-DE": "Rücken zum Netz, und der Schlag geht über die eigene Schulter — also muss das Zuspiel hinter dir liegen, nicht vor dir. Wer sich umdreht, um den Ball zu suchen, lässt den Block zuerst ankommen.",
+  "nl-NL": "Rug naar het net, en de slag gaat over je eigen schouder — dus de aangeving moet achter je liggen, niet voor je. Wie zich omdraait om de bal te zoeken, laat het blok er als eerste zijn."
+ },
+ "Covering the spike": {
+  "de-DE": "Absichern des Angriffs",
+  "nl-NL": "Aanval afdekken"
+ },
+ "Feed the ball where the striker's foot will be, not where they are. A perfect height in the wrong place is still a wasted point.": {
+  "de-DE": "Spiel den Ball dorthin, wo der Fuß des Angreifers sein wird, nicht wo er gerade ist. Perfekte Höhe am falschen Ort ist trotzdem ein verschenkter Punkt.",
+  "nl-NL": "Geef de bal aan waar de voet van de aanvaller zal zijn, niet waar hij nu is. Een perfecte hoogte op de verkeerde plek is nog steeds een weggegooid punt."
+ },
+ "Feeding": {
+  "de-DE": "Zuspiel",
+  "nl-NL": "Aangeven"
+ },
+ "Feeding where the striker is, not where his foot will be — perfect height, wrong place.": {
+  "de-DE": "Dorthin zuspielen, wo der Angreifer steht, statt wo sein Fuß sein wird — perfekte Höhe, falscher Ort.",
+  "nl-NL": "Aangeven waar de aanvaller staat, niet waar zijn voet zal zijn — perfecte hoogte, verkeerde plek."
+ },
+ "Get the foot above the ball — above the tape if you can — while the hips stay under it. Height comes from the jump, not from kicking harder at the top.": {
+  "de-DE": "Bring den Fuß über den Ball — wenn möglich über die Netzkante —, während die Hüfte darunter bleibt. Die Höhe kommt aus dem Sprung, nicht aus einem härteren Tritt oben.",
+  "nl-NL": "Breng je voet boven de bal — liefst boven de netband — terwijl je heupen eronder blijven. De hoogte komt uit de sprong, niet uit harder trappen bovenin."
+ },
+ "Kicking from below the ball — get the hips above it before the foot swings.": {
+  "de-DE": "Von unter dem Ball treten — bring die Hüfte darüber, bevor der Fuß schwingt.",
+  "nl-NL": "Van onder de bal trappen — krijg je heupen erboven voordat de voet uitzwaait."
+ },
+ "Knees barely bend: this is the ankle, and the ankle is what the second jump of a rally is made of.": {
+  "de-DE": "Die Knie beugen sich kaum: Das hier ist das Sprunggelenk, und aus dem Sprunggelenk kommt der zweite Sprung in einem Ballwechsel.",
+  "nl-NL": "De knieën buigen nauwelijks: dit is de enkel, en uit de enkel komt de tweede sprong in een rally."
+ },
+ "Look at the blocker's hands on the way up. Three touches is barely any time, so the decision has to be made in the air.": {
+  "de-DE": "Schau beim Hochspringen auf die Hände des Blockers. Drei Berührungen lassen kaum Zeit, also muss die Entscheidung in der Luft fallen.",
+  "nl-NL": "Kijk op weg omhoog naar de handen van de blokker. Drie aanrakingen is amper tijd, dus de beslissing moet in de lucht vallen."
+ },
+ "Not reading the block on the way up — three touches leave no time to decide on the ground.": {
+  "de-DE": "Den Block beim Hochspringen nicht lesen — drei Berührungen lassen keine Zeit, am Boden zu entscheiden.",
+  "nl-NL": "Het blok op weg omhoog niet lezen — drie aanrakingen laten geen tijd om op de grond te beslissen."
+ },
+ "Reacting to the spike instead of reading the setter — nobody digs a takraw kill by reflex.": {
+  "de-DE": "Auf den Angriffsschlag reagieren statt den Zuspieler zu lesen — einen Takraw-Schmetterball holt niemand per Reflex.",
+  "nl-NL": "Reageren op de smash in plaats van de aangever te lezen — niemand verdedigt een takraw-smash op reflex."
+ },
+ "Receive with the inside of the foot and cushion upward — the first touch has to hang long enough for the feeder to reach it.": {
+  "de-DE": "Nimm den Ball mit der Innenseite des Fußes an und dämpf ihn nach oben — die erste Berührung muss lange genug in der Luft hängen, damit der Zuspieler hinkommt.",
+  "nl-NL": "Neem de bal aan met de binnenkant van de voet en demp hem omhoog — de eerste aanraking moet lang genoeg in de lucht hangen zodat de aangever erbij kan."
+ },
+ "Serving to the middle where anyone reaches it — go at the weak surface.": {
+  "de-DE": "In die Mitte aufschlagen, wo jeder hinkommt — geh auf die schwache Seite.",
+  "nl-NL": "Opslaan in het midden waar iedereen erbij kan — ga op het zwakke lichaamsdeel af."
+ },
+ "Spiking": {
+  "de-DE": "Angriffsschlag",
+  "nl-NL": "Smashen"
+ },
+ "Tekong serve": {
+  "de-DE": "Tekong-Aufschlag",
+  "nl-NL": "Tekong-opslag"
+ },
+ "The block sends the ball straight down on your own side more often than over — two players crouch under your own spiker, every time.": {
+  "de-DE": "Der Block schickt den Ball öfter direkt auf deiner eigenen Seite nach unten als darüber — zwei Spieler gehen jedes Mal unter dem eigenen Angreifer in die Hocke.",
+  "nl-NL": "Het blok stuurt de bal vaker recht naar beneden aan je eigen kant dan eroverheen — twee spelers zitten elke keer laag onder je eigen aanvaller."
+ },
+ "The blocker turns their back and the two behind cover what the block leaves. Nobody defends a takraw spike by reacting to it.": {
+  "de-DE": "Der Blocker dreht sich mit dem Rücken zum Netz, und die zwei dahinter decken ab, was der Block freilässt. Einen Takraw-Angriff verteidigt niemand, indem er darauf reagiert.",
+  "nl-NL": "De blokker draait zijn rug toe en de twee erachter dekken af wat het blok openlaat. Niemand verdedigt een takraw-smash door erop te reageren."
+ },
+ "The head is one of the four surfaces, and the only one that can take a hard serve cleanly at chest height. Meet it with the forehead, moving forward, not with the top of the skull.": {
+  "de-DE": "Der Kopf ist eine der vier Kontaktflächen und die einzige, die einen harten Aufschlag auf Brusthöhe sauber annehmen kann. Nimm ihn mit der Stirn und mit Bewegung nach vorn, nicht mit dem Scheitel.",
+  "nl-NL": "Het hoofd is een van de vier contactvlakken, en het enige dat een harde opslag op borsthoogte goed kan aannemen. Neem hem met je voorhoofd, naar voren bewegend, niet met je kruin."
+ },
+ "The tekong's serve is the only attack nobody blocks. Serve at a receiver's weak surface, not into the middle where anyone can take it.": {
+  "de-DE": "Der Aufschlag des Tekong ist der einzige Angriff, den niemand blockt. Schlag auf die schwache Seite eines Annahmespielers auf, nicht in die Mitte, wo jeder rankommt.",
+  "nl-NL": "De opslag van de tekong is de enige aanval die niemand blokt. Sla op het zwakke lichaamsdeel van een ontvanger, niet in het midden waar iedereen erbij kan."
+ },
+ "The toss is the serve. The inside player throws it to the same spot every time, and the tekong's kicking foot does the rest.": {
+  "de-DE": "Der Zuwurf ist der Aufschlag. Der Innenspieler wirft jedes Mal an dieselbe Stelle, und der Schussfuß des Tekong erledigt den Rest.",
+  "nl-NL": "De aangooi ís de opslag. De binnenspeler gooit hem elke keer naar dezelfde plek, en de trapvoet van de tekong doet de rest."
+ },
+ "Three touches, three players, one rally. Take the block away and the attackers have to learn to place the ball instead of hitting it.": {
+  "de-DE": "Drei Berührungen, drei Spieler, ein Ballwechsel. Nimm den Block weg, und die Angreifer müssen lernen, den Ball zu platzieren, statt draufzuhauen.",
+  "nl-NL": "Drie aanrakingen, drie spelers, één rally. Haal het blok weg en de aanvallers moeten leren de bal te plaatsen in plaats van erop te knallen."
+ },
+ "Three touches, three players, one rally. The serve is the tekong's, the first touch is the receiver's, and the feed has to arrive where the striker takes off — play it out and keep score.": {
+  "de-DE": "Drei Berührungen, drei Spieler, ein Ballwechsel. Der Aufschlag gehört dem Tekong, die erste Berührung dem Annahmespieler, und das Zuspiel muss dort ankommen, wo der Angreifer abspringt — spielt es aus und zählt die Punkte.",
+  "nl-NL": "Drie aanrakingen, drie spelers, één rally. De opslag is van de tekong, de eerste aanraking van de ontvanger, en de aangeving moet aankomen waar de aanvaller afzet — speel het uit en houd de stand bij."
+ },
+ "Touch the ball with every surface you are allowed — foot, knee, shoulder, head. In a rally you do not get to choose which one.": {
+  "de-DE": "Berühr den Ball mit jeder erlaubten Fläche — Fuß, Knie, Schulter, Kopf. Im Ballwechsel kannst du dir nicht aussuchen, welche.",
+  "nl-NL": "Raak de bal met elk lichaamsdeel dat mag — voet, knie, schouder, hoofd. In een rally kun je niet kiezen welk."
+ },
+ "Turn your back and take it on the shoulder or the back — not the chest, which sends it straight down on your own side. Jump on his hip, not on the ball.": {
+  "de-DE": "Dreh dich mit dem Rücken hin und nimm den Ball mit der Schulter oder dem Rücken — nicht mit der Brust, die schickt ihn direkt auf deiner eigenen Seite nach unten. Spring auf seine Hüfte zu, nicht auf den Ball.",
+  "nl-NL": "Draai je rug toe en neem de bal op je schouder of rug — niet op je borst, die stuurt hem recht naar beneden aan je eigen kant. Spring op zijn heup, niet op de bal."
+ },
+ "Two players, three touches: whoever does not take the first touch sets, and the one who received it attacks. Nobody can stand and watch.": {
+  "de-DE": "Zwei Spieler, drei Berührungen: Wer die erste Berührung nicht macht, spielt zu, und wer angenommen hat, greift an. Keiner darf stehen und zuschauen.",
+  "nl-NL": "Twee spelers, drie aanrakingen: wie de eerste aanraking niet neemt, geeft aan, en wie hem aannam, valt aan. Niemand kan blijven staan kijken."
+ },
+ "at the net": {
+  "de-DE": "am Netz",
+  "nl-NL": "bij het net"
+ },
+ "behind the block": {
+  "de-DE": "hinter dem Block",
+  "nl-NL": "achter het blok"
+ },
+ "behind your own attack": {
+  "de-DE": "hinter dem eigenen Angriff",
+  "nl-NL": "achter je eigen aanval"
+ },
+ "blocking at the net": {
+  "de-DE": "mit Block am Netz",
+  "nl-NL": "met blok aan het net"
+ },
+ "deep": {
+  "de-DE": "tief",
+  "nl-NL": "diep"
+ },
+ "driven low": {
+  "de-DE": "flach und hart",
+  "nl-NL": "laag en hard"
+ },
+ "fast": {
+  "de-DE": "schnell",
+  "nl-NL": "snel"
+ },
+ "full regu": {
+  "de-DE": "mit kompletter Regu",
+  "nl-NL": "met volledige regu"
+ },
+ "keeping it up as three": {
+  "de-DE": "zu dritt hochhalten",
+  "nl-NL": "met z'n drieën hooghouden"
+ },
+ "off the high toss": {
+  "de-DE": "aus hohem Zuwurf",
+  "nl-NL": "na een hoge aangooi"
+ },
+ "off the serve": {
+  "de-DE": "nach dem Aufschlag",
+  "nl-NL": "na de opslag"
+ },
+ "on the left": {
+  "de-DE": "links",
+  "nl-NL": "links"
+ },
+ "on the right": {
+  "de-DE": "rechts",
+  "nl-NL": "rechts"
+ },
+ "the feint": {
+  "de-DE": "mit Finte",
+  "nl-NL": "met de schijnbeweging"
+ },
+ "the roll": {
+  "de-DE": "mit Roll-Spike",
+  "nl-NL": "met de rolsmash"
+ },
+ "the scissor kick": {
+  "de-DE": "mit Scherenschlag",
+  "nl-NL": "met de schaarslag"
+ },
+ "the sunback": {
+  "de-DE": "mit Sunback",
+  "nl-NL": "met de sunback"
+ },
+ "with no block": {
+  "de-DE": "ohne Block",
+  "nl-NL": "zonder blok"
+ },
+ "with the head": {
+  "de-DE": "mit dem Kopf",
+  "nl-NL": "met het hoofd"
  }
 }

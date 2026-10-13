@@ -7,7 +7,9 @@
   "id-ID": "Smes, dig, umpan berputar di segitiga tanpa bola jatuh; setiap sepuluh sentuhan ketiganya bergeser satu peran — penyerang ke penggali, penggali ke tosser, tosser ke penyerang.",
   "ms-MY": "Rejam, dig, umpan berputar dalam segi tiga tanpa bola jatuh; setiap sepuluh sentuhan ketiga-tiganya beralih satu peranan — penyerang ke pertahanan, pertahanan ke pengumpan, pengumpan ke penyerang.",
   "th-TH": "ตบ รับ เซต วนเป็นสามเหลี่ยมไม่ให้บอลตก ทุกสิบครั้งที่สัมผัสบอลให้ทั้งสามสลับบทบาทหนึ่งขั้น ตัวตบไปรับ คนรับไปเซต คนเซตไปตบ",
-  "vi-VN": "Đập, đỡ, chuyền vòng quanh tam giác không để bóng rơi; cứ mười lần chạm bóng thì ba người đổi vai một lượt — người đập sang đỡ, người đỡ sang chuyền, người chuyền sang đập."
+  "vi-VN": "Đập, đỡ, chuyền vòng quanh tam giác không để bóng rơi; cứ mười lần chạm bóng thì ba người đổi vai một lượt — người đập sang đỡ, người đỡ sang chuyền, người chuyền sang đập.",
+  "de-DE": "Angriff, Abwehr, Zuspiel im Dreieck, ohne dass der Ball fällt; alle zehn Kontakte wechseln die drei eine Rolle weiter — Angreifer zur Abwehr, Abwehr zum Zuspiel, Zuspieler zum Angriff.",
+  "nl-NL": "Aanvallen, verdedigen, setten in de driehoek zonder dat de bal valt; om de tien contacten schuiven de drie één rol door — aanvaller naar verdediger, verdediger naar spelverdeler, spelverdeler naar aanvaller."
  },
  "Count the contacts without the ball touching the floor; at 50 both take a step further apart and start again, and when it drops the count goes back to zero.": {
   "ja-JP": "床に落とさずに続いた回数を数える。50回で2人とも1歩下がってやり直し、落ちたら0から数え直す。",
@@ -17,7 +19,9 @@
   "id-ID": "Hitung sentuhan tanpa bola menyentuh lantai; di angka 50 keduanya mundur satu langkah dan mulai lagi, dan jika bola jatuh hitungan kembali ke nol.",
   "ms-MY": "Kira sentuhan tanpa bola menyentuh lantai; pada 50 kedua-duanya berundur selangkah dan mula semula, dan jika bola jatuh kiraan kembali ke sifar.",
   "th-TH": "นับจำนวนครั้งที่สัมผัสโดยบอลไม่ตกพื้น ครบ 50 ครั้งให้ทั้งคู่ถอยห่างกันหนึ่งก้าวแล้วเริ่มใหม่ ถ้าบอลตกให้เริ่มนับจากศูนย์",
-  "vi-VN": "Đếm số lần chạm bóng mà bóng không chạm sàn; đến 50 thì cả hai lùi xa thêm một bước và bắt đầu lại, bóng rơi thì đếm lại từ đầu."
+  "vi-VN": "Đếm số lần chạm bóng mà bóng không chạm sàn; đến 50 thì cả hai lùi xa thêm một bước và bắt đầu lại, bóng rơi thì đếm lại từ đầu.",
+  "de-DE": "Zählt die Kontakte, ohne dass der Ball den Boden berührt; bei 50 gehen beide einen Schritt auseinander und fangen neu an, und fällt der Ball, geht die Zählung zurück auf null.",
+  "nl-NL": "Tel de contacten zonder dat de bal de grond raakt; bij 50 doen jullie allebei een stap uit elkaar en begin je opnieuw, en valt de bal, dan gaat de telling terug naar nul."
  },
  "One side serves; the receiving side must win that rally and then the free ball the coach sends in straight after. Both won is a big point, a split is a wash and nobody scores. First to three big points, then both sides rotate one position.": {
   "ja-JP": "片方がサーブ。レシーブ側はそのラリーに勝ち、さらに直後にコーチが入れるフリーボールにも勝たなければならない。両方取れば大きな1点、1勝1敗はウォッシュで得点なし。大きな3点先取、その後両チーム1つローテーション。",
@@ -27,7 +31,9 @@
   "id-ID": "Satu tim servis; tim penerima harus memenangkan reli itu lalu bola bebas yang langsung dikirim pelatih. Menang keduanya satu poin besar, satu-satu dianggap wash dan tak ada yang mencetak poin. Pertama ke tiga poin besar, lalu kedua tim rotasi satu posisi.",
   "ms-MY": "Satu pasukan servis; pasukan penerima mesti memenangi rali itu dan kemudian bola bebas yang terus dihantar jurulatih. Menang kedua-duanya satu mata besar, seri satu-satu dikira wash dan tiada mata. Pertama ke tiga mata besar, kemudian kedua-dua pasukan berputar satu kedudukan.",
   "th-TH": "ฝ่ายหนึ่งเสิร์ฟ ฝ่ายรับต้องชนะแต้มนั้นและชนะฟรีบอลที่โค้ชส่งเข้ามาทันทีต่อจากนั้น ชนะทั้งสองลูกได้แต้มใหญ่ ชนะหนึ่งแพ้หนึ่งถือว่าวอชไม่มีใครได้แต้ม ใครได้แต้มใหญ่ครบสามก่อนชนะ แล้วทั้งสองฝ่ายหมุนหนึ่งตำแหน่ง",
-  "vi-VN": "Một bên phát bóng; bên đỡ phải thắng pha đó và thắng tiếp quả bóng tự do huấn luyện viên đưa vào ngay sau. Thắng cả hai được một điểm lớn, mỗi bên một quả là hòa, không ai ghi điểm. Ai đủ ba điểm lớn trước thắng, rồi hai bên xoay một vị trí."
+  "vi-VN": "Một bên phát bóng; bên đỡ phải thắng pha đó và thắng tiếp quả bóng tự do huấn luyện viên đưa vào ngay sau. Thắng cả hai được một điểm lớn, mỗi bên một quả là hòa, không ai ghi điểm. Ai đủ ba điểm lớn trước thắng, rồi hai bên xoay một vị trí.",
+  "de-DE": "Eine Seite schlägt auf; die annehmende Seite muss diesen Ballwechsel gewinnen und danach den Freeball, den der Trainer direkt hinterher einwirft. Beide gewonnen ist ein großer Punkt, einer von zwei ist ein Unentschieden und niemand punktet. Wer zuerst drei große Punkte hat, gewinnt, dann rotieren beide Seiten eine Position weiter.",
+  "nl-NL": "Eén kant serveert; de ontvangende kant moet die rally winnen en daarna de vrije bal die de trainer er meteen achteraan stuurt. Beide gewonnen is een grote punt, één van de twee is gelijkspel en niemand scoort. Wie het eerst drie grote punten heeft, wint, daarna draaien beide kanten één positie door."
  },
  "The challengers serve. If they win the rally they walk round the post to the kings' side and the kings go to the back of the line; only the kings' side scores. First pair to seven wins, then the pairs are reshuffled.": {
   "ja-JP": "チャレンジャーがサーブ。ラリーに勝てばポールを回ってキング側へ移り、キングは列の最後尾へ。得点できるのはキング側だけ。7点先取のペアが勝ち、その後ペアを組み替える。",
@@ -37,7 +43,9 @@
   "id-ID": "Penantang melakukan servis. Jika menang reli mereka memutari tiang ke sisi raja dan raja pindah ke ujung antrean; hanya sisi raja yang mencetak poin. Pasangan pertama yang mencapai tujuh menang, lalu pasangan diacak ulang.",
   "ms-MY": "Pencabar membuat servis. Jika menang rali mereka mengelilingi tiang ke sisi raja dan raja beratur di belakang; hanya sisi raja yang mendapat mata. Pasangan pertama ke tujuh menang, kemudian pasangan disusun semula.",
   "th-TH": "ผู้ท้าชิงเป็นฝ่ายเสิร์ฟ ถ้าชนะแต้มให้เดินอ้อมเสาไปฝั่งราชา แล้วราชาไปต่อท้ายแถว ได้แต้มเฉพาะฝั่งราชาเท่านั้น คู่แรกที่ได้เจ็ดแต้มชนะ แล้วจับคู่ใหม่",
-  "vi-VN": "Người thách đấu phát bóng. Thắng pha bóng thì đi vòng qua cột sang phía vua và cặp vua xuống cuối hàng; chỉ phía vua được ghi điểm. Cặp nào đủ bảy điểm trước thắng, rồi xếp lại các cặp."
+  "vi-VN": "Người thách đấu phát bóng. Thắng pha bóng thì đi vòng qua cột sang phía vua và cặp vua xuống cuối hàng; chỉ phía vua được ghi điểm. Cặp nào đủ bảy điểm trước thắng, rồi xếp lại các cặp.",
+  "de-DE": "Die Herausforderer schlagen auf. Gewinnen sie den Ballwechsel, gehen sie um den Pfosten auf die Königsseite und die Könige stellen sich hinten an; nur die Königsseite punktet. Das erste Paar mit sieben Punkten gewinnt, dann werden die Paare neu gemischt.",
+  "nl-NL": "De uitdagers serveren. Winnen ze de rally, dan lopen ze om de paal naar de koningskant en sluiten de koningen achteraan in de rij aan; alleen de koningskant scoort. Het eerste duo met zeven punten wint, daarna worden de duo's opnieuw ingedeeld."
  },
  "the shaded zone is where this shot has to land": {
   "ja-JP": "網掛けのエリアは、このショットを落とす場所",
@@ -47,7 +55,9 @@
   "id-ID": "zona berarsir adalah tempat pukulan ini harus jatuh",
   "ms-MY": "zon berlorek ialah tempat pukulan ini mesti jatuh",
   "th-TH": "พื้นที่แรเงาคือจุดที่ลูกนี้ต้องตกลง",
-  "vi-VN": "vùng tô màu là nơi cú đánh này phải rơi xuống"
+  "vi-VN": "vùng tô màu là nơi cú đánh này phải rơi xuống",
+  "de-DE": "die markierte Zone ist dort, wo dieser Schlag landen muss",
+  "nl-NL": "de gearceerde zone is waar deze klap moet landen"
  },
  "one player on the end line in the middle of the court; the 3 m line and the net are the turning points": {
   "ja-JP": "コート中央のエンドライン上に1人。3mラインとネットが折り返し地点",
@@ -57,7 +67,9 @@
   "id-ID": "satu pemain di garis akhir di tengah lapangan; garis 3 m dan net adalah titik balik",
   "ms-MY": "seorang pemain di garisan hujung di tengah gelanggang; garisan 3 m dan jaring ialah titik pusingan",
   "th-TH": "ผู้เล่นหนึ่งคนยืนบนเส้นหลังตรงกลางคอร์ท เส้น 3 เมตรและเน็ตคือจุดกลับตัว",
-  "vi-VN": "một người đứng trên vạch cuối giữa sân; vạch 3 m và lưới là các điểm quay lại"
+  "vi-VN": "một người đứng trên vạch cuối giữa sân; vạch 3 m và lưới là các điểm quay lại",
+  "de-DE": "ein Spieler auf der Grundlinie in der Feldmitte; die 3-m-Linie und das Netz sind die Wendepunkte",
+  "nl-NL": "één speler op de achterlijn in het midden van het veld; de 3-meterlijn en het net zijn de keerpunten"
  },
  "End line to the 3 m line and back, then to the net and back, is one run, about 15 seconds; rest 30 seconds. Eight runs, the next player starting as the last one finishes.": {
   "ja-JP": "エンドラインから3mラインを往復し、続けてネットまで往復して1本、約15秒。休息30秒。8本、前の選手が終わったら次がスタート。",
@@ -67,7 +79,9 @@
   "id-ID": "Garis akhir ke garis 3 m dan kembali, lalu ke net dan kembali, adalah satu lari, sekitar 15 detik; istirahat 30 detik. Delapan kali, pemain berikutnya mulai saat yang sebelumnya selesai.",
   "ms-MY": "Garisan hujung ke garisan 3 m dan kembali, kemudian ke jaring dan kembali, ialah satu larian, kira-kira 15 saat; rehat 30 saat. Lapan larian, pemain seterusnya mula apabila yang sebelumnya selesai.",
   "th-TH": "จากเส้นหลังไปเส้น 3 เมตรแล้วกลับ ต่อด้วยไปเน็ตแล้วกลับ นับเป็นหนึ่งเที่ยว ราว 15 วินาที พัก 30 วินาที ทำ 8 เที่ยว คนต่อไปออกตัวเมื่อคนก่อนจบ",
-  "vi-VN": "Từ vạch cuối lên vạch 3 m rồi về, tiếp lên lưới rồi về là một lượt, khoảng 15 giây; nghỉ 30 giây. Tám lượt, người sau xuất phát khi người trước xong."
+  "vi-VN": "Từ vạch cuối lên vạch 3 m rồi về, tiếp lên lưới rồi về là một lượt, khoảng 15 giây; nghỉ 30 giây. Tám lượt, người sau xuất phát khi người trước xong.",
+  "de-DE": "Von der Grundlinie zur 3-m-Linie und zurück, dann zum Netz und zurück ist ein Lauf, etwa 15 Sekunden; 30 Sekunden Pause. Acht Läufe, der Nächste startet, wenn der Letzte ankommt.",
+  "nl-NL": "Van de achterlijn naar de 3-meterlijn en terug, dan naar het net en terug is één run, ongeveer 15 seconden; 30 seconden rust. Acht runs, de volgende speler start zodra de vorige binnen is."
  },
  "a hitter at the net on the left side of the court, nobody in front of him; a coach calls each block": {
   "ja-JP": "コート左側のネット際にアタッカー、前には誰もいない。コーチが毎回ブロックの合図をする",
@@ -77,7 +91,9 @@
   "id-ID": "seorang penyerang di net sisi kiri lapangan, tanpa siapa pun di depannya; pelatih memberi aba-aba tiap blok",
   "ms-MY": "seorang penyerang di jaring sebelah kiri gelanggang, tiada sesiapa di hadapannya; jurulatih memberi isyarat setiap sekatan",
   "th-TH": "ตัวตบยืนที่เน็ตฝั่งซ้ายของคอร์ท ข้างหน้าไม่มีใคร โค้ชให้สัญญาณบล็อกทุกครั้ง",
-  "vi-VN": "một chủ công đứng ở lưới bên trái sân, phía trước không có ai; huấn luyện viên hô mỗi lần chắn"
+  "vi-VN": "một chủ công đứng ở lưới bên trái sân, phía trước không có ai; huấn luyện viên hô mỗi lần chắn",
+  "de-DE": "ein Angreifer am Netz auf der linken Feldseite, niemand vor ihm; ein Trainer sagt jeden Block an",
+  "nl-NL": "een aanvaller aan het net op de linkerkant van het veld, niemand voor hem; een trainer roept elk blok af"
  },
  "Block, open, approach and jump is one rep; six reps in a row, then 60 seconds' rest. Four sets, the last one timed.": {
   "ja-JP": "ブロック、開く、助走してジャンプで1回。6回連続、その後60秒休息。4セット、最後のセットは計測する。",
@@ -87,6 +103,1160 @@
   "id-ID": "Blok, mundur, awalan dan lompat adalah satu repetisi; enam berturut-turut, lalu istirahat 60 detik. Empat set, set terakhir diukur waktunya.",
   "ms-MY": "Sekat, undur, larian dan lompat ialah satu ulangan; enam berturut-turut, kemudian rehat 60 saat. Empat set, set terakhir diukur masa.",
   "th-TH": "บล็อก ถอย วิ่งเข้าแล้วกระโดด นับเป็นหนึ่งครั้ง ทำต่อเนื่อง 6 ครั้งแล้วพัก 60 วินาที ทำ 4 เซต เซตสุดท้ายจับเวลา",
-  "vi-VN": "Chắn, lùi, chạy đà và bật là một lần; sáu lần liên tục rồi nghỉ 60 giây. Bốn hiệp, hiệp cuối bấm giờ."
+  "vi-VN": "Chắn, lùi, chạy đà và bật là một lần; sáu lần liên tục rồi nghỉ 60 giây. Bốn hiệp, hiệp cuối bấm giờ.",
+  "de-DE": "Blocken, lösen, anlaufen und springen ist eine Wiederholung; sechs am Stück, dann 60 Sekunden Pause. Vier Serien, die letzte auf Zeit.",
+  "nl-NL": "Blokkeren, loskomen, aanlopen en springen is één herhaling; zes achter elkaar, dan 60 seconden rust. Vier series, de laatste op tijd."
+ },
+ "5-1 receive rotation": {
+  "de-DE": "5-1-Annahme, Rotation",
+  "nl-NL": "Pass 5-1, rotatie"
+ },
+ "6-2 receive rotation": {
+  "de-DE": "6-2-Annahme, Rotation",
+  "nl-NL": "Pass 6-2, rotatie"
+ },
+ "A big point only for winning both balls — the serve-receive rally and the free ball that follows it. One good side-out is half a point; the transition ball decides the wash.": {
+  "de-DE": "Einen großen Punkt gibt es nur, wenn beide Bälle gewonnen werden — der Ballwechsel aus der Annahme und der Freeball direkt danach. Ein gutes Side-out ist ein halber Punkt; der Ball im Übergang entscheidet die Runde.",
+  "nl-NL": "Een grote punt alleen als je beide ballen wint — de rally uit de pass op de opslag en de vrije bal die erop volgt. Eén goede side-out is een halve punt; de omschakelbal beslist de ronde."
+ },
+ "A double block with daylight in it — two players wasted on one gap.": {
+  "de-DE": "Ein Doppelblock mit Lücke dazwischen — zwei Spieler für ein Loch verschenkt.",
+  "nl-NL": "Een dubbelblok met een gat erin — twee spelers verspild aan één opening."
+ },
+ "A free ball is the easiest point in volleyball and the one most often dropped, because everybody relaxes at the same moment.": {
+  "de-DE": "Ein Freeball ist der leichteste Punkt im Volleyball und der, der am häufigsten verloren geht, weil alle im selben Moment abschalten.",
+  "nl-NL": "Een vrije bal is het makkelijkste punt in het volleybal en het punt dat het vaakst verloren gaat, omdat iedereen op hetzelfde moment ontspant."
+ },
+ "A late quick — the middle is still on the floor when the set goes, so their middle blocker waits for the second hitter.": {
+  "de-DE": "Ein zu später Schnellangriff — der Mittelangreifer steht beim Zuspiel noch am Boden, also wartet ihr Mittelblocker auf den zweiten Angreifer.",
+  "nl-NL": "Een te late korte bal — de middenaanvaller staat nog op de grond als de set-up vertrekt, dus hun middenblokkeerder wacht op de tweede aanvaller."
+ },
+ "A silent seam — the ball drops between two passers who both left it.": {
+  "de-DE": "Eine stumme Lücke — der Ball fällt zwischen zwei Annahmespielern, die ihn beide liegen lassen.",
+  "nl-NL": "Een stil gat — de bal valt tussen twee passers die hem allebei laten gaan."
+ },
+ "Approach jumps": {
+  "de-DE": "Anlaufsprünge",
+  "nl-NL": "Aanloopsprongen"
+ },
+ "Arriving with the ball — running and setting in the same moment, so the set drifts with the run.": {
+  "de-DE": "Gleichzeitig mit dem Ball ankommen — Laufen und Zuspielen im selben Moment, sodass das Zuspiel mit dem Lauf mitwandert.",
+  "nl-NL": "Tegelijk met de bal aankomen — lopen en setten op hetzelfde moment, zodat de set-up met de loop meedrijft."
+ },
+ "Attack from": {
+  "de-DE": "Angriff aus",
+  "nl-NL": "Aanval vanuit"
+ },
+ "Be stopped and low before the hitter's hand moves. A defender still walking when contact happens is a spectator.": {
+  "de-DE": "Steh still und tief, bevor sich die Hand des Angreifers bewegt. Ein Abwehrspieler, der beim Schlag noch läuft, ist Zuschauer.",
+  "nl-NL": "Sta stil en laag voordat de hand van de aanvaller beweegt. Een verdediger die bij het raken nog loopt, is toeschouwer."
+ },
+ "Block": {
+  "de-DE": "Block",
+  "nl-NL": "Blok"
+ },
+ "Block, land on both feet, open off the net to the 3 m line, then approach and jump again: the second jump is the one a match asks for, and the one that dies first when the legs are tired.": {
+  "de-DE": "Blocken, beidbeinig landen, vom Netz bis zur 3-m-Linie lösen, dann anlaufen und wieder springen: Den zweiten Sprung verlangt das Spiel, und genau der stirbt zuerst, wenn die Beine müde sind.",
+  "nl-NL": "Blokkeren, op twee voeten landen, loskomen van het net tot de 3-meterlijn, dan aanlopen en opnieuw springen: de tweede sprong is die de wedstrijd vraagt, en die als eerste wegvalt als de benen moe zijn."
+ },
+ "Block-and-transition jumps": {
+  "de-DE": "Block- und Übergangssprünge",
+  "nl-NL": "Blok- en omschakelsprongen"
+ },
+ "Celebrating the side-out — the free ball straight after it is the half of the wash that gets dropped.": {
+  "de-DE": "Das Side-out feiern — der Freeball direkt danach ist die Hälfte der Runde, die verloren geht.",
+  "nl-NL": "De side-out vieren — de vrije bal direct daarna is de helft van de ronde die verloren gaat."
+ },
+ "Close the gap between hands before you close the gap to the hitter. A double block with daylight in it is two players wasted.": {
+  "de-DE": "Schließ erst die Lücke zwischen den Händen, dann die Lücke zum Angreifer. Ein Doppelblock mit Lücke dazwischen sind zwei verschenkte Spieler.",
+  "nl-NL": "Sluit eerst het gat tussen de handen, dan pas het gat naar de aanvaller. Een dubbelblok met een gat erin is twee spelers verspild."
+ },
+ "Counterattack": {
+  "de-DE": "Konterangriff",
+  "nl-NL": "Counteraanval"
+ },
+ "Court line sprints": {
+  "de-DE": "Sprints über die Feldlinien",
+  "nl-NL": "Sprints over de veldlijnen"
+ },
+ "Digging": {
+  "de-DE": "Feldabwehr",
+  "nl-NL": "Verdedigen"
+ },
+ "Dump on the second ball only when the block is already moving with your hands. A dump telegraphed by a look is the easiest point the other side will get.": {
+  "de-DE": "Leg den zweiten Ball nur, wenn sich der Block schon mit deinen Händen bewegt. Eine Finte, die du mit einem Blick ankündigst, ist der leichteste Punkt, den der Gegner bekommt.",
+  "nl-NL": "Dump de tweede bal alleen als het blok al met je handen meebeweegt. Een dump die je met een blik verraadt, is het makkelijkste punt dat de tegenstander krijgt."
+ },
+ "Every contact has a target. Warming up without one is just moving a ball around until practice starts.": {
+  "de-DE": "Jeder Kontakt hat ein Ziel. Aufwärmen ohne Ziel heißt nur, einen Ball herumzuschieben, bis das Training anfängt.",
+  "nl-NL": "Elk contact heeft een doel. Inspelen zonder doel is gewoon een bal rondspelen tot de training begint."
+ },
+ "Every passer added is a seam added. Three passers each own a lane; four and five cover more floor but must call every ball between them before it crosses the net.": {
+  "de-DE": "Jeder zusätzliche Annahmespieler ist eine zusätzliche Lücke. Drei Annahmespieler haben je eine Bahn; vier und fünf decken mehr Feld ab, müssen aber jeden Ball zwischen sich ansagen, bevor er übers Netz kommt.",
+  "nl-NL": "Elke extra passer is een extra gat. Drie passers hebben elk een eigen baan; vier en vijf dekken meer veld af, maar moeten elke bal tussen hen roepen voordat hij over het net komt."
+ },
+ "Every rally is a final: win it on the kings' side to score, win it on the challengers' side to take the court. A safe free ball over the net is a rally handed to the other pair.": {
+  "de-DE": "Jeder Ballwechsel ist ein Finale: Gewinnt ihn auf der Königsseite, um zu punkten, gewinnt ihn auf der Herausfordererseite, um das Feld zu übernehmen. Ein sicherer Freeball übers Netz ist ein Ballwechsel, den ihr dem anderen Paar schenkt.",
+  "nl-NL": "Elke rally is een finale: win hem aan de koningskant om te scoren, win hem aan de uitdagerskant om het veld over te nemen. Een veilige vrije bal over het net is een rally die je aan het andere duo cadeau geeft."
+ },
+ "Every rep starts with a serve or a toss from the far side; the rally runs to the floor, the same server puts the next ball in, and after six balls the two sides rotate one position.": {
+  "de-DE": "Jede Wiederholung beginnt mit einem Aufschlag oder Zuwurf von der anderen Seite; der Ballwechsel läuft, bis der Ball am Boden ist, derselbe Aufschläger bringt den nächsten Ball, und nach sechs Bällen rotieren beide Seiten eine Position weiter.",
+  "nl-NL": "Elke herhaling begint met een opslag of aangooi van de overkant; de rally loopt tot de bal de grond raakt, dezelfde serveerder brengt de volgende bal in, en na zes ballen draaien beide kanten één positie door."
+ },
+ "Feet first, hands last: get to the ball, stop with the right foot forward and the hips facing the left antenna, then set. A setter who arrives together with the ball is already late.": {
+  "de-DE": "Erst die Füße, zuletzt die Hände: zum Ball kommen, mit dem rechten Fuß vorne stoppen, die Hüfte zur linken Antenne gedreht, dann zuspielen. Ein Zuspieler, der gleichzeitig mit dem Ball ankommt, ist schon zu spät.",
+  "nl-NL": "Eerst de voeten, als laatste de handen: kom bij de bal, stop met de rechtervoet voor en de heupen naar de linkerantenne, dan pas setten. Een spelverdeler die tegelijk met de bal aankomt, is al te laat."
+ },
+ "First tempo": {
+  "de-DE": "Erstes Tempo",
+  "nl-NL": "Eerste tempo"
+ },
+ "Four steps every time, the last two fast and low, and land on both feet — a jump you cannot land is a jump you cannot repeat.": {
+  "de-DE": "Jedes Mal vier Schritte, die letzten zwei schnell und tief, und beidbeinig landen — ein Sprung, den du nicht sauber landen kannst, ist einer, den du nicht wiederholen kannst.",
+  "nl-NL": "Elke keer vier passen, de laatste twee snel en laag, en land op twee voeten — een sprong die je niet goed kunt landen, is een sprong die je niet kunt herhalen."
+ },
+ "Get there first, then pass: feet stopped behind the ball, platform angled at the target before the ball arrives. Swinging the arms at it is how a pass ends up in the net.": {
+  "de-DE": "Erst hinkommen, dann annehmen: die Füße stehen hinter dem Ball, die Unterarme sind schon zum Ziel gewinkelt, bevor der Ball kommt. Wer mit den Armen nach dem Ball schlägt, setzt die Annahme ins Netz.",
+  "nl-NL": "Eerst ernaartoe, dan passen: voeten stil achter de bal, onderarmen al naar het doel gericht voordat de bal aankomt. Met je armen naar de bal zwaaien is hoe een pass in het net belandt."
+ },
+ "Get to the target and stop. A setter arriving on the move sets the ball wherever their momentum was going, not where the hitter is.": {
+  "de-DE": "Komm zum Zielpunkt und bleib stehen. Ein Zuspieler, der in der Bewegung ankommt, spielt den Ball dorthin, wo sein Schwung hinwollte, nicht dorthin, wo der Angreifer steht.",
+  "nl-NL": "Kom op de doelplek en sta stil. Een spelverdeler die nog in beweging aankomt, sett de bal waar zijn vaart heen ging, niet waar de aanvaller staat."
+ },
+ "High, off the net and to the outside: aim a metre and a half inside the antenna and two metres off the tape, so the hitter can see it coming and still swing. A ball set tight from deep is a ball the block owns.": {
+  "de-DE": "Hoch, weg vom Netz und nach außen: Ziel ist eineinhalb Meter innerhalb der Antenne und zwei Meter vom Netz, damit der Angreifer den Ball kommen sieht und trotzdem voll durchschlagen kann. Ein Ball, der aus der Tiefe eng ans Netz gespielt wird, gehört dem Block.",
+  "nl-NL": "Hoog, van het net af en naar buiten: mik anderhalve meter binnen de antenne en twee meter van de netband, zodat de aanvaller hem ziet aankomen en toch vol kan slaan. Een bal die van diep strak tegen het net wordt gezet, is een bal voor het blok."
+ },
+ "Hitter coverage": {
+  "de-DE": "Angriffssicherung",
+  "nl-NL": "Aanvalsdekking"
+ },
+ "Hitting the shot planned before the approach — straight into the block that already took it away.": {
+  "de-DE": "Den Schlag ausführen, der vor dem Anlauf geplant war — direkt in den Block, der ihn schon zugemacht hat.",
+  "nl-NL": "De klap slaan die je voor de aanloop al had gepland — recht in het blok dat hem al had afgesloten."
+ },
+ "In a 6-2 the setter always comes from the back row, so there are three front-row hitters in every rotation. When she reaches the front row she becomes the opposite and the other setter takes over from the back: rotations 4 to 6 are these three boards with S1 and S2 swapped.": {
+  "de-DE": "Im 6-2 kommt der Zuspieler immer aus dem Hinterfeld, also gibt es in jeder Rotation drei Angreifer vorne. Kommt sie nach vorne, wird sie zur Diagonalspielerin und die andere Zuspielerin übernimmt von hinten: Die Rotationen 4 bis 6 sind diese drei Boards mit S1 und S2 vertauscht.",
+  "nl-NL": "In een 6-2 komt de spelverdeler altijd uit de achterlijn, dus zijn er in elke rotatie drie aanvallers voorin. Komt zij voorin, dan wordt ze diagonaal en neemt de andere spelverdeler het van achteruit over: rotaties 4 tot 6 zijn deze drie borden met S1 en S2 omgewisseld."
+ },
+ "King of the court": {
+  "de-DE": "König des Feldes",
+  "nl-NL": "Koning van het veld"
+ },
+ "Learn the receive formation of every rotation: where each player stands when the serve is struck, and where she goes the moment it is.": {
+  "de-DE": "Lerne die Annahmeformation jeder Rotation: wo jede Spielerin beim Aufschlag steht und wohin sie geht, sobald der Ball geschlagen ist.",
+  "nl-NL": "Leer de passopstelling van elke rotatie: waar elke speelster staat als de opslag wordt geslagen, en waar ze naartoe gaat zodra dat gebeurt."
+ },
+ "Leaving with the hitter's approach instead of the setter's hands — the setter sends the ball the other way.": {
+  "de-DE": "Mit dem Anlauf des Angreifers losgehen statt mit den Händen des Zuspielers — der Zuspieler spielt den Ball in die andere Richtung.",
+  "nl-NL": "Vertrekken op de aanloop van de aanvaller in plaats van op de handen van de spelverdeler — de spelverdeler speelt de bal de andere kant op."
+ },
+ "Libero": {
+  "de-DE": "Libero",
+  "nl-NL": "Libero"
+ },
+ "Middle blocker": {
+  "de-DE": "Mittelblocker",
+  "nl-NL": "Middenblokkeerder"
+ },
+ "Off-speed shot": {
+  "de-DE": "Gelegter Angriff",
+  "nl-NL": "Plaatsbal"
+ },
+ "Out-of-system set": {
+  "de-DE": "Notzuspiel",
+  "nl-NL": "Noodset"
+ },
+ "Overlapping at the serve — a player drifts past the team-mate beside or in front of her before the ball is struck, and the point is gone.": {
+  "de-DE": "Positionsfehler beim Aufschlag — eine Spielerin rutscht an der Mitspielerin neben oder vor ihr vorbei, bevor der Ball geschlagen ist, und der Punkt ist weg.",
+  "nl-NL": "Opstellingsfout bij de opslag — een speelster schuift voorbij de ploeggenote naast of voor haar voordat de bal geslagen is, en het punt is weg."
+ },
+ "Passing": {
+  "de-DE": "Annahme",
+  "nl-NL": "Pass"
+ },
+ "Pick the shot from what the block shows you on the way up: a blocker on the line means cross-court, a blocker inside means line. The shot planned in the huddle is hit into the block.": {
+  "de-DE": "Wähl den Schlag nach dem, was dir der Block auf dem Weg nach oben zeigt: Blocker auf der Linie heißt diagonal, Blocker innen heißt Linie. Der Schlag, den du in der Besprechung geplant hast, geht in den Block.",
+  "nl-NL": "Kies de klap op basis van wat het blok je op weg naar boven laat zien: een blokkeerder op de lijn betekent diagonaal, een blokkeerder binnen betekent langs de lijn. De klap die je in het teampraatje had gepland, sla je in het blok."
+ },
+ "Platform angled to the target before the ball arrives, and the ball played up, high and into the middle of your own court. A dig that goes back over the net or out to the sideline is a dig nobody can set.": {
+  "de-DE": "Die Unterarme zum Ziel gewinkelt, bevor der Ball kommt, und den Ball hoch in die Mitte des eigenen Feldes spielen. Eine Abwehr, die zurück übers Netz oder Richtung Seitenlinie geht, kann niemand zuspielen.",
+  "nl-NL": "Onderarmen naar het doel gericht voordat de bal aankomt, en speel de bal omhoog, hoog en naar het midden van je eigen veld. Een verdedigde bal die terug over het net of naar de zijlijn gaat, kan niemand setten."
+ },
+ "Playing it safe on the kings' side — a free ball over the net is a rally the challengers win.": {
+  "de-DE": "Auf der Königsseite auf Sicherheit spielen — ein Freeball übers Netz ist ein Ballwechsel, den die Herausforderer gewinnen.",
+  "nl-NL": "Aan de koningskant op safe spelen — een vrije bal over het net is een rally die de uitdagers winnen."
+ },
+ "Read means waiting for the ball to leave the setter's hands; commit means jumping with the quick before it does. Decide which before the serve and do it whole — half a read and half a commit is beaten both ways.": {
+  "de-DE": "Lesen heißt warten, bis der Ball die Hände des Zuspielers verlassen hat; Commit heißt, mit dem Schnellangriff springen, bevor er das tut. Entscheide dich vor dem Aufschlag und zieh es ganz durch — halb lesen und halb mitspringen wird in beide Richtungen geschlagen.",
+  "nl-NL": "Lezen betekent wachten tot de bal de handen van de spelverdeler verlaat; committen betekent meespringen met de korte bal voordat dat gebeurt. Kies voor de opslag en doe het helemaal — half lezen en half committen wordt aan beide kanten geklopt."
+ },
+ "Relaxing on the free ball — the easiest point in the sport, and the most dropped.": {
+  "de-DE": "Beim Freeball abschalten — der leichteste Punkt im Sport und der, der am häufigsten verloren geht.",
+  "nl-NL": "Ontspannen bij de vrije bal — het makkelijkste punt in de sport, en het vaakst verloren."
+ },
+ "Rotation 1 (and 4 with the setters swapped): S1 sets from zone 1; S2, the second setter, is in the front row and hits as the opposite. O1 and O2 are the outside hitters, M the front-row middle, L the libero; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 1 (und 4 mit vertauschten Zuspielern): S1 spielt aus Zone 1 zu; S2, der zweite Zuspieler, steht vorne und greift als Diagonalspieler an. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, L der Libero; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 1 (en 4 met de spelverdelers omgewisseld): S1 sett vanuit zone 1; S2, de tweede spelverdeler, staat voorin en valt aan als diagonaal. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, L de libero; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 1: the setter (S) starts in zone 1. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 1: Der Zuspieler (S) beginnt in Zone 1. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 1: de spelverdeler (S) begint in zone 1. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 2 (and 5 with the setters swapped): S1 sets from zone 6; S2, the second setter, is in the front row and hits as the opposite. O1 and O2 are the outside hitters, M the front-row middle, L the libero; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 2 (und 5 mit vertauschten Zuspielern): S1 spielt aus Zone 6 zu; S2, der zweite Zuspieler, steht vorne und greift als Diagonalspieler an. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, L der Libero; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 2 (en 5 met de spelverdelers omgewisseld): S1 sett vanuit zone 6; S2, de tweede spelverdeler, staat voorin en valt aan als diagonaal. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, L de libero; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 2: the setter (S) starts in zone 6. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 2: Der Zuspieler (S) beginnt in Zone 6. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 2: de spelverdeler (S) begint in zone 6. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 3 (and 6 with the setters swapped): S1 sets from zone 5; S2, the second setter, is in the front row and hits as the opposite. O1 and O2 are the outside hitters, M the front-row middle, L the libero; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 3 (und 6 mit vertauschten Zuspielern): S1 spielt aus Zone 5 zu; S2, der zweite Zuspieler, steht vorne und greift als Diagonalspieler an. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, L der Libero; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 3 (en 6 met de spelverdelers omgewisseld): S1 sett vanuit zone 5; S2, de tweede spelverdeler, staat voorin en valt aan als diagonaal. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, L de libero; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 3: the setter (S) starts in zone 5. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 3: Der Zuspieler (S) beginnt in Zone 5. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 3: de spelverdeler (S) begint in zone 5. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 4: the setter (S) starts in zone 4. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 4: Der Zuspieler (S) beginnt in Zone 4. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 4: de spelverdeler (S) begint in zone 4. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 5: the setter (S) starts in zone 3. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 5: Der Zuspieler (S) beginnt in Zone 3. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 5: de spelverdeler (S) begint in zone 3. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Rotation 6: the setter (S) starts in zone 2. O1 and O2 are the outside hitters, M the front-row middle, OP the opposite, L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "de-DE": "Rotation 6: Der Zuspieler (S) beginnt in Zone 2. O1 und O2 sind die Außenangreifer, M der Mittelblocker vorne, OP der Diagonalspieler, L der Libero für den Mittelblocker hinten; ihr Aufschläger (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "Rotatie 6: de spelverdeler (S) begint in zone 2. O1 en O2 zijn de buitenaanvallers, M de middenaanvaller voorin, OP de diagonaal, L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Score it. A conditioned game without a score is a rally, and a rally teaches nobody to win the point that matters.": {
+  "de-DE": "Zählt mit. Eine Spielform ohne Punktestand ist nur ein Ballwechsel, und ein Ballwechsel bringt niemandem bei, den Punkt zu gewinnen, auf den es ankommt.",
+  "nl-NL": "Hou de score bij. Een partijvorm zonder score is gewoon een rally, en een rally leert niemand het punt te winnen dat ertoe doet."
+ },
+ "Sell it as a full swing until the last moment: an off-speed shot announced by the approach is a free ball. Put it on the floor nobody is standing on — behind the block, or in the seam between two diggers.": {
+  "de-DE": "Verkauf ihn bis zum letzten Moment als vollen Schlag: Ein gelegter Ball, den der Anlauf verrät, ist ein Freeball. Leg ihn dorthin, wo niemand steht — hinter den Block oder in die Lücke zwischen zwei Abwehrspielern.",
+  "nl-NL": "Verkoop hem tot het laatste moment als een volle klap: een plaatsbal die je aanloop verraadt, is een vrije bal. Leg hem waar niemand staat — achter het blok, of in het gat tussen twee verdedigers."
+ },
+ "Serve at a person or at a line, never at the middle of the court. A safe serve is a free pass and a free pass is a kill.": {
+  "de-DE": "Schlag auf einen Spieler oder auf eine Linie auf, nie in die Feldmitte. Ein sicherer Aufschlag ist eine geschenkte Annahme, und eine geschenkte Annahme ist ein Punkt für den Gegner.",
+  "nl-NL": "Serveer op een speler of op een lijn, nooit op het midden van het veld. Een veilige opslag is een gratis pass, en een gratis pass is een gratis punt voor hen."
+ },
+ "Serve receive rotation": {
+  "de-DE": "Aufschlagannahme, Rotation",
+  "nl-NL": "Pass op opslag, rotatie"
+ },
+ "Serving to the middle, safe — a free pass is a free kill for them.": {
+  "de-DE": "Sicher in die Mitte aufschlagen — eine geschenkte Annahme ist ein geschenkter Punkt für sie.",
+  "nl-NL": "Veilig op het midden serveren — een gratis pass is een gratis punt voor hen."
+ },
+ "Setter footwork": {
+  "de-DE": "Beinarbeit Zuspieler",
+  "nl-NL": "Voetenwerk spelverdeler"
+ },
+ "Setter release from": {
+  "de-DE": "Einlaufen des Zuspielers aus",
+  "nl-NL": "Doorkomen spelverdeler vanuit"
+ },
+ "Setting": {
+  "de-DE": "Zuspiel",
+  "nl-NL": "Set-up"
+ },
+ "Setting on the move — the ball goes where momentum went, not where the hitter is.": {
+  "de-DE": "Zuspielen in der Bewegung — der Ball geht dorthin, wo der Schwung hinwollte, nicht dorthin, wo der Angreifer steht.",
+  "nl-NL": "Setten in beweging — de bal gaat waar de vaart heen ging, niet waar de aanvaller staat."
+ },
+ "Setting tight to the net from deep — the block gets the ball before the hitter can swing at it.": {
+  "de-DE": "Aus der Tiefe eng ans Netz zuspielen — der Block hat den Ball, bevor der Angreifer schlagen kann.",
+  "nl-NL": "Van diep strak tegen het net setten — het blok heeft de bal voordat de aanvaller kan slaan."
+ },
+ "Six-point court run": {
+  "de-DE": "Sechs-Punkte-Lauf im Feld",
+  "nl-NL": "Zespuntenloop over het veld"
+ },
+ "Slowing the approach — the defence reads the tip before the hitter leaves the floor.": {
+  "de-DE": "Den Anlauf abbremsen — die Abwehr liest die Finte, bevor der Angreifer abspringt.",
+  "nl-NL": "De aanloop afremmen — de verdediging leest de tip al voordat de aanvaller van de grond komt."
+ },
+ "Spike": {
+  "de-DE": "Angriffsschlag",
+  "nl-NL": "Smash"
+ },
+ "Sprint forward, backpedal back, and keep the eyes on the net the whole time: in a match you never turn your back on the ball to get back to base.": {
+  "de-DE": "Nach vorne sprinten, rückwärts zurücklaufen und die ganze Zeit aufs Netz schauen: Im Spiel drehst du dem Ball nie den Rücken zu, um zurück auf die Grundposition zu kommen.",
+  "nl-NL": "Sprint naar voren, loop achteruit terug en hou je ogen de hele tijd op het net: in een wedstrijd draai je de bal nooit je rug toe om terug naar je basispositie te komen."
+ },
+ "Square the hips to the target, not the shoulders. Hands can lie about where a set is going; hips cannot.": {
+  "de-DE": "Richte die Hüfte zum Ziel aus, nicht die Schultern. Die Hände können lügen, wohin das Zuspiel geht; die Hüfte kann es nicht.",
+  "nl-NL": "Draai je heupen naar het doel, niet je schouders. Handen kunnen liegen over waar de set-up heen gaat; heupen niet."
+ },
+ "Squaring the shoulders, not the hips — the hands lie about where the set goes, the hips cannot.": {
+  "de-DE": "Die Schultern ausrichten statt der Hüfte — die Hände lügen, wohin das Zuspiel geht, die Hüfte kann es nicht.",
+  "nl-NL": "De schouders indraaien in plaats van de heupen — de handen liegen over waar de set-up heen gaat, de heupen kunnen dat niet."
+ },
+ "Stand where the overlap rule allows, not where the rotation chart draws the zones: each player only has to be in front of, or beside, the right two team-mates when the serve is struck. Hide the setter near the target, keep the three passers in one line, and let the switch happen the moment the ball is hit.": {
+  "de-DE": "Stell dich so auf, wie es die Positionsregel erlaubt, nicht wie das Rotationsschema die Zonen zeichnet: Jeder Spieler muss beim Aufschlag nur vor oder neben den richtigen zwei Mitspielern stehen. Versteck den Zuspieler nahe am Zielpunkt, halte die drei Annahmespieler auf einer Linie und lass den Wechsel im Moment des Aufschlags laufen.",
+  "nl-NL": "Ga staan waar de opstellingsregel het toestaat, niet waar het rotatieschema de zones tekent: elke speler hoeft bij de opslag alleen voor of naast de juiste twee ploeggenoten te staan. Verstop de spelverdeler dicht bij de doelplek, hou de drie passers op één lijn en laat de wissel gebeuren zodra de bal geslagen is."
+ },
+ "Start the approach late and fast, not early and drifting. The last two steps are what gets you above the block.": {
+  "de-DE": "Beginn den Anlauf spät und schnell, nicht früh und schleppend. Die letzten zwei Schritte bringen dich über den Block.",
+  "nl-NL": "Begin de aanloop laat en snel, niet vroeg en sloffend. De laatste twee passen brengen je boven het blok."
+ },
+ "Starting the approach early and drifting — the last two steps make the jump, not the first.": {
+  "de-DE": "Den Anlauf zu früh beginnen und schleppen — den Sprung machen die letzten zwei Schritte, nicht der erste.",
+  "nl-NL": "De aanloop te vroeg beginnen en sloffen — de laatste twee passen maken de sprong, niet de eerste."
+ },
+ "Still moving when the hitter contacts — a defender in motion is a spectator.": {
+  "de-DE": "Beim Schlag des Angreifers noch in Bewegung — ein Abwehrspieler in Bewegung ist Zuschauer.",
+  "nl-NL": "Nog in beweging als de aanvaller raakt — een verdediger in beweging is toeschouwer."
+ },
+ "Swinging at a hard-driven ball — it flies off the platform and out of the court.": {
+  "de-DE": "Mit den Armen gegen einen harten Ball schlagen — er springt von den Unterarmen und fliegt aus dem Feld.",
+  "nl-NL": "Met je armen naar een harde bal zwaaien — hij springt van je onderarmen en vliegt het veld uit."
+ },
+ "Swinging the arms at the ball — the pass goes wherever the swing went, usually into the net.": {
+  "de-DE": "Mit den Armen nach dem Ball schlagen — die Annahme geht dorthin, wo der Schwung hinging, meist ins Netz.",
+  "nl-NL": "Met je armen naar de bal zwaaien — de pass gaat waar de zwaai heen ging, meestal in het net."
+ },
+ "Take the line or take the angle and let the diggers have the rest. Reaching for both gives the hitter the seam between your own hands.": {
+  "de-DE": "Nimm die Linie oder die Diagonale und überlass den Rest der Feldabwehr. Wer nach beidem greift, schenkt dem Angreifer die Lücke zwischen den eigenen Händen.",
+  "nl-NL": "Neem de lijn of de diagonaal en laat de rest aan de verdedigers. Wie naar beide reikt, geeft de aanvaller het gat tussen zijn eigen handen."
+ },
+ "The front-row setter releasing too — she is a hitter in this rotation, and the attack is down to two options.": {
+  "de-DE": "Die Zuspielerin vorne läuft auch ein — sie ist in dieser Rotation Angreiferin, und der Angriff hat nur noch zwei Optionen.",
+  "nl-NL": "De spelverdeelster voorin komt ook door — zij is in deze rotatie aanvaller, en de aanval heeft nog maar twee opties."
+ },
+ "The middle jumps before the set, not after it. If the setter has to wait for him the block has already read the whole play.": {
+  "de-DE": "Der Mittelangreifer springt vor dem Zuspiel, nicht danach. Muss der Zuspieler auf ihn warten, hat der Block den ganzen Spielzug schon gelesen.",
+  "nl-NL": "De middenaanvaller springt voor de set-up, niet erna. Als de spelverdeler op hem moet wachten, heeft het blok de hele aanval al gelezen."
+ },
+ "The quick goes first and goes for real: if the middle is not in the air before the set, their middle blocker never jumps with her and the second hitter meets a block. The X crosses behind the quick; the tandem follows it.": {
+  "de-DE": "Der Schnellangriff kommt zuerst und ist echt: Ist die Mittelangreiferin vor dem Zuspiel nicht in der Luft, springt ihr Mittelblocker nie mit ihr, und der zweite Angreifer trifft auf einen Block. Das X kreuzt hinter dem Schnellangriff; das Tandem folgt ihm.",
+  "nl-NL": "De korte bal gaat eerst en is echt: als de middenaanvalster niet in de lucht is voor de set-up, springt hun middenblokkeerder nooit met haar mee en loopt de tweede aanvaller tegen een blok aan. De X kruist achter de korte bal; de tandem volgt hem."
+ },
+ "The rally is won on the ball after the dig: the hitter lands, opens off the net to the 3 m line and is ready to approach before the setter touches it. A hitter still standing at the net has no approach left.": {
+  "de-DE": "Der Ballwechsel wird mit dem Ball nach der Abwehr gewonnen: Der Angreifer landet, löst sich vom Netz bis zur 3-m-Linie und ist anlaufbereit, bevor der Zuspieler den Ball berührt. Ein Angreifer, der noch am Netz steht, hat keinen Anlauf mehr.",
+  "nl-NL": "De rally wordt gewonnen op de bal na de verdediging: de aanvaller landt, komt los van het net tot de 3-meterlijn en is klaar om aan te lopen voordat de spelverdeler de bal raakt. Een aanvaller die nog aan het net staat, heeft geen aanloop meer."
+ },
+ "Three low and close around your own hitter before he lands. The ball off the block falls inside three metres, and nobody digs it standing up.": {
+  "de-DE": "Zu dritt tief und eng um den eigenen Angreifer, bevor er landet. Der Ball vom Block fällt innerhalb von drei Metern, und den wehrt niemand im Stehen ab.",
+  "nl-NL": "Met drie laag en dicht rond je eigen aanvaller voordat hij landt. De bal van het blok valt binnen drie meter, en niemand verdedigt die rechtop staand."
+ },
+ "Three passers, one seam each. Call the ball early and loud — a silent seam is where every rotation loses its first point.": {
+  "de-DE": "Drei Annahmespieler, eine Lücke pro Spieler. Sag den Ball früh und laut an — in einer stummen Lücke verliert jede Rotation ihren ersten Punkt.",
+  "nl-NL": "Drie passers, elk één gat. Roep de bal vroeg en hard — in een stil gat verliest elke rotatie haar eerste punt."
+ },
+ "Touch the floor at every point with the hand: the drill is about getting low and standing up again, which is what digging is.": {
+  "de-DE": "Berühr an jedem Punkt mit der Hand den Boden: In der Übung geht es darum, tief zu gehen und wieder aufzustehen — genau das ist Feldabwehr.",
+  "nl-NL": "Raak bij elk punt met je hand de grond: de oefening draait om laag gaan en weer opstaan, en dat is precies verdedigen."
+ },
+ "Transition off a": {
+  "de-DE": "Übergang nach",
+  "nl-NL": "Omschakeling na"
+ },
+ "Two passers both leaving the ball in the seam between them — nobody called it before it crossed the net.": {
+  "de-DE": "Zwei Annahmespieler lassen den Ball in der Lücke zwischen sich fallen — keiner hat ihn angesagt, bevor er übers Netz kam.",
+  "nl-NL": "Twee passers laten allebei de bal in het gat tussen hen vallen — niemand riep hem voordat hij over het net kwam."
+ },
+ "Two passers means the libero owns everything to his left and calls the seam early. Silence in a two-passer system is a service ace waiting to happen.": {
+  "de-DE": "Zwei Annahmespieler heißt: Dem Libero gehört alles links von ihm, und er sagt die Lücke früh an. Schweigen im Zweier-Annahmesystem ist ein Ass, das nur darauf wartet zu passieren.",
+  "nl-NL": "Twee passers betekent dat alles links van de libero van hem is en dat hij het gat vroeg roept. Stilte in een systeem met twee passers is een ace die erop ligt te wachten."
+ },
+ "Volleyball's oldest warm-up — a pass, a set and a hit between two players, played the world over before every session.": {
+  "de-DE": "Das älteste Aufwärmen im Volleyball — Annahme, Zuspiel und Angriff zwischen zwei Spielern, weltweit vor jedem Training gespielt.",
+  "nl-NL": "De oudste warming-up van het volleybal — een pass, een set-up en een aanval tussen twee spelers, over de hele wereld voor elke training gespeeld."
+ },
+ "Wash drill 6v6": {
+  "de-DE": "Wash-Drill 6v6",
+  "nl-NL": "Wash-oefening 6v6"
+ },
+ "Watching the dig — the hitter who stays at the net after the block has no approach to hit with.": {
+  "de-DE": "Der Abwehr zuschauen — der Angreifer, der nach dem Block am Netz bleibt, hat keinen Anlauf mehr für den Angriff.",
+  "nl-NL": "Naar de verdediging kijken — de aanvaller die na het blok aan het net blijft, heeft geen aanloop meer om mee aan te vallen."
+ },
+ "a down ball": {
+  "de-DE": "einem Down-Ball",
+  "nl-NL": "een staande aanval"
+ },
+ "a free ball": {
+  "de-DE": "einem Freeball",
+  "nl-NL": "een vrije bal"
+ },
+ "after the cover": {
+  "de-DE": "nach der Sicherung",
+  "nl-NL": "na de dekking"
+ },
+ "around the outside hitter": {
+  "de-DE": "um den Außenangreifer",
+  "nl-NL": "rond de buitenaanvaller"
+ },
+ "behind the head": {
+  "de-DE": "über Kopf nach hinten",
+  "nl-NL": "achter het hoofd"
+ },
+ "butterfly passing": {
+  "de-DE": "Butterfly-Passen",
+  "nl-NL": "vlinderpass"
+ },
+ "by the libero": {
+  "de-DE": "durch den Libero",
+  "nl-NL": "door de libero"
+ },
+ "committing to the quick": {
+  "de-DE": "springt mit dem Schnellangriff",
+  "nl-NL": "springt mee met de korte bal"
+ },
+ "crossing behind the quick": {
+  "de-DE": "hinter dem Schnellangriff kreuzend",
+  "nl-NL": "kruisend achter de korte bal"
+ },
+ "double middle": {
+  "de-DE": "doppelt Mitte",
+  "nl-NL": "dubbel midden"
+ },
+ "double outside": {
+  "de-DE": "doppelt außen",
+  "nl-NL": "dubbel buiten"
+ },
+ "float deep": {
+  "de-DE": "Flatter tief",
+  "nl-NL": "float diep"
+ },
+ "following the quick": {
+  "de-DE": "dem Schnellangriff folgend",
+  "nl-NL": "volgend op de korte bal"
+ },
+ "from deep in the court": {
+  "de-DE": "aus der Tiefe des Feldes",
+  "nl-NL": "van diep uit het veld"
+ },
+ "from the dig": {
+  "de-DE": "aus der Abwehr",
+  "nl-NL": "vanuit de verdediging"
+ },
+ "hitting lines": {
+  "de-DE": "Angriffsreihen",
+  "nl-NL": "aanvalsrijen"
+ },
+ "in a five-passer W": {
+  "de-DE": "in W-Formation mit fünf Annahmespielern",
+  "nl-NL": "in een W met vijf passers"
+ },
+ "in a two-passer receive": {
+  "de-DE": "in der Zweier-Annahme",
+  "nl-NL": "in een pass met twee passers"
+ },
+ "in pursuit": {
+  "de-DE": "im Hinterherlaufen",
+  "nl-NL": "in de achtervolging"
+ },
+ "jump float": {
+  "de-DE": "Sprungflatter",
+  "nl-NL": "sprongfloat"
+ },
+ "line and angle": {
+  "de-DE": "Linie und Diagonale",
+  "nl-NL": "lijn en diagonaal"
+ },
+ "middle-up": {
+  "de-DE": "mit Sechser vorne",
+  "nl-NL": "met 6 voor"
+ },
+ "off the block": {
+  "de-DE": "nach dem Block",
+  "nl-NL": "na het blok"
+ },
+ "off the jump": {
+  "de-DE": "im Sprung",
+  "nl-NL": "in de sprong"
+ },
+ "on the move": {
+  "de-DE": "in der Bewegung",
+  "nl-NL": "in beweging"
+ },
+ "partner passing": {
+  "de-DE": "Baggern mit Partner",
+  "nl-NL": "passen in tweetallen"
+ },
+ "partner setting": {
+  "de-DE": "Pritschen mit Partner",
+  "nl-NL": "setten in tweetallen"
+ },
+ "pepper": {
+  "de-DE": "Pepper",
+  "nl-NL": "pepper"
+ },
+ "perimeter": {
+  "de-DE": "mit Sechser hinten",
+  "nl-NL": "met 6 achter"
+ },
+ "reading the set": {
+  "de-DE": "liest das Zuspiel",
+  "nl-NL": "leest de set-up"
+ },
+ "rolled to the seam": {
+  "de-DE": "in die Lücke gerollt",
+  "nl-NL": "in het gat gerold"
+ },
+ "rotation": {
+  "de-DE": "mit Rotation",
+  "nl-NL": "met rotatie"
+ },
+ "shuffle and dig": {
+  "de-DE": "Sidesteps und Abwehr",
+  "nl-NL": "zijwaarts verplaatsen en verdedigen"
+ },
+ "solo": {
+  "de-DE": "einzeln",
+  "nl-NL": "enkel"
+ },
+ "swinging to the pin": {
+  "de-DE": "verschiebt zur Antenne",
+  "nl-NL": "schuift naar de antenne"
+ },
+ "the pipe": {
+  "de-DE": "der Pipe",
+  "nl-NL": "de pipe"
+ },
+ "the quick in front": {
+  "de-DE": "Schnellangriff vor dem Zuspieler",
+  "nl-NL": "korte bal voor de spelverdeler"
+ },
+ "the second-ball dump": {
+  "de-DE": "der Finte am zweiten Ball",
+  "nl-NL": "de dump op de tweede bal"
+ },
+ "the slide behind the setter": {
+  "de-DE": "Slide hinter dem Zuspieler",
+  "nl-NL": "slide achter de spelverdeler"
+ },
+ "three-person pepper": {
+  "de-DE": "Pepper zu dritt",
+  "nl-NL": "pepper met drie"
+ },
+ "tipped over the block": {
+  "de-DE": "über den Block gelegt",
+  "nl-NL": "over het blok getipt"
+ },
+ "to a pass off the net": {
+  "de-DE": "zu einer Annahme weg vom Netz",
+  "nl-NL": "naar een pass van het net af"
+ },
+ "to the front": {
+  "de-DE": "nach vorne",
+  "nl-NL": "naar voren"
+ },
+ "to the target": {
+  "de-DE": "ins Ziel",
+  "nl-NL": "naar de doelplek"
+ },
+ "to zone 1": {
+  "de-DE": "auf Zone 1",
+  "nl-NL": "naar zone 1",
+  "ja-JP": "ゾーン1へ",
+  "ko-KR": "1번 자리로",
+  "es-ES": "a la zona 1",
+  "fr-FR": "en zone 1",
+  "id-ID": "ke zona 1",
+  "ms-MY": "ke zon 1",
+  "th-TH": "ไปโซน 1",
+  "vi-VN": "vào vị trí 1"
+ },
+ "to zone 5": {
+  "de-DE": "auf Zone 5",
+  "nl-NL": "naar zone 5",
+  "ja-JP": "ゾーン5へ",
+  "ko-KR": "5번 자리로",
+  "es-ES": "a la zona 5",
+  "fr-FR": "en zone 5",
+  "id-ID": "ke zona 5",
+  "ms-MY": "ke zon 5",
+  "th-TH": "ไปโซน 5",
+  "vi-VN": "vào vị trí 5"
+ },
+ "triple": {
+  "de-DE": "dreifach",
+  "nl-NL": "driedubbel"
+ },
+ "with four passers": {
+  "de-DE": "mit vier Annahmespielern",
+  "nl-NL": "met vier passers"
+ },
+ "with the forearms": {
+  "de-DE": "mit den Unterarmen",
+  "nl-NL": "onderhands"
+ },
+ "with the hands": {
+  "de-DE": "mit den Händen",
+  "nl-NL": "met de handen"
+ },
+ "with three passers": {
+  "de-DE": "mit drei Annahmespielern",
+  "nl-NL": "met drie passers"
+ },
+ "with topspin": {
+  "de-DE": "mit Topspin",
+  "nl-NL": "met topspin"
+ },
+ "zone 1": {
+  "de-DE": "Zone 1",
+  "nl-NL": "zone 1"
+ },
+ "zone 2": {
+  "de-DE": "Zone 2",
+  "nl-NL": "zone 2"
+ },
+ "zone 3": {
+  "de-DE": "Zone 3",
+  "nl-NL": "zone 3"
+ },
+ "zone 4": {
+  "de-DE": "Zone 4",
+  "nl-NL": "zone 4"
+ },
+ "zone 5": {
+  "de-DE": "Zone 5",
+  "nl-NL": "zone 5"
+ },
+ "zone 6": {
+  "de-DE": "Zone 6",
+  "nl-NL": "zone 6"
+ },
+ "5-1 four-passer cup rotation": {
+  "ja-JP": "5-1 4人カップ型レセプション ローテーション",
+  "ko-KR": "5-1 4인 컵 리시브 로테이션",
+  "es-ES": "5-1 recepción en copa a cuatro rotación",
+  "fr-FR": "5-1 réception en coupe à quatre rotation",
+  "id-ID": "5-1 terima servis 4 orang bentuk mangkuk rotasi",
+  "ms-MY": "5-1 terima servis 4 orang bentuk cawan putaran",
+  "th-TH": "5-1 รับเสิร์ฟสี่คนแบบถ้วย รอบที่",
+  "vi-VN": "5-1 đỡ giao bóng bốn người hình chén vòng",
+  "de-DE": "5-1 mit vier Annahmespielern im Becher, Rotation",
+  "nl-NL": "5-1 met vier passers in een kom, rotatie"
+ },
+ "5-1 five-passer W rotation": {
+  "ja-JP": "5-1 5人W型レセプション ローテーション",
+  "ko-KR": "5-1 5인 W 리시브 로테이션",
+  "es-ES": "5-1 recepción en W a cinco rotación",
+  "fr-FR": "5-1 réception en W à cinq rotation",
+  "id-ID": "5-1 terima servis 5 orang bentuk W rotasi",
+  "ms-MY": "5-1 terima servis 5 orang bentuk W putaran",
+  "th-TH": "5-1 รับเสิร์ฟห้าคนแบบ W รอบที่",
+  "vi-VN": "5-1 đỡ giao bóng năm người hình W vòng",
+  "de-DE": "5-1 mit fünf Annahmespielern im W, Rotation",
+  "nl-NL": "5-1 met vijf passers in W, rotatie"
+ },
+ "6-2 four-passer cup rotation": {
+  "ja-JP": "6-2 4人カップ型レセプション ローテーション",
+  "ko-KR": "6-2 4인 컵 리시브 로테이션",
+  "es-ES": "6-2 recepción en copa a cuatro rotación",
+  "fr-FR": "6-2 réception en coupe à quatre rotation",
+  "id-ID": "6-2 terima servis 4 orang bentuk mangkuk rotasi",
+  "ms-MY": "6-2 terima servis 4 orang bentuk cawan putaran",
+  "th-TH": "6-2 รับเสิร์ฟสี่คนแบบถ้วย รอบที่",
+  "vi-VN": "6-2 đỡ giao bóng bốn người hình chén vòng",
+  "de-DE": "6-2 mit vier Annahmespielern im Becher, Rotation",
+  "nl-NL": "6-2 met vier passers in een kom, rotatie"
+ },
+ "4-2 W receive rotation": {
+  "ja-JP": "4-2 W型レセプション ローテーション",
+  "ko-KR": "4-2 W 리시브 로테이션",
+  "es-ES": "4-2 recepción en W rotación",
+  "fr-FR": "4-2 réception en W rotation",
+  "id-ID": "4-2 terima servis bentuk W rotasi",
+  "ms-MY": "4-2 terima servis bentuk W putaran",
+  "th-TH": "4-2 รับเสิร์ฟแบบ W รอบที่",
+  "vi-VN": "4-2 đỡ giao bóng hình W vòng",
+  "de-DE": "4-2-Annahme im W, Rotation",
+  "nl-NL": "Pass 4-2 in W, rotatie"
+ },
+ "5-1 serve and transition rotation": {
+  "ja-JP": "5-1 サーブからの切り返し ローテーション",
+  "ko-KR": "5-1 서브 후 전환 로테이션",
+  "es-ES": "5-1 saque y transición rotación",
+  "fr-FR": "5-1 service et transition rotation",
+  "id-ID": "5-1 servis dan transisi rotasi",
+  "ms-MY": "5-1 servis dan peralihan putaran",
+  "th-TH": "5-1 เสิร์ฟแล้วรับตบโต้กลับ รอบที่",
+  "vi-VN": "5-1 giao bóng và phòng thủ phản công vòng",
+  "de-DE": "5-1 Aufschlag und Übergang, Rotation",
+  "nl-NL": "5-1 opslag en omschakeling, rotatie"
+ },
+ "Libero in for the middle, rotation": {
+  "ja-JP": "リベロとミドルの交代 ローテーション",
+  "ko-KR": "미들 대신 리베로 로테이션",
+  "es-ES": "Líbero por el central, rotación",
+  "fr-FR": "Libéro à la place du central, rotation",
+  "id-ID": "Libero menggantikan middle, rotasi",
+  "ms-MY": "Libero menggantikan pemain tengah, putaran",
+  "th-TH": "ลิเบโรเปลี่ยนตัวบล็อกกลาง รอบที่",
+  "vi-VN": "Libero thay phụ công, vòng",
+  "de-DE": "Libero für die Mitte, Rotation",
+  "nl-NL": "Libero voor de middenaanvaller, rotatie"
+ },
+ "Target serve": {
+  "ja-JP": "狙いサーブ",
+  "ko-KR": "목표 서브",
+  "es-ES": "Saque dirigido",
+  "fr-FR": "Service ciblé",
+  "id-ID": "Servis terarah",
+  "ms-MY": "Servis bersasar",
+  "th-TH": "เสิร์ฟเจาะจุด",
+  "vi-VN": "Giao bóng chọn điểm",
+  "de-DE": "Zielaufschlag",
+  "nl-NL": "Gerichte opslag"
+ },
+ "Second ball off the net": {
+  "ja-JP": "ネットから離れたパスのトス",
+  "ko-KR": "네트에서 먼 리시브 후 토스",
+  "es-ES": "Segundo toque lejos de la red",
+  "fr-FR": "Deuxième touche loin du filet",
+  "id-ID": "Bola kedua jauh dari net",
+  "ms-MY": "Bola kedua jauh dari jaring",
+  "th-TH": "ลูกที่สองเมื่อบอลห่างเน็ต",
+  "vi-VN": "Chạm hai khi bóng xa lưới",
+  "de-DE": "Zweiter Ball weg vom Netz",
+  "nl-NL": "Tweede bal van het net af"
+ },
+ "to zone 6": {
+  "ja-JP": "ゾーン6へ",
+  "ko-KR": "6번 자리로",
+  "es-ES": "a la zona 6",
+  "fr-FR": "en zone 6",
+  "id-ID": "ke zona 6",
+  "ms-MY": "ke zon 6",
+  "th-TH": "ไปโซน 6",
+  "vi-VN": "vào vị trí 6",
+  "de-DE": "auf Zone 6",
+  "nl-NL": "naar zone 6"
+ },
+ "short to zone 2": {
+  "ja-JP": "ゾーン2へショート",
+  "ko-KR": "2번 자리로 짧게",
+  "es-ES": "corto a la zona 2",
+  "fr-FR": "court en zone 2",
+  "id-ID": "pendek ke zona 2",
+  "ms-MY": "pendek ke zon 2",
+  "th-TH": "สั้นไปโซน 2",
+  "vi-VN": "ngắn vào vị trí 2",
+  "de-DE": "kurz auf Zone 2",
+  "nl-NL": "kort op zone 2"
+ },
+ "short to zone 4": {
+  "ja-JP": "ゾーン4へショート",
+  "ko-KR": "4번 자리로 짧게",
+  "es-ES": "corto a la zona 4",
+  "fr-FR": "court en zone 4",
+  "id-ID": "pendek ke zona 4",
+  "ms-MY": "pendek ke zon 4",
+  "th-TH": "สั้นไปโซน 4",
+  "vi-VN": "ngắn vào vị trí 4",
+  "de-DE": "kurz auf Zone 4",
+  "nl-NL": "kort op zone 4"
+ },
+ "short to zone 3": {
+  "ja-JP": "ゾーン3へショート",
+  "ko-KR": "3번 자리로 짧게",
+  "es-ES": "corto a la zona 3",
+  "fr-FR": "court en zone 3",
+  "id-ID": "pendek ke zona 3",
+  "ms-MY": "pendek ke zon 3",
+  "th-TH": "สั้นไปโซน 3",
+  "vi-VN": "ngắn vào vị trí 3",
+  "de-DE": "kurz auf Zone 3",
+  "nl-NL": "kort op zone 3"
+ },
+ "into the 5–6 seam": {
+  "ja-JP": "5と6の継ぎ目へ",
+  "ko-KR": "5번과 6번 사이로",
+  "es-ES": "a la costura 5–6",
+  "fr-FR": "dans la fente 5–6",
+  "id-ID": "ke celah 5–6",
+  "ms-MY": "ke celah 5–6",
+  "th-TH": "ไปรอยต่อ 5–6",
+  "vi-VN": "vào khe 5–6",
+  "de-DE": "in die Lücke zwischen 5 und 6",
+  "nl-NL": "in de naad tussen 5 en 6"
+ },
+ "into the 6–1 seam": {
+  "ja-JP": "6と1の継ぎ目へ",
+  "ko-KR": "6번과 1번 사이로",
+  "es-ES": "a la costura 6–1",
+  "fr-FR": "dans la fente 6–1",
+  "id-ID": "ke celah 6–1",
+  "ms-MY": "ke celah 6–1",
+  "th-TH": "ไปรอยต่อ 6–1",
+  "vi-VN": "vào khe 6–1",
+  "de-DE": "in die Lücke zwischen 6 und 1",
+  "nl-NL": "in de naad tussen 6 en 1"
+ },
+ "at the passing hitter": {
+  "ja-JP": "レシーブするアタッカーへ",
+  "ko-KR": "리시브하는 공격수에게",
+  "es-ES": "a la atacante que recibe",
+  "fr-FR": "sur l'attaquante qui réceptionne",
+  "id-ID": "ke penyerang yang menerima",
+  "ms-MY": "kepada penyerang yang menerima",
+  "th-TH": "ใส่ตัวตบที่ต้องรับ",
+  "vi-VN": "vào chủ công phải đỡ bước một",
+  "de-DE": "auf die annehmende Angreiferin",
+  "nl-NL": "op de passer-loper"
+ },
+ "into the setter's path": {
+  "ja-JP": "セッターの走路へ",
+  "ko-KR": "세터 침투 길로",
+  "es-ES": "a la ruta del colocador",
+  "fr-FR": "dans la course du passeur",
+  "id-ID": "ke jalur tosser",
+  "ms-MY": "ke laluan pengumpan",
+  "th-TH": "ไปทางวิ่งของเซตเตอร์",
+  "vi-VN": "vào đường chạy của chuyền hai",
+  "de-DE": "in den Laufweg der Zuspielerin",
+  "nl-NL": "in de looplijn van de spelverdeler"
+ },
+ "back set, rotation 4": {
+  "ja-JP": "バックトス ローテーション4",
+  "ko-KR": "백토스, 로테이션 4",
+  "es-ES": "colocación atrás, rotación 4",
+  "fr-FR": "passe arrière, rotation 4",
+  "id-ID": "umpan belakang, rotasi 4",
+  "ms-MY": "umpanan belakang, putaran 4",
+  "th-TH": "เซตหลัง รอบที่ 4",
+  "vi-VN": "chuyền ngược, vòng 4",
+  "de-DE": "Rückwärtspass, Rotation 4",
+  "nl-NL": "achterwaartse set-up, rotatie 4"
+ },
+ "pipe, rotation 4": {
+  "ja-JP": "パイプ ローテーション4",
+  "ko-KR": "파이프, 로테이션 4",
+  "es-ES": "pipe, rotación 4",
+  "fr-FR": "pipe, rotation 4",
+  "id-ID": "pipe, rotasi 4",
+  "ms-MY": "pipe, putaran 4",
+  "th-TH": "ไปป์ รอบที่ 4",
+  "vi-VN": "đập bước lùi giữa sân, vòng 4",
+  "de-DE": "Pipe, Rotation 4",
+  "nl-NL": "pipe, rotatie 4"
+ },
+ "setter dump, rotation 4": {
+  "ja-JP": "セッターのツー ローテーション4",
+  "ko-KR": "세터 다이렉트, 로테이션 4",
+  "es-ES": "finta del colocador, rotación 4",
+  "fr-FR": "feinte du passeur, rotation 4",
+  "id-ID": "dump tosser, rotasi 4",
+  "ms-MY": "dump pengumpan, putaran 4",
+  "th-TH": "เซตเตอร์หยอด รอบที่ 4",
+  "vi-VN": "chuyền hai bỏ nhỏ, vòng 4",
+  "de-DE": "Finte der Zuspielerin, Rotation 4",
+  "nl-NL": "dump van de spelverdeler, rotatie 4"
+ },
+ "back set, rotation 5": {
+  "ja-JP": "バックトス ローテーション5",
+  "ko-KR": "백토스, 로테이션 5",
+  "es-ES": "colocación atrás, rotación 5",
+  "fr-FR": "passe arrière, rotation 5",
+  "id-ID": "umpan belakang, rotasi 5",
+  "ms-MY": "umpanan belakang, putaran 5",
+  "th-TH": "เซตหลัง รอบที่ 5",
+  "vi-VN": "chuyền ngược, vòng 5",
+  "de-DE": "Rückwärtspass, Rotation 5",
+  "nl-NL": "achterwaartse set-up, rotatie 5"
+ },
+ "pipe, rotation 5": {
+  "ja-JP": "パイプ ローテーション5",
+  "ko-KR": "파이프, 로테이션 5",
+  "es-ES": "pipe, rotación 5",
+  "fr-FR": "pipe, rotation 5",
+  "id-ID": "pipe, rotasi 5",
+  "ms-MY": "pipe, putaran 5",
+  "th-TH": "ไปป์ รอบที่ 5",
+  "vi-VN": "đập bước lùi giữa sân, vòng 5",
+  "de-DE": "Pipe, Rotation 5",
+  "nl-NL": "pipe, rotatie 5"
+ },
+ "setter dump, rotation 5": {
+  "ja-JP": "セッターのツー ローテーション5",
+  "ko-KR": "세터 다이렉트, 로테이션 5",
+  "es-ES": "finta del colocador, rotación 5",
+  "fr-FR": "feinte du passeur, rotation 5",
+  "id-ID": "dump tosser, rotasi 5",
+  "ms-MY": "dump pengumpan, putaran 5",
+  "th-TH": "เซตเตอร์หยอด รอบที่ 5",
+  "vi-VN": "chuyền hai bỏ nhỏ, vòng 5",
+  "de-DE": "Finte der Zuspielerin, Rotation 5",
+  "nl-NL": "dump van de spelverdeler, rotatie 5"
+ },
+ "back set, rotation 6": {
+  "ja-JP": "バックトス ローテーション6",
+  "ko-KR": "백토스, 로테이션 6",
+  "es-ES": "colocación atrás, rotación 6",
+  "fr-FR": "passe arrière, rotation 6",
+  "id-ID": "umpan belakang, rotasi 6",
+  "ms-MY": "umpanan belakang, putaran 6",
+  "th-TH": "เซตหลัง รอบที่ 6",
+  "vi-VN": "chuyền ngược, vòng 6",
+  "de-DE": "Rückwärtspass, Rotation 6",
+  "nl-NL": "achterwaartse set-up, rotatie 6"
+ },
+ "pipe, rotation 6": {
+  "ja-JP": "パイプ ローテーション6",
+  "ko-KR": "파이프, 로테이션 6",
+  "es-ES": "pipe, rotación 6",
+  "fr-FR": "pipe, rotation 6",
+  "id-ID": "pipe, rotasi 6",
+  "ms-MY": "pipe, putaran 6",
+  "th-TH": "ไปป์ รอบที่ 6",
+  "vi-VN": "đập bước lùi giữa sân, vòng 6",
+  "de-DE": "Pipe, Rotation 6",
+  "nl-NL": "pipe, rotatie 6"
+ },
+ "setter dump, rotation 6": {
+  "ja-JP": "セッターのツー ローテーション6",
+  "ko-KR": "세터 다이렉트, 로테이션 6",
+  "es-ES": "finta del colocador, rotación 6",
+  "fr-FR": "feinte du passeur, rotation 6",
+  "id-ID": "dump tosser, rotasi 6",
+  "ms-MY": "dump pengumpan, putaran 6",
+  "th-TH": "เซตเตอร์หยอด รอบที่ 6",
+  "vi-VN": "chuyền hai bỏ nhỏ, vòng 6",
+  "de-DE": "Finte der Zuspielerin, Rotation 6",
+  "nl-NL": "dump van de spelverdeler, rotatie 6"
+ },
+ "Four passers means four seams. The two deep passers take everything at chest height and above, the wings take only the short ball in front of them, and every ball between two passers is called before it crosses the net.": {
+  "ja-JP": "4人で受ければ継ぎ目も4つ。後ろの2人は胸より上の球をすべて取り、両翼は自分の前に落ちる短い球だけを取る。2人の間の球は、ネットを越える前に必ずコールする。",
+  "ko-KR": "네 명이 받으면 이음새도 넷이다. 뒤의 두 명은 가슴 높이 이상의 공을 모두 받고, 양 날개는 자기 앞에 떨어지는 짧은 공만 받는다. 두 사람 사이의 공은 네트를 넘기 전에 콜한다.",
+  "es-ES": "Cuatro receptores son cuatro costuras. Los dos de atrás se quedan todo lo que llega a la altura del pecho o más arriba, las alas solo el balón corto que cae delante de ellas, y todo balón entre dos receptores se canta antes de que cruce la red.",
+  "fr-FR": "Quatre réceptionneurs, c'est quatre coutures. Les deux du fond prennent tout ce qui arrive à hauteur de poitrine et au-dessus, les ailes seulement le ballon court devant elles, et chaque ballon entre deux réceptionneurs est annoncé avant qu'il passe le filet.",
+  "id-ID": "Empat penerima berarti empat celah. Dua penerima belakang mengambil semua bola setinggi dada ke atas, kedua sayap hanya bola pendek di depan mereka, dan setiap bola di antara dua penerima dipanggil sebelum melewati net.",
+  "ms-MY": "Empat penerima bermakna empat celah. Dua penerima belakang mengambil semua bola paras dada ke atas, kedua-dua sayap hanya bola pendek di hadapan mereka, dan setiap bola di antara dua penerima dipanggil sebelum melepasi jaring.",
+  "th-TH": "รับสี่คนก็มีรอยต่อสี่จุด สองคนหลังรับทุกลูกที่สูงระดับอกขึ้นไป สองปีกรับแค่ลูกสั้นที่ตกหน้าตัวเอง และทุกลูกที่อยู่ระหว่างสองคนต้องขานก่อนบอลข้ามเน็ต",
+  "vi-VN": "Bốn người đỡ là bốn khe. Hai người phía sau nhận mọi bóng ngang ngực trở lên, hai cánh chỉ nhận bóng ngắn rơi trước mặt mình, và mọi bóng giữa hai người phải được gọi trước khi qua lưới.",
+  "de-DE": "Vier Annahmespielerinnen heißt vier Lücken. Die zwei hinten nehmen alles ab Brusthöhe, die beiden außen nur den kurzen Ball vor sich, und jeder Ball zwischen zwei Annahmespielerinnen wird angesagt, bevor er über das Netz ist.",
+  "nl-NL": "Vier passers betekent vier naden. De twee achterste passers nemen alles vanaf borsthoogte, de buitenste alleen de korte bal vóór zich, en elke bal tussen twee passers wordt geroepen voordat hij over het net is."
+ },
+ "Five passers cover the floor but crowd it. The front three let anything above the waist go to the two behind them, and the setter is the one player who never passes.": {
+  "ja-JP": "5人で受ければ床は埋まるが、混み合う。前の3人は腰より上の球を後ろの2人に任せ、セッターだけは決してレシーブしない。",
+  "ko-KR": "다섯 명이 받으면 코트는 메워지지만 붐빈다. 앞의 세 명은 허리 위의 공을 뒤의 두 명에게 맡기고, 세터는 절대 리시브하지 않는 유일한 선수다.",
+  "es-ES": "Cinco receptores cubren el suelo pero lo abarrotan. Los tres de delante dejan todo lo que llega por encima de la cintura a los dos de atrás, y el colocador es el único que nunca recibe.",
+  "fr-FR": "Cinq réceptionneurs couvrent le terrain mais l'encombrent. Les trois de devant laissent tout ce qui arrive au-dessus de la taille aux deux de derrière, et le passeur est le seul à ne jamais réceptionner.",
+  "id-ID": "Lima penerima menutup lapangan tetapi membuatnya sesak. Tiga di depan membiarkan bola di atas pinggang untuk dua di belakang, dan tosser adalah satu-satunya pemain yang tidak pernah menerima.",
+  "ms-MY": "Lima penerima menutup gelanggang tetapi menyesakkannya. Tiga di hadapan membiarkan bola di atas pinggang kepada dua di belakang, dan pengumpan ialah satu-satunya pemain yang tidak pernah menerima.",
+  "th-TH": "รับห้าคนปิดพื้นที่ได้หมดแต่ก็แน่น สามคนหน้าปล่อยลูกที่สูงเกินเอวให้สองคนหลัง และเซตเตอร์คือคนเดียวที่ไม่รับบอลแรกเลย",
+  "vi-VN": "Năm người đỡ phủ kín sân nhưng cũng làm sân chật. Ba người phía trước nhường mọi bóng cao quá thắt lưng cho hai người phía sau, và chuyền hai là người duy nhất không bao giờ đỡ bước một.",
+  "de-DE": "Fünf Annahmespielerinnen decken das Feld ab, machen es aber eng. Die drei vorne lassen alles über Hüfthöhe zu den zwei dahinter durch, und die Zuspielerin ist die eine Spielerin, die nie annimmt.",
+  "nl-NL": "Vijf passers dekken het veld af, maar maken het ook vol. De voorste drie laten alles boven heuphoogte door naar de twee achter hen, en de spelverdeler is de enige die nooit passt."
+ },
+ "Three front-row hitters every rotation only pays off if the pass lets the setter use them. The opposite who passes in the cup must be back in her approach before the setter's hands touch the ball.": {
+  "ja-JP": "どのローテでも前衛にアタッカー3人——それが生きるのは、パスでセッターが3人を使えるときだけ。カップでレシーブするオポジットは、セッターの手にボールが触れる前に助走位置へ戻っていなければならない。",
+  "ko-KR": "로테이션마다 전위 공격수 셋은 리시브가 세터에게 그들을 쓸 여유를 줄 때만 이득이다. 컵에서 리시브하는 아포짓은 세터 손에 공이 닿기 전에 도움닫기 자리로 돌아가 있어야 한다.",
+  "es-ES": "Tres atacantes delanteros en cada rotación solo rinden si la recepción permite al colocador usarlos. La opuesta que recibe en la copa tiene que estar de vuelta en su carrera antes de que el colocador toque el balón.",
+  "fr-FR": "Trois attaquants à l'avant à chaque rotation ne servent que si la réception permet au passeur de les utiliser. La pointue qui réceptionne dans la coupe doit être revenue dans sa course d'élan avant que le passeur touche le ballon.",
+  "id-ID": "Tiga penyerang depan di setiap rotasi hanya berguna jika passing membuat tosser bisa memakai mereka. Opposite yang ikut menerima dalam formasi mangkuk harus sudah kembali ke awalannya sebelum tangan tosser menyentuh bola.",
+  "ms-MY": "Tiga penyerang hadapan dalam setiap putaran hanya berguna jika hantaran membolehkan pengumpan menggunakan mereka. Opposite yang menerima dalam formasi cawan mesti sudah kembali ke lariannya sebelum tangan pengumpan menyentuh bola.",
+  "th-TH": "ตัวตบแดนหน้าสามคนทุกรอบจะได้เปรียบก็ต่อเมื่อบอลแรกทำให้เซตเตอร์ใช้พวกเขาได้ ตัวตรงข้ามที่รับบอลในรูปถ้วยต้องกลับไปอยู่ในจังหวะวิ่งก่อนมือเซตเตอร์แตะบอล",
+  "vi-VN": "Ba người đập hàng trên ở mọi vòng chỉ có lợi khi bước một cho phép chuyền hai dùng được họ. Đối chuyền tham gia đỡ trong đội hình chén phải về lại vị trí chạy đà trước khi tay chuyền hai chạm bóng.",
+  "de-DE": "Drei Angreiferinnen vorne in jeder Rotation lohnen sich nur, wenn die Annahme der Zuspielerin erlaubt, sie auch einzusetzen. Die Diagonalangreiferin, die im Becher annimmt, muss wieder in ihrem Anlauf sein, bevor die Hände der Zuspielerin den Ball berühren.",
+  "nl-NL": "Drie aanvallers voorin in elke rotatie loont alleen als de pass de spelverdeler de kans geeft ze te gebruiken. De diagonaal die in de kom passt, moet weer in haar aanloop staan voordat de handen van de spelverdeler de bal raken."
+ },
+ "In a 4-2 the setter in the front row never passes: she waits at the net and the five behind her receive. Pass high to the middle of the net — she has no run to make, so a pass to her is a pass to the target.": {
+  "ja-JP": "4-2では前衛のセッターはレシーブしない。ネット際で待ち、後ろの5人が受ける。ネット中央へ高く返す——セッターは走り込む必要がないので、彼女に返せばそれがターゲットだ。",
+  "ko-KR": "4-2에서 전위 세터는 리시브하지 않는다. 네트에서 기다리고 뒤의 다섯 명이 받는다. 네트 가운데로 높게 올려라 — 세터는 뛸 필요가 없으니 세터에게 주는 공이 곧 목표다.",
+  "es-ES": "En un 4-2 el colocador de la red nunca recibe: espera en la red y reciben los cinco de detrás. Recibe alto al centro de la red; no tiene que correr, así que pasarle a él es pasar al objetivo.",
+  "fr-FR": "En 4-2, le passeur à l'avant ne réceptionne jamais : il attend au filet et les cinq derrière lui reçoivent. Passe haut au milieu du filet — il n'a pas de course à faire, donc lui passer, c'est viser la cible.",
+  "id-ID": "Dalam 4-2 tosser di barisan depan tidak pernah menerima: ia menunggu di net dan lima orang di belakangnya yang menerima. Passing tinggi ke tengah net — ia tidak perlu berlari, jadi passing kepadanya adalah passing ke target.",
+  "ms-MY": "Dalam 4-2 pengumpan di barisan hadapan tidak pernah menerima: dia menunggu di jaring dan lima di belakangnya yang menerima. Hantar tinggi ke tengah jaring — dia tidak perlu berlari, jadi hantaran kepadanya ialah hantaran ke sasaran.",
+  "th-TH": "ในระบบ 4-2 เซตเตอร์แดนหน้าไม่รับบอลแรก เขารออยู่ที่เน็ตและห้าคนข้างหลังรับ ส่งบอลสูงไปกลางเน็ต เซตเตอร์ไม่ต้องวิ่ง ส่งให้เขาก็คือส่งถึงเป้า",
+  "vi-VN": "Trong 4-2, chuyền hai ở hàng trên không bao giờ đỡ bước một: người đó đứng chờ ở lưới và năm người phía sau đỡ. Đỡ bóng cao vào giữa lưới — chuyền hai không phải chạy, nên đỡ cho người đó chính là đỡ vào mục tiêu.",
+  "de-DE": "Im 4-2 nimmt die Zuspielerin in der vorderen Reihe nie an: Sie wartet am Netz, und die fünf hinter ihr nehmen an. Spiel die Annahme hoch zur Netzmitte — sie muss nicht erst einlaufen, also ist eine Annahme zu ihr eine Annahme ins Ziel.",
+  "nl-NL": "In een 4-2 passt de spelverdeler voorin nooit: ze wacht aan het net en de vijf achter haar ontvangen. Pass hoog naar het midden van het net — ze hoeft niet door te komen, dus een pass naar haar is een pass op de doelplek."
+ },
+ "The serve is the first touch of your defence. The server runs straight to her base, the block is set before their setter touches the ball, and the dig goes high to the middle so the setter can get to it from wherever she is.": {
+  "ja-JP": "サーブは守備の最初のタッチだ。サーバーはそのまま自分の守備位置へ走り、相手セッターが触る前にブロックを整え、ディグはコート中央へ高く上げて、セッターがどこからでも追えるようにする。",
+  "ko-KR": "서브는 수비의 첫 터치다. 서버는 곧장 자기 수비 위치로 뛰고, 상대 세터가 공을 만지기 전에 블로킹을 갖추고, 디그는 코트 가운데로 높게 올려 세터가 어디서든 따라갈 수 있게 한다.",
+  "es-ES": "El saque es el primer toque de tu defensa. La sacadora corre directa a su base, el bloqueo está formado antes de que su colocador toque el balón y la defensa sube alta al centro para que el colocador llegue desde donde esté.",
+  "fr-FR": "Le service est la première touche de votre défense. La serveuse file droit à sa base, le contre est en place avant que leur passeur touche le ballon, et la défense monte haut au centre pour que le passeur y arrive d'où qu'il soit.",
+  "id-ID": "Servis adalah sentuhan pertama pertahananmu. Server langsung lari ke posisi dasarnya, blok sudah siap sebelum tosser lawan menyentuh bola, dan dig naik tinggi ke tengah agar tosser bisa menjangkaunya dari mana pun.",
+  "ms-MY": "Servis ialah sentuhan pertama pertahanan anda. Pelayan servis terus berlari ke kedudukan asasnya, sekatan sudah siap sebelum pengumpan lawan menyentuh bola, dan dig naik tinggi ke tengah supaya pengumpan dapat mencapainya dari mana-mana.",
+  "th-TH": "การเสิร์ฟคือการสัมผัสแรกของแนวรับ ผู้เสิร์ฟวิ่งตรงไปตำแหน่งรับของตัวเอง บล็อกต้องตั้งก่อนเซตเตอร์ฝ่ายตรงข้ามแตะบอล และลูกรับต้องสูงไปกลางคอร์ทเพื่อให้เซตเตอร์ไปถึงได้จากทุกที่",
+  "vi-VN": "Giao bóng là lần chạm đầu tiên của hàng phòng thủ. Người giao chạy thẳng về vị trí cơ bản, hàng chắn đứng xong trước khi chuyền hai đối phương chạm bóng, và bóng phòng thủ được đưa cao vào giữa sân để chuyền hai tới được từ bất cứ đâu.",
+  "de-DE": "Der Aufschlag ist der erste Kontakt deiner Abwehr. Die Aufschlägerin läuft direkt auf ihre Grundposition, der Block steht, bevor ihre Zuspielerin den Ball berührt, und die Abwehr geht hoch in die Mitte, damit die Zuspielerin von überall hinkommt.",
+  "nl-NL": "De opslag is het eerste contact van je verdediging. De serveerder loopt direct naar haar basispositie, het blok staat voordat hun spelverdeler de bal raakt, en de verdedigingsbal gaat hoog naar het midden zodat de spelverdeler er overal vandaan bij kan."
+ },
+ "Choose the target before the toss and serve at the rotation, not at the court: the passer who also has to attack, the seam between two passers, the lane the setter runs through. A serve aimed at a problem forces a bad pass even when it is not an ace.": {
+  "ja-JP": "トスの前に狙いを決め、コートではなくローテーションを狙う。攻撃もしなければならないレシーバー、2人の継ぎ目、セッターが走るコース。問題点を狙ったサーブは、エースにならなくても悪いパスを強いる。",
+  "ko-KR": "토스 전에 목표를 정하고 코트가 아니라 로테이션을 노려라. 공격도 해야 하는 리시버, 두 리시버 사이의 이음새, 세터가 뛰어드는 길. 약점을 노린 서브는 에이스가 아니어도 나쁜 리시브를 강요한다.",
+  "es-ES": "Elige el objetivo antes del lanzamiento y saca a la rotación, no al campo: la receptora que además tiene que atacar, la costura entre dos receptores, el pasillo por el que corre el colocador. Un saque dirigido a un problema fuerza una mala recepción aunque no sea ace.",
+  "fr-FR": "Choisis la cible avant le lancer et sers sur la rotation, pas sur le terrain : la réceptionneuse qui doit aussi attaquer, la fente entre deux réceptionneurs, le couloir où court le passeur. Un service visant un problème force une mauvaise réception même sans ace.",
+  "id-ID": "Tentukan target sebelum melambungkan bola dan servis ke rotasinya, bukan ke lapangan: penerima yang juga harus menyerang, celah di antara dua penerima, jalur lari tosser. Servis yang membidik masalah memaksa passing buruk meski bukan ace.",
+  "ms-MY": "Pilih sasaran sebelum lambungan dan servis ke putaran, bukan ke gelanggang: penerima yang juga perlu menyerang, celah antara dua penerima, laluan larian pengumpan. Servis yang membidik masalah memaksa hantaran buruk walaupun bukan ace.",
+  "th-TH": "เลือกเป้าก่อนโยนบอล และเสิร์ฟใส่รอบหมุน ไม่ใช่ใส่คอร์ท ผู้รับที่ต้องตบด้วย รอยต่อระหว่างผู้รับสองคน เส้นทางที่เซตเตอร์วิ่ง เสิร์ฟที่เล็งจุดอ่อนบังคับให้รับเสียได้แม้ไม่ได้เอซ",
+  "vi-VN": "Chọn mục tiêu trước khi tung bóng và giao vào vòng xoay, không phải vào sân: người đỡ còn phải tấn công, khe giữa hai người đỡ, đường chạy của chuyền hai. Quả giao nhắm vào điểm yếu buộc đối phương đỡ hỏng dù không ăn điểm trực tiếp.",
+  "de-DE": "Wähl das Ziel vor dem Hochwerfen und schlag auf die Rotation auf, nicht aufs Feld: die Annahmespielerin, die auch angreifen muss, die Lücke zwischen zwei Annahmespielerinnen, den Laufweg der Zuspielerin. Ein Aufschlag auf eine Schwachstelle erzwingt eine schlechte Annahme, auch wenn er kein Ass ist.",
+  "nl-NL": "Kies het doel vóór het opgooien en sla op de rotatie, niet op het veld: de passer die ook moet aanvallen, de naad tussen twee passers, de looplijn van de spelverdeler. Een opslag op een zwakke plek dwingt een slechte pass af, ook als het geen ace is."
+ },
+ "When the pass is off the net, the setter's feet decide the options. Square to the left pin and the back set, the pipe and the dump all come out of the same posture; set from a different one and the block knows before the ball does.": {
+  "ja-JP": "パスがネットから離れたら、選択肢を決めるのはセッターの足だ。レフトのアンテナに正対すれば、バックトスもパイプもツーも同じ姿勢から出せる。違う姿勢で上げれば、ボールより先にブロックに読まれる。",
+  "ko-KR": "리시브가 네트에서 멀어지면 선택지를 정하는 건 세터의 발이다. 왼쪽 안테나를 정면으로 보면 백토스, 파이프, 다이렉트가 모두 같은 자세에서 나온다. 다른 자세로 올리면 블로킹이 공보다 먼저 안다.",
+  "es-ES": "Cuando la recepción se separa de la red, los pies del colocador deciden las opciones. Cuadrado a la antena izquierda, la colocación atrás, el pipe y la finta salen de la misma postura; colocar desde otra le dice al bloqueo adónde va antes que el balón.",
+  "fr-FR": "Quand la réception s'écarte du filet, ce sont les pieds du passeur qui décident. Face à l'antenne gauche, la passe arrière, le pipe et la feinte partent de la même posture ; passer d'une autre, c'est prévenir le contre avant le ballon.",
+  "id-ID": "Saat passing menjauh dari net, kaki tosser menentukan pilihan. Menghadap antena kiri, umpan belakang, pipe, dan dump semuanya keluar dari sikap yang sama; mengumpan dari sikap lain membuat blok tahu lebih dulu daripada bola.",
+  "ms-MY": "Apabila hantaran jauh dari jaring, kaki pengumpan menentukan pilihan. Menghadap antena kiri, umpanan belakang, pipe dan dump semuanya keluar dari postur yang sama; mengumpan dari postur lain memberitahu sekatan lebih awal daripada bola.",
+  "th-TH": "เมื่อบอลแรกห่างเน็ต เท้าของเซตเตอร์คือตัวกำหนดทางเลือก หันตรงไปเสาอากาศซ้าย แล้วเซตหลัง ไปป์ และหยอด จะออกจากท่าเดียวกัน ถ้าเซตจากท่าอื่น บล็อกจะรู้ก่อนบอล",
+  "vi-VN": "Khi bước một xa lưới, đôi chân chuyền hai quyết định các lựa chọn. Đứng thẳng hướng cột ăng-ten trái thì chuyền ngược, đập bước lùi và bỏ nhỏ đều ra từ cùng một tư thế; chuyền từ tư thế khác là báo trước cho hàng chắn.",
+  "de-DE": "Wenn die Annahme weg vom Netz kommt, entscheiden die Füße der Zuspielerin über die Optionen. Frontal zur linken Antenne kommen Rückwärtspass, Pipe und Finte alle aus derselben Haltung; spielst du aus einer anderen zu, weiß der Block Bescheid, bevor der Ball unterwegs ist.",
+  "nl-NL": "Als de pass van het net af komt, bepalen de voeten van de spelverdeler de mogelijkheden. Recht naar de linkerantenne komen de achterwaartse set-up, de pipe en de dump allemaal uit dezelfde houding; speel je vanuit een andere, dan weet het blok het eerder dan de bal."
+ },
+ "The libero comes on for the back-row middle between rallies, through the replacement zone on her own bench side, and passes in his lane; he waits there until he rotates to the front row and comes back on for her.": {
+  "ja-JP": "リベロはラリーの合間に、自チームのベンチ側の交代ゾーンから後衛のミドルと入れ替わり、そのミドルのレーンでレシーブする。ミドルは交代ゾーンで待ち、前衛に回るときにリベロと再び入れ替わる。",
+  "ko-KR": "리베로는 랠리 사이에 자기 벤치 쪽 교대 구역으로 들어가 후위 미들과 바꾸고, 그 미들의 리시브 자리를 맡는다. 미들은 그곳에서 기다렸다가 전위로 돌 때 다시 리베로와 바꾼다.",
+  "es-ES": "El líbero entra por el central zaguero entre puntos, por la zona de reemplazo de su propio banquillo, y recibe en su pasillo; el central espera allí hasta que rota a la red y vuelve a entrar por ella.",
+  "fr-FR": "Le libéro entre à la place du central arrière entre deux échanges, par la zone de remplacement côté banc, et réceptionne dans son couloir ; le central attend là jusqu'à ce qu'il tourne à l'avant et reprenne sa place.",
+  "id-ID": "Libero masuk menggantikan middle barisan belakang di antara reli, lewat zona penggantian di sisi bangku timnya, dan menerima di jalurnya; middle menunggu di sana sampai ia berotasi ke depan lalu masuk kembali menggantikan libero.",
+  "ms-MY": "Libero masuk menggantikan pemain tengah barisan belakang di antara rali, melalui zon penggantian di sisi bangku pasukannya, dan menerima di lorongnya; pemain tengah menunggu di situ sehingga dia berputar ke hadapan lalu masuk semula.",
+  "th-TH": "ลิเบโรลงแทนตัวบล็อกกลางแดนหลังระหว่างแต้ม ผ่านโซนเปลี่ยนตัวฝั่งม้านั่งของทีมตัวเอง และรับบอลในช่องของเขา ตัวบล็อกกลางรออยู่ตรงนั้นจนหมุนไปแดนหน้าแล้วจึงกลับลงแทน",
+  "vi-VN": "Libero vào thay phụ công hàng sau giữa các pha bóng, qua khu vực thay người phía ghế của đội mình, và đỡ bước một ở làn của người đó; phụ công chờ ở đó cho đến khi xoay lên hàng trên thì vào lại.",
+  "de-DE": "Die Libera kommt zwischen den Ballwechseln über die Auswechselzone auf ihrer Bankseite für den hinteren Mittelblocker ins Spiel und nimmt in seiner Bahn an; er wartet dort, bis er in die vordere Reihe rotiert, und kommt dann wieder für sie herein.",
+  "nl-NL": "De libero komt tussen de rally's door de wisselzone aan de kant van haar eigen bank in voor de middenaanvaller achterin en passt in zijn baan; hij wacht daar tot hij naar de voorste rij draait en dan weer voor haar in komt."
+ },
+ "S is the setter, O1 and O2 the outside hitters, M the front-row middle, OP the opposite and L the libero in for the back-row middle; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "ja-JP": "Sはセッター、O1・O2はアウトサイド、Mは前衛ミドル、OPはオポジット、Lは後衛ミドルに代わるリベロ。相手サーバー（SV）はエンドラインの後ろ。サーブの瞬間、全員が正しい位置にいる",
+  "ko-KR": "S는 세터, O1·O2는 아웃사이드, M은 전위 미들, OP는 아포짓, L은 후위 미들 대신 들어간 리베로; 상대 서버(SV)는 엔드라인 뒤에 선다. 서브 순간 모두 정위치다",
+  "es-ES": "S es el colocador, O1 y O2 los receptores-atacantes, M el central delantero, OP el opuesto y L el líbero en lugar del central zaguero; su sacador (SV) está detrás de su línea de fondo. Todos en posición legal en el momento del saque",
+  "fr-FR": "S est le passeur, O1 et O2 les réceptionneurs-attaquants, M le central avant, OP le pointu et L le libéro à la place du central arrière ; leur serveur (SV) est derrière sa ligne de fond. Tout le monde est en position régulière à la frappe du service",
+  "id-ID": "S adalah tosser, O1 dan O2 pemain sayap, M middle barisan depan, OP opposite, dan L libero pengganti middle belakang; server lawan (SV) di belakang garis akhir mereka. Semua dalam posisi sah saat servis dipukul",
+  "ms-MY": "S ialah pengumpan, O1 dan O2 pemain sayap, M pemain tengah barisan hadapan, OP opposite, dan L libero menggantikan pemain tengah belakang; pelayan servis lawan (SV) di belakang garisan hujung mereka. Semua dalam kedudukan sah ketika servis dipukul",
+  "th-TH": "S คือเซตเตอร์ O1 และ O2 คือตัวตบหัวเสา M ตัวบล็อกกลางแดนหน้า OP ตัวตรงข้าม และ L ลิเบโรที่ลงแทนตัวกลางแดนหลัง ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของเขา ตอนเสิร์ฟทุกคนยืนถูกตำแหน่ง",
+  "vi-VN": "S là chuyền hai, O1 và O2 là chủ công, M là phụ công hàng trên, OP là đối chuyền và L là libero thay phụ công hàng sau; người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ. Mọi người đứng đúng vị trí lúc phát bóng",
+  "de-DE": "S ist die Zuspielerin, O1 und O2 die Außenangreiferinnen, M die Mittelblockerin vorne, OP die Diagonalangreiferin und L die Libera für die hintere Mittelblockerin; ihre Aufschlägerin (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "S is de spelverdeler, O1 en O2 de passer-lopers, M de middenaanvaller voorin, OP de diagonaal en L de libero in plaats van de middenaanvaller achterin; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "S1 and S2 are the two setters — the one in the back row sets, the one in the front row hits as the opposite — O1 and O2 the outside hitters, M the front-row middle and L the libero; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "ja-JP": "S1とS2は2人のセッター——後衛の方が上げ、前衛の方はオポジットとして打つ。O1・O2はアウトサイド、Mは前衛ミドル、Lはリベロ。相手サーバー（SV）はエンドラインの後ろ。サーブの瞬間、全員が正しい位置にいる",
+  "ko-KR": "S1과 S2는 두 세터다 — 후위 세터가 토스하고 전위 세터는 아포짓으로 공격한다. O1·O2는 아웃사이드, M은 전위 미들, L은 리베로; 상대 서버(SV)는 엔드라인 뒤에 선다. 서브 순간 모두 정위치다",
+  "es-ES": "S1 y S2 son los dos colocadores —el de la zaga coloca y el de la red ataca como opuesto—, O1 y O2 los receptores-atacantes, M el central delantero y L el líbero; su sacador (SV) está detrás de su línea de fondo. Todos en posición legal en el momento del saque",
+  "fr-FR": "S1 et S2 sont les deux passeurs — celui de l'arrière passe, celui de l'avant attaque en pointu —, O1 et O2 les réceptionneurs-attaquants, M le central avant et L le libéro ; leur serveur (SV) est derrière sa ligne de fond. Tout le monde est en position régulière à la frappe du service",
+  "id-ID": "S1 dan S2 adalah dua tosser — yang di belakang mengumpan, yang di depan menyerang sebagai opposite — O1 dan O2 pemain sayap, M middle depan, dan L libero; server lawan (SV) di belakang garis akhir mereka. Semua dalam posisi sah saat servis dipukul",
+  "ms-MY": "S1 dan S2 ialah dua pengumpan — yang di belakang mengumpan, yang di hadapan menyerang sebagai opposite — O1 dan O2 pemain sayap, M pemain tengah hadapan, dan L libero; pelayan servis lawan (SV) di belakang garisan hujung mereka. Semua dalam kedudukan sah ketika servis dipukul",
+  "th-TH": "S1 และ S2 คือเซตเตอร์สองคน คนที่อยู่แดนหลังเป็นคนเซต คนที่อยู่แดนหน้าตบในฐานะตัวตรงข้าม O1 และ O2 คือตัวตบหัวเสา M ตัวบล็อกกลางแดนหน้า และ L ลิเบโร ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของเขา ตอนเสิร์ฟทุกคนยืนถูกตำแหน่ง",
+  "vi-VN": "S1 và S2 là hai chuyền hai — người ở hàng sau chuyền, người ở hàng trên đập như đối chuyền — O1 và O2 là chủ công, M là phụ công hàng trên và L là libero; người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ. Mọi người đứng đúng vị trí lúc phát bóng",
+  "de-DE": "S1 und S2 sind die beiden Zuspielerinnen — die in der hinteren Reihe spielt zu, die in der vorderen Reihe greift als Diagonalangreiferin an —, O1 und O2 die Außenangreiferinnen, M die Mittelblockerin vorne und L die Libera; ihre Aufschlägerin (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "S1 en S2 zijn de twee spelverdelers — die in de achterste rij speelt de set-up, die in de voorste rij valt aan als diagonaal —, O1 en O2 de passer-lopers, M de middenaanvaller voorin en L de libero; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "S1 and S2 are the two setters — the one in the front row sets, the one in the back row passes and hits — O1 and O2 the outside hitters and M1 and M2 the middles, with no libero; their server (SV) stands behind their end line. Everyone is in a legal position when the serve is struck": {
+  "ja-JP": "S1とS2は2人のセッター——前衛の方が上げ、後衛の方はレシーブして打つ。O1・O2はアウトサイド、M1・M2はミドルで、リベロはいない。相手サーバー（SV）はエンドラインの後ろ。サーブの瞬間、全員が正しい位置にいる",
+  "ko-KR": "S1과 S2는 두 세터다 — 전위 세터가 토스하고 후위 세터는 리시브하고 공격한다. O1·O2는 아웃사이드, M1·M2는 미들이며 리베로는 없다; 상대 서버(SV)는 엔드라인 뒤에 선다. 서브 순간 모두 정위치다",
+  "es-ES": "S1 y S2 son los dos colocadores —el de la red coloca y el de la zaga recibe y ataca—, O1 y O2 los receptores-atacantes y M1 y M2 los centrales, sin líbero; su sacador (SV) está detrás de su línea de fondo. Todos en posición legal en el momento del saque",
+  "fr-FR": "S1 et S2 sont les deux passeurs — celui de l'avant passe, celui de l'arrière réceptionne et attaque —, O1 et O2 les réceptionneurs-attaquants et M1 et M2 les centraux, sans libéro ; leur serveur (SV) est derrière sa ligne de fond. Tout le monde est en position régulière à la frappe du service",
+  "id-ID": "S1 dan S2 adalah dua tosser — yang di depan mengumpan, yang di belakang menerima dan menyerang — O1 dan O2 pemain sayap, M1 dan M2 middle, tanpa libero; server lawan (SV) di belakang garis akhir mereka. Semua dalam posisi sah saat servis dipukul",
+  "ms-MY": "S1 dan S2 ialah dua pengumpan — yang di hadapan mengumpan, yang di belakang menerima dan menyerang — O1 dan O2 pemain sayap, M1 dan M2 pemain tengah, tanpa libero; pelayan servis lawan (SV) di belakang garisan hujung mereka. Semua dalam kedudukan sah ketika servis dipukul",
+  "th-TH": "S1 และ S2 คือเซตเตอร์สองคน คนที่อยู่แดนหน้าเป็นคนเซต คนที่อยู่แดนหลังรับบอลแรกและตบ O1 และ O2 คือตัวตบหัวเสา M1 และ M2 คือตัวบล็อกกลาง ไม่มีลิเบโร ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของเขา ตอนเสิร์ฟทุกคนยืนถูกตำแหน่ง",
+  "vi-VN": "S1 và S2 là hai chuyền hai — người ở hàng trên chuyền, người ở hàng sau đỡ bước một và đập — O1 và O2 là chủ công, M1 và M2 là phụ công, không có libero; người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ. Mọi người đứng đúng vị trí lúc phát bóng",
+  "de-DE": "S1 und S2 sind die beiden Zuspielerinnen — die in der vorderen Reihe spielt zu, die in der hinteren Reihe nimmt an und greift an —, O1 und O2 die Außenangreiferinnen und M1 und M2 die Mittelblockerinnen, ohne Libera; ihre Aufschlägerin (SV) steht hinter ihrer Grundlinie. Beim Aufschlag stehen alle regelgerecht",
+  "nl-NL": "S1 en S2 zijn de twee spelverdelers — die in de voorste rij speelt de set-up, die in de achterste rij passt en valt aan —, O1 en O2 de passer-lopers en M1 en M2 de middenaanvallers, zonder libero; hun serveerder (SV) staat achter hun achterlijn. Bij de opslag staat iedereen reglementair opgesteld"
+ },
+ "Our six in a 5-1 serve from behind our end line: S the setter, O1 and O2 the outside hitters, M the middles, OP the opposite and L the libero, in for the back-row middle unless he is the one serving. Their passer (P), setter (S) and hitter (A) play the ball back over the net": {
+  "ja-JP": "5-1の自チーム6人が自陣エンドラインの後ろからサーブする。Sはセッター、O1・O2はアウトサイド、Mはミドル、OPはオポジット、Lはリベロ（後衛ミドルに代わるが、ミドル自身がサーブする時は除く）。相手のレシーバー（P）、セッター（S）、アタッカー（A）がネット越しに返してくる",
+  "ko-KR": "5-1의 우리 여섯 명이 우리 엔드라인 뒤에서 서브한다. S는 세터, O1·O2는 아웃사이드, M은 미들, OP는 아포짓, L은 리베로(후위 미들 대신, 단 미들이 서브할 때는 제외). 상대 리시버(P), 세터(S), 공격수(A)가 네트 너머로 공을 돌려보낸다",
+  "es-ES": "Nuestros seis en 5-1 sacan desde detrás de nuestra línea de fondo: S el colocador, O1 y O2 los receptores-atacantes, M los centrales, OP el opuesto y L el líbero, en lugar del central zaguero salvo cuando es él quien saca. Su receptor (P), colocador (S) y atacante (A) devuelven el balón por encima de la red",
+  "fr-FR": "Nos six en 5-1 servent de derrière notre ligne de fond : S le passeur, O1 et O2 les réceptionneurs-attaquants, M les centraux, OP le pointu et L le libéro, à la place du central arrière sauf quand c'est lui qui sert. Leur réceptionneur (P), leur passeur (S) et leur attaquant (A) renvoient le ballon",
+  "id-ID": "Enam pemain kita dalam 5-1 servis dari belakang garis akhir kita: S tosser, O1 dan O2 pemain sayap, M middle, OP opposite, dan L libero yang menggantikan middle belakang kecuali saat middle itu yang servis. Penerima (P), tosser (S), dan penyerang (A) lawan mengembalikan bola melewati net",
+  "ms-MY": "Enam pemain kita dalam 5-1 membuat servis dari belakang garisan hujung kita: S pengumpan, O1 dan O2 pemain sayap, M pemain tengah, OP opposite, dan L libero yang menggantikan pemain tengah belakang kecuali ketika dia yang membuat servis. Penerima (P), pengumpan (S) dan penyerang (A) lawan memulangkan bola melepasi jaring",
+  "th-TH": "หกคนของเราในระบบ 5-1 เสิร์ฟจากหลังเส้นหลังของเรา S คือเซตเตอร์ O1 และ O2 ตัวตบหัวเสา M ตัวบล็อกกลาง OP ตัวตรงข้าม และ L ลิเบโรที่ลงแทนตัวกลางแดนหลัง ยกเว้นตอนที่ตัวกลางเป็นคนเสิร์ฟ ผู้รับ (P) เซตเตอร์ (S) และตัวตบ (A) ฝ่ายตรงข้ามตีบอลกลับข้ามเน็ตมา",
+  "vi-VN": "Sáu người của ta trong 5-1 giao bóng từ sau vạch cuối sân của ta: S là chuyền hai, O1 và O2 là chủ công, M là phụ công, OP là đối chuyền và L là libero, thay phụ công hàng sau trừ khi chính người đó giao bóng. Người đỡ (P), chuyền hai (S) và người đập (A) của đối phương đánh bóng trở lại qua lưới",
+  "de-DE": "Unsere sechs im 5-1 schlagen von hinter unserer Grundlinie auf: S die Zuspielerin, O1 und O2 die Außenangreiferinnen, M die Mittelblockerinnen, OP die Diagonalangreiferin und L die Libera, die für die hintere Mittelblockerin kommt, außer diese ist mit dem Aufschlag dran. Ihre Annahmespielerin (P), Zuspielerin (S) und Angreiferin (A) spielen den Ball über das Netz zurück",
+  "nl-NL": "Onze zes in een 5-1 serveren van achter onze achterlijn: S de spelverdeler, O1 en O2 de passer-lopers, M de middenaanvallers, OP de diagonaal en L de libero, die invalt voor de middenaanvaller achterin, behalve als die zelf moet serveren. Hun passer (P), spelverdeler (S) en aanvaller (A) spelen de bal terug over het net"
+ },
+ "Our server (SV) stands behind our end line. Across the net their six stand in the receive formation of the rotation the serve is aimed at: S the setter, O1 and O2 the outside hitters, M the front-row middle, OP the opposite and L the libero": {
+  "ja-JP": "自チームのサーバー（SV）は自陣エンドラインの後ろ。ネットの向こうでは、狙うローテーションのレセプション隊形で相手6人が立つ。Sはセッター、O1・O2はアウトサイド、Mは前衛ミドル、OPはオポジット、Lはリベロ",
+  "ko-KR": "우리 서버(SV)는 우리 엔드라인 뒤에 선다. 네트 건너편에는 이 서브가 노리는 로테이션의 리시브 대형으로 상대 여섯 명이 선다. S는 세터, O1·O2는 아웃사이드, M은 전위 미들, OP는 아포짓, L은 리베로",
+  "es-ES": "Nuestro sacador (SV) está detrás de nuestra línea de fondo. Al otro lado de la red sus seis están en la formación de recepción de la rotación a la que apunta el saque: S el colocador, O1 y O2 los receptores-atacantes, M el central delantero, OP el opuesto y L el líbero",
+  "fr-FR": "Notre serveur (SV) est derrière notre ligne de fond. De l'autre côté du filet, leurs six sont dans la formation de réception de la rotation visée : S le passeur, O1 et O2 les réceptionneurs-attaquants, M le central avant, OP le pointu et L le libéro",
+  "id-ID": "Server kita (SV) berdiri di belakang garis akhir kita. Di seberang net enam pemain lawan berdiri dalam formasi terima servis dari rotasi yang dibidik: S tosser, O1 dan O2 pemain sayap, M middle depan, OP opposite, dan L libero",
+  "ms-MY": "Pelayan servis kita (SV) berdiri di belakang garisan hujung kita. Di seberang jaring enam pemain lawan berdiri dalam formasi terima servis bagi putaran yang dibidik: S pengumpan, O1 dan O2 pemain sayap, M pemain tengah hadapan, OP opposite, dan L libero",
+  "th-TH": "ผู้เสิร์ฟของเรา (SV) ยืนหลังเส้นหลังของเรา อีกฝั่งเน็ตหกคนของฝ่ายตรงข้ามยืนในรูปรับเสิร์ฟของรอบที่เราเล็ง S คือเซตเตอร์ O1 และ O2 ตัวตบหัวเสา M ตัวบล็อกกลางแดนหน้า OP ตัวตรงข้าม และ L ลิเบโร",
+  "vi-VN": "Người giao bóng của ta (SV) đứng sau vạch cuối sân của ta. Bên kia lưới, sáu người đối phương đứng theo đội hình đỡ giao bóng của vòng mà quả giao nhắm tới: S là chuyền hai, O1 và O2 là chủ công, M là phụ công hàng trên, OP là đối chuyền và L là libero",
+  "de-DE": "Unsere Aufschlägerin (SV) steht hinter unserer Grundlinie. Auf der anderen Netzseite stehen ihre sechs in der Annahmeformation der Rotation, auf die der Aufschlag zielt: S die Zuspielerin, O1 und O2 die Außenangreiferinnen, M die Mittelblockerin vorne, OP die Diagonalangreiferin und L die Libera",
+  "nl-NL": "Onze serveerder (SV) staat achter onze achterlijn. Aan de overkant van het net staan hun zes in de passopstelling van de rotatie waarop de opslag gericht is: S de spelverdeler, O1 en O2 de passer-lopers, M de middenaanvaller voorin, OP de diagonaal en L de libero"
+ },
+ "S is the setter, O1 and O2 the outside hitters, M the front-row middle, OP the opposite and L the libero; their server (SV) stands behind their end line and two blockers (B) wait at the net": {
+  "ja-JP": "Sはセッター、O1・O2はアウトサイド、Mは前衛ミドル、OPはオポジット、Lはリベロ。相手サーバー（SV）はエンドラインの後ろ、ブロッカー2人（B）がネット際で待つ",
+  "ko-KR": "S는 세터, O1·O2는 아웃사이드, M은 전위 미들, OP는 아포짓, L은 리베로; 상대 서버(SV)는 엔드라인 뒤에 서고 블로커 두 명(B)이 네트에서 기다린다",
+  "es-ES": "S es el colocador, O1 y O2 los receptores-atacantes, M el central delantero, OP el opuesto y L el líbero; su sacador (SV) está detrás de su línea de fondo y dos bloqueadores (B) esperan en la red",
+  "fr-FR": "S est le passeur, O1 et O2 les réceptionneurs-attaquants, M le central avant, OP le pointu et L le libéro ; leur serveur (SV) est derrière sa ligne de fond et deux contreurs (B) attendent au filet",
+  "id-ID": "S adalah tosser, O1 dan O2 pemain sayap, M middle depan, OP opposite, dan L libero; server lawan (SV) di belakang garis akhir mereka dan dua pemblok (B) menunggu di net",
+  "ms-MY": "S ialah pengumpan, O1 dan O2 pemain sayap, M pemain tengah hadapan, OP opposite, dan L libero; pelayan servis lawan (SV) di belakang garisan hujung mereka dan dua penyekat (B) menunggu di jaring",
+  "th-TH": "S คือเซตเตอร์ O1 และ O2 ตัวตบหัวเสา M ตัวบล็อกกลางแดนหน้า OP ตัวตรงข้าม และ L ลิเบโร ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของเขา และตัวบล็อกสองคน (B) รออยู่ที่เน็ต",
+  "vi-VN": "S là chuyền hai, O1 và O2 là chủ công, M là phụ công hàng trên, OP là đối chuyền và L là libero; người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ và hai người chắn (B) chờ ở lưới",
+  "de-DE": "S ist die Zuspielerin, O1 und O2 die Außenangreiferinnen, M die Mittelblockerin vorne, OP die Diagonalangreiferin und L die Libera; ihre Aufschlägerin (SV) steht hinter ihrer Grundlinie, und zwei Blockerinnen (B) warten am Netz",
+  "nl-NL": "S is de spelverdeler, O1 en O2 de passer-lopers, M de middenaanvaller voorin, OP de diagonaal en L de libero; hun serveerder (SV) staat achter hun achterlijn en twee blokkeerders (B) wachten aan het net"
+ },
+ "S is the setter, O1 and O2 the outside hitters, M1 and M2 the middles and OP the opposite; L, the libero, waits in the replacement zone beside the court, and their server (SV) stands behind their end line": {
+  "ja-JP": "Sはセッター、O1・O2はアウトサイド、M1・M2はミドル、OPはオポジット。リベロのLはコート脇の交代ゾーンで待ち、相手サーバー（SV）はエンドラインの後ろに立つ",
+  "ko-KR": "S는 세터, O1·O2는 아웃사이드, M1·M2는 미들, OP는 아포짓; 리베로 L은 코트 옆 교대 구역에서 기다리고, 상대 서버(SV)는 엔드라인 뒤에 선다",
+  "es-ES": "S es el colocador, O1 y O2 los receptores-atacantes, M1 y M2 los centrales y OP el opuesto; L, el líbero, espera en la zona de reemplazo junto a la pista, y su sacador (SV) está detrás de su línea de fondo",
+  "fr-FR": "S est le passeur, O1 et O2 les réceptionneurs-attaquants, M1 et M2 les centraux et OP le pointu ; L, le libéro, attend dans la zone de remplacement au bord du terrain, et leur serveur (SV) est derrière sa ligne de fond",
+  "id-ID": "S adalah tosser, O1 dan O2 pemain sayap, M1 dan M2 middle, dan OP opposite; L, sang libero, menunggu di zona penggantian di samping lapangan, dan server lawan (SV) di belakang garis akhir mereka",
+  "ms-MY": "S ialah pengumpan, O1 dan O2 pemain sayap, M1 dan M2 pemain tengah, dan OP opposite; L, libero, menunggu di zon penggantian di tepi gelanggang, dan pelayan servis lawan (SV) di belakang garisan hujung mereka",
+  "th-TH": "S คือเซตเตอร์ O1 และ O2 ตัวตบหัวเสา M1 และ M2 ตัวบล็อกกลาง และ OP ตัวตรงข้าม ลิเบโร L รออยู่ในโซนเปลี่ยนตัวข้างสนาม ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของเขา",
+  "vi-VN": "S là chuyền hai, O1 và O2 là chủ công, M1 và M2 là phụ công và OP là đối chuyền; L, libero, chờ ở khu vực thay người cạnh sân, và người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ",
+  "de-DE": "S ist die Zuspielerin, O1 und O2 die Außenangreiferinnen, M1 und M2 die Mittelblockerinnen und OP die Diagonalangreiferin; L, die Libera, wartet in der Auswechselzone neben dem Feld, und ihre Aufschlägerin (SV) steht hinter ihrer Grundlinie",
+  "nl-NL": "S is de spelverdeler, O1 en O2 de passer-lopers, M1 en M2 de middenaanvallers en OP de diagonaal; L, de libero, wacht in de wisselzone naast het veld, en hun serveerder (SV) staat achter hun achterlijn"
+ },
+ "Our side serves every ball; the far side plays it back at the base defence and the rally runs to the floor. Six serves, then both sides rotate one position.": {
+  "ja-JP": "毎回こちらがサーブし、相手が基本守備隊形に向けて打ち返し、ボールが落ちるまでラリーを続ける。6本サーブしたら両チームとも1つローテーションする。",
+  "ko-KR": "매 공 우리가 서브하고, 상대가 우리 기본 수비 대형으로 공을 돌려보내며, 공이 떨어질 때까지 랠리한다. 서브 6개 후 양 팀이 한 자리씩 로테이션한다.",
+  "es-ES": "Nuestro lado saca todos los balones; el otro lo devuelve contra la defensa de base y el punto se juega hasta que cae. Seis saques y los dos lados rotan una posición.",
+  "fr-FR": "Notre côté sert chaque ballon ; l'autre le renvoie sur la défense de base et l'échange se joue jusqu'au sol. Six services, puis les deux côtés tournent d'une position.",
+  "id-ID": "Pihak kita servis setiap bola; pihak seberang mengembalikannya ke pertahanan dasar dan reli berlanjut sampai bola jatuh. Enam servis, lalu kedua pihak berotasi satu posisi.",
+  "ms-MY": "Pihak kita membuat servis setiap bola; pihak seberang memulangkannya ke pertahanan asas dan rali diteruskan sehingga bola jatuh. Enam servis, kemudian kedua-dua pihak berputar satu kedudukan.",
+  "th-TH": "ฝั่งเราเสิร์ฟทุกลูก อีกฝั่งตีกลับมาที่แนวรับพื้นฐานของเรา และเล่นจนบอลตกพื้น เสิร์ฟครบหกลูกแล้วทั้งสองฝั่งหมุนตำแหน่งหนึ่งครั้ง",
+  "vi-VN": "Bên ta giao mọi quả; bên kia đánh trả vào đội hình phòng thủ cơ bản và pha bóng chơi đến khi bóng chạm sàn. Sau sáu quả giao, hai bên cùng xoay một vị trí.",
+  "de-DE": "Unsere Seite schlägt jeden Ball auf; die andere Seite spielt ihn auf die Grundabwehr zurück, und der Ballwechsel läuft, bis der Ball am Boden ist. Sechs Aufschläge, dann rotieren beide Seiten eine Position weiter.",
+  "nl-NL": "Onze kant serveert elke bal; de overkant speelt hem terug op de basisverdediging en de rally loopt tot de bal de grond raakt. Zes opslagen, dan draaien beide kanten één positie door."
+ },
+ "the square is the setter's target; this pass misses it, two metres off the net": {
+  "ja-JP": "四角はセッターのターゲット。このパスはそこを外れ、ネットから2メートル離れる",
+  "ko-KR": "네모는 세터의 목표 지점이다. 이 리시브는 그곳을 벗어나 네트에서 2미터 떨어진다",
+  "es-ES": "el cuadrado es el objetivo del colocador; esta recepción lo falla, a dos metros de la red",
+  "fr-FR": "le carré est la cible du passeur ; cette réception la manque, à deux mètres du filet",
+  "id-ID": "kotak adalah target tosser; passing ini meleset, dua meter dari net",
+  "ms-MY": "petak ialah sasaran pengumpan; hantaran ini tersasar, dua meter dari jaring",
+  "th-TH": "สี่เหลี่ยมคือเป้าของเซตเตอร์ บอลแรกลูกนี้พลาดเป้า ห่างเน็ตสองเมตร",
+  "vi-VN": "ô vuông là điểm chuyền của chuyền hai; quả đỡ này lệch khỏi đó, cách lưới hai mét",
+  "de-DE": "das Quadrat ist das Ziel der Zuspielerin; diese Annahme verfehlt es, zwei Meter weg vom Netz",
+  "nl-NL": "het vierkant is de doelplek van de spelverdeler; deze pass mist hem, twee meter van het net af"
+ },
+ "Seams nobody calls — the ball between two passers drops while each waits for the other.": {
+  "de-DE": "Lücken, die keiner ansagt — der Ball zwischen zwei Annahmespielern fällt, weil jeder auf den anderen wartet.",
+  "nl-NL": "Naden die niemand roept — de bal tussen twee passers valt omdat ieder op de ander wacht."
+ },
+ "The middle-front passer crowding the setter — she steps into the setter's lane and the pass has nowhere to go.": {
+  "de-DE": "Die Annahmespielerin vorne Mitte rückt der Zuspielerin auf die Pelle — sie steht in deren Laufweg, und die Annahme hat kein Ziel mehr.",
+  "nl-NL": "De middelste passer voorin kruipt op de spelverdeler — ze staat in haar looplijn en de pass kan nergens meer heen."
+ },
+ "The opposite passing and staying put — she is still on the floor when the setter needs her approach.": {
+  "de-DE": "Die Diagonalangreiferin nimmt an und bleibt stehen — wenn die Zuspielerin ihren Anlauf braucht, ist sie noch nicht so weit.",
+  "nl-NL": "De diagonaal passt en blijft staan — als de spelverdeler haar aanloop nodig heeft, staat ze nog stil."
+ },
+ "The front-row setter drifting back to pass — she leaves the net, and the five behind her have no target.": {
+  "de-DE": "Die Zuspielerin vorne lässt sich zur Annahme zurückfallen — sie verlässt das Netz, und die fünf dahinter haben kein Ziel mehr.",
+  "nl-NL": "De spelverdeler voorin zakt terug om te passen — ze verlaat het net en de vijf achter haar hebben geen doel meer."
+ },
+ "Switching before the serve is struck — the front row leaves its spots early and the overlap costs the point.": {
+  "de-DE": "Wechseln, bevor der Aufschlag geschlagen ist — die vordere Reihe verlässt ihre Plätze zu früh, und der Positionsfehler kostet den Punkt.",
+  "nl-NL": "Wisselen voordat de opslag geslagen is — de voorste rij verlaat te vroeg haar plekken en de opstellingsfout kost het punt."
+ },
+ "Looking at the target during the toss — the eyes leave the ball and the serve goes wherever the toss drifts.": {
+  "de-DE": "Beim Hochwerfen aufs Ziel schauen — die Augen verlassen den Ball, und der Aufschlag geht dahin, wohin der Wurf abdriftet.",
+  "nl-NL": "Tijdens het opgooien naar het doel kijken — je ogen laten de bal los en de opslag gaat waar de opgooi heen drijft."
+ },
+ "Facing the net with the feet instead of the pass — the setter sets from wherever she landed and the block reads it.": {
+  "de-DE": "Mit den Füßen zum Netz statt zur Annahme stehen — die Zuspielerin spielt von da zu, wo sie gerade gelandet ist, und der Block liest es.",
+  "nl-NL": "Met de voeten naar het net staan in plaats van naar de pass — de spelverdeler speelt de bal vanaf waar ze toevallig staat, en het blok leest het."
+ },
+ "Swapping during the rally instead of between rallies — the libero comes on late and the team plays a point a player short.": {
+  "de-DE": "Mitten im Ballwechsel statt zwischen den Ballwechseln tauschen — die Libera kommt zu spät, und das Team spielt den Punkt in Unterzahl.",
+  "nl-NL": "Wisselen tijdens de rally in plaats van tussen rally's — de libero komt te laat in en het team speelt het punt met een speler minder."
  }
 }

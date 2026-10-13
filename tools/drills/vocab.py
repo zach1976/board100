@@ -18,6 +18,8 @@ NEUTRAL = re.compile(r"^[+\-\d]+(?:[v\-]\d+)*$")
 V: dict[str, dict[str, str]] = {}
 
 
+# German and Dutch are not written here: narrate.fill_extra adds them from
+# tools/drills/i18n/*.json, keyed by the English (i18n_missing.py lists gaps).
 def add(en, zh, tw, ja, ko, es, fr, id_, ms, th, vi):
     V[en] = {"en": en, "en-GB": en, "zh-CN": zh, "zh-TW": tw, "ja-JP": ja,
              "ko-KR": ko, "es-ES": es, "fr-FR": fr, "id-ID": id_,

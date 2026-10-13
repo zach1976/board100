@@ -1940,6 +1940,806 @@ def game_more() -> list[Drill]:
     ]
 
 
+# ══ The 2026-10-13 expansion: rotations, by system ═══════════════════════════
+#
+# Rotations Coach and Practice Pro reach 300 drills mostly by drawing serve
+# receive and transition rotation by rotation, system by system. These five
+# families do the same on the app's own rotation engine, ported below, so a
+# board here and the in-app rotation tool put a player on the same spot.
+
+from . import notes_volleyball as _nv  # noqa: E402
+
+# ── the app's rotation engine, ported ───────────────────────────────────────
+#
+# tactics_board/lib/models/volleyball_rotation.dart, line for line where it
+# matters, so a drill board and the in-app rotation tool put the same player
+# on the same spot. Team frame, metres: x from the team's own left sideline
+# (0) to its right (9) as it faces the net; d back from the net (0) to its
+# end line (9). home_pt / away_pt turn that into this file's court-relative
+# coordinates for the near and the far team.
+from functools import cmp_to_key as _cmp_to_key
+from itertools import permutations as _permutations
+
+VR_LINEUP = {"51": ("S", "OH1", "MB1", "OPP", "OH2", "MB2"),
+             "62": ("S1", "OH1", "MB1", "S2", "OH2", "MB2"),
+             # Not in the app: the 4-2 has the 6-2's lineup, but the setter
+             # who runs the offence is the FRONT-row one (no penetration).
+             "42": ("S1", "OH1", "MB1", "S2", "OH2", "MB2")}
+VR_DEPTH_PAIRS = ((4, 5), (3, 6), (2, 1))
+VR_LATERAL_PAIRS = ((4, 3), (3, 2), (5, 6), (6, 1))
+VR_SERVER_SPOT = (7.2, 9.0)
+VR_BENCH_SPOT = (9.45, 5.2)  # 0.7 m out drew off the phone landscape board
+_VR_DEPTH_GAP, _VR_SIDE_GAP = 1.0, 1.1
+
+
+def vr_zone_for(index: int, rotation: int) -> int:
+    return (index - (rotation - 1)) % 6 + 1
+
+
+def vr_is_front(z: int) -> bool:
+    return 2 <= z <= 4
+
+
+def _vr_column_x(z: int) -> float:
+    return 1.5 if z in (4, 5) else 4.5 if z in (3, 6) else 7.5
+
+
+class VRSetup:
+    """RotationSetup: system, rotation 1..6, receive or serve, libero in."""
+
+    def __init__(self, system="51", rotation=1, phase="receive", libero=True):
+        self.system, self.rotation = system, rotation
+        self.phase, self.libero = phase, libero
+
+    @property
+    def lineup(self):
+        return VR_LINEUP[self.system]
+
+    def zone_of(self, role):
+        if role not in self.lineup:
+            return None
+        return vr_zone_for(self.lineup.index(role), self.rotation)
+
+    @property
+    def libero_replaces(self):
+        if not self.libero:
+            return None
+        for role in self.lineup:
+            if not role.startswith("MB"):
+                continue
+            z = self.zone_of(role)
+            if vr_is_front(z):
+                continue
+            if self.phase == "serve" and z == 1:
+                return None
+            return role
+        return None
+
+    @property
+    def zone_roles(self) -> dict:
+        rep = self.libero_replaces
+        return {self.zone_of(r): ("L" if r == rep else r) for r in self.lineup}
+
+    @property
+    def active_setter(self):
+        if self.system == "51":
+            return "S"
+        s1_front = vr_is_front(self.zone_of("S1"))
+        if self.system == "42":
+            return "S1" if s1_front else "S2"
+        return "S2" if s1_front else "S1"
+
+
+def vr_faults(feet: dict, exempt=None) -> list:
+    out = []
+    for f, b in VR_DEPTH_PAIRS:
+        if exempt in (f, b) or f not in feet or b not in feet:
+            continue
+        if not feet[f][1] < feet[b][1]:
+            out.append((f, b, "depth"))
+    for l, r in VR_LATERAL_PAIRS:
+        if exempt in (l, r) or l not in feet or r not in feet:
+            continue
+        if not feet[l][0] < feet[r][0]:
+            out.append((l, r, "lateral"))
+    return out
+
+
+def vr_legalize(at: dict, exempt=None) -> dict:
+    p = dict(at)
+
+    def in_court(o):
+        return (min(max(o[0], 0.5), 8.5), min(max(o[1], 0.6), 8.6))
+    for z in list(p):
+        if z != exempt:
+            p[z] = in_court(p[z])
+    for _ in range(200):
+        moved = False
+        for f, b in VR_DEPTH_PAIRS:
+            if exempt in (f, b) or f not in p or b not in p:
+                continue
+            pf, pb = p[f], p[b]
+            if pb[1] - pf[1] >= _VR_DEPTH_GAP - 1e-9:
+                continue
+            mid = (pf[1] + pb[1]) / 2
+            p[f] = in_court((pf[0], mid - _VR_DEPTH_GAP / 2))
+            p[b] = in_court((pb[0], mid + _VR_DEPTH_GAP / 2))
+            moved = True
+        for l, r in VR_LATERAL_PAIRS:
+            if exempt in (l, r) or l not in p or r not in p:
+                continue
+            pl, pr = p[l], p[r]
+            if pr[0] - pl[0] >= _VR_SIDE_GAP - 1e-9:
+                continue
+            mid = (pl[0] + pr[0]) / 2
+            p[l] = in_court((mid - _VR_SIDE_GAP / 2, pl[1]))
+            p[r] = in_court((mid + _VR_SIDE_GAP / 2, pr[1]))
+            moved = True
+        if not moved:
+            break
+    return p
+
+
+def _vr_partner(z):
+    return {1: 2, 2: 1, 3: 6, 6: 3, 4: 5, 5: 4}[z]
+
+
+def vr_base_positions(s: VRSetup) -> dict:
+    """basePositions: zone -> (x, d), legal by construction."""
+    roles = s.zone_roles
+    spot = {}
+    if s.phase == "serve":
+        for z in roles:
+            spot[z] = ((_vr_column_x(z), 1.6) if vr_is_front(z)
+                       else (_vr_column_x(z), 6.6 if z == 6 else 6.0))
+        legal = vr_legalize(spot, exempt=1)
+        legal[1] = VR_SERVER_SPOT
+        return legal
+
+    setter = s.active_setter
+
+    def passes(role):
+        return (role.startswith("OH") or role == "L"
+                or (role.startswith("MB") and s.libero_replaces is None
+                    and not vr_is_front(s.zone_of(role))))
+
+    def order(a, b):
+        c = (_vr_column_x(a) > _vr_column_x(b)) - (_vr_column_x(a) < _vr_column_x(b))
+        if c:
+            return c
+        fa, fb = vr_is_front(a), vr_is_front(b)
+        if fa == fb:
+            return 0
+        return -1 if (a in (4, 5)) == fa else 1
+    passers = sorted((z for z in roles if passes(roles[z])), key=_cmp_to_key(order))
+    lanes = ((1.6, 6.0), (4.5, 6.5), (7.4, 6.0))
+    for i, z in enumerate(passers[:3]):
+        spot[z] = lanes[i]
+    for z in roles:
+        if z in spot:
+            continue
+        if vr_is_front(z):
+            spot[z] = (({2: 6.6, 3: 5.4}.get(z, 3.0), 1.0) if roles[z] == setter
+                       else (_vr_column_x(z) + (-0.3 if z == 4 else 0.3 if z == 2 else 0), 1.2))
+    for z in roles:
+        if z in spot:
+            continue
+        front = spot.get(_vr_partner(z))
+        front_passes = front is not None and front[1] > 3
+        if roles[z] == setter:
+            spot[z] = ((front[0] + (-1.0 if z == 5 else 1.0), front[1] + 1.2) if front_passes
+                       else ({1: 7.0, 6: 5.6}.get(z, 2.6), 2.4))
+        else:
+            spot[z] = ((front[0] + (-1.0 if z == 5 else 1.0), front[1] + 1.4) if front_passes
+                       else (_vr_column_x(z) + (0.8 if z == 1 else -0.8 if z == 5 else 0), 7.8))
+    return vr_legalize(spot)
+
+
+# ── receive formations with more passers, built on the port ─────────────────
+#
+# The app draws one receive formation, three passers. The four-passer cup and
+# the five-passer W are ours: the same roles and the same zones, the passers
+# put on the formation's spots in whichever order keeps every overlap pair
+# legal (searched, not hand-placed), the non-passers placed by the app's own
+# rules, and the result run through the app's legalize() and fault check.
+
+# Drawn figures need room the rules do not ask for: 26 x 52 pt on the phone
+# is 0.77 m across or 1.59 m in depth on this court.
+VR_CLEAR_X, VR_CLEAR_D = 0.80, 1.62
+VR_FORMATION = {
+    "cup": ((1.3, 5.0), (3.4, 6.9), (5.6, 6.9), (7.7, 5.0)),
+    "w": ((1.1, 4.3), (4.5, 4.3), (7.9, 4.3), (2.8, 7.1), (6.2, 7.1)),
+}
+
+
+def vr_clashes(spot: dict) -> list:
+    ks = sorted(spot)
+    return [(a, b) for i, a in enumerate(ks) for b in ks[i + 1:]
+            if abs(spot[a][0] - spot[b][0]) < VR_CLEAR_X
+            and abs(spot[a][1] - spot[b][1]) < VR_CLEAR_D]
+
+
+def vr_spaced(spot: dict, exempt=None) -> dict:
+    """Open covering pairs sideways — never past a lateral partner."""
+    p = dict(spot)
+    for _ in range(20):
+        hit = vr_clashes(p)
+        if not hit:
+            return p
+        for a, b in hit:
+            (xa, da), (xb, db) = p[a], p[b]
+            need = (VR_CLEAR_X - abs(xa - xb)) / 2 + 0.01
+            sa = -1 if xa < xb or (xa == xb and a < b) else 1
+            for z, s in ((a, sa), (b, -sa)):
+                x, d = p[z]
+                p[z] = (min(max(x + s * need, 0.3), 8.7), d)
+    return p
+
+
+def _vr_passers(s: VRSetup, kind: str) -> list:
+    roles, setter = s.zone_roles, s.active_setter
+    if kind == "w":
+        return [z for z in roles if roles[z] != setter]
+    opposite = "OPP" if s.system == "51" else ("S2" if setter == "S1" else "S1")
+    # …unless she stands in front of a back-row setter: a passer there
+    # pins the setter behind her, the length of the court from the
+    # target. The front-row middle passes instead and the opposite stays
+    # at the net, the setter tucked in behind her.
+    sz = next(z for z in roles if roles[z] == setter)
+    if not vr_is_front(sz) and roles[_vr_partner(sz)] == opposite:
+        opposite = next(r for z, r in roles.items()
+                        if vr_is_front(z) and r.startswith("MB"))
+    keep = {"L", opposite}
+    return [z for z in roles if roles[z].startswith("OH") or roles[z] in keep
+            or (roles[z].startswith("MB") and not vr_is_front(z)
+                and s.libero_replaces is None)]
+
+
+def vr_receive(s: VRSetup, kind: str = "three") -> dict:
+    """zone -> (x, d) at the moment their serve is struck. Legal, drawable."""
+    if kind == "three":
+        out = vr_spaced(vr_base_positions(s))
+        assert not vr_faults(out) and not vr_clashes(out), (s.system, s.rotation, out)
+        return out
+    roles, setter = s.zone_roles, s.active_setter
+    passers = _vr_passers(s, kind)
+    spots = VR_FORMATION[kind]
+    assert len(passers) == len(spots), (kind, s.system, s.rotation, passers)
+    fixed = {}
+    for z in roles:
+        if z in passers or not vr_is_front(z):
+            continue
+        fixed[z] = (({2: 6.6, 3: 5.4}.get(z, 3.0), 1.0) if roles[z] == setter
+                    else (_vr_column_x(z) + (-0.3 if z == 4 else 0.3 if z == 2 else 0), 1.2))
+    best = None
+    for perm in _permutations(spots):
+        spot = dict(fixed)
+        spot.update(zip(passers, perm))
+        for z in roles:
+            if z in spot:
+                continue
+            front = spot[_vr_partner(z)]          # a back-row non-passer
+            spot[z] = ((front[0] + (-1.0 if z == 5 else 1.0), front[1] + 1.2)
+                       if front[1] > 3 else ({1: 7.0, 6: 5.6}.get(z, 2.6), 2.4))
+        spot = vr_spaced(vr_legalize(spot))
+        if vr_faults(spot) or vr_clashes(spot):
+            continue
+        # The formation's own shape first — how far legalize had to bend
+        # it — then how far each passer is from her zone.
+        cost = sum(3 * (abs(spot[z][0] - p[0]) + abs(spot[z][1] - p[1]))
+                   + abs(spot[z][0] - _vr_column_x(z))
+                   + abs(spot[z][1] - (2.0 if vr_is_front(z) else 7.0))
+                   for z, p in zip(passers, perm))
+        # …and a setter who can still get to the target: hidden behind a
+        # deep passer she has the length of the court to run.
+        sz = next(z for z in roles if roles[z] == setter)
+        cost += 2 * (abs(spot[sz][0] - 5.9) + spot[sz][1])
+        if best is None or cost < best[0]:
+            best = (cost, spot)
+    assert best, f"no legal {kind} for {s.system} rotation {s.rotation}"
+    return best[1]
+
+
+# ── the board side of the port ───────────────────────────────────────────────
+
+def home_pt(x: float, d: float) -> tuple:
+    """Team-frame metres of the near (home) team to court-relative."""
+    return (x / 9.0, NET + d / 18.0)
+
+
+def away_pt(x: float, d: float) -> tuple:
+    """…and of the far team, who faces the other way: a half turn."""
+    return mirror(home_pt(x, d))
+
+
+# A role as the board labels it. "O1"/"M" as in the vb_rot51 boards; the
+# middles get their numbers only when both are on the court.
+def _vr_label(role: str, both_middles: bool) -> str:
+    if role.startswith("MB"):
+        return f"M{role[2]}" if both_middles else "M"
+    return {"OH1": "O1", "OH2": "O2", "OPP": "OP"}.get(role, role)
+
+
+def _vr_assert_legal(s: VRSetup, at: dict, exempt=None) -> None:
+    """The overlap rule at the moment of the serve, as the app checks it."""
+    faults = vr_faults(at, exempt=exempt)
+    assert not faults, f"{s.system} rotation {s.rotation} {s.phase}: {faults}"
+
+
+LEFT_KILL, RIGHT_KILL = (0.72, 0.24), (0.28, 0.24)
+PIPE_START, PIPE_HIT = (0.42, 0.92), (0.44, 0.70)
+# The opposite's back-row attack from the right: off behind the 3 m line.
+D_START, D_HIT = (0.88, 0.93), (0.84, 0.70)
+
+
+def _pin(x_rel: float):
+    """The pin a hitter attacks from: the side of the court she passed on."""
+    return ((LEFT_START, LEFT_HIT, LEFT_KILL) if x_rel < 0.5
+            else (RIGHT_START, RIGHT_HIT, RIGHT_KILL))
+
+
+def _near(a, b, gap=0.06) -> bool:
+    return abs(a[0] - b[0]) < gap and abs(a[1] - b[1]) < gap
+
+
+# Figures this close cover each other on a phone (engine.audit, with a hair
+# to spare): 26pt across or 52pt down, in court-relative units.
+_CLEAR_REL = (0.087, 0.090)
+QUICK_RUN = ((0.40, 0.68), (0.44, 0.555))
+BACK_QUICK = (0.80, 0.555)
+
+
+def _covers(a, b) -> bool:
+    return abs(a[0] - b[0]) < _CLEAR_REL[0] and abs(a[1] - b[1]) < _CLEAR_REL[1]
+
+
+def _side_out_runs(roles: dict, at: dict, setter: int, attacker: int,
+                   b0: int = 0) -> tuple:
+    """Everyone's runs from the receive spots `at` (zone -> court-relative).
+
+    The setter releases on the serve (beat b0) and is square to the target
+    as the pass arrives (b0 + 1). The front-row pin hitters switch to their
+    own pin — the outside left, the opposite (or the 6-2's front-row setter)
+    right, wherever the overlap rule had them stand at the serve — and the
+    front-row middle runs a quick in front of the setter.
+    The attacker is set on b0 + 2; the others are decoys. An approach start
+    that would put a hitter on a team-mate is skipped: she approaches
+    straight from where she passed. Returns ({zone: moves}, attacker's kill).
+    """
+    pins = sorted((z for z in roles if vr_is_front(z) and z != setter
+                   and not roles[z].startswith("MB")), key=lambda z: at[z][0])
+    side = {z: _pin(0.0 if roles[z].startswith("OH") else 1.0) for z in pins}
+    runs = {z: [] for z in roles}
+    runs[setter] = [(SET_POINT[0], SET_POINT[1] + 0.03, b0), SET_POINT + (b0 + 1,)]
+    right_taken = any(sd[1] == RIGHT_HIT for sd in side.values())
+    for z in roles:
+        if vr_is_front(z) and z != setter and roles[z].startswith("MB"):
+            if at[z][0] <= SET_POINT[0]:
+                runs[z] = [QUICK_RUN[0] + (b0 + 1,), QUICK_RUN[1] + (b0 + 2,)]
+            elif not right_taken:
+                # Right of the setter with the right pin free: the quick
+                # behind her, not a run along the net through her.
+                runs[z] = [BACK_QUICK + (b0 + 2,)]
+            else:
+                # Under the setter to the quick in front of her.
+                runs[z] = [(0.56, 0.68, b0 + 1), QUICK_RUN[1] + (b0 + 2,)]
+    for z, (start, hit, _) in side.items():
+        runs[z] = [start + (b0 + 1,), hit + (b0 + 2,)]
+
+    def where(z, beat):
+        pt = at[z]
+        for x, y, ph in runs[z]:
+            if ph <= beat:
+                pt = (x, y)
+        return pt
+    # Pins first, then the middle: a skipped start leaves its hitter where
+    # she passed, which the middle's run then has to clear.
+    for z in sorted((z for z in roles if len(runs[z]) == 2 and z != setter),
+                    key=lambda z: z not in side):
+        start = runs[z][0][:2]
+        # A passer switching across the court runs straight at her pin:
+        # drawn via the far approach start, the outside's and the
+        # opposite's switches were one arrow laid over the other. (A
+        # hitter at the net still drops off it first — straight along the
+        # tape she would run through her own setter.)
+        if (_near(at[z], start)
+                or (z in side and abs(start[0] - at[z][0]) > 0.4 and at[z][1] > 0.62)
+                or any(_covers(start, where(o, b0 + 1)) for o in roles if o != z)):
+            runs[z] = runs[z][1:]
+    for beat in (b0, b0 + 1, b0 + 2):
+        for a in roles:
+            for b in roles:
+                assert a >= b or not _covers(where(a, beat), where(b, beat)), (
+                    roles[a], roles[b], beat, where(a, beat), where(b, beat))
+    return runs, side[attacker][2]
+
+
+# ── 1. serve receive by system and formation ─────────────────────────────────
+
+def _receive_board(system: str, r: int, kind: str) -> tuple:
+    """One receive formation in one rotation: the pass, the release, the set.
+
+    The six stand where vr_receive puts them — the app's own engine for the
+    three-passer line, the same engine plus a searched assignment for the cup
+    and the W — and the board is refused unless the overlap rule holds at the
+    serve. The setter releases as the serve is struck; the passer it is
+    aimed at plays it up to her; she delivers the primary attacker on his
+    own pin while the others decoy, and it is put away cross-court.
+    """
+    s = VRSetup(system, r, "receive", libero=(system != "42"))
+    spot = vr_receive(s, kind)
+    _vr_assert_legal(s, spot)
+    roles, setter = s.zone_roles, s.active_setter
+    both = sum(1 for v in roles.values() if v.startswith("MB")) == 2
+    passers = sorted(_vr_passers(s, kind) if kind != "three" else
+                     [z for z in roles if roles[z].startswith("OH") or roles[z] == "L"],
+                     key=lambda z: spot[z][0])
+    # Who attacks: the front-row outside in the 5-1 and the 4-2, the
+    # front-row setter-turned-opposite in the 6-2 — its whole point.
+    if system == "62":
+        attacker = next(z for z in roles if vr_is_front(z) and roles[z] in ("S1", "S2")
+                        and roles[z] != setter)
+    else:
+        attacker = next(z for z in roles if vr_is_front(z) and roles[z].startswith("OH"))
+    served = passers[(r - 1) % len(passers)]
+    sz = _zone_of_role(roles, setter)
+    at = {z: home_pt(*spot[z]) for z in roles}
+    runs, kill = _side_out_runs(roles, at, sz, attacker)
+    if not runs[served]:
+        runs[served] = [(at[served][0], at[served][1] - 0.022, 0)]
+    home, idx = [], {}
+    for z in sorted(roles, key=lambda z: (z != sz, z)):
+        idx[z] = len(home)
+        home.append(P(*at[z], _vr_label(roles[z], both), moves=runs[z]))
+    return home, idx, served, attacker, kill
+
+
+def _zone_of_role(roles: dict, role: str) -> int:
+    return next(z for z, v in roles.items() if v == role)
+
+
+RECEIVE_KINDS = {
+    # id stem, system, formation, name, note, setup, level, free rotations
+    "cup51": ("51", "cup", _nv.NAME_CUP51, _nv.POINT_CUP51, _nv.SETUP_51,
+              "development", (1, 4)),
+    "w51": ("51", "w", _nv.NAME_W51, _nv.POINT_W51, _nv.SETUP_51,
+            "foundation", (1,)),
+    "cup62": ("62", "cup", _nv.NAME_CUP62, _nv.POINT_CUP62, _nv.SETUP_62,
+              "advanced", (1,)),
+    "w42": ("42", "w", _nv.NAME_W42, _nv.POINT_W42, _nv.SETUP_42,
+            "foundation", (1, 2)),
+}
+
+
+def receive_systems() -> list[Drill]:
+    out = []
+    for stem, (system, kind, name, note, setup, level, free) in RECEIVE_KINDS.items():
+        for r in range(1, 7):
+            home, idx, served, attacker, kill = _receive_board(system, r, kind)
+            setter_i = 0
+            out.append(Drill(
+                id=f"vb_receive_{stem}_r{r}", category="setpiece", minutes=12,
+                rel=True, free=(r in free), level=level, off_surface=True,
+                name=suffixed(_nv.full(name), f"{r}"), note=_nv.full(note),
+                setup=_nv.full(setup), purpose=ROT_PURPOSE,
+                home=home, away=[_sv()],
+                markers=[M(*SET_POINT, "square", "")],
+                ball=SERVE_SPOT,
+                ball_to=[(idx[served], 0), (setter_i, 1), (idx[attacker], 2),
+                         (ball_spot(kill), 3)],
+            ))
+    return out
+
+
+def rotation62_late() -> list[Drill]:
+    """6-2 rotations 4 to 6: the vb_rot62 boards one half-turn of the clock on.
+
+    Every zone holds the same kind of player as three rotations earlier —
+    the back-row setter, the front-row setter, an outside, a middle — so the
+    spots are ROT62's, relabelled: S2 sets, S1 is the opposite, and the two
+    outsides have swapped. Proved legal by the port, zone by zone.
+    """
+    swap = {"S": "S2", "OP": "S1", "O1": "O2", "O2": "O1", "M": "M", "L": "L"}
+    early = {"S": "S1", "OP": "S2", "O1": "OH1", "O2": "OH2"}
+    out = []
+    for r in (4, 5, 6):
+        pos, recv, runs, to, kill = ROT62[r - 3]
+        s, s0 = VRSetup("62", r), VRSetup("62", r - 3)
+        roles0 = s0.zone_roles
+        # Which zone each early-rotation role stood in, and who stands there now.
+        zone0 = {}
+        for role in _ROLE_ORDER:
+            want = early.get(role)
+            if role == "M":
+                zone0[role] = next(z for z, v in roles0.items()
+                                   if v.startswith("MB") and vr_is_front(z))
+            elif role == "L":
+                zone0[role] = _zone_of_role(roles0, "L")
+            else:
+                zone0[role] = _zone_of_role(roles0, want)
+        now = s.zone_roles
+        for role, z in zone0.items():
+            assert _vr_label(now[z], False) == swap[role] or (
+                role == "M" and now[z].startswith("MB")), (r, role, now[z])
+        feet = {z: ((pos[role][0] * 9.0, (pos[role][1] - NET) * 18.0))
+                for role, z in zone0.items()}
+        _vr_assert_legal(s, feet)
+        home = []
+        for role in _ROLE_ORDER:
+            moves = [SET_POINT + (0,)] if role == "S" else list(runs.get(role, []))
+            home.append(P(*pos[role], swap[role], moves=moves))
+        i = {role: k for k, role in enumerate(_ROLE_ORDER)}
+        out.append(Drill(
+            id=f"vb_rot62_r{r}", category="setpiece", minutes=12, rel=True,
+            level="advanced", off_surface=True,
+            name=suffixed(ROT62_NAME, f"{r}"), note=ROT62_NOTE,
+            setup=_nv.full(_nv.SETUP_62), purpose=ROT_PURPOSE,
+            home=home, away=[_sv()],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=SERVE_SPOT,
+            ball_to=[(i[recv], 0), (i["S"], 1), (i[to], 2), (ball_spot(kill), 3)],
+        ))
+    return out
+
+
+# ── 2. serve, base defence, dig, set, attack ─────────────────────────────────
+
+# Where each specialist defends once the serve is struck, team frame: the
+# front row at the net by specialty (outside left, middle centre, setter or
+# opposite right), the back row with the setter or opposite in 1, the
+# outside in 6 and the libero in 5 — the 5-1's usual base.
+BASE_FRONT = {"OH": (1.6, 0.6), "MB": (4.5, 0.6), "S": (7.4, 0.6), "OPP": (7.4, 0.6)}
+BASE_BACK = {"S": (7.2, 7.0), "OPP": (7.2, 7.0), "OH": (4.5, 7.6), "L": (1.8, 7.0),
+             "MB": (4.5, 7.6)}
+
+
+def _spec(role: str) -> str:
+    return "L" if role == "L" else role.rstrip("12")
+
+
+def transition_family() -> list[Drill]:
+    out = []
+    for r in range(1, 7):
+        s = VRSetup("51", r, "serve")
+        base = vr_base_positions(s)
+        _vr_assert_legal(s, base, exempt=1)
+        roles = s.zone_roles
+        both = sum(1 for v in roles.values() if v.startswith("MB")) == 2
+        # With the middle serving there is no libero: he runs in to 6 and
+        # the back-row outside defends 5 in the libero's place.
+        back_spec = dict(BASE_BACK)
+        if both:
+            back_spec.update({"MB": (4.5, 7.6), "OH": (1.8, 7.0)})
+        dest = {}
+        for z, role in roles.items():
+            sp = _spec(role)
+            dest[z] = (BASE_FRONT[sp] if vr_is_front(z) else back_spec[sp])
+        assert not vr_clashes(dest), (r, dest)
+        front = {(_spec(roles[z])): z for z in roles if vr_is_front(z)}
+        right = front.get("S", front.get("OPP"))
+        digger = next(z for z in roles if not vr_is_front(z) and dest[z] == (1.8, 7.0))
+        setter = _zone_of_role(roles, "S")
+        home, idx = [], {}
+        for z in sorted(roles, key=lambda z: (z != setter, z)):
+            role = roles[z]
+            if z == 1:
+                x, y = home_pt(VR_SERVER_SPOT[0], 0)[0], 1.0 + SERVE_BACK
+            else:
+                x, y = home_pt(*base[z])
+            dx, dy = home_pt(*dest[z])
+            # The back row and the server switch as the serve goes over;
+            # the front row as their pass goes up — two beats, so the
+            # crossing runs of a switch are not drawn on top of each other.
+            moves = [(dx, dy, 1 if vr_is_front(z) else 0)]
+            if z == setter:
+                moves.append(SET_POINT + (4,))
+            elif z == front["MB"]:
+                moves += [(0.72, dy, 2), (0.44, 0.68, 3), (0.50, 0.555, 5)]
+            elif z == front["OH"]:
+                moves += [LEFT_START + (3,), LEFT_HIT + (5,)]
+            elif z == right:
+                moves.append(RIGHT_START + (3,))
+            elif z == digger:
+                moves.append((dx + 0.02, dy - 0.02, 3))
+            idx[z] = len(home)
+            home.append(P(x, y, _vr_label(role, both), moves=moves))
+        away = [P(*away_pt(4.5, 6.0), "P", moves=[(*away_pt(4.3, 5.6), 0)]),
+                P(*mirror(SET_POINT), "S"),
+                # Their outside opens off the net while the pass is up and
+                # approaches on the set.
+                P(*mirror((0.10, 0.86)), "A",
+                  moves=[mirror(LEFT_START) + (1,), mirror(LEFT_HIT) + (2,)])]
+        out.append(Drill(
+            id=f"vb_transition_r{r}", category="attacking", minutes=15, rel=True,
+            free=(r in (1, 4)), level="development", off_surface=True,
+            name=suffixed(_nv.full(_nv.NAME_TRANS), f"{r}"),
+            note=_nv.full(_nv.POINT_TRANS), setup=_nv.full(_nv.SETUP_TRANS),
+            home=home, away=away,
+            markers=[M(*SET_POINT, "square", "")],
+            ball=idx[1],
+            # Serve; their pass, set and swing cross-court into our 5; the
+            # dig to our setter, the set to our outside, the kill.
+            ball_to=[("a0", 0), ("a1", 1), ("a2", 2), (idx[digger], 3),
+                     (idx[setter], 4), (idx[front["OH"]], 5),
+                     (ball_spot(LEFT_KILL), 6)],
+        ))
+    return out
+
+
+# ── 3. serving at a rotation ─────────────────────────────────────────────────
+
+# key: (their rotation, where it lands in THEIR team frame, our server's x).
+TARGETS = {
+    "zone1": (1, (7.6, 8.2), 0.80), "zone5": (2, (1.4, 8.2), 0.20),
+    "zone6": (3, (4.5, 8.4), 0.50), "short2": (4, (7.4, 2.4), 0.20),
+    "short4": (5, (1.6, 2.4), 0.80), "short3": (6, (3.6, 2.6), 0.50),
+    "seam56": (2, (3.0, 6.3), 0.70), "seam61": (4, (6.0, 6.3), 0.30),
+    "hitter": (5, None, 0.50), "path": (1, (7.0, 4.4), 0.30),
+}
+
+
+def target_serve_family() -> list[Drill]:
+    out = []
+    for key, (r, land, sx) in TARGETS.items():
+        s = VRSetup("51", r)
+        spot = vr_receive(s)
+        _vr_assert_legal(s, spot)
+        roles, setter = s.zone_roles, s.active_setter
+        passers = [z for z in roles if roles[z].startswith("OH") or roles[z] == "L"]
+        if land is None:
+            # The outside who passes and then has to attack.
+            hz = next(z for z in passers if vr_is_front(z))
+            land = (spot[hz][0], spot[hz][1] - 0.4)
+        recv = min(passers, key=lambda z: (spot[z][0] - land[0]) ** 2
+                   + (spot[z][1] - land[1]) ** 2)
+        sz = _zone_of_role(roles, setter)
+        away, ai = [], {}
+        for z in sorted(roles, key=lambda z: (z != sz, z)):
+            x, y = away_pt(*spot[z])
+            moves = []
+            if z == sz:
+                moves = [mirror(SET_POINT) + (0,)]
+            elif z == recv:
+                moves = [away_pt(*land) + (0,)]
+            ai[z] = len(away)
+            away.append(P(x, y, _vr_label(roles[z], False), moves=moves))
+        land_pt = away_pt(*land)
+        out.append(Drill(
+            id=f"vb_serve_target_{key}", category="setpiece", minutes=10, rel=True,
+            free=key in ("zone1", "short2", "seam56"), off_surface=True,
+            level=("foundation" if key.startswith("zone") else "development"),
+            name=suffixed(_nv.full(_nv.NAME_TARGET), _nv.full(_nv.TARGET_VARIANT[key])),
+            note=_nv.full(_nv.POINT_TARGET), setup=_nv.full(_nv.SETUP_TARGET),
+            home=[P(sx, 1.0 + SERVE_BACK, "SV", moves=[(sx, 0.98, 0)])],
+            away=away,
+            markers=[M(*land_pt, "zone", "")],
+            ball=0,
+            # Over the net to the passer who has to take it where it lands,
+            # and up to their setter.
+            ball_to=[(f"a{ai[recv]}", 0), (f"a{ai[sz]}", 1)],
+        ))
+    return out
+
+
+# ── 4. a pass off the net: the setter's three answers ────────────────────────
+
+OFF_SPOT = (0.60, 0.61)        # two metres off the net, left of the target
+
+
+def second_ball_family() -> list[Drill]:
+    out = []
+    for r in (4, 5, 6):
+        s = VRSetup("51", r)
+        spot = vr_receive(s)
+        _vr_assert_legal(s, spot)
+        roles = s.zone_roles
+        sz = _zone_of_role(roles, "S")
+        lz = _zone_of_role(roles, "L")
+        front = [z for z in roles if vr_is_front(z) and z != sz]
+        # With the setter in the front row the opposite is in the back: the
+        # back set goes to her D from behind the 3 m line on the right, the
+        # pipe to the back-row outside; the front row decoys.
+        right = _zone_of_role(roles, "OPP")
+        pipe = next(z for z in roles if not vr_is_front(z) and roles[z].startswith("OH"))
+        for opt in ("back", "pipe", "dump"):
+            home, idx = [], {}
+            for z in sorted(roles, key=lambda z: (z != sz, z)):
+                x, y = home_pt(*spot[z])
+                moves = []
+                if z == sz:
+                    moves = [OFF_SPOT + (1,)]
+                elif z == right and opt == "back":
+                    moves = [D_START + (1,), D_HIT + (2,)]
+                elif z == pipe and opt == "pipe":
+                    # Behind the 3 m line, clear of the libero who passed.
+                    lib = home_pt(*spot[lz])
+                    start = next(c for c in (PIPE_START, (0.30, 0.93), (0.62, 0.94),
+                                             (0.36, 0.97))
+                                 if not _covers(c, (lib[0], lib[1] - 0.022)))
+                    moves = [start + (1,), PIPE_HIT + (2,)]
+                elif z in front:
+                    # A decoy: the middle runs the quick in front of the
+                    # setter, the outside her approach to the left pin.
+                    if roles[z].startswith("MB"):
+                        moves = [(0.40, 0.68, 1), (0.44, 0.555, 2)]
+                    else:
+                        moves = [LEFT_START + (1,), LEFT_HIT + (2,)]
+                elif z == lz:
+                    moves = [(x, y - 0.022, 0)]
+                idx[z] = len(home)
+                home.append(P(x, y, _vr_label(roles[z], False), moves=moves))
+            if opt == "back":
+                last = [(idx[right], 2), (ball_spot(RIGHT_KILL), 3)]
+                block = [(0.74, 0.47, 2), (0.86, 0.47, 2)]
+            elif opt == "pipe":
+                last = [(idx[pipe], 2), (ball_spot((0.52, 0.20)), 3)]
+                block = [(0.24, 0.47, 2), (0.38, 0.47, 2)]
+            else:
+                last = [(ball_spot((0.58, 0.40)), 2)]
+                block = [(0.24, 0.47, 2), (0.38, 0.47, 2)]
+            away = [_sv(),
+                    P(0.42, 0.465, "B", moves=[block[0]]),
+                    P(0.58, 0.465, "B", moves=[block[1]])]
+            out.append(Drill(
+                id=f"vb_second_ball_{opt}_r{r}", category="attacking", minutes=10,
+                rel=True, free=(opt == "back" and r == 4), level="advanced",
+                off_surface=True,
+                name=suffixed(_nv.full(_nv.NAME_SECOND), _nv.full(_nv.SECOND_VARIANT[(opt, r)])),
+                note=_nv.full(_nv.POINT_SECOND), setup=_nv.full(_nv.SETUP_SECOND),
+                home=home, away=away,
+                markers=[M(*SET_POINT, "square", "")],
+                ball=SERVE_SPOT,
+                ball_to=[(idx[lz], 0), (idx[sz], 1)] + last,
+            ))
+    return out
+
+
+# ── 5. the libero in for the back-row middle ─────────────────────────────────
+
+def libero_family() -> list[Drill]:
+    out = []
+    bench = home_pt(*VR_BENCH_SPOT)
+    exit_ = home_pt(VR_BENCH_SPOT[0], VR_BENCH_SPOT[1] + 1.8)
+    for r in range(1, 7):
+        s = VRSetup("51", r)
+        spot = vr_receive(s)
+        _vr_assert_legal(s, spot)
+        roles = s.zone_roles
+        lz = _zone_of_role(roles, "L")
+        mb_out = s.libero_replaces
+        sz = _zone_of_role(roles, "S")
+        attacker = next(z for z in roles if vr_is_front(z) and roles[z].startswith("OH"))
+        at = {z: home_pt(*spot[z]) for z in roles}
+        runs, kill = _side_out_runs(roles, at, sz, attacker, b0=1)
+        home, idx = [], {}
+        for z in sorted(roles, key=lambda z: (z != sz, z)):
+            x, y = at[z]
+            moves = runs[z]
+            label = _vr_label(roles[z], True)
+            if z == lz:
+                # On the court, before the serve, the middle walks off to
+                # the replacement zone: drawn as him, and the libero on.
+                idx["M"] = len(home)
+                home.append(P(x, y, _vr_label(mb_out, True), moves=[exit_ + (0,)]))
+                x, y = bench
+                moves = [home_pt(*spot[z]) + (0,)]
+                label = "L"
+            idx[z] = len(home)
+            home.append(P(x, y, label, moves=moves))
+        out.append(Drill(
+            id=f"vb_receive_libero_r{r}", category="possession", minutes=10,
+            rel=True, free=(r in (1, 2)), level="development", off_surface=True,
+            name=suffixed(_nv.full(_nv.NAME_LIBERO), f"{r}"),
+            note=_nv.full(_nv.POINT_LIBERO), setup=_nv.full(_nv.SETUP_LIBERO),
+            home=home, away=[P(*SERVE_SPOT, "SV", moves=[(0.5, 0.02, 1)])],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=SERVE_SPOT,
+            ball_to=[(idx[lz], 1), (idx[sz], 2), (idx[attacker], 3),
+                     (ball_spot(kill), 4)],
+        ))
+    return out
+
+
 def volleyball_library() -> list[Drill]:
     return (warmup_family() + receive_family() + setting_family()
             + setter_family() + freeball_family() + attack_family()
@@ -1949,4 +2749,6 @@ def volleyball_library() -> list[Drill]:
             + oos_family() + setter_footwork() + shot_family()
             + attack_more() + combo_family() + middle_block_family()
             + dig_family() + counter_family() + rotation_family()
-            + game_more())
+            + game_more()
+            + receive_systems() + rotation62_late() + transition_family()
+            + target_serve_family() + second_ball_family() + libero_family())

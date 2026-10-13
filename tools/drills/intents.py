@@ -21,6 +21,7 @@ RUN_WHY = {
     "es-ES": "{run} para {why}", "fr-FR": "{run} pour {why}",
     "id-ID": "{run} untuk {why}", "ms-MY": "{run} untuk {why}",
     "th-TH": "{run}เพื่อ{why}", "vi-VN": "{run} để {why}",
+    "de-DE": "{run}, um {why}", "nl-NL": "{run} om {why}",
 }
 
 # A return needs no direction: "A moves back to get back to the cone" says
@@ -32,6 +33,7 @@ RESET = {
     "es-ES": "{a} vuelve a su cono", "fr-FR": "{a} revient sur son plot",
     "id-ID": "{a} kembali ke cone", "ms-MY": "{a} kembali ke kon",
     "th-TH": "{a} กลับไปที่กรวยเดิม", "vi-VN": "{a} về lại vị trí cũ",
+    "de-DE": "{a} kehrt zu seinem Hütchen zurück", "nl-NL": "{a} gaat terug naar zijn pion",
 }
 
 WHY = {
@@ -42,6 +44,8 @@ WHY = {
         "es-ES": "ofrecer una línea de pase", "fr-FR": "offrir une solution de passe",
         "id-ID": "memberi pilihan umpan", "ms-MY": "memberi pilihan hantaran",
         "th-TH": "เปิดตัวเป็นทางเลือกส่งบอล", "vi-VN": "tạo hướng chuyền cho người cầm bóng",
+        "de-DE": "eine Anspielstation anzubieten",
+        "nl-NL": "een passmogelijkheid te bieden",
     },
     "meet": {
         "en": "meet the pass", "en-GB": "meet the pass",
@@ -50,6 +54,8 @@ WHY = {
         "es-ES": "ir al encuentro del balón", "fr-FR": "venir au-devant du ballon",
         "id-ID": "menjemput bola", "ms-MY": "menyambut bola",
         "th-TH": "ขยับเข้าหาบอล", "vi-VN": "bước ra đón bóng",
+        "de-DE": "dem Pass entgegenzugehen",
+        "nl-NL": "de pass tegemoet te komen",
     },
     "open_angle": {
         "en": "open the passing angle", "en-GB": "open the passing angle",
@@ -58,6 +64,8 @@ WHY = {
         "es-ES": "abrir el ángulo de pase", "fr-FR": "ouvrir l'angle de passe",
         "id-ID": "membuka sudut umpan", "ms-MY": "membuka sudut hantaran",
         "th-TH": "เปิดมุมส่งบอล", "vi-VN": "mở góc chuyền",
+        "de-DE": "den Passwinkel zu öffnen",
+        "nl-NL": "de passhoek te openen",
     },
     "close_lane": {
         "en": "cut off the passing lane", "en-GB": "cut off the passing lane",
@@ -66,6 +74,8 @@ WHY = {
         "es-ES": "cerrar la línea de pase", "fr-FR": "fermer la ligne de passe",
         "id-ID": "menutup jalur umpan", "ms-MY": "menutup laluan hantaran",
         "th-TH": "ปิดเส้นทางส่งบอล", "vi-VN": "chặn đường chuyền",
+        "de-DE": "die Passlinie zuzustellen",
+        "nl-NL": "de passlijn af te sluiten",
     },
     "press_ball": {
         "en": "press the ball carrier", "en-GB": "press the ball carrier",
@@ -74,6 +84,8 @@ WHY = {
         "es-ES": "presionar al poseedor", "fr-FR": "presser le porteur",
         "id-ID": "menekan pembawa bola", "ms-MY": "menekan pembawa bola",
         "th-TH": "เพรสคนถือบอล", "vi-VN": "áp sát người cầm bóng",
+        "de-DE": "den Ballführenden anzulaufen",
+        "nl-NL": "druk te zetten op de balbezitter",
     },
     "cover": {
         "en": "cover the space behind", "en-GB": "cover the space behind",
@@ -82,6 +94,8 @@ WHY = {
         "es-ES": "cubrir el espacio a la espalda", "fr-FR": "couvrir l'espace derrière",
         "id-ID": "menutup ruang di belakang", "ms-MY": "menutup ruang di belakang",
         "th-TH": "คุมพื้นที่ด้านหลัง", "vi-VN": "bọc lót khoảng trống phía sau",
+        "de-DE": "den Raum dahinter abzusichern",
+        "nl-NL": "de ruimte erachter af te dekken",
     },
     "recover": {
         "en": "recover goal-side", "en-GB": "recover goal-side",
@@ -90,6 +104,8 @@ WHY = {
         "es-ES": "recuperar la posición entre balón y portería", "fr-FR": "revenir côté but",
         "id-ID": "kembali ke sisi gawang", "ms-MY": "kembali ke sisi gol",
         "th-TH": "วิ่งกลับมาคุมฝั่งประตู", "vi-VN": "lùi về phía khung thành",
+        "de-DE": "torseitig zurückzuarbeiten",
+        "nl-NL": "terug te keren tussen man en doel",
     },
     "third_man": {
         "en": "arrive as the third man", "en-GB": "arrive as the third man",
@@ -98,6 +114,8 @@ WHY = {
         "es-ES": "llegar como tercer hombre", "fr-FR": "arriver en troisième homme",
         "id-ID": "masuk sebagai pemain ketiga", "ms-MY": "masuk sebagai pemain ketiga",
         "th-TH": "วิ่งเข้ามาเป็นคนที่สาม", "vi-VN": "xâm nhập với vai trò người thứ ba",
+        "de-DE": "als dritter Mann zu kommen",
+        "nl-NL": "als derde man aan te komen",
     },
     "overlap": {
         "en": "overlap on the outside", "en-GB": "overlap on the outside",
@@ -106,6 +124,8 @@ WHY = {
         "es-ES": "desdoblar por fuera", "fr-FR": "déborder à l'extérieur",
         "id-ID": "overlap di sisi luar", "ms-MY": "overlap di sisi luar",
         "th-TH": "โอเวอร์แลปด้านนอก", "vi-VN": "chồng biên bên ngoài",
+        "de-DE": "außen zu hinterlaufen",
+        "nl-NL": "buitenom te overlappen",
     },
     "underlap": {
         "en": "underlap on the inside", "en-GB": "underlap on the inside",
@@ -114,6 +134,8 @@ WHY = {
         "es-ES": "desdoblar por dentro", "fr-FR": "passer à l'intérieur",
         "id-ID": "underlap di sisi dalam", "ms-MY": "underlap di sisi dalam",
         "th-TH": "แทรกขึ้นด้านใน", "vi-VN": "xâm nhập phía trong",
+        "de-DE": "innen zu hinterlaufen",
+        "nl-NL": "binnendoor te overlappen",
     },
     "run_behind": {
         "en": "run in behind the defence", "en-GB": "run in behind the defence",
@@ -122,6 +144,8 @@ WHY = {
         "es-ES": "desmarcarse a la espalda de la defensa", "fr-FR": "prendre la profondeur",
         "id-ID": "berlari ke belakang pertahanan", "ms-MY": "berlari ke belakang pertahanan",
         "th-TH": "วิ่งทะลุหลังแนวรับ", "vi-VN": "chạy ra sau hàng thủ",
+        "de-DE": "hinter die Abwehr zu starten",
+        "nl-NL": "in de rug van de verdediging te lopen",
     },
     "near_post": {
         "en": "attack the near post", "en-GB": "attack the near post",
@@ -130,6 +154,8 @@ WHY = {
         "es-ES": "atacar el primer palo", "fr-FR": "attaquer le premier poteau",
         "id-ID": "menyerang tiang dekat", "ms-MY": "menyerang tiang dekat",
         "th-TH": "วิ่งเข้าเสาแรก", "vi-VN": "băng vào cột gần",
+        "de-DE": "den kurzen Pfosten anzulaufen",
+        "nl-NL": "de eerste paal aan te vallen",
     },
     "far_post": {
         "en": "attack the far post", "en-GB": "attack the far post",
@@ -138,6 +164,8 @@ WHY = {
         "es-ES": "atacar el segundo palo", "fr-FR": "attaquer le deuxième poteau",
         "id-ID": "menyerang tiang jauh", "ms-MY": "menyerang tiang jauh",
         "th-TH": "วิ่งเข้าเสาสอง", "vi-VN": "băng vào cột xa",
+        "de-DE": "den langen Pfosten anzulaufen",
+        "nl-NL": "de tweede paal aan te vallen",
     },
     "drop_deep": {
         "en": "drop to receive", "en-GB": "drop to receive",
@@ -146,6 +174,8 @@ WHY = {
         "es-ES": "bajar a recibir", "fr-FR": "décrocher pour recevoir",
         "id-ID": "turun untuk menerima bola", "ms-MY": "turun untuk menerima bola",
         "th-TH": "ถอยลงมารับบอล", "vi-VN": "lùi xuống nhận bóng",
+        "de-DE": "sich zum Anspiel fallen zu lassen",
+        "nl-NL": "terug te zakken om de bal te vragen",
     },
     "pull_away": {
         "en": "drag a defender away", "en-GB": "drag a defender away",
@@ -154,6 +184,8 @@ WHY = {
         "es-ES": "arrastrar a un defensor", "fr-FR": "emmener un défenseur",
         "id-ID": "menarik bek menjauh", "ms-MY": "menarik pemain bertahan menjauh",
         "th-TH": "ลากตัวประกบออกไปเปิดพื้นที่", "vi-VN": "kéo hậu vệ đi để mở khoảng trống",
+        "de-DE": "einen Verteidiger wegzuziehen",
+        "nl-NL": "een verdediger mee te trekken",
     },
     "shift": {
         "en": "shift across with the ball", "en-GB": "shift across with the ball",
@@ -162,6 +194,8 @@ WHY = {
         "es-ES": "bascular con el balón", "fr-FR": "coulisser avec le ballon",
         "id-ID": "bergeser mengikuti bola", "ms-MY": "beralih mengikut bola",
         "th-TH": "ขยับตามบอลให้แน่น", "vi-VN": "dịch chuyển theo bóng giữ đội hình",
+        "de-DE": "mit dem Ball zu verschieben",
+        "nl-NL": "mee te schuiven met de bal",
     },
     "queue": {
         "en": "rejoin the queue", "en-GB": "rejoin the queue",
@@ -170,6 +204,8 @@ WHY = {
         "es-ES": "volver a la fila", "fr-FR": "reprendre la file",
         "id-ID": "kembali ke antrean", "ms-MY": "kembali ke barisan",
         "th-TH": "กลับไปต่อแถว", "vi-VN": "về cuối hàng",
+        "de-DE": "sich wieder hinten anzustellen",
+        "nl-NL": "achter in de rij aan te sluiten",
     },
     "to_goal": {
         "en": "attack the goal", "en-GB": "attack the goal",
@@ -178,6 +214,8 @@ WHY = {
         "es-ES": "atacar la portería", "fr-FR": "attaquer le but",
         "id-ID": "menyerang gawang", "ms-MY": "menyerang gol",
         "th-TH": "บุกเข้าหาประตู", "vi-VN": "lao về khung thành",
+        "de-DE": "aufs Tor zu gehen",
+        "nl-NL": "op het doel af te gaan",
     },
     "get_free": {
         "en": "shake off the marker", "en-GB": "shake off the marker",
@@ -186,6 +224,8 @@ WHY = {
         "es-ES": "desmarcarse", "fr-FR": "se démarquer",
         "id-ID": "lepas dari penjagaan", "ms-MY": "lepas daripada kawalan",
         "th-TH": "สลัดตัวประกบ", "vi-VN": "thoát người kèm",
+        "de-DE": "sich vom Gegenspieler zu lösen",
+        "nl-NL": "zich los te maken van zijn tegenstander",
     },
     "finish": {
         "en": "get into a finishing position", "en-GB": "get into a finishing position",
@@ -194,6 +234,8 @@ WHY = {
         "es-ES": "llegar a posición de remate", "fr-FR": "se placer pour finir",
         "id-ID": "masuk ke posisi penyelesaian", "ms-MY": "masuk ke posisi penamat",
         "th-TH": "เข้าตำแหน่งยิง", "vi-VN": "vào vị trí dứt điểm",
+        "de-DE": "in Abschlussposition zu kommen",
+        "nl-NL": "in een afrondingspositie te komen",
     },
     "width": {
         "en": "hold the width", "en-GB": "hold the width",
@@ -202,6 +244,8 @@ WHY = {
         "es-ES": "dar amplitud", "fr-FR": "garder la largeur",
         "id-ID": "menjaga lebar", "ms-MY": "mengekalkan kelebaran",
         "th-TH": "รักษาความกว้าง", "vi-VN": "giữ chiều rộng",
+        "de-DE": "die Breite zu halten",
+        "nl-NL": "de breedte te houden",
     },
     "set_gk": {
         "en": "set on the line of the ball", "en-GB": "set on the line of the ball",
@@ -210,6 +254,8 @@ WHY = {
         "es-ES": "colocarse en la línea del balón", "fr-FR": "se placer sur la ligne du ballon",
         "id-ID": "bersiap di garis bola", "ms-MY": "bersedia di garis bola",
         "th-TH": "ตั้งตำแหน่งตรงแนวบอล", "vi-VN": "chọn vị trí trên đường bóng",
+        "de-DE": "sich auf der Balllinie zu positionieren",
+        "nl-NL": "zich op de lijn van de bal op te stellen",
     },
     "shadow": {
         "en": "track the runner", "en-GB": "track the runner",
@@ -218,6 +264,8 @@ WHY = {
         "es-ES": "seguir al que se desmarca", "fr-FR": "suivre le coureur",
         "id-ID": "mengikuti pemain yang berlari", "ms-MY": "mengekori pemain yang berlari",
         "th-TH": "ตามประกบคนวิ่ง", "vi-VN": "theo kèm người chạy chỗ",
+        "de-DE": "den Läufer zu verfolgen",
+        "nl-NL": "de loper te volgen",
     },
     "delay": {
         "en": "delay and jockey", "en-GB": "delay and jockey",
@@ -226,6 +274,8 @@ WHY = {
         "es-ES": "temporizar sin entrar", "fr-FR": "temporiser sans se jeter",
         "id-ID": "memperlambat tanpa terburu-buru", "ms-MY": "melambatkan tanpa terburu-buru",
         "th-TH": "ถ่วงเวลา ไม่รีบเข้าแย่ง", "vi-VN": "trì hoãn, không vội xoạc",
+        "de-DE": "zu verzögern und den Gegner zu stellen",
+        "nl-NL": "te vertragen en de tegenstander op te vangen",
     },
     "second_ball": {
         "en": "wait on the edge for the second ball", "en-GB": "wait on the edge for the second ball",
@@ -234,6 +284,8 @@ WHY = {
         "es-ES": "esperar el rechace en la frontal", "fr-FR": "attendre le second ballon à l'entrée de la surface",
         "id-ID": "menunggu bola kedua di tepi kotak", "ms-MY": "menunggu bola kedua di tepi kotak",
         "th-TH": "รอบอลสองที่หน้าเขตโทษ", "vi-VN": "chờ bóng hai ở rìa vòng cấm",
+        "de-DE": "am Strafraumrand auf den zweiten Ball zu lauern",
+        "nl-NL": "aan de rand van het strafschopgebied op de tweede bal te wachten",
     },
     "follow": {
         "en": "follow the pass to the next station", "en-GB": "follow the pass to the next station",
@@ -242,6 +294,8 @@ WHY = {
         "es-ES": "seguir el pase a la siguiente posición", "fr-FR": "suivre la passe vers le poste suivant",
         "id-ID": "mengikuti umpan ke pos berikutnya", "ms-MY": "mengikuti hantaran ke pos seterusnya",
         "th-TH": "วิ่งตามบอลไปตำแหน่งถัดไป", "vi-VN": "chạy theo đường chuyền sang vị trí kế",
+        "de-DE": "dem Pass zur nächsten Station zu folgen",
+        "nl-NL": "de pass te volgen naar de volgende post",
     },
     "win_ball": {
         "en": "step in and win the ball", "en-GB": "step in and win the ball",
@@ -250,6 +304,8 @@ WHY = {
         "es-ES": "entrar y robar el balón", "fr-FR": "intervenir et récupérer le ballon",
         "id-ID": "masuk dan merebut bola", "ms-MY": "masuk dan merampas bola",
         "th-TH": "เข้าแย่งบอล", "vi-VN": "vào bóng và đoạt lại",
+        "de-DE": "dazwischenzugehen und den Ball zu erobern",
+        "nl-NL": "in te stappen en de bal te veroveren",
     },
     "gate": {
         "en": "take the first touch through the gate", "en-GB": "take the first touch through the gate",
@@ -258,6 +314,8 @@ WHY = {
         "es-ES": "pasar la puerta con el primer toque", "fr-FR": "franchir la porte du premier contrôle",
         "id-ID": "melewati gerbang dengan sentuhan pertama", "ms-MY": "melepasi pintu dengan sentuhan pertama",
         "th-TH": "แตะแรกพาบอลผ่านประตู", "vi-VN": "chạm bóng đầu tiên đưa bóng qua cổng",
+        "de-DE": "den ersten Kontakt durch das Tor mitzunehmen",
+        "nl-NL": "de eerste aanname door het poortje mee te nemen",
     },
     # ── conditioning ────────────────────────────────────────────────────
     "sprint": {
@@ -267,6 +325,8 @@ WHY = {
         "es-ES": "esprintar a tope", "fr-FR": "sprinter à fond",
         "id-ID": "lari sekencang mungkin", "ms-MY": "pecut sepenuh tenaga",
         "th-TH": "วิ่งสุดแรง", "vi-VN": "chạy nước rút hết sức",
+        "de-DE": "Vollgas zu sprinten",
+        "nl-NL": "voluit te sprinten",
     },
     "shuffle": {
         "en": "side-shuffle without crossing the feet", "en-GB": "side-shuffle without crossing the feet",
@@ -275,6 +335,8 @@ WHY = {
         "es-ES": "desplazarse lateral sin cruzar los pies", "fr-FR": "pas chassés sans croiser les pieds",
         "id-ID": "geser menyamping tanpa menyilangkan kaki", "ms-MY": "gerak sisi tanpa menyilang kaki",
         "th-TH": "สไลด์ข้างโดยไม่ไขว้เท้า", "vi-VN": "trượt ngang không bắt chéo chân",
+        "de-DE": "seitlich zu laufen, ohne die Füße zu kreuzen",
+        "nl-NL": "zijwaarts te bewegen zonder de voeten te kruisen",
     },
     "hop": {
         "en": "two-footed hop over each hurdle", "en-GB": "two-footed hop over each hurdle",
@@ -283,6 +345,8 @@ WHY = {
         "es-ES": "saltar cada valla con los dos pies", "fr-FR": "franchir chaque haie pieds joints",
         "id-ID": "melompat dua kaki melewati tiap gawang", "ms-MY": "melompat dua kaki melepasi setiap pagar",
         "th-TH": "กระโดดสองเท้าข้ามรั้วทุกอัน", "vi-VN": "bật hai chân qua từng rào",
+        "de-DE": "beidbeinig über jede Hürde zu springen",
+        "nl-NL": "met twee voeten over elke horde te springen",
     },
     "ladder": {
         "en": "quick feet through the ladder", "en-GB": "quick feet through the ladder",
@@ -291,6 +355,8 @@ WHY = {
         "es-ES": "pies rápidos por la escalera", "fr-FR": "pieds rapides dans l'échelle",
         "id-ID": "langkah cepat melewati tangga", "ms-MY": "langkah pantas melalui tangga",
         "th-TH": "ซอยเท้าเร็วผ่านบันไดลิง", "vi-VN": "bước nhanh qua thang dây",
+        "de-DE": "schnelle Füße durch die Leiter zu machen",
+        "nl-NL": "met snelle voetjes door de ladder te gaan",
     },
     "decel": {
         "en": "decelerate and stop under control", "en-GB": "decelerate and stop under control",
@@ -299,6 +365,8 @@ WHY = {
         "es-ES": "frenar y parar con control", "fr-FR": "décélérer et s'arrêter en contrôle",
         "id-ID": "melambat dan berhenti terkendali", "ms-MY": "memperlahankan dan berhenti terkawal",
         "th-TH": "ชะลอและหยุดอย่างมั่นคง", "vi-VN": "giảm tốc và dừng có kiểm soát",
+        "de-DE": "abzubremsen und kontrolliert zu stoppen",
+        "nl-NL": "af te remmen en gecontroleerd te stoppen",
     },
     "jog": {
         "en": "jog to recover", "en-GB": "jog to recover",
@@ -307,6 +375,8 @@ WHY = {
         "es-ES": "trotar para recuperar", "fr-FR": "trottiner pour récupérer",
         "id-ID": "joging untuk pulih", "ms-MY": "berjoging untuk pulih",
         "th-TH": "วิ่งเหยาะเพื่อฟื้นตัว", "vi-VN": "chạy chậm để hồi phục",
+        "de-DE": "locker zurückzutraben und sich zu erholen",
+        "nl-NL": "rustig uit te lopen om te herstellen",
     },
     "backpedal": {
         "en": "backpedal, eyes up", "en-GB": "backpedal, eyes up",
@@ -315,6 +385,8 @@ WHY = {
         "es-ES": "correr hacia atrás con la vista al frente", "fr-FR": "courir en arrière, regard devant",
         "id-ID": "lari mundur dengan pandangan ke depan", "ms-MY": "lari ke belakang dengan pandangan ke hadapan",
         "th-TH": "วิ่งถอยหลัง สายตามองไปข้างหน้า", "vi-VN": "chạy lùi, mắt nhìn phía trước",
+        "de-DE": "rückwärts zu laufen, den Blick nach vorn",
+        "nl-NL": "achteruit te lopen met de blik vooruit",
     },
     "jump": {
         "en": "take off and land on both feet", "en-GB": "take off and land on both feet",
@@ -323,6 +395,8 @@ WHY = {
         "es-ES": "saltar y caer con los dos pies", "fr-FR": "sauter et retomber sur deux pieds",
         "id-ID": "melompat dan mendarat dua kaki", "ms-MY": "melompat dan mendarat dua kaki",
         "th-TH": "กระโดดและลงสองเท้า", "vi-VN": "bật lên và tiếp đất bằng hai chân",
+        "de-DE": "beidbeinig abzuspringen und zu landen",
+        "nl-NL": "op twee voeten af te zetten en te landen",
     },
     "touch_down": {
         "en": "touch the floor and get up", "en-GB": "touch the floor and get up",
@@ -331,6 +405,8 @@ WHY = {
         "es-ES": "tocar el suelo y levantarse", "fr-FR": "toucher le sol et se relever",
         "id-ID": "menyentuh lantai lalu bangkit", "ms-MY": "menyentuh lantai lalu bangun",
         "th-TH": "แตะพื้นแล้วลุกขึ้น", "vi-VN": "chạm sàn rồi đứng dậy",
+        "de-DE": "den Boden zu berühren und wieder aufzustehen",
+        "nl-NL": "de grond aan te tikken en weer op te staan",
     },
     "swim": {
         "en": "swim it flat out", "en-GB": "swim it flat out",
@@ -339,6 +415,8 @@ WHY = {
         "es-ES": "nadar a tope", "fr-FR": "nager à fond",
         "id-ID": "berenang sekencang mungkin", "ms-MY": "berenang sepenuh tenaga",
         "th-TH": "ว่ายเต็มแรง", "vi-VN": "bơi hết sức",
+        "de-DE": "Vollgas zu schwimmen",
+        "nl-NL": "voluit te zwemmen",
     },
     "tread": {
         "en": "eggbeater, hands out of the water", "en-GB": "eggbeater, hands out of the water",
@@ -347,6 +425,8 @@ WHY = {
         "es-ES": "batido de piernas con las manos fuera del agua", "fr-FR": "eggbeater, mains hors de l'eau",
         "id-ID": "eggbeater, tangan di atas air", "ms-MY": "eggbeater, tangan di atas air",
         "th-TH": "ปั่นขา มือพ้นน้ำ", "vi-VN": "đạp nước, hai tay khỏi mặt nước",
+        "de-DE": "mit dem Eggbeater zu treten, die Hände aus dem Wasser",
+        "nl-NL": "te watertrappen met de eggbeater, handen boven water",
     },
     "line_5": {
         "en": "sprint to the 5 m line and touch it", "en-GB": "sprint to the 5 m line and touch it",
@@ -355,6 +435,8 @@ WHY = {
         "es-ES": "esprintar a la línea de 5 m y tocarla", "fr-FR": "sprinter à la ligne des 5 m et la toucher",
         "id-ID": "sprint ke garis 5 m dan sentuh", "ms-MY": "pecut ke garisan 5 m dan sentuh",
         "th-TH": "วิ่งไปแตะเส้น 5 เมตร", "vi-VN": "nước rút đến vạch 5 m và chạm",
+        "de-DE": "bis zur 5-m-Linie zu sprinten und sie zu berühren",
+        "nl-NL": "naar de 5-meterlijn te sprinten en die aan te tikken",
     },
     "line_10": {
         "en": "sprint to the 10 m line and touch it", "en-GB": "sprint to the 10 m line and touch it",
@@ -363,6 +445,8 @@ WHY = {
         "es-ES": "esprintar a la línea de 10 m y tocarla", "fr-FR": "sprinter à la ligne des 10 m et la toucher",
         "id-ID": "sprint ke garis 10 m dan sentuh", "ms-MY": "pecut ke garisan 10 m dan sentuh",
         "th-TH": "วิ่งไปแตะเส้น 10 เมตร", "vi-VN": "nước rút đến vạch 10 m và chạm",
+        "de-DE": "bis zur 10-m-Linie zu sprinten und sie zu berühren",
+        "nl-NL": "naar de 10-meterlijn te sprinten en die aan te tikken",
     },
     "line_15": {
         "en": "sprint to the 15 m line and touch it", "en-GB": "sprint to the 15 m line and touch it",
@@ -371,6 +455,8 @@ WHY = {
         "es-ES": "esprintar a la línea de 15 m y tocarla", "fr-FR": "sprinter à la ligne des 15 m et la toucher",
         "id-ID": "sprint ke garis 15 m dan sentuh", "ms-MY": "pecut ke garisan 15 m dan sentuh",
         "th-TH": "วิ่งไปแตะเส้น 15 เมตร", "vi-VN": "nước rút đến vạch 15 m và chạm",
+        "de-DE": "bis zur 15-m-Linie zu sprinten und sie zu berühren",
+        "nl-NL": "naar de 15-meterlijn te sprinten en die aan te tikken",
     },
     "turn_back": {
         "en": "turn and sprint back", "en-GB": "turn and sprint back",
@@ -379,6 +465,8 @@ WHY = {
         "es-ES": "girar y volver a sprint", "fr-FR": "se retourner et revenir en sprint",
         "id-ID": "berbalik dan sprint kembali", "ms-MY": "berpusing dan pecut kembali",
         "th-TH": "หมุนตัวแล้ววิ่งกลับสุดแรง", "vi-VN": "xoay người và nước rút trở lại",
+        "de-DE": "zu wenden und zurückzusprinten",
+        "nl-NL": "na het keren terug te sprinten",
     },
     "reset": {
         "en": "get back to the cone", "en-GB": "get back to the cone",
@@ -387,6 +475,8 @@ WHY = {
         "es-ES": "volver a su cono", "fr-FR": "revenir sur son plot",
         "id-ID": "kembali ke cone", "ms-MY": "kembali ke kon",
         "th-TH": "กลับไปที่กรวยเดิม", "vi-VN": "về lại vị trí cũ",
+        "de-DE": "zu seinem Hütchen zurückzukehren",
+        "nl-NL": "terug te gaan naar zijn pion",
     },
     "turn": {
         "en": "turn and face forward", "en-GB": "turn and face forward",
@@ -395,6 +485,8 @@ WHY = {
         "es-ES": "girarse y encarar", "fr-FR": "se retourner face au jeu",
         "id-ID": "berbalik menghadap ke depan", "ms-MY": "berpusing menghadap ke hadapan",
         "th-TH": "หมุนตัวหันหน้าไปข้างหน้า", "vi-VN": "xoay người hướng lên phía trước",
+        "de-DE": "sich umzudrehen und nach vorn zu schauen",
+        "nl-NL": "zich om te draaien met het gezicht naar voren",
     },
     # ── water polo ──
     "wp_lunge": {
@@ -408,6 +500,8 @@ WHY = {
         "ms-MY": "meletup keluar dari air hingga pinggul lalu kembali ke eggbeater",
         "th-TH": "ดีดตัวพ้นน้ำถึงสะโพกแล้วกลับลงไปปั่นขา",
         "vi-VN": "bật khỏi mặt nước đến ngang hông rồi trở lại đạp nước",
+        "de-DE": "bis zur Hüfte aus dem Wasser zu schnellen und wieder in den Eggbeater zu sinken",
+        "nl-NL": "tot aan de heupen uit het water te schieten en terug te zakken in de eggbeater",
     },
     "wp_excluded": {
         "en": "serve the exclusion in the re-entry area",
@@ -420,6 +514,8 @@ WHY = {
         "ms-MY": "menjalani penyingkiran di kawasan masuk semula",
         "th-TH": "ถูกไล่ออกชั่วคราวไปรอที่พื้นที่กลับเข้าเล่น",
         "vi-VN": "chịu phạt loại tạm thời ở khu vực vào lại sân",
+        "de-DE": "die Hinausstellung im Wiedereintrittsraum abzusitzen",
+        "nl-NL": "de uitsluiting uit te zitten in het terugkeervak",
     },
     "wp_front": {
         "en": "front the centre forward on the ball side",
@@ -432,6 +528,8 @@ WHY = {
         "ms-MY": "mengawal di hadapan center, di sisi bola",
         "th-TH": "อ้อมไปยืนหน้าเซ็นเตอร์ฝั่งที่บอลอยู่",
         "vi-VN": "chặn trước mặt trung phong ở phía có bóng",
+        "de-DE": "sich auf der Ballseite vor den Center zu stellen",
+        "nl-NL": "aan de balkant voor de midvoor te gaan liggen",
     },
     "wp_drop": {
         "en": "drop off into the hole to help on the centre",
@@ -444,6 +542,8 @@ WHY = {
         "ms-MY": "turun ke depan gol membantu mengawal center",
         "th-TH": "ถอยลงมาช่วยประกบเซ็นเตอร์",
         "vi-VN": "lùi vào giữa để hỗ trợ kèm trung phong",
+        "de-DE": "sich zur Unterstützung gegen den Center ins Loch fallen zu lassen",
+        "nl-NL": "in het gat terug te zakken om te helpen tegen de midvoor",
     },
     "wp_press": {
         "en": "press goal-side on his man's hip",
@@ -456,6 +556,8 @@ WHY = {
         "ms-MY": "menekan dari sisi gol di pinggul lawannya",
         "th-TH": "ประกบติดสะโพกคู่แข่งฝั่งประตู",
         "vi-VN": "áp sát hông đối thủ từ phía khung thành",
+        "de-DE": "torseitig an der Hüfte seines Gegenspielers zu pressen",
+        "nl-NL": "aan de doelkant op de heup van zijn man druk te zetten",
     },
     "wp_seal": {
         "en": "seal the defender on his back",
@@ -468,6 +570,8 @@ WHY = {
         "ms-MY": "mengunci pemain bertahan di belakangnya",
         "th-TH": "ใช้หลังล็อกกองหลังที่อยู่ข้างหลัง",
         "vi-VN": "dùng lưng khóa hậu vệ phía sau",
+        "de-DE": "den Verteidiger mit dem Rücken abzuschirmen",
+        "nl-NL": "de verdediger op zijn rug af te schermen",
     },
 }
 

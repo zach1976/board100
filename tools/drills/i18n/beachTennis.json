@@ -7,7 +7,9 @@
   "id-ID": "lapangan tenis pantai tidak punya garis tengah: dua kerucut di tengah kedua garis belakang menandainya, dan hanya separuh tempat para pemain berada, lebar sekitar 4 m, yang masuk",
   "ms-MY": "gelanggang tenis pantai tiada garisan tengah: dua kon di tengah kedua-dua garisan belakang menandakannya, dan hanya separuh tempat pemain berada, lebar kira-kira 4 m, yang dikira masuk",
   "th-TH": "คอร์ทเทนนิสชายหาดไม่มีเส้นกลาง ใช้กรวยสองอันวางกึ่งกลางเส้นหลังทั้งสองฝั่งแทน และนับเฉพาะครึ่งที่ผู้เล่นยืนอยู่ กว้างราว 4 ม.",
-  "vi-VN": "sân tennis bãi biển không có vạch giữa: hai nón đặt ở giữa hai vạch cuối sân thay cho nó, chỉ nửa sân có người chơi, rộng khoảng 4 m, là trong"
+  "vi-VN": "sân tennis bãi biển không có vạch giữa: hai nón đặt ở giữa hai vạch cuối sân thay cho nó, chỉ nửa sân có người chơi, rộng khoảng 4 m, là trong",
+  "de-DE": "ein Beachtennis-Platz hat keine Mittellinie: Zwei Hütchen in der Mitte der beiden Grundlinien markieren sie, und nur die Hälfte, in der die Spieler stehen, etwa 4 m breit, ist gut",
+  "nl-NL": "een beachtennisbaan heeft geen middenlijn: twee pionnen in het midden van beide achterlijnen markeren hem, en alleen de helft waarin de spelers staan, ongeveer 4 m breed, is in"
  },
  "A ball that lands inside the opponents' lines wins the point. Nothing may bounce: any ball that touches the sand on your side loses the point, and so does a ball out or into the net. Serve changes every two points, and a ball on the line is in.": {
   "ja-JP": "相手コートのライン内に落ちた球が得点。バウンドは一切なし：自陣の砂に触れた球は失点、アウトやネットも失点。2ポイントごとにサーブ交代、ライン上はイン。",
@@ -17,7 +19,9 @@
   "id-ID": "Bola yang jatuh di dalam garis lawan memenangi poin. Tidak boleh ada pantulan: bola yang menyentuh pasir di sisimu kehilangan poin, begitu juga bola keluar atau masuk net. Servis bergantian tiap dua poin, dan bola di garis dihitung masuk.",
   "ms-MY": "Bola yang jatuh di dalam garisan lawan memenangi mata. Tiada lantunan dibenarkan: bola yang menyentuh pasir di sebelah anda kehilangan mata, begitu juga bola keluar atau masuk jaring. Servis bertukar setiap dua mata, dan bola di garisan dikira masuk.",
   "th-TH": "ลูกที่ตกในเส้นของฝ่ายตรงข้ามได้แต้ม ห้ามกระดอนเลย ลูกที่แตะทรายฝั่งเราเสียแต้ม ลูกออกหรือติดเน็ตก็เสียแต้ม สลับเสิร์ฟทุกสองแต้ม ลูกที่ทับเส้นถือว่าดี",
-  "vi-VN": "Bóng rơi trong vạch sân đối phương là ghi điểm. Không được nảy: bóng chạm cát bên phần sân mình là mất điểm, bóng ra ngoài hay vào lưới cũng vậy. Đổi giao bóng sau mỗi hai điểm, bóng trên vạch là trong."
+  "vi-VN": "Bóng rơi trong vạch sân đối phương là ghi điểm. Không được nảy: bóng chạm cát bên phần sân mình là mất điểm, bóng ra ngoài hay vào lưới cũng vậy. Đổi giao bóng sau mỗi hai điểm, bóng trên vạch là trong.",
+  "de-DE": "Ein Ball, der innerhalb der gegnerischen Linien landet, gewinnt den Punkt. Nichts darf aufspringen: Jeder Ball, der auf deiner Seite den Sand berührt, kostet den Punkt, ebenso ein Ball ins Aus oder ins Netz. Der Aufschlag wechselt alle zwei Punkte, und ein Ball auf der Linie ist gut.",
+  "nl-NL": "Een bal die binnen de lijnen van de tegenstander landt, wint het punt. Niets mag stuiten: elke bal die aan jouw kant het zand raakt, kost het punt, net als een bal uit of in het net. De opslag wisselt elke twee punten, en een bal op de lijn is in."
  },
  "2 v 2 on the sand; the challenging pairs (3, 4 and C, D) queue off the court beside the sidelines": {
   "ja-JP": "コート上は2対2。挑戦するペア（3・4とC・D）はサイドラインの外で順番を待つ",
@@ -27,7 +31,9 @@
   "id-ID": "2 lawan 2 di pasir; pasangan penantang (3, 4 dan C, D) mengantre di luar lapangan di samping garis samping",
   "ms-MY": "2 lawan 2 di atas pasir; pasangan pencabar (3, 4 dan C, D) beratur di luar gelanggang di tepi garisan sisi",
   "th-TH": "บนทราย 2 ต่อ 2 คู่ท้าชิง (3, 4 และ C, D) ต่อคิวอยู่นอกคอร์ทข้างเส้นข้าง",
-  "vi-VN": "2 đấu 2 trên cát; các cặp thách đấu (3, 4 và C, D) xếp hàng ngoài sân cạnh đường biên dọc"
+  "vi-VN": "2 đấu 2 trên cát; các cặp thách đấu (3, 4 và C, D) xếp hàng ngoài sân cạnh đường biên dọc",
+  "de-DE": "2 gegen 2 im Sand; die herausfordernden Paare (3, 4 und C, D) warten neben den Seitenlinien außerhalb des Felds",
+  "nl-NL": "2 tegen 2 in het zand; de uitdagende koppels (3, 4 en C, D) wachten buiten de baan naast de zijlijnen"
  },
  "Play each point out and keep score; serve alternates every two points. Games to 11, then swap ends and opponents.": {
   "ja-JP": "1ポイントずつ最後まで打って得点を数え、2ポイントごとにサーブ交代。11点で1ゲーム、その後コートと相手を替える。",
@@ -37,6 +43,136 @@
   "id-ID": "Setiap poin dimainkan sampai selesai dan dihitung; servis bergantian tiap dua poin. Gim sampai 11, lalu tukar sisi dan tukar lawan.",
   "ms-MY": "Setiap mata dimainkan sehingga selesai dan dikira; servis bertukar setiap dua mata. Permainan hingga 11, kemudian tukar sisi dan tukar lawan.",
   "th-TH": "เล่นแต่ละแต้มจนจบและนับคะแนน สลับเสิร์ฟทุกสองแต้ม เกมละ 11 แต้ม แล้วสลับฝั่งและสลับคู่แข่ง",
-  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ."
+  "vi-VN": "Đánh hết từng điểm và tính điểm; đổi giao bóng sau mỗi hai điểm. Ván đến 11, rồi đổi sân và đổi đối thủ.",
+  "de-DE": "Jeden Punkt ausspielen und zählen; der Aufschlag wechselt alle zwei Punkte. Spiele bis 11, dann Seiten und Gegner wechseln.",
+  "nl-NL": "Speel elk punt uit en houd de stand bij; de opslag wisselt elke twee punten. Games tot 11, dan van kant en tegenstander wisselen."
+ },
+ "A lob into the sun or the wind is a weapon; the same lob with them at your back is a feed. Check both before you choose it.": {
+  "de-DE": "Ein Lob gegen die Sonne oder den Wind ist eine Waffe; derselbe Lob mit beidem im Rücken ist ein Geschenk. Prüf beides, bevor du ihn spielst.",
+  "nl-NL": "Een lob tegen de zon of de wind in is een wapen; dezelfde lob met beide in je rug is een cadeautje. Check allebei voordat je ervoor kiest."
+ },
+ "A serve above their waist — anything they meet high, they meet comfortably.": {
+  "de-DE": "Ein Aufschlag über Hüfthöhe — alles, was sie hoch nehmen, nehmen sie bequem.",
+  "nl-NL": "Een opslag boven hun middel — alles wat ze hoog raken, raken ze makkelijk."
+ },
+ "Aim at the sand between them, not at a sideline. The gap moves with them; the line does not, and the line is where errors live.": {
+  "de-DE": "Ziel auf den Sand zwischen den beiden, nicht auf eine Seitenlinie. Die Lücke wandert mit ihnen, die Linie nicht — und an der Linie passieren die Fehler.",
+  "nl-NL": "Mik op het zand tussen hen in, niet op een zijlijn. Het gat beweegt met hen mee; de lijn niet, en bij de lijn ontstaan de fouten."
+ },
+ "Aiming at a sideline, not the gap between them — the gap moves with them, the line does not.": {
+  "de-DE": "Auf eine Seitenlinie zielen statt auf die Lücke zwischen den beiden — die Lücke wandert mit ihnen, die Linie nicht.",
+  "nl-NL": "Op een zijlijn mikken in plaats van op het gat tussen hen — het gat beweegt met hen mee, de lijn niet."
+ },
+ "Block it back short rather than trying to hit through them. In sand the counter-attack is a shot they have to run to, not one they duck.": {
+  "de-DE": "Blocke ihn kurz zurück, statt durch sie hindurchschlagen zu wollen. Im Sand ist der Konter ein Ball, zu dem sie laufen müssen, nicht einer, unter dem sie sich wegducken.",
+  "nl-NL": "Blok hem kort terug in plaats van er dwars doorheen te slaan. In het zand is de counter een bal waar ze naartoe moeten lopen, niet een bal waar ze voor wegduiken."
+ },
+ "Blocking short — a shallow return lets the server take the net first.": {
+  "de-DE": "Zu kurz blocken — ein kurzer Return lässt den Aufschläger zuerst ans Netz.",
+  "nl-NL": "Te kort blokken — een korte return laat de serveerder als eerste het net pakken."
+ },
+ "Court coverage": {
+  "de-DE": "Feldabdeckung",
+  "nl-NL": "Baandekking"
+ },
+ "Hanging back when a ball is up — the pair closer to the net wins the exchange.": {
+  "de-DE": "Hinten bleiben, wenn ein Ball hoch kommt — das Paar näher am Netz gewinnt den Schlagabtausch.",
+  "nl-NL": "Achterblijven als er een bal hoog komt — het koppel dichter bij het net wint de uitwisseling."
+ },
+ "Lob battle": {
+  "de-DE": "Lob-Duell",
+  "nl-NL": "Lobduel"
+ },
+ "Lobbing with the wind at your back — the same lob downwind is a feed.": {
+  "de-DE": "Mit Wind im Rücken lobben — derselbe Lob mit dem Wind ist ein Geschenk.",
+  "nl-NL": "Lobben met de wind in je rug — dezelfde lob met de wind mee is een cadeautje."
+ },
+ "Move forward on anything above the tape. On this court the pair standing closer to the net wins the exchange more often than not.": {
+  "de-DE": "Geh bei allem, was über der Netzkante ist, nach vorn. Auf diesem Platz gewinnt meistens das Paar, das näher am Netz steht, den Schlagabtausch.",
+  "nl-NL": "Kom naar voren bij alles wat boven de netband is. Op deze baan wint het koppel dat dichter bij het net staat meestal de uitwisseling."
+ },
+ "Rallies are short here, so play more of them. Twenty short points teach more than one long one anybody can remember.": {
+  "de-DE": "Die Ballwechsel sind hier kurz, also spielt mehr davon. Zwanzig kurze Punkte lehren mehr als ein langer, an den sich alle erinnern.",
+  "nl-NL": "De rally's zijn hier kort, dus speel er meer. Twintig korte punten leren je meer dan één lange waar iedereen het nog over heeft."
+ },
+ "Return": {
+  "de-DE": "Return",
+  "nl-NL": "Return"
+ },
+ "Serve low and at their feet. Nothing bounces here, so a ball below the tape has to be lifted, and everything lifted gets hit back down.": {
+  "de-DE": "Schlag tief auf und auf ihre Füße. Hier springt nichts auf, also muss ein Ball unter der Netzkante angehoben werden — und alles Angehobene wird wieder nach unten geschlagen.",
+  "nl-NL": "Serveer laag en op hun voeten. Hier stuit niets, dus een bal onder de netband moet omhoog worden gespeeld, en alles wat omhoog gaat, wordt weer naar beneden geslagen."
+ },
+ "Short swings from the start. Sand punishes a big backswing more than any opponent will.": {
+  "de-DE": "Von Anfang an kurze Schwünge. Der Sand bestraft eine große Ausholbewegung härter als jeder Gegner.",
+  "nl-NL": "Vanaf het begin korte zwaaien. Het zand straft een grote achterzwaai harder af dan welke tegenstander ook."
+ },
+ "Start forward the moment you see the short swing: there is no bounce to wait for, so a drop you reach late is a drop that has already landed. Lift it deep and get back.": {
+  "de-DE": "Lauf los, sobald du den kurzen Schwung siehst: Es gibt keinen Aufsprung, auf den du warten kannst, also ist ein Stopp, den du zu spät erreichst, schon gelandet. Spiel ihn hoch und lang zurück und geh wieder nach hinten.",
+  "nl-NL": "Kom naar voren zodra je de korte zwaai ziet: er is geen stuit om op te wachten, dus een dropshot dat je te laat bereikt, is al geland. Speel hem hoog en diep en zak weer terug."
+ },
+ "The middle belongs to the forehand — call it before the point, not during it. Two rackets meeting in the middle is a point for them.": {
+  "de-DE": "Die Mitte gehört der Vorhand — sagt es vor dem Punkt an, nicht währenddessen. Zwei Schläger, die sich in der Mitte treffen, sind ein Punkt für die anderen.",
+  "nl-NL": "Het midden is voor de forehand — spreek het af vóór het punt, niet tijdens. Twee rackets die elkaar in het midden raken, zijn een punt voor hen."
+ },
+ "The return is a volley like everything else here — block it deep and take the net before the server's partner does.": {
+  "de-DE": "Der Return ist hier ein Volley wie alles andere — block ihn tief und hol dir das Netz, bevor der Partner des Aufschlägers es tut.",
+  "nl-NL": "De return is hier een volley zoals al het andere — blok hem diep en pak het net voordat de partner van de serveerder dat doet."
+ },
+ "There is no bounce to wait for, so the racket has to be up before the ball leaves their strings, not after.": {
+  "de-DE": "Es gibt keinen Aufsprung, auf den du warten kannst, also muss der Schläger oben sein, bevor der Ball ihre Saiten verlässt, nicht danach.",
+  "nl-NL": "Er is geen stuit om op te wachten, dus het racket moet omhoog zijn voordat de bal hun snaren verlaat, niet erna."
+ },
+ "Turn and run, don't backpedal, and answer the lob with height and depth: a lob played back over them buys the time to get back to the net. Smashing it from behind your head is their point.": {
+  "de-DE": "Dreh dich um und lauf, nicht rückwärts trippeln, und beantworte den Lob mit Höhe und Länge: Ein Lob über sie zurück verschafft dir die Zeit, wieder ans Netz zu kommen. Ihn aus der Rücklage hinter dem Kopf zu smashen, ist ihr Punkt.",
+  "nl-NL": "Draai je om en ren, niet achteruit lopen, en beantwoord de lob met hoogte en diepte: een lob terug over hen heen geeft je de tijd om terug naar het net te komen. Hem van achter je hoofd smashen is hun punt."
+ },
+ "Two rackets meeting in the middle — call it before the point, the middle is the forehand's.": {
+  "de-DE": "Zwei Schläger, die sich in der Mitte treffen — sagt es vor dem Punkt an, die Mitte gehört der Vorhand.",
+  "nl-NL": "Twee rackets die elkaar in het midden raken — spreek het af vóór het punt, het midden is voor de forehand."
+ },
+ "Volley rally": {
+  "de-DE": "Volley-Ballwechsel",
+  "nl-NL": "Volleyrally"
+ },
+ "Waiting for a bounce that never comes — the racket must be up before they hit.": {
+  "de-DE": "Auf einen Aufsprung warten, der nie kommt — der Schläger muss oben sein, bevor sie schlagen.",
+  "nl-NL": "Wachten op een stuit die nooit komt — het racket moet omhoog zijn voordat zij slaan."
+ },
+ "flat": {
+  "de-DE": "flach",
+  "nl-NL": "vlak"
+ },
+ "king of the court": {
+  "de-DE": "König des Platzes",
+  "nl-NL": "koning van de baan"
+ },
+ "on the attack": {
+  "de-DE": "offensiv",
+  "nl-NL": "aanvallend"
+ },
+ "over the net pair": {
+  "de-DE": "über das Netzpaar",
+  "nl-NL": "over het netkoppel"
+ },
+ "recovering it": {
+  "de-DE": "den Lob erlaufen",
+  "nl-NL": "de lob achterhalen"
+ },
+ "short court": {
+  "de-DE": "kleines Feld",
+  "nl-NL": "kleine baan"
+ },
+ "switching sides": {
+  "de-DE": "mit Seitenwechsel",
+  "nl-NL": "van kant wisselen"
+ },
+ "the middle ball": {
+  "de-DE": "der Ball durch die Mitte",
+  "nl-NL": "de bal door het midden"
+ },
+ "volley exchange": {
+  "de-DE": "Volley-Wechsel",
+  "nl-NL": "volleywissel"
  }
 }

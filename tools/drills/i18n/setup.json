@@ -8,7 +8,9 @@
   "fr-FR": "3 plots en triangle, espacés de 8–10 m, un joueur sur chacun et un joueur en plus derrière le premier, un ballon",
   "id-ID": "3 kerucut membentuk segitiga, berjarak 8–10 m, satu pemain di tiap kerucut dan satu cadangan di belakang yang pertama, satu bola",
   "ms-MY": "3 kon membentuk segi tiga, berjarak 8–10 m, seorang pemain di setiap kon dan seorang simpanan di belakang yang pertama, satu bola",
-  "zh-TW": "3 個錐標擺成三角形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球"
+  "zh-TW": "3 個錐標擺成三角形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球",
+  "de-DE": "3 Hütchen im Dreieck, 8–10 m Abstand, je ein Spieler pro Hütchen und ein zusätzlicher hinter dem ersten, ein Ball",
+  "nl-NL": "3 pionnen in een driehoek, 8–10 m uit elkaar, op elke pion een speler en een extra speler achter de eerste, één bal"
  },
  "4 cones in a diamond, 8–10 m apart, one player on each and a spare behind the first, one ball": {
   "ja-JP": "コーン4つをひし形に置き、間隔8–10 m。各コーンに1人、最初のコーンの後ろに予備が1人、ボール1つ",
@@ -19,7 +21,9 @@
   "fr-FR": "4 plots en losange, espacés de 8–10 m, un joueur sur chacun et un joueur en plus derrière le premier, un ballon",
   "id-ID": "4 kerucut membentuk belah ketupat, berjarak 8–10 m, satu pemain di tiap kerucut dan satu cadangan di belakang yang pertama, satu bola",
   "ms-MY": "4 kon membentuk bentuk berlian, berjarak 8–10 m, seorang pemain di setiap kon dan seorang simpanan di belakang yang pertama, satu bola",
-  "zh-TW": "4 個錐標擺成菱形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球"
+  "zh-TW": "4 個錐標擺成菱形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球",
+  "de-DE": "4 Hütchen als Raute, 8–10 m Abstand, je ein Spieler pro Hütchen und ein zusätzlicher hinter dem ersten, ein Ball",
+  "nl-NL": "4 pionnen in een ruit, 8–10 m uit elkaar, op elke pion een speler en een extra speler achter de eerste, één bal"
  },
  "5 cones in a pentagon, 8–10 m apart, one player on each and a spare behind the first, one ball": {
   "ja-JP": "コーン5つを五角形に置き、間隔8–10 m。各コーンに1人、最初のコーンの後ろに予備が1人、ボール1つ",
@@ -30,7 +34,9 @@
   "fr-FR": "5 plots en pentagone, espacés de 8–10 m, un joueur sur chacun et un joueur en plus derrière le premier, un ballon",
   "id-ID": "5 kerucut membentuk segi lima, berjarak 8–10 m, satu pemain di tiap kerucut dan satu cadangan di belakang yang pertama, satu bola",
   "ms-MY": "5 kon membentuk pentagon, berjarak 8–10 m, seorang pemain di setiap kon dan seorang simpanan di belakang yang pertama, satu bola",
-  "zh-TW": "5 個錐標擺成五邊形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球"
+  "zh-TW": "5 個錐標擺成五邊形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球",
+  "de-DE": "5 Hütchen als Fünfeck, 8–10 m Abstand, je ein Spieler pro Hütchen und ein zusätzlicher hinter dem ersten, ein Ball",
+  "nl-NL": "5 pionnen in een vijfhoek, 8–10 m uit elkaar, op elke pion een speler en een extra speler achter de eerste, één bal"
  },
  "5 cones on a circle about 10 m across, a passer on each; 2 inside try to win it": {
   "ja-JP": "直径約10 mの円上にコーン5つ、各コーンにパサーが1人。中の2人がボールを奪いにいく",
@@ -40,7 +46,9 @@
   "es-ES": "5 conos en un círculo de unos 10 m de diámetro, un pasador en cada uno; 2 dentro intentan robarla",
   "fr-FR": "5 plots sur un cercle d’environ 10 m de diamètre, un passeur sur chacun ; 2 au milieu tentent de récupérer le ballon",
   "id-ID": "5 kerucut membentuk lingkaran berdiameter sekitar 10 m, satu pengumpan di tiap kerucut; 2 pemain di dalam berusaha merebut bola",
-  "ms-MY": "5 kon membentuk bulatan berdiameter kira-kira 10 m, seorang pengumpan di setiap kon; 2 pemain di dalam cuba merampas bola"
+  "ms-MY": "5 kon membentuk bulatan berdiameter kira-kira 10 m, seorang pengumpan di setiap kon; 2 pemain di dalam cuba merampas bola",
+  "de-DE": "5 Hütchen auf einem Kreis mit etwa 10 m Durchmesser, auf jedem ein Passgeber; 2 in der Mitte versuchen, den Ball zu erobern",
+  "nl-NL": "5 pionnen op een cirkel van ongeveer 10 m doorsnee, op elke pion een passer; 2 in het midden proberen de bal te veroveren"
  },
  "6 cones in a hexagon, 8–10 m apart, one player on each and a spare behind the first, one ball": {
   "ja-JP": "コーン6つを六角形に置き、間隔8–10 m。各コーンに1人、最初のコーンの後ろに予備が1人、ボール1つ",
@@ -51,7 +59,9 @@
   "fr-FR": "6 plots en hexagone, espacés de 8–10 m, un joueur sur chacun et un joueur en plus derrière le premier, un ballon",
   "id-ID": "6 kerucut membentuk segi enam, berjarak 8–10 m, satu pemain di tiap kerucut dan satu cadangan di belakang yang pertama, satu bola",
   "ms-MY": "6 kon membentuk heksagon, berjarak 8–10 m, seorang pemain di setiap kon dan seorang simpanan di belakang yang pertama, satu bola",
-  "zh-TW": "6 個錐標擺成六邊形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球"
+  "zh-TW": "6 個錐標擺成六邊形，間距 8–10 米，一人一錐，第一個錐後面再排一人，一顆球",
+  "de-DE": "6 Hütchen als Sechseck, 8–10 m Abstand, je ein Spieler pro Hütchen und ein zusätzlicher hinter dem ersten, ein Ball",
+  "nl-NL": "6 pionnen in een zeshoek, 8–10 m uit elkaar, op elke pion een speler en een extra speler achter de eerste, één bal"
  },
  "6 cones on a circle about 12 m across, a passer on each; 3 inside try to win it": {
   "ja-JP": "直径約12 mの円上にコーン6つ、各コーンにパサーが1人。中の3人がボールを奪いにいく",
@@ -61,7 +71,9 @@
   "es-ES": "6 conos en un círculo de unos 12 m de diámetro, un pasador en cada uno; 3 dentro intentan robarla",
   "fr-FR": "6 plots sur un cercle d’environ 12 m de diamètre, un passeur sur chacun ; 3 au milieu tentent de récupérer le ballon",
   "id-ID": "6 kerucut membentuk lingkaran berdiameter sekitar 12 m, satu pengumpan di tiap kerucut; 3 pemain di dalam berusaha merebut bola",
-  "ms-MY": "6 kon membentuk bulatan berdiameter kira-kira 12 m, seorang pengumpan di setiap kon; 3 pemain di dalam cuba merampas bola"
+  "ms-MY": "6 kon membentuk bulatan berdiameter kira-kira 12 m, seorang pengumpan di setiap kon; 3 pemain di dalam cuba merampas bola",
+  "de-DE": "6 Hütchen auf einem Kreis mit etwa 12 m Durchmesser, auf jedem ein Passgeber; 3 in der Mitte versuchen, den Ball zu erobern",
+  "nl-NL": "6 pionnen op een cirkel van ongeveer 12 m doorsnee, op elke pion een passer; 3 in het midden proberen de bal te veroveren"
  },
  "7 cones on a circle about 14 m across, a passer on each; 3 inside try to win it": {
   "ja-JP": "直径約14 mの円上にコーン7つ、各コーンにパサーが1人。中の3人がボールを奪いにいく",
@@ -71,7 +83,9 @@
   "es-ES": "7 conos en un círculo de unos 14 m de diámetro, un pasador en cada uno; 3 dentro intentan robarla",
   "fr-FR": "7 plots sur un cercle d’environ 14 m de diamètre, un passeur sur chacun ; 3 au milieu tentent de récupérer le ballon",
   "id-ID": "7 kerucut membentuk lingkaran berdiameter sekitar 14 m, satu pengumpan di tiap kerucut; 3 pemain di dalam berusaha merebut bola",
-  "ms-MY": "7 kon membentuk bulatan berdiameter kira-kira 14 m, seorang pengumpan di setiap kon; 3 pemain di dalam cuba merampas bola"
+  "ms-MY": "7 kon membentuk bulatan berdiameter kira-kira 14 m, seorang pengumpan di setiap kon; 3 pemain di dalam cuba merampas bola",
+  "de-DE": "7 Hütchen auf einem Kreis mit etwa 14 m Durchmesser, auf jedem ein Passgeber; 3 in der Mitte versuchen, den Ball zu erobern",
+  "nl-NL": "7 pionnen op een cirkel van ongeveer 14 m doorsnee, op elke pion een passer; 3 in het midden proberen de bal te veroveren"
  },
  "8 cones on a circle about 16 m across, a passer on each; 4 inside try to win it": {
   "ja-JP": "直径約16 mの円上にコーン8つ、各コーンにパサーが1人。中の4人がボールを奪いにいく",
@@ -81,7 +95,9 @@
   "es-ES": "8 conos en un círculo de unos 16 m de diámetro, un pasador en cada uno; 4 dentro intentan robarla",
   "fr-FR": "8 plots sur un cercle d’environ 16 m de diamètre, un passeur sur chacun ; 4 au milieu tentent de récupérer le ballon",
   "id-ID": "8 kerucut membentuk lingkaran berdiameter sekitar 16 m, satu pengumpan di tiap kerucut; 4 pemain di dalam berusaha merebut bola",
-  "ms-MY": "8 kon membentuk bulatan berdiameter kira-kira 16 m, seorang pengumpan di setiap kon; 4 pemain di dalam cuba merampas bola"
+  "ms-MY": "8 kon membentuk bulatan berdiameter kira-kira 16 m, seorang pengumpan di setiap kon; 4 pemain di dalam cuba merampas bola",
+  "de-DE": "8 Hütchen auf einem Kreis mit etwa 16 m Durchmesser, auf jedem ein Passgeber; 4 in der Mitte versuchen, den Ball zu erobern",
+  "nl-NL": "8 pionnen op een cirkel van ongeveer 16 m doorsnee, op elke pion een passer; 4 in het midden proberen de bal te veroveren"
  },
  "a 18x15 m area with a mini-goal at each end, 3 against 3 inside it": {
   "ja-JP": "18x15 mのエリアの両端にミニゴールを置き、中で3対3",
@@ -92,7 +108,9 @@
   "fr-FR": "une zone de 18x15 m avec un mini-but à chaque extrémité, 3 contre 3 à l’intérieur",
   "id-ID": "area 18x15 m dengan satu gawang kecil di tiap ujung, 3 lawan 3 di dalamnya",
   "ms-MY": "kawasan 18x15 m dengan satu gol kecil di setiap hujung, 3 lawan 3 di dalamnya",
-  "zh-TW": "約 18×15 米的場地，兩端各放一個小球門，3 對 3 在裡面比賽"
+  "zh-TW": "約 18×15 米的場地，兩端各放一個小球門，3 對 3 在裡面比賽",
+  "de-DE": "ein Feld von 18x15 m mit einem Minitor an jedem Ende, darin 3 gegen 3",
+  "nl-NL": "een veld van 18x15 m met aan elke kant een minidoeltje, daarin 3 tegen 3"
  },
  "a 24x20 m area with a mini-goal at each end, 4 against 4 inside it": {
   "ja-JP": "24x20 mのエリアの両端にミニゴールを置き、中で4対4",
@@ -103,7 +121,9 @@
   "fr-FR": "une zone de 24x20 m avec un mini-but à chaque extrémité, 4 contre 4 à l’intérieur",
   "id-ID": "area 24x20 m dengan satu gawang kecil di tiap ujung, 4 lawan 4 di dalamnya",
   "ms-MY": "kawasan 24x20 m dengan satu gol kecil di setiap hujung, 4 lawan 4 di dalamnya",
-  "zh-TW": "約 24×20 米的場地，兩端各放一個小球門，4 對 4 在裡面比賽"
+  "zh-TW": "約 24×20 米的場地，兩端各放一個小球門，4 對 4 在裡面比賽",
+  "de-DE": "ein Feld von 24x20 m mit einem Minitor an jedem Ende, darin 4 gegen 4",
+  "nl-NL": "een veld van 24x20 m met aan elke kant een minidoeltje, daarin 4 tegen 4"
  },
  "a 25 m square of cones; 3 keep the ball from 2, and every player stays on the perimeter": {
   "ja-JP": "コーンで作った25 m四方のエリア。3人が外周に立ってボールを回し、中の2人が奪いにいく",
@@ -114,7 +134,9 @@
   "fr-FR": "un carré de plots de 25 m ; 3 conservent le ballon face à 2, et chaque joueur reste sur le périmètre",
   "id-ID": "persegi kerucut 25 m; 3 pemain menguasai bola dari 2 pemain, dan setiap pemain tetap di garis tepi",
   "ms-MY": "petak kon 25 m; 3 pemain mengekalkan bola daripada 2 pemain, dan setiap pemain kekal di garisan sempadan",
-  "zh-TW": "25 米見方的錐標區；3 人圍著邊線傳球，2 人在裡面搶"
+  "zh-TW": "25 米見方的錐標區；3 人圍著邊線傳球，2 人在裡面搶",
+  "de-DE": "ein Quadrat von 25 m aus Hütchen; 3 halten den Ball gegen 2, und alle Spieler bleiben auf der Außenlinie",
+  "nl-NL": "een vierkant van 25 m met pionnen; 3 houden de bal tegen 2, en elke speler blijft op de buitenlijn"
  },
  "a 25 m square of cones; 4 keep the ball from 3, and every player stays on the perimeter": {
   "ja-JP": "コーンで作った25 m四方のエリア。4人が外周に立ってボールを回し、中の3人が奪いにいく",
@@ -125,7 +147,9 @@
   "fr-FR": "un carré de plots de 25 m ; 4 conservent le ballon face à 3, et chaque joueur reste sur le périmètre",
   "id-ID": "persegi kerucut 25 m; 4 pemain menguasai bola dari 3 pemain, dan setiap pemain tetap di garis tepi",
   "ms-MY": "petak kon 25 m; 4 pemain mengekalkan bola daripada 3 pemain, dan setiap pemain kekal di garisan sempadan",
-  "zh-TW": "25 米見方的錐標區；4 人圍著邊線傳球，3 人在裡面搶"
+  "zh-TW": "25 米見方的錐標區；4 人圍著邊線傳球，3 人在裡面搶",
+  "de-DE": "ein Quadrat von 25 m aus Hütchen; 4 halten den Ball gegen 3, und alle Spieler bleiben auf der Außenlinie",
+  "nl-NL": "een vierkant van 25 m met pionnen; 4 houden de bal tegen 3, en elke speler blijft op de buitenlijn"
  },
  "a 25 m square of cones; 5 keep the ball from 4, and every player stays on the perimeter": {
   "ja-JP": "コーンで作った25 m四方のエリア。5人が外周に立ってボールを回し、中の4人が奪いにいく",
@@ -136,7 +160,9 @@
   "fr-FR": "un carré de plots de 25 m ; 5 conservent le ballon face à 4, et chaque joueur reste sur le périmètre",
   "id-ID": "persegi kerucut 25 m; 5 pemain menguasai bola dari 4 pemain, dan setiap pemain tetap di garis tepi",
   "ms-MY": "petak kon 25 m; 5 pemain mengekalkan bola daripada 4 pemain, dan setiap pemain kekal di garisan sempadan",
-  "zh-TW": "25 米見方的錐標區；5 人圍著邊線傳球，4 人在裡面搶"
+  "zh-TW": "25 米見方的錐標區；5 人圍著邊線傳球，4 人在裡面搶",
+  "de-DE": "ein Quadrat von 25 m aus Hütchen; 5 halten den Ball gegen 4, und alle Spieler bleiben auf der Außenlinie",
+  "nl-NL": "een vierkant van 25 m met pionnen; 5 houden de bal tegen 4, en elke speler blijft op de buitenlijn"
  },
  "a 25 m square of cones; 6 keep the ball from 4, and every player stays on the perimeter": {
   "ja-JP": "コーンで作った25 m四方のエリア。6人が外周に立ってボールを回し、中の4人が奪いにいく",
@@ -147,7 +173,9 @@
   "fr-FR": "un carré de plots de 25 m ; 6 conservent le ballon face à 4, et chaque joueur reste sur le périmètre",
   "id-ID": "persegi kerucut 25 m; 6 pemain menguasai bola dari 4 pemain, dan setiap pemain tetap di garis tepi",
   "ms-MY": "petak kon 25 m; 6 pemain mengekalkan bola daripada 4 pemain, dan setiap pemain kekal di garisan sempadan",
-  "zh-TW": "25 米見方的錐標區；6 人圍著邊線傳球，4 人在裡面搶"
+  "zh-TW": "25 米見方的錐標區；6 人圍著邊線傳球，4 人在裡面搶",
+  "de-DE": "ein Quadrat von 25 m aus Hütchen; 6 halten den Ball gegen 4, und alle Spieler bleiben auf der Außenlinie",
+  "nl-NL": "een vierkant van 25 m met pionnen; 6 houden de bal tegen 4, en elke speler blijft op de buitenlijn"
  },
  "a 30x25 m area with a mini-goal at each end, 5 against 5 inside it": {
   "ja-JP": "30x25 mのエリアの両端にミニゴールを置き、中で5対5",
@@ -158,7 +186,9 @@
   "fr-FR": "une zone de 30x25 m avec un mini-but à chaque extrémité, 5 contre 5 à l’intérieur",
   "id-ID": "area 30x25 m dengan satu gawang kecil di tiap ujung, 5 lawan 5 di dalamnya",
   "ms-MY": "kawasan 30x25 m dengan satu gol kecil di setiap hujung, 5 lawan 5 di dalamnya",
-  "zh-TW": "約 30×25 米的場地，兩端各放一個小球門，5 對 5 在裡面比賽"
+  "zh-TW": "約 30×25 米的場地，兩端各放一個小球門，5 對 5 在裡面比賽",
+  "de-DE": "ein Feld von 30x25 m mit einem Minitor an jedem Ende, darin 5 gegen 5",
+  "nl-NL": "een veld van 30x25 m met aan elke kant een minidoeltje, daarin 5 tegen 5"
  },
  "a 36x30 m area with a mini-goal at each end, 6 against 6 inside it": {
   "ja-JP": "36x30 mのエリアの両端にミニゴールを置き、中で6対6",
@@ -169,7 +199,9 @@
   "fr-FR": "une zone de 36x30 m avec un mini-but à chaque extrémité, 6 contre 6 à l’intérieur",
   "id-ID": "area 36x30 m dengan satu gawang kecil di tiap ujung, 6 lawan 6 di dalamnya",
   "ms-MY": "kawasan 36x30 m dengan satu gol kecil di setiap hujung, 6 lawan 6 di dalamnya",
-  "zh-TW": "約 36×30 米的場地，兩端各放一個小球門，6 對 6 在裡面比賽"
+  "zh-TW": "約 36×30 米的場地，兩端各放一個小球門，6 對 6 在裡面比賽",
+  "de-DE": "ein Feld von 36x30 m mit einem Minitor an jedem Ende, darin 6 gegen 6",
+  "nl-NL": "een veld van 36x30 m met aan elke kant een minidoeltje, daarin 6 tegen 6"
  },
  "a 42x35 m area with a mini-goal at each end, 7 against 7 inside it": {
   "ja-JP": "42x35 mのエリアの両端にミニゴールを置き、中で7対7",
@@ -180,7 +212,9 @@
   "fr-FR": "une zone de 42x35 m avec un mini-but à chaque extrémité, 7 contre 7 à l’intérieur",
   "id-ID": "area 42x35 m dengan satu gawang kecil di tiap ujung, 7 lawan 7 di dalamnya",
   "ms-MY": "kawasan 42x35 m dengan satu gol kecil di setiap hujung, 7 lawan 7 di dalamnya",
-  "zh-TW": "約 42×35 米的場地，兩端各放一個小球門，7 對 7 在裡面比賽"
+  "zh-TW": "約 42×35 米的場地，兩端各放一個小球門，7 對 7 在裡面比賽",
+  "de-DE": "ein Feld von 42x35 m mit einem Minitor an jedem Ende, darin 7 gegen 7",
+  "nl-NL": "een veld van 42x35 m met aan elke kant een minidoeltje, daarin 7 tegen 7"
  },
  "a back court player behind the nine-metre line with the goal area in front of him and nobody in it": {
   "ja-JP": "バックコートの選手が9 mラインの後ろに立ち、前のゴールエリアには誰もいない",
@@ -190,7 +224,9 @@
   "es-ES": "un jugador de primera línea detrás de la línea de nueve metros con el área de portería delante y vacía",
   "fr-FR": "un arrière derrière la ligne des neuf mètres, la zone de but devant lui et vide",
   "id-ID": "pemain lini belakang di belakang garis sembilan meter dengan area gawang yang kosong di depannya",
-  "ms-MY": "pemain barisan belakang di belakang garisan sembilan meter dengan kawasan gol yang kosong di hadapannya"
+  "ms-MY": "pemain barisan belakang di belakang garisan sembilan meter dengan kawasan gol yang kosong di hadapannya",
+  "de-DE": "ein Rückraumspieler hinter der 9-m-Linie, vor ihm der leere Torraum",
+  "nl-NL": "een opbouwer achter de 9-meterlijn met het lege doelgebied voor zich"
  },
  "a back four holding a high line 40 m out, one striker and a keeper starting on his line": {
   "ja-JP": "4バックがゴールから40 mの高いラインを保ち、FW1人、GKはゴールライン上からスタート",
@@ -201,7 +237,9 @@
   "fr-FR": "une défense à quatre qui tient une ligne haute à 40 m du but, un attaquant et un gardien qui part de sa ligne",
   "id-ID": "empat bek menahan garis tinggi 40 m dari gawang, seorang penyerang, dan kiper yang mulai di garis gawangnya",
   "ms-MY": "empat pemain pertahanan mengekalkan garisan tinggi 40 m dari gol, seorang penyerang, dan penjaga gol yang bermula di garisan golnya",
-  "zh-TW": "後防線壓到離門 40 米處，一名前鋒、一名門將站在門線上"
+  "zh-TW": "後防線壓到離門 40 米處，一名前鋒、一名門將站在門線上",
+  "de-DE": "eine Viererkette, die 40 m vor dem Tor hoch steht, ein Stürmer und ein Torwart, der auf seiner Linie beginnt",
+  "nl-NL": "een viermansverdediging die op 40 m hoog staat, één spits en een keeper die op zijn lijn begint"
  },
  "a back four with a midfield three ten metres in front of it, against two who move the ball across": {
   "ja-JP": "4バックとその10 m前に中盤3人、ボールを左右に動かす相手2人と対する",
@@ -212,7 +250,9 @@
   "fr-FR": "une défense à quatre avec un milieu à trois dix mètres devant elle, face à deux joueurs qui font circuler le ballon d’un côté à l’autre",
   "id-ID": "empat bek dengan tiga gelandang sepuluh meter di depannya, melawan dua pemain yang mengalirkan bola dari sisi ke sisi",
   "ms-MY": "empat pemain pertahanan dengan tiga pemain tengah sepuluh meter di hadapan mereka, menentang dua pemain yang mengalihkan bola dari sisi ke sisi",
-  "zh-TW": "四後衛加身前十米的三中場，對方兩人來回倒球"
+  "zh-TW": "四後衛加身前十米的三中場，對方兩人來回倒球",
+  "de-DE": "eine Viererkette mit einem Mittelfeld-Trio zehn Meter davor, gegen zwei, die den Ball quer verlagern",
+  "nl-NL": "een viermansverdediging met een middenveld van drie tien meter ervoor, tegen twee die de bal rondspelen van kant naar kant"
  },
  "a centre cone with four cones 8 m out from it, one in each direction; the runner starts on the centre": {
   "ja-JP": "中央にコーン1つ、そこから前後左右8 mにコーンを1つずつ。ランナーは中央からスタート",
@@ -222,7 +262,9 @@
   "es-ES": "un cono central con cuatro conos a 8 m de él, uno en cada dirección; el corredor empieza en el centro",
   "fr-FR": "un plot central avec quatre plots à 8 m de lui, un dans chaque direction ; le coureur part du centre",
   "id-ID": "satu kerucut di tengah dengan empat kerucut berjarak 8 m darinya, satu di tiap arah; pelari mulai di tengah",
-  "ms-MY": "satu kon di tengah dengan empat kon 8 m daripadanya, satu di setiap arah; pelari bermula di tengah"
+  "ms-MY": "satu kon di tengah dengan empat kon 8 m daripadanya, satu di setiap arah; pelari bermula di tengah",
+  "de-DE": "ein Hütchen in der Mitte mit vier Hütchen 8 m davon entfernt, eins in jede Richtung; der Läufer startet in der Mitte",
+  "nl-NL": "een pion in het midden met vier pionnen op 8 m ervan, één in elke richting; de loper begint in het midden"
  },
  "a channel about 8 m wide and 20 m long marked by four cones; the attacker starts between the bottom pair and scores by dribbling out between the top pair, the defender starts between the top pair and comes to meet him. The other attackers queue behind the bottom gate, the next defender waits beside the top one": {
   "ja-JP": "4つのコーンで幅約8 m、長さ20 mのレーンを作る。攻撃者は下側の2つのコーンの間からスタートし、上側の2つの間をドリブルで抜ければ得点。守備者は上側の2つの間から出て迎え撃つ。他の攻撃者は下のゲートの後ろに並び、次の守備者は上のゲートの横で待つ",
@@ -232,7 +274,9 @@
   "es-ES": "un pasillo de unos 8 m de ancho y 20 m de largo marcado con cuatro conos; el atacante sale entre los dos de abajo y anota saliendo en conducción entre los dos de arriba, y el defensor sale entre los de arriba a su encuentro. Los demás atacantes esperan en fila detrás de la puerta de abajo y el siguiente defensor, junto a la de arriba",
   "fr-FR": "un couloir d’environ 8 m de large et 20 m de long délimité par quatre plots ; l’attaquant part entre les deux plots du bas et marque en sortant balle au pied entre ceux du haut, le défenseur part d’entre ceux du haut et vient à sa rencontre. Les autres attaquants attendent en file derrière la porte du bas, le défenseur suivant attend à côté de celle du haut",
   "id-ID": "lorong sekitar 8 m lebar dan 20 m panjang ditandai empat kerucut; penyerang mulai di antara pasangan bawah dan mencetak poin dengan menggiring bola keluar di antara pasangan atas, bek mulai di antara pasangan atas dan maju menghadangnya. Penyerang lain antre di belakang gerbang bawah, bek berikutnya menunggu di samping gerbang atas",
-  "ms-MY": "lorong kira-kira 8 m lebar dan 20 m panjang ditanda dengan empat kon; penyerang bermula di antara pasangan bawah dan menjaringkan mata dengan menggelecek keluar di antara pasangan atas, pemain pertahanan bermula di antara pasangan atas dan datang menghadangnya. Penyerang lain beratur di belakang pintu bawah, pemain pertahanan seterusnya menunggu di sebelah pintu atas"
+  "ms-MY": "lorong kira-kira 8 m lebar dan 20 m panjang ditanda dengan empat kon; penyerang bermula di antara pasangan bawah dan menjaringkan mata dengan menggelecek keluar di antara pasangan atas, pemain pertahanan bermula di antara pasangan atas dan datang menghadangnya. Penyerang lain beratur di belakang pintu bawah, pemain pertahanan seterusnya menunggu di sebelah pintu atas",
+  "de-DE": "ein Korridor, etwa 8 m breit und 20 m lang, mit vier Hütchen markiert; der Angreifer startet zwischen dem unteren Paar und punktet, wenn er zwischen dem oberen Paar hinausdribbelt, der Verteidiger startet zwischen dem oberen Paar und läuft ihm entgegen. Die übrigen Angreifer stehen hinter dem unteren Tor an, der nächste Verteidiger wartet neben dem oberen",
+  "nl-NL": "een strook van ongeveer 8 m breed en 20 m lang, gemarkeerd met vier pionnen; de aanvaller begint tussen het onderste paar en scoort door tussen het bovenste paar uit te dribbelen, de verdediger begint tussen het bovenste paar en komt hem tegemoet. De andere aanvallers staan in de rij achter het onderste poortje, de volgende verdediger wacht naast het bovenste"
  },
  "a cone in the middle of the back court and four in the corners of the half; the player starts on the middle one": {
   "ja-JP": "バックコート中央にコーン1つ、自陣コートの四隅に4つ。選手は中央のコーンからスタート",
@@ -242,7 +286,9 @@
   "es-ES": "un cono en el centro de la zona de defensa y cuatro en las esquinas del campo propio; el jugador empieza en el del centro",
   "fr-FR": "un plot au milieu de la zone arrière et quatre aux coins du demi-terrain ; le joueur part de celui du milieu",
   "id-ID": "satu kerucut di tengah area belakang dan empat di sudut-sudut setengah lapangan; pemain mulai di kerucut tengah",
-  "ms-MY": "satu kon di tengah kawasan belakang dan empat di penjuru separuh gelanggang; pemain bermula di kon tengah"
+  "ms-MY": "satu kon di tengah kawasan belakang dan empat di penjuru separuh gelanggang; pemain bermula di kon tengah",
+  "de-DE": "ein Hütchen in der Mitte des Hinterfelds und vier in den Ecken der Feldhälfte; der Spieler startet am mittleren",
+  "nl-NL": "een pion in het midden van het achterveld en vier in de hoeken van de helft; de speler start bij de middelste"
  },
  "a cone in the middle of the half and four in its corners — two at the kitchen line, two on the baseline; the player starts on the middle one": {
   "ja-JP": "自陣中央にコーン1つ、四隅に4つ（キッチンラインに2つ、ベースラインに2つ）。選手は中央のコーンからスタート",
@@ -252,7 +298,9 @@
   "es-ES": "un cono en el centro del campo propio y cuatro en sus esquinas: dos en la línea de la cocina y dos en la línea de fondo; el jugador empieza en el del centro",
   "fr-FR": "un plot au milieu du demi-terrain et quatre dans ses coins : deux sur la ligne de la cuisine, deux sur la ligne de fond ; le joueur part de celui du milieu",
   "id-ID": "satu kerucut di tengah setengah lapangan dan empat di sudut-sudutnya — dua di garis kitchen, dua di garis belakang; pemain mulai di kerucut tengah",
-  "ms-MY": "satu kon di tengah separuh gelanggang dan empat di penjurunya — dua di garisan kitchen, dua di garisan belakang; pemain bermula di kon tengah"
+  "ms-MY": "satu kon di tengah separuh gelanggang dan empat di penjurunya — dua di garisan kitchen, dua di garisan belakang; pemain bermula di kon tengah",
+  "de-DE": "ein Hütchen in der Mitte der Hälfte und vier in den Ecken — zwei an der Kitchen-Linie, zwei auf der Grundlinie; der Spieler startet am mittleren",
+  "nl-NL": "een pion in het midden van de helft en vier in de hoeken — twee op de kitchenlijn, twee op de achterlijn; de speler begint bij de middelste"
  },
  "a cone in the middle of the half and one in each of its four corners; the player starts on the middle one": {
   "ja-JP": "自陣中央にコーン1つ、四隅に1つずつ。選手は中央のコーンからスタート",
@@ -262,7 +310,9 @@
   "es-ES": "un cono en el centro del campo propio y uno en cada una de sus cuatro esquinas; el jugador empieza en el del centro",
   "fr-FR": "un plot au milieu du demi-terrain et un dans chacun de ses quatre coins ; le joueur part de celui du milieu",
   "id-ID": "satu kerucut di tengah setengah lapangan dan satu di tiap keempat sudutnya; pemain mulai di kerucut tengah",
-  "ms-MY": "satu kon di tengah separuh gelanggang dan satu di setiap empat penjurunya; pemain bermula di kon tengah"
+  "ms-MY": "satu kon di tengah separuh gelanggang dan satu di setiap empat penjurunya; pemain bermula di kon tengah",
+  "de-DE": "ein Hütchen in der Mitte der Hälfte und eins in jeder ihrer vier Ecken; der Spieler startet am mittleren",
+  "nl-NL": "een pion in het midden van de speelhelft en een in elk van de vier hoeken; de speler start bij de middelste"
  },
  "a cone on base in the middle of the court and six around it — two at the net, two at the sides, two in the rear corners; the player starts on base": {
   "ja-JP": "コート中央のホームポジションにコーン1つ、その周りに6つ：ネット前に2つ、サイドに2つ、後方の両隅に2つ。選手はホームポジションからスタート",
@@ -272,7 +322,9 @@
   "es-ES": "un cono en la base, en el centro de la pista, y seis alrededor: dos en la red, dos a los lados y dos en las esquinas del fondo; el jugador empieza en la base",
   "fr-FR": "un plot sur la base au centre du terrain et six autour : deux au filet, deux sur les côtés, deux dans les coins du fond ; le joueur part de la base",
   "id-ID": "satu kerucut di posisi dasar (base) di tengah lapangan dan enam di sekelilingnya — dua di depan net, dua di sisi, dua di sudut belakang; pemain mulai di posisi dasar",
-  "ms-MY": "satu kon di kedudukan asas di tengah gelanggang dan enam di sekelilingnya — dua di depan jaring, dua di sisi, dua di penjuru belakang; pemain bermula di kedudukan asas"
+  "ms-MY": "satu kon di kedudukan asas di tengah gelanggang dan enam di sekelilingnya — dua di depan jaring, dua di sisi, dua di penjuru belakang; pemain bermula di kedudukan asas",
+  "de-DE": "ein Hütchen als Basis in der Feldmitte und sechs drumherum — zwei am Netz, zwei an den Seiten, zwei in den hinteren Ecken; der Spieler startet auf der Basis",
+  "nl-NL": "een pion als basis in het midden van het veld en zes eromheen — twee bij het net, twee aan de zijkanten, twee in de achterhoeken; de speler start op de basis"
  },
  "a cone on each wing position at the two ends of the court; the wing starts on the defensive one": {
   "ja-JP": "コート両端のウイングの位置にコーンを1つずつ。ウイングは守備側のコーンからスタート",
@@ -282,7 +334,9 @@
   "es-ES": "un cono en cada posición de extremo en los dos fondos de la pista; el extremo empieza en el defensivo",
   "fr-FR": "un plot à chaque poste d’ailier aux deux extrémités du terrain ; l’ailier part de celui en défense",
   "id-ID": "satu kerucut di tiap posisi sayap di kedua ujung lapangan; pemain sayap mulai di kerucut sisi bertahan",
-  "ms-MY": "satu kon di setiap posisi sayap di kedua-dua hujung gelanggang; pemain sayap bermula di kon sebelah pertahanan"
+  "ms-MY": "satu kon di setiap posisi sayap di kedua-dua hujung gelanggang; pemain sayap bermula di kon sebelah pertahanan",
+  "de-DE": "ein Hütchen auf jeder Außenposition an beiden Enden des Felds; der Außen startet am Abwehrhütchen",
+  "nl-NL": "een pion op elke vleugelpositie aan beide kanten van het veld; de vleugelspeler start bij de verdedigende"
  },
  "a corner from the right, four attackers in the box against three markers and a keeper on his line": {
   "ja-JP": "右からのコーナーキック。ペナルティエリア内に攻撃者4人、対するはマーカー3人とゴールライン上のGK",
@@ -293,7 +347,9 @@
   "fr-FR": "un corner à droite, quatre attaquants dans la surface face à trois marqueurs et un gardien sur sa ligne",
   "id-ID": "tendangan sudut dari kanan, empat penyerang di kotak penalti melawan tiga penjaga dan kiper di garis gawangnya",
   "ms-MY": "sepakan sudut dari kanan, empat penyerang di dalam kotak penalti menentang tiga pengawal dan penjaga gol di garisan golnya",
-  "zh-TW": "右側角球，四名進攻者進禁區，對三名盯人和一名站在門線上的門將"
+  "zh-TW": "右側角球，四名進攻者進禁區，對三名盯人和一名站在門線上的門將",
+  "de-DE": "eine Ecke von rechts, vier Angreifer im Strafraum gegen drei Gegenspieler und einen Torwart auf seiner Linie",
+  "nl-NL": "een corner van rechts, vier aanvallers in het strafschopgebied tegen drie mandekkers en een keeper op zijn lijn"
  },
  "a full infield behind a live pitcher; the hitter works from the plate with two strikes on him": {
   "ja-JP": "実戦形式で投げる投手の後ろに内野手全員。打者は2ストライクに追い込まれた状態で打席に立つ",
@@ -304,7 +360,9 @@
   "fr-FR": "un champ intérieur complet derrière un lanceur en direct ; le frappeur joue au marbre avec deux prises contre lui",
   "id-ID": "infield lengkap di belakang pitcher yang melempar sungguhan; batter beraksi dari home plate dengan dua strike",
   "ms-MY": "infield lengkap di belakang pitcher yang membaling sebenar; pemukul beraksi dari home plate dengan dua strike",
-  "zh-TW": "內場守全員，投手投球；打者兩好球后從本壘繼續應對"
+  "zh-TW": "內場守全員，投手投球；打者兩好球后從本壘繼續應對",
+  "de-DE": "ein komplettes Infield hinter einem Live-Pitcher; der Schlagmann steht an der Home Plate mit zwei Strikes gegen sich",
+  "nl-NL": "een volledig binnenveld achter een werper die echt gooit; de slagman staat aan de thuisplaat met twee slag tegen"
  },
  "a full pitch width in one third: two full-backs, two midfielders and a forward against three who shift": {
   "ja-JP": "3分の1のゾーン内でピッチの幅いっぱいを使う：サイドバック2人、MF2人、FW1人が、スライドする3人と対する",
@@ -315,7 +373,9 @@
   "fr-FR": "toute la largeur du terrain dans un tiers : deux latéraux, deux milieux et un attaquant face à trois joueurs qui coulissent",
   "id-ID": "seluruh lebar lapangan dalam satu sepertiga: dua bek sayap, dua gelandang, dan satu penyerang melawan tiga pemain yang bergeser",
   "ms-MY": "seluruh lebar padang dalam satu pertiga: dua pertahanan sisi, dua pemain tengah dan seorang penyerang menentang tiga pemain yang beralih",
-  "zh-TW": "在一個區域內拉滿整個球場寬度：兩名邊後衛、兩名中場和一名前鋒，對三名橫移的防守者"
+  "zh-TW": "在一個區域內拉滿整個球場寬度：兩名邊後衛、兩名中場和一名前鋒，對三名橫移的防守者",
+  "de-DE": "die volle Feldbreite in einem Drittel: zwei Außenverteidiger, zwei Mittelfeldspieler und ein Stürmer gegen drei, die verschieben",
+  "nl-NL": "de volle breedte van het veld in één derde: twee backs, twee middenvelders en een spits tegen drie die schuiven"
  },
  "a full team in its own shape against three of their build-up players; play starts from their back line": {
   "ja-JP": "フルチームが自分たちの陣形で立ち、相手のビルドアップ選手3人と対する。プレーは相手の最終ラインから始まる",
@@ -326,7 +386,9 @@
   "fr-FR": "une équipe complète dans son organisation face à trois joueurs adverses à la relance ; le jeu part de leur ligne défensive",
   "id-ID": "satu tim penuh dalam formasinya melawan tiga pemain build-up lawan; permainan dimulai dari lini belakang mereka",
   "ms-MY": "satu pasukan penuh dalam formasinya menentang tiga pemain bina serangan lawan; permainan bermula dari barisan belakang mereka",
-  "zh-TW": "整隊按陣型站位，對面三名出球隊員；從對方後場開球"
+  "zh-TW": "整隊按陣型站位，對面三名出球隊員；從對方後場開球",
+  "de-DE": "eine komplette Mannschaft in ihrer Formation gegen drei Aufbauspieler des Gegners; das Spiel beginnt in deren Abwehrreihe",
+  "nl-NL": "een volledige ploeg in haar eigen formatie tegen drie opbouwspelers van de tegenstander; het spel begint vanuit hun achterlinie"
  },
  "a goalkeeper and a back 3 on the edge of their own box with a 6 in front of them, against 1 pressing": {
   "ja-JP": "GKとバック3人が自陣ペナルティエリアのライン上に立ち、その前に6番。相手は1人でプレス",
@@ -337,7 +399,9 @@
   "fr-FR": "un gardien et une défense à 3 au bord de leur surface avec un 6 devant eux, face à 1 joueur au pressing",
   "id-ID": "kiper dan 3 bek di tepi kotak penalti sendiri dengan seorang gelandang bertahan (6) di depan mereka, melawan 1 pemain yang menekan",
   "ms-MY": "penjaga gol dan 3 pemain pertahanan di tepi kotak penalti sendiri dengan seorang pemain tengah bertahan (6) di hadapan mereka, menentang 1 pemain yang menekan",
-  "zh-TW": "門將加 3 名後衛站在本方禁區線上，身前一名後腰，對方 1 人上搶"
+  "zh-TW": "門將加 3 名後衛站在本方禁區線上，身前一名後腰，對方 1 人上搶",
+  "de-DE": "ein Torwart und eine Dreierkette an der eigenen Strafraumgrenze mit einem Sechser davor, gegen 1 Pressingspieler",
+  "nl-NL": "een keeper en een driemansverdediging aan de rand van het eigen strafschopgebied met een 6 ervoor, tegen 1 die druk zet"
  },
  "a goalkeeper and a back 4 on the edge of their own box with a 6 in front of them, against 2 pressing": {
   "ja-JP": "GKとバック4人が自陣ペナルティエリアのライン上に立ち、その前に6番。相手は2人でプレス",
@@ -348,7 +412,9 @@
   "fr-FR": "un gardien et une défense à 4 au bord de leur surface avec un 6 devant eux, face à 2 joueurs au pressing",
   "id-ID": "kiper dan 4 bek di tepi kotak penalti sendiri dengan seorang gelandang bertahan (6) di depan mereka, melawan 2 pemain yang menekan",
   "ms-MY": "penjaga gol dan 4 pemain pertahanan di tepi kotak penalti sendiri dengan seorang pemain tengah bertahan (6) di hadapan mereka, menentang 2 pemain yang menekan",
-  "zh-TW": "門將加 4 名後衛站在本方禁區線上，身前一名後腰，對方 2 人上搶"
+  "zh-TW": "門將加 4 名後衛站在本方禁區線上，身前一名後腰，對方 2 人上搶",
+  "de-DE": "ein Torwart und eine Viererkette an der eigenen Strafraumgrenze mit einem Sechser davor, gegen 2 Pressingspieler",
+  "nl-NL": "een keeper en een viermansverdediging aan de rand van het eigen strafschopgebied met een 6 ervoor, tegen 2 die druk zetten"
  },
  "a goalkeeper and a back 5 on the edge of their own box with a 6 in front of them, against 3 pressing": {
   "ja-JP": "GKとバック5人が自陣ペナルティエリアのライン上に立ち、その前に6番。相手は3人でプレス",
@@ -359,7 +425,9 @@
   "fr-FR": "un gardien et une défense à 5 au bord de leur surface avec un 6 devant eux, face à 3 joueurs au pressing",
   "id-ID": "kiper dan 5 bek di tepi kotak penalti sendiri dengan seorang gelandang bertahan (6) di depan mereka, melawan 3 pemain yang menekan",
   "ms-MY": "penjaga gol dan 5 pemain pertahanan di tepi kotak penalti sendiri dengan seorang pemain tengah bertahan (6) di hadapan mereka, menentang 3 pemain yang menekan",
-  "zh-TW": "門將加 5 名後衛站在本方禁區線上，身前一名後腰，對方 3 人上搶"
+  "zh-TW": "門將加 5 名後衛站在本方禁區線上，身前一名後腰，對方 3 人上搶",
+  "de-DE": "ein Torwart und eine Fünferkette an der eigenen Strafraumgrenze mit einem Sechser davor, gegen 3 Pressingspieler",
+  "nl-NL": "een keeper en een vijfmansverdediging aan de rand van het eigen strafschopgebied met een 6 ervoor, tegen 3 die druk zetten"
  },
  "a grid about 25 m wide and 40 m long divided by cones into three zones of 13 m: A, B and C in the bottom zone, D and E in the top one, and the two defenders X1 and X2 in the middle. No goalkeepers — nobody is in a goal": {
   "ja-JP": "コーンで幅約25 m、長さ40 mのグリッドを作り、奥行き13 mの3ゾーンに分ける。A・B・Cは下のゾーン、D・Eは上のゾーン、ディフェンダーX1・X2は中央ゾーン。GKなし、ゴールには誰も入らない",
@@ -369,7 +437,9 @@
   "es-ES": "un espacio de unos 25 m de ancho y 40 m de largo dividido con conos en tres zonas de 13 m: A, B y C en la zona de abajo, D y E en la de arriba, y los dos defensores X1 y X2 en la del medio. Sin porteros: no hay nadie en ninguna portería",
   "fr-FR": "une zone d’environ 25 m de large et 40 m de long divisée par des plots en trois zones de 13 m : A, B et C dans la zone du bas, D et E dans celle du haut, et les deux défenseurs X1 et X2 dans celle du milieu. Pas de gardiens : personne dans les buts",
   "id-ID": "area sekitar 25 m lebar dan 40 m panjang yang dibagi dengan kerucut menjadi tiga zona 13 m: A, B, dan C di zona bawah, D dan E di zona atas, serta dua bek X1 dan X2 di zona tengah. Tanpa kiper — tidak ada yang berdiri di gawang",
-  "ms-MY": "kawasan kira-kira 25 m lebar dan 40 m panjang yang dibahagi dengan kon kepada tiga zon 13 m: A, B dan C di zon bawah, D dan E di zon atas, dan dua pemain pertahanan X1 dan X2 di zon tengah. Tanpa penjaga gol — tiada sesiapa di dalam gol"
+  "ms-MY": "kawasan kira-kira 25 m lebar dan 40 m panjang yang dibahagi dengan kon kepada tiga zon 13 m: A, B dan C di zon bawah, D dan E di zon atas, dan dua pemain pertahanan X1 dan X2 di zon tengah. Tanpa penjaga gol — tiada sesiapa di dalam gol",
+  "de-DE": "ein Feld etwa 25 m breit und 40 m lang, mit Hütchen in drei Zonen zu 13 m geteilt: A, B und C in der unteren Zone, D und E in der oberen, die beiden Verteidiger X1 und X2 in der mittleren. Keine Torhüter — niemand steht im Tor",
+  "nl-NL": "een vak van ongeveer 25 m breed en 40 m lang, met pionnen verdeeld in drie zones van 13 m: A, B en C in de onderste zone, D en E in de bovenste en de twee verdedigers X1 en X2 in het midden. Geen keepers — niemand staat in een doel"
  },
  "a hitter at the outside, behind the attack line, with nobody in front of him; a coach calls the tempo": {
   "ja-JP": "アウトサイドヒッターがアタックラインの後ろに立ち、前には誰もいない。コーチがテンポをコールする",
@@ -379,7 +449,9 @@
   "es-ES": "un atacante por fuera, detrás de la línea de ataque, sin nadie delante; un entrenador marca el ritmo",
   "fr-FR": "un attaquant à l’aile, derrière la ligne d’attaque, sans personne devant lui ; un entraîneur donne le tempo",
   "id-ID": "pemukul di posisi sayap (posisi 4), di belakang garis serang, tanpa siapa pun di depannya; pelatih memberi aba-aba tempo",
-  "ms-MY": "pemain rejam di posisi luar (posisi 4), di belakang garisan serangan, tanpa sesiapa di hadapannya; jurulatih memberi rentak"
+  "ms-MY": "pemain rejam di posisi luar (posisi 4), di belakang garisan serangan, tanpa sesiapa di hadapannya; jurulatih memberi rentak",
+  "de-DE": "ein Angreifer außen, hinter der Angriffslinie, niemand vor ihm; ein Trainer sagt das Tempo an",
+  "nl-NL": "een aanvaller op de buitenkant, achter de aanvalslijn, met niemand voor zich; een trainer roept het tempo af"
  },
  "a keeper, two centre-backs, a holding midfielder and one outlet up the pitch, against two who press": {
   "ja-JP": "GK、センターバック2人、守備的MF1人、前方に受け手1人、プレスをかける相手2人",
@@ -390,7 +462,9 @@
   "fr-FR": "un gardien, deux défenseurs centraux, un milieu défensif et un relais plus haut sur le terrain, face à deux joueurs au pressing",
   "id-ID": "kiper, dua bek tengah, satu gelandang bertahan, dan satu titik sambung di depan, melawan dua pemain yang menekan",
   "ms-MY": "penjaga gol, dua pertahanan tengah, seorang pemain tengah bertahan dan seorang penyambung di hadapan, menentang dua pemain yang menekan",
-  "zh-TW": "門將、兩名中衛、一名後腰，前場一名接應點，對方兩人上搶"
+  "zh-TW": "門將、兩名中衛、一名後腰，前場一名接應點，對方兩人上搶",
+  "de-DE": "ein Torwart, zwei Innenverteidiger, ein defensiver Mittelfeldspieler und eine Anspielstation weiter vorn, gegen zwei, die pressen",
+  "nl-NL": "een keeper, twee centrale verdedigers, een controlerende middenvelder en één aanspeelpunt verder naar voren, tegen twee die druk zetten"
  },
  "a middle blocker at the net in the middle of the court, a cone at each pin and one in the middle": {
   "ja-JP": "ミドルブロッカーがコート中央のネット際に立ち、両アンテナ側にコーン1つずつ、中央に1つ",
@@ -400,7 +474,9 @@
   "es-ES": "un central en la red en el centro de la pista, un cono en cada antena y otro en el medio",
   "fr-FR": "un central au filet au milieu du terrain, un plot à chaque antenne et un au milieu",
   "id-ID": "middle blocker di depan net di tengah lapangan, satu kerucut di dekat tiap antena dan satu di tengah",
-  "ms-MY": "penghadang tengah di depan jaring di tengah gelanggang, satu kon di setiap antena dan satu di tengah"
+  "ms-MY": "penghadang tengah di depan jaring di tengah gelanggang, satu kon di setiap antena dan satu di tengah",
+  "de-DE": "ein Mittelblocker am Netz in der Feldmitte, je ein Hütchen an beiden Antennen und eins in der Mitte",
+  "nl-NL": "een middenblokkeerder aan het net in het midden van het veld, een pion bij elke antenne en één in het midden"
  },
  "a pitch about 30 by 40 m, its four corners marked by cones, with a small goal (the squares) just inside each corner: each team attacks the two at one end and defends the two at the other. 4 v 4, no keepers": {
   "ja-JP": "約30×40 mのピッチ。四隅をコーンで示し、各隅のすぐ内側にミニゴール（四角）を置く。各チームは片側の2つを攻め、反対側の2つを守る。4対4、GKなし",
@@ -410,7 +486,9 @@
   "es-ES": "un campo de unos 30 por 40 m con las cuatro esquinas marcadas con conos y una miniportería (los cuadrados) justo dentro de cada esquina: cada equipo ataca las dos de un fondo y defiende las dos del otro. 4 contra 4, sin porteros",
   "fr-FR": "un terrain d’environ 30 sur 40 m, ses quatre coins marqués par des plots, avec un mini-but (les carrés) juste à l’intérieur de chaque coin : chaque équipe attaque les deux d’un côté et défend les deux de l’autre. 4 contre 4, sans gardiens",
   "id-ID": "lapangan sekitar 30 x 40 m, keempat sudutnya ditandai kerucut, dengan satu gawang kecil (kotak) tepat di dalam tiap sudut: tiap tim menyerang dua gawang di satu ujung dan menjaga dua gawang di ujung lainnya. 4 lawan 4, tanpa kiper",
-  "ms-MY": "padang kira-kira 30 x 40 m, keempat-empat penjurunya ditanda dengan kon, dengan satu gol kecil (petak) betul-betul di dalam setiap penjuru: setiap pasukan menyerang dua gol di satu hujung dan mempertahankan dua gol di hujung yang satu lagi. 4 lawan 4, tanpa penjaga gol"
+  "ms-MY": "padang kira-kira 30 x 40 m, keempat-empat penjurunya ditanda dengan kon, dengan satu gol kecil (petak) betul-betul di dalam setiap penjuru: setiap pasukan menyerang dua gol di satu hujung dan mempertahankan dua gol di hujung yang satu lagi. 4 lawan 4, tanpa penjaga gol",
+  "de-DE": "ein Feld von etwa 30 mal 40 m, die vier Ecken mit Hütchen markiert, mit einem kleinen Tor (die Quadrate) knapp innerhalb jeder Ecke: Jedes Team greift die beiden an einem Ende an und verteidigt die beiden am anderen. 4 gegen 4, ohne Torhüter",
+  "nl-NL": "een veld van ongeveer 30 bij 40 m, de vier hoeken gemarkeerd met pionnen, met een klein doeltje (de vierkantjes) net binnen elke hoek: elke ploeg valt de twee aan de ene kant aan en verdedigt de twee aan de andere kant. 4 tegen 4, geen keepers"
  },
  "a receiver on a spot, the server about 10 m straight in front of him with the balls; two gates of cones a metre and a half wide about 4 m ahead of the receiver, one to his left and one to his right": {
   "ja-JP": "受け手は定位置に立ち、配球者はボールを持ってその正面約10 mに立つ。受け手の約4 m前方、左右に1つずつ、幅1.5 mのコーンゲートを置く",
@@ -420,7 +498,9 @@
   "es-ES": "un receptor en un punto y el pasador a unos 10 m justo enfrente con los balones; dos puertas de conos de metro y medio de ancho a unos 4 m por delante del receptor, una a su izquierda y otra a su derecha",
   "fr-FR": "un receveur sur un point, le serveur à environ 10 m juste en face de lui avec les ballons ; deux portes de plots d’un mètre et demi de large à environ 4 m devant le receveur, une à sa gauche et une à sa droite",
   "id-ID": "penerima berdiri di satu titik, pengumpan sekitar 10 m tepat di depannya dengan bola-bola; dua gerbang kerucut selebar satu setengah meter sekitar 4 m di depan penerima, satu di kirinya dan satu di kanannya",
-  "ms-MY": "penerima berdiri di satu titik, pengumpan kira-kira 10 m betul-betul di hadapannya bersama bola; dua pintu kon selebar satu setengah meter kira-kira 4 m di hadapan penerima, satu di kirinya dan satu di kanannya"
+  "ms-MY": "penerima berdiri di satu titik, pengumpan kira-kira 10 m betul-betul di hadapannya bersama bola; dua pintu kon selebar satu setengah meter kira-kira 4 m di hadapan penerima, satu di kirinya dan satu di kanannya",
+  "de-DE": "ein Empfänger auf einer Markierung, der Zuspieler mit den Bällen etwa 10 m gerade vor ihm; zwei Hütchentore, je anderthalb Meter breit, etwa 4 m vor dem Empfänger, eins links und eins rechts von ihm",
+  "nl-NL": "een ontvanger op een plek, de aangever met de ballen ongeveer 10 m recht voor hem; twee poortjes van pionnen, anderhalve meter breed, ongeveer 4 m voor de ontvanger, één links en één rechts van hem"
  },
  "a server crossing from the wing, a striker attacking it and a centre-back in front of him, with a full-back wide as the outlet": {
   "ja-JP": "サイドからクロスを上げる配球者、それに飛び込むFW、その前に立つセンターバック、逃げ道としてワイドにサイドバック",
@@ -431,7 +511,9 @@
   "fr-FR": "un serveur qui centre depuis l’aile, un attaquant qui attaque le ballon et un défenseur central devant lui, avec un latéral écarté comme solution de dégagement",
   "id-ID": "pengumpan yang mengirim umpan silang dari sayap, penyerang yang menyambutnya, dan bek tengah di depannya, dengan bek sayap melebar sebagai tujuan sapuan",
   "ms-MY": "pengumpan yang membuat hantaran lintang dari sayap, penyerang yang menerpanya, dan pertahanan tengah di hadapannya, dengan pertahanan sisi di tepi sebagai sasaran sapuan",
-  "zh-TW": "邊路一名傳中人，一名前鋒搶點、一名中衛搶在他身前，邊路另有一名邊後衛作為解圍目標"
+  "zh-TW": "邊路一名傳中人，一名前鋒搶點、一名中衛搶在他身前，邊路另有一名邊後衛作為解圍目標",
+  "de-DE": "ein Zuspieler, der vom Flügel flankt, ein Stürmer, der die Flanke attackiert, und ein Innenverteidiger vor ihm, dazu ein Außenverteidiger breit als Anspielstation",
+  "nl-NL": "een aangever die vanaf de flank voorzet, een spits die erop afgaat en een centrale verdediger voor hem, met een back breed als uitweg"
  },
  "a server on the wing, a striker on the penalty spot and a centre-back on him; one goal with a keeper": {
   "ja-JP": "サイドに配球者、PKスポットにFW、そこにマークにつくセンターバック。GK付きのゴール1つ",
@@ -442,7 +524,9 @@
   "fr-FR": "un serveur sur l’aile, un attaquant au point de penalty et un défenseur central sur lui ; un but avec gardien",
   "id-ID": "pengumpan di sayap, penyerang di titik penalti dan bek tengah menempelnya; satu gawang dengan kiper",
   "ms-MY": "pengumpan di sayap, penyerang di titik penalti dan pertahanan tengah mengawalnya rapat; satu gol dengan penjaga gol",
-  "zh-TW": "邊路一名傳中人，一名前鋒站點球點、一名中衛貼身，一個球門帶門將"
+  "zh-TW": "邊路一名傳中人，一名前鋒站點球點、一名中衛貼身，一個球門帶門將",
+  "de-DE": "ein Zuspieler auf dem Flügel, ein Stürmer auf dem Elfmeterpunkt und ein Innenverteidiger an ihm dran; ein Tor mit Torwart",
+  "nl-NL": "een aangever op de flank, een spits op de penaltystip met een centrale verdediger erop; één doel met keeper"
  },
  "a shortstop, a first baseman and a fungo hitter; balls are hit to the shortstop's left and backhand": {
   "ja-JP": "ショート、一塁手、ノッカーの3人。打球はショートの左側とバックハンド側に打つ",
@@ -453,7 +537,9 @@
   "fr-FR": "un arrêt-court, un joueur de premier but et un frappeur de fungo ; les balles sont frappées à gauche de l’arrêt-court et sur son revers",
   "id-ID": "shortstop, first baseman, dan pemukul fungo; bola dipukul ke sisi kiri shortstop dan ke arah backhand-nya",
   "ms-MY": "shortstop, first baseman dan pemukul fungo; bola dipukul ke sebelah kiri shortstop dan ke arah backhand-nya",
-  "zh-TW": "遊擊、一壘手、擊球手三人；球打向游擊手左側和反手位"
+  "zh-TW": "遊擊、一壘手、擊球手三人；球打向游擊手左側和反手位",
+  "de-DE": "ein Shortstop, ein First Baseman und ein Fungo-Schlagmann; die Bälle gehen links und auf die Rückhand des Shortstops",
+  "nl-NL": "een korte stop, een eerste honkman en een fungoslagman; de ballen gaan links van en op de backhand van de korte stop"
  },
  "a start cone, and 20 m ahead of it a 5 m stopping zone marked by four cones; the runner starts on the start cone": {
   "ja-JP": "スタートコーンを1つ、その20 m先にコーン4つで長さ5 mのストップゾーンを作る。ランナーはスタートコーンに立つ",
@@ -463,7 +549,9 @@
   "es-ES": "un cono de salida y, 20 m por delante, una zona de frenada de 5 m marcada con cuatro conos; el corredor empieza en el cono de salida",
   "fr-FR": "un plot de départ et, 20 m devant, une zone d’arrêt de 5 m délimitée par quatre plots ; le coureur part du plot de départ",
   "id-ID": "satu kerucut start dan, 20 m di depannya, zona berhenti 5 m yang ditandai empat kerucut; pelari mulai di kerucut start",
-  "ms-MY": "satu kon mula dan, 20 m di hadapannya, zon berhenti 5 m yang ditanda dengan empat kon; pelari bermula di kon mula"
+  "ms-MY": "satu kon mula dan, 20 m di hadapannya, zon berhenti 5 m yang ditanda dengan empat kon; pelari bermula di kon mula",
+  "de-DE": "ein Starthütchen und 20 m davor eine 5 m lange Stoppzone aus vier Hütchen; der Läufer startet am Starthütchen",
+  "nl-NL": "een startpion en 20 m daarvoor een remzone van 5 m gemarkeerd met vier pionnen; de loper begint bij de startpion"
  },
  "a striker two steps behind the net with the court clear in front of him": {
   "ja-JP": "アタッカーがネットから2歩下がった位置に立ち、前のコートは空けておく",
@@ -473,7 +561,9 @@
   "es-ES": "un atacante a dos pasos de la red con la pista despejada por delante",
   "fr-FR": "un attaquant à deux pas du filet avec le terrain dégagé devant lui",
   "id-ID": "penyerang (striker) dua langkah di belakang net dengan lapangan kosong di depannya",
-  "ms-MY": "penyerang (killer) dua langkah di belakang jaring dengan gelanggang kosong di hadapannya"
+  "ms-MY": "penyerang (killer) dua langkah di belakang jaring dengan gelanggang kosong di hadapannya",
+  "de-DE": "ein Angreifer zwei Schritte hinter dem Netz, das Feld vor ihm frei",
+  "nl-NL": "een aanvaller twee passen achter het net, met het veld voor hem vrij"
  },
  "a wide channel in the attacking half, three attackers against one defender, one ball": {
   "ja-JP": "敵陣サイドの広いレーン、攻撃3人対守備1人、ボール1つ",
@@ -484,7 +574,9 @@
   "fr-FR": "un couloir latéral dans la moitié offensive, trois attaquants contre un défenseur, un ballon",
   "id-ID": "satu lorong sayap di separuh lapangan lawan, tiga penyerang melawan satu bek, satu bola",
   "ms-MY": "satu lorong sisi di separuh padang serangan, tiga penyerang menentang seorang pemain pertahanan, satu bola",
-  "zh-TW": "進攻半場一條邊路通道，三打一，一顆球"
+  "zh-TW": "進攻半場一條邊路通道，三打一，一顆球",
+  "de-DE": "ein breiter Korridor in der gegnerischen Hälfte, drei Angreifer gegen einen Verteidiger, ein Ball",
+  "nl-NL": "een brede strook op de aanvallende helft, drie aanvallers tegen één verdediger, één bal"
  },
  "an agility ladder on the ground with a cone 12 m past its far end; the runner starts a stride before the ladder": {
   "ja-JP": "地面にアジリティラダーを置き、その奥端から12 m先にコーンを1つ。ランナーはラダーの一歩手前からスタート",
@@ -494,7 +586,9 @@
   "es-ES": "una escalera de agilidad en el suelo con un cono 12 m más allá de su extremo; el corredor empieza a un paso de la escalera",
   "fr-FR": "une échelle de rythme au sol avec un plot 12 m après son extrémité ; le coureur part à une foulée de l’échelle",
   "id-ID": "tangga kelincahan di tanah dengan satu kerucut 12 m melewati ujung jauhnya; pelari mulai satu langkah sebelum tangga",
-  "ms-MY": "tangga ketangkasan di atas tanah dengan satu kon 12 m melepasi hujung jauhnya; pelari bermula satu langkah sebelum tangga"
+  "ms-MY": "tangga ketangkasan di atas tanah dengan satu kon 12 m melepasi hujung jauhnya; pelari bermula satu langkah sebelum tangga",
+  "de-DE": "eine Koordinationsleiter am Boden mit einem Hütchen 12 m hinter ihrem Ende; der Läufer startet einen Schritt vor der Leiter",
+  "nl-NL": "een loopladder op de grond met een pion 12 m voorbij het einde; de loper begint één pas voor de ladder"
  },
  "an infielder on his position with a cone either side of him at five metres; the coach stands in front and points": {
   "ja-JP": "内野手が自分の守備位置に立ち、左右5 mにコーンを1つずつ。コーチは前に立って方向を指す",
@@ -504,7 +598,9 @@
   "es-ES": "un jugador de cuadro en su posición con un cono a cada lado a cinco metros; el entrenador se coloca delante y señala",
   "fr-FR": "un joueur de champ intérieur à son poste avec un plot de chaque côté à cinq mètres ; l’entraîneur se tient devant et indique la direction",
   "id-ID": "infielder di posisinya dengan satu kerucut lima meter di kiri dan kanannya; pelatih berdiri di depan dan menunjuk arah",
-  "ms-MY": "infielder di posisinya dengan satu kon lima meter di kiri dan kanannya; jurulatih berdiri di hadapan dan menunjuk arah"
+  "ms-MY": "infielder di posisinya dengan satu kon lima meter di kiri dan kanannya; jurulatih berdiri di hadapan dan menunjuk arah",
+  "de-DE": "ein Infielder auf seiner Position mit je einem Hütchen links und rechts in fünf Metern; der Trainer steht vor ihm und zeigt die Richtung",
+  "nl-NL": "een binnenvelder op zijn positie met aan weerszijden een pion op vijf meter; de trainer staat ervoor en wijst"
  },
  "five cones in a zig-zag up the court, each about 5 m across and 4 m on from the last; the defender starts on the first": {
   "ja-JP": "コート上にコーン5つをジグザグに配置し、それぞれ前のコーンから横に約5 m、縦に4 m。ディフェンダーは最初のコーンからスタート",
@@ -514,7 +610,9 @@
   "es-ES": "cinco conos en zigzag a lo largo de la pista, cada uno a unos 5 m en lateral y 4 m en profundidad del anterior; el defensor empieza en el primero",
   "fr-FR": "cinq plots en zigzag le long du terrain, chacun à environ 5 m latéralement et 4 m plus loin que le précédent ; le défenseur part du premier",
   "id-ID": "lima kerucut membentuk zig-zag di lapangan, masing-masing sekitar 5 m ke samping dan 4 m ke depan dari yang sebelumnya; pemain bertahan mulai di yang pertama",
-  "ms-MY": "lima kon dalam bentuk zig-zag di gelanggang, setiap satu kira-kira 5 m ke sisi dan 4 m ke hadapan dari yang sebelumnya; pemain pertahanan bermula di yang pertama"
+  "ms-MY": "lima kon dalam bentuk zig-zag di gelanggang, setiap satu kira-kira 5 m ke sisi dan 4 m ke hadapan dari yang sebelumnya; pemain pertahanan bermula di yang pertama",
+  "de-DE": "fünf Hütchen im Zickzack das Feld hoch, jeweils etwa 5 m seitlich und 4 m weiter als das vorige; der Verteidiger startet am ersten",
+  "nl-NL": "vijf pionnen in een zigzag het veld op, elk zo'n 5 m opzij en 4 m verder dan de vorige; de verdediger start bij de eerste"
  },
  "five cones — the two singles sideline corners at the baseline, the two service-line corners and the centre service mark; the player starts on the centre of the baseline": {
   "ja-JP": "コーン5つ：ベースライン上のシングルスサイドライン両角、サービスライン両角、センターサービスマーク。選手はベースライン中央からスタート",
@@ -524,7 +622,9 @@
   "es-ES": "cinco conos: las dos esquinas de las líneas laterales de individuales en la línea de fondo, las dos esquinas de la línea de saque y la marca central de saque; el jugador empieza en el centro de la línea de fondo",
   "fr-FR": "cinq plots : les deux coins des lignes de côté de simple sur la ligne de fond, les deux coins de la ligne de service et le centre de la ligne de service ; le joueur part du centre de la ligne de fond",
   "id-ID": "lima kerucut — dua sudut garis samping tunggal di garis belakang, dua sudut garis servis, dan tanda tengah servis; pemain mulai di tengah garis belakang",
-  "ms-MY": "lima kon — dua penjuru garisan tepi perseorangan di garisan belakang, dua penjuru garisan servis dan tanda tengah servis; pemain bermula di tengah garisan belakang"
+  "ms-MY": "lima kon — dua penjuru garisan tepi perseorangan di garisan belakang, dua penjuru garisan servis dan tanda tengah servis; pemain bermula di tengah garisan belakang",
+  "de-DE": "fünf Hütchen — die beiden Ecken von Einzelseitenlinie und Grundlinie, die beiden Ecken der Aufschlaglinie und das Mittelzeichen der Aufschlaglinie; der Spieler startet in der Mitte der Grundlinie",
+  "nl-NL": "vijf pionnen — de twee hoeken van enkelzijlijn en baseline, de twee hoeken van de servicelijn en het middenpunt van de servicelijn; de speler start in het midden van de baseline"
  },
  "four cones in a T: the start at the foot, a cone 10 m ahead and one 5 m either side of it; the runner starts on the foot": {
   "ja-JP": "コーン4つをT字に配置：根元がスタート、その10 m前方に1つ、そこから左右5 mに1つずつ。ランナーは根元からスタート",
@@ -534,7 +634,9 @@
   "es-ES": "cuatro conos en T: la salida abajo, un cono 10 m por delante y otro a 5 m a cada lado de este; el corredor empieza abajo",
   "fr-FR": "quatre plots en T : le départ à la base, un plot 10 m devant et un autre à 5 m de chaque côté de celui-ci ; le coureur part de la base",
   "id-ID": "empat kerucut membentuk T: start di bagian bawah, satu kerucut 10 m di depan dan satu lagi 5 m di kiri dan kanannya; pelari mulai di bagian bawah",
-  "ms-MY": "empat kon membentuk T: titik mula di kaki T, satu kon 10 m di hadapan dan satu lagi 5 m di kiri dan kanannya; pelari bermula di kaki T"
+  "ms-MY": "empat kon membentuk T: titik mula di kaki T, satu kon 10 m di hadapan dan satu lagi 5 m di kiri dan kanannya; pelari bermula di kaki T",
+  "de-DE": "vier Hütchen als T: der Start unten, ein Hütchen 10 m davor und je eines 5 m links und rechts davon; der Läufer startet unten",
+  "nl-NL": "vier pionnen in een T: de start onderaan, een pion 10 m ervoor en één op 5 m aan weerszijden daarvan; de loper begint onderaan"
  },
  "four cones in a line 5 m apart, the first one the start; the runner starts on it": {
   "ja-JP": "コーン4つを5 m間隔で一列に並べ、最初のコーンがスタート。ランナーはそこに立つ",
@@ -544,7 +646,9 @@
   "es-ES": "cuatro conos en línea separados 5 m, el primero es la salida; el corredor empieza en él",
   "fr-FR": "quatre plots en ligne espacés de 5 m, le premier sert de départ ; le coureur part de celui-ci",
   "id-ID": "empat kerucut sejajar berjarak 5 m, yang pertama adalah titik start; pelari mulai di situ",
-  "ms-MY": "empat kon dalam satu garisan berjarak 5 m, yang pertama ialah titik mula; pelari bermula di situ"
+  "ms-MY": "empat kon dalam satu garisan berjarak 5 m, yang pertama ialah titik mula; pelari bermula di situ",
+  "de-DE": "vier Hütchen in einer Reihe im Abstand von 5 m, das erste ist der Start; der Läufer startet dort",
+  "nl-NL": "vier pionnen op een rij, 5 m uit elkaar, de eerste is de start; de loper begint daar"
  },
  "four cones marking a rectangle about 60 m long and 30 m wide, between the two boxes; the group starts at one corner": {
   "ja-JP": "2つのペナルティエリアの間に、コーン4つで長さ約60 m、幅30 mの長方形を作る。全員が1つの角からスタート",
@@ -554,7 +658,9 @@
   "es-ES": "cuatro conos que marcan un rectángulo de unos 60 m de largo y 30 m de ancho entre las dos áreas; el grupo sale de una esquina",
   "fr-FR": "quatre plots délimitant un rectangle d’environ 60 m de long et 30 m de large, entre les deux surfaces de réparation ; le groupe part d’un coin",
   "id-ID": "empat kerucut menandai persegi panjang sekitar 60 m panjang dan 30 m lebar, di antara kedua kotak penalti; kelompok mulai dari satu sudut",
-  "ms-MY": "empat kon menanda segi empat tepat kira-kira 60 m panjang dan 30 m lebar, di antara kedua-dua kotak penalti; kumpulan bermula dari satu penjuru"
+  "ms-MY": "empat kon menanda segi empat tepat kira-kira 60 m panjang dan 30 m lebar, di antara kedua-dua kotak penalti; kumpulan bermula dari satu penjuru",
+  "de-DE": "vier Hütchen markieren ein Rechteck von etwa 60 m Länge und 30 m Breite zwischen den beiden Strafräumen; die Gruppe startet an einer Ecke",
+  "nl-NL": "vier pionnen markeren een rechthoek van ongeveer 60 m lang en 30 m breed tussen de twee strafschopgebieden; de groep begint bij één hoek"
  },
  "four cones on a line at 0, 10, 20 and 30 m; the player starts on the first": {
   "ja-JP": "0、10、20、30 mの位置に一直線にコーン4つ。選手は最初のコーンからスタート",
@@ -564,7 +670,9 @@
   "es-ES": "cuatro conos en línea a 0, 10, 20 y 30 m; el jugador empieza en el primero",
   "fr-FR": "quatre plots alignés à 0, 10, 20 et 30 m ; le joueur part du premier",
   "id-ID": "empat kerucut dalam satu garis di 0, 10, 20, dan 30 m; pemain mulai di yang pertama",
-  "ms-MY": "empat kon dalam satu garisan pada 0, 10, 20 dan 30 m; pemain bermula di yang pertama"
+  "ms-MY": "empat kon dalam satu garisan pada 0, 10, 20 dan 30 m; pemain bermula di yang pertama",
+  "de-DE": "vier Hütchen in einer Linie bei 0, 10, 20 und 30 m; der Spieler startet am ersten",
+  "nl-NL": "vier pionnen op een lijn op 0, 10, 20 en 30 m; de speler start bij de eerste"
  },
  "four cones on a line at 0, 20, 40 and 60 m; the player starts on the first": {
   "ja-JP": "0、20、40、60 mの位置に一直線にコーン4つ。選手は最初のコーンからスタート",
@@ -574,7 +682,9 @@
   "es-ES": "cuatro conos en línea a 0, 20, 40 y 60 m; el jugador empieza en el primero",
   "fr-FR": "quatre plots alignés à 0, 20, 40 et 60 m ; le joueur part du premier",
   "id-ID": "empat kerucut dalam satu garis di 0, 20, 40, dan 60 m; pemain mulai di yang pertama",
-  "ms-MY": "empat kon dalam satu garisan pada 0, 20, 40 dan 60 m; pemain bermula di yang pertama"
+  "ms-MY": "empat kon dalam satu garisan pada 0, 20, 40 dan 60 m; pemain bermula di yang pertama",
+  "de-DE": "vier Hütchen in einer Linie bei 0, 20, 40 und 60 m; der Spieler startet am ersten",
+  "nl-NL": "vier pionnen op een lijn op 0, 20, 40 en 60 m; de speler start bij de eerste"
  },
  "four cones on the corners of the lane, the runner on the bottom-left one": {
   "ja-JP": "制限区域（ペイントエリア）の四隅にコーン4つ、ランナーは左下のコーンに立つ",
@@ -584,7 +694,9 @@
   "es-ES": "cuatro conos en las esquinas de la zona, el corredor en el de abajo a la izquierda",
   "fr-FR": "quatre plots aux coins de la raquette, le coureur sur celui en bas à gauche",
   "id-ID": "empat kerucut di keempat sudut area cat (paint), pelari di kerucut kiri bawah",
-  "ms-MY": "empat kon di empat penjuru kawasan berwarna (paint), pelari di kon kiri bawah"
+  "ms-MY": "empat kon di empat penjuru kawasan berwarna (paint), pelari di kon kiri bawah",
+  "de-DE": "vier Hütchen an den Ecken der Zone, der Läufer am unteren linken",
+  "nl-NL": "vier pionnen op de hoeken van de bucket, de loper bij de linkeronderste"
  },
  "four low hurdles in a line a metre apart, a cone 12 m past the last one; the runner starts a stride before the first": {
   "ja-JP": "低いハードル4台を1 m間隔で一列に並べ、最後のハードルから12 m先にコーン。ランナーは最初のハードルの一歩手前からスタート",
@@ -594,7 +706,9 @@
   "es-ES": "cuatro vallas bajas en línea separadas un metro y un cono 12 m después de la última; el corredor empieza a un paso de la primera",
   "fr-FR": "quatre haies basses en ligne espacées d’un mètre, un plot 12 m après la dernière ; le coureur part à une foulée de la première",
   "id-ID": "empat gawang rintangan rendah sejajar berjarak satu meter, satu kerucut 12 m melewati yang terakhir; pelari mulai satu langkah sebelum yang pertama",
-  "ms-MY": "empat pagar rendah dalam satu garisan berjarak satu meter, satu kon 12 m melepasi yang terakhir; pelari bermula satu langkah sebelum yang pertama"
+  "ms-MY": "empat pagar rendah dalam satu garisan berjarak satu meter, satu kon 12 m melepasi yang terakhir; pelari bermula satu langkah sebelum yang pertama",
+  "de-DE": "vier niedrige Hürden in einer Reihe, einen Meter auseinander, ein Hütchen 12 m hinter der letzten; der Läufer startet einen Schritt vor der ersten",
+  "nl-NL": "vier lage horden op een rij, een meter uit elkaar, een pion 12 m voorbij de laatste; de loper begint één pas voor de eerste"
  },
  "half a pitch, one goal; 2 attackers break out of their own half at 1 recovering defenders": {
   "ja-JP": "ハーフピッチ、ゴール1つ。攻撃側2人が自陣から飛び出し、戻る守備者1人に仕掛ける",
@@ -605,7 +719,9 @@
   "fr-FR": "un demi-terrain, un but ; 2 attaquants partent en contre depuis leur propre moitié face à 1 défenseur qui se replie",
   "id-ID": "setengah lapangan, satu gawang; 2 penyerang melancarkan serangan balik dari separuh lapangan sendiri melawan 1 bek yang mundur mengejar",
   "ms-MY": "separuh padang, satu gol; 2 penyerang melancarkan serangan balas dari separuh padang sendiri menentang 1 pemain pertahanan yang berundur mengejar",
-  "zh-TW": "半場一個球門；2 名進攻者從本方半場發起反擊，衝擊 1 名回追的防守者"
+  "zh-TW": "半場一個球門；2 名進攻者從本方半場發起反擊，衝擊 1 名回追的防守者",
+  "de-DE": "ein halbes Spielfeld, ein Tor; 2 Angreifer brechen aus der eigenen Hälfte gegen 1 zurücklaufenden Verteidiger aus",
+  "nl-NL": "een half veld, één doel; 2 aanvallers breken uit hun eigen helft uit tegen 1 terugsprintende verdediger"
  },
  "half a pitch, one goal; 4 attackers break out of their own half at 3 recovering defenders": {
   "ja-JP": "ハーフピッチ、ゴール1つ。攻撃側4人が自陣から飛び出し、戻る守備者3人に仕掛ける",
@@ -616,7 +732,9 @@
   "fr-FR": "un demi-terrain, un but ; 4 attaquants partent en contre depuis leur propre moitié face à 3 défenseurs qui se replient",
   "id-ID": "setengah lapangan, satu gawang; 4 penyerang melancarkan serangan balik dari separuh lapangan sendiri melawan 3 bek yang mundur mengejar",
   "ms-MY": "separuh padang, satu gol; 4 penyerang melancarkan serangan balas dari separuh padang sendiri menentang 3 pemain pertahanan yang berundur mengejar",
-  "zh-TW": "半場一個球門；4 名進攻者從本方半場發起反擊，衝擊 3 名回追的防守者"
+  "zh-TW": "半場一個球門；4 名進攻者從本方半場發起反擊，衝擊 3 名回追的防守者",
+  "de-DE": "ein halbes Spielfeld, ein Tor; 4 Angreifer brechen aus der eigenen Hälfte gegen 3 zurücklaufende Verteidiger aus",
+  "nl-NL": "een half veld, één doel; 4 aanvallers breken uit hun eigen helft uit tegen 3 terugsprintende verdedigers"
  },
  "half a pitch, one goal; 5 attackers break out of their own half at 4 recovering defenders": {
   "ja-JP": "ハーフピッチ、ゴール1つ。攻撃側5人が自陣から飛び出し、戻る守備者4人に仕掛ける",
@@ -627,7 +745,9 @@
   "fr-FR": "un demi-terrain, un but ; 5 attaquants partent en contre depuis leur propre moitié face à 4 défenseurs qui se replient",
   "id-ID": "setengah lapangan, satu gawang; 5 penyerang melancarkan serangan balik dari separuh lapangan sendiri melawan 4 bek yang mundur mengejar",
   "ms-MY": "separuh padang, satu gol; 5 penyerang melancarkan serangan balas dari separuh padang sendiri menentang 4 pemain pertahanan yang berundur mengejar",
-  "zh-TW": "半場一個球門；5 名進攻者從本方半場發起反擊，衝擊 4 名回追的防守者"
+  "zh-TW": "半場一個球門；5 名進攻者從本方半場發起反擊，衝擊 4 名回追的防守者",
+  "de-DE": "ein halbes Spielfeld, ein Tor; 5 Angreifer brechen aus der eigenen Hälfte gegen 4 zurücklaufende Verteidiger aus",
+  "nl-NL": "een half veld, één doel; 5 aanvallers breken uit hun eigen helft uit tegen 4 terugsprintende verdedigers"
  },
  "one goal with a keeper, a server 20 m out and a defender on the attacker's inside shoulder": {
   "ja-JP": "GK付きのゴール1つ、20 m離れた位置に配球者、守備者は攻撃者の内側の肩につく",
@@ -638,7 +758,9 @@
   "fr-FR": "un but avec gardien, un serveur à 20 m et un défenseur à l’épaule intérieure de l’attaquant",
   "id-ID": "satu gawang dengan kiper, pengumpan di jarak 20 m, dan bek di bahu bagian dalam penyerang",
   "ms-MY": "satu gol dengan penjaga gol, pengumpan pada jarak 20 m, dan pemain pertahanan di bahu sebelah dalam penyerang",
-  "zh-TW": "一個球門帶門將，20 米外一名喂球人，防守者站在進攻者內側肩位"
+  "zh-TW": "一個球門帶門將，20 米外一名喂球人，防守者站在進攻者內側肩位",
+  "de-DE": "ein Tor mit Torwart, ein Zuspieler 20 m vor dem Tor und ein Verteidiger an der Innenschulter des Angreifers",
+  "nl-NL": "één doel met keeper, een aangever op 20 m en een verdediger aan de binnenkant van de aanvaller"
  },
  "one goal with a keeper, two centre-backs and a three-man box: near post, far post and the edge": {
   "ja-JP": "GK付きのゴール1つ、センターバック2人、エリア内に攻撃側3人：ニア、ファー、エリア手前",
@@ -649,7 +771,9 @@
   "fr-FR": "un but avec gardien, deux défenseurs centraux et trois attaquants dans la surface : premier poteau, second poteau et l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper, dua bek tengah, dan tiga penyerang di kotak penalti: tiang dekat, tiang jauh, dan tepi kotak",
   "ms-MY": "satu gol dengan penjaga gol, dua pertahanan tengah, dan tiga penyerang di dalam kotak: tiang dekat, tiang jauh dan tepi kotak",
-  "zh-TW": "一個球門帶門將，兩名中衛；進攻方三人包抄：前點、後點和禁區前沿"
+  "zh-TW": "一個球門帶門將，兩名中衛；進攻方三人包抄：前點、後點和禁區前沿",
+  "de-DE": "ein Tor mit Torwart, zwei Innenverteidiger und ein Dreierblock im Strafraum: kurzer Pfosten, langer Pfosten und Strafraumgrenze",
+  "nl-NL": "één doel met keeper, twee centrale verdedigers en een driehoek van drie in de box: eerste paal, tweede paal en de rand"
  },
  "one goal with a keeper; the crosser starts central, the 9 and 10 on the edge of the box": {
   "ja-JP": "GK付きのゴール1つ。クロッサーは中央からスタートし、9番と10番はペナルティエリアの手前",
@@ -660,7 +784,9 @@
   "fr-FR": "un but avec gardien ; le centreur part de l’axe, le 9 et le 10 à l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper; pengirim umpan silang mulai dari tengah, nomor 9 dan 10 di tepi kotak penalti",
   "ms-MY": "satu gol dengan penjaga gol; pengumpan lintang bermula dari tengah, nombor 9 dan 10 di tepi kotak penalti",
-  "zh-TW": "一個球門帶門將；傳中人從中路啟動，9 號和 10 號在禁區前沿"
+  "zh-TW": "一個球門帶門將；傳中人從中路啟動，9 號和 10 號在禁區前沿",
+  "de-DE": "ein Tor mit Torwart; der Flankengeber startet zentral, die 9 und die 10 an der Strafraumgrenze",
+  "nl-NL": "één doel met keeper; de voorzetter begint centraal, de 9 en de 10 aan de rand van het strafschopgebied"
  },
  "one goal with a keeper; the crosser starts left halfspace, the 9 and 10 on the edge of the box": {
   "ja-JP": "GK付きのゴール1つ。クロッサーは左ハーフスペースからスタートし、9番と10番はペナルティエリアの手前",
@@ -671,7 +797,9 @@
   "fr-FR": "un but avec gardien ; le centreur part du demi-espace gauche, le 9 et le 10 à l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper; pengirim umpan silang mulai dari half-space kiri, nomor 9 dan 10 di tepi kotak penalti",
   "ms-MY": "satu gol dengan penjaga gol; pengumpan lintang bermula dari ruang separuh kiri, nombor 9 dan 10 di tepi kotak penalti",
-  "zh-TW": "一個球門帶門將；傳中人從左肋部啟動，9 號和 10 號在禁區前沿"
+  "zh-TW": "一個球門帶門將；傳中人從左肋部啟動，9 號和 10 號在禁區前沿",
+  "de-DE": "ein Tor mit Torwart; der Flankengeber startet im linken Halbraum, die 9 und die 10 an der Strafraumgrenze",
+  "nl-NL": "één doel met keeper; de voorzetter begint in de linkerhalfruimte, de 9 en de 10 aan de rand van het strafschopgebied"
  },
  "one goal with a keeper; the crosser starts left wing, the 9 and 10 on the edge of the box": {
   "ja-JP": "GK付きのゴール1つ。クロッサーは左サイドからスタートし、9番と10番はペナルティエリアの手前",
@@ -682,7 +810,9 @@
   "fr-FR": "un but avec gardien ; le centreur part de l’aile gauche, le 9 et le 10 à l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper; pengirim umpan silang mulai dari sayap kiri, nomor 9 dan 10 di tepi kotak penalti",
   "ms-MY": "satu gol dengan penjaga gol; pengumpan lintang bermula dari sayap kiri, nombor 9 dan 10 di tepi kotak penalti",
-  "zh-TW": "一個球門帶門將；傳中人從左邊路啟動，9 號和 10 號在禁區前沿"
+  "zh-TW": "一個球門帶門將；傳中人從左邊路啟動，9 號和 10 號在禁區前沿",
+  "de-DE": "ein Tor mit Torwart; der Flankengeber startet auf dem linken Flügel, die 9 und die 10 an der Strafraumgrenze",
+  "nl-NL": "één doel met keeper; de voorzetter begint op de linkerflank, de 9 en de 10 aan de rand van het strafschopgebied"
  },
  "one goal with a keeper; the crosser starts right halfspace, the 9 and 10 on the edge of the box": {
   "ja-JP": "GK付きのゴール1つ。クロッサーは右ハーフスペースからスタートし、9番と10番はペナルティエリアの手前",
@@ -693,7 +823,9 @@
   "fr-FR": "un but avec gardien ; le centreur part du demi-espace droit, le 9 et le 10 à l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper; pengirim umpan silang mulai dari half-space kanan, nomor 9 dan 10 di tepi kotak penalti",
   "ms-MY": "satu gol dengan penjaga gol; pengumpan lintang bermula dari ruang separuh kanan, nombor 9 dan 10 di tepi kotak penalti",
-  "zh-TW": "一個球門帶門將；傳中人從右肋部啟動，9 號和 10 號在禁區前沿"
+  "zh-TW": "一個球門帶門將；傳中人從右肋部啟動，9 號和 10 號在禁區前沿",
+  "de-DE": "ein Tor mit Torwart; der Flankengeber startet im rechten Halbraum, die 9 und die 10 an der Strafraumgrenze",
+  "nl-NL": "één doel met keeper; de voorzetter begint in de rechterhalfruimte, de 9 en de 10 aan de rand van het strafschopgebied"
  },
  "one goal with a keeper; the crosser starts right wing, the 9 and 10 on the edge of the box": {
   "ja-JP": "GK付きのゴール1つ。クロッサーは右サイドからスタートし、9番と10番はペナルティエリアの手前",
@@ -704,7 +836,9 @@
   "fr-FR": "un but avec gardien ; le centreur part de l’aile droite, le 9 et le 10 à l’entrée de la surface",
   "id-ID": "satu gawang dengan kiper; pengirim umpan silang mulai dari sayap kanan, nomor 9 dan 10 di tepi kotak penalti",
   "ms-MY": "satu gol dengan penjaga gol; pengumpan lintang bermula dari sayap kanan, nombor 9 dan 10 di tepi kotak penalti",
-  "zh-TW": "一個球門帶門將；傳中人從右邊路啟動，9 號和 10 號在禁區前沿"
+  "zh-TW": "一個球門帶門將；傳中人從右邊路啟動，9 號和 10 號在禁區前沿",
+  "de-DE": "ein Tor mit Torwart; der Flankengeber startet auf dem rechten Flügel, die 9 und die 10 an der Strafraumgrenze",
+  "nl-NL": "één doel met keeper; de voorzetter begint op de rechterflank, de 9 en de 10 aan de rand van het strafschopgebied"
  },
  "one goal, a keeper on his line and two or three servers; every ball is dealt with and played back out": {
   "ja-JP": "ゴール1つ、ゴールライン上のGKと配球者2〜3人。すべてのボールを処理してから外へ配球する",
@@ -715,7 +849,9 @@
   "fr-FR": "un but, un gardien sur sa ligne et deux ou trois serveurs ; chaque ballon est maîtrisé puis relancé",
   "id-ID": "satu gawang, kiper di garis gawang, dan dua atau tiga pengumpan; setiap bola harus dituntaskan lalu dimainkan keluar lagi",
   "ms-MY": "satu gol, penjaga gol di garisan gol, dan dua atau tiga pengumpan; setiap bola mesti dikawal dengan bersih lalu dimainkan keluar semula",
-  "zh-TW": "一個球門，門將站門線上，另有 2–3 名喂球者；每一球都要處理乾淨再出球"
+  "zh-TW": "一個球門，門將站門線上，另有 2–3 名喂球者；每一球都要處理乾淨再出球",
+  "de-DE": "ein Tor, ein Torwart auf seiner Linie und zwei oder drei Zuspieler; jeder Ball wird verarbeitet und wieder herausgespielt",
+  "nl-NL": "één doel, een keeper op zijn lijn en twee of drie aangevers; elke bal wordt verwerkt en weer uitgespeeld"
  },
  "the ball 22-25 m from goal, a wall of 3 at its nine metres, a keeper, and two runners for the rebound": {
   "ja-JP": "ボールはゴールから22-25 m、9.15 mの位置に3人の壁、GK、こぼれ球に詰める2人",
@@ -726,7 +862,9 @@
   "fr-FR": "le ballon à 22-25 m du but, un mur de 3 à 9,15 m, un gardien et deux joueurs qui suivent pour le rebond",
   "id-ID": "bola 22-25 m dari gawang, pagar betis 3 orang di jarak 9,15 m, seorang kiper, dan dua pemain yang menyambar bola muntah",
   "ms-MY": "bola 22-25 m dari gol, benteng 3 orang pada jarak 9.15 m, seorang penjaga gol, dan dua pemain yang menerpa bola lantunan",
-  "zh-TW": "球距門 22–25 米，3 人人牆站在 9.15 米處，一名門將，兩名球員跟進搶第二點"
+  "zh-TW": "球距門 22–25 米，3 人人牆站在 9.15 米處，一名門將，兩名球員跟進搶第二點",
+  "de-DE": "der Ball 22–25 m vor dem Tor, eine Dreiermauer in 9 m Abstand, ein Torwart und zwei Läufer für den Abpraller",
+  "nl-NL": "de bal op 22-25 m van het doel, een muur van 3 op negen meter, een keeper en twee lopers voor de rebound"
  },
  "the ball 22-25 m from goal, a wall of 4 at its nine metres, a keeper, and two runners for the rebound": {
   "ja-JP": "ボールはゴールから22-25 m、9.15 mの位置に4人の壁、GK、こぼれ球に詰める2人",
@@ -737,7 +875,9 @@
   "fr-FR": "le ballon à 22-25 m du but, un mur de 4 à 9,15 m, un gardien et deux joueurs qui suivent pour le rebond",
   "id-ID": "bola 22-25 m dari gawang, pagar betis 4 orang di jarak 9,15 m, seorang kiper, dan dua pemain yang menyambar bola muntah",
   "ms-MY": "bola 22-25 m dari gol, benteng 4 orang pada jarak 9.15 m, seorang penjaga gol, dan dua pemain yang menerpa bola lantunan",
-  "zh-TW": "球距門 22–25 米，4 人人牆站在 9.15 米處，一名門將，兩名球員跟進搶第二點"
+  "zh-TW": "球距門 22–25 米，4 人人牆站在 9.15 米處，一名門將，兩名球員跟進搶第二點",
+  "de-DE": "der Ball 22–25 m vor dem Tor, eine Vierermauer in 9 m Abstand, ein Torwart und zwei Läufer für den Abpraller",
+  "nl-NL": "de bal op 22-25 m van het doel, een muur van 4 op negen meter, een keeper en twee lopers voor de rebound"
  },
  "the batter in the box at home plate, first base occupied by nobody; a cone five metres past the bag in foul ground": {
   "ja-JP": "打者はホームプレートのバッターボックスに立ち、一塁は無人。ファウルゾーンでベースから5 m先にコーン1つ",
@@ -747,7 +887,9 @@
   "es-ES": "el bateador en la caja en el plato, la primera base vacía; un cono cinco metros más allá de la almohadilla en territorio de foul",
   "fr-FR": "le frappeur dans la boîte au marbre, le premier but inoccupé ; un plot cinq mètres après le coussin en territoire des fausses balles",
   "id-ID": "batter di kotak pemukul di home plate, base pertama kosong; satu kerucut lima meter melewati base di area foul",
-  "ms-MY": "pemukul di kotak pukulan di home plate, bes pertama kosong; satu kon lima meter melepasi bes di kawasan foul"
+  "ms-MY": "pemukul di kotak pukulan di home plate, bes pertama kosong; satu kon lima meter melepasi bes di kawasan foul",
+  "de-DE": "der Schlagmann in der Box an der Home Plate, die First Base unbesetzt; ein Hütchen fünf Meter hinter der Base im Foul-Gebiet",
+  "nl-NL": "de slagman in de box bij de thuisplaat, het eerste honk onbezet; een pion vijf meter voorbij het honk in foutgebied"
  },
  "the four bases, a runner at home plate; the rest of the group waits behind the plate": {
   "ja-JP": "4つのベースを置き、ランナーはホームプレートに立つ。残りのメンバーはプレートの後ろで待つ",
@@ -757,7 +899,9 @@
   "es-ES": "las cuatro bases, un corredor en el plato; el resto del grupo espera detrás del plato",
   "fr-FR": "les quatre buts, un coureur au marbre ; le reste du groupe attend derrière le marbre",
   "id-ID": "keempat base terpasang, pelari di home plate; anggota kelompok lainnya menunggu di belakang plate",
-  "ms-MY": "keempat-empat bes, pelari di home plate; ahli kumpulan yang lain menunggu di belakang plate"
+  "ms-MY": "keempat-empat bes, pelari di home plate; ahli kumpulan yang lain menunggu di belakang plate",
+  "de-DE": "die vier Bases, ein Läufer an der Home Plate; der Rest der Gruppe wartet hinter der Plate",
+  "nl-NL": "de vier honken, een loper bij de thuisplaat; de rest van de groep wacht achter de plaat"
  },
  "the group in deep water facing the coach, far enough apart that nobody lands on anybody": {
   "ja-JP": "グループは深いエリアでコーチの方を向き、着水時に誰かの上に落ちないよう十分に間隔をとる",
@@ -767,7 +911,9 @@
   "es-ES": "el grupo en aguas profundas de cara al entrenador, con suficiente separación para que nadie caiga sobre nadie",
   "fr-FR": "le groupe en eau profonde face à l’entraîneur, assez espacé pour que personne ne retombe sur personne",
   "id-ID": "kelompok di air dalam menghadap pelatih, cukup berjauhan agar tidak ada yang mendarat menimpa orang lain",
-  "ms-MY": "kumpulan di air dalam menghadap jurulatih, cukup berjauhan supaya tiada sesiapa jatuh menimpa orang lain"
+  "ms-MY": "kumpulan di air dalam menghadap jurulatih, cukup berjauhan supaya tiada sesiapa jatuh menimpa orang lain",
+  "de-DE": "die Gruppe im tiefen Wasser mit Blick zum Trainer, weit genug auseinander, dass niemand auf jemandem landet",
+  "nl-NL": "de groep in diep water met het gezicht naar de trainer, ver genoeg uit elkaar dat niemand op een ander landt"
  },
  "the group on one goal line in lanes an arm's length apart; the far goal line is the finish": {
   "ja-JP": "グループは一方のゴールラインに腕1本分の間隔でレーンに分かれて並ぶ。反対側のゴールラインがフィニッシュ",
@@ -777,7 +923,9 @@
   "es-ES": "el grupo en una línea de gol, en calles a un brazo de distancia; la línea de gol contraria es la meta",
   "fr-FR": "le groupe sur une ligne de but, en couloirs espacés d’une longueur de bras ; la ligne de but opposée est l’arrivée",
   "id-ID": "kelompok di satu garis gawang dalam lajur berjarak satu lengan; garis gawang seberang adalah garis finis",
-  "ms-MY": "kumpulan di satu garisan gol dalam lorong berjarak sepanjang lengan; garisan gol di seberang ialah garisan penamat"
+  "ms-MY": "kumpulan di satu garisan gol dalam lorong berjarak sepanjang lengan; garisan gol di seberang ialah garisan penamat",
+  "de-DE": "die Gruppe auf einer Torlinie in Bahnen, eine Armlänge auseinander; die gegenüberliegende Torlinie ist das Ziel",
+  "nl-NL": "de groep op één doellijn in banen, een armlengte uit elkaar; de overkant is de finish"
  },
  "the group spread across the pool in deep water, an arm's length apart, facing the coach": {
   "ja-JP": "グループは深いエリアで腕1本分の間隔をとってプール全体に広がり、コーチの方を向く",
@@ -787,7 +935,9 @@
   "es-ES": "el grupo repartido a lo ancho de la piscina en aguas profundas, a un brazo de distancia, de cara al entrenador",
   "fr-FR": "le groupe réparti en travers du bassin en eau profonde, à une longueur de bras les uns des autres, face à l’entraîneur",
   "id-ID": "kelompok menyebar melintang kolam di air dalam, berjarak satu lengan, menghadap pelatih",
-  "ms-MY": "kumpulan tersebar merentasi kolam di air dalam, berjarak sepanjang lengan, menghadap jurulatih"
+  "ms-MY": "kumpulan tersebar merentasi kolam di air dalam, berjarak sepanjang lengan, menghadap jurulatih",
+  "de-DE": "die Gruppe im tiefen Wasser übers Becken verteilt, eine Armlänge auseinander, mit Blick zum Trainer",
+  "nl-NL": "de groep verspreid over het bad in diep water, een armlengte uit elkaar, met het gezicht naar de trainer"
  },
  "the player behind his rear court line with room above him; nobody in front": {
   "ja-JP": "選手は後方ラインの後ろに立ち、頭上にスペースを確保。前には誰もいない",
@@ -797,7 +947,9 @@
   "es-ES": "el jugador detrás de su línea de fondo con espacio por encima; nadie delante",
   "fr-FR": "le joueur derrière sa ligne de fond avec de l’espace au-dessus de lui ; personne devant",
   "id-ID": "pemain di belakang garis belakang lapangannya dengan ruang lega di atas kepala; tidak ada siapa pun di depan",
-  "ms-MY": "pemain di belakang garisan belakang gelanggangnya dengan ruang di atas kepala; tiada sesiapa di hadapan"
+  "ms-MY": "pemain di belakang garisan belakang gelanggangnya dengan ruang di atas kepala; tiada sesiapa di hadapan",
+  "de-DE": "der Spieler hinter seiner hinteren Grundlinie mit Platz über sich; niemand vor ihm",
+  "nl-NL": "de speler achter zijn eigen achterlijn met ruimte boven zich; niemand voor hem"
  },
  "the player on his own nine-metre line; the court's own lines are the turns": {
   "ja-JP": "選手は自陣の9 mラインに立つ。コートのラインが折り返し地点",
@@ -807,7 +959,9 @@
   "es-ES": "el jugador en su propia línea de nueve metros; las propias líneas de la pista son los giros",
   "fr-FR": "le joueur sur sa propre ligne des neuf mètres ; les lignes du terrain servent de points de retour",
   "id-ID": "pemain di garis sembilan meter sendiri; garis-garis lapangan itu sendiri menjadi titik putar balik",
-  "ms-MY": "pemain di garisan sembilan meter sendiri; garisan gelanggang itu sendiri menjadi titik pusingan"
+  "ms-MY": "pemain di garisan sembilan meter sendiri; garisan gelanggang itu sendiri menjadi titik pusingan",
+  "de-DE": "der Spieler auf seiner eigenen 9-m-Linie; die Linien des Spielfelds sind die Wendepunkte",
+  "nl-NL": "de speler op zijn eigen 9-meterlijn; de lijnen van het veld zelf zijn de keerpunten"
  },
  "the player on his own rear service line; the net and the rear line are the two ends": {
   "ja-JP": "選手は自陣の後方サービスラインに立つ。ネットと後方のラインが両端",
@@ -817,7 +971,9 @@
   "es-ES": "el jugador en su propia línea de saque de fondo; la red y la línea de fondo son los dos extremos",
   "fr-FR": "le joueur sur sa ligne de service arrière ; le filet et la ligne de fond sont les deux extrémités",
   "id-ID": "pemain di garis servis belakang sendiri; net dan garis belakang menjadi kedua ujungnya",
-  "ms-MY": "pemain di garisan servis belakang sendiri; jaring dan garisan belakang menjadi kedua-dua hujung"
+  "ms-MY": "pemain di garisan servis belakang sendiri; jaring dan garisan belakang menjadi kedua-dua hujung",
+  "de-DE": "der Spieler auf seiner eigenen hinteren Aufschlaglinie; Netz und Grundlinie sind die beiden Enden",
+  "nl-NL": "de speler op zijn eigen achterste servicelijn; het net en de achterlijn zijn de twee uiteinden"
  },
  "the player standing between two cones with room overhead; no ball": {
   "ja-JP": "選手は2つのコーンの間に立ち、頭上にスペースを確保。ボールは使わない",
@@ -827,7 +983,9 @@
   "es-ES": "el jugador de pie entre dos conos con espacio por encima; sin balón",
   "fr-FR": "le joueur debout entre deux plots avec de l’espace au-dessus de lui ; sans ballon",
   "id-ID": "pemain berdiri di antara dua kerucut dengan ruang lega di atas kepala; tanpa bola",
-  "ms-MY": "pemain berdiri di antara dua kon dengan ruang di atas kepala; tanpa bola"
+  "ms-MY": "pemain berdiri di antara dua kon dengan ruang di atas kepala; tanpa bola",
+  "de-DE": "der Spieler steht zwischen zwei Hütchen mit Platz nach oben; kein Ball",
+  "nl-NL": "de speler staat tussen twee pionnen met ruimte boven zich; geen bal"
  },
  "the player two steps behind the net with the sand raked flat under him": {
   "ja-JP": "選手はネットから2歩下がった位置に立ち、足元の砂は平らにならしておく",
@@ -837,7 +995,9 @@
   "es-ES": "el jugador a dos pasos de la red con la arena rastrillada y lisa bajo sus pies",
   "fr-FR": "le joueur à deux pas du filet, le sable ratissé bien à plat sous ses pieds",
   "id-ID": "pemain dua langkah di belakang net dengan pasir di bawahnya sudah diratakan",
-  "ms-MY": "pemain dua langkah di belakang jaring dengan pasir di bawahnya telah diratakan"
+  "ms-MY": "pemain dua langkah di belakang jaring dengan pasir di bawahnya telah diratakan",
+  "de-DE": "der Spieler zwei Schritte hinter dem Netz, der Sand unter ihm glatt geharkt",
+  "nl-NL": "de speler twee passen achter het net, met het zand onder hem vlak geharkt"
  },
  "the player two steps behind the net, the sand raked flat, nobody in front": {
   "ja-JP": "選手はネットから2歩下がった位置に立ち、砂は平らにならし、前には誰もいない",
@@ -847,7 +1007,9 @@
   "es-ES": "el jugador a dos pasos de la red, la arena rastrillada y lisa, nadie delante",
   "fr-FR": "le joueur à deux pas du filet, le sable ratissé à plat, personne devant",
   "id-ID": "pemain dua langkah di belakang net, pasir sudah diratakan, tidak ada siapa pun di depan",
-  "ms-MY": "pemain dua langkah di belakang jaring, pasir telah diratakan, tiada sesiapa di hadapan"
+  "ms-MY": "pemain dua langkah di belakang jaring, pasir telah diratakan, tiada sesiapa di hadapan",
+  "de-DE": "der Spieler zwei Schritte hinter dem Netz, der Sand glatt geharkt, niemand davor",
+  "nl-NL": "de speler twee stappen achter het net, het zand vlak geharkt, niemand ervoor"
  },
  "the same 24x20 m area, 4 v 4; every turnover is played out for five seconds before the coach restarts it": {
   "ja-JP": "同じ24x20 mのエリアで4対4。攻守が切り替わるたびに5秒間プレーを続け、その後コーチが再開する",
@@ -858,7 +1020,9 @@
   "fr-FR": "la même zone de 24x20 m, 4 contre 4 ; chaque perte de balle se joue pendant cinq secondes avant que l’entraîneur ne relance",
   "id-ID": "area 24x20 m yang sama, 4 lawan 4; setiap pergantian penguasaan dimainkan lima detik sebelum pelatih memulai lagi",
   "ms-MY": "kawasan 24x20 m yang sama, 4 lawan 4; setiap pertukaran milikan dimainkan selama lima saat sebelum jurulatih memulakan semula",
-  "zh-TW": "同樣約 24×20 米的場地，4 對 4；每次轉換都真打五秒，教練再重新發球"
+  "zh-TW": "同樣約 24×20 米的場地，4 對 4；每次轉換都真打五秒，教練再重新發球",
+  "de-DE": "dasselbe Feld von 24x20 m, 4 gegen 4; jeder Ballverlust wird fünf Sekunden ausgespielt, bevor der Trainer neu startet",
+  "nl-NL": "hetzelfde veld van 24x20 m, 4 tegen 4; elk balverlies wordt vijf seconden uitgespeeld voordat de trainer opnieuw start"
  },
  "the same 30x25 m area, 5 v 5; every turnover is played out for five seconds before the coach restarts it": {
   "ja-JP": "同じ30x25 mのエリアで5対5。攻守が切り替わるたびに5秒間プレーを続け、その後コーチが再開する",
@@ -869,7 +1033,9 @@
   "fr-FR": "la même zone de 30x25 m, 5 contre 5 ; chaque perte de balle se joue pendant cinq secondes avant que l’entraîneur ne relance",
   "id-ID": "area 30x25 m yang sama, 5 lawan 5; setiap pergantian penguasaan dimainkan lima detik sebelum pelatih memulai lagi",
   "ms-MY": "kawasan 30x25 m yang sama, 5 lawan 5; setiap pertukaran milikan dimainkan selama lima saat sebelum jurulatih memulakan semula",
-  "zh-TW": "同樣約 30×25 米的場地，5 對 5；每次轉換都真打五秒，教練再重新發球"
+  "zh-TW": "同樣約 30×25 米的場地，5 對 5；每次轉換都真打五秒，教練再重新發球",
+  "de-DE": "dasselbe Feld von 30x25 m, 5 gegen 5; jeder Ballverlust wird fünf Sekunden ausgespielt, bevor der Trainer neu startet",
+  "nl-NL": "hetzelfde veld van 30x25 m, 5 tegen 5; elk balverlies wordt vijf seconden uitgespeeld voordat de trainer opnieuw start"
  },
  "the same 36x30 m area, 6 v 6; every turnover is played out for five seconds before the coach restarts it": {
   "ja-JP": "同じ36x30 mのエリアで6対6。攻守が切り替わるたびに5秒間プレーを続け、その後コーチが再開する",
@@ -880,7 +1046,9 @@
   "fr-FR": "la même zone de 36x30 m, 6 contre 6 ; chaque perte de balle se joue pendant cinq secondes avant que l’entraîneur ne relance",
   "id-ID": "area 36x30 m yang sama, 6 lawan 6; setiap pergantian penguasaan dimainkan lima detik sebelum pelatih memulai lagi",
   "ms-MY": "kawasan 36x30 m yang sama, 6 lawan 6; setiap pertukaran milikan dimainkan selama lima saat sebelum jurulatih memulakan semula",
-  "zh-TW": "同樣約 36×30 米的場地，6 對 6；每次轉換都真打五秒，教練再重新發球"
+  "zh-TW": "同樣約 36×30 米的場地，6 對 6；每次轉換都真打五秒，教練再重新發球",
+  "de-DE": "dasselbe Feld von 36x30 m, 6 gegen 6; jeder Ballverlust wird fünf Sekunden ausgespielt, bevor der Trainer neu startet",
+  "nl-NL": "hetzelfde veld van 36x30 m, 6 tegen 6; elk balverlies wordt vijf seconden uitgespeeld voordat de trainer opnieuw start"
  },
  "the whole court, the runner on one baseline; the court's own lines are the targets": {
   "ja-JP": "コート全面、ランナーは一方のベースラインに立つ。コートのラインがそのまま目標になる",
@@ -890,7 +1058,9 @@
   "es-ES": "toda la pista, el corredor en una línea de fondo; las propias líneas de la pista son los objetivos",
   "fr-FR": "tout le terrain, le coureur sur une ligne de fond ; les lignes du terrain servent de repères",
   "id-ID": "seluruh lapangan, pelari di satu garis belakang; garis-garis lapangan itu sendiri menjadi sasarannya",
-  "ms-MY": "seluruh gelanggang, pelari di satu garisan belakang; garisan gelanggang itu sendiri menjadi sasaran"
+  "ms-MY": "seluruh gelanggang, pelari di satu garisan belakang; garisan gelanggang itu sendiri menjadi sasaran",
+  "de-DE": "das ganze Feld, der Läufer an einer Grundlinie; die Linien des Felds sind die Ziele",
+  "nl-NL": "het hele veld, de loper op één achterlijn; de lijnen van het veld zelf zijn de doelen"
  },
  "three cones 6 m apart across the 23 m line; the player starts on the middle one in the tackling position": {
   "ja-JP": "23 mラインに沿って6 m間隔でコーン3つ。選手はタックルの構えで中央のコーンからスタート",
@@ -900,7 +1070,9 @@
   "es-ES": "tres conos separados 6 m sobre la línea de 23 m; el jugador empieza en el del medio en posición de tackle",
   "fr-FR": "trois plots espacés de 6 m sur la ligne des 23 m ; le joueur part de celui du milieu en position de tacle",
   "id-ID": "tiga kerucut berjarak 6 m di garis 23 m; pemain mulai di kerucut tengah dalam posisi tackle",
-  "ms-MY": "tiga kon berjarak 6 m di garisan 23 m; pemain bermula di kon tengah dalam kedudukan terjah"
+  "ms-MY": "tiga kon berjarak 6 m di garisan 23 m; pemain bermula di kon tengah dalam kedudukan terjah",
+  "de-DE": "drei Hütchen im Abstand von 6 m quer über die 23-m-Linie; der Spieler startet am mittleren in Tackling-Position",
+  "nl-NL": "drie pionnen op 6 m van elkaar dwars over de 23-meterlijn; de speler start bij de middelste in tacklehouding"
  },
  "three cones across the middle of the half; the player starts on the middle one": {
   "ja-JP": "自陣中央を横切るようにコーン3つ。選手は中央のコーンからスタート",
@@ -910,7 +1082,9 @@
   "es-ES": "tres conos a lo ancho del centro del campo propio; el jugador empieza en el del medio",
   "fr-FR": "trois plots en travers du milieu du demi-terrain ; le joueur part de celui du milieu",
   "id-ID": "tiga kerucut melintang di tengah setengah lapangan; pemain mulai di kerucut tengah",
-  "ms-MY": "tiga kon melintang di tengah separuh gelanggang; pemain bermula di kon tengah"
+  "ms-MY": "tiga kon melintang di tengah separuh gelanggang; pemain bermula di kon tengah",
+  "de-DE": "drei Hütchen quer durch die Mitte der Hälfte; der Spieler startet am mittleren",
+  "nl-NL": "drie pionnen dwars over het midden van de helft; de speler begint bij de middelste"
  },
  "three cones across the middle of the half; the player starts on the middle one with the paddle up": {
   "ja-JP": "自陣中央を横切るようにコーン3つ。選手はラケットを構えて中央のコーンからスタート",
@@ -920,7 +1094,9 @@
   "es-ES": "tres conos a lo ancho del centro del campo propio; el jugador empieza en el del medio con la pala arriba",
   "fr-FR": "trois plots en travers du milieu du demi-terrain ; le joueur part de celui du milieu, la raquette levée",
   "id-ID": "tiga kerucut melintang di tengah setengah lapangan; pemain mulai di kerucut tengah dengan raket terangkat",
-  "ms-MY": "tiga kon melintang di tengah separuh gelanggang; pemain bermula di kon tengah dengan raket diangkat"
+  "ms-MY": "tiga kon melintang di tengah separuh gelanggang; pemain bermula di kon tengah dengan raket diangkat",
+  "de-DE": "drei Hütchen quer durch die Mitte der Hälfte; der Spieler startet am mittleren, Schläger oben",
+  "nl-NL": "drie pionnen dwars over het midden van de helft; de speler begint bij de middelste met het racket omhoog"
  },
  "three cones behind the table in a triangle — two wide and forward, one back in the middle; the player starts between them": {
   "ja-JP": "台の後ろにコーン3つを三角形に：2つは左右の前寄り、1つは後方中央。選手はその間からスタート",
@@ -930,7 +1106,9 @@
   "es-ES": "tres conos en triángulo detrás de la mesa: dos abiertos y adelantados, uno atrás en el medio; el jugador empieza entre ellos",
   "fr-FR": "trois plots en triangle derrière la table : deux écartés et vers l’avant, un en arrière au milieu ; le joueur part entre eux",
   "id-ID": "tiga kerucut membentuk segitiga di belakang meja — dua melebar di depan, satu di belakang tengah; pemain mulai di antara ketiganya",
-  "ms-MY": "tiga kon membentuk segi tiga di belakang meja — dua di sisi agak ke hadapan, satu di belakang tengah; pemain bermula di antara ketiga-tiganya"
+  "ms-MY": "tiga kon membentuk segi tiga di belakang meja — dua di sisi agak ke hadapan, satu di belakang tengah; pemain bermula di antara ketiga-tiganya",
+  "de-DE": "drei Hütchen hinter der Platte im Dreieck – zwei weit und vorne, eins hinten in der Mitte; der Spieler startet dazwischen",
+  "nl-NL": "drie pionnen achter de tafel in een driehoek — twee breed en naar voren, één achter in het midden; de speler begint ertussen"
  },
  "three cones just behind the kitchen line — both sidelines and the middle; the player starts in the middle with the paddle up": {
   "ja-JP": "キッチンラインのすぐ後ろにコーン3つ：両サイドラインと中央。選手はパドルを構えて中央からスタート",
@@ -940,7 +1118,9 @@
   "es-ES": "tres conos justo detrás de la línea de la cocina: en las dos líneas laterales y en el medio; el jugador empieza en el medio con la pala arriba",
   "fr-FR": "trois plots juste derrière la ligne de la cuisine : aux deux lignes de côté et au milieu ; le joueur part du milieu, la raquette levée",
   "id-ID": "tiga kerucut tepat di belakang garis kitchen — di kedua garis samping dan di tengah; pemain mulai di tengah dengan paddle terangkat",
-  "ms-MY": "tiga kon betul-betul di belakang garisan kitchen — di kedua-dua garisan tepi dan di tengah; pemain bermula di tengah dengan pedal diangkat"
+  "ms-MY": "tiga kon betul-betul di belakang garisan kitchen — di kedua-dua garisan tepi dan di tengah; pemain bermula di tengah dengan pedal diangkat",
+  "de-DE": "drei Hütchen direkt hinter der Kitchen-Linie — an beiden Seitenlinien und in der Mitte; der Spieler startet in der Mitte, Paddle oben",
+  "nl-NL": "drie pionnen net achter de kitchenlijn — bij beide zijlijnen en in het midden; de speler begint in het midden met de paddle omhoog"
  },
  "three cones on the baseline — both singles corners and the centre mark; the player starts on the centre": {
   "ja-JP": "ベースライン上にコーン3つ：シングルスの両角とセンターマーク。選手は中央からスタート",
@@ -950,7 +1130,9 @@
   "es-ES": "tres conos en la línea de fondo: las dos esquinas de individuales y la marca central; el jugador empieza en el centro",
   "fr-FR": "trois plots sur la ligne de fond : les deux coins de simple et la marque centrale ; le joueur part du centre",
   "id-ID": "tiga kerucut di garis belakang — kedua sudut tunggal dan tanda tengah; pemain mulai di tengah",
-  "ms-MY": "tiga kon di garisan belakang — kedua-dua penjuru perseorangan dan tanda tengah; pemain bermula di tengah"
+  "ms-MY": "tiga kon di garisan belakang — kedua-dua penjuru perseorangan dan tanda tengah; pemain bermula di tengah",
+  "de-DE": "drei Hütchen auf der Grundlinie — beide Einzelecken und das Mittelzeichen; der Spieler startet in der Mitte",
+  "nl-NL": "drie pionnen op de baseline — beide enkelhoeken en het middenstreepje; de speler start in het midden"
  },
  "three cones on the floor behind the table — the two corners and the middle; the player starts in the middle in his playing stance": {
   "ja-JP": "台の後ろの床にコーン3つ：両角と中央。選手は中央で構えた姿勢からスタート",
@@ -960,7 +1142,9 @@
   "es-ES": "tres conos en el suelo detrás de la mesa: las dos esquinas y el medio; el jugador empieza en el medio en su posición de juego",
   "fr-FR": "trois plots au sol derrière la table : les deux coins et le milieu ; le joueur part du milieu dans sa position de jeu",
   "id-ID": "tiga kerucut di lantai di belakang meja — kedua sudut dan tengah; pemain mulai di tengah dalam kuda-kuda bermain",
-  "ms-MY": "tiga kon di lantai di belakang meja — kedua-dua penjuru dan tengah; pemain bermula di tengah dalam kedudukan bermain"
+  "ms-MY": "tiga kon di lantai di belakang meja — kedua-dua penjuru dan tengah; pemain bermula di tengah dalam kedudukan bermain",
+  "de-DE": "drei Hütchen am Boden hinter der Platte – die beiden Ecken und die Mitte; der Spieler startet in der Mitte in seiner Spielstellung",
+  "nl-NL": "drie pionnen op de vloer achter de tafel — de twee hoeken en het midden; de speler begint in het midden in zijn speelhouding"
  },
  "three pairs of cones: the start line, a turn line 20 m ahead, and a recovery line 5 m behind the start; the runner starts on the start line": {
   "ja-JP": "コーン3組：スタートライン、20 m先の折り返しライン、スタートの5 m後方のリカバリーライン。ランナーはスタートラインからスタート",
@@ -970,7 +1154,9 @@
   "es-ES": "tres pares de conos: la línea de salida, una línea de giro 20 m por delante y una línea de recuperación 5 m por detrás de la salida; el corredor empieza en la línea de salida",
   "fr-FR": "trois paires de plots : la ligne de départ, une ligne de retour 20 m devant et une ligne de récupération 5 m derrière le départ ; le coureur part de la ligne de départ",
   "id-ID": "tiga pasang kerucut: garis start, garis putar balik 20 m di depan, dan garis pemulihan 5 m di belakang start; pelari mulai di garis start",
-  "ms-MY": "tiga pasang kon: garisan mula, garisan pusingan 20 m di hadapan, dan garisan pemulihan 5 m di belakang garisan mula; pelari bermula di garisan mula"
+  "ms-MY": "tiga pasang kon: garisan mula, garisan pusingan 20 m di hadapan, dan garisan pemulihan 5 m di belakang garisan mula; pelari bermula di garisan mula",
+  "de-DE": "drei Hütchenpaare: die Startlinie, eine Wendelinie 20 m davor und eine Erholungslinie 5 m hinter dem Start; der Läufer startet auf der Startlinie",
+  "nl-NL": "drie paar pionnen: de startlijn, een keerlijn 20 m verder en een herstellijn 5 m achter de start; de loper begint op de startlijn"
  },
  "two cones 40 m apart down one side of the pitch; the group goes in pairs": {
   "ja-JP": "ピッチの片側に40 m離してコーン2つ。グループは2人ずつスタート",
@@ -980,7 +1166,9 @@
   "es-ES": "dos conos separados 40 m por un lado del campo; el grupo sale por parejas",
   "fr-FR": "deux plots espacés de 40 m le long d’un côté du terrain ; le groupe part par deux",
   "id-ID": "dua kerucut berjarak 40 m di satu sisi lapangan; kelompok berangkat berpasangan",
-  "ms-MY": "dua kon berjarak 40 m di satu sisi padang; kumpulan bergerak berpasangan"
+  "ms-MY": "dua kon berjarak 40 m di satu sisi padang; kumpulan bergerak berpasangan",
+  "de-DE": "zwei Hütchen 40 m auseinander an einer Seite des Feldes; die Gruppe läuft paarweise",
+  "nl-NL": "twee pionnen 40 m uit elkaar langs één kant van het veld; de groep gaat in tweetallen"
  },
  "two cones 40 m apart; the group lines up on the first and goes in pairs": {
   "ja-JP": "40 m離したコーン2つ。グループは最初のコーンに並び、2人ずつスタート",
@@ -990,7 +1178,9 @@
   "es-ES": "dos conos separados 40 m; el grupo se coloca en fila en el primero y sale por parejas",
   "fr-FR": "deux plots espacés de 40 m ; le groupe s’aligne au premier et part par deux",
   "id-ID": "dua kerucut berjarak 40 m; kelompok berbaris di kerucut pertama dan berangkat berpasangan",
-  "ms-MY": "dua kon berjarak 40 m; kumpulan beratur di kon pertama dan bergerak berpasangan"
+  "ms-MY": "dua kon berjarak 40 m; kumpulan beratur di kon pertama dan bergerak berpasangan",
+  "de-DE": "zwei Hütchen 40 m auseinander; die Gruppe stellt sich am ersten auf und läuft paarweise",
+  "nl-NL": "twee pionnen 40 m uit elkaar; de groep stelt zich op bij de eerste en gaat in tweetallen"
  },
  "two cones as a start gate and two more 20 m ahead; the player starts standing at the gate": {
   "ja-JP": "スタートゲートとしてコーン2つ、その20 m先にさらに2つ。選手はゲートに立った状態からスタート",
@@ -1000,7 +1190,9 @@
   "es-ES": "dos conos como puerta de salida y otros dos 20 m por delante; el jugador empieza de pie en la puerta",
   "fr-FR": "deux plots comme porte de départ et deux autres 20 m plus loin ; le joueur part debout à la porte",
   "id-ID": "dua kerucut sebagai gerbang start dan dua lagi 20 m di depan; pemain mulai dengan berdiri di gerbang",
-  "ms-MY": "dua kon sebagai pintu mula dan dua lagi 20 m di hadapan; pemain bermula dalam keadaan berdiri di pintu"
+  "ms-MY": "dua kon sebagai pintu mula dan dua lagi 20 m di hadapan; pemain bermula dalam keadaan berdiri di pintu",
+  "de-DE": "zwei Hütchen als Starttor und zwei weitere 20 m davor; der Spieler startet stehend am Tor",
+  "nl-NL": "twee pionnen als startpoort en nog twee 20 m verderop; de speler start staand bij de poort"
  },
  "two cones close to the end of the table and two a step and a half behind them; the player starts between the pairs": {
   "ja-JP": "台のエンドライン近くにコーン2つ、その一歩半後ろに2つ。選手は2組の間からスタート",
@@ -1010,7 +1202,9 @@
   "es-ES": "dos conos cerca del fondo de la mesa y dos a un paso y medio por detrás; el jugador empieza entre los dos pares",
   "fr-FR": "deux plots près du bout de la table et deux à un pas et demi derrière eux ; le joueur part entre les deux paires",
   "id-ID": "dua kerucut dekat ujung meja dan dua lagi satu setengah langkah di belakangnya; pemain mulai di antara kedua pasang kerucut",
-  "ms-MY": "dua kon dekat hujung meja dan dua lagi satu setengah langkah di belakangnya; pemain bermula di antara kedua-dua pasang kon"
+  "ms-MY": "dua kon dekat hujung meja dan dua lagi satu setengah langkah di belakangnya; pemain bermula di antara kedua-dua pasang kon",
+  "de-DE": "zwei Hütchen dicht am Ende der Platte und zwei anderthalb Schritte dahinter; der Spieler startet zwischen den Paaren",
+  "nl-NL": "twee pionnen dicht bij het eind van de tafel en twee anderhalve stap daarachter; de speler begint tussen de paren"
  },
  "two cones from the baseline to the net on one side of the court; the group goes one at a time": {
   "ja-JP": "コートの片側、ベースラインからネットにかけてコーン2つ。グループは1人ずつスタート",
@@ -1020,7 +1214,9 @@
   "es-ES": "dos conos desde la línea de fondo hasta la red en un lado de la pista; el grupo sale de uno en uno",
   "fr-FR": "deux plots de la ligne de fond jusqu’au filet sur un côté du terrain ; le groupe part un par un",
   "id-ID": "dua kerucut dari garis belakang sampai ke net di satu sisi lapangan; kelompok berangkat satu per satu",
-  "ms-MY": "dua kon dari garisan belakang hingga ke jaring di satu sisi gelanggang; kumpulan bergerak seorang demi seorang"
+  "ms-MY": "dua kon dari garisan belakang hingga ke jaring di satu sisi gelanggang; kumpulan bergerak seorang demi seorang",
+  "de-DE": "zwei Hütchen von der Grundlinie bis zum Netz auf einer Seite des Feldes; die Gruppe läuft einzeln",
+  "nl-NL": "twee pionnen van de achterlijn tot het net aan één kant van het veld; de groep gaat één voor één"
  },
  "two cones on the baseline and two on the kitchen line; the player starts on the baseline": {
   "ja-JP": "ベースラインにコーン2つ、キッチンラインに2つ。選手はベースラインからスタート",
@@ -1030,7 +1226,9 @@
   "es-ES": "dos conos en la línea de fondo y dos en la línea de la cocina; el jugador empieza en la línea de fondo",
   "fr-FR": "deux plots sur la ligne de fond et deux sur la ligne de la cuisine ; le joueur part de la ligne de fond",
   "id-ID": "dua kerucut di garis belakang dan dua di garis kitchen; pemain mulai di garis belakang",
-  "ms-MY": "dua kon di garisan belakang dan dua di garisan kitchen; pemain bermula di garisan belakang"
+  "ms-MY": "dua kon di garisan belakang dan dua di garisan kitchen; pemain bermula di garisan belakang",
+  "de-DE": "zwei Hütchen auf der Grundlinie und zwei auf der Kitchen-Linie; der Spieler startet auf der Grundlinie",
+  "nl-NL": "twee pionnen op de achterlijn en twee op de kitchenlijn; de speler begint op de achterlijn"
  },
  "two cones, one on the baseline centre mark and one at the net post line; the player starts on the baseline": {
   "ja-JP": "コーン2つ：ベースラインのセンターマークに1つ、ネットポストのラインに1つ。選手はベースラインからスタート",
@@ -1040,7 +1238,9 @@
   "es-ES": "dos conos, uno en la marca central de la línea de fondo y otro a la altura del poste de la red; el jugador empieza en la línea de fondo",
   "fr-FR": "deux plots, un sur la marque centrale de la ligne de fond et un au niveau des poteaux du filet ; le joueur part de la ligne de fond",
   "id-ID": "dua kerucut, satu di tanda tengah garis belakang dan satu sejajar tiang net; pemain mulai di garis belakang",
-  "ms-MY": "dua kon, satu di tanda tengah garisan belakang dan satu sebaris dengan tiang jaring; pemain bermula di garisan belakang"
+  "ms-MY": "dua kon, satu di tanda tengah garisan belakang dan satu sebaris dengan tiang jaring; pemain bermula di garisan belakang",
+  "de-DE": "zwei Hütchen, eins auf dem Mittelzeichen der Grundlinie und eins auf Höhe des Netzpfostens; der Spieler startet auf der Grundlinie",
+  "nl-NL": "twee pionnen, één op het middenstreepje van de baseline en één ter hoogte van de netpaal; de speler start op de baseline"
  },
  "two players 20 m apart inside a 20 m square of cones, one or two pressers, one ball": {
   "ja-JP": "コーンで作った20 m四方のエリア内に、20 m離れた2人、プレッシャー役1〜2人、ボール1つ",
@@ -1051,6 +1251,8 @@
   "fr-FR": "deux joueurs à 20 m l’un de l’autre dans un carré de plots de 20 m, un ou deux joueurs au pressing, un ballon",
   "id-ID": "dua pemain berjarak 20 m di dalam persegi kerucut 20 m, satu atau dua penekan, satu bola",
   "ms-MY": "dua pemain berjarak 20 m di dalam petak kon 20 m, seorang atau dua orang penekan, satu bola",
-  "zh-TW": "20 米見方的錐標區，兩名球員相距 20 米，另有 1–2 名施壓者，一顆球"
+  "zh-TW": "20 米見方的錐標區，兩名球員相距 20 米，另有 1–2 名施壓者，一顆球",
+  "de-DE": "zwei Spieler 20 m auseinander in einem Quadrat von 20 m aus Hütchen, ein oder zwei Presser, ein Ball",
+  "nl-NL": "twee spelers 20 m uit elkaar in een vierkant van 20 m met pionnen, één of twee spelers die druk zetten, één bal"
  }
 }

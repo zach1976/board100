@@ -387,5 +387,5 @@ class VolleyballRotation {
   /// The libero's spot while off court with the middle he replaced in:
   /// his replacement zone beside the court, between the attack line and
   /// the end line, on the team's right. Also where the middle waits.
-  static const Offset benchSpot = Offset(9.7, 5.2);
+  static const Offset benchSpot = Offset(9.45, 5.2);
 }

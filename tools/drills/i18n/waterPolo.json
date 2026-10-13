@@ -7,7 +7,9 @@
     "id-ID": "Satu ulangan selesai dengan rebutan bola, penyelamatan, atau tembakan; bola kembali ke pemain point dan enam penyerang menyusun ulang. Lima ulangan, lalu penyerang dan bertahan bertukar.",
     "ms-MY": "Satu ulangan tamat dengan rampasan, selamatan atau tembakan; bola kembali kepada pemain point dan enam penyerang menyusun semula. Lima ulangan, kemudian penyerang dan pertahanan bertukar.",
     "th-TH": "แต่ละรอบจบเมื่อแย่งบอลได้ ผู้รักษาประตูเซฟ หรือมีการยิง บอลกลับไปที่ตำแหน่งพอยต์และฝ่ายรุกหกคนตั้งใหม่ ทำห้ารอบแล้วสลับรุกรับ",
-    "vi-VN": "Mỗi lượt kết thúc khi cướp được bóng, thủ môn cản phá hoặc có cú sút; bóng trở về vị trí đỉnh vòng và sáu cầu thủ tấn công dàn lại. Năm lượt rồi đổi công thủ."
+    "vi-VN": "Mỗi lượt kết thúc khi cướp được bóng, thủ môn cản phá hoặc có cú sút; bóng trở về vị trí đỉnh vòng và sáu cầu thủ tấn công dàn lại. Năm lượt rồi đổi công thủ.",
+    "de-DE": "Die Wiederholung endet mit einem Ballgewinn, einer Parade oder einem Wurf; der Ball geht zurück auf die Spitze und die sechs stellen sich neu auf. Fünf Wiederholungen, dann tauschen Angriff und Abwehr.",
+    "nl-NL": "De herhaling eindigt bij een onderschepping, een redding of een schot; de bal gaat terug naar de punt en de zes stellen zich opnieuw op. Vijf herhalingen, daarna wisselen aanval en verdediging."
   },
   "After a goal the team that conceded restarts at halfway; a ball out at the side is the other team's free throw from where it went out. Four-minute games, then swap ends.": {
     "ja-JP": "得点後は失点したチームがハーフウェーから再開。サイドへ出たボールは、出た地点から相手チームのフリースロー。1ゲーム4分で、終わったらサイドを替える。",
@@ -17,7 +19,9 @@
     "id-ID": "Setelah gol, tim yang kebobolan memulai lagi dari garis tengah; bola yang keluar di sisi menjadi lemparan bebas tim lawan dari titik keluarnya. Permainan empat menit, lalu bertukar sisi.",
     "ms-MY": "Selepas gol, pasukan yang dibolosi memulakan semula di garisan tengah; bola yang keluar di sisi menjadi lemparan bebas pasukan lawan dari tempat ia keluar. Permainan empat minit, kemudian bertukar sisi.",
     "th-TH": "หลังเสียประตู ทีมที่เสียประตูเริ่มเล่นใหม่ที่กึ่งกลางสระ บอลที่ออกด้านข้างเป็นลูกฟรีโทรว์ของอีกทีมจากจุดที่ออก เล่นเกมละสี่นาที แล้วสลับฝั่ง",
-    "vi-VN": "Sau bàn thắng, đội thủng lưới phát bóng lại ở giữa hồ; bóng ra ngoài biên là quả ném phạt của đội kia tại chỗ bóng ra. Mỗi trận bốn phút, rồi đổi sân."
+    "vi-VN": "Sau bàn thắng, đội thủng lưới phát bóng lại ở giữa hồ; bóng ra ngoài biên là quả ném phạt của đội kia tại chỗ bóng ra. Mỗi trận bốn phút, rồi đổi sân.",
+    "de-DE": "Nach einem Tor beginnt das Team, das es kassiert hat, an der Mittellinie neu; geht der Ball seitlich ins Aus, gibt es Freiwurf für das andere Team an der Stelle, wo er rausging. Spiele über vier Minuten, dann Seiten wechseln.",
+    "nl-NL": "Na een doelpunt herneemt het team dat tegenscoorde op de middenlijn; gaat de bal aan de zijkant uit, dan krijgt het andere team een vrije worp op de plek waar hij uitging. Partijen van vier minuten, dan van kant wisselen."
   },
   "After each outlet the wings swim back to their own two-metre line and the coach gives the keeper the next ball; eight outlets, alternating sides, then the keepers swap.": {
     "ja-JP": "アウトレットのたびにウイング2人は自陣の2mラインまで泳いで戻り、コーチが次のボールをGKに渡す。左右交互に8本、その後GK交代。",
@@ -27,7 +31,9 @@
     "id-ID": "Setelah setiap umpan panjang, kedua sayap berenang kembali ke garis dua meter sendiri dan pelatih memberi kiper bola berikutnya; delapan kali bergantian sisi, lalu kiper bertukar.",
     "ms-MY": "Selepas setiap hantaran keluar, kedua-dua pemain sayap berenang kembali ke garisan dua meter sendiri dan jurulatih memberi penjaga gol bola seterusnya; lapan kali berselang sisi, kemudian penjaga gol bertukar.",
     "th-TH": "หลังส่งบอลออกแต่ละครั้ง ปีกทั้งสองว่ายกลับไปที่เส้นสองเมตรของตัวเอง โค้ชส่งบอลลูกต่อไปให้ผู้รักษาประตู ทำแปดครั้งสลับข้าง แล้วเปลี่ยนผู้รักษาประตู",
-    "vi-VN": "Sau mỗi đường chuyền phát động, hai cầu thủ biên bơi về vạch hai mét của mình và huấn luyện viên đưa bóng tiếp theo cho thủ môn; tám lần đổi bên luân phiên, rồi đổi thủ môn."
+    "vi-VN": "Sau mỗi đường chuyền phát động, hai cầu thủ biên bơi về vạch hai mét của mình và huấn luyện viên đưa bóng tiếp theo cho thủ môn; tám lần đổi bên luân phiên, rồi đổi thủ môn.",
+    "de-DE": "Nach jedem Konterpass schwimmen die Außen zurück zu ihrer eigenen 2-m-Linie und der Trainer gibt dem Torwart den nächsten Ball; acht Konterpässe, Seiten im Wechsel, dann tauschen die Torhüter.",
+    "nl-NL": "Na elke uitworp zwemmen de vleugels terug naar hun eigen tweemeterlijn en geeft de trainer de keeper de volgende bal; acht uitworpen, afwisselend links en rechts, daarna wisselen de keepers."
   },
   "After each shot the keeper resets in the middle of his goal and the next shooter goes; ten shots a set, then the keepers swap.": {
     "ja-JP": "シュートのたびにGKはゴール中央に戻って構え、次のシューターが打つ。10本で1セット、その後GK交代。",
@@ -37,7 +43,9 @@
     "id-ID": "Setelah setiap tembakan kiper kembali ke tengah gawangnya dan penembak berikutnya maju; sepuluh tembakan satu set, lalu kiper bertukar.",
     "ms-MY": "Selepas setiap tembakan penjaga gol kembali ke tengah golnya dan penembak seterusnya mara; sepuluh tembakan satu set, kemudian penjaga gol bertukar.",
     "th-TH": "หลังการยิงแต่ละครั้ง ผู้รักษาประตูกลับไปกลางประตูและคนยิงคนต่อไปออกยิง สิบลูกต่อเซต แล้วเปลี่ยนผู้รักษาประตู",
-    "vi-VN": "Sau mỗi cú sút, thủ môn trở về giữa khung thành và người sút kế tiếp vào; mười cú sút một loạt, rồi đổi thủ môn."
+    "vi-VN": "Sau mỗi cú sút, thủ môn trở về giữa khung thành và người sút kế tiếp vào; mười cú sút một loạt, rồi đổi thủ môn.",
+    "de-DE": "Nach jedem Wurf stellt sich der Torwart wieder in der Mitte seines Tores auf und der nächste Schütze ist dran; zehn Würfe pro Serie, dann tauschen die Torhüter.",
+    "nl-NL": "Na elk schot stelt de keeper zich weer op in het midden van zijn doel en is de volgende schutter aan de beurt; tien schoten per serie, daarna wisselen de keepers."
   },
   "the shaded zone inside the goal is the corner the shot is aimed at — the one away from the block and the keeper": {
     "ja-JP": "ゴール内の網掛けゾーンがシュートで狙う隅——ブロックとGKから離れた側",
@@ -47,7 +55,9 @@
     "id-ID": "zona berarsir di dalam gawang adalah sudut sasaran tembakan — sisi yang jauh dari blok dan kiper",
     "ms-MY": "zon berlorek di dalam gol ialah sudut sasaran tembakan — sisi yang jauh daripada blok dan penjaga gol",
     "th-TH": "พื้นที่แรเงาในประตูคือมุมที่ลูกยิงเล็งไป ฝั่งที่ห่างจากคนบล็อกและผู้รักษาประตู",
-    "vi-VN": "vùng tô bóng trong khung thành là góc cú sút nhắm tới — phía xa hàng chắn và thủ môn"
+    "vi-VN": "vùng tô bóng trong khung thành là góc cú sút nhắm tới — phía xa hàng chắn và thủ môn",
+    "de-DE": "die schraffierte Zone im Tor ist die Ecke, auf die der Wurf zielt — die vom Block und vom Torwart abgewandte",
+    "nl-NL": "de gearceerde zone in het doel is de hoek waar het schot op mikt — de hoek weg van het blok en de keeper"
   },
   "No attacker may be inside the opponents' two-metre line ahead of the ball. A goal is the whole ball over the goal line between the posts, and 30 seconds without a shot loses possession.": {
     "ja-JP": "攻撃側はボールより前で相手の2mライン内に入ってはならない。ボールがポスト間のゴールラインを完全に越えれば得点、30秒以内にシュートがなければ攻撃権を失う。",
@@ -57,7 +67,9 @@
     "id-ID": "Penyerang tidak boleh berada di dalam garis dua meter lawan di depan bola. Gol bila seluruh bola melewati garis gawang di antara tiang, dan 30 detik tanpa tembakan berarti kehilangan bola.",
     "ms-MY": "Penyerang tidak boleh berada di dalam garisan dua meter lawan di hadapan bola. Gol apabila seluruh bola melepasi garisan gol di antara tiang, dan 30 saat tanpa tembakan bermakna hilang milikan.",
     "th-TH": "ผู้เล่นฝ่ายรุกห้ามอยู่ในเส้นสองเมตรของคู่แข่งโดยอยู่หน้าบอล ประตูนับเมื่อบอลข้ามเส้นประตูระหว่างเสาทั้งลูก และ 30 วินาทีที่ไม่มีการยิงจะเสียการครองบอล",
-    "vi-VN": "Cầu thủ tấn công không được ở trong vạch hai mét của đối phương khi đứng trước bóng. Bàn thắng tính khi cả quả bóng qua vạch khung thành giữa hai cột, và 30 giây không có cú sút thì mất quyền kiểm soát bóng."
+    "vi-VN": "Cầu thủ tấn công không được ở trong vạch hai mét của đối phương khi đứng trước bóng. Bàn thắng tính khi cả quả bóng qua vạch khung thành giữa hai cột, và 30 giây không có cú sút thì mất quyền kiểm soát bóng.",
+    "de-DE": "Kein Angreifer darf vor dem Ball innerhalb der gegnerischen 2-m-Linie sein. Ein Tor zählt, wenn der Ball vollständig zwischen den Pfosten über der Torlinie ist, und 30 Sekunden ohne Wurf kosten den Ballbesitz.",
+    "nl-NL": "Geen aanvaller mag zich vóór de bal binnen de tweemeterlijn van de tegenstander bevinden. Een doelpunt is de hele bal over de doellijn tussen de palen, en 30 seconden zonder schot kost het balbezit."
   },
   "An excluded player swims to the re-entry area in the corner and sits out 20 seconds, or until his team wins the ball back or a goal is scored; those 20 seconds are the man-up.": {
     "ja-JP": "退水になった選手はコーナーの再入水エリアへ泳ぎ、20秒間、または自チームがボールを奪い返すか得点が入るまで待つ。その20秒が数的優位の時間だ。",
@@ -67,7 +79,9 @@
     "id-ID": "Pemain yang dieksklusi berenang ke area masuk kembali di sudut dan menunggu 20 detik, atau sampai timnya merebut bola kembali atau terjadi gol; 20 detik itulah keunggulan jumlah pemain.",
     "ms-MY": "Pemain yang disingkirkan berenang ke kawasan masuk semula di sudut dan menunggu 20 saat, atau sehingga pasukannya merampas semula bola atau gol dijaringkan; 20 saat itulah kelebihan pemain.",
     "th-TH": "ผู้เล่นที่ถูกไล่ออกชั่วคราวว่ายไปที่พื้นที่กลับเข้าเล่นตรงมุมสระ รอ 20 วินาที หรือจนทีมตัวเองได้บอลคืนหรือมีประตู 20 วินาทีนั้นคือช่วงได้เปรียบจำนวนคน",
-    "vi-VN": "Cầu thủ bị phạt loại bơi về khu vực vào lại ở góc hồ và chờ 20 giây, hoặc đến khi đội mình giành lại bóng hay có bàn thắng; 20 giây đó là lúc đội kia đông người hơn."
+    "vi-VN": "Cầu thủ bị phạt loại bơi về khu vực vào lại ở góc hồ và chờ 20 giây, hoặc đến khi đội mình giành lại bóng hay có bàn thắng; 20 giây đó là lúc đội kia đông người hơn.",
+    "de-DE": "Ein hinausgestellter Spieler schwimmt in den Wiedereintrittsraum in der Ecke und setzt 20 Sekunden aus oder bis sein Team den Ball zurückgewinnt oder ein Tor fällt; diese 20 Sekunden sind die Überzahl.",
+    "nl-NL": "Een uitgesloten speler zwemt naar het terugkeervak in de hoek en zit 20 seconden uit, of tot zijn team de bal terugwint of er gescoord wordt; die 20 seconden zijn het overtal."
   },
   "A penalty is thrown from the five-metre line in one uninterrupted movement, straight after the whistle. The keeper stays on his goal line until the ball leaves the hand; everyone else stays outside the five-metre area.": {
     "ja-JP": "ペナルティは5mラインから、笛の直後に途切れない一つの動作で投げる。ボールが手を離れるまでGKはゴールライン上にいて、他の選手は全員5mエリアの外にいる。",
@@ -77,7 +91,9 @@
     "id-ID": "Penalti dilempar dari garis lima meter dalam satu gerakan tanpa jeda, langsung setelah peluit. Kiper tetap di garis gawangnya sampai bola lepas dari tangan; semua pemain lain di luar area lima meter.",
     "ms-MY": "Penalti dilempar dari garisan lima meter dalam satu gerakan tanpa henti, sejurus selepas wisel. Penjaga gol kekal di garisan golnya sehingga bola lepas dari tangan; semua pemain lain di luar kawasan lima meter.",
     "th-TH": "ลูกโทษยิงจากเส้นห้าเมตรในจังหวะเดียวต่อเนื่องทันทีหลังเสียงนกหวีด ผู้รักษาประตูอยู่บนเส้นประตูจนบอลหลุดจากมือ คนอื่นทั้งหมดอยู่นอกพื้นที่ห้าเมตร",
-    "vi-VN": "Quả phạt đền được ném từ vạch năm mét bằng một động tác liền mạch, ngay sau tiếng còi. Thủ môn đứng trên vạch khung thành cho đến khi bóng rời tay; mọi người khác ở ngoài khu vực năm mét."
+    "vi-VN": "Quả phạt đền được ném từ vạch năm mét bằng một động tác liền mạch, ngay sau tiếng còi. Thủ môn đứng trên vạch khung thành cho đến khi bóng rời tay; mọi người khác ở ngoài khu vực năm mét.",
+    "de-DE": "Ein Strafwurf wird von der 5-m-Linie in einer einzigen, ununterbrochenen Bewegung direkt nach dem Pfiff geworfen. Der Torwart bleibt auf seiner Torlinie, bis der Ball die Hand verlässt; alle anderen bleiben außerhalb des 5-m-Raums.",
+    "nl-NL": "Een strafworp wordt vanaf de vijfmeterlijn genomen in één ononderbroken beweging, direct na het fluitsignaal. De keeper blijft op zijn doellijn tot de bal de hand verlaat; alle anderen blijven buiten het vijfmetergebied."
   },
   "At a swim-off both teams line up on their own goal lines, a metre apart and a metre from the posts; the referee whistles and drops the ball at halfway.": {
     "ja-JP": "スイムオフでは両チームが自陣ゴールライン上に、互いに1m、ポストから1m離れて並ぶ。審判が笛を吹き、ハーフウェーにボールを落とす。",
@@ -87,7 +103,9 @@
     "id-ID": "Saat perebutan bola awal, kedua tim berbaris di garis gawang sendiri, berjarak satu meter dan satu meter dari tiang; wasit meniup peluit dan menjatuhkan bola di garis tengah.",
     "ms-MY": "Ketika rebutan bola permulaan, kedua-dua pasukan berbaris di garisan gol sendiri, satu meter antara satu sama lain dan dari tiang; pengadil meniup wisel dan menjatuhkan bola di garisan tengah.",
     "th-TH": "ตอนแย่งบอลเริ่มเกม ทั้งสองทีมเรียงบนเส้นประตูของตัวเอง ห่างกันหนึ่งเมตรและห่างเสาหนึ่งเมตร ผู้ตัดสินเป่านกหวีดแล้วปล่อยบอลที่กึ่งกลางสระ",
-    "vi-VN": "Khi tranh bóng đầu hiệp, hai đội xếp trên vạch khung thành của mình, cách nhau một mét và cách cột một mét; trọng tài thổi còi và thả bóng ở giữa hồ."
+    "vi-VN": "Khi tranh bóng đầu hiệp, hai đội xếp trên vạch khung thành của mình, cách nhau một mét và cách cột một mét; trọng tài thổi còi và thả bóng ở giữa hồ.",
+    "de-DE": "Beim Anschwimmen stellen sich beide Teams auf ihrer eigenen Torlinie auf, einen Meter auseinander und einen Meter von den Pfosten; der Schiedsrichter pfeift und lässt den Ball an der Mittellinie fallen.",
+    "nl-NL": "Bij de sprint om de bal stellen beide teams zich op hun eigen doellijn op, een meter uit elkaar en een meter van de palen; de scheidsrechter fluit en laat de bal op de middenlijn vallen."
   },
   "A free throw is taken at once from where the foul was, with the ball visibly released; from outside the six-metre line it may be shot straight at goal.": {
     "ja-JP": "フリースローは反則の地点から即座に、ボールをはっきり離して行う。6mラインの外からなら直接ゴールを狙ってよい。",
@@ -97,7 +115,9 @@
     "id-ID": "Lemparan bebas dilakukan segera dari tempat pelanggaran, dengan bola dilepas secara jelas; dari luar garis enam meter boleh langsung ditembakkan ke gawang.",
     "ms-MY": "Lemparan bebas diambil serta-merta dari tempat kesalahan, dengan bola dilepaskan dengan jelas; dari luar garisan enam meter ia boleh terus ditembak ke gol.",
     "th-TH": "ลูกฟรีโทรว์ต้องเล่นทันทีจากจุดที่ทำฟาวล์ โดยปล่อยบอลให้เห็นชัด ถ้าอยู่นอกเส้นหกเมตรยิงเข้าประตูได้เลย",
-    "vi-VN": "Quả ném phạt được thực hiện ngay tại chỗ phạm lỗi, bóng phải được thả rõ ràng; từ ngoài vạch sáu mét có thể sút thẳng vào khung thành."
+    "vi-VN": "Quả ném phạt được thực hiện ngay tại chỗ phạm lỗi, bóng phải được thả rõ ràng; từ ngoài vạch sáu mét có thể sút thẳng vào khung thành.",
+    "de-DE": "Ein Freiwurf wird sofort dort ausgeführt, wo das Foul war, und der Ball muss sichtbar freigegeben werden; von außerhalb der 6-m-Linie darf direkt aufs Tor geworfen werden.",
+    "nl-NL": "Een vrije worp wordt meteen genomen op de plek van de overtreding, met de bal zichtbaar vrijgegeven; van buiten de zesmeterlijn mag je direct op doel schieten."
   },
   "The goalkeeper may play the ball with both hands, and punch it, only inside his own six-metre area. A save that stays in the pool is a live ball.": {
     "ja-JP": "GKが両手でボールを扱い、パンチングできるのは自陣の6mエリア内だけ。セーブしてプール内に残ったボールはインプレーだ。",
@@ -107,7 +127,9 @@
     "id-ID": "Kiper boleh memainkan bola dengan dua tangan, dan meninjunya, hanya di dalam area enam meter sendiri. Bola hasil penyelamatan yang tetap di kolam masih hidup.",
     "ms-MY": "Penjaga gol boleh bermain bola dengan dua tangan, dan menumbuknya, hanya di dalam kawasan enam meter sendiri. Bola selamatan yang kekal di kolam masih hidup.",
     "th-TH": "ผู้รักษาประตูเล่นบอลด้วยสองมือและชกบอลได้เฉพาะในพื้นที่หกเมตรของตัวเอง ลูกที่เซฟแล้วยังอยู่ในสระถือว่ายังเล่นต่อ",
-    "vi-VN": "Thủ môn chỉ được chơi bóng bằng hai tay và đấm bóng trong khu vực sáu mét của mình. Bóng cản phá còn ở trong hồ vẫn là bóng sống."
+    "vi-VN": "Thủ môn chỉ được chơi bóng bằng hai tay và đấm bóng trong khu vực sáu mét của mình. Bóng cản phá còn ở trong hồ vẫn là bóng sống.",
+    "de-DE": "Der Torwart darf den Ball nur innerhalb seines eigenen 6-m-Raums mit beiden Händen spielen und fausten. Eine Parade, die im Becken bleibt, ist ein Ball im Spiel.",
+    "nl-NL": "De keeper mag de bal alleen binnen zijn eigen zesmetergebied met twee handen spelen en wegstompen. Een redding die in het bad blijft, is een levende bal."
   },
   "After each throw everyone goes back to the starting spots and the next taker steps up; eight in a row, then the keepers swap.": {
     "ja-JP": "1本投げるごとに全員がスタート位置に戻り、次の投げ手が出る。8本続けたらGK交代。",
@@ -117,6 +139,304 @@
     "id-ID": "Setelah setiap lemparan semua kembali ke posisi awal dan pelempar berikutnya maju; delapan kali berturut-turut, lalu kiper bertukar.",
     "ms-MY": "Selepas setiap lemparan semua kembali ke kedudukan permulaan dan pelempar seterusnya mara; lapan kali berturut-turut, kemudian penjaga gol bertukar.",
     "th-TH": "หลังการยิงแต่ละครั้ง ทุกคนกลับไปที่ตำแหน่งเริ่มต้นและคนยิงคนต่อไปออกมา ทำแปดครั้งติดกัน แล้วเปลี่ยนผู้รักษาประตู",
-    "vi-VN": "Sau mỗi lần ném, mọi người về lại vị trí xuất phát và người ném kế tiếp bước lên; tám lần liên tiếp, rồi đổi thủ môn."
+    "vi-VN": "Sau mỗi lần ném, mọi người về lại vị trí xuất phát và người ném kế tiếp bước lên; tám lần liên tiếp, rồi đổi thủ môn.",
+    "de-DE": "Nach jedem Wurf gehen alle zurück auf die Ausgangspositionen und der nächste Werfer tritt an; acht hintereinander, dann tauschen die Torhüter.",
+    "nl-NL": "Na elke worp gaat iedereen terug naar de startplekken en komt de volgende nemer naar voren; acht achter elkaar, daarna wisselen de keepers."
+  },
+  "1 v 1 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "1 gegen 1 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "1 tegen 1 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "2 v 0 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "2 gegen 0 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "2 tegen 0 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "2 v 1 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "2 gegen 1 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "2 tegen 1 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "2 v 1 field players, plus a goalkeeper in the goal; ball with 2": {
+    "de-DE": "2 gegen 1 Feldspieler, dazu ein Torwart im Tor; Ball bei 2",
+    "nl-NL": "2 tegen 1 veldspelers, plus een keeper in het doel; bal bij 2"
+  },
+  "2 v 1 field players, plus a goalkeeper in the goal; ball with GK": {
+    "de-DE": "2 gegen 1 Feldspieler, dazu ein Torwart im Tor; Ball beim GK",
+    "nl-NL": "2 tegen 1 veldspelers, plus een keeper in het doel; bal bij GK"
+  },
+  "3 v 2 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "3 gegen 2 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "3 tegen 2 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "3 v 3 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "3 gegen 3 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "3 tegen 3 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "3 v 3 field players, plus both goalkeepers; ball at halfway, both teams on their own goal lines": {
+    "de-DE": "3 gegen 3 Feldspieler, dazu beide Torhüter; Ball an der Mittellinie, beide Teams auf ihrer eigenen Torlinie",
+    "nl-NL": "3 tegen 3 veldspelers, plus beide keepers; bal op de middenlijn, beide teams op hun eigen doellijn"
+  },
+  "4 v 3 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "4 gegen 3 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "4 tegen 3 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "4 v 4 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "4 gegen 4 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "4 tegen 4 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "5 v 5 field players, plus a goalkeeper in the goal; ball with 4": {
+    "de-DE": "5 gegen 5 Feldspieler, dazu ein Torwart im Tor; Ball bei 4",
+    "nl-NL": "5 tegen 5 veldspelers, plus een keeper in het doel; bal bij 4"
+  },
+  "6 v 5 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "6 gegen 5 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "6 tegen 5 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "6 v 5 field players, plus a goalkeeper in the goal; ball with 2": {
+    "de-DE": "6 gegen 5 Feldspieler, dazu ein Torwart im Tor; Ball bei 2",
+    "nl-NL": "6 tegen 5 veldspelers, plus een keeper in het doel; bal bij 2"
+  },
+  "6 v 5 field players, plus a goalkeeper in the goal; ball with 4": {
+    "de-DE": "6 gegen 5 Feldspieler, dazu ein Torwart im Tor; Ball bei 4",
+    "nl-NL": "6 tegen 5 veldspelers, plus een keeper in het doel; bal bij 4"
+  },
+  "6 v 6 field players, plus a goalkeeper in the goal; ball with 1": {
+    "de-DE": "6 gegen 6 Feldspieler, dazu ein Torwart im Tor; Ball bei 1",
+    "nl-NL": "6 tegen 6 veldspelers, plus een keeper in het doel; bal bij 1"
+  },
+  "6 v 6 field players, plus a goalkeeper in the goal; ball with 4": {
+    "de-DE": "6 gegen 6 Feldspieler, dazu ein Torwart im Tor; Ball bei 4",
+    "nl-NL": "6 tegen 6 veldspelers, plus een keeper in het doel; bal bij 4"
+  },
+  "Centre forward": {
+    "de-DE": "Center",
+    "nl-NL": "Midvoor"
+  },
+  "Decide who owns the centre before the set starts. Every goal from two metres began with two defenders each assuming it was the other.": {
+    "de-DE": "Klärt vor Beginn des Angriffs, wer für den Center zuständig ist. Jedes Tor von der 2-m-Linie begann mit zwei Verteidigern, die jeweils dachten, der andere hat ihn.",
+    "nl-NL": "Spreek af wie de midvoor dekt voordat de aanval opgezet wordt. Elk doelpunt van twee meter begon met twee verdedigers die allebei dachten dat de ander hem had."
+  },
+  "Dropping in the water as the arm comes back — you cannot rise again in time, and the shooter is aiming at where you were.": {
+    "de-DE": "Im Wasser absacken, während der Arm zurückgeht — du kommst nicht rechtzeitig wieder hoch, und der Schütze zielt dorthin, wo du gerade warst.",
+    "nl-NL": "Wegzakken in het water terwijl de arm naar achteren gaat — je komt niet op tijd weer omhoog, en de schutter mikt op de plek waar je net was."
+  },
+  "Egg-beater high enough to have the shoulders out before the shot, and hold the near post until the ball leaves the hand. Everything you give away early you cannot take back.": {
+    "de-DE": "Mit dem Eggbeater so hoch kommen, dass die Schultern vor dem Wurf aus dem Wasser sind, und den kurzen Pfosten halten, bis der Ball die Hand verlässt. Alles, was du zu früh hergibst, holst du nicht mehr zurück.",
+    "nl-NL": "Watertrap zo hoog dat je schouders vóór het schot boven water zijn, en houd de korte paal tot de bal de hand verlaat. Alles wat je te vroeg weggeeft, krijg je niet meer terug."
+  },
+  "Eggbeater intervals": {
+    "de-DE": "Eggbeater-Intervalle",
+    "nl-NL": "Watertrap-intervallen"
+  },
+  "Every rep clears the water to the hips with the shooting arm up; the moment the hips stop clearing the surface the set is over — height out of the water is what is being trained.": {
+    "de-DE": "Bei jeder Wiederholung kommst du mit erhobenem Wurfarm bis zur Hüfte aus dem Wasser; sobald die Hüfte nicht mehr rauskommt, ist die Serie vorbei — trainiert wird die Höhe aus dem Wasser.",
+    "nl-NL": "Bij elke herhaling kom je met de werparm omhoog tot je heupen boven water; zodra de heupen niet meer boven komen, is de serie voorbij — je traint hier de hoogte boven water."
+  },
+  "Fighting for position after the pass — win it before the ball is thrown.": {
+    "de-DE": "Erst nach dem Pass um die Position kämpfen — gewinn sie, bevor der Ball geworfen wird.",
+    "nl-NL": "Pas na de pass vechten om positie — win die voordat de bal gegooid wordt."
+  },
+  "Fitness in the water: legs that hold you up, a sprint that still arrives in the fourth quarter, and the recovery between them.": {
+    "de-DE": "Fitness im Wasser: Beine, die dich oben halten, ein Sprint, der auch im vierten Viertel noch ankommt, und die Erholung dazwischen.",
+    "nl-NL": "Conditie in het water: benen die je boven houden, een sprint die in het vierde kwart nog steeds aankomt, en het herstel daartussen."
+  },
+  "Get the hips out of the water before the arm goes, and pick the corner off the block, not off the keeper. A shot released from a low body is a pass to the goalkeeper.": {
+    "de-DE": "Bring die Hüfte aus dem Wasser, bevor der Arm kommt, und wähle die Ecke nach dem Block, nicht nach dem Torwart. Ein Wurf aus tiefer Körperlage ist ein Pass zum Torwart.",
+    "nl-NL": "Krijg je heupen boven water voordat de arm komt, en kies de hoek op basis van het blok, niet van de keeper. Een schot vanuit een lage lichaamshouding is een pass naar de keeper."
+  },
+  "Go on the shot, not on the rebound. Two strokes of a head start is the whole counter — nobody out-swims a set defence.": {
+    "de-DE": "Schwimm beim Wurf los, nicht beim Abpraller. Zwei Züge Vorsprung sind der ganze Konter — eine formierte Abwehr schwimmt niemand mehr aus.",
+    "nl-NL": "Vertrek bij het schot, niet bij de rebound. Twee slagen voorsprong is de hele counter — niemand zwemt een opgestelde verdediging nog voorbij."
+  },
+  "Going on the rebound, not the shot — two strokes late is a set defence.": {
+    "de-DE": "Erst beim Abpraller statt beim Wurf losschwimmen — zwei Züge zu spät heißt, die Abwehr steht.",
+    "nl-NL": "Pas bij de rebound vertrekken in plaats van bij het schot — twee slagen te laat betekent een opgestelde verdediging."
+  },
+  "Hands out of the water and held there: the legs do the work, and the moment a hand slaps the surface for help the interval is over.": {
+    "de-DE": "Hände aus dem Wasser und oben lassen: Die Beine machen die Arbeit, und sobald eine Hand zur Hilfe aufs Wasser schlägt, ist das Intervall vorbei.",
+    "nl-NL": "Handen uit het water en daar houden: de benen doen het werk, en zodra een hand op het water slaat voor steun, is het interval voorbij."
+  },
+  "Head up on the first three strokes and the last three: a water polo sprint that puts its face in the water for the finish is a swimmer's sprint, not a player's.": {
+    "de-DE": "Kopf hoch bei den ersten drei Zügen und den letzten drei: Ein Wasserball-Sprint, der zum Schluss das Gesicht ins Wasser legt, ist ein Schwimmersprint, kein Spielersprint.",
+    "nl-NL": "Hoofd omhoog bij de eerste drie slagen en de laatste drie: een waterpolosprint met het gezicht in het water op het eind is een zwemmerssprint, geen spelerssprint."
+  },
+  "Holding the ball past the fourth pass — the block recovers and the ejection is wasted.": {
+    "de-DE": "Den Ball über den vierten Pass hinaus halten — der Block hat sich erholt und die Hinausstellung ist verschenkt.",
+    "nl-NL": "De bal na de vierde pass nog vasthouden — het blok herstelt zich en de uitsluiting is verspild."
+  },
+  "Legs first. Everything in this sport is paid for by the eggbeater, and a player who sinks to catch has already lost the position.": {
+    "de-DE": "Zuerst die Beine. Alles in diesem Sport bezahlt der Eggbeater, und wer zum Fangen absackt, hat die Position schon verloren.",
+    "nl-NL": "Eerst de benen. Alles in deze sport betaal je met het watertrappen, en wie wegzakt om te vangen, heeft de positie al verloren."
+  },
+  "Out-of-water lunges": {
+    "de-DE": "Sprünge aus dem Wasser",
+    "nl-NL": "Uitstoten boven water"
+  },
+  "Pass across the front of the defender, not around them. A ball that goes behind the perimeter gives the whole defence time to reset.": {
+    "de-DE": "Spiel den Pass vor dem Verteidiger vorbei, nicht um ihn herum. Ein Ball, der hinter die Außenpositionen geht, gibt der ganzen Abwehr Zeit, sich neu zu formieren.",
+    "nl-NL": "Speel de pass vóór de verdediger langs, niet om hem heen. Een bal die achter de buitenspelers langs gaat, geeft de hele verdediging tijd om zich te herstellen."
+  },
+  "Passing behind the defender instead of across his face — the defence resets.": {
+    "de-DE": "Hinter dem Verteidiger passen statt vor seinem Gesicht vorbei — die Abwehr formiert sich neu.",
+    "nl-NL": "Achter de verdediger langs passen in plaats van vlak voor hem — de verdediging herstelt zich."
+  },
+  "Pausing or faking after the whistle — the throw must be one movement, and the hitch is both a foul and the keeper's cue.": {
+    "de-DE": "Nach dem Pfiff zögern oder antäuschen — der Wurf muss eine einzige Bewegung sein, und das Stocken ist sowohl ein Foul als auch das Signal für den Torwart.",
+    "nl-NL": "Na het fluitsignaal aarzelen of een schijnbeweging maken — de worp moet één beweging zijn, en dat haperen is zowel een overtreding als het signaal voor de keeper."
+  },
+  "Perimeter": {
+    "de-DE": "Rückraum",
+    "nl-NL": "Buitenspel"
+  },
+  "Perimeter shot": {
+    "de-DE": "Rückraumwurf",
+    "nl-NL": "Afstandsschot"
+  },
+  "Pick the corner before the whistle and throw in one movement — any pause, fake or step forward after the whistle is a foul, and the keeper is reading the shoulder, not the ball.": {
+    "de-DE": "Wähle die Ecke vor dem Pfiff und wirf in einer Bewegung — jedes Zögern, Antäuschen oder jeder Schritt nach vorn nach dem Pfiff ist ein Foul, und der Torwart liest die Schulter, nicht den Ball.",
+    "nl-NL": "Kies de hoek vóór het fluitsignaal en gooi in één beweging — elke pauze, schijnbeweging of stap naar voren na het fluitsignaal is een overtreding, en de keeper leest je schouder, niet de bal."
+  },
+  "Play the free throw immediately — the advantage only exists while the defence is still turning around.": {
+    "de-DE": "Spiel den Freiwurf sofort — der Vorteil existiert nur, solange sich die Abwehr noch umdreht.",
+    "nl-NL": "Neem de vrije worp meteen — het voordeel bestaat alleen zolang de verdediging zich nog omdraait."
+  },
+  "Put a shot clock on it. Water polo punishes indecision more than any other team sport, and only a clock teaches that.": {
+    "de-DE": "Setz eine Wurfuhr drauf. Wasserball bestraft Unentschlossenheit mehr als jeder andere Mannschaftssport, und nur eine Uhr bringt einem das bei.",
+    "nl-NL": "Zet er een schotklok op. Waterpolo straft besluiteloosheid harder af dan elke andere teamsport, en alleen een klok leert je dat."
+  },
+  "Restart": {
+    "de-DE": "Spielfortsetzung",
+    "nl-NL": "Hervatting"
+  },
+  "Six on five": {
+    "de-DE": "Sechs gegen fünf",
+    "nl-NL": "Zes tegen vijf"
+  },
+  "Sprint lengths": {
+    "de-DE": "Bahnsprints",
+    "nl-NL": "Baansprints"
+  },
+  "Swimming the first strokes head-down — the sprinter cannot see the ball or the other sprinter, and arrives a hand late or past it.": {
+    "de-DE": "Die ersten Züge mit dem Kopf im Wasser schwimmen — der Sprinter sieht weder den Ball noch den anderen Sprinter und kommt eine Hand zu spät oder schießt vorbei.",
+    "nl-NL": "De eerste slagen met het hoofd in het water zwemmen — de sprinter ziet de bal en de andere sprinter niet, en komt een hand te laat of schiet erlangs."
+  },
+  "Turn a change of possession into a goal before the defence is back: leave on the shot, swim the lanes wide, and finish with the trailer or the man who got to two metres first.": {
+    "de-DE": "Mach aus einem Ballgewinn ein Tor, bevor die Abwehr zurück ist: Schwimm beim Wurf los, nutz die Bahnen in der Breite und schließ mit dem Nachrücker ab oder mit dem, der zuerst an der 2-m-Linie war.",
+    "nl-NL": "Maak van balverovering een doelpunt voordat de verdediging terug is: vertrek bij het schot, zwem de banen breed, en rond af met de naloper of met wie het eerst op twee meter was."
+  },
+  "Two defenders each assuming the other has the centre — every 2m goal starts there.": {
+    "de-DE": "Zwei Verteidiger, die jeweils denken, der andere hat den Center — jedes Tor von der 2-m-Linie fängt so an.",
+    "nl-NL": "Twee verdedigers die allebei denken dat de ander de midvoor heeft — elk doelpunt van 2 m begint daar."
+  },
+  "Two passes, then shoot. The block moves on the second pass and recovers by the fourth — everything after that is a wasted ejection.": {
+    "de-DE": "Zwei Pässe, dann werfen. Der Block verschiebt sich beim zweiten Pass und hat sich beim vierten erholt — alles danach ist eine verschenkte Hinausstellung.",
+    "nl-NL": "Twee passes, dan schieten. Het blok verschuift bij de tweede pass en is bij de vierde hersteld — alles daarna is een verspilde uitsluiting."
+  },
+  "Waiting to play the free throw — the advantage lasts only while they turn.": {
+    "de-DE": "Mit dem Freiwurf warten — der Vorteil hält nur, solange sie sich umdrehen.",
+    "nl-NL": "Wachten met de vrije worp — het voordeel duurt maar zolang zij zich omdraaien."
+  },
+  "Win the first three strokes, head up: the sprinter who reaches the ball a hand ahead turns his team's possession into the first attack, and one who arrives level should play it back, not fight for it.": {
+    "de-DE": "Gewinn die ersten drei Züge, Kopf hoch: Der Sprinter, der eine Hand früher am Ball ist, macht aus dem Ballbesitz seines Teams den ersten Angriff, und wer gleichzeitig ankommt, sollte ihn zurückspielen, nicht darum kämpfen.",
+    "nl-NL": "Win de eerste drie slagen, hoofd omhoog: de sprinter die een hand eerder bij de bal is, maakt van het balbezit van zijn team de eerste aanval, en wie gelijk aankomt, speelt hem beter terug dan erom te vechten."
+  },
+  "Win the position before the ball is thrown, not after. A centre who is still fighting when the pass arrives is a turnover with a splash.": {
+    "de-DE": "Gewinn die Position, bevor der Ball geworfen wird, nicht danach. Ein Center, der beim Ankommen des Passes noch kämpft, ist ein Ballverlust mit Spritzer.",
+    "nl-NL": "Win de positie voordat de bal gegooid wordt, niet erna. Een midvoor die nog vecht als de pass aankomt, is balverlies met een plons."
+  },
+  "Winding up from a flat body, so the block reads the shot a full second before it leaves.": {
+    "de-DE": "Aus flacher Körperlage ausholen, sodass der Block den Wurf eine volle Sekunde vorher liest.",
+    "nl-NL": "Uithalen vanuit een vlakke lichaamshouding, zodat het blok het schot een volle seconde van tevoren leest."
+  },
+  "catch and shoot": {
+    "de-DE": "direkt aus der Annahme",
+    "nl-NL": "direct uit de aanname"
+  },
+  "circulation": {
+    "de-DE": "mit Ballzirkulation",
+    "nl-NL": "met balcirculatie"
+  },
+  "drawing the exclusion": {
+    "de-DE": "mit herausgeholter Hinausstellung",
+    "nl-NL": "met uitsluiting afdwingen"
+  },
+  "drive and kick": {
+    "de-DE": "mit Durchbruch und Abspiel",
+    "nl-NL": "met inzwemmen en afleggen"
+  },
+  "dropping off": {
+    "de-DE": "mit Zurückfallen",
+    "nl-NL": "met inzakken"
+  },
+  "eggbeater and pass": {
+    "de-DE": "mit Eggbeater und Pass",
+    "nl-NL": "met watertrappen en passen"
+  },
+  "five against six": {
+    "de-DE": "fünf gegen sechs",
+    "nl-NL": "vijf tegen zes"
+  },
+  "fronting the centre": {
+    "de-DE": "vor dem Center",
+    "nl-NL": "vóór de midvoor"
+  },
+  "pressing": {
+    "de-DE": "mit Pressing",
+    "nl-NL": "met druk zetten"
+  },
+  "swim and catch": {
+    "de-DE": "mit Schwimmen und Fangen",
+    "nl-NL": "met zwemmen en vangen"
+  },
+  "the backhand": {
+    "de-DE": "mit Rückhandwurf",
+    "nl-NL": "met backhandschot"
+  },
+  "the entry pass": {
+    "de-DE": "mit Anspiel",
+    "nl-NL": "met de inspeelpass"
+  },
+  "the five-metre penalty": {
+    "de-DE": "beim 5-m-Strafwurf",
+    "nl-NL": "bij de strafworp"
+  },
+  "the outlet that starts the counter": {
+    "de-DE": "mit dem Konterpass zum Gegenstoß",
+    "nl-NL": "met de uitworp voor de counter"
+  },
+  "the power shot from the point": {
+    "de-DE": "mit voller Kraft von der Spitze",
+    "nl-NL": "hard vanaf de punt"
+  },
+  "the quick free throw": {
+    "de-DE": "mit schnellem Freiwurf",
+    "nl-NL": "met de snelle vrije worp"
+  },
+  "the skip shot": {
+    "de-DE": "als Aufsetzer",
+    "nl-NL": "als stuitschot"
+  },
+  "the sweep shot": {
+    "de-DE": "mit Drehwurf",
+    "nl-NL": "met het draaischot"
+  },
+  "the swim-off": {
+    "de-DE": "beim Anschwimmen",
+    "nl-NL": "bij de sprint om de bal"
+  },
+  "the two-metre shot": {
+    "de-DE": "gegen den Wurf von der 2-m-Linie",
+    "nl-NL": "tegen het schot van twee meter"
+  },
+  "the umbrella": {
+    "de-DE": "mit Schirm",
+    "nl-NL": "met de paraplu"
+  },
+  "through the centre": {
+    "de-DE": "über den Center",
+    "nl-NL": "via de midvoor"
+  },
+  "wet passing": {
+    "de-DE": "mit Pässen im Wasser",
+    "nl-NL": "met natte passes"
   }
 }

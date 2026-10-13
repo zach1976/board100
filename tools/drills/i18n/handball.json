@@ -1,0 +1,222 @@
+{
+ "A goal is the whole ball over the line inside the posts, thrown from outside the goal area — a foot in the area before the ball is gone is no goal. The ball is out at the sideline, and a turnover or an offensive foul ends the attack.": {
+  "de-DE": "Ein Tor zählt, wenn der Ball vollständig die Linie zwischen den Pfosten überquert und von außerhalb des Torraums geworfen wurde — ein Fuß im Torraum, bevor der Ball die Hand verlassen hat, heißt kein Tor. An der Seitenlinie ist der Ball im Aus; Ballverlust oder Stürmerfoul beenden den Angriff.",
+  "nl-NL": "Een doelpunt telt als de hele bal tussen de palen over de lijn gaat, gegooid van buiten het doelgebied — een voet in het doelgebied voordat de bal weg is, is geen doelpunt. Over de zijlijn is de bal uit, en balverlies of een aanvallersfout beëindigt de aanval."
+ },
+ "Attack": {
+  "de-DE": "Angriff",
+  "nl-NL": "Aanval"
+ },
+ "Attack the defender's outside shoulder, then cross. A crossing move that starts from standing still moves nobody.": {
+  "de-DE": "Greif die Außenschulter des Abwehrspielers an, dann kreuzen. Ein Kreuzen aus dem Stand bewegt niemanden.",
+  "nl-NL": "Val de buitenschouder van de verdediger aan en kruis dan. Een kruisactie vanuit stilstand brengt niemand in beweging."
+ },
+ "Both goals live, so every turnover is a run the length of the court. The team that stops arguing about the whistle first gets the goal.": {
+  "de-DE": "Beide Tore sind im Spiel, also ist jeder Ballverlust ein Lauf über das ganze Feld. Das Team, das zuerst aufhört, über den Pfiff zu diskutieren, macht das Tor.",
+  "nl-NL": "Beide doelen tellen, dus elk balverlies is een sprint over het hele veld. De ploeg die het eerst ophoudt met zeuren over het fluitsignaal, scoort."
+ },
+ "Catch with the arm already cocked. A player who catches, then loads, then throws has given the defence a whole extra second.": {
+  "de-DE": "Fang mit schon ausgeholtem Wurfarm. Wer fängt, dann ausholt und dann wirft, schenkt der Abwehr eine ganze Sekunde.",
+  "nl-NL": "Vang met je werparm al opgeheven. Wie vangt, dan pas uithaalt en dan gooit, geeft de verdediging een hele seconde cadeau."
+ },
+ "Change direction once, at speed, off the foot nearest the defender. A feint he can watch you set up is not a feint.": {
+  "de-DE": "Wechsle einmal die Richtung, im vollen Tempo, über den Fuß, der dem Abwehrspieler am nächsten ist. Eine Finte, deren Vorbereitung er sehen kann, ist keine Finte.",
+  "nl-NL": "Verander één keer van richting, op snelheid, vanaf de voet het dichtst bij de verdediger. Een schijnbeweging die hij ziet aankomen, is geen schijnbeweging."
+ },
+ "Circulation": {
+  "de-DE": "Ballzirkulation",
+  "nl-NL": "Balcirculatie"
+ },
+ "Committing to a side before the arm comes through — a keeper already moving is a keeper already beaten.": {
+  "de-DE": "Sich für eine Ecke entscheiden, bevor der Arm durchkommt — ein Torwart, der sich schon bewegt, ist schon geschlagen.",
+  "nl-NL": "Al voor een hoek kiezen voordat de arm doorkomt — een keeper die al beweegt, is al geklopt."
+ },
+ "Crossing from a standstill — a cross that starts still moves no defender.": {
+  "de-DE": "Kreuzen aus dem Stand — ein Kreuzen ohne Tempo bewegt keinen Abwehrspieler.",
+  "nl-NL": "Kruisen vanuit stilstand — een kruisactie zonder snelheid brengt geen verdediger in beweging."
+ },
+ "Every defender takes one attacker and stays between him and the goal, a step off, on the ball side. Switch only by calling it: two defenders on one man leave an attacker free behind them.": {
+  "de-DE": "Jeder Abwehrspieler nimmt einen Angreifer und bleibt zwischen ihm und dem Tor, einen Schritt entfernt, auf der Ballseite. Übergeben nur mit Ansage: Zwei Abwehrspieler an einem Mann lassen hinter ihnen einen Angreifer frei.",
+  "nl-NL": "Elke verdediger pakt één aanvaller en blijft tussen hem en het doel, een stap ervan af, aan de balkant. Alleen overnemen als je het roept: twee verdedigers op één man laten achter hen een aanvaller vrij."
+ },
+ "Everyone in his own half until the ball leaves the thrower's hand, then run. A throw-off rehearsed to the second scores before the defence has finished getting back.": {
+  "de-DE": "Alle bleiben in der eigenen Hälfte, bis der Ball die Hand des Werfers verlässt, dann laufen. Ein auf die Sekunde einstudierter Anwurf trifft, bevor die Abwehr zurück ist.",
+  "nl-NL": "Iedereen blijft op zijn eigen helft tot de bal de hand van de werper verlaat, dan lopen. Een tot op de seconde ingestudeerde beginworp scoort voordat de verdediging terug is."
+ },
+ "Fast break": {
+  "de-DE": "Gegenstoß",
+  "nl-NL": "Snelle break"
+ },
+ "Fewer players, same goal size — the shooting chances arrive faster and so does every decision that has to come before them.": {
+  "de-DE": "Weniger Spieler, gleich großes Tor — die Wurfchancen kommen schneller, und damit auch jede Entscheidung, die vorher fallen muss.",
+  "nl-NL": "Minder spelers, even groot doel — de schotkansen komen sneller, en dus ook elke beslissing die daarvoor genomen moet worden."
+ },
+ "Look at the keeper's feet, not the goal. Where their weight already is tells you which corner is actually open.": {
+  "de-DE": "Schau auf die Füße des Torwarts, nicht aufs Tor. Wo sein Gewicht schon ist, verrät dir, welche Ecke wirklich offen ist.",
+  "nl-NL": "Kijk naar de voeten van de keeper, niet naar het doel. Waar zijn gewicht al zit, vertelt je welke hoek echt open is."
+ },
+ "Looking at the goal, not the keeper's feet — their weight tells you the open corner.": {
+  "de-DE": "Aufs Tor schauen statt auf die Füße des Torwarts — sein Gewicht verrät die offene Ecke.",
+  "nl-NL": "Naar het doel kijken, niet naar de voeten van de keeper — zijn gewicht verraadt de open hoek."
+ },
+ "Move on the shooter's plant foot, not on the ball. By the time you can see the ball the ball has already been thrown.": {
+  "de-DE": "Reagiere auf den Stemmschritt des Werfers, nicht auf den Ball. Wenn du den Ball siehst, ist er schon geworfen.",
+  "nl-NL": "Reageer op de steunvoet van de schutter, niet op de bal. Tegen de tijd dat je de bal ziet, is hij al gegooid."
+ },
+ "One defender stepping out alone — that is not pressure, it is an open gate.": {
+  "de-DE": "Ein Abwehrspieler tritt allein heraus — das ist kein Druck, das ist ein offenes Tor.",
+  "nl-NL": "Eén verdediger die alleen uitstapt — dat is geen druk, dat is een open poort."
+ },
+ "One foot on the sideline and the ball in play at once. A throw-in taken while the defence is still turning round is worth more than any routine run after it has set.": {
+  "de-DE": "Ein Fuß auf der Seitenlinie und den Ball sofort ins Spiel. Ein Einwurf, während die Abwehr sich noch umdreht, ist mehr wert als jeder einstudierte Spielzug, nachdem sie steht.",
+  "nl-NL": "Eén voet op de zijlijn en de bal meteen in het spel. Een inworp terwijl de verdediging zich nog omdraait, is meer waard dan elke ingestudeerde aanval nadat ze staat."
+ },
+ "Pass and step toward the goal, not sideways. Circulation that never threatens the 9 m line lets six defenders stand still all attack.": {
+  "de-DE": "Passen und Richtung Tor nachrücken, nicht seitwärts. Eine Zirkulation, die die 9-m-Linie nie bedroht, lässt sechs Abwehrspieler den ganzen Angriff lang stehen.",
+  "nl-NL": "Passen en richting doel stappen, niet opzij. Balcirculatie die de 9-meterlijn nooit bedreigt, laat zes verdedigers de hele aanval stilstaan."
+ },
+ "Passing sideways instead of stepping at goal — six defenders stand still all attack.": {
+  "de-DE": "Seitwärts passen statt Richtung Tor zu gehen — sechs Abwehrspieler stehen den ganzen Angriff lang.",
+  "nl-NL": "Opzij passen in plaats van op het doel af te stappen — zes verdedigers staan de hele aanval stil."
+ },
+ "Pick the corner before you step to the line, and do not change it because the keeper moved first — he moved to make you change it.": {
+  "de-DE": "Wähl die Ecke, bevor du an die Linie trittst, und ändere sie nicht, weil der Torwart sich zuerst bewegt hat — er hat sich bewegt, damit du sie änderst.",
+  "nl-NL": "Kies de hoek voordat je naar de lijn stapt, en verander hem niet omdat de keeper eerst bewoog — hij bewoog juist om je te laten veranderen."
+ },
+ "Rehearse it until nobody has to look up. A free throw where three players are still reading each other is a free throw wasted.": {
+  "de-DE": "Übt es, bis keiner mehr aufschauen muss. Ein Freiwurf, bei dem drei Spieler sich noch gegenseitig lesen, ist ein verschenkter Freiwurf.",
+  "nl-NL": "Oefen het tot niemand meer hoeft op te kijken. Een vrije worp waarbij drie spelers elkaar nog moeten lezen, is een verspilde vrije worp."
+ },
+ "Sprint to the six metre line first and sort out who marks whom there. Running back watching the ball is how a five-on-four becomes a goal.": {
+  "de-DE": "Erst bis zur 6-m-Linie sprinten und dort klären, wer wen deckt. Wer beim Zurücklaufen nur den Ball anschaut, macht aus einem Fünf-gegen-Vier ein Gegentor.",
+  "nl-NL": "Sprint eerst naar de 6-meterlijn en regel daar wie wie dekt. Teruglopen terwijl je naar de bal kijkt, is hoe een vijf-tegen-vier een doelpunt wordt."
+ },
+ "Step out together and recover together. One defender who advances alone has not pressed the ball, they have opened a gate.": {
+  "de-DE": "Gemeinsam heraustreten, gemeinsam zurückgehen. Ein Abwehrspieler, der allein vorrückt, hat den Ball nicht unter Druck gesetzt, er hat ein Tor geöffnet.",
+  "nl-NL": "Samen uitstappen en samen terugzakken. Eén verdediger die alleen naar voren gaat, zet de bal niet onder druk, hij zet een poort open."
+ },
+ "The wings leave on the save, not on the outlet pass. Half a second there is the whole difference between a break and a set attack.": {
+  "de-DE": "Die Außen starten bei der Parade, nicht beim Abwurf. Diese halbe Sekunde ist der ganze Unterschied zwischen Gegenstoß und Positionsangriff.",
+  "nl-NL": "De vleugels vertrekken bij de redding, niet bij de uitworp. Die halve seconde is het hele verschil tussen een break en een opgezette aanval."
+ },
+ "Two hands up and together, arms locked, and take the ball with the hands rather than the face. A block that flinches is a deflection into your own goal.": {
+  "de-DE": "Beide Hände hoch und zusammen, Arme fest, und den Ball mit den Händen nehmen, nicht mit dem Gesicht. Ein Block, der zuckt, ist ein Abpraller ins eigene Tor.",
+  "nl-NL": "Twee handen omhoog en tegen elkaar, armen gestrekt, en pak de bal met je handen, niet met je gezicht. Een blok dat terugdeinst, is een deflectie in je eigen doel."
+ },
+ "Wings leaving on the outlet, not the save — half a second is the break.": {
+  "de-DE": "Die Außen starten beim Abwurf statt bei der Parade — die halbe Sekunde ist der Gegenstoß.",
+  "nl-NL": "De vleugels vertrekken bij de uitworp, niet bij de redding — die halve seconde is de break."
+ },
+ "after breaking through": {
+  "de-DE": "nach dem Durchbruch",
+  "nl-NL": "na een doorbraak"
+ },
+ "blocking the shot": {
+  "de-DE": "mit Wurfblock",
+  "nl-NL": "met het schot blokken"
+ },
+ "crossing the backs": {
+  "de-DE": "mit Kreuzen im Rückraum",
+  "nl-NL": "met kruisen van de opbouwers"
+ },
+ "end to end": {
+  "de-DE": "von Tor zu Tor",
+  "nl-NL": "van doel tot doel"
+ },
+ "first wave": {
+  "de-DE": "erste Welle",
+  "nl-NL": "eerste golf"
+ },
+ "from the wing angle": {
+  "de-DE": "aus dem Außenwinkel",
+  "nl-NL": "vanuit de hoek"
+ },
+ "getting back": {
+  "de-DE": "beim Rückzug",
+  "nl-NL": "bij het terugkeren"
+ },
+ "man to man": {
+  "de-DE": "Mann gegen Mann",
+  "nl-NL": "man-op-man"
+ },
+ "off the pivot's screen": {
+  "de-DE": "über die Sperre des Kreisläufers",
+  "nl-NL": "via het blok van de cirkelspeler"
+ },
+ "overloading the left": {
+  "de-DE": "mit Überladung links",
+  "nl-NL": "met overbelasting links"
+ },
+ "saving the 7 m": {
+  "de-DE": "beim 7-m-Wurf",
+  "nl-NL": "bij de 7-meterworp"
+ },
+ "second wave": {
+  "de-DE": "zweite Welle",
+  "nl-NL": "tweede golf"
+ },
+ "seven against six": {
+  "de-DE": "sieben gegen sechs",
+  "nl-NL": "zeven tegen zes"
+ },
+ "star passing": {
+  "de-DE": "Passstern",
+  "nl-NL": "passtervorm"
+ },
+ "the 7 m throw": {
+  "de-DE": "7-m-Wurf",
+  "nl-NL": "7-meterworp"
+ },
+ "the 9 m free throw": {
+  "de-DE": "9-m-Freiwurf",
+  "nl-NL": "vrije worp vanaf 9 m"
+ },
+ "the jump shot from 9 m": {
+  "de-DE": "Sprungwurf aus 9 m",
+  "nl-NL": "sprongschot vanaf 9 m"
+ },
+ "the outlet pass": {
+  "de-DE": "Abwurf",
+  "nl-NL": "de uitworp"
+ },
+ "the pivot's turn": {
+  "de-DE": "Drehung des Kreisläufers",
+  "nl-NL": "draai van de cirkelspeler"
+ },
+ "the sideline throw": {
+  "de-DE": "Einwurf",
+  "nl-NL": "inworp"
+ },
+ "the throw-off": {
+  "de-DE": "Anwurf",
+  "nl-NL": "beginworp"
+ },
+ "the wing break-in": {
+  "de-DE": "Einlaufen des Außen",
+  "nl-NL": "inlopen van de vleugel"
+ },
+ "third wave": {
+  "de-DE": "dritte Welle",
+  "nl-NL": "derde golf"
+ },
+ "three lanes": {
+  "de-DE": "drei Bahnen",
+  "nl-NL": "drie banen"
+ },
+ "through the pivot": {
+  "de-DE": "über den Kreisläufer",
+  "nl-NL": "via de cirkelspeler"
+ },
+ "wide to wide": {
+  "de-DE": "von außen nach außen",
+  "nl-NL": "van vleugel naar vleugel"
+ },
+ "with a late runner": {
+  "de-DE": "mit einem späten Läufer",
+  "nl-NL": "met een late loper"
+ },
+ "with the keeper": {
+  "de-DE": "mit dem Torwart",
+  "nl-NL": "met de keeper"
+ }
+}

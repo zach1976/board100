@@ -7,7 +7,9 @@
   "id-ID": "kotak adalah tempat umpan harus sampai ke pemain yang menyerang di sentuhan kedua; zona berarsir adalah tempat serangan itu harus jatuh",
   "ms-MY": "petak ialah tempat hantaran mesti sampai kepada pemain yang menyerang pada sentuhan kedua; zon berlorek ialah tempat serangan itu mesti jatuh",
   "th-TH": "สี่เหลี่ยมคือจุดที่ลูกส่งต้องไปถึงคนที่จะบุกในสัมผัสที่สอง โซนแรเงาคือจุดที่ลูกบุกนั้นต้องตก",
-  "vi-VN": "Ô vuông là nơi đường chuyền phải tới người tấn công ngay chạm thứ hai; vùng tô đậm là nơi cú tấn công đó phải rơi"
+  "vi-VN": "Ô vuông là nơi đường chuyền phải tới người tấn công ngay chạm thứ hai; vùng tô đậm là nơi cú tấn công đó phải rơi",
+  "de-DE": "das Quadrat ist dort, wo der Pass den Spieler erreichen muss, der den zweiten Ball angreift; die schattierte Zone ist dort, wo dieser Angriff landen muss",
+  "nl-NL": "het vierkant is waar de pass de speler moet bereiken die de tweede bal aanvalt; het gearceerde vak is waar die aanval moet landen"
  },
  "the square is where the set has to be placed for the attacker; the shaded zone is where the attack has to land": {
   "ja-JP": "四角はアタッカーへのトスを置く場所、網掛けゾーンは攻撃を落とす場所",
@@ -17,6 +19,148 @@
   "id-ID": "kotak adalah tempat umpan harus diletakkan untuk penyerang; zona berarsir adalah tempat serangan harus jatuh",
   "ms-MY": "petak ialah tempat umpanan mesti diletakkan untuk penyerang; zon berlorek ialah tempat serangan mesti jatuh",
   "th-TH": "สี่เหลี่ยมคือจุดที่ต้องเซ็ตลูกให้ตัวบุก โซนแรเงาคือจุดที่ลูกบุกต้องตก",
-  "vi-VN": "Ô vuông là nơi phải đặt đường chuyền cho người tấn công; vùng tô đậm là nơi cú tấn công phải rơi"
+  "vi-VN": "Ô vuông là nơi phải đặt đường chuyền cho người tấn công; vùng tô đậm là nơi cú tấn công phải rơi",
+  "de-DE": "das Quadrat ist dort, wo das Zuspiel für den Angreifer hin muss; die schattierte Zone ist dort, wo der Angriff landen muss",
+  "nl-NL": "het vierkant is waar de set-up voor de aanvaller moet komen; het gearceerde vak is waar de aanval moet landen"
+ },
+ "A first touch that lands anywhere on your side, not where the setter can use it.": {
+  "de-DE": "Ein erster Kontakt, der irgendwo auf deiner Seite landet, nur nicht dort, wo der Zuspieler etwas damit anfangen kann.",
+  "nl-NL": "Een eerste aanraking die ergens op jouw helft belandt, maar niet waar de spelverdeler er iets mee kan."
+ },
+ "A serve they have to take on the chest is worth two they take on the foot. Height is the weapon here, not power.": {
+  "de-DE": "Ein Aufschlag, den sie mit der Brust annehmen müssen, ist zwei wert, die sie mit dem Fuß nehmen. Die Höhe ist hier die Waffe, nicht die Kraft.",
+  "nl-NL": "Een opslag die ze op de borst moeten aannemen, is er twee waard die ze op de voet nemen. Hoogte is hier het wapen, niet kracht."
+ },
+ "A serve they take on the foot — height is the weapon here, not power.": {
+  "de-DE": "Ein Aufschlag, den sie mit dem Fuß annehmen – die Höhe ist hier die Waffe, nicht die Kraft.",
+  "nl-NL": "Een opslag die ze op de voet aannemen — hoogte is hier het wapen, niet kracht."
+ },
+ "A set that drifts over the net — you hand away the one thing you had, the choice.": {
+  "de-DE": "Ein Zuspiel, das übers Netz treibt – du gibst das Einzige weg, was du hattest: die Wahl.",
+  "nl-NL": "Een set-up die over het net afdrijft — je geeft het enige weg dat je had: de keuze."
+ },
+ "A silent set at the net — a coin flip over who attacks.": {
+  "de-DE": "Ein stilles Zuspiel am Netz – dann entscheidet der Münzwurf, wer angreift.",
+  "nl-NL": "Een stille set-up aan het net — dan is het kop of munt wie er aanvalt."
+ },
+ "Ball control": {
+  "de-DE": "Ballkontrolle",
+  "nl-NL": "Balcontrole"
+ },
+ "Block timing": {
+  "de-DE": "Block-Timing",
+  "nl-NL": "Bloktiming"
+ },
+ "Both at the net or both back — two players cannot defend a court twice.": {
+  "de-DE": "Beide am Netz oder beide hinten – zwei Spieler können ein Feld nicht doppelt verteidigen.",
+  "nl-NL": "Allebei aan het net of allebei achter — twee spelers kunnen een veld niet twee keer verdedigen."
+ },
+ "Changing surface mid-flight — the first touch flies to the crowd.": {
+  "de-DE": "Die Kontaktfläche im Flug wechseln – dann fliegt der erste Kontakt ins Publikum.",
+  "nl-NL": "Halverwege de vlucht van lichaamsdeel wisselen — dan vliegt de eerste aanraking het publiek in."
+ },
+ "Combination": {
+  "de-DE": "Kombination",
+  "nl-NL": "Combinatie"
+ },
+ "Contact above the tape or place it instead. A footvolley attack hit from below net height is a free ball with extra steps.": {
+  "de-DE": "Triff den Ball oberhalb der Netzkante oder platziere ihn stattdessen. Ein Footvolley-Angriff von unterhalb der Netzhöhe ist nur ein Freeball mit Extraschritten.",
+  "nl-NL": "Raak de bal boven de netrand of plaats hem in plaats daarvan. Een footvolley-aanval van onder nethoogte is gewoon een vrije bal met extra stappen."
+ },
+ "Hitting from below net height — an attack under the tape is a free ball with steps.": {
+  "de-DE": "Von unterhalb der Netzhöhe schlagen – ein Angriff unter der Netzkante ist ein Freeball mit Schritten.",
+  "nl-NL": "Van onder nethoogte aanvallen — een aanval onder de netrand is een vrije bal met stappen."
+ },
+ "Jump off the attacker's plant leg, not off the ball. The ball can be faked; the leg that jumps cannot.": {
+  "de-DE": "Spring vom Standbein des Angreifers ab, nicht vom Ball. Den Ball kann er antäuschen, das Bein, das springt, nicht.",
+  "nl-NL": "Spring op het standbeen van de aanvaller, niet op de bal. De bal kan hij faken, het been dat afzet niet."
+ },
+ "Kill the ball dead on the first touch. In sand you cannot chase a bad control, so the control is the whole skill.": {
+  "de-DE": "Mach den Ball mit dem ersten Kontakt tot. Im Sand kannst du einer schlechten Annahme nicht hinterherlaufen, also ist die Kontrolle die ganze Kunst.",
+  "nl-NL": "Maak de bal dood met de eerste aanraking. In het zand kun je een slechte aanname niet achterna, dus de controle is de hele kunst."
+ },
+ "Long and fast means flat and to the baseline: the receiver should still be moving back when it arrives. Hang it up and it is a free ball; drop it short and it is an easy chest control.": {
+  "de-DE": "Lang und schnell heißt flach und bis zur Grundlinie: Der Annahmespieler sollte noch rückwärts laufen, wenn er ankommt. Hängst du ihn hoch, ist es ein Freeball; spielst du ihn zu kurz, ist es eine leichte Brustannahme.",
+  "nl-NL": "Lang en snel betekent vlak en tot op de achterlijn: de ontvanger moet nog achteruit lopen als hij aankomt. Hang je hem hoog, dan is het een vrije bal; speel je hem te kort, dan is het een makkelijke aanname op de borst."
+ },
+ "One blocks and one covers — never both at the net, never both back. Two players cannot defend a court twice.": {
+  "de-DE": "Einer blockt, einer sichert – nie beide am Netz, nie beide hinten. Zwei Spieler können ein Feld nicht doppelt verteidigen.",
+  "nl-NL": "Eén blokt en één dekt — nooit allebei aan het net, nooit allebei achter. Twee spelers kunnen een veld niet twee keer verdedigen."
+ },
+ "One touch fewer and the game changes completely. Play a set at two touches and watch how fast the first control improves.": {
+  "de-DE": "Ein Kontakt weniger, und das Spiel verändert sich völlig. Spielt einen Satz mit zwei Kontakten und seht, wie schnell die erste Annahme besser wird.",
+  "nl-NL": "Eén aanraking minder en het spel verandert volledig. Speel een set met twee aanrakingen en kijk hoe snel de eerste aanname beter wordt."
+ },
+ "Receiving": {
+  "de-DE": "Annahme",
+  "nl-NL": "Aanname"
+ },
+ "Setting up": {
+  "de-DE": "Zuspiel",
+  "nl-NL": "Set-up"
+ },
+ "Take the serve on the surface it arrives at — chest for the flat one, thigh for the dipping one. Changing surface mid-flight is how the first touch flies to the crowd.": {
+  "de-DE": "Nimm den Aufschlag mit der Fläche an, auf der er ankommt – Brust beim flachen, Oberschenkel beim fallenden. Wer im Flug die Kontaktfläche wechselt, schickt den ersten Kontakt ins Publikum.",
+  "nl-NL": "Neem de opslag aan met het lichaamsdeel waar hij op afkomt — borst voor de vlakke, dij voor de vallende. Wie halverwege de vlucht van lichaamsdeel wisselt, schiet de eerste aanraking het publiek in."
+ },
+ "The second touch decides who attacks; say the name before the ball arrives. A silent set is a coin flip at the net.": {
+  "de-DE": "Der zweite Kontakt entscheidet, wer angreift; ruf den Namen, bevor der Ball kommt. Ein stilles Zuspiel ist am Netz ein Münzwurf.",
+  "nl-NL": "De tweede aanraking beslist wie aanvalt; roep de naam voordat de bal komt. Een stille set-up is aan het net kop of munt."
+ },
+ "The set decides the attack. A ball that drifts over the net gives away the only thing you had — the choice of where to put it.": {
+  "de-DE": "Das Zuspiel entscheidet den Angriff. Ein Ball, der übers Netz treibt, verschenkt das Einzige, was du hattest – die Wahl, wohin damit.",
+  "nl-NL": "De set-up beslist de aanval. Een bal die over het net afdrijft, geeft het enige weg dat je had — de keuze waar je hem neerlegt."
+ },
+ "Three touches and no hands: the first one has to end up somewhere your partner can actually set from, not just somewhere on your side.": {
+  "de-DE": "Drei Kontakte und keine Hände: Der erste muss dort landen, wo dein Partner wirklich zuspielen kann, nicht nur irgendwo auf deiner Seite.",
+  "nl-NL": "Drie aanrakingen en geen handen: de eerste moet terechtkomen waar je partner echt kan setten, niet zomaar ergens op jouw helft."
+ },
+ "attacking the second ball": {
+  "de-DE": "mit Angriff auf den zweiten Ball",
+  "nl-NL": "met aanval op de tweede bal"
+ },
+ "from the back court": {
+  "de-DE": "aus dem hinteren Feld",
+  "nl-NL": "vanuit het achterveld"
+ },
+ "off the quick set": {
+  "de-DE": "aus dem schnellen Zuspiel",
+  "nl-NL": "uit de snelle set-up"
+ },
+ "one against one at the net": {
+  "de-DE": "eins gegen eins am Netz",
+  "nl-NL": "één tegen één aan het net"
+ },
+ "the bicycle kick": {
+  "de-DE": "per Fallrückzieher",
+  "nl-NL": "met een omhaal"
+ },
+ "the dig": {
+  "de-DE": "beim Abwehrball",
+  "nl-NL": "bij de redding"
+ },
+ "the header": {
+  "de-DE": "per Kopfball",
+  "nl-NL": "met een kopbal"
+ },
+ "the shark attack": {
+  "de-DE": "für den Shark Attack",
+  "nl-NL": "voor de shark attack"
+ },
+ "the shoulder pass": {
+  "de-DE": "per Schulterpass",
+  "nl-NL": "met de schouderpass"
+ },
+ "the sombrero": {
+  "de-DE": "für den Sombrero",
+  "nl-NL": "voor de sombrero"
+ },
+ "with the chest": {
+  "de-DE": "mit der Brust",
+  "nl-NL": "met de borst"
+ },
+ "with the thigh": {
+  "de-DE": "mit dem Oberschenkel",
+  "nl-NL": "met de dij"
  }
 }

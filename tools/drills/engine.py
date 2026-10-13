@@ -1336,6 +1336,10 @@ def suffixed(base: dict, suffix) -> dict:
             raise KeyError(
                 f"drill variant {suffix!r} has no translation — add it to "
                 f"tools/drills/vocab.py") from None
+    from .narrate import fill_extra
+    base = fill_extra(dict(base), "family name", "?")
+    if parts:
+        parts = fill_extra(dict(parts), "variant", "?")
     out = {}
     for loc, text in base.items():
         variant = parts.get(loc, parts.get('en', suffix))
@@ -2042,7 +2046,10 @@ def min_client() -> str:
 def build(sport: str, library) -> dict:
     """Render one sport's library to the JSON the app ships."""
     from .mistakes import lookup
+    from .narrate import fill_extra
     drills = library()
+    for d in drills:
+        d.name = fill_extra(dict(d.name), "name", d.id)
     ids = [d.id for d in drills]
     assert len(ids) == len(set(ids)), f"duplicate drill id in {sport}"
     families = assign_families(drills, sport)
@@ -2106,14 +2113,14 @@ def build(sport: str, library) -> dict:
                 # bodies really are touching, and the pile-up check trusts it.
                 "tight": d.tight,
                 "name": d.name,
-                "note": d.note,
+                "note": fill_extra(dict(d.note), "note", d.id),
                 # The family's most common error — the other half of the
                 # coaching point, shown once per card like the note.
-                "mistake": lookup(
+                "mistake": fill_extra(dict(lookup(
                     sport,
                     families[d.id][1].get("en", "") if d.id in families
                     else d.name["en"],
-                    d.category),
+                    d.category)), "mistake", d.id),
                 "board": board,
         })
     pack = {"sport": sport, "version": pack_version(),
