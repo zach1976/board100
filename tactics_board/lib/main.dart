@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'ui/tokens.dart';
+import 'services/review_service.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'config_constants.dart';
@@ -50,6 +51,7 @@ Future<void> mainReal() async {
   // Before anything awaited: the app-open ad's cold-start window is measured
   // from here, not from AdService.init() further down. See AdService.
   AdService.markLaunch();
+  unawaited(ReviewService.instance.recordUseDay());
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

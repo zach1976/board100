@@ -13,6 +13,7 @@ import '../models/practice.dart';
 import '../models/practice_session.dart';
 import '../services/ad_service.dart';
 import '../services/practice_history_service.dart';
+import '../services/review_service.dart';
 import '../widgets/attendance_sheet.dart';
 import '../services/photo_library_service.dart';
 import '../state/tactics_state.dart';
@@ -259,6 +260,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
 
   Future<void> _showCompleteDialog() async {
     await _recordSession(completed: true);
+    unawaited(ReviewService.instance.onPositiveMoment('practice'));
     if (!mounted) return;
     await _askAttendance();
     if (!mounted) return;

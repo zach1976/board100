@@ -1,4 +1,6 @@
 import 'dart:async';
+
+import '../services/review_service.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
@@ -406,6 +408,10 @@ class TacticsState extends ChangeNotifier {
     _atStep = _animToStep >= 0 ? _animToStep : maxMoveSteps;
     _syncDrillNote();
     notifyListeners();
+    // A play watched to its last step is a coach getting what he came for.
+    if (!_preview && maxMoveSteps > 0 && _atStep >= maxMoveSteps) {
+      unawaited(ReviewService.instance.onPositiveMoment('playback'));
+    }
   }
 
   // Called by Stop button — also keep current positions

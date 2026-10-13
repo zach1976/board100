@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:io';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
@@ -1607,6 +1608,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
       messenger.showSnackBar(
         SnackBar(content: Text('${'save_success'.tr()}: ${meta.name}')),
       );
+      unawaited(ReviewService.instance.onPositiveMoment('save'));
     } catch (e) {
       debugPrint('Save error: $e');
       messenger.showSnackBar(SnackBar(content: Text('Save failed: $e')));
@@ -1673,6 +1675,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     messenger.showSnackBar(
       SnackBar(content: Text('${'save_success'.tr()}: $name')),
     );
+    unawaited(ReviewService.instance.onPositiveMoment('save'));
   }
 
   @override
