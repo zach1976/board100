@@ -137,7 +137,8 @@ void _libraryTests(String sport) {
 
     test('every drill is named in all 12 shipped locales', () {
       const locales = ['en-US', 'en-GB', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR',
-                       'es-ES', 'fr-FR', 'id-ID', 'ms-MY', 'th-TH', 'vi-VN'];
+                       'es-ES', 'fr-FR', 'id-ID', 'ms-MY', 'th-TH', 'vi-VN',
+                       'de-DE', 'nl-NL'];
       for (final d in drills) {
         for (final loc in locales) {
           expect(d.localizedName(loc), isNotEmpty, reason: '${d.id} has no name for $loc');
@@ -174,7 +175,8 @@ void _libraryTests(String sport) {
 
     test('every drill names a common mistake in all 12 locales', () {
       const locales = ['en-US', 'en-GB', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR',
-                       'es-ES', 'fr-FR', 'id-ID', 'ms-MY', 'th-TH', 'vi-VN'];
+                       'es-ES', 'fr-FR', 'id-ID', 'ms-MY', 'th-TH', 'vi-VN',
+                       'de-DE', 'nl-NL'];
       for (final d in drills) {
         for (final loc in locales) {
           expect(d.localizedMistake(loc), isNotNull, reason: '${d.id}/$loc');

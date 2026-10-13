@@ -49,6 +49,8 @@ List<SportType> sportDisplayOrderFor(Locale locale) {
   if (lang == 'th') return _orderTh;
   if (lang == 'id') return _orderId;
   if (lang == 'ms') return _orderMs;
+  if (lang == 'de') return _orderDe;
+  if (lang == 'nl') return _orderNl;
   return _orderDefault;
 }
 
@@ -138,6 +140,22 @@ const List<SportType> _orderMs = [
   SportType.volleyball, SportType.pickleball, SportType.baseball,
   SportType.handball, SportType.fieldHockey, SportType.waterPolo,
   SportType.rugby, SportType.beachTennis, SportType.footvolley,
+];
+
+const List<SportType> _orderDe = [
+  SportType.soccer, SportType.handball, SportType.tennis,
+  SportType.basketball, SportType.volleyball, SportType.tableTennis,
+  SportType.fieldHockey, SportType.badminton, SportType.waterPolo,
+  SportType.pickleball, SportType.beachTennis, SportType.rugby,
+  SportType.baseball, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderNl = [
+  SportType.soccer, SportType.fieldHockey, SportType.tennis,
+  SportType.volleyball, SportType.basketball, SportType.handball,
+  SportType.waterPolo, SportType.baseball, SportType.tableTennis,
+  SportType.badminton, SportType.pickleball, SportType.rugby,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
 ];
 
 const List<SportType> _orderDefault = [

@@ -73,6 +73,8 @@ Future<void> mainReal() async {
         Locale('th', 'TH'),
         Locale('id', 'ID'),
         Locale('ms', 'MY'),
+        Locale('de', 'DE'),
+        Locale('nl', 'NL'),
       ],
       path: packageAsset('assets/translations'),
       startLocale: _resolveEnglishStartLocale(),

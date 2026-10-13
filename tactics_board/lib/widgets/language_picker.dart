@@ -33,6 +33,8 @@ class LanguagePicker {
     (locale: Locale('th', 'TH'), name: 'ภาษาไทย'),
     (locale: Locale('id', 'ID'), name: 'Bahasa Indonesia'),
     (locale: Locale('ms', 'MY'), name: 'Bahasa Melayu'),
+    (locale: Locale('de', 'DE'), name: 'Deutsch'),
+    (locale: Locale('nl', 'NL'), name: 'Nederlands'),
   ];
 
   static void show(BuildContext context) {

@@ -19,6 +19,7 @@ const kLocales = [
   Locale('zh', 'TW'), Locale('ja', 'JP'), Locale('ko', 'KR'),
   Locale('es', 'ES'), Locale('fr', 'FR'), Locale('id', 'ID'),
   Locale('ms', 'MY'), Locale('th', 'TH'), Locale('vi', 'VN'),
+  Locale('de', 'DE'), Locale('nl', 'NL'),
 ];
 
 /// iPhone SE — the narrowest screen the apps still support.

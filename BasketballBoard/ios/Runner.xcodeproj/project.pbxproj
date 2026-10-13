@@ -80,6 +80,8 @@
 		EA8AA36F66D25D85FBA2B2A6 /* ko */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F089C3B68E6B90659FEF0A7F /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F1C5C68AC0E083C41C81F1B5 /* id */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B200C82C04BB5D80A1253E9F /* de */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4A22A27AB8971632F37324F /* nl */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FEE04AA9AD776914BE1E1A5E /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +267,8 @@
 				th,
 				id,
 				ms,
+				de,
+				nl,
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
@@ -461,6 +465,8 @@
 		B414C77F9B5976F585CF6907 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				B200C82C04BB5D80A1253E9F /* de */,
+				B4A22A27AB8971632F37324F /* nl */,
 				9A687EE466255F3E1D7FB230 /* zh-Hans */,
 				6285E6ABECC2360D3E123E36 /* ja */,
 				F089C3B68E6B90659FEF0A7F /* en */,

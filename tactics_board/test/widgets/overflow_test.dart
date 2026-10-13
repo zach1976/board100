@@ -20,6 +20,7 @@ const kLocales = [
   Locale('zh', 'TW'), Locale('ja', 'JP'), Locale('ko', 'KR'),
   Locale('es', 'ES'), Locale('fr', 'FR'), Locale('id', 'ID'),
   Locale('ms', 'MY'), Locale('th', 'TH'), Locale('vi', 'VN'),
+  Locale('de', 'DE'), Locale('nl', 'NL'),
 ];
 
 /// iPhone SE — the narrowest screen the apps still support.
@@ -159,11 +160,13 @@ void main() {
     watch.check(broken);
     watch.start();
 
-    // Every other sport, at the three locales whose words run longest. The
+    // Every other sport, at the locales whose words run longest. The
     // chip labels come from a shared vocabulary, so badminton exercises the
     // mechanism — this is insurance against one sport owning a phrase nobody
     // thought about.
-    const longWinded = [Locale('fr', 'FR'), Locale('vi', 'VN'), Locale('th', 'TH')];
+    const longWinded = [
+      Locale('fr', 'FR'), Locale('vi', 'VN'), Locale('th', 'TH'), Locale('de', 'DE'),
+    ];
     for (final sport in SportType.values) {
       if (sport == SportType.badminton) continue;
       final other = TacticsState(sportType: sport);

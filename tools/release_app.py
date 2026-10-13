@@ -101,9 +101,9 @@ LOCALE_MAP = {
     "en-US": "en-US", "en-GB": "en-GB", "es-ES": "es-ES", "fr-FR": "fr-FR",
     "id": "id", "ja": "ja", "ko": "ko", "ms": "ms", "th": "th", "vi": "vi",
     "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant",
-    # Store-only listings (2026-10-13): the app's UI has no German or Dutch,
-    # but these are field hockey's and soccer's biggest markets. A folder
-    # that exists is created on ASC by step_text; apps without one skip it.
+    # Added 2026-10-13 for field hockey's and soccer's biggest markets; the
+    # app's UI speaks both since the same evening. A folder that exists is
+    # created on ASC by step_text; apps without one skip it.
     "de-DE": "de-DE", "nl-NL": "nl-NL",
 }
 

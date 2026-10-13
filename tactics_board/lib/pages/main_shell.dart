@@ -310,7 +310,7 @@ class _TabBar extends StatelessWidget {
                 Expanded(
                   child: _TabButton(
                     icon: _items[i].$1,
-                    label: _items[i].$2.tr(),
+                    label: _items[i].$2.tr(context: context),
                     selected: i == _selected,
                     onTap: () => onTap(i),
                   ),
@@ -351,7 +351,7 @@ class _SideRail extends StatelessWidget {
                   height: 76,
                   child: _TabButton(
                     icon: _TabBar._items[i].$1,
-                    label: _TabBar._items[i].$2.tr(),
+                    label: _TabBar._items[i].$2.tr(context: context),
                     selected: i == selected,
                     onTap: () => onTap(i),
                     large: true,

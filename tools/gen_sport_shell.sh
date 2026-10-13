@@ -272,7 +272,7 @@ GIT
     [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$HOME_ZH\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
   done
   [ -d "$DIR/ios/Runner/ja.lproj" ] && echo "CFBundleDisplayName = \"$HOME_JA\";" > "$DIR/ios/Runner/ja.lproj/InfoPlist.strings"
-  for l in ko fr es vi th id ms; do
+  for l in ko fr es vi th id ms de nl; do
     [ -d "$DIR/ios/Runner/$l.lproj" ] && echo "CFBundleDisplayName = \"$HOME_EN\";" > "$DIR/ios/Runner/$l.lproj/InfoPlist.strings"
   done
 
