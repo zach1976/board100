@@ -3,11 +3,14 @@ Yang Baru di 2.1.0
 SEMUA ENAM ROTASI
 Pilih rotasi dan papan menempatkan keenam pemainmu di posisinya, saat servis atau saat menerima. Maju atau mundur antar rotasi, pilih zona tosser, dan masukkan libero. Pemeriksaan tumpang tindih menandai dua pemain yang posisinya salah saat bola diservis.
 
-92 LATIHAN
-Pustaka latihan bertambah dari 44 menjadi 92: jauh lebih banyak servis dan penerimaan servis, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
+150 LATIHAN
+Pustaka latihan bertambah dari 44 menjadi 150: penerimaan servis di setiap rotasi sistem 5-1, 6-2, dan 4-2, transisi ke serangan, servis terarah, bola kedua tosser, pergantian libero, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
 
 DIBUAT UNTUK iPAD
 Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
+
+JERMAN DAN BELANDA
+Aplikasi kini berbahasa Jerman dan Belanda: setiap layar, setiap nama latihan, dan setiap catatan pelatih. Totalnya 14 bahasa.
 
 PERBAIKAN KECIL
 Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Panah lari pendek ada di samping pemain, bukan melintasinya. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.

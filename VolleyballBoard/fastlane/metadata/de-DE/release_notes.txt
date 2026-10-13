@@ -3,11 +3,14 @@ Neu in 2.1.0
 ALLE SECHS ROTATIONEN
 Wähle eine Rotation, und das Board stellt deine sechs dorthin, wo sie stehen – bei Aufschlag oder Annahme. Gehe vor oder zurück durch die Rotationen, wähle die Zone des Zuspielers und bring den Libero ins Spiel. Eine Überlappungsprüfung markiert zwei Spieler, die beim Aufschlag falsch stehen würden.
 
-92 ÜBUNGEN
-Die Übungsbibliothek ist von 44 auf 92 gewachsen: viel mehr Aufschlag und Annahme, dazu Zuspiel, Angriff, Block und Abwehr, jeweils mit Trainerhinweisen in deiner Sprache.
+150 ÜBUNGEN
+Die Übungsbibliothek ist von 44 auf 150 gewachsen: Annahme in jeder Rotation der Systeme 5-1, 6-2 und 4-2, Umschalten zum Angriff, gezielter Aufschlag, der zweite Ball des Zuspielers, Libero-Wechsel, dazu Zuspiel, Angriff, Block und Abwehr, jeweils mit Trainerhinweisen in deiner Sprache.
 
 FÜR DAS iPAD GEMACHT
 Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
 
 KLEINERE KORREKTUREN
 Zurück von einem Board führt wieder in den laufenden Trainingsplan. Der Pfeil eines kurzen Laufwegs liegt neben dem Spieler statt quer über ihm. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

@@ -3,11 +3,14 @@ What's New in 2.1.0
 ALL SIX ROTATIONS
 Pick a rotation and the board puts your six where they stand, in serve or in receive. Step forward or back through the rotations, choose the setter's zone and bring in the libero. An overlap check marks any two players who would be out of position when the ball is served.
 
-92 DRILLS
-The drill library has grown from 44 to 92: far more serving and serve receive, plus setting, attacking, blocking and defence, each with coaching notes in your language.
+150 DRILLS
+The drill library has grown from 44 to 150: serve receive in every rotation of the 5-1, 6-2 and 4-2 systems, transition attack, target serving, the setter's second ball, libero substitutions, plus setting, attacking, blocking and defence, each with coaching notes in your language.
 
 MADE FOR iPAD
 A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
+
+GERMAN AND DUTCH
+The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
 
 SMALLER FIXES
 Back from a board returns to the practice plan you were running. A short run's arrow sits beside the player instead of across him. Many labels that were still in English are now translated.

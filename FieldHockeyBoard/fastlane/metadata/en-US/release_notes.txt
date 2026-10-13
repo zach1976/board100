@@ -15,5 +15,8 @@ The app's backgrounds now take the blue of a hockey pitch instead of the dark te
 MADE FOR iPAD
 A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
 
+GERMAN AND DUTCH
+The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
+
 SMALLER FIXES
 Turned sideways, the side bar moves away from the Dynamic Island. Back from a board returns to the practice plan you were running. Many labels that were still in English are now translated.

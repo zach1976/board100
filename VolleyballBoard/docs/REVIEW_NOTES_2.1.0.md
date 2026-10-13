@@ -1,4 +1,4 @@
-# Review Notes — Volleyball Board 2.1.0 (build 2)
+# Review Notes — Volleyball Board 2.1.0 (build 3)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.0，本次是 2.0.0 → 2.1.0。
@@ -35,12 +35,14 @@ permissions and no new network endpoints.
    players for any of the six rotations, in serve or in receive. Coaches can
    step forward and back, choose the setter's zone and bring in the libero.
    An overlap check marks players who would be out of position at the serve.
-4. The drill library grows from 44 to 92 drills.
+4. The drill library grows from 44 to 150 drills.
 5. iPad: a side bar instead of tabs, list-beside-detail for drills and
    plans, panels as popovers, hardware keyboard shortcuts and Apple Pencil
    drawing.
 6. Back from a board returns to the practice plan being run; a short run's
    arrow is drawn beside the player; untranslated labels were translated.
+7. The app's interface and every drill's coaching notes are now also in
+   German and Dutch (14 languages in all).
 
 ## How to see it
 

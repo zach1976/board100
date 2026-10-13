@@ -1,4 +1,4 @@
-# Review Notes — Field Hockey Board 2.2.0 (build 3)
+# Review Notes — Field Hockey Board 2.2.0 (build 4)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.1，本次是 2.0.1 → 2.2.0。
@@ -42,6 +42,8 @@ permissions and no new network endpoints.
    plans, panels as popovers, hardware keyboard shortcuts and Apple Pencil
    drawing. In landscape on iPhone the side bar keeps to the Dynamic
    Island's side.
+8. The app's interface and every drill's coaching notes are now also in
+   German and Dutch (14 languages in all).
 
 ## How to see it
 

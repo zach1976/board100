@@ -3,11 +3,14 @@ Novedades de la versión 2.1.0
 LAS SEIS ROTACIONES
 Elige una rotación y la pizarra coloca a tus seis donde están, en saque o en recepción. Avanza o retrocede por las rotaciones, elige la zona del colocador y mete al líbero. Una comprobación de solapamiento marca a dos jugadores que estarían mal colocados en el momento del saque.
 
-92 EJERCICIOS
-La biblioteca ha pasado de 44 a 92 ejercicios: mucho más saque y recepción, además de colocación, ataque, bloqueo y defensa, cada uno con indicaciones del entrenador en tu idioma.
+150 EJERCICIOS
+La biblioteca ha pasado de 44 a 150 ejercicios: recepción en cada rotación de los sistemas 5-1, 6-2 y 4-2, transición al ataque, saque dirigido, el segundo toque del colocador, cambios del líbero, además de colocación, ataque, bloqueo y defensa, cada uno con indicaciones del entrenador en tu idioma.
 
 HECHO PARA iPAD
 Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
+
+ALEMÁN Y NEERLANDÉS
+La app ahora habla alemán y neerlandés: cada pantalla, cada nombre de ejercicio y cada indicación del entrenador. Ya son 14 idiomas.
 
 OTROS ARREGLOS
 Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. La flecha de un desplazamiento corto va al lado del jugador, no encima. Muchas etiquetas que seguían en inglés ya están traducidas.

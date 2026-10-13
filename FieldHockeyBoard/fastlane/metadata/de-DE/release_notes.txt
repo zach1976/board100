@@ -15,5 +15,8 @@ Die Hintergründe der App tragen jetzt das Blau eines Hockeyplatzes statt des du
 FÜR DAS iPAD GEMACHT
 Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
 
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
+
 KLEINERE KORREKTUREN
 Im Querformat rückt die Seitenleiste von der Dynamic Island weg. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

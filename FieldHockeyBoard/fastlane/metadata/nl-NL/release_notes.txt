@@ -15,5 +15,8 @@ De achtergronden van de app hebben nu het blauw van een hockeyveld in plaats van
 GEMAAKT VOOR DE iPAD
 Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
 
+DUITS EN NEDERLANDS
+De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
+
 KLEINE VERBETERINGEN
 In liggende stand schuift de zijbalk weg van het Dynamic Island. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Veel labels die nog Engels waren, zijn nu vertaald.

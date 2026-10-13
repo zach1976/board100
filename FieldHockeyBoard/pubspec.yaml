@@ -2,7 +2,7 @@ name: fieldhockey_board
 description: "Field Hockey Board — single-sport shell over the shared tactics_board core."
 publish_to: 'none'
 # Kept in lockstep with the core: every app in this repo ships one version.
-version: 2.2.0+3
+version: 2.2.0+4
 
 environment:
   sdk: ^3.11.0

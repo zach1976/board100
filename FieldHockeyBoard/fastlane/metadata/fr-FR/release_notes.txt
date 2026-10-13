@@ -15,5 +15,8 @@ Les fonds de l'app prennent maintenant le bleu d'un terrain de hockey au lieu du
 PENSÉ POUR L'iPAD
 Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
 
+ALLEMAND ET NÉERLANDAIS
+L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+
 AUTRES CORRECTIONS
 En paysage, la barre latérale s'écarte de la Dynamic Island. Revenir d'un tableau vous ramène à la séance en cours. Beaucoup de libellés encore en anglais sont maintenant traduits.

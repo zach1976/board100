@@ -3,11 +3,14 @@ Có gì mới trong 2.1.0
 ĐỦ SÁU VÒNG XOAY
 Chọn một vòng xoay và bảng đặt sáu cầu thủ vào đúng chỗ, khi phát bóng hoặc khi đỡ bước một. Tiến hoặc lùi qua các vòng xoay, chọn vùng của chuyền hai và đưa libero vào sân. Kiểm tra chồng vị trí đánh dấu hai cầu thủ đứng sai vị trí lúc phát bóng.
 
-92 BÀI TẬP
-Thư viện tăng từ 44 lên 92 bài: nhiều hơn hẳn về phát bóng và đỡ phát bóng, thêm chuyền hai, tấn công, chắn bóng và phòng thủ, mỗi bài đều có lời giảng bằng tiếng Việt.
+150 BÀI TẬP
+Thư viện tăng từ 44 lên 150 bài: đỡ bước một ở mọi vòng xoay của các hệ thống 5-1, 6-2 và 4-2, chuyển đổi sang tấn công, phát bóng có mục tiêu, quả thứ hai của chuyền hai, thay libero, thêm chuyền hai, tấn công, chắn bóng và phòng thủ, mỗi bài đều có lời giảng bằng tiếng Việt.
 
 LÀM CHO iPAD
 Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
+
+TIẾNG ĐỨC VÀ TIẾNG HÀ LAN
+Ứng dụng giờ có tiếng Đức và tiếng Hà Lan: mọi màn hình, mọi tên bài tập và mọi lời giảng. Tổng cộng 14 ngôn ngữ.
 
 SỬA LỖI NHỎ
 Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Mũi tên của một đoạn chạy ngắn nằm cạnh cầu thủ thay vì đè lên người. Nhiều nhãn còn tiếng Anh nay đã được dịch.

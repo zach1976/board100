@@ -3,11 +3,14 @@ Nieuw in 2.1.0
 ALLE ZES ROTATIES
 Kies een rotatie en het bord zet je zes spelers waar ze staan, bij opslag of bij pass. Stap vooruit of terug door de rotaties, kies de zone van de spelverdeler en zet de libero erin. Een overlapcontrole markeert twee spelers die bij de opslag verkeerd zouden staan.
 
-92 OEFENINGEN
-De oefenbibliotheek is gegroeid van 44 naar 92: veel meer opslag en pass, plus set-up, aanval, blok en verdediging, elk met coachaanwijzingen in je eigen taal.
+150 OEFENINGEN
+De oefenbibliotheek is gegroeid van 44 naar 150: pass in elke rotatie van de systemen 5-1, 6-2 en 4-2, omschakelen naar de aanval, gericht serveren, de tweede bal van de spelverdeler, liberowissels, plus set-up, aanval, blok en verdediging, elk met coachaanwijzingen in je eigen taal.
 
 GEMAAKT VOOR DE iPAD
 Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
+
+DUITS EN NEDERLANDS
+De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
 
 KLEINE VERBETERINGEN
 Terug vanaf een bord brengt je weer in het trainingsplan dat liep. De pijl van een korte loop staat naast de speler in plaats van over hem heen. Veel labels die nog Engels waren, zijn nu vertaald.
