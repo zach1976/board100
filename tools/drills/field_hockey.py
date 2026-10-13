@@ -1801,11 +1801,8 @@ def indoor_family() -> list[Drill]:
 
 def field_hockey_expansion() -> list[Drill]:
     return (corner_variations() + corner_defence() + pressing_family()
-            + beating_the_press() + attacking_extras() + keeper_extras())
-    # indoor_family() is held back: its boards carry courtLayout "indoor",
-    # which only 2.2.0 draws, and one such drill lifts the whole pack's
-    # minClient — live 2.0.1 would then get none of the outdoor drills.
-    # Add it back here once field hockey 2.2.0 is the live version.
+            + beating_the_press() + attacking_extras() + keeper_extras()
+            + indoor_family())
 
 
 # Where a passage was left on the last receiver's stick: the build-ups

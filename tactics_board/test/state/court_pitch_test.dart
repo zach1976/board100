@@ -90,8 +90,7 @@ void main() {
       for (final d in pack['drills'] as List)
         if ((d['id'] as String).startsWith('fh_in_')) d as Map
     ];
-    // Empty while the indoor drills are held out of the pack (see
-    // field_hockey_expansion in tools/drills/field_hockey.py).
+    expect(indoor, isNotEmpty);
     for (final d in indoor) {
       expect((d['board'] as Map)['courtLayout'], 'indoor', reason: d['id']);
     }

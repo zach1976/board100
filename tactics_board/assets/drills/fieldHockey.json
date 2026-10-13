@@ -1,12 +1,12 @@
 {
   "sport": "fieldHockey",
   "version": 6,
-  "minClient": "2.0.0",
+  "minClient": "2.2.0",
   "drills": [
     {
       "id": "fh_warm_gates",
       "level": "foundation",
-      "family": "fieldHockey_family_4",
+      "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -289,7 +289,7 @@
     {
       "id": "fh_warm_pairs",
       "level": "foundation",
-      "family": "fieldHockey_family_4",
+      "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -463,7 +463,7 @@
     {
       "id": "fh_warm_elimination",
       "level": "foundation",
-      "family": "fieldHockey_family_4",
+      "family": "fieldHockey_family_6",
       "familyName": {
         "en": "Warm-up",
         "en-GB": "Warm-up",
@@ -654,7 +654,7 @@
     {
       "id": "fh_build_from_the_back",
       "level": "development",
-      "family": "fieldHockey_family_10",
+      "family": "fieldHockey_family_15",
       "familyName": {
         "en": "Building up",
         "en-GB": "Building up",
@@ -1000,7 +1000,7 @@
     {
       "id": "fh_build_through_midfield",
       "level": "development",
-      "family": "fieldHockey_family_10",
+      "family": "fieldHockey_family_15",
       "familyName": {
         "en": "Building up",
         "en-GB": "Building up",
@@ -1340,7 +1340,7 @@
     {
       "id": "fh_build_switching",
       "level": "advanced",
-      "family": "fieldHockey_family_10",
+      "family": "fieldHockey_family_15",
       "familyName": {
         "en": "Building up",
         "en-GB": "Building up",
@@ -2877,7 +2877,7 @@
     {
       "id": "fh_shot_deflection",
       "level": "foundation",
-      "family": "fieldHockey_family_5",
+      "family": "fieldHockey_family_7",
       "familyName": {
         "en": "Shooting",
         "en-GB": "Shooting",
@@ -3112,7 +3112,7 @@
     {
       "id": "fh_shot_reverse",
       "level": "development",
-      "family": "fieldHockey_family_5",
+      "family": "fieldHockey_family_7",
       "familyName": {
         "en": "Shooting",
         "en-GB": "Shooting",
@@ -3339,7 +3339,7 @@
     {
       "id": "fh_shot_tomahawk",
       "level": "advanced",
-      "family": "fieldHockey_family_5",
+      "family": "fieldHockey_family_7",
       "familyName": {
         "en": "Shooting",
         "en-GB": "Shooting",
@@ -3566,7 +3566,7 @@
     {
       "id": "fh_shot_rebound",
       "level": "foundation",
-      "family": "fieldHockey_family_5",
+      "family": "fieldHockey_family_7",
       "familyName": {
         "en": "Shooting",
         "en-GB": "Shooting",
@@ -3808,7 +3808,7 @@
     {
       "id": "fh_press_high",
       "level": "advanced",
-      "family": "fieldHockey_family_13",
+      "family": "fieldHockey_family_18",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -4164,7 +4164,7 @@
     {
       "id": "fh_press_half",
       "level": "development",
-      "family": "fieldHockey_family_13",
+      "family": "fieldHockey_family_18",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -4520,7 +4520,7 @@
     {
       "id": "fh_press_circle",
       "level": "development",
-      "family": "fieldHockey_family_13",
+      "family": "fieldHockey_family_18",
       "familyName": {
         "en": "Press",
         "en-GB": "Press",
@@ -4891,7 +4891,7 @@
     {
       "id": "fh_corner_drag_flick",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -5155,7 +5155,7 @@
     {
       "id": "fh_corner_straight_strike",
       "level": "development",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -5419,7 +5419,7 @@
     {
       "id": "fh_corner_variation_left",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -5684,7 +5684,7 @@
     {
       "id": "fh_corner_defending_it",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -6296,7 +6296,7 @@
     {
       "id": "fh_game_3v3",
       "level": "development",
-      "family": "fieldHockey_family_11",
+      "family": "fieldHockey_family_16",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -6607,7 +6607,7 @@
     {
       "id": "fh_game_5v5",
       "level": "development",
-      "family": "fieldHockey_family_11",
+      "family": "fieldHockey_family_16",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -6999,7 +6999,7 @@
     {
       "id": "fh_game_7v7",
       "level": "advanced",
-      "family": "fieldHockey_family_11",
+      "family": "fieldHockey_family_16",
       "familyName": {
         "en": "Game",
         "en-GB": "Game",
@@ -9401,7 +9401,7 @@
     {
       "id": "fh_corner_deflection",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -9673,7 +9673,7 @@
     {
       "id": "fh_corner_injector_run",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -9938,7 +9938,7 @@
     {
       "id": "fh_corner_decoy",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -10231,7 +10231,7 @@
     {
       "id": "fh_corner_rebound",
       "level": "advanced",
-      "family": "fieldHockey_family_6",
+      "family": "fieldHockey_family_11",
       "familyName": {
         "en": "Penalty corner",
         "en-GB": "Penalty corner",
@@ -10514,7 +10514,7 @@
     {
       "id": "fh_pcd_first_runner",
       "level": "advanced",
-      "family": "fieldHockey_family_8",
+      "family": "fieldHockey_family_13",
       "familyName": {
         "en": "Defending the penalty corner",
         "en-GB": "Defending the penalty corner",
@@ -10877,7 +10877,7 @@
     {
       "id": "fh_pcd_line_stop",
       "level": "advanced",
-      "family": "fieldHockey_family_8",
+      "family": "fieldHockey_family_13",
       "familyName": {
         "en": "Defending the penalty corner",
         "en-GB": "Defending the penalty corner",
@@ -11247,7 +11247,7 @@
     {
       "id": "fh_pcd_slip",
       "level": "advanced",
-      "family": "fieldHockey_family_8",
+      "family": "fieldHockey_family_13",
       "familyName": {
         "en": "Defending the penalty corner",
         "en-GB": "Defending the penalty corner",
@@ -11617,7 +11617,7 @@
     {
       "id": "fh_cpress_five_seconds",
       "level": "development",
-      "family": "fieldHockey_family_17",
+      "family": "fieldHockey_family_22",
       "familyName": {
         "en": "Counter-press",
         "en-GB": "Counter-press",
@@ -11905,7 +11905,7 @@
     {
       "id": "fh_cpress_their_circle",
       "level": "advanced",
-      "family": "fieldHockey_family_17",
+      "family": "fieldHockey_family_22",
       "familyName": {
         "en": "Counter-press",
         "en-GB": "Counter-press",
@@ -12228,7 +12228,7 @@
     {
       "id": "fh_trigger_back_pass",
       "level": "development",
-      "family": "fieldHockey_family_12",
+      "family": "fieldHockey_family_17",
       "familyName": {
         "en": "Pressing trigger",
         "en-GB": "Pressing trigger",
@@ -12554,7 +12554,7 @@
     {
       "id": "fh_trigger_sideline",
       "level": "development",
-      "family": "fieldHockey_family_12",
+      "family": "fieldHockey_family_17",
       "familyName": {
         "en": "Pressing trigger",
         "en-GB": "Pressing trigger",
@@ -12877,7 +12877,7 @@
     {
       "id": "fh_trigger_heavy_touch",
       "level": "development",
-      "family": "fieldHockey_family_12",
+      "family": "fieldHockey_family_17",
       "familyName": {
         "en": "Pressing trigger",
         "en-GB": "Pressing trigger",
@@ -13158,7 +13158,7 @@
     {
       "id": "fh_build_press_third_man",
       "level": "development",
-      "family": "fieldHockey_family_10",
+      "family": "fieldHockey_family_15",
       "familyName": {
         "en": "Building up",
         "en-GB": "Building up",
@@ -13479,7 +13479,7 @@
     {
       "id": "fh_build_press_drop",
       "level": "development",
-      "family": "fieldHockey_family_10",
+      "family": "fieldHockey_family_15",
       "familyName": {
         "en": "Building up",
         "en-GB": "Building up",
@@ -13756,7 +13756,7 @@
     {
       "id": "fh_aerial_over_press",
       "level": "development",
-      "family": "fieldHockey_family_16",
+      "family": "fieldHockey_family_21",
       "familyName": {
         "en": "Aerial outlet",
         "en-GB": "Aerial outlet",
@@ -14025,7 +14025,7 @@
     {
       "id": "fh_aerial_switch",
       "level": "development",
-      "family": "fieldHockey_family_16",
+      "family": "fieldHockey_family_21",
       "familyName": {
         "en": "Aerial outlet",
         "en-GB": "Aerial outlet",
@@ -16076,6 +16076,1801 @@
         "strokes": [],
         "canvasWidth": 402.0,
         "canvasHeight": 730.0
+      }
+    },
+    {
+      "id": "fh_in_board_pass",
+      "level": "development",
+      "family": null,
+      "familyName": null,
+      "category": "attacking",
+      "minutes": 10,
+      "players": 3,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "tight": false,
+      "name": {
+        "en": "Indoor: playing off the board",
+        "en-GB": "Indoor: playing off the board",
+        "zh-CN": "室内：借板传球",
+        "zh-TW": "室內：借板傳球",
+        "ja-JP": "インドア：ボードを使ったパス",
+        "ko-KR": "실내: 보드를 이용한 패스",
+        "es-ES": "Sala: jugar con la banda",
+        "fr-FR": "En salle : jouer avec la bande",
+        "id-ID": "Dalam ruang: umpan memantul papan",
+        "ms-MY": "Dalam dewan: hantaran lantun papan",
+        "th-TH": "ในร่ม: จ่ายเด้งบอร์ด",
+        "vi-VN": "Trong nhà: chuyền bật tường biên"
+      },
+      "note": {
+        "en": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 1 v 2, ball with 1.\nBall path: 1 → the open space → 1 → goal\nSequence: Step 1: 1 carries the ball on the move, D moves left; Step 2: 1 plays the ball into space, 1 moves forward; Step 3: the ball is played to 1, 1 moves right; Step 4: 1 carries the ball on the move, GK moves forward; Step 5: 1 shoots.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: The side-board is a team-mate who never misses: play it off the board past the defender and collect it on the other side. Push it — indoor the ball may not be hit, and it stays on the floor except for a shot at goal.",
+        "en-GB": "Purpose: Break a set defence: create and use an overload, commit a defender, and play the pass his movement opens.\nFrequency: A tactical block run a few times a week, as the team sharpens how it creates and takes chances.\nSetup: 1 v 2, ball with 1.\nBall path: 1 → the open space → 1 → goal\nSequence: Step 1: 1 carries the ball on the move, D moves left; Step 2: 1 plays the ball into space, 1 moves forward; Step 3: the ball is played to 1, 1 moves right; Step 4: 1 carries the ball on the move, GK moves forward; Step 5: 1 shoots.\nHow it continues: A rep ends on a shot, a tackle or the ball going out. The attackers rejoin the queue and the next go straight in; the defenders hold for four reps, then swap with the attackers.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: The side-board is a team-mate who never misses: play it off the board past the defender and collect it on the other side. Push it — indoor the ball may not be hit, and it stays on the floor except for a shot at goal.",
+        "zh-CN": "【目的】进攻：练怎么打穿站好位的防守。做出以多打少，把防守人引出来，再传他让出的那条线。\n【频度】战术训练，每周练几次——磨合球队制造和把握机会的方式。\n【组织】1 对 2，球在 1号球员 杆下。\n【球路】1 → 空当 → 1 → 球门\n【流程】第1步：1号球员带球推进，D向左移动；第2步：1号球员把球送进空当，1号球员向前移动；第3步：球被传给1号球员，1号球员向右移动；第4步：1号球员带球推进，GK向前移动；第5步：1号球员射门。\n【连贯】一球结束——射门、断球或球出界——进攻方回到队尾，下一组马上进攻；防守方连守四球后与进攻互换。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】边板是一个从不失误的队友：把球推到板上弹过防守人，在另一侧接回来。只能推——室内不许击球，除了射门，球不能离地。",
+        "zh-TW": "【目的】進攻：練怎麼打穿站好位的防守。做出以多打少，把防守人引出來，再傳他讓出的那條線。\n【頻度】戰術訓練，每週練幾次——磨合球隊製造和把握機會的方式。\n【組織】1 對 2，球在 1號球員 桿下。\n【球路】1 → 空當 → 1 → 球門\n【流程】第1步：1號球員帶球推進，D向左移動；第2步：1號球員把球送進空當，1號球員向前移動；第3步：球被傳給1號球員，1號球員向右移動；第4步：1號球員帶球推進，GK向前移動；第5步：1號球員射門。\n【連貫】一球結束——射門、斷球或球出界——進攻方回到隊尾，下一組馬上進攻；防守方連守四球後與進攻互換。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】邊板是一個從不失誤的隊友：把球推到板上彈過防守人，在另一側接回來。只能推——室內不許擊球，除了射門，球不能離地。",
+        "ja-JP": "【目的】整った守備を崩す。数的優位を作って使い、守備者に決断を迫り、その動きが空けたパスを通す。\n【頻度】週に数回の戦術ブロック。チャンスの作り方と決め方を磨く。\n【準備】1対2、ボールは1番。\n【ボールの道筋】1 → スペース → 1 → ゴール\n【流れ】ステップ1：1番がボールを運ぶ、Dが左へ移動。ステップ2：1番が次のポイントへ送る、1番が前方へ移動。ステップ3：ボールが1番へ入る、1番が右へ移動。ステップ4：1番がボールを運ぶ、GKが前方へ移動。ステップ5：1番がシュート。\n【続け方】シュート、ボール奪取、ボールアウトで1本終了。攻撃側は列に戻り次の組がすぐ入る。守備側は4本続けてから攻守交代。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】サイドボードは絶対にミスしない味方だ。ボードに当ててディフェンダーをかわし、反対側で回収する。打つのではなく押す——インドアではヒットは禁止で、シュート以外ボールを浮かせてはいけない。",
+        "ko-KR": "【목적】정돈된 수비를 깬다. 수적 우위를 만들고 이용하며, 수비수에게 결정을 강요하고 그 움직임이 여는 패스를 넣는다.\n【빈도】주 몇 회 진행하는 전술 블록 — 팀이 기회를 만들고 살리는 법을 다듬는다.\n【준비】1대2, 공은 1번.\n【볼 경로】1 → 빈 자리 → 1 → 골문\n【진행】1단계: 1번이 공을 몰고 이동, D는 왼쪽으로 이동; 2단계: 1번이 다음 지점으로 보낸다, 1번은 앞으로 이동; 3단계: 공이 1번에게 온다, 1번은 오른쪽으로 이동; 4단계: 1번이 공을 몰고 이동, GK는 앞으로 이동; 5단계: 1번 슛.\n【이어가기】슈팅, 태클, 아웃으로 한 세트가 끝난다. 공격은 줄로 돌아가고 다음 조가 바로 들어온다. 수비는 네 번을 막은 뒤 공격과 교대한다.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】사이드보드는 절대 실수하지 않는 동료다. 보드에 맞혀 수비를 지나 반대편에서 다시 잡아라. 밀기만 한다 — 실내에서는 히트가 금지이고, 슛이 아니면 공을 띄울 수 없다.",
+        "es-ES": "Objetivo: Romper una defensa colocada: crea y usa la superioridad, obliga al defensa a decidir y juega el pase que abre su movimiento.\nFrecuencia: Un bloque táctico varias veces por semana, para afinar cómo crea y aprovecha ocasiones.\nMontaje: 1 contra 2, balón con 1.\nRecorrido del balón: 1 → el espacio libre → 1 → portería\nSecuencia: Paso 1: 1 conduce el balón, D se desplaza a la izquierda; Paso 2: 1 envía el balón al siguiente punto, 1 se desplaza hacia delante; Paso 3: el balón llega a 1, 1 se desplaza a la derecha; Paso 4: 1 conduce el balón, GK se desplaza hacia delante; Paso 5: 1 remata.\nContinuidad: La repetición termina con un tiro, un robo o el balón fuera. Los atacantes vuelven a la fila y entran los siguientes; los defensores aguantan cuatro y luego cambian con los atacantes.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: La banda es un compañero que nunca falla: juega contra ella para superar al defensor y recógela al otro lado. Empuja: en sala no se puede golpear y la bola no se levanta salvo en un tiro a portería.",
+        "fr-FR": "Objectif : Casser une défense en place : créer et exploiter le surnombre, engager un défenseur et jouer la passe que son mouvement ouvre.\nFréquence : Un bloc tactique quelques fois par semaine, pour affiner la création et la finition des occasions.\nMise en place : 1 contre 2, ballon avec 1.\nTrajet du ballon : 1 → l'espace libre → 1 → but\nDéroulé : Étape 1 : 1 conduit le ballon, D se déplace à gauche ; Étape 2 : 1 envoie le ballon au point suivant, 1 se déplace vers l'avant ; Étape 3 : le ballon arrive sur 1, 1 se déplace à droite ; Étape 4 : 1 conduit le ballon, GK se déplace vers l'avant ; Étape 5 : 1 frappe.\nEnchaînement : La séquence s'arrête sur un tir, une récupération ou une sortie de balle. Les attaquants rejoignent la file et les suivants enchaînent ; les défenseurs tiennent quatre séquences puis permutent.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : La bande est un partenaire qui ne rate jamais : joue contre elle pour passer le défenseur et récupère de l'autre côté. Pousse — en salle, la frappe est interdite et la balle ne se lève que pour un tir au but.",
+        "id-ID": "Tujuan: Membongkar pertahanan yang tersusun: buat dan manfaatkan overload, paksa bek memutuskan, lalu mainkan umpan yang terbuka.\nFrekuensi: Blok taktis beberapa kali seminggu, saat tim mengasah cara menciptakan dan memanfaatkan peluang.\nPersiapan: 1 lawan 2, bola pada 1.\nJalur bola: 1 → titik kosong → 1 → gawang\nUrutan: Langkah 1: 1 menggiring bola, D bergerak ke kiri; Langkah 2: 1 memainkan bola ke titik berikutnya, 1 bergerak ke depan; Langkah 3: bola dimainkan ke 1, 1 bergerak ke kanan; Langkah 4: 1 menggiring bola, GK bergerak ke depan; Langkah 5: 1 menembak.\nKelanjutan: Satu ulangan berakhir dengan tembakan, rebutan, atau bola keluar. Penyerang kembali ke antrean dan yang berikutnya langsung masuk; bek bertahan empat ulangan lalu bertukar dengan penyerang.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Papan samping adalah rekan yang tak pernah salah: pantulkan bola ke papan melewati bek dan ambil di sisi lain. Dorong saja — di dalam ruang bola tidak boleh dipukul dan tidak boleh diangkat kecuali untuk tembakan ke gawang.",
+        "ms-MY": "Tujuan: Memecahkan pertahanan tersusun: cipta dan guna lebihan pemain, paksa bek membuat keputusan, mainkan hantaran yang terbuka.\nKekerapan: Blok taktikal beberapa kali seminggu, ketika pasukan mengasah cara mencipta dan memanfaatkan peluang.\nPersediaan: 1 lawan 2, bola dengan 1.\nLaluan bola: 1 → ruang kosong → 1 → gol\nUrutan: Langkah 1: 1 membawa bola, D bergerak ke kiri; Langkah 2: 1 memainkan bola ke titik seterusnya, 1 bergerak ke hadapan; Langkah 3: bola dimainkan kepada 1, 1 bergerak ke kanan; Langkah 4: 1 membawa bola, GK bergerak ke hadapan; Langkah 5: 1 menjaring.\nKesinambungan: Satu ulangan tamat dengan rembatan, rampasan, atau bola keluar. Penyerang kembali ke barisan dan yang seterusnya terus masuk; pemain bertahan kekal empat ulangan kemudian bertukar dengan penyerang.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Papan sisi ialah rakan yang tidak pernah silap: lantunkan bola ke papan melepasi pemain pertahanan dan ambil di sebelah sana. Tolak sahaja — dalam dewan bola tidak boleh dipukul dan tidak boleh diangkat kecuali untuk rembatan ke gol.",
+        "th-TH": "จุดประสงค์: เจาะแนวรับที่ตั้งรับ: สร้างและใช้ความได้เปรียบจำนวน บังคับกองหลังให้ตัดสินใจ แล้วจ่ายบอลที่เปิดออก\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง เพื่อฝึกการสร้างและใช้โอกาส\nการจัด: 1 ต่อ 2 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → จุดว่าง → 1 → ประตู\nลำดับ: ขั้นที่ 1: 1 พาบอลไป D ขยับไปทางซ้าย • ขั้นที่ 2: 1 ส่งบอลไปจุดถัดไป 1 ขยับไปข้างหน้า • ขั้นที่ 3: บอลถูกส่งมาที่ 1 1 ขยับไปทางขวา • ขั้นที่ 4: 1 พาบอลไป GK ขยับไปข้างหน้า • ขั้นที่ 5: 1 ยิงประตู\nการต่อเนื่อง: จบหนึ่งรอบเมื่อยิง แย่งบอลได้ หรือบอลออก ฝ่ายบุกกลับไปต่อแถวแล้วชุดถัดไปเข้าทันที ฝ่ายรับรับสี่รอบแล้วสลับกับฝ่ายบุก\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: บอร์ดข้างคือเพื่อนร่วมทีมที่ไม่เคยพลาด จ่ายเด้งบอร์ดผ่านกองหลังแล้วไปรับอีกฝั่ง ใช้การผลักเท่านั้น ในร่มห้ามตี และห้ามยกบอลยกเว้นตอนยิงประตู",
+        "vi-VN": "Mục đích: Phá vỡ hàng thủ đã dựng: tạo và tận dụng hơn người, buộc hậu vệ quyết định, rồi chuyền vào khoảng trống mở ra.\nTần suất: Khối chiến thuật tập vài lần mỗi tuần, để đội mài giũa cách tạo và tận dụng cơ hội.\nBố trí: 1 đấu 2, bóng ở chỗ 1.\nĐường bóng: 1 → vị trí trống → 1 → khung thành\nTrình tự: Bước 1: 1 dẫn bóng di chuyển, D di chuyển sang trái; Bước 2: 1 đưa bóng tới điểm kế tiếp, 1 di chuyển lên phía trước; Bước 3: bóng được đưa tới 1, 1 di chuyển sang phải; Bước 4: 1 dẫn bóng di chuyển, GK di chuyển lên phía trước; Bước 5: 1 dứt điểm.\nTiếp nối: Một lượt kết thúc khi có cú sút, cướp được bóng hoặc bóng ra ngoài. Bên tấn công về xếp hàng, cặp tiếp theo vào ngay; bên phòng ngự giữ bốn lượt rồi đổi vai.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Tấm biên là đồng đội không bao giờ hỏng: đẩy bóng vào biên để vượt hậu vệ rồi đón lại ở phía bên kia. Chỉ đẩy — trong nhà không được đánh bóng và không được nâng bóng trừ khi sút cầu môn."
+      },
+      "mistake": {
+        "en": "Forcing it early instead of waiting the half-second the opening needs.",
+        "en-GB": "Forcing it early instead of waiting the half-second the opening needs.",
+        "zh-CN": "过早强行出手，不等空当需要的那半秒。",
+        "zh-TW": "過早強行出手，不等空當需要的那半秒。",
+        "ja-JP": "空きに必要な半秒を待たず早く仕掛ける。",
+        "ko-KR": "기회에 필요한 0.5초를 안 기다린다.",
+        "es-ES": "Forzarla pronto en vez de esperar el medio segundo del hueco.",
+        "fr-FR": "Forcer trop tôt sans attendre la demi-seconde nécessaire.",
+        "id-ID": "Memaksa terlalu dini.",
+        "ms-MY": "Memaksa terlalu awal.",
+        "th-TH": "รีบทำเร็วเกินไป",
+        "vi-VN": "Ép quá sớm."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              237.07146000000003,
+              413.09966545454546
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                261.13116,
+                352.97508363636365
+              ],
+              [
+                249.08322,
+                292.8505018181818
+              ],
+              [
+                303.2085,
+                232.72592000000003
+              ],
+              [
+                237.07146000000003,
+                166.58888000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d1",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              303.2085,
+              316.90033454545454
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                291.19674000000003,
+                328.92525090909095
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d2",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              83.14851948051948
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                210.00882,
+                106.46429818181818
+              ]
+            ],
+            "movePhases": [
+              3
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              245.9879885681403,
+              390.8174860662195
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                270.0476885681403,
+                330.6929042480376
+              ],
+              [
+                328.04999338341787,
+                293.7248690117224
+              ],
+              [
+                312.26052180309017,
+                254.95340076765297
+              ],
+              [
+                220.1008972515229,
+                149.61831725152288
+              ],
+              [
+                188.98824000000002,
+                76.40200727272727
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              "d0",
+              null
+            ],
+            "moveHolders": [
+              "d0",
+              null,
+              "d0",
+              "d0",
+              null
+            ],
+            "holder": "d0",
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "courtLayout": "indoor"
+      }
+    },
+    {
+      "id": "fh_in_build_212",
+      "level": "development",
+      "family": null,
+      "familyName": null,
+      "category": "possession",
+      "minutes": 12,
+      "players": 7,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "tight": false,
+      "name": {
+        "en": "Indoor: building out 2-1-2",
+        "en-GB": "Indoor: building out 2-1-2",
+        "zh-CN": "室内：2-1-2出球",
+        "zh-TW": "室內：2-1-2出球",
+        "ja-JP": "インドア：2-1-2のビルドアップ",
+        "ko-KR": "실내: 2-1-2 빌드업",
+        "es-ES": "Sala: salida en 2-1-2",
+        "fr-FR": "En salle : relance en 2-1-2",
+        "id-ID": "Dalam ruang: membangun 2-1-2",
+        "ms-MY": "Dalam dewan: binaan 2-1-2",
+        "th-TH": "ในร่ม: ต่อบอลขึ้นแบบ 2-1-2",
+        "vi-VN": "Trong nhà: triển khai 2-1-2"
+      },
+      "note": {
+        "en": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 5 v 2, red: A, B, ball with 2.\nBall path: 2 → 5 → 4 → 3 → 6 → the open space\nSequence: Step 1: 2 passes to 5, 2 moves left to hold the width, 5 moves left to meet the pass, A moves left; Step 2: 5 passes to 4, 4 moves back to offer a passing option, A, B move right; Step 3: 4 passes to 3, 3 moves back to hold the width; Step 4: 3 passes to 6, 6 moves back to shake off the marker; Step 5: 6 plays the ball into space.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor there is no long ball to save you: keep the width from board to board, give the man on the ball two options every time, and play it on the floor.",
+        "en-GB": "Purpose: Keep the ball under pressure — support angles, first touch and the pass that beats a line rather than just the nearest man.\nFrequency: A staple of nearly every session — keeping the ball is the base everything else is built on.\nSetup: 5 v 2, red: A, B, ball with 2.\nBall path: 2 → 5 → 4 → 3 → 6 → the open space\nSequence: Step 1: 2 passes to 5, 2 moves left to hold the width, 5 moves left to meet the pass, A moves left; Step 2: 5 passes to 4, 4 moves back to offer a passing option, A, B move right; Step 3: 4 passes to 3, 3 moves back to hold the width; Step 4: 3 passes to 6, 6 moves back to shake off the marker; Step 5: 6 plays the ball into space.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor there is no long ball to save you: keep the width from board to board, give the man on the ball two options every time, and play it on the floor.",
+        "zh-CN": "【目的】控球：在有人抢的情况下把球留住。练接应跑位、第一脚停球，以及敢往前穿防线，而不是只往安全的方向传。\n【频度】几乎每堂课都练——控球是其他一切的基础。\n【组织】5 对 2，红方：A、B，球在 2号球员 杆下。\n【球路】2 → 5 → 4 → 3 → 6 → 空当\n【流程】第1步：2号球员把球传给5号球员，2号球员向左移动（保持宽度），5号球员向左移动（迎上去接球），A向左移动；第2步：5号球员把球传给4号球员，4号球员向后移动（给持球人一个接应点），A、B向右移动；第3步：4号球员把球传给3号球员，3号球员向后移动（保持宽度）；第4步：3号球员把球传给6号球员，6号球员向后移动（摆脱盯防）；第5步：6号球员把球送进空当。\n【连贯】球过中线算出球成功，被断或出界算压迫方得分；无论哪种，球回门将重新开始，连做 6 次后攻守互换。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】室内没有长传可以救你：两侧贴板拉开宽度，每次都给持球人两个出球选择，球始终贴地走。",
+        "zh-TW": "【目的】控球：在有人搶的情況下把球留住。練接應跑位、第一腳停球，以及敢往前穿防線，而不是只往安全的方向傳。\n【頻度】幾乎每堂課都練——控球是其他一切的基礎。\n【組織】5 對 2，紅方：A、B，球在 2號球員 桿下。\n【球路】2 → 5 → 4 → 3 → 6 → 空當\n【流程】第1步：2號球員把球傳給5號球員，2號球員向左移動（保持寬度），5號球員向左移動（迎上去接球），A向左移動；第2步：5號球員把球傳給4號球員，4號球員向後移動（給持球人一個接應點），A、B向右移動；第3步：4號球員把球傳給3號球員，3號球員向後移動（保持寬度）；第4步：3號球員把球傳給6號球員，6號球員向後移動（擺脫盯防）；第5步：6號球員把球送進空當。\n【連貫】球過中線算出球成功，被斷或出界算壓迫方得分；無論哪種，球回門將重新開始，連做 6 次後攻守互換。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】室內沒有長傳可以救你：兩側貼板拉開寬度，每次都給持球人兩個出球選擇，球始終貼地走。",
+        "ja-JP": "【目的】プレッシャー下でボールを保持する。サポートの角度、ファーストタッチ、そして最も近い味方ではなくラインを破るパス。\n【頻度】ほぼ毎回の定番。ボール保持は他のすべての土台になる。\n【準備】5対2、赤：A・B、ボールは2番。\n【ボールの道筋】2 → 5 → 4 → 3 → 6 → スペース\n【流れ】ステップ1：2番が5番へパス、2番が左へ移動し、幅を取る、5番が左へ移動し、ボールを迎えに行く、Aが左へ移動。ステップ2：5番が4番へパス、4番が後方へ移動し、パスコースを作る、A・Bが右へ移動。ステップ3：4番が3番へパス、3番が後方へ移動し、幅を取る。ステップ4：3番が6番へパス、6番が後方へ移動し、マークを外す。ステップ5：6番が次のポイントへ送る。\n【続け方】ハーフウェーを越えれば成功、奪われるかアウトならプレス側の得点。どちらでもキーパーに戻して再開。6本で攻守交代。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】インドアには助けてくれるロングボールがない。ボードからボードまで幅を取り、ボール保持者に毎回2つの選択肢を与え、ボールは床の上で運ぶ。",
+        "ko-KR": "【목적】압박 속에서 공을 지킨다. 지원 각도, 첫 터치, 그리고 가까운 동료가 아니라 수비 라인을 깨는 패스.\n【빈도】거의 모든 세션의 기본 — 볼 소유가 나머지 모든 것의 토대다.\n【준비】5대2, 홍팀: A, B, 공은 2번.\n【볼 경로】2 → 5 → 4 → 3 → 6 → 빈 자리\n【진행】1단계: 2번이 5번에게 패스, 2번은 왼쪽으로 이동해 폭을 유지한다, 5번은 왼쪽으로 이동해 패스를 마중 나간다, A는 왼쪽으로 이동; 2단계: 5번이 4번에게 패스, 4번은 뒤로 이동해 패스 옵션을 만든다, A, B는 오른쪽으로 이동; 3단계: 4번이 3번에게 패스, 3번은 뒤로 이동해 폭을 유지한다; 4단계: 3번이 6번에게 패스, 6번은 뒤로 이동해 마크를 떨쳐낸다; 5단계: 6번이 다음 지점으로 보낸다.\n【이어가기】하프라인을 넘기면 성공, 빼앗기거나 아웃되면 압박하는 쪽의 득점이다. 어느 쪽이든 공은 골키퍼에게 돌아가 다시 시작한다. 6회 후 공수 교대.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】실내에는 위기를 넘길 롱볼이 없다. 보드에서 보드까지 폭을 넓히고, 볼 가진 선수에게 매번 두 개의 선택지를 주며, 공은 바닥으로 보낸다.",
+        "es-ES": "Objetivo: Conservar el balón bajo presión: ángulos de apoyo, control y el pase que rompe una línea, no solo al más cercano.\nFrecuencia: Un básico de casi cada sesión: conservar el balón es la base de todo lo demás.\nMontaje: 5 contra 2, rojos: A, B, balón con 2.\nRecorrido del balón: 2 → 5 → 4 → 3 → 6 → el espacio libre\nSecuencia: Paso 1: 2 pasa a 5, 2 se desplaza a la izquierda para dar amplitud, 5 se desplaza a la izquierda para ir al encuentro del balón, A se desplaza a la izquierda; Paso 2: 5 pasa a 4, 4 se desplaza hacia atrás para ofrecer una línea de pase, A, B se desplaza a la derecha; Paso 3: 4 pasa a 3, 3 se desplaza hacia atrás para dar amplitud; Paso 4: 3 pasa a 6, 6 se desplaza hacia atrás para desmarcarse; Paso 5: 6 envía el balón al siguiente punto.\nContinuidad: Superar el medio campo es un éxito; una pérdida o el balón fuera puntúa para los presionadores. En ambos casos vuelve al portero y se reinicia; seis repeticiones y cambio de roles.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: En sala no hay balón largo que te salve: mantén la amplitud de banda a banda, da siempre dos opciones al poseedor y juega por el suelo.",
+        "fr-FR": "Objectif : Conserver le ballon sous pression : angles de soutien, première touche et la passe qui casse une ligne.\nFréquence : Un incontournable de presque chaque séance : garder le ballon est la base de tout le reste.\nMise en place : 5 contre 2, les rouges : A, B, ballon avec 2.\nTrajet du ballon : 2 → 5 → 4 → 3 → 6 → l'espace libre\nDéroulé : Étape 1 : 2 passe à 5, 2 se déplace à gauche pour garder la largeur, 5 se déplace à gauche pour venir au-devant du ballon, A se déplace à gauche ; Étape 2 : 5 passe à 4, 4 se déplace vers l'arrière pour offrir une solution de passe, A, B se déplace à droite ; Étape 3 : 4 passe à 3, 3 se déplace vers l'arrière pour garder la largeur ; Étape 4 : 3 passe à 6, 6 se déplace vers l'arrière pour se démarquer ; Étape 5 : 6 envoie le ballon au point suivant.\nEnchaînement : Passer la ligne médiane, c'est réussi ; une perte ou une sortie, c'est un point pour le pressing. Dans les deux cas retour au gardien et on repart ; six fois, puis on inverse les rôles.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : En salle, aucun long ballon ne te sauve : garde la largeur de bande à bande, donne toujours deux options au porteur et joue au sol.",
+        "id-ID": "Tujuan: Menjaga bola di bawah tekanan — sudut dukungan, sentuhan pertama, dan umpan yang menembus garis.\nFrekuensi: Andalan hampir setiap sesi — menjaga bola adalah dasar dari semua yang lain.\nPersiapan: 5 lawan 2, tim merah: A, B, bola pada 2.\nJalur bola: 2 → 5 → 4 → 3 → 6 → titik kosong\nUrutan: Langkah 1: 2 mengoper ke 5, 2 bergerak ke kiri untuk menjaga lebar, 5 bergerak ke kiri untuk menjemput bola, A bergerak ke kiri; Langkah 2: 5 mengoper ke 4, 4 bergerak ke belakang untuk memberi pilihan umpan, A, B bergerak ke kanan; Langkah 3: 4 mengoper ke 3, 3 bergerak ke belakang untuk menjaga lebar; Langkah 4: 3 mengoper ke 6, 6 bergerak ke belakang untuk lepas dari penjagaan; Langkah 5: 6 memainkan bola ke titik berikutnya.\nKelanjutan: Bola melewati garis tengah berarti berhasil; bola direbut atau keluar berarti poin untuk penekan. Apa pun hasilnya bola kembali ke kiper dan mulai lagi; enam ulangan, lalu tukar peran.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Di dalam ruang tak ada bola panjang yang menyelamatkan: jaga lebar dari papan ke papan, beri pembawa bola dua pilihan setiap saat, dan mainkan bola di lantai.",
+        "ms-MY": "Tujuan: Mengekalkan bola di bawah tekanan — sudut sokongan, sentuhan pertama, dan hantaran yang menembusi barisan.\nKekerapan: Asas hampir setiap sesi — mengekalkan bola ialah dasar segala yang lain.\nPersediaan: 5 lawan 2, pasukan merah: A, B, bola dengan 2.\nLaluan bola: 2 → 5 → 4 → 3 → 6 → ruang kosong\nUrutan: Langkah 1: 2 menghantar kepada 5, 2 bergerak ke kiri untuk mengekalkan kelebaran, 5 bergerak ke kiri untuk menyambut bola, A bergerak ke kiri; Langkah 2: 5 menghantar kepada 4, 4 bergerak ke belakang untuk memberi pilihan hantaran, A, B bergerak ke kanan; Langkah 3: 4 menghantar kepada 3, 3 bergerak ke belakang untuk mengekalkan kelebaran; Langkah 4: 3 menghantar kepada 6, 6 bergerak ke belakang untuk lepas daripada kawalan; Langkah 5: 6 memainkan bola ke titik seterusnya.\nKesinambungan: Bola melepasi garisan tengah dikira berjaya; bola dirampas atau keluar dikira mata untuk penekan. Apa pun bola kembali kepada penjaga gol dan mula semula; enam ulangan, kemudian tukar peranan.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Dalam dewan tiada bola panjang yang menyelamatkan: kekalkan kelebaran dari papan ke papan, beri pembawa bola dua pilihan setiap kali, dan main bola di lantai.",
+        "th-TH": "จุดประสงค์: รักษาบอลภายใต้แรงกดดัน — มุมสนับสนุน สัมผัสแรก และบอลที่เจาะแนวรับ\nความถี่: เป็นพื้นฐานเกือบทุกครั้ง — การรักษาบอลคือรากฐานของทุกอย่าง\nการจัด: 5 ต่อ 2 ทีมแดง: A, B บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 5 → 4 → 3 → 6 → จุดว่าง\nลำดับ: ขั้นที่ 1: 2 จ่ายให้ 5 2 ขยับไปทางซ้ายเพื่อรักษาความกว้าง 5 ขยับไปทางซ้ายเพื่อขยับเข้าหาบอล A ขยับไปทางซ้าย • ขั้นที่ 2: 5 จ่ายให้ 4 4 ขยับถอยหลังเพื่อเปิดตัวเป็นทางเลือกส่งบอล A, B ขยับไปทางขวา • ขั้นที่ 3: 4 จ่ายให้ 3 3 ขยับถอยหลังเพื่อรักษาความกว้าง • ขั้นที่ 4: 3 จ่ายให้ 6 6 ขยับถอยหลังเพื่อสลัดตัวประกบ • ขั้นที่ 5: 6 ส่งบอลไปจุดถัดไป\nการต่อเนื่อง: บอลข้ามเส้นกลางสนามนับว่าสำเร็จ ถ้าโดนแย่งหรือบอลออกฝ่ายเพรสได้แต้ม ไม่ว่าแบบไหนบอลกลับไปที่ผู้รักษาประตูแล้วเริ่มใหม่ ทำ 6 รอบแล้วสลับฝ่าย\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: ในร่มไม่มีบอลยาวมาช่วย ยืนกว้างจากบอร์ดถึงบอร์ด ให้คนถือบอลมีทางเลือกสองทางทุกครั้ง และเล่นบอลเรียดพื้น",
+        "vi-VN": "Mục đích: Giữ bóng dưới áp lực — góc hỗ trợ, xử lý chạm đầu, và đường chuyền xuyên tuyến.\nTần suất: Bài chủ lực gần như mỗi buổi — giữ bóng là nền tảng của mọi thứ khác.\nBố trí: 5 đấu 2, đội đỏ: A, B, bóng ở chỗ 2.\nĐường bóng: 2 → 5 → 4 → 3 → 6 → vị trí trống\nTrình tự: Bước 1: 2 chuyền cho 5, 2 di chuyển sang trái để giữ chiều rộng, 5 di chuyển sang trái để bước ra đón bóng, A di chuyển sang trái; Bước 2: 5 chuyền cho 4, 4 di chuyển lùi lại để tạo hướng chuyền cho người cầm bóng, A, B di chuyển sang phải; Bước 3: 4 chuyền cho 3, 3 di chuyển lùi lại để giữ chiều rộng; Bước 4: 3 chuyền cho 6, 6 di chuyển lùi lại để thoát người kèm; Bước 5: 6 đưa bóng tới điểm kế tiếp.\nTiếp nối: Đưa bóng qua giữa sân là thành công; mất bóng hoặc bóng ra ngoài tính điểm cho bên pressing. Dù thế nào bóng cũng về thủ môn và bắt đầu lại; 6 lượt rồi đổi bên.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Trong nhà không có đường chuyền dài cứu nguy: giữ chiều rộng từ biên này sang biên kia, luôn cho người cầm bóng hai lựa chọn, và chơi bóng sát mặt sân."
+      },
+      "mistake": {
+        "en": "Taking the safe touch when the sharp one was on.",
+        "en-GB": "Taking the safe touch when the sharp one was on.",
+        "zh-CN": "该处理得果断时选了保险的一下。",
+        "zh-TW": "該處理得果斷時選了保險的一下。",
+        "ja-JP": "鋭い選択があるのに安全なタッチを選ぶ。",
+        "ko-KR": "날카로운 선택이 있는데 안전하게.",
+        "es-ES": "Elegir el toque seguro cuando había uno agudo.",
+        "fr-FR": "Choisir la touche sûre quand la tranchante était là.",
+        "id-ID": "Memilih sentuhan aman padahal ada yang tajam.",
+        "ms-MY": "Memilih sentuhan selamat sedangkan ada yang tajam.",
+        "th-TH": "เลือกเล่นปลอดภัยทั้งที่มีทางคม",
+        "vi-VN": "Chọn xử lý an toàn khi có phương án sắc bén."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              122.85119999999999,
+              557.3986618181818
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                92.78562000000001,
+                521.3239127272727
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              279.1488,
+              557.3986618181818
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                309.21438000000006,
+                497.27408
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "d2",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              201.0,
+              473.2242472727273
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                219.05382,
+                437.14949818181816
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -1.570796
+          },
+          {
+            "id": "d3",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              122.85119999999999,
+              377.0249163636364
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                98.7915,
+                401.07474909090917
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 3.141593
+          },
+          {
+            "id": "d4",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              279.1488,
+              377.0249163636364
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                303.2085,
+                304.8754181818182
+              ]
+            ],
+            "movePhases": [
+              3
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 3.141593
+          },
+          {
+            "id": "d5",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              164.92854,
+              485.2491636363637
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                128.85708,
+                521.3239127272727
+              ],
+              [
+                170.93442,
+                509.2989963636363
+              ]
+            ],
+            "movePhases": [
+              0,
+              1
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d6",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              237.07146000000003,
+              461.199330909091
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                261.13116,
+                485.2491636363637
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              107.48578240367598,
+              538.9621778233802
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                102.44233506287742,
+                424.79544476670384
+              ],
+              [
+                195.1873812336256,
+                434.621040032886
+              ],
+              [
+                288.18038549110344,
+                485.7167846849314
+              ],
+              [
+                301.2209249431388,
+                328.7929754440752
+              ],
+              [
+                219.38987270064524,
+                260.17200953736295
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "moveHolders": [
+              "d3",
+              "d2",
+              "d1",
+              "d4",
+              null
+            ],
+            "holder": "d0",
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "courtLayout": "indoor"
+      }
+    },
+    {
+      "id": "fh_in_box_press",
+      "level": "development",
+      "family": null,
+      "familyName": null,
+      "category": "defending",
+      "minutes": 12,
+      "players": 8,
+      "free": false,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "tight": false,
+      "name": {
+        "en": "Indoor: the box press",
+        "en-GB": "Indoor: the box press",
+        "zh-CN": "室内：方块压迫",
+        "zh-TW": "室內：方塊壓迫",
+        "ja-JP": "インドア：ボックスプレス",
+        "ko-KR": "실내: 박스 압박",
+        "es-ES": "Sala: la presión en cuadrado",
+        "fr-FR": "En salle : le pressing en carré",
+        "id-ID": "Dalam ruang: pressing kotak",
+        "ms-MY": "Dalam dewan: tekanan kotak",
+        "th-TH": "ในร่ม: เพรสแบบกล่อง",
+        "vi-VN": "Trong nhà: pressing hình hộp"
+      },
+      "note": {
+        "en": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 4, red: A, B, C, D.\nBall path: A → B → 2 → 1\nSequence: Step 1: A passes to B, 1 moves forward to press the ball carrier; Step 2: 2 moves forward to press the ball carrier, 3 moves forward to cut off the passing lane, 4 moves forward to cover the space behind; Step 3: 2 wins the ball off B, 2 moves forward to step in and win the ball; Step 4: 2 passes to 1, 1 moves forward to shake off the marker.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Four in a box, and the board does the fifth man's job: show the ball to the side-board, close the inside pass, and the board traps it for you.",
+        "en-GB": "Purpose: Deny space as a unit — the whole line shifts with the ball, closes the pass on either side of the presser, and covers behind.\nFrequency: A tactical block run a few times a week — defensive shape is drilled regularly because it is the habit a match tests most.\nSetup: 4 v 4, red: A, B, C, D.\nBall path: A → B → 2 → 1\nSequence: Step 1: A passes to B, 1 moves forward to press the ball carrier; Step 2: 2 moves forward to press the ball carrier, 3 moves forward to cut off the passing lane, 4 moves forward to cover the space behind; Step 3: 2 wins the ball off B, 2 moves forward to step in and win the ball; Step 4: 2 passes to 1, 1 moves forward to shake off the marker.\nHow it continues: Getting the ball over halfway counts as a success; a turnover or the ball out counts for the pressers. Either way it goes back to the keeper and starts again; six reps, then the sides swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Four in a box, and the board does the fifth man's job: show the ball to the side-board, close the inside pass, and the board traps it for you.",
+        "zh-CN": "【目的】防守：练整条线一起动。球到哪边就往哪边压，上抢的人两侧有人封传球线，身后有人保护。\n【频度】战术训练，每周练几次——防守站位要常练，因为它是比赛最常考验的习惯。\n【组织】4 对 4，红方：A、B、C、D。\n【球路】A → B → 2 → 1\n【流程】第1步：A把球传给B，1号球员向前移动（上抢持球人）；第2步：2号球员向前移动（上抢持球人），3号球员向前移动（封堵传球线路），4号球员向前移动（补位，保护身后空当）；第3步：2号球员断下B的球，2号球员向前移动（上脚断球）；第4步：2号球员把球传给1号球员，1号球员向前移动（摆脱盯防）。\n【连贯】球过中线算出球成功，被断或出界算压迫方得分；无论哪种，球回门将重新开始，连做 6 次后攻守互换。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】四个人站成方块，边板替你干第五个人的活：把球逼向边板，封住内线传球，边板就帮你把球困住。",
+        "zh-TW": "【目的】防守：練整條線一起動。球到哪邊就往哪邊壓，上搶的人兩側有人封傳球線，身後有人保護。\n【頻度】戰術訓練，每週練幾次——防守站位要常練，因為它是比賽最常考驗的習慣。\n【組織】4 對 4，紅方：A、B、C、D。\n【球路】A → B → 2 → 1\n【流程】第1步：A把球傳給B，1號球員向前移動（上搶持球人）；第2步：2號球員向前移動（上搶持球人），3號球員向前移動（封堵傳球線路），4號球員向前移動（補位，保護身後空當）；第3步：2號球員斷下B的球，2號球員向前移動（上腳斷球）；第4步：2號球員把球傳給1號球員，1號球員向前移動（擺脫盯防）。\n【連貫】球過中線算出球成功，被斷或出界算壓迫方得分；無論哪種，球回門將重新開始，連做 6 次後攻守互換。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】四個人站成方塊，邊板替你幹第五個人的活：把球逼向邊板，封住內線傳球，邊板就幫你把球困住。",
+        "ja-JP": "【目的】組織として空間を消す。ラインが球に合わせてスライドし、プレスした選手の両脇のパスを封じ、背後をカバーする。\n【頻度】週に数回の戦術ブロック。守備の形は試合が最も試す習慣なので、定期的に反復する。\n【準備】4対4、赤：A・B・C・D。\n【ボールの道筋】A → B → 2 → 1\n【流れ】ステップ1：AがBへパス、1番が前方へ移動し、ボールホルダーに寄せる。ステップ2：2番が前方へ移動し、ボールホルダーに寄せる、3番が前方へ移動し、パスコースを切る、4番が前方へ移動し、背後のスペースをカバーする。ステップ3：2番がBからボールを奪う、2番が前方へ移動し、足を出してボールを奪う。ステップ4：2番が1番へパス、1番が前方へ移動し、マークを外す。\n【続け方】ハーフウェーを越えれば成功、奪われるかアウトならプレス側の得点。どちらでもキーパーに戻して再開。6本で攻守交代。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】4人でボックスを作り、5人目の仕事はボードがやる。ボールをサイドボードへ追い込み、内側のパスを消せば、ボードが閉じ込めてくれる。",
+        "ko-KR": "【목적】조직적으로 공간을 지운다. 라인 전체가 공을 따라 이동하고, 압박한 선수 양옆의 패스를 막고, 뒤를 커버한다.\n【빈도】주 몇 회의 전술 블록 — 수비 형태는 경기가 가장 자주 시험하는 습관이라 정기적으로 훈련한다.\n【준비】4대4, 홍팀: A, B, C, D.\n【볼 경로】A → B → 2 → 1\n【진행】1단계: A가 B에게 패스, 1번은 앞으로 이동해 볼 소유자를 압박한다; 2단계: 2번은 앞으로 이동해 볼 소유자를 압박한다, 3번은 앞으로 이동해 패스 길을 차단한다, 4번은 앞으로 이동해 뒷공간을 커버한다; 3단계: 2번이 B에게서 공을 빼앗는다, 2번은 앞으로 이동해 발을 넣어 공을 빼앗는다; 4단계: 2번이 1번에게 패스, 1번은 앞으로 이동해 마크를 떨쳐낸다.\n【이어가기】하프라인을 넘기면 성공, 빼앗기거나 아웃되면 압박하는 쪽의 득점이다. 어느 쪽이든 공은 골키퍼에게 돌아가 다시 시작한다. 6회 후 공수 교대.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】넷이 박스를 만들고, 다섯 번째 선수 몫은 보드가 한다. 공을 사이드보드 쪽으로 몰고 안쪽 패스를 막으면 보드가 가둬 준다.",
+        "es-ES": "Objetivo: Negar el espacio como bloque: la línea bascula con el balón, cierra el pase a ambos lados del que presiona y cubre por detrás.\nFrecuencia: Un bloque táctico varias veces por semana: la estructura defensiva se ensaya a menudo porque es lo que más pone a prueba el partido.\nMontaje: 4 contra 4, rojos: A, B, C, D.\nRecorrido del balón: A → B → 2 → 1\nSecuencia: Paso 1: A pasa a B, 1 se desplaza hacia delante para presionar al poseedor; Paso 2: 2 se desplaza hacia delante para presionar al poseedor, 3 se desplaza hacia delante para cerrar la línea de pase, 4 se desplaza hacia delante para cubrir el espacio a la espalda; Paso 3: 2 le roba el balón a B, 2 se desplaza hacia delante para entrar y robar el balón; Paso 4: 2 pasa a 1, 1 se desplaza hacia delante para desmarcarse.\nContinuidad: Superar el medio campo es un éxito; una pérdida o el balón fuera puntúa para los presionadores. En ambos casos vuelve al portero y se reinicia; seis repeticiones y cambio de roles.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: Cuatro en cuadrado y la banda hace de quinto: lleva la bola hacia la banda, cierra el pase interior y la banda la atrapa por ti.",
+        "fr-FR": "Objectif : Refuser l'espace en bloc : la ligne coulisse avec le ballon, ferme la passe de chaque côté du presseur et couvre derrière.\nFréquence : Un bloc tactique quelques fois par semaine : la structure défensive se travaille souvent, car c'est l'habitude que le match teste le plus.\nMise en place : 4 contre 4, les rouges : A, B, C, D.\nTrajet du ballon : A → B → 2 → 1\nDéroulé : Étape 1 : A passe à B, 1 se déplace vers l'avant pour presser le porteur ; Étape 2 : 2 se déplace vers l'avant pour presser le porteur, 3 se déplace vers l'avant pour fermer la ligne de passe, 4 se déplace vers l'avant pour couvrir l'espace derrière ; Étape 3 : 2 récupère le ballon sur B, 2 se déplace vers l'avant pour intervenir et récupérer le ballon ; Étape 4 : 2 passe à 1, 1 se déplace vers l'avant pour se démarquer.\nEnchaînement : Passer la ligne médiane, c'est réussi ; une perte ou une sortie, c'est un point pour le pressing. Dans les deux cas retour au gardien et on repart ; six fois, puis on inverse les rôles.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : Quatre en carré, et la bande fait le travail du cinquième : pousse la balle vers la bande, ferme la passe intérieure, et la bande la piège pour toi.",
+        "id-ID": "Tujuan: Menutup ruang sebagai satu unit — seluruh garis bergeser mengikuti bola, menutup umpan di kedua sisi penekan, dan menutup di belakang.\nFrekuensi: Blok taktis beberapa kali seminggu — bentuk bertahan dilatih rutin karena itu kebiasaan yang paling diuji pertandingan.\nPersiapan: 4 lawan 4, tim merah: A, B, C, D.\nJalur bola: A → B → 2 → 1\nUrutan: Langkah 1: A mengoper ke B, 1 bergerak ke depan untuk menekan pembawa bola; Langkah 2: 2 bergerak ke depan untuk menekan pembawa bola, 3 bergerak ke depan untuk menutup jalur umpan, 4 bergerak ke depan untuk menutup ruang di belakang; Langkah 3: 2 merebut bola dari B, 2 bergerak ke depan untuk masuk dan merebut bola; Langkah 4: 2 mengoper ke 1, 1 bergerak ke depan untuk lepas dari penjagaan.\nKelanjutan: Bola melewati garis tengah berarti berhasil; bola direbut atau keluar berarti poin untuk penekan. Apa pun hasilnya bola kembali ke kiper dan mulai lagi; enam ulangan, lalu tukar peran.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Empat orang membentuk kotak, papan menjalankan tugas orang kelima: giring bola ke papan samping, tutup umpan ke dalam, dan papan menjebaknya untukmu.",
+        "ms-MY": "Tujuan: Menafikan ruang sebagai satu unit — seluruh barisan bergerak mengikut bola, menutup hantaran di kedua-dua sisi penekan, dan melindungi di belakang.\nKekerapan: Blok taktikal beberapa kali seminggu — bentuk pertahanan dilatih kerap kerana itu tabiat yang paling diuji perlawanan.\nPersediaan: 4 lawan 4, pasukan merah: A, B, C, D.\nLaluan bola: A → B → 2 → 1\nUrutan: Langkah 1: A menghantar kepada B, 1 bergerak ke hadapan untuk menekan pembawa bola; Langkah 2: 2 bergerak ke hadapan untuk menekan pembawa bola, 3 bergerak ke hadapan untuk menutup laluan hantaran, 4 bergerak ke hadapan untuk menutup ruang di belakang; Langkah 3: 2 merampas bola daripada B, 2 bergerak ke hadapan untuk masuk dan merampas bola; Langkah 4: 2 menghantar kepada 1, 1 bergerak ke hadapan untuk lepas daripada kawalan.\nKesinambungan: Bola melepasi garisan tengah dikira berjaya; bola dirampas atau keluar dikira mata untuk penekan. Apa pun bola kembali kepada penjaga gol dan mula semula; enam ulangan, kemudian tukar peranan.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Empat orang membentuk kotak, papan menjalankan tugas orang kelima: halakan bola ke papan sisi, tutup hantaran ke dalam, dan papan memerangkapnya untuk anda.",
+        "th-TH": "จุดประสงค์: ปิดพื้นที่เป็นทีม — ทั้งแนวขยับตามบอล ปิดบอลสองข้างของคนที่ขึ้นบีบ และคุมด้านหลัง\nความถี่: บล็อกแทคติกสัปดาห์ละไม่กี่ครั้ง — รูปแบบรับต้องซ้อมสม่ำเสมอเพราะเป็นสิ่งที่เกมทดสอบบ่อยที่สุด\nการจัด: 4 ต่อ 4 ทีมแดง: A, B, C, D\nเส้นทางบอล: A → B → 2 → 1\nลำดับ: ขั้นที่ 1: A จ่ายให้ B 1 ขยับไปข้างหน้าเพื่อเพรสคนถือบอล • ขั้นที่ 2: 2 ขยับไปข้างหน้าเพื่อเพรสคนถือบอล 3 ขยับไปข้างหน้าเพื่อปิดเส้นทางส่งบอล 4 ขยับไปข้างหน้าเพื่อคุมพื้นที่ด้านหลัง • ขั้นที่ 3: 2 แย่งบอลจาก B 2 ขยับไปข้างหน้าเพื่อเข้าแย่งบอล • ขั้นที่ 4: 2 จ่ายให้ 1 1 ขยับไปข้างหน้าเพื่อสลัดตัวประกบ\nการต่อเนื่อง: บอลข้ามเส้นกลางสนามนับว่าสำเร็จ ถ้าโดนแย่งหรือบอลออกฝ่ายเพรสได้แต้ม ไม่ว่าแบบไหนบอลกลับไปที่ผู้รักษาประตูแล้วเริ่มใหม่ ทำ 6 รอบแล้วสลับฝ่าย\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: สี่คนยืนเป็นกล่อง บอร์ดทำหน้าที่คนที่ห้า ไล่บอลไปทางบอร์ดข้าง ปิดทางจ่ายเข้าใน แล้วบอร์ดจะขังบอลไว้ให้",
+        "vi-VN": "Mục đích: Bịt không gian như một khối — cả tuyến dịch theo bóng, chặn đường chuyền hai bên người áp sát, và bọc lót phía sau.\nTần suất: Khối chiến thuật vài lần mỗi tuần — thế phòng ngự cần tập đều vì đó là thói quen trận đấu thử thách nhiều nhất.\nBố trí: 4 đấu 4, đội đỏ: A, B, C, D.\nĐường bóng: A → B → 2 → 1\nTrình tự: Bước 1: A chuyền cho B, 1 di chuyển lên phía trước để áp sát người cầm bóng; Bước 2: 2 di chuyển lên phía trước để áp sát người cầm bóng, 3 di chuyển lên phía trước để chặn đường chuyền, 4 di chuyển lên phía trước để bọc lót khoảng trống phía sau; Bước 3: 2 đoạt bóng từ B, 2 di chuyển lên phía trước để vào bóng và đoạt lại; Bước 4: 2 chuyền cho 1, 1 di chuyển lên phía trước để thoát người kèm.\nTiếp nối: Đưa bóng qua giữa sân là thành công; mất bóng hoặc bóng ra ngoài tính điểm cho bên pressing. Dù thế nào bóng cũng về thủ môn và bắt đầu lại; 6 lượt rồi đổi bên.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Bốn người đứng thành hộp, tấm biên làm thay người thứ năm: dồn bóng ra biên, chặn đường chuyền vào trong, tấm biên sẽ nhốt bóng giúp bạn."
+      },
+      "mistake": {
+        "en": "Reacting to the ball instead of holding the position.",
+        "en-GB": "Reacting to the ball instead of holding the position.",
+        "zh-CN": "对着球做反应，而不是守住位置。",
+        "zh-TW": "對著球做反應，而不是守住位置。",
+        "ja-JP": "位置を保たずボールに反応する。",
+        "ko-KR": "자리를 지키지 않고 공에 반응한다.",
+        "es-ES": "Reaccionar al balón en vez de mantener la posición.",
+        "fr-FR": "Réagir au ballon au lieu de tenir la position.",
+        "id-ID": "Bereaksi pada bola alih-alih menjaga posisi.",
+        "ms-MY": "Bertindak balas kepada bola dan bukan menjaga kedudukan.",
+        "th-TH": "รับตามบอลแทนที่จะรักษาตำแหน่ง",
+        "vi-VN": "Phản ứng theo bóng thay vì giữ vị trí."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              152.91678000000002,
+              304.8754181818182
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                182.94618,
+                244.75083636363638
+              ],
+              [
+                188.98824000000002,
+                166.58888000000002
+              ]
+            ],
+            "movePhases": [
+              0,
+              3
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              249.08322,
+              304.8754181818182
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                291.19674000000003,
+                220.70100363636365
+              ],
+              [
+                309.21438000000006,
+                196.6511709090909
+              ]
+            ],
+            "movePhases": [
+              1,
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d2",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              152.91678000000002,
+              413.09966545454546
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                194.99412,
+                328.92525090909095
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d3",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              249.08322,
+              413.09966545454546
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                279.1488,
+                316.90033454545454
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              196.6511709090909
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -1.570796
+          },
+          {
+            "id": "d5",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              309.21438000000006,
+              244.75083636363638
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 2.356194
+          },
+          {
+            "id": "d6",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              98.7915,
+              232.72592000000003
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -1.570796
+          },
+          {
+            "id": "d7",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              219.05382,
+              328.92525090909095
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 3.141593
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              201.0,
+              214.68854545454545
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                286.09010121630297,
+                238.32683988684263
+              ],
+              [
+                297.5700604556604,
+                217.63711435581996
+              ],
+              [
+                210.70767069582774,
+                176.79996859275724
+              ]
+            ],
+            "movePhases": [
+              0,
+              2,
+              3
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
+            "moveHolders": [
+              "d5",
+              "d1",
+              "d0"
+            ],
+            "holder": null,
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "courtLayout": "indoor"
+      }
+    },
+    {
+      "id": "fh_in_corner",
+      "level": "advanced",
+      "family": null,
+      "familyName": null,
+      "category": "setpiece",
+      "minutes": 12,
+      "players": 6,
+      "free": false,
+      "usage": 2,
+      "frame": "top",
+      "offSurface": true,
+      "tight": true,
+      "name": {
+        "en": "Penalty corner indoor",
+        "en-GB": "Penalty corner indoor",
+        "zh-CN": "短角球 室内",
+        "zh-TW": "短角球 室內",
+        "ja-JP": "ペナルティコーナー インドア",
+        "ko-KR": "페널티 코너 실내",
+        "es-ES": "Córner corto en sala",
+        "fr-FR": "Corner de pénalité en salle",
+        "id-ID": "Penalti sudut dalam ruang",
+        "ms-MY": "Penjuru penalti dalam dewan",
+        "th-TH": "ลูกมุมโทษ ในร่ม",
+        "vi-VN": "Phạt góc trong nhà"
+      },
+      "note": {
+        "en": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, blue: I, T, F, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F, D move forward; Step 3: F shoots, GK, D move forward.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor the push-out is taken from the back-line at least 6 m from the post, the defenders start behind the line on the far side of the goal, and there is no hitting — every shot is a push or a flick. No goal counts until the ball has been outside the circle, so take it out, stop it and shoot before the runners arrive.",
+        "en-GB": "Purpose: Rehearse a restart until it runs without a word — everyone knows the movement before the whistle, so the delivery, not the decision, is the hard part.\nFrequency: Rehearsed weekly and hard before a match — set pieces decide a large share of goals, so the routines are drilled until automatic.\nSetup: 3 v 3, blue: I, T, F, ball with I.\nBall path: I → T → F → goal\nSequence: Step 1: I passes to T; Step 2: T passes to F, I moves back, T moves right, F, D move forward; Step 3: F shoots, GK, D move forward.\nHow it continues: After each delivery everyone resets to the starting positions and the next taker steps up; eight in a row, half from the left and half from the right.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor the push-out is taken from the back-line at least 6 m from the post, the defenders start behind the line on the far side of the goal, and there is no hitting — every shot is a push or a flick. No goal counts until the ball has been outside the circle, so take it out, stop it and shoot before the runners arrive.",
+        "zh-CN": "【目的】定位球：把套路练到不用喊、大家都知道往哪跑。难点只在传球质量，不在临场想。\n【频度】每周练、赛前重点练——定位球贡献了很大比例的进球，所以套路要练到自动化。\n【组织】3 对 3，蓝方：I、T、F，球在 I 杆下。\n【球路】I → T → F → 球门\n【流程】第1步：I把球传给T；第2步：T把球传给F，I向后移动，T向右移动，F、D向前移动；第3步：F射门，GK、D向前移动。\n【连贯】每罚一次，所有人回到起始站位，换下一名主罚；连续 8 次，一半从左边一半从右边。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】室内短角球：推球点在底线上、离门柱至少6米，防守方从球门远侧的底线后出发；室内不许击球，射门只能推或挑。球没出过圈就不算进球，所以先让球出圈、停稳，赶在防守冲到之前射门。",
+        "zh-TW": "【目的】定位球：把套路練到不用喊、大家都知道往哪跑。難點只在傳球品質，不在臨場想。\n【頻度】每週練、賽前重點練——定位球貢獻了很大比例的進球，所以套路要練到自動化。\n【組織】3 對 3，藍方：I、T、F，球在 I 桿下。\n【球路】I → T → F → 球門\n【流程】第1步：I把球傳給T；第2步：T把球傳給F，I向後移動，T向右移動，F、D向前移動；第3步：F射門，GK、D向前移動。\n【連貫】每罰一次，所有人回到起始站位，換下一名主罰；連續 8 次，一半從左邊一半從右邊。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】室內短角球：推球點在底線上、離門柱至少6公尺，防守方從球門遠側的底線後出發；室內不許擊球，射門只能推或挑。球沒出過圈就不算進球，所以先讓球出圈、停穩，趕在防守衝到之前射門。",
+        "ja-JP": "【目的】セットプレーを声なしで回るまで反復する。笛の前に全員が動きを知っているから、難しいのは配球であって判断ではない。\n【頻度】毎週、試合前は特に反復する。セットプレーは得点の多くを占めるので、型が自動化するまで仕込む。\n【準備】3対3、青：I・T・F、ボールはI。\n【ボールの道筋】I → T → F → ゴール\n【流れ】ステップ1：IがTへパス。ステップ2：TがFへパス、Iが後方へ移動、Tが右へ移動、F・Dが前方へ移動。ステップ3：Fがシュート、GK・Dが前方へ移動。\n【続け方】1本蹴るごとに全員がスタート位置に戻り、次のキッカーに交代。8本続けて、半分は左から半分は右から。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】インドアのコーナーは、ポストから6m以上離れたバックライン上から押し出し、守備はゴールの反対側のライン外からスタートする。ヒットは禁止で、シュートはプッシュかフリックだけ。ボールが一度サークルの外に出るまで得点にならないので、外で止めて、ランナーが来る前に打つ。",
+        "ko-KR": "【목적】세트피스를 말 없이 돌아갈 때까지 반복한다. 휘슬 전에 모두가 움직임을 알기에 어려운 건 배급이지 판단이 아니다.\n【빈도】매주, 경기 전에는 집중적으로 반복 — 세트피스는 득점의 큰 비중을 차지하므로 자동화될 때까지 훈련한다.\n【준비】3대3, 청팀: I, T, F, 공은 I.\n【볼 경로】I → T → F → 골문\n【진행】1단계: I가 T에게 패스; 2단계: T가 F에게 패스, I는 뒤로 이동, T는 오른쪽으로 이동, F, D는 앞으로 이동; 3단계: F 슛, GK, D는 앞으로 이동.\n【이어가기】한 번 찰 때마다 모두 처음 위치로 돌아가고 다음 키커가 나선다. 연속 8회, 절반은 왼쪽에서 절반은 오른쪽에서.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】실내 코너는 포스트에서 6m 이상 떨어진 백라인에서 밀어 넣고, 수비는 골문 반대쪽 라인 뒤에서 출발한다. 히트는 금지이고 슛은 푸시나 플릭뿐이다. 공이 서클 밖에 한 번 나가야 득점이 되므로, 밖에서 멈추고 러너가 오기 전에 슛한다.",
+        "es-ES": "Objetivo: Ensayar la jugada a balón parado hasta que salga sin hablar: todos saben el movimiento antes del pitido; lo difícil es el envío, no la decisión.\nFrecuencia: Se ensaya semanalmente y a fondo antes del partido: el balón parado decide muchos goles, así que las jugadas se drillan hasta automatizarse.\nMontaje: 3 contra 3, azules: I, T, F, balón con I.\nRecorrido del balón: I → T → F → portería\nSecuencia: Paso 1: I pasa a T; Paso 2: T pasa a F, I se desplaza hacia atrás, T se desplaza a la derecha, F, D se desplaza hacia delante; Paso 3: F remata, GK, D se desplaza hacia delante.\nContinuidad: Tras cada saque todos vuelven a la posición inicial y lanza el siguiente; ocho seguidos, la mitad desde la izquierda y la mitad desde la derecha.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: En sala el saque se hace desde la línea de fondo a al menos 6 m del poste, los defensores salen de detrás de la línea por el lado lejano de la portería y no se golpea: todo tiro es empuje o flick. No hay gol hasta que la bola haya salido del área, así que sácala, párala y tira antes de que lleguen.",
+        "fr-FR": "Objectif : Répéter le coup de pied arrêté jusqu'à ce qu'il tourne sans un mot : chacun connaît le mouvement avant le sifflet ; le difficile, c'est la transmission.\nFréquence : Répété chaque semaine et intensément avant un match : les coups de pied arrêtés décident une grande part des buts.\nMise en place : 3 contre 3, les bleus : I, T, F, ballon avec I.\nTrajet du ballon : I → T → F → but\nDéroulé : Étape 1 : I passe à T ; Étape 2 : T passe à F, I se déplace vers l'arrière, T se déplace à droite, F, D se déplace vers l'avant ; Étape 3 : F frappe, GK, D se déplace vers l'avant.\nEnchaînement : Après chaque frappe tout le monde se replace au départ et le tireur suivant s'avance ; huit d'affilée, moitié de gauche, moitié de droite.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : En salle, la remise se joue depuis la ligne de fond à au moins 6 m du poteau, les défenseurs partent derrière la ligne du côté opposé du but, et la frappe est interdite : tout tir est une poussée ou un flick. Aucun but avant que la balle soit sortie du cercle : sors-la, arrête-la et tire avant l'arrivée des coureurs.",
+        "id-ID": "Tujuan: Melatih bola mati sampai jalan tanpa kata — semua tahu pergerakan sebelum peluit; yang sulit adalah pengiriman, bukan keputusan.\nFrekuensi: Dilatih mingguan dan intensif sebelum pertandingan — bola mati menentukan banyak gol, jadi rutinitas dilatih sampai otomatis.\nPersiapan: 3 lawan 3, tim biru: I, T, F, bola pada I.\nJalur bola: I → T → F → gawang\nUrutan: Langkah 1: I mengoper ke T; Langkah 2: T mengoper ke F, I bergerak ke belakang, T bergerak ke kanan, F, D bergerak ke depan; Langkah 3: F menembak, GK, D bergerak ke depan.\nKelanjutan: Setelah tiap eksekusi semua kembali ke posisi awal dan pengeksekusi berikutnya maju; delapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Di dalam ruang, dorongan dilakukan dari garis belakang minimal 6 m dari tiang, bek mulai dari belakang garis di sisi jauh gawang, dan tidak ada pukulan — setiap tembakan adalah dorongan atau flick. Gol tidak sah sebelum bola keluar lingkaran, jadi keluarkan, hentikan, lalu tembak sebelum pelari tiba.",
+        "ms-MY": "Tujuan: Melatih bola mati sehingga berjalan tanpa sepatah kata — semua tahu pergerakan sebelum wisel; yang sukar ialah penghantaran, bukan keputusan.\nKekerapan: Dilatih mingguan dan intensif sebelum perlawanan — bola mati menentukan banyak gol, jadi rutin dilatih sehingga automatik.\nPersediaan: 3 lawan 3, pasukan biru: I, T, F, bola dengan I.\nLaluan bola: I → T → F → gol\nUrutan: Langkah 1: I menghantar kepada T; Langkah 2: T menghantar kepada F, I bergerak ke belakang, T bergerak ke kanan, F, D bergerak ke hadapan; Langkah 3: F menjaring, GK, D bergerak ke hadapan.\nKesinambungan: Selepas setiap sepakan semua kembali ke posisi permulaan dan penyepak seterusnya maju; lapan berturut-turut, separuh dari kiri dan separuh dari kanan.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Dalam dewan, tolakan dibuat dari garisan belakang sekurang-kurangnya 6 m dari tiang, pemain pertahanan bermula di belakang garisan di sisi jauh gol, dan tiada pukulan — setiap rembatan ialah tolakan atau flick. Gol tidak sah sebelum bola keluar bulatan, jadi bawa keluar, hentikan dan rembat sebelum pelari tiba.",
+        "th-TH": "จุดประสงค์: ซ้อมลูกตั้งเตะจนเล่นได้โดยไม่ต้องพูด — ทุกคนรู้การเคลื่อนที่ก่อนเป่านกหวีด สิ่งที่ยากคือการจ่าย ไม่ใช่การตัดสินใจ\nความถี่: ซ้อมทุกสัปดาห์และเข้มก่อนแข่ง — ลูกตั้งเตะทำประตูสัดส่วนมาก จึงซ้อมจนเป็นอัตโนมัติ\nการจัด: 3 ต่อ 3 ทีมน้ำเงิน: I, T, F บอลอยู่ที่ I\nเส้นทางบอล: I → T → F → ประตู\nลำดับ: ขั้นที่ 1: I จ่ายให้ T • ขั้นที่ 2: T จ่ายให้ F I ขยับถอยหลัง T ขยับไปทางขวา F, D ขยับไปข้างหน้า • ขั้นที่ 3: F ยิงประตู GK, D ขยับไปข้างหน้า\nการต่อเนื่อง: หลังเตะแต่ละครั้งทุกคนกลับไปตำแหน่งเริ่มต้นและเปลี่ยนคนเตะคนถัดไป ทำติดกัน 8 ครั้ง ครึ่งหนึ่งจากฝั่งซ้าย ครึ่งหนึ่งจากฝั่งขวา\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: ลูกมุมในร่มส่งจากเส้นหลังห่างเสาอย่างน้อย 6 เมตร ฝ่ายรับเริ่มจากหลังเส้นด้านไกลของประตู และห้ามตี ยิงได้แค่ผลักหรือฟลิก บอลต้องออกนอกวงก่อนจึงนับประตู จึงพาออก หยุด แล้วยิงก่อนคนวิ่งมาถึง",
+        "vi-VN": "Mục đích: Tập bóng cố định đến khi chạy không cần nói — ai cũng biết di chuyển trước tiếng còi; cái khó là đường bóng, không phải quyết định.\nTần suất: Tập hàng tuần và kỹ trước trận — bóng cố định quyết định phần lớn bàn thắng, nên các bài được tập đến mức tự động.\nBố trí: 3 đấu 3, đội xanh: I, T, F, bóng ở chỗ I.\nĐường bóng: I → T → F → khung thành\nTrình tự: Bước 1: I chuyền cho T; Bước 2: T chuyền cho F, I di chuyển lùi lại, T di chuyển sang phải, F, D di chuyển lên phía trước; Bước 3: F dứt điểm, GK, D di chuyển lên phía trước.\nTiếp nối: Sau mỗi quả đá, mọi người về vị trí ban đầu và người đá tiếp theo bước lên; 8 quả liên tiếp, một nửa từ bên trái, một nửa từ bên phải.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Phạt góc trong nhà: đẩy bóng từ đường biên ngang cách cột ít nhất 6 m, hậu vệ xuất phát sau vạch ở phía xa khung thành, và không được đánh — mọi cú sút là đẩy hoặc hất. Bàn chỉ được tính sau khi bóng đã ra ngoài vòng, nên đưa ra, dừng lại và sút trước khi người lao tới."
+      },
+      "mistake": {
+        "en": "Improvising a moment whose value was that it was rehearsed.",
+        "en-GB": "Improvising a moment whose value was that it was rehearsed.",
+        "zh-CN": "把价值在于排练的时刻临场发挥。",
+        "zh-TW": "把價值在於排練的時刻臨場發揮。",
+        "ja-JP": "仕込みが価値の場面を即興でやる。",
+        "ko-KR": "연습이 가치인 순간을 즉흥으로.",
+        "es-ES": "Improvisar un momento cuyo valor era estar ensayado.",
+        "fr-FR": "Improviser un moment dont la valeur était d'être répété.",
+        "id-ID": "Berimprovisasi di momen yang mestinya terlatih.",
+        "ms-MY": "Berimprovisasi pada saat yang sepatutnya terlatih.",
+        "th-TH": "ด้นสดในจังหวะที่ควรซ้อม",
+        "vi-VN": "Ứng biến ở tình huống lẽ ra đã tập."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "I",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              315.22026,
+              52.35217454545454
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                297.20262,
+                124.50167272727272
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -2.356194
+          },
+          {
+            "id": "d1",
+            "label": "T",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              201.0,
+              208.67608727272724
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                249.08322,
+                244.75083636363638
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d2",
+            "label": "F",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              140.86884,
+              268.80066909090914
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                158.92266,
+                202.6636290909091
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 1.570796
+          },
+          {
+            "id": "d3",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              83.14851948051948
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                188.98824000000002,
+                106.46429818181818
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d4",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              122.85119999999999,
+              52.35217454545454
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                164.92854,
+                148.55150545454546
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "d5",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              92.78562000000001,
+              52.35217454545454
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                134.86296,
+                136.52658909090908
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              309.4053995073397,
+              75.6370923561512
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                215.15906917089322,
+                189.2977292356318
+              ],
+              [
+                182.27222653306254,
+                197.11405769141479
+              ],
+              [
+                213.01176,
+                76.40200727272727
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveCarriers": [
+              null,
+              null,
+              null
+            ],
+            "moveHolders": [
+              "d1",
+              "d2",
+              null
+            ],
+            "holder": "d0",
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "figureScale": 0.654,
+        "courtLayout": "indoor"
+      }
+    },
+    {
+      "id": "fh_in_gk",
+      "level": "development",
+      "family": null,
+      "familyName": null,
+      "category": "goalkeeping",
+      "minutes": 10,
+      "players": 3,
+      "free": false,
+      "usage": 2,
+      "frame": "top",
+      "offSurface": false,
+      "tight": false,
+      "name": {
+        "en": "Goalkeeping indoor: staying on your feet",
+        "en-GB": "Goalkeeping indoor: staying on your feet",
+        "zh-CN": "门将训练 室内：保持站立",
+        "zh-TW": "門將訓練 室內：保持站立",
+        "ja-JP": "GK練習 インドア：立ったまま",
+        "ko-KR": "골키퍼 훈련 실내: 서서 막기",
+        "es-ES": "Porteria en sala: de pie",
+        "fr-FR": "Gardien de but en salle : rester debout",
+        "id-ID": "Latihan kiper dalam ruang: tetap berdiri",
+        "ms-MY": "Latihan penjaga gol dalam dewan: kekal berdiri",
+        "th-TH": "ฝึกผู้รักษาประตู ในร่ม: ยืนรับ",
+        "vi-VN": "Tap thu mon trong nhà: đứng vững"
+      },
+      "note": {
+        "en": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 2 v 1, ball with 1.\nBall path: 1 → goal → 2 → goal\nSequence: Step 1: 1 carries the ball on the move, GK moves forward; Step 2: 1 shoots, GK moves left; Step 3: the ball is played to 2, 2 moves forward, GK moves right; Step 4: 2 shoots.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor the shots come from close and along the floor: stay on your feet, small and square, and let the pads and stick take the low ball. A keeper who goes down early has given away the flick over him.",
+        "en-GB": "Purpose: Train the keeper's craft — set before the strike, take the angle, and start the next attack with the first pass out.\nFrequency: A keeper's daily specialist work, run alongside the outfield session.\nSetup: 2 v 1, ball with 1.\nBall path: 1 → goal → 2 → goal\nSequence: Step 1: 1 carries the ball on the move, GK moves forward; Step 2: 1 shoots, GK moves left; Step 3: the ball is played to 2, 2 moves forward, GK moves right; Step 4: 2 shoots.\nHow it continues: After each ball the keeper resets on the line and the next server goes; ten balls a set, then the keepers swap.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Indoor the shots come from close and along the floor: stay on your feet, small and square, and let the pads and stick take the low ball. A keeper who goes down early has given away the flick over him.",
+        "zh-CN": "【目的】门将：练站位和封角度。对方出脚前先站稳，扑到球后用第一脚传球发动进攻。\n【频度】门将每天的专项训练，与球队训练同时进行。\n【组织】2 对 1，球在 1号球员 杆下。\n【球路】1 → 球门 → 2 → 球门\n【流程】第1步：1号球员带球推进，GK向前移动；第2步：1号球员射门，GK向左移动；第3步：球被传给2号球员，2号球员向前移动，GK向右移动；第4步：2号球员射门。\n【连贯】每一球处理完，门将回到门线预备，下一名喂球者接着喂；10 球一组，换门将。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】室内射门近、多是地滚球：保持站立，身形收紧正对球，让护腿和球杆去挡低球。过早倒地的门将，等于把头顶的挑射送给了对方。",
+        "zh-TW": "【目的】門將：練站位和封角度。對方出腳前先站穩，撲到球後用第一腳傳球發動進攻。\n【頻度】門將每天的專項訓練，與球隊訓練同時進行。\n【組織】2 對 1，球在 1號球員 桿下。\n【球路】1 → 球門 → 2 → 球門\n【流程】第1步：1號球員帶球推進，GK向前移動；第2步：1號球員射門，GK向左移動；第3步：球被傳給2號球員，2號球員向前移動，GK向右移動；第4步：2號球員射門。\n【連貫】每一球處理完，門將回到門線預備，下一名餵球者接著餵；10 球一組，換門將。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】室內射門近、多是地滾球：保持站立，身形收緊正對球，讓護腿和球桿去擋低球。過早倒地的門將，等於把頭頂的挑射送給了對方。",
+        "ja-JP": "【目的】GKの技術を鍛える。シュート前に構え、角度を切り、最初のパスで次の攻撃を始める。\n【頻度】GKが毎日行う専門トレーニング。フィールドの練習と並行して行う。\n【準備】2対1、ボールは1番。\n【ボールの道筋】1 → ゴール → 2 → ゴール\n【流れ】ステップ1：1番がボールを運ぶ、GKが前方へ移動。ステップ2：1番がシュート、GKが左へ移動。ステップ3：ボールが2番へ入る、2番が前方へ移動、GKが右へ移動。ステップ4：2番がシュート。\n【続け方】1球処理するごとにキーパーはラインに戻って構え、次のサーバーが出す。10球1セットでキーパー交代。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】インドアのシュートは近く、床を這ってくる。立ったまま小さく正対し、低いボールはパッドとスティックで止める。早く倒れたキーパーは、頭上へのフリックを差し出している。",
+        "ko-KR": "【목적】골키퍼의 기술을 훈련한다. 슛 전에 자세를 잡고 각을 좁히며, 첫 패스로 다음 공격을 시작한다.\n【빈도】골키퍼가 매일 하는 전문 훈련으로, 필드 세션과 병행한다.\n【준비】2대1, 공은 1번.\n【볼 경로】1 → 골문 → 2 → 골문\n【진행】1단계: 1번이 공을 몰고 이동, GK는 앞으로 이동; 2단계: 1번 슛, GK는 왼쪽으로 이동; 3단계: 공이 2번에게 온다, 2번은 앞으로 이동, GK는 오른쪽으로 이동; 4단계: 2번 슛.\n【이어가기】한 공을 처리할 때마다 골키퍼는 라인으로 돌아가 준비하고 다음 서버가 공을 준다. 10개 한 세트, 골키퍼 교대.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】실내 슛은 가깝고 바닥으로 온다. 서서 작고 정면으로 서고, 낮은 공은 패드와 스틱으로 막아라. 일찍 넘어진 골키퍼는 머리 위 플릭을 내준 것이다.",
+        "es-ES": "Objetivo: Entrenar el oficio del portero: colocado antes del disparo, cerrar el ángulo y empezar el ataque con la primera salida.\nFrecuencia: El trabajo específico diario del portero, junto a la sesión de campo.\nMontaje: 2 contra 1, balón con 1.\nRecorrido del balón: 1 → portería → 2 → portería\nSecuencia: Paso 1: 1 conduce el balón, GK se desplaza hacia delante; Paso 2: 1 remata, GK se desplaza a la izquierda; Paso 3: el balón llega a 2, 2 se desplaza hacia delante, GK se desplaza a la derecha; Paso 4: 2 remata.\nContinuidad: Tras cada balón el portero se recoloca en la línea y sirve el siguiente; series de diez balones, luego cambio de portero.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: En sala los tiros llegan de cerca y a ras de suelo: quédate de pie, compacto y de frente, y deja que las protecciones y el stick paren la bola baja. El portero que se tira pronto regala el flick por encima.",
+        "fr-FR": "Objectif : Travailler le métier du gardien : placé avant la frappe, fermer l'angle et lancer l'attaque dès la première relance.\nFréquence : Le travail spécifique quotidien du gardien, mené en parallèle de la séance de champ.\nMise en place : 2 contre 1, ballon avec 1.\nTrajet du ballon : 1 → but → 2 → but\nDéroulé : Étape 1 : 1 conduit le ballon, GK se déplace vers l'avant ; Étape 2 : 1 frappe, GK se déplace à gauche ; Étape 3 : le ballon arrive sur 2, 2 se déplace vers l'avant, GK se déplace à droite ; Étape 4 : 2 frappe.\nEnchaînement : Après chaque ballon le gardien se replace sur sa ligne et le serveur suivant enchaîne ; séries de dix ballons, puis on change de gardien.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : En salle, les tirs viennent de près et au ras du sol : reste debout, compact et face au jeu, laisse les jambières et la crosse prendre la balle basse. Le gardien qui se couche tôt offre le flick par-dessus.",
+        "id-ID": "Tujuan: Melatih keahlian kiper — set sebelum tembakan, ambil sudut, dan mulai serangan dengan umpan pertama.\nFrekuensi: Latihan khusus kiper harian, dijalankan bersama sesi pemain lapangan.\nPersiapan: 2 lawan 1, bola pada 1.\nJalur bola: 1 → gawang → 2 → gawang\nUrutan: Langkah 1: 1 menggiring bola, GK bergerak ke depan; Langkah 2: 1 menembak, GK bergerak ke kiri; Langkah 3: bola dimainkan ke 2, 2 bergerak ke depan, GK bergerak ke kanan; Langkah 4: 2 menembak.\nKelanjutan: Setelah tiap bola kiper bersiap lagi di garis dan pengumpan berikutnya giliran; sepuluh bola per set, lalu kiper bertukar.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Di dalam ruang tembakan datang dari dekat dan menyusur lantai: tetap berdiri, rapat dan menghadap bola, biarkan pelindung kaki dan tongkat menahan bola rendah. Kiper yang menjatuhkan diri terlalu cepat memberi flick di atasnya.",
+        "ms-MY": "Tujuan: Melatih kemahiran penjaga gol — sedia sebelum tendangan, ambil sudut, dan mulakan serangan dengan hantaran pertama.\nKekerapan: Latihan khusus penjaga gol harian, dijalankan bersama sesi pemain padang.\nPersediaan: 2 lawan 1, bola dengan 1.\nLaluan bola: 1 → gol → 2 → gol\nUrutan: Langkah 1: 1 membawa bola, GK bergerak ke hadapan; Langkah 2: 1 menjaring, GK bergerak ke kiri; Langkah 3: bola dimainkan kepada 2, 2 bergerak ke hadapan, GK bergerak ke kanan; Langkah 4: 2 menjaring.\nKesinambungan: Selepas setiap bola penjaga gol bersedia semula di garisan dan pengumpan seterusnya bermula; sepuluh bola satu set, kemudian penjaga gol bertukar.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Dalam dewan rembatan datang dari dekat dan menyusur lantai: kekal berdiri, padat dan menghadap bola, biar pad dan kayu menahan bola rendah. Penjaga gol yang rebah terlalu awal memberi flick di atasnya.",
+        "th-TH": "จุดประสงค์: ฝึกทักษะผู้รักษาประตู — ตั้งหลักก่อนยิง ปิดมุม และเริ่มบุกด้วยการจ่ายแรก\nความถี่: งานเฉพาะทางของผู้รักษาประตูทุกวัน ทำคู่ไปกับการฝึกของทีม\nการจัด: 2 ต่อ 1 บอลอยู่ที่ 1\nเส้นทางบอล: 1 → ประตู → 2 → ประตู\nลำดับ: ขั้นที่ 1: 1 พาบอลไป GK ขยับไปข้างหน้า • ขั้นที่ 2: 1 ยิงประตู GK ขยับไปทางซ้าย • ขั้นที่ 3: บอลถูกส่งมาที่ 2 2 ขยับไปข้างหน้า GK ขยับไปทางขวา • ขั้นที่ 4: 2 ยิงประตู\nการต่อเนื่อง: หลังจัดการแต่ละลูก ผู้รักษาประตูกลับไปตั้งท่าที่เส้นแล้วคนป้อนคนถัดไปป้อน ชุดละ 10 ลูกแล้วเปลี่ยนผู้รักษาประตู\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: ในร่มลูกยิงมาใกล้และเลียดพื้น ยืนไว้ ตัวเล็ก หันตรง ให้สนับขาและไม้รับลูกต่ำ ผู้รักษาประตูที่ล้มเร็วคือยกลูกฟลิกข้ามหัวให้คู่แข่ง",
+        "vi-VN": "Mục đích: Rèn kỹ năng thủ môn — đứng vững trước cú sút, khép góc, và mở đợt tấn công bằng đường chuyền đầu tiên.\nTần suất: Bài chuyên biệt hằng ngày của thủ môn, tập song song với buổi của cầu thủ.\nBố trí: 2 đấu 1, bóng ở chỗ 1.\nĐường bóng: 1 → khung thành → 2 → khung thành\nTrình tự: Bước 1: 1 dẫn bóng di chuyển, GK di chuyển lên phía trước; Bước 2: 1 dứt điểm, GK di chuyển sang trái; Bước 3: bóng được đưa tới 2, 2 di chuyển lên phía trước, GK di chuyển sang phải; Bước 4: 2 dứt điểm.\nTiếp nối: Sau mỗi bóng thủ môn về lại vạch cầu môn chuẩn bị, người tiếp theo phát bóng; mỗi hiệp 10 bóng rồi đổi thủ môn.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Trong nhà các cú sút đến gần và sát sàn: đứng vững, thu gọn và đối diện bóng, để giáp chân và gậy chặn bóng thấp. Thủ môn ngã sớm là đã dâng cú hất bóng qua đầu."
+      },
+      "mistake": {
+        "en": "Going down to a push that was never going to rise — and the flick goes over you.",
+        "en-GB": "Going down to a push that was never going to rise — and the flick goes over you.",
+        "zh-CN": "对一个根本不会起来的推射先倒地——挑射就从你头顶过去了。",
+        "zh-TW": "對一個根本不會起來的推射先倒地——挑射就從你頭頂過去了。",
+        "ja-JP": "浮くはずのないプッシュに倒れる——フリックが頭上を越える。",
+        "ko-KR": "뜨지도 않을 푸시에 먼저 넘어진다 — 플릭이 머리 위로 넘어간다.",
+        "es-ES": "Tirarse a un empuje que nunca iba a subir, y el flick te pasa por encima.",
+        "fr-FR": "Se coucher sur une poussée qui ne montait pas — et le flick passe au-dessus.",
+        "id-ID": "Menjatuhkan diri pada dorongan rendah, lalu flick lewat di atas.",
+        "ms-MY": "Rebah pada tolakan rendah, lalu flick melepasi di atas.",
+        "th-TH": "ล้มตัวรับลูกผลักที่ไม่ลอย แล้วลูกฟลิกข้ามหัวไป",
+        "vi-VN": "Ngã người với cú đẩy không hề bay lên — và cú hất qua đầu bạn."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "1",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              128.85708,
+              208.67608727272724
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                140.86884,
+                154.5639636363636
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d1",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              273.14292,
+              208.67608727272724
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                255.12528,
+                148.55150545454546
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "d2",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              83.14851948051948
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                191.99118,
+                100.45183999999999
+              ],
+              [
+                173.93736,
+                106.46429818181818
+              ],
+              [
+                219.05382,
+                106.46429818181818
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              134.05798242065325,
+              185.24639214003625
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                146.06974242065326,
+                131.13426850367264
+              ],
+              [
+                176.9403,
+                94.43938181818181
+              ],
+              [
+                235.39078471239975,
+                134.89318580153972
+              ],
+              [
+                213.01176,
+                82.41446545454544
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              null
+            ],
+            "moveHolders": [
+              "d0",
+              null,
+              "d1",
+              null
+            ],
+            "holder": "d0",
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "courtLayout": "indoor"
+      }
+    },
+    {
+      "id": "fh_in_game_5v5",
+      "level": "development",
+      "family": null,
+      "familyName": null,
+      "category": "ssg",
+      "minutes": 15,
+      "players": 12,
+      "free": true,
+      "usage": 2,
+      "frame": null,
+      "offSurface": false,
+      "tight": false,
+      "name": {
+        "en": "Game indoor 5v5",
+        "en-GB": "Game indoor 5v5",
+        "zh-CN": "对抗 室内 5v5",
+        "zh-TW": "對抗 室內 5v5",
+        "ja-JP": "ゲーム インドア 5v5",
+        "ko-KR": "게임 실내 5v5",
+        "es-ES": "Juego en sala 5v5",
+        "fr-FR": "Jeu en salle 5v5",
+        "id-ID": "Permainan dalam ruang 5v5",
+        "ms-MY": "Permainan dalam dewan 5v5",
+        "th-TH": "เกม ในร่ม 5v5",
+        "vi-VN": "Trận đấu trong nhà 5v5"
+      },
+      "note": {
+        "en": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: 6 v 6, ball with 2.\nBall path: 2 → 4 → 6 → goal\nSequence: Step 1: 2 carries the ball on the move; Step 2: 2 passes to 4, 4, 5, C move forward; Step 3: 4 passes to 6, 6 moves forward, D moves back; Step 4: 6 carries the ball on the move, GK moves forward; Step 5: 6 shoots.\nHow it continues: After a goal the team that conceded restarts from its own end line; when the ball goes out the other team brings it in from where it left, and the coach has spares ready so nothing stops. Four-minute games, then swap ends or opponents.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Five and a keeper a side with the side-boards in play. Count a goal double when the move used a board pass or a switch — indoor the gaps come from width, not from running.",
+        "en-GB": "Purpose: A small-sided game: fewer players, so the ball and every decision arrive faster and nobody can hide from the play.\nFrequency: A session-ender used most days — the small-sided game is where everything trained gets played out under pressure.\nSetup: 6 v 6, ball with 2.\nBall path: 2 → 4 → 6 → goal\nSequence: Step 1: 2 carries the ball on the move; Step 2: 2 passes to 4, 4, 5, C move forward; Step 3: 4 passes to 6, 6 moves forward, D moves back; Step 4: 6 carries the ball on the move, GK moves forward; Step 5: 6 shoots.\nHow it continues: After a goal the team that conceded restarts from its own end line; when the ball goes out the other team brings it in from where it left, and the coach has spares ready so nothing stops. Four-minute games, then swap ends or opponents.\nRules: A goal only counts if the ball is played inside the circle. No hitting: the ball is pushed, and it may only be raised for a shot at goal. The side-boards are in play; over a board, the other team restarts with a free push from where it went out.\nCoaching point: Five and a keeper a side with the side-boards in play. Count a goal double when the move used a board pass or a switch — indoor the gaps come from width, not from running.",
+        "zh-CN": "【目的】小场比赛：人少场地小，球来得快、决定也快，每个人都得参与，没法躲。\n【频度】几乎每天用来收尾——小场比赛让练过的一切在压力下落地。\n【组织】6 对 6，球在 2号球员 杆下。\n【球路】2 → 4 → 6 → 球门\n【流程】第1步：2号球员带球推进；第2步：2号球员把球传给4号球员，4号球员、5号球员、C向前移动；第3步：4号球员把球传给6号球员，6号球员向前移动，D向后移动；第4步：6号球员带球推进，GK向前移动；第5步：6号球员射门。\n【连贯】进球后由失球方从本方端线开球；球出界由对方在出界处发球，教练备好几个球随时补上，比赛不停。每局 4 分钟，局间换边或换对手。\n【规则】只有在射门圈内触球后进的才算进球。室内不许击球，只能推，除了射门球不能离地。边板在比赛范围内；球越过边板，由对方在出界处推任意球重新开始。\n【要点】每队五人加门将，边板可以利用。如果进球前用过借板传球或横向转移，进球算两分——室内的空当来自宽度，不是靠跑。",
+        "zh-TW": "【目的】小場比賽：人少場地小，球來得快、決定也快，每個人都得參與，沒法躲。\n【頻度】幾乎每天用來收尾——小場比賽讓練過的一切在壓力下落地。\n【組織】6 對 6，球在 2號球員 桿下。\n【球路】2 → 4 → 6 → 球門\n【流程】第1步：2號球員帶球推進；第2步：2號球員把球傳給4號球員，4號球員、5號球員、C向前移動；第3步：4號球員把球傳給6號球員，6號球員向前移動，D向後移動；第4步：6號球員帶球推進，GK向前移動；第5步：6號球員射門。\n【連貫】進球後由失球方從本方端線開球；球出界由對方在出界處發球，教練備好幾個球隨時補上，比賽不停。每局 4 分鐘，局間換邊或換對手。\n【規則】只有在射門圈內觸球後進的才算進球。室內不許擊球，只能推，除了射門球不能離地。邊板在比賽範圍內；球越過邊板，由對方在出界處推任意球重新開始。\n【要點】每隊五人加門將，邊板可以利用。如果進球前用過借板傳球或橫向轉移，進球算兩分——室內的空檔來自寬度，不是靠跑。",
+        "ja-JP": "【目的】ミニゲーム。人数が少ない分、ボールも判断も速く来て、誰もプレーから隠れられない。\n【頻度】ほぼ毎日の締め。ミニゲームで、練習したすべてがプレッシャー下に出る。\n【準備】6対6、ボールは2番。\n【ボールの道筋】2 → 4 → 6 → ゴール\n【流れ】ステップ1：2番がボールを運ぶ。ステップ2：2番が4番へパス、4番・5番・Cが前方へ移動。ステップ3：4番が6番へパス、6番が前方へ移動、Dが後方へ移動。ステップ4：6番がボールを運ぶ、GKが前方へ移動。ステップ5：6番がシュート。\n【続け方】得点後は失点した側が自陣エンドラインから再開。ボールが出たら相手が出た地点から入れ、コーチが予備球をすぐ入れて止めない。1ゲーム4分で、エンドか相手を交代。\n【ルール】サークル内でプレーされたボールだけが得点になる。ヒットは禁止でプッシュのみ、シュート以外でボールを浮かせてはいけない。サイドボードはプレーの一部。ボードを越えたら、出た地点から相手のフリープッシュで再開。\n【ポイント】各チーム5人とキーパー、サイドボードも使える。ボードパスかサイドチェンジを経たゴールは2点。インドアの隙間は走りではなく幅から生まれる。",
+        "ko-KR": "【목적】미니 게임: 인원이 적어 공과 모든 결정이 더 빨리 오고, 누구도 플레이에서 숨을 수 없다.\n【빈도】거의 매일 세션 마무리로 사용 — 미니 게임에서 훈련한 모든 것이 압박 속에 나온다.\n【준비】6대6, 공은 2번.\n【볼 경로】2 → 4 → 6 → 골문\n【진행】1단계: 2번이 공을 몰고 이동; 2단계: 2번이 4번에게 패스, 4번, 5번, C는 앞으로 이동; 3단계: 4번이 6번에게 패스, 6번은 앞으로 이동, D는 뒤로 이동; 4단계: 6번이 공을 몰고 이동, GK는 앞으로 이동; 5단계: 6번 슛.\n【이어가기】골이 들어가면 실점한 팀이 자기 엔드라인에서 재개하고, 공이 나가면 상대가 나간 지점에서 넣는다. 코치가 여분의 공을 바로 넣어 멈추지 않는다. 한 게임 4분 후 진영이나 상대를 바꾼다.\n【규칙】서클 안에서 플레이된 공만 득점이 된다. 히트는 금지, 푸시만 하고 슛이 아니면 공을 띄울 수 없다. 사이드보드는 경기의 일부이며, 보드를 넘으면 나간 지점에서 상대의 프리 푸시로 재개한다.\n【포인트】팀당 5명과 골키퍼, 사이드보드도 쓴다. 보드 패스나 전환을 거친 골은 2점 — 실내의 틈은 달리기가 아니라 폭에서 나온다.",
+        "es-ES": "Objetivo: Juego reducido: menos jugadores, así el balón y cada decisión llegan antes y nadie se esconde.\nFrecuencia: Un cierre de sesión casi diario: el juego reducido es donde todo lo entrenado se pone en juego bajo presión.\nMontaje: 6 contra 6, balón con 2.\nRecorrido del balón: 2 → 4 → 6 → portería\nSecuencia: Paso 1: 2 conduce el balón; Paso 2: 2 pasa a 4, 4, 5, C se desplaza hacia delante; Paso 3: 4 pasa a 6, 6 se desplaza hacia delante, D se desplaza hacia atrás; Paso 4: 6 conduce el balón, GK se desplaza hacia delante; Paso 5: 6 remata.\nContinuidad: Tras un gol reanuda el equipo que lo encajó desde su línea de fondo; si la bola sale, la mete el rival desde donde salió, y el entrenador tiene balones listos para que no se pare. Partidos de cuatro minutos y cambio de campo o de rival.\nReglas: Solo es gol si la bola se juega dentro del área. No se golpea: se empuja, y solo se levanta en un tiro a portería. Las bandas están en juego; si la bola las salta, el rival reanuda con un empuje libre desde donde salió.\nPunto clave: Cinco y un portero por equipo, con las bandas en juego. El gol vale doble si la jugada usó la banda o un cambio de lado: en sala los huecos salen de la amplitud, no de correr.",
+        "fr-FR": "Objectif : Jeu réduit : moins de joueurs, donc le ballon et chaque décision arrivent plus vite et personne ne se cache.\nFréquence : Une fin de séance presque quotidienne : le jeu réduit est là où tout le travail se joue sous pression.\nMise en place : 6 contre 6, ballon avec 2.\nTrajet du ballon : 2 → 4 → 6 → but\nDéroulé : Étape 1 : 2 conduit le ballon ; Étape 2 : 2 passe à 4, 4, 5, C se déplace vers l'avant ; Étape 3 : 4 passe à 6, 6 se déplace vers l'avant, D se déplace vers l'arrière ; Étape 4 : 6 conduit le ballon, GK se déplace vers l'avant ; Étape 5 : 6 frappe.\nEnchaînement : Après un but, l'équipe encaissée relance de sa ligne de fond ; ballon sorti, l'adversaire le remet là où il est sorti, et l'entraîneur a des ballons prêts pour que rien ne s'arrête. Matchs de quatre minutes, puis on change de côté ou d'adversaire.\nRègles : Un but ne compte que si la balle est jouée dans le cercle. Pas de frappe : on pousse, et la balle ne se lève que pour un tir au but. Les bandes sont en jeu ; si la balle les passe, l'adversaire reprend par une poussée libre à l'endroit de la sortie.\nPoint clé : Cinq et un gardien par équipe, bandes en jeu. Le but compte double si l'action a utilisé la bande ou un renversement : en salle, les espaces naissent de la largeur, pas de la course.",
+        "id-ID": "Tujuan: Permainan skala kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tak ada yang bisa sembunyi.\nFrekuensi: Penutup sesi hampir tiap hari — permainan kecil adalah tempat semua yang dilatih diuji di bawah tekanan.\nPersiapan: 6 lawan 6, bola pada 2.\nJalur bola: 2 → 4 → 6 → gawang\nUrutan: Langkah 1: 2 menggiring bola; Langkah 2: 2 mengoper ke 4, 4, 5, C bergerak ke depan; Langkah 3: 4 mengoper ke 6, 6 bergerak ke depan, D bergerak ke belakang; Langkah 4: 6 menggiring bola, GK bergerak ke depan; Langkah 5: 6 menembak.\nKelanjutan: Setelah gol, tim yang kebobolan memulai dari garis akhirnya; bila bola keluar, lawan memasukkannya dari tempat bola keluar, dan pelatih menyiapkan bola cadangan agar tidak berhenti. Gim empat menit, lalu tukar sisi atau lawan.\nAturan: Gol hanya sah jika bola dimainkan di dalam lingkaran. Tidak ada pukulan: bola didorong, dan hanya boleh diangkat untuk tembakan ke gawang. Papan samping bagian dari permainan; jika bola melewati papan, lawan memulai lagi dengan free push dari tempat bola keluar.\nPoin utama: Lima pemain dan kiper per tim, papan samping ikut dimainkan. Gol bernilai dua jika serangan memakai pantulan papan atau pindah sisi — di dalam ruang celah datang dari lebar, bukan dari berlari.",
+        "ms-MY": "Tujuan: Permainan kecil: pemain lebih sedikit, jadi bola dan setiap keputusan datang lebih cepat dan tiada siapa boleh menyorok.\nKekerapan: Penutup sesi hampir setiap hari — permainan kecil ialah tempat semua yang dilatih diuji di bawah tekanan.\nPersediaan: 6 lawan 6, bola dengan 2.\nLaluan bola: 2 → 4 → 6 → gol\nUrutan: Langkah 1: 2 membawa bola; Langkah 2: 2 menghantar kepada 4, 4, 5, C bergerak ke hadapan; Langkah 3: 4 menghantar kepada 6, 6 bergerak ke hadapan, D bergerak ke belakang; Langkah 4: 6 membawa bola, GK bergerak ke hadapan; Langkah 5: 6 menjaring.\nKesinambungan: Selepas gol, pasukan yang kemasukan memulakan dari garisan hujungnya; jika bola keluar, lawan memasukkannya dari tempat ia keluar, dan jurulatih menyediakan bola ganti supaya tiada yang terhenti. Perlawanan empat minit, kemudian tukar sisi atau lawan.\nPeraturan: Gol hanya sah jika bola dimainkan dalam bulatan. Tiada pukulan: bola ditolak, dan hanya boleh diangkat untuk rembatan ke gol. Papan sisi sebahagian daripada permainan; jika bola melepasi papan, lawan memulakan semula dengan tolakan bebas dari tempat bola keluar.\nPoin utama: Lima pemain dan penjaga gol setiap pasukan, papan sisi dalam permainan. Gol bernilai dua jika serangan menggunakan lantunan papan atau tukar sisi — dalam dewan ruang datang daripada kelebaran, bukan larian.",
+        "th-TH": "จุดประสงค์: เกมสนามเล็ก: คนน้อยลง บอลและทุกการตัดสินใจมาเร็วขึ้น และไม่มีใครหลบเกมได้\nความถี่: ปิดการฝึกเกือบทุกวัน — เกมสนามเล็กคือที่ทุกอย่างที่ซ้อมถูกใช้ภายใต้แรงกดดัน\nการจัด: 6 ต่อ 6 บอลอยู่ที่ 2\nเส้นทางบอล: 2 → 4 → 6 → ประตู\nลำดับ: ขั้นที่ 1: 2 พาบอลไป • ขั้นที่ 2: 2 จ่ายให้ 4 4, 5, C ขยับไปข้างหน้า • ขั้นที่ 3: 4 จ่ายให้ 6 6 ขยับไปข้างหน้า D ขยับถอยหลัง • ขั้นที่ 4: 6 พาบอลไป GK ขยับไปข้างหน้า • ขั้นที่ 5: 6 ยิงประตู\nการต่อเนื่อง: หลังเสียประตู ฝ่ายที่เสียเริ่มจากเส้นหลังของตัวเอง บอลออกให้ฝ่ายตรงข้ามนำเข้าเล่นตรงจุดที่ออก โค้ชเตรียมบอลสำรองไว้เพื่อไม่ให้เกมหยุด เกมละ 4 นาที แล้วสลับแดนหรือคู่แข่ง\nกติกา: จะเป็นประตูต้องเล่นบอลในวงยิงเท่านั้น ห้ามตี ใช้การผลัก และยกบอลได้เฉพาะตอนยิงประตู บอร์ดข้างอยู่ในการเล่น ถ้าบอลข้ามบอร์ดออกไป ฝ่ายตรงข้ามเริ่มใหม่ด้วยฟรีพุชตรงจุดที่ออก\nจุดเน้น: ฝ่ายละห้าคนกับผู้รักษาประตู ใช้บอร์ดข้างได้ ประตูที่มาจากการจ่ายเด้งบอร์ดหรือเปลี่ยนข้างนับสองแต้ม ในร่มช่องว่างเกิดจากความกว้าง ไม่ใช่จากการวิ่ง",
+        "vi-VN": "Mục đích: Trò chơi sân nhỏ: ít người hơn nên bóng và mọi quyết định đến nhanh hơn, không ai trốn khỏi trận đấu được.\nTần suất: Kết thúc buổi tập gần như mỗi ngày — trò chơi sân nhỏ là nơi mọi thứ đã tập được thể hiện dưới áp lực.\nBố trí: 6 đấu 6, bóng ở chỗ 2.\nĐường bóng: 2 → 4 → 6 → khung thành\nTrình tự: Bước 1: 2 dẫn bóng di chuyển; Bước 2: 2 chuyền cho 4, 4, 5, C di chuyển lên phía trước; Bước 3: 4 chuyền cho 6, 6 di chuyển lên phía trước, D di chuyển lùi lại; Bước 4: 6 dẫn bóng di chuyển, GK di chuyển lên phía trước; Bước 5: 6 dứt điểm.\nTiếp nối: Sau bàn thua, đội thủng lưới phát bóng từ vạch cuối sân của mình; bóng ra ngoài thì đội kia ném vào ngay chỗ bóng ra, huấn luyện viên có bóng dự phòng để không bị gián đoạn. Mỗi trận bốn phút rồi đổi sân hoặc đổi đối thủ.\nLuật: Chỉ tính bàn khi bóng được chơi trong vòng sút. Không được đánh: chỉ đẩy, và chỉ được nâng bóng khi sút cầu môn. Tấm biên nằm trong cuộc chơi; bóng vượt qua tấm biên thì đối phương đẩy phạt lại từ chỗ bóng ra.\nĐiểm chính: Mỗi đội năm người và thủ môn, tấm biên được dùng. Bàn thắng tính đôi nếu pha bóng có chuyền bật biên hoặc chuyển cánh — trong nhà khoảng trống đến từ chiều rộng, không phải từ chạy."
+      },
+      "mistake": {
+        "en": "Playing to win and forgetting the constraint that was the lesson.",
+        "en-GB": "Playing to win and forgetting the constraint that was the lesson.",
+        "zh-CN": "只想赢，忘了那条作为课题的限制。",
+        "zh-TW": "只想贏，忘了那條作為課題的限制。",
+        "ja-JP": "勝ちに行って課題の制約を忘れる。",
+        "ko-KR": "이기려다 과제인 제약을 잊는다.",
+        "es-ES": "Jugar a ganar y olvidar la condición que era la lección.",
+        "fr-FR": "Jouer pour gagner en oubliant la contrainte-leçon.",
+        "id-ID": "Main untuk menang, lupa batasannya.",
+        "ms-MY": "Main untuk menang, lupa syaratnya.",
+        "th-TH": "เล่นเอาชนะจนลืมกติกา",
+        "vi-VN": "Chơi để thắng mà quên điều kiện."
+      },
+      "board": {
+        "sportType": 7,
+        "players": [
+          {
+            "id": "d0",
+            "label": "2",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              140.86884,
+              545.3737454545454
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                116.80914,
+                509.2989963636363
+              ]
+            ],
+            "movePhases": [
+              0
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "d1",
+            "label": "3",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              261.13116,
+              545.3737454545454
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -1.570796
+          },
+          {
+            "id": "d2",
+            "label": "4",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              201.0,
+              461.199330909091
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                219.05382,
+                401.07474909090917
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -2.356194
+          },
+          {
+            "id": "d3",
+            "label": "5",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              140.86884,
+              401.07474909090917
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                122.85119999999999,
+                304.8754181818182
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d4",
+            "label": "6",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              261.13116,
+              401.07474909090917
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                285.19086000000004,
+                292.8505018181818
+              ],
+              [
+                237.07146000000003,
+                160.5764218181818
+              ]
+            ],
+            "movePhases": [
+              2,
+              3
+            ],
+            "moveColor": 4293558524,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": -2.356194
+          },
+          {
+            "id": "d5",
+            "label": "GK",
+            "team": 0,
+            "sportType": null,
+            "position": [
+              201.0,
+              635.5606181818182
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4286906367,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "d6",
+            "label": "A",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              261.13116,
+              193.06528935064935
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4294942336,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 0.785398
+          },
+          {
+            "id": "d7",
+            "label": "B",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              140.86884,
+              196.6511709090909
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4289058471,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d8",
+            "label": "C",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              268.80066909090914
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                182.94618,
+                328.92525090909095
+              ]
+            ],
+            "movePhases": [
+              1
+            ],
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d9",
+            "label": "D",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              261.13116,
+              328.92525090909095
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                249.08322,
+                248.33671792207792
+              ]
+            ],
+            "movePhases": [
+              2
+            ],
+            "moveColor": 4294929773,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null,
+            "rotation": 3.141593
+          },
+          {
+            "id": "d10",
+            "label": "E",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              140.86884,
+              328.92525090909095
+            ],
+            "scale": 1.0,
+            "moves": [],
+            "movePhases": [],
+            "moveColor": 4285132974,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          },
+          {
+            "id": "d11",
+            "label": "GK",
+            "team": 1,
+            "sportType": null,
+            "position": [
+              201.0,
+              83.14851948051948
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                213.01176,
+                106.46429818181818
+              ]
+            ],
+            "movePhases": [
+              3
+            ],
+            "moveColor": 4294956864,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": "GK",
+            "attachedTo": null,
+            "rotation": -0.785398
+          },
+          {
+            "id": "b0",
+            "label": "",
+            "team": 2,
+            "sportType": 7,
+            "position": [
+              127.55225459640597,
+              525.4070593702503
+            ],
+            "scale": 1.0,
+            "moves": [
+              [
+                103.49255459640598,
+                489.33231027934113
+              ],
+              [
+                199.98025046975243,
+                415.64179907966155
+              ],
+              [
+                271.50798317365775,
+                312.5679783746569
+              ],
+              [
+                228.8666546172945,
+                138.0224605556469
+              ],
+              [
+                188.98824000000002,
+                76.40200727272727
+              ]
+            ],
+            "movePhases": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "moveCarriers": [
+              "d0",
+              null,
+              null,
+              "d4",
+              null
+            ],
+            "moveHolders": [
+              "d0",
+              "d2",
+              "d4",
+              "d4",
+              null
+            ],
+            "holder": "d0",
+            "moveColor": 4282434815,
+            "customColor": null,
+            "gender": 2,
+            "markerShape": 0,
+            "photoId": null,
+            "role": null,
+            "attachedTo": null
+          }
+        ],
+        "strokes": [],
+        "canvasWidth": 402.0,
+        "canvasHeight": 730.0,
+        "courtLayout": "indoor"
       }
     },
     {
