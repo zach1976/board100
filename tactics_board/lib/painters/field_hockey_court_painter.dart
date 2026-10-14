@@ -14,12 +14,16 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    _drawTurf(canvas, size);
-
     // Blank court: turf only, no markings.
-    if (layout == CourtLayout.blank) return;
-    if (layout == CourtLayout.indoor) return _paintIndoor(canvas, size);
-    if (layout == CourtLayout.hockey5s) return _paintHockey5s(canvas, size);
+    if (layout == CourtLayout.blank) return _drawTurf(canvas, size);
+    if (layout == CourtLayout.indoor) {
+      _drawTurf(canvas, size, pitch: _pitchRect(size, 22.0, 44.0));
+      return _paintIndoor(canvas, size);
+    }
+    if (layout == CourtLayout.hockey5s) {
+      _drawTurf(canvas, size, pitch: _pitchRect(size, 23.76, 40.0));
+      return _paintHockey5s(canvas, size);
+    }
 
     if (layout == CourtLayout.half ||
         layout == CourtLayout.halfLeft ||
@@ -60,6 +64,7 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _drawTurf(canvas, size, pitch: Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / fieldW;
     final scY = ch / fieldH;
@@ -167,6 +172,7 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _drawTurf(canvas, size, pitch: Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / fieldW;
     final scY = ch / fieldH;
@@ -240,12 +246,18 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
   /// centred in it; returns the metres-to-canvas mapping.
   static Offset Function(double, double) _metres(
       Size size, double fieldW, double fieldH) {
+    final r = _pitchRect(size, fieldW, fieldH);
+    return (x, y) =>
+        Offset(r.left + x * r.width / fieldW, r.top + y * r.height / fieldH);
+  }
+
+  /// Where a pitch of [fieldW] x [fieldH] metres lies on the canvas: as
+  /// tall as [pitchBox] and centred in it.
+  static Rect _pitchRect(Size size, double fieldW, double fieldH) {
     final box = pitchBox(size);
     final ch = box.height;
     final cw = ch * fieldW / fieldH;
-    final left = box.center.dx - cw / 2;
-    final top = box.top;
-    return (x, y) => Offset(left + x * cw / fieldW, top + y * ch / fieldH);
+    return Rect.fromLTWH(box.center.dx - cw / 2, box.top, cw, ch);
   }
 
   void _spot(Canvas canvas, Offset at, double r) => canvas.drawCircle(
@@ -380,12 +392,32 @@ class FieldHockeyCourtPainter extends CourtPainterBase {
     }
   }
 
-  void _drawTurf(Canvas canvas, Size size) {
+  void _drawTurf(Canvas canvas, Size size, {Rect? pitch}) {
+    // The run-off round the pitch is a second colour, as it is at any FIH
+    // venue — a lighter blue round the blue, or a lighter shade of whatever
+    // the pitch is. One blue to the edge of the canvas read as a pitch with
+    // no edge. The blank board has no pitch to stop at, so it is all turf.
+    if (pitch != null) {
+      canvas.drawRect(Offset.zero & size,
+          Paint()..color = runOffFor(courtColor)..style = PaintingStyle.fill);
+      canvas.save();
+      canvas.clipRect(pitch);
+    }
     // Blue water-based astroturf. It has no mowing stripes the way grass
     // does — it is a carpet — but it is laid in rolls, and under floodlights
     // the seams read as faint bands down the pitch. Flat, it was a slab of
     // one blue with white lines drawn on it.
     drawSurface(canvas, size, bands: 12, bandTint: 0.035);
+    if (pitch != null) canvas.restore();
+  }
+
+  /// The run-off colour that goes with a pitch colour: the light blue of
+  /// the FIH venues round the blue pitch, a lighter shade of itself round
+  /// any other.
+  static Color runOffFor(Color pitch) {
+    if (pitch == const Color(0xFF1976D2)) return const Color(0xFF58A7E0);
+    final hsl = HSLColor.fromColor(pitch);
+    return hsl.withLightness((hsl.lightness + 0.14).clamp(0.0, 1.0)).toColor();
   }
 
   @override

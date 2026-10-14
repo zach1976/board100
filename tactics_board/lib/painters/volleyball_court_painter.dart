@@ -13,11 +13,11 @@ class VolleyballCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // An indoor sport floor, laid in strips and lit from above.
-    drawSurface(canvas, size, bands: 10, bandTint: 0.03);
-
     // Blank court: surface only, no markings.
-    if (layout == CourtLayout.blank) return;
+    if (layout == CourtLayout.blank) {
+      drawSurface(canvas, size, bands: 10, bandTint: 0.03);
+      return;
+    }
 
     if (layout == CourtLayout.half) {
       _paintHalf(canvas, size);
@@ -41,6 +41,7 @@ class VolleyballCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _floor(canvas, size, Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / 9.0;
     final scY = ch / 18.0;
@@ -58,13 +59,13 @@ class VolleyballCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 9), o(9, 9), netBand);
     drawNetMesh(canvas, o(0, 9), o(9, 9), 12);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 9), o(9, 9), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 6
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 8.5), o(0, 9.5), postPaint);
@@ -79,6 +80,31 @@ class VolleyballCourtPainter extends CourtPainterBase {
     drawDashedLine(canvas, dashPaint, o(0, 9 - 3), o(9, 9 - 3));
     drawDashedLine(canvas, dashPaint, o(0, 9 + 3), o(9, 9 + 3));
 
+  }
+
+  /// The floor: the court in its own colour, the free zone round it in
+  /// another, the way an FIVB hall is laid — an orange court sits in a blue
+  /// free zone, a blue one in orange. One colour for the whole canvas read
+  /// as a court with no edge; the lines were the only thing saying where
+  /// the free zone began. The net tape is white, as the rules have it.
+  void _floor(Canvas canvas, Size size, Rect court) {
+    canvas.drawRect(Offset.zero & size,
+        Paint()..color = freeZoneFor(courtColor)..style = PaintingStyle.fill);
+    canvas.save();
+    canvas.clipRect(court);
+    // An indoor sport floor, laid in strips and lit from above.
+    drawSurface(canvas, size, bands: 10, bandTint: 0.03);
+    canvas.restore();
+  }
+
+  /// The free-zone colour that goes with a court colour: the FIVB pairings
+  /// for the orange and blue surfaces, a lighter shade of the same for any
+  /// other.
+  static Color freeZoneFor(Color court) {
+    if (court == const Color(0xFFF57F17)) return const Color(0xFF2A5FA0);
+    if (court == const Color(0xFF1565C0)) return const Color(0xFFE67E22);
+    final hsl = HSLColor.fromColor(court);
+    return hsl.withLightness((hsl.lightness + 0.14).clamp(0.0, 1.0)).toColor();
   }
 
   /// One side of the net filling the canvas: net at the TOP edge, baseline at
@@ -102,6 +128,7 @@ class VolleyballCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _floor(canvas, size, Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / fieldW;
     final scY = ch / fieldH;
@@ -119,13 +146,13 @@ class VolleyballCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 0), o(9, 0), netBand);
     drawNetMesh(canvas, o(0, 0), o(9, 0), 12);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(9, 0), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 6
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, -0.5), o(0, 0.5), postPaint);
