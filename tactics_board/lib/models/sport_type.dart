@@ -598,6 +598,35 @@ extension SportTypeExtension on SportType {
   /// True for racquet/net sports that have singles/doubles variants
   bool get hasDoubles => formations.any((f) => f.nameKey == 'formation_doubles');
 
+  /// Whether the sport's home page offers the match-day substitution sheet.
+  ///
+  /// Field hockey first: it is what every hockey app from the Netherlands
+  /// and Belgium ships, and a coach there expects it. The sheet itself is
+  /// sport-agnostic — turn another sport on here and it gets its own
+  /// defaults from [matchDayDefaults].
+  bool get hasMatchDay => this == SportType.fieldHockey;
+
+  /// How a match of this sport is played, for the match-day sheet: periods,
+  /// minutes per period, players on the pitch at once.
+  ({int periods, int minutes, int onPitch}) get matchDayDefaults {
+    switch (this) {
+      case SportType.fieldHockey:
+        return (periods: 4, minutes: 15, onPitch: 11);
+      case SportType.soccer:
+        return (periods: 2, minutes: 45, onPitch: 11);
+      case SportType.basketball:
+        return (periods: 4, minutes: 10, onPitch: 5);
+      case SportType.handball:
+        return (periods: 2, minutes: 30, onPitch: 7);
+      case SportType.waterPolo:
+        return (periods: 4, minutes: 8, onPitch: 7);
+      case SportType.rugby:
+        return (periods: 2, minutes: 40, onPitch: 15);
+      default:
+        return (periods: 2, minutes: 30, onPitch: 6);
+    }
+  }
+
   /// Which set of words this sport's coach uses for drill categories.
   /// See DrillVocabulary in models/drill.dart.
   DrillVocabulary get drillVocabulary {

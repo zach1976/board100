@@ -4520,6 +4520,13 @@ class _BigPlayControls extends StatelessWidget {
 /// auto-renew disclosure, and Terms / Privacy links. Selecting a plan only
 /// changes [_selectedId]; the CTA buys it. Buying or restoring flips
 /// PurchaseService.hasPro, which AdService reads live to disable every ad.
+/// The paywall, for pages that gate something of their own on Pro — the
+/// match-day sheet's clock. The sheet stays private to this file; this is
+/// the one door in.
+void showPaywallSheet(BuildContext context) {
+  TacticalSheet.show(context, builder: (_) => const _PaywallSheet());
+}
+
 class _PaywallSheet extends StatefulWidget {
   const _PaywallSheet();
 

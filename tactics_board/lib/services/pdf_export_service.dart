@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import '../models/match_day.dart';
 import '../models/volleyball_rotation.dart';
 import '../state/tactics_state.dart';
 
@@ -32,6 +33,34 @@ class LineupSheetStrings {
     required this.rules,
     required this.subs,
     required this.net,
+  });
+}
+
+/// The words on a match-day sheet, already in the coach's language.
+class MatchSheetStrings {
+  final String heading;
+  final String playingTime;
+  final String substitutions;
+  final String noSubs;
+  final String player;
+  final String minutes;
+  final String time;
+  final String period;
+  final String off;
+  final String on;
+  final String starter;
+  const MatchSheetStrings({
+    required this.heading,
+    required this.playingTime,
+    required this.substitutions,
+    required this.noSubs,
+    required this.player,
+    required this.minutes,
+    required this.time,
+    required this.period,
+    required this.off,
+    required this.on,
+    required this.starter,
   });
 }
 
@@ -241,6 +270,149 @@ class PdfExportService {
       ),
     );
     return doc.save();
+  }
+
+  static String _mmss(int sec) {
+    final m = (sec ~/ 60).toString().padLeft(2, '0');
+    final s = (sec % 60).toString().padLeft(2, '0');
+    return '$m:$s';
+  }
+
+  /// The match-day sheet: every player's minutes, most first, with the
+  /// starters marked, and the substitution log under it. Runs onto a
+  /// second page for a long roster.
+  static Future<Uint8List> buildMatchSheet(
+    MatchDay match, {
+    required MatchSheetStrings words,
+  }) async {
+    final dateStr = match.startedAt.toIso8601String().split('T').first;
+    final times = match.playingTime(match.clock());
+    final order = [...match.players]
+      ..sort((a, b) => (times[b.id] ?? 0).compareTo(times[a.id] ?? 0));
+    final starters = match.starters.toSet();
+
+    final heading = await _text(words.heading, size: 18, bold: true);
+    final titleW = match.name.trim().isEmpty
+        ? null
+        : await _text(match.name.trim(), size: 14, bold: true);
+    final setupW = await _text(
+        '${match.periods} × ${match.periodSeconds ~/ 60} min  ·  ${match.onPitch} v ${match.onPitch}',
+        size: 11,
+        color: PdfColors.grey700);
+    final timeHead = await _text(words.playingTime, size: 12, bold: true);
+    final playerCol = await _text(words.player, size: 9, color: PdfColors.grey700);
+    final minutesCol = await _text(words.minutes, size: 9, color: PdfColors.grey700);
+    final rows = <pw.Widget>[];
+    for (final p in order) {
+      final secs = times[p.id] ?? 0;
+      rows.add(pw.Container(
+        padding: const pw.EdgeInsets.symmetric(vertical: 3),
+        decoration: const pw.BoxDecoration(
+            border: pw.Border(
+                bottom: pw.BorderSide(color: PdfColors.grey300, width: 0.5))),
+        child: pw.Row(children: [
+          pw.Expanded(child: await _text(p.label, size: 11)),
+          if (starters.contains(p.id))
+            pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 12),
+                child: await _text(words.starter,
+                    size: 8, color: PdfColors.grey600)),
+          pw.SizedBox(
+              width: 56,
+              child: pw.Align(
+                  alignment: pw.Alignment.centerRight,
+                  child: pw.Text(_mmss(secs),
+                      style: pw.TextStyle(
+                          fontSize: 11, fontWeight: pw.FontWeight.bold)))),
+        ]),
+      ));
+    }
+    final subsHead = await _text(words.substitutions, size: 12, bold: true);
+    final subRows = <pw.Widget>[];
+    if (match.subs.isEmpty) {
+      subRows.add(await _text(words.noSubs, size: 10, color: PdfColors.grey600));
+    } else {
+      subRows.add(pw.Row(children: [
+        pw.SizedBox(width: 48, child: await _text(words.time, size: 9, color: PdfColors.grey700)),
+        pw.SizedBox(width: 40, child: await _text(words.period, size: 9, color: PdfColors.grey700)),
+        pw.Expanded(child: await _text(words.off, size: 9, color: PdfColors.grey700)),
+        pw.Expanded(child: await _text(words.on, size: 9, color: PdfColors.grey700)),
+      ]));
+      subRows.add(pw.SizedBox(height: 3));
+      for (final sub in match.subs) {
+        subRows.add(pw.Padding(
+          padding: const pw.EdgeInsets.symmetric(vertical: 2),
+          child: pw.Row(children: [
+            pw.SizedBox(
+                width: 48,
+                child: pw.Text(_mmss(sub.clock),
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.SizedBox(
+                width: 40,
+                child: pw.Text('${sub.period}',
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.Expanded(
+                child: await _text(match.player(sub.outId)?.label ?? sub.outId,
+                    size: 10)),
+            pw.Expanded(
+                child: await _text(match.player(sub.inId)?.label ?? sub.inId,
+                    size: 10, bold: true)),
+          ]),
+        ));
+      }
+    }
+    final dateW = pw.Text(dateStr,
+        style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey600));
+
+    final doc = pw.Document();
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        margin: const pw.EdgeInsets.all(32),
+        build: (context) => [
+          pw.Row(
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: pw.CrossAxisAlignment.end,
+            children: [heading, dateW],
+          ),
+          pw.SizedBox(height: 10),
+          ?titleW,
+          if (titleW != null) pw.SizedBox(height: 2),
+          setupW,
+          pw.SizedBox(height: 18),
+          timeHead,
+          pw.SizedBox(height: 6),
+          pw.Row(children: [
+            pw.Expanded(child: playerCol),
+            pw.SizedBox(
+                width: 56,
+                child: pw.Align(
+                    alignment: pw.Alignment.centerRight, child: minutesCol)),
+          ]),
+          pw.SizedBox(height: 2),
+          ...rows,
+          pw.SizedBox(height: 18),
+          subsHead,
+          pw.SizedBox(height: 6),
+          ...subRows,
+        ],
+      ),
+    );
+    return doc.save();
+  }
+
+  /// Share the match-day sheet; see [buildMatchSheet].
+  static Future<bool> exportMatchSheet(
+    MatchDay match, {
+    required MatchSheetStrings words,
+    String? filename,
+  }) async {
+    final bytes = await buildMatchSheet(match, words: words);
+    return Printing.sharePdf(
+      bytes: bytes,
+      filename:
+          filename ?? 'match_${DateTime.now().millisecondsSinceEpoch}.pdf',
+    );
   }
 
   /// Share the lineup sheet for [setup]; see [buildLineupSheet].

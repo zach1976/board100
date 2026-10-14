@@ -28,6 +28,7 @@ import 'drill_detail_page.dart';
 import 'drill_primer_page.dart';
 import 'home_page.dart';
 import 'intro_page.dart';
+import 'match_day_page.dart';
 import 'sport_selection_page.dart';
 import 'practice_plan_page.dart';
 
@@ -397,6 +398,14 @@ class _SportHomePageState extends State<SportHomePage> {
                   builder: (_) => PracticePlanPage(state: state),
                 ));
               },
+              onMatchDay: state.sportType.hasMatchDay
+                  ? () {
+                      Navigator.of(context).push(MaterialPageRoute<void>(
+                        builder: (_) =>
+                            MatchDayPage(sport: state.sportType),
+                      ));
+                    }
+                  : null,
             ),
             const SizedBox(height: T.s24),
             // Back to what was open. Every route onto the board already
@@ -856,11 +865,15 @@ class _BoardCard extends StatefulWidget {
   final VoidCallback onOpen;
   final VoidCallback onNew;
   final VoidCallback onPlan;
+
+  /// The match-day sheet, for the sports that have one (SportType.hasMatchDay).
+  final VoidCallback? onMatchDay;
   const _BoardCard(
       {required this.state,
       required this.onOpen,
       required this.onNew,
-      required this.onPlan});
+      required this.onPlan,
+      this.onMatchDay});
 
   @override
   State<_BoardCard> createState() => _BoardCardState();
@@ -1035,6 +1048,15 @@ class _BoardCardState extends State<_BoardCard> {
                     quiet: true,
                     onTap: onPlan,
                   ),
+                  if (widget.onMatchDay != null) ...[
+                    const SizedBox(height: T.s8),
+                    TacticalButton(
+                      label: 'matchday_title'.tr(),
+                      icon: Icons.swap_horiz_rounded,
+                      quiet: true,
+                      onTap: widget.onMatchDay,
+                    ),
+                  ],
                 ],
               ),
             ),
