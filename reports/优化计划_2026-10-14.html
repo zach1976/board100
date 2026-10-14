@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>战术板优化计划</title>
+<meta name="description" content="2026-10-14 根据竞品分析复盘后的优化计划：已完成项、三阶段待办、持续事项与报告修正。">
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --ink: #1b1f24; --muted: #5d6673; --line: #e3e7ec;
+    --accent: #0b7a75; --accent-ink: #ffffff; --soft: #e6f3f2;
+    --done: #2e7d4f; --done-bg: #e7f3ec; --next: #b45309; --next-bg: #fdf1e2;
+    --later: #4b5563; --later-bg: #eceff3; --ota: #1d4f91; --ota-bg: #e5edf8; --sub: #8a2e2e; --sub-bg: #f8e7e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1419; --card: #171d24; --ink: #e8ecf1; --muted: #9aa5b1; --line: #2a333d;
+      --accent: #3fb8b1; --accent-ink: #0b1a19; --soft: #15302e;
+      --done: #7bd49a; --done-bg: #16311f; --next: #f0b060; --next-bg: #3a2810;
+      --later: #b4bcc6; --later-bg: #232a33; --ota: #8ab4ec; --ota-bg: #16243a; --sub: #ee9a9a; --sub-bg: #3a1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1419; --card: #171d24; --ink: #e8ecf1; --muted: #9aa5b1; --line: #2a333d;
+    --accent: #3fb8b1; --accent-ink: #0b1a19; --soft: #15302e;
+    --done: #7bd49a; --done-bg: #16311f; --next: #f0b060; --next-bg: #3a2810;
+    --later: #b4bcc6; --later-bg: #232a33; --ota: #8ab4ec; --ota-bg: #16243a; --sub: #ee9a9a; --sub-bg: #3a1c1c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 -apple-system, "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", "Microsoft YaHei", sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 32px 16px 64px; }
+  header h1 { font-size: 28px; line-height: 1.3; margin: 0 0 6px; }
+  header p { color: var(--muted); margin: 0; }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0 8px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 26px; line-height: 1.2; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  h2 { font-size: 20px; margin: 36px 0 6px; }
+  h2 small { color: var(--muted); font-weight: normal; font-size: 14px; margin-left: 8px; }
+  .lead { color: var(--muted); margin: 0 0 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 18px; margin-bottom: 12px; }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .item h3 { margin: 0 0 4px; font-size: 16px; }
+  .item p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; align-content: start; justify-content: flex-end; min-width: 150px; }
+  .tag { font-size: 12px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .t-done { background: var(--done-bg); color: var(--done); }
+  .t-next { background: var(--next-bg); color: var(--next); }
+  .t-later { background: var(--later-bg); color: var(--later); }
+  .t-ota { background: var(--ota-bg); color: var(--ota); }
+  .t-sub { background: var(--sub-bg); color: var(--sub); }
+  .t-user { background: var(--soft); color: var(--accent); }
+  .t-size { background: var(--later-bg); color: var(--later); }
+  .phase { display: flex; align-items: center; gap: 10px; }
+  .phase .n { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 14.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  tr:last-child td { border-bottom: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+  .note { background: var(--soft); border-radius: 12px; padding: 12px 16px; color: var(--ink); font-size: 14.5px; margin-top: 14px; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 40px; }
+  @media (max-width: 640px) {
+    .item { grid-template-columns: 1fr; }
+    .tags { justify-content: flex-start; }
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>战术板优化计划</h1>
+  <p>2026-10-14 · 对照《四项运动战术板竞品分析》复盘。先做小活随排球下一版送审，功能大项错开，定价等数据。</p>
+</header>
+
+<div class="summary">
+  <div class="stat"><b>6.5 / 8</b><span>报告建议已完成</span></div>
+  <div class="stat"><b>2</b><span>在审版本：曲棍球 2.2.0、排球 2.1.0</span></div>
+  <div class="stat"><b>850</b><span>训练总数，14 种语言</span></div>
+  <div class="stat"><b>8 / 15</b><span>运动场地色已按官方配色改</span></div>
+</div>
+<div class="legend">
+  <span class="tag t-done">已完成</span>
+  <span class="tag t-next">下一步</span>
+  <span class="tag t-later">稍后</span>
+  <span class="tag t-ota">OTA 不送审</span>
+  <span class="tag t-sub">需送审</span>
+  <span class="tag t-user">需你操作</span>
+  <span class="tag t-size">工作量</span>
+</div>
+
+<h2>已完成<small>2026-10-13 至 10-14</small></h2>
+<p class="lead">报告 8 项建议里完成了 1 到 7 项的全部或主体，加上报告漏看的两件：德荷界面与年订阅上架。</p>
+<div class="card">
+  <div class="item"><div><h3>内购核对与年订阅送审</h3><p>四个 app 的年订阅从未上架。曲棍球和排球已随版本带年订阅和订阅组送审；足球篮球发版时脚本自动处理。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+  <div class="item"><div><h3>推广文案、评分时机、商店描述</h3><p>四个 app 的描述、副标题、关键词重写，语言数统一为 14；评分请求改到导出或分享之后。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+  <div class="item"><div><h3>训练库扩充</h3><p>足球 137、篮球 99、排球 150、曲棍球 65。线上第 6 版已推；第 7 版（含曲棍球室内、排球轮转家族、全部运动德荷文字）等两版过审后推。</p></div><div class="tags"><span class="tag t-done">已完成</span><span class="tag t-ota">OTA 不送审</span></div></div>
+  <div class="item"><div><h3>排球轮转规则引擎</h3><p>5-1、6-2、4-2 六个轮次，发球与接发球站位，重叠检查，自由人换人。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+  <div class="item"><div><h3>曲棍球室内场与 Hockey5s、篮球 FIBA 禁区</h3><p>场地按 FIH 和 FIBA 规格，阵型随场地切换。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+  <div class="item"><div><h3>德语、荷兰语整套本地化</h3><p>界面 552 条、训练文字 1,804 句、原生资源、商店文案和截图。在审两版已带。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+  <div class="item"><div><h3>场地颜色按官方配色</h3><p>排球、曲棍球、匹克球、手球、网球、乒乓球、羽毛球、沙滩网球：外围色、区域色、白网带。其余七个核查为符合。</p></div><div class="tags"><span class="tag t-done">已完成</span></div></div>
+</div>
+
+<h2><span class="phase"><span class="n">1</span>排球下一版<small>两周内 · 三件小活一起送</small></span></h2>
+<p class="lead">排球窗口在收窄，2026 下半年至少涌入 6 个规则型轮转 app。这三项都是对手的核心卖点，而我们的引擎已经有了一半。</p>
+<div class="card">
+  <div class="item"><div><h3>规则集切换：FIVB / USAV / NFHS / NCAA</h3><p>重叠规则各体系一致，差别在自由人能否发球和换人上限（FIVB 6、USAV 12、NFHS 18）。美国高中和俱乐部教练是排球最大的付费群。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-sub">需送审</span><span class="tag t-size">小</span></div></div>
+  <div class="item"><div><h3>违例一键归位</h3><p>引擎已有合法化函数，板上已提示哪两人重叠，缺一个「帮我摆正」按钮。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-sub">需送审</span><span class="tag t-size">小</span></div></div>
+  <div class="item"><div><h3>阵容表 PDF</h3><p>官方纸质格式，带发球顺序 I 到 VI。PDF 导出服务已有，加一个模板。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-sub">需送审</span><span class="tag t-size">小</span></div></div>
+</div>
+
+<h2><span class="phase"><span class="n">2</span>足球、篮球发版与功能大项<small>两周到一个月 · 一次一个 app</small></span></h2>
+<div class="card">
+  <div class="item"><div><h3>足球、篮球发版</h3><p>德荷界面、新文案、年订阅与订阅组改名、新场地色、重拍截图（含德荷）。先足球后篮球，间隔一周。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-sub">需送审</span><span class="tag t-size">中</span></div></div>
+  <div class="item"><div><h3>篮球场地规格：NBA / NCAA / 高中</h3><p>现在只有 FIBA。美国教练看到 FIBA 三分线会觉得不对，对手全部覆盖。painter 加布局即可，可并入篮球这次发版。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-sub">需送审</span><span class="tag t-size">小</span></div></div>
+  <div class="item"><div><h3>曲棍球比赛日：换人表与公平上场时间</h3><p>荷比新进入者的共同功能。独立页面：名单、节次、换人表、每人上场分钟。建议作为 Pro 专属，足球可共用。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-sub">需送审</span><span class="tag t-size">中</span></div></div>
+  <div class="item"><div><h3>赛季计划模板</h3><p>练习计划已有，缺现成模板。「赛季前四周」「赛前一周」各做几套，走训练包推送。对手把战术库当 $60 一年的核心卖点。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-ota">OTA 不送审</span><span class="tag t-size">中</span></div></div>
+  <div class="item"><div><h3>其他六个运动的场地色上线</h3><p>匹克球、手球、网球、乒乓球、羽毛球、沙滩网球的新配色只在代码里，各自发版时带上并重拍截图。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-sub">需送审</span></div></div>
+</div>
+
+<h2><span class="phase"><span class="n">3</span>一个月后<small>看数据再定</small></span></h2>
+<div class="card">
+  <div class="item"><div><h3>定价</h3><p>年订阅上线满一个月看转化，再决定是否从 $2.99 提到 $19.99 档。Pro 改称「全部训练 + 去广告」可随发版先改。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-user">需你操作</span></div></div>
+  <div class="item"><div><h3>葡语、意语</h3><p>巴西是足球和排球大国，意大利是排球联赛强国。管线已能扩，成本是翻译 552 条界面加 1,804 句训练文字。看德荷上线后的下载变化再决定。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-size">中</span></div></div>
+</div>
+
+<h2>持续事项<small>不占送审名额</small></h2>
+<div class="card">
+  <div class="item"><div><h3>Play 商店页</h3><p>关掉四个 app 的「含内购」标记；改掉排球「无广告无内购」、曲棍球「永久免费」的旧描述；开发者名。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-user">需你操作</span></div></div>
+  <div class="item"><div><h3>评论回复流程</h3><p>攒起评分后差评 48 小时内回。把评论拉取加进 asc_dashboard，每天看一眼。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-size">小</span></div></div>
+  <div class="item"><div><h3>插屏广告触发点核对</h3><p>只在工具栏一处触发，要确认在导出或分享之后而不是打断编辑。广告是差评最直接的来源。</p></div><div class="tags"><span class="tag t-next">下一步</span><span class="tag t-size">小</span></div></div>
+  <div class="item"><div><h3>分享链接落地页</h3><p>浏览器打开链接是对手用户公开要求的功能，也是免费获客入口。落地页要有预览图和「用战术板打开」按钮。现状待看。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-size">中</span></div></div>
+  <div class="item"><div><h3>iPad 与 iPhone 同步实测</h3><p>对手的差评之一是平板内容到手机上位置全乱。我们有云同步但真机 QA 一直没做，至少跑一次两台设备来回。</p></div><div class="tags"><span class="tag t-later">稍后</span><span class="tag t-user">需你操作</span></div></div>
+  <div class="item"><div><h3>ASC 分析报告接入</h3><p>已申请四个 app 的报告，拿到后把「曲棍球四区第一」换成真实曝光和转化数据。</p></div><div class="tags"><span class="tag t-next">下一步</span></div></div>
+</div>
+
+<h2>报告本身要修的</h2>
+<table>
+  <tr><th>问题</th><th>处理</th></tr>
+  <tr><td>搜索排名是 iTunes 接口近似值</td><td>等 ASC 分析报告，换成真实数据</td></tr>
+  <tr><td>功能矩阵没核对我方产品，多处写「调研员没能核对」</td><td>室内场、轮转引擎、FIBA 禁区都已做，改成核对后的版本</td></tr>
+  <tr><td>没有下载和收入估算，没有社区口碑</td><td>前者要付费工具，暂不做；后者写脚本定期抓对手最新差评</td></tr>
+  <tr><td>定价结论没有数据</td><td>年订阅上线一个月后再写</td></tr>
+  <tr><td>「不撤回在审两版」已被推翻</td><td>执行进度一节改成实际做法：撤回重交，带德荷和新场地色</td></tr>
+</table>
+
+<div class="note"><b>不做：</b>实时协同编辑、AI 生成训练、3D、名字里加 AI、新开 app、同时批量改 16 个 app 的元数据。</div>
+
+<footer>生成于 2026-10-14。送审规则：一次一个 app，每次送审前单独确认。涉及费用的操作需三次确认。</footer>
+</main>
+</body>
+</html>

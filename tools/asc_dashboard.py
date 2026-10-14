@@ -157,8 +157,13 @@ def extras(aid, info_ids):
             (avail if t["attributes"].get("available") else unavail).append(tid)
         url = (r.get("links") or {}).get("next")
     x["territories"] = {"available": sorted(filter(None, avail)), "unavailable": sorted(filter(None, unavail))}
-    rv = get(f"/apps/{aid}/customerReviews", sort="-createdDate", limit=100)
-    x["reviews"] = [r["attributes"] for r in rv["data"]]
+    # include=response: a review with no developer reply is the one to act
+    # on, and the list is where that gets noticed.
+    rv = get(f"/apps/{aid}/customerReviews", sort="-createdDate", limit=100,
+             include="response")
+    x["reviews"] = [dict(r["attributes"],
+                         answered=bool((r.get("relationships", {}).get("response", {}) or {}).get("data")))
+                    for r in rv["data"]]
     x["iap"] = [i["attributes"] for i in get(f"/apps/{aid}/inAppPurchasesV2", limit=50)["data"]]
     return x
 
@@ -303,12 +308,15 @@ def render_extras(a):
     h.append(f'<h4>App 内购买 <span class="dim">{len(x["iap"])} 个</span></h4>')
     for i in x["iap"]:
         h.append(kv_table(i))
-    h.append(f'<h4>用户评价 <span class="dim">{len(x["reviews"])} 条</span></h4><table>'
-             '<tr><th>日期</th><th>地区</th><th>星</th><th>标题</th><th>内容</th></tr>')
+    unanswered = sum(1 for r in x["reviews"] if not r.get("answered"))
+    h.append(f'<h4>用户评价 <span class="dim">{len(x["reviews"])} 条'
+             f'{f" · <b>{unanswered} 条未回复</b>" if unanswered else ""}</span></h4><table>'
+             '<tr><th>日期</th><th>地区</th><th>星</th><th>标题</th><th>内容</th><th>回复</th></tr>')
     for r in x["reviews"]:
         h.append(f'<tr><td>{day(r.get("createdDate"))}</td><td>{E(r.get("territory"))}</td>'
                  f'<td>{"★" * (r.get("rating") or 0)}</td><td>{E(r.get("title"))}</td>'
-                 f'<td>{E(r.get("body"))}</td></tr>')
+                 f'<td>{E(r.get("body"))}</td>'
+                 f'<td>{"已回复" if r.get("answered") else "<b>未回复</b>"}</td></tr>')
     h.append('</table></div>')
     return "".join(h)
 
