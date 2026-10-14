@@ -614,7 +614,13 @@ extension SportTypeExtension on SportType {
   /// sport-agnostic — turn another sport on here and it gets its own
   /// defaults from [matchDayDefaults].
   bool get hasMatchDay =>
-      this == SportType.fieldHockey || this == SportType.volleyball;
+      this == SportType.fieldHockey ||
+      this == SportType.volleyball ||
+      this == SportType.soccer ||
+      this == SportType.basketball ||
+      this == SportType.handball ||
+      this == SportType.waterPolo ||
+      this == SportType.rugby;
 
   /// Whether the match-day sheet counts sets instead of running a clock:
   /// volleyball, where what a coach tracks is the score of the set, the

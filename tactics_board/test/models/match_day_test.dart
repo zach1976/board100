@@ -204,9 +204,17 @@ void main() {
           (periods: 4, minutes: 15, onPitch: 11));
     });
 
-    test('field hockey and volleyball have the sheet for now', () {
+    test('the team sports with a bench have the sheet', () {
       final on = SportType.values.where((s) => s.hasMatchDay).toSet();
-      expect(on, {SportType.fieldHockey, SportType.volleyball});
+      expect(on, {
+        SportType.fieldHockey,
+        SportType.volleyball,
+        SportType.soccer,
+        SportType.basketball,
+        SportType.handball,
+        SportType.waterPolo,
+        SportType.rugby,
+      });
       expect(SportType.volleyball.matchDayCountsSets, isTrue);
       expect(SportType.fieldHockey.matchDayCountsSets, isFalse);
     });
