@@ -2135,6 +2135,12 @@ def build(sport: str, library) -> dict:
                          .read_text(encoding="utf-8"))
     if strings:
         pack["strings"] = strings
+    # Ready sessions built from this library (plans.py). Apps before the
+    # one that reads them ignore the key, so the floor does not move.
+    from .plans import build_plans
+    plans = build_plans(records)
+    if plans:
+        pack["plans"] = plans
     from .compat import required_client
     pack["minClient"] = required_client(pack, min_client())
     return pack

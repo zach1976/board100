@@ -7021,5 +7021,269 @@
         "canvasHeight": 730.0
       }
     }
+  ],
+  "plans": [
+    {
+      "id": "foundation",
+      "name": {
+        "en": "Foundation session",
+        "en-GB": "Foundation session",
+        "zh-CN": "基础课",
+        "zh-TW": "基礎課",
+        "ja-JP": "基礎練習",
+        "ko-KR": "기초 훈련",
+        "es-ES": "Sesión de base",
+        "fr-FR": "Séance de base",
+        "id-ID": "Sesi dasar",
+        "ms-MY": "Sesi asas",
+        "th-TH": "คาบฝึกพื้นฐาน",
+        "vi-VN": "Buổi tập cơ bản",
+        "de-DE": "Grundlageneinheit",
+        "nl-NL": "Basistraining"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "tt_multiball",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_short_touch",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_defence_chop_block",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        }
+      ]
+    },
+    {
+      "id": "attacking",
+      "name": {
+        "en": "Attacking session",
+        "en-GB": "Attacking session",
+        "zh-CN": "进攻课",
+        "zh-TW": "進攻課",
+        "ja-JP": "攻撃練習",
+        "ko-KR": "공격 훈련",
+        "es-ES": "Sesión de ataque",
+        "fr-FR": "Séance d'attaque",
+        "id-ID": "Sesi menyerang",
+        "ms-MY": "Sesi serangan",
+        "th-TH": "คาบฝึกเกมรุก",
+        "vi-VN": "Buổi tập tấn công",
+        "de-DE": "Angriffseinheit",
+        "nl-NL": "Aanvalstraining"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "tt_multiball",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_short_touch",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_short_banana",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_kill_smash",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        }
+      ]
+    },
+    {
+      "id": "defending",
+      "name": {
+        "en": "Defending session",
+        "en-GB": "Defending session",
+        "zh-CN": "防守课",
+        "zh-TW": "防守課",
+        "ja-JP": "守備練習",
+        "ko-KR": "수비 훈련",
+        "es-ES": "Sesión defensiva",
+        "fr-FR": "Séance défensive",
+        "id-ID": "Sesi bertahan",
+        "ms-MY": "Sesi pertahanan",
+        "th-TH": "คาบฝึกเกมรับ",
+        "vi-VN": "Buổi tập phòng ngự",
+        "de-DE": "Abwehreinheit",
+        "nl-NL": "Verdedigingstraining"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "tt_defence_chop_block",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_defence_deep_chop",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_multiball",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        },
+        {
+          "drill": "ttfit_side_step",
+          "minutes": 8
+        }
+      ]
+    },
+    {
+      "id": "setpiece",
+      "name": {
+        "en": "Set-piece session",
+        "en-GB": "Set-piece session",
+        "zh-CN": "定位球课",
+        "zh-TW": "定位球課",
+        "ja-JP": "セットプレー練習",
+        "ko-KR": "세트피스 훈련",
+        "es-ES": "Sesión de jugadas a balón parado",
+        "fr-FR": "Séance coups de pied arrêtés",
+        "id-ID": "Sesi bola mati",
+        "ms-MY": "Sesi bola mati",
+        "th-TH": "คาบฝึกลูกตั้งเตะ",
+        "vi-VN": "Buổi tập tình huống cố định",
+        "de-DE": "Standardsituationen",
+        "nl-NL": "Standaardsituaties"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "tt_serve_short_backspin",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_serve_third_ball",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_serve_long_fast",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        }
+      ]
+    },
+    {
+      "id": "matchweek",
+      "name": {
+        "en": "Match week",
+        "en-GB": "Match week",
+        "zh-CN": "赛前一周",
+        "zh-TW": "賽前一週",
+        "ja-JP": "試合週",
+        "ko-KR": "경기 주간",
+        "es-ES": "Semana de partido",
+        "fr-FR": "Semaine de match",
+        "id-ID": "Pekan pertandingan",
+        "ms-MY": "Minggu perlawanan",
+        "th-TH": "สัปดาห์แข่งขัน",
+        "vi-VN": "Tuần thi đấu",
+        "de-DE": "Spielwoche",
+        "nl-NL": "Wedstrijdweek"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "tt_multiball",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_short_banana",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_defence_deep_chop",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_serve_third_ball",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        }
+      ]
+    },
+    {
+      "id": "preseason",
+      "name": {
+        "en": "Pre-season",
+        "en-GB": "Pre-season",
+        "zh-CN": "赛季前",
+        "zh-TW": "季前",
+        "ja-JP": "プレシーズン",
+        "ko-KR": "프리시즌",
+        "es-ES": "Pretemporada",
+        "fr-FR": "Présaison",
+        "id-ID": "Pramusim",
+        "ms-MY": "Pramusim",
+        "th-TH": "ช่วงก่อนเปิดฤดูกาล",
+        "vi-VN": "Tiền mùa giải",
+        "de-DE": "Saisonvorbereitung",
+        "nl-NL": "Voorbereiding"
+      },
+      "items": [
+        {
+          "drill": "tt_warm_forehand",
+          "minutes": 6
+        },
+        {
+          "drill": "ttfit_side_step",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_multiball",
+          "minutes": 10
+        },
+        {
+          "drill": "tt_game_half_table",
+          "minutes": 15
+        },
+        {
+          "drill": "ttfit_in_and_out",
+          "minutes": 8
+        },
+        {
+          "drill": "tt_kill_smash",
+          "minutes": 8
+        }
+      ]
+    }
   ]
 }

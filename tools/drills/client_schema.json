@@ -6,7 +6,7 @@
    "version": "2.0.0",
    "minClient": "2.0.0",
    "drills": "2.0.0",
-   "strings": "2.0.0"
+   "strings": "2.0.0", "plans": "2.0.0"
   },
   "drill": {
    "board": "2.0.0",
