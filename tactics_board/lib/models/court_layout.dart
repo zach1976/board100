@@ -10,16 +10,33 @@ import 'package:flutter/material.dart';
 /// ([SoccerFieldType]). Appended, never reordered — persisted by index.
 ///
 /// `indoor` and `hockey5s` are not views of the pitch but other pitches
-/// (field hockey: the FIH indoor pitch and the Hockey5s court). A board
-/// drawn on one says so (`courtLayout` in its JSON, by name) and reopens on
-/// it; see [CourtLayoutPitch.isOwnPitch] and TacticsState.courtLayout.
-enum CourtLayout { full, half, blank, halfLeft, halfRight, indoor, hockey5s }
+/// (field hockey: the FIH indoor pitch and the Hockey5s court), as `nba`,
+/// `ncaa` and `highSchool` are basketball's other courts beside FIBA's. A
+/// board drawn on one says so (`courtLayout` in its JSON, by name) and
+/// reopens on it; see [CourtLayoutPitch.isOwnPitch] and
+/// TacticsState.courtLayout.
+enum CourtLayout {
+  full,
+  half,
+  blank,
+  halfLeft,
+  halfRight,
+  indoor,
+  hockey5s,
+  nba,
+  ncaa,
+  highSchool,
+}
 
 extension CourtLayoutPitch on CourtLayout {
   /// A different pitch rather than a way of looking at the full one: the
   /// board that is drawn on it carries it, so it reopens on the same lines.
   bool get isOwnPitch =>
-      this == CourtLayout.indoor || this == CourtLayout.hockey5s;
+      this == CourtLayout.indoor ||
+      this == CourtLayout.hockey5s ||
+      this == CourtLayout.nba ||
+      this == CourtLayout.ncaa ||
+      this == CourtLayout.highSchool;
 
   /// The pitch a board's JSON names (`courtLayout`), or null for none, an
   /// unknown name, or a layout that is only a view.

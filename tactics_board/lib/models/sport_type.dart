@@ -411,6 +411,17 @@ extension SportTypeExtension on SportType {
           CourtLayout.indoor,
           CourtLayout.hockey5s,
         ];
+      case SportType.basketball:
+        // The FIBA court, plus the three others the game is played on in
+        // the US: NBA, NCAA (men's) and high school (NFHS).
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.blank,
+          CourtLayout.nba,
+          CourtLayout.ncaa,
+          CourtLayout.highSchool,
+        ];
       default:
         // Goal sports → one goal end; net sports → one side of the net.
         return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];

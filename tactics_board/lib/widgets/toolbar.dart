@@ -628,6 +628,12 @@ String _courtLayoutLabel(CourtLayout l) {
       return 'field_indoor'.tr();
     case CourtLayout.hockey5s:
       return 'field_hockey5s'.tr();
+    case CourtLayout.nba:
+      return 'field_nba'.tr();
+    case CourtLayout.ncaa:
+      return 'field_ncaa'.tr();
+    case CourtLayout.highSchool:
+      return 'field_high_school'.tr();
   }
 }
 

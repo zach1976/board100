@@ -21,6 +21,9 @@ class BasketballCourtPainter extends CourtPainterBase {
     // Blank court: hardwood only, no markings.
     if (layout == CourtLayout.blank) return;
 
+    // Another court than FIBA's: NBA, NCAA or high school.
+    if (layout.isOwnPitch) return _paintCourt(canvas, size, _Court.of(layout));
+
     if (layout == CourtLayout.half) {
       _paintHalfCourt(canvas, size);
       return;
@@ -102,6 +105,102 @@ class BasketballCourtPainter extends CourtPainterBase {
 
     // Reuse the top-half markings (basket, key, three-point arc).
     _drawHalf(canvas, p, o, sc, isTop: true);
+  }
+
+  /// The FIBA court's box on this canvas (SportType.fieldRect). The NBA,
+  /// NCAA and high-school courts are drawn inside it at their own
+  /// proportions — so a board's positions are the same fractions of the
+  /// same box whichever court is under them, and nothing saved moves.
+  static Rect courtBox(Size size) {
+    const ratio = 15.0 / 28.0;
+    final w = size.width, h = size.height;
+    double cw, ch;
+    if (w / h > ratio) {
+      ch = h * 0.90;
+      cw = ch * ratio;
+    } else {
+      cw = w * 0.90;
+      ch = cw / ratio;
+    }
+    return Rect.fromLTWH((w - cw) / 2, (h - ch) / 2, cw, ch);
+  }
+
+  /// Where a court [c] lies on the canvas: as large as fits in [courtBox]
+  /// and centred in it. The 94 ft courts are as tall as the box and a shade
+  /// narrower (50/94 against 15/28); the 84 ft high-school court is as
+  /// wide as the box and nine tenths of its height.
+  static Rect _courtRect(Size size, _Court c) {
+    final box = courtBox(size);
+    final sc = min(box.width / c.width, box.height / c.length);
+    return Rect.fromCenter(
+        center: box.center, width: c.width * sc, height: c.length * sc);
+  }
+
+  /// A full court of [c]: boundary, division line, centre circle, and the
+  /// same markings at both ends.
+  void _paintCourt(Canvas canvas, Size size, _Court c) {
+    final p = linePaint;
+    final r = _courtRect(size, c);
+    final sc = r.width / c.width;
+    Offset o(double x, double y) => Offset(r.left + x * sc, r.top + y * sc);
+
+    canvas.drawRect(r, p);
+    canvas.drawLine(o(0, c.length / 2), o(c.width, c.length / 2), p);
+    final centre = o(c.width / 2, c.length / 2);
+    canvas.drawCircle(centre, c.circleR * sc, p);
+    if (c.innerCircleR > 0) canvas.drawCircle(centre, c.innerCircleR * sc, p);
+
+    _drawEnd(canvas, p, o, sc, c, isTop: true);
+    _drawEnd(canvas, p, o, sc, c, isTop: false);
+  }
+
+  /// One basket end of [c]: the key and free-throw line with its
+  /// semicircle, the backboard and rim, the three-point arc with its
+  /// corner lines, and the restricted-area arc where the court has one.
+  void _drawEnd(Canvas canvas, Paint p, Offset Function(double, double) o,
+      double sc, _Court c,
+      {required bool isTop}) {
+    final cx = c.width / 2;
+    // x across the court, d in from this end's baseline.
+    Offset e(double x, double d) => o(x, isTop ? d : c.length - d);
+    // Where a semicircle that opens towards mid-court starts.
+    final toward = isTop ? 0.0 : pi;
+
+    // The key, its far edge the free-throw line.
+    canvas.drawRect(
+        Rect.fromPoints(e(cx - c.keyW / 2, 0), e(cx + c.keyW / 2, c.keyD)), p);
+    canvas.drawArc(Rect.fromCircle(center: e(cx, c.keyD), radius: c.ftR * sc),
+        toward, pi, false, p);
+
+    // Backboard and rim.
+    canvas.drawLine(e(cx - c.bbW / 2, c.bbDist), e(cx + c.bbW / 2, c.bbDist), p);
+    final rimC = e(cx, c.basketDist);
+    canvas.drawCircle(
+        rimC,
+        _Court.rimR * sc,
+        Paint()
+          ..color = Colors.orange
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = p.strokeWidth);
+
+    // Three-point line: straight from the baseline, parallel to the
+    // sideline, up to where the arc round the basket reaches it.
+    final dxCorner = cx - c.cornerX;
+    final arcYOffset =
+        sqrt(max(0.0, c.threeR * c.threeR - dxCorner * dxCorner));
+    final cornerLineLen = c.basketDist + arcYOffset;
+    canvas.drawLine(e(c.cornerX, 0), e(c.cornerX, cornerLineLen), p);
+    canvas.drawLine(
+        e(c.width - c.cornerX, 0), e(c.width - c.cornerX, cornerLineLen), p);
+    final a = atan2(arcYOffset, dxCorner);
+    canvas.drawArc(Rect.fromCircle(center: rimC, radius: c.threeR * sc),
+        isTop ? a : -(pi - a), pi - 2 * a, false, p);
+
+    // Restricted area.
+    if (c.restrictedR > 0) {
+      canvas.drawArc(Rect.fromCircle(center: rimC, radius: c.restrictedR * sc),
+          toward, pi, false, p);
+    }
   }
 
   // Base returns false unconditionally; repaint when the layout or floor colour
@@ -249,4 +348,68 @@ class BasketballCourtPainter extends CourtPainterBase {
       canvas.drawArc(Rect.fromCircle(center: rimC, radius: 1.25 * sc), pi, pi, false, p);
     }
   }
+}
+
+/// A court's measurements in feet, portrait: [width] across, [length] end
+/// to end, and the rest in from a baseline — the key's width and depth (its
+/// far edge the free-throw line), the free-throw circle, the centre circle
+/// and the inner one the NBA paints, the backboard's distance and width, the
+/// basket's centre, the three-point arc and its corner lines' distance from
+/// the sideline, and the restricted-area arc (0: none).
+class _Court {
+  final double width, length, keyW, keyD, ftR, circleR, innerCircleR;
+  final double bbDist, bbW, basketDist, threeR, cornerX, restrictedR;
+
+  /// An 18 in rim.
+  static const double rimR = 0.75;
+
+  const _Court({
+    required this.width,
+    required this.length,
+    required this.keyW,
+    required this.keyD,
+    required this.ftR,
+    required this.circleR,
+    this.innerCircleR = 0,
+    required this.bbDist,
+    required this.bbW,
+    required this.basketDist,
+    required this.threeR,
+    required this.cornerX,
+    required this.restrictedR,
+  });
+
+  /// NBA: 94 x 50 ft, a 16 ft key, the free-throw line 15 ft from the
+  /// backboard (4 ft in), the rim's centre 15 in before that, a 6 ft
+  /// free-throw circle, the centre circle 6 ft round a 2 ft one, the
+  /// three-point arc 23 ft 9 in from the basket meeting lines 3 ft from the
+  /// sideline (22 ft from the basket), the restricted area 4 ft.
+  static const nba = _Court(
+    width: 50, length: 94, keyW: 16, keyD: 19, ftR: 6,
+    circleR: 6, innerCircleR: 2, bbDist: 4, bbW: 6, basketDist: 5.25,
+    threeR: 23.75, cornerX: 3, restrictedR: 4,
+  );
+
+  /// NCAA men's (2024 rules): the NBA court with a 12 ft key and the FIBA
+  /// arc, 22 ft 1¾ in, meeting lines 3 ft 4⅛ in from the sideline.
+  static const ncaa = _Court(
+    width: 50, length: 94, keyW: 12, keyD: 19, ftR: 6,
+    circleR: 6, bbDist: 4, bbW: 6, basketDist: 5.25,
+    threeR: 22 + 1.75 / 12, cornerX: 3 + 4.125 / 12, restrictedR: 4,
+  );
+
+  /// NFHS high school: 84 x 50 ft, a 12 ft key, the 19 ft 9 in arc meeting
+  /// lines 5 ft 3 in from the sideline level with the basket, and no
+  /// restricted-area arc (a state option, left off).
+  static const highSchool = _Court(
+    width: 50, length: 84, keyW: 12, keyD: 19, ftR: 6,
+    circleR: 6, bbDist: 4, bbW: 6, basketDist: 5.25,
+    threeR: 19.75, cornerX: 5.25, restrictedR: 0,
+  );
+
+  static _Court of(CourtLayout layout) => switch (layout) {
+        CourtLayout.nba => nba,
+        CourtLayout.ncaa => ncaa,
+        _ => highSchool,
+      };
 }
