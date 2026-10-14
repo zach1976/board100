@@ -250,6 +250,7 @@
   "practice_item_note": "备注（可选）",
   "practice_new_blank": "空白新建",
   "practice_copy_from": "复制自已有计划",
+  "practice_from_template": "从现成课表开始",
   "practice_start": "开始训练",
   "practice_item_done": "本项结束，进入下一项",
   "practice_complete_title": "训练完成",

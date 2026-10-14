@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/drill.dart';
 import '../models/practice.dart';
+import '../models/session_template.dart';
 import '../services/drill_library_service.dart';
 import '../services/purchase_service.dart';
 import '../widgets/add_to_plan_sheet.dart';
@@ -61,8 +62,19 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
 
   Future<void> _createNew() async {
     const blankSentinel = '__blank__';
+    const templateSentinel = '__template__:';
+    final sport = widget.state.sportType;
+    final l = context.locale;
+    final locale = l.countryCode == null
+        ? l.languageCode
+        : '${l.languageCode}-${l.countryCode}';
+    // The pack's ready sessions: a coach with no plan yet gets six to
+    // start from, each the library's own drills in a sensible order.
+    await DrillLibraryService.instance.forSport(sport);
+    if (!mounted) return;
+    final templates = DrillLibraryService.instance.templatesFor(sport);
     String? copyFrom;
-    if (_names.isNotEmpty) {
+    if (_names.isNotEmpty || templates.isNotEmpty) {
       copyFrom = await TacticalSheet.show(
       context,
         builder: (ctx) => TacticalSheet(
@@ -82,17 +94,35 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
-                const Divider(color: T.border, height: 1),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-                  child: Text('practice_copy_from'.tr(),
-                      style: const TextStyle(color: T.textDim, fontSize: 13)),
-                ),
-                ..._names.map((n) => ListTile(
-                      leading: const Icon(Icons.content_copy_outlined, color: T.textDim),
-                      title: Text(n, style: const TextStyle(color: T.text)),
-                      onTap: () => Navigator.pop(ctx, n),
-                    )),
+                if (templates.isNotEmpty) ...[
+                  const Divider(color: T.border, height: 1),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+                    child: Text('practice_from_template'.tr(),
+                        style: const TextStyle(color: T.textDim, fontSize: 13)),
+                  ),
+                  ...templates.map((t) => ListTile(
+                        leading: const Icon(Icons.auto_awesome_outlined, color: T.textDim),
+                        title: Text(t.nameFor(locale), style: const TextStyle(color: T.text)),
+                        subtitle: Text(
+                            '${t.items.length} · ${t.totalMinutes} ${'practice_minutes'.tr()}',
+                            style: const TextStyle(color: T.textDim, fontSize: 12)),
+                        onTap: () => Navigator.pop(ctx, '$templateSentinel${t.id}'),
+                      )),
+                ],
+                if (_names.isNotEmpty) ...[
+                  const Divider(color: T.border, height: 1),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+                    child: Text('practice_copy_from'.tr(),
+                        style: const TextStyle(color: T.textDim, fontSize: 13)),
+                  ),
+                  ..._names.map((n) => ListTile(
+                        leading: const Icon(Icons.content_copy_outlined, color: T.textDim),
+                        title: Text(n, style: const TextStyle(color: T.text)),
+                        onTap: () => Navigator.pop(ctx, n),
+                      )),
+                ],
               ],
             ),
           ),
@@ -101,8 +131,14 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
       if (!mounted) return;
     }
 
-    final sport = widget.state.sportType;
-    final name = await promptForName(context, title: 'practice_new'.tr());
+    SessionTemplate? template;
+    if (copyFrom != null && copyFrom.startsWith(templateSentinel)) {
+      final id = copyFrom.substring(templateSentinel.length);
+      template = templates.firstWhere((t) => t.id == id);
+    }
+    final name = await promptForName(context,
+        title: 'practice_new'.tr(),
+        initial: template?.nameFor(locale) ?? '');
     if (name == null || name.isEmpty) return;
     final existing = await PracticeService.load(sport, name);
     if (existing != null) {
@@ -113,7 +149,20 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
       return;
     }
     Practice p;
-    if (copyFrom != null && copyFrom != blankSentinel) {
+    if (template != null) {
+      // Each item is the drill saved as one of the coach's boards, the way
+      // the library's "add to plan" does it, with the template's minutes.
+      final all = await DrillLibraryService.instance.forSport(sport);
+      final byId = {for (final d in all) d.id: d};
+      final items = <PracticeItem>[];
+      for (final it in template.items) {
+        final drill = byId[it.drillId];
+        if (drill == null) continue;
+        final board = await AddToPlanSheet.saveDrillAsBoard(sport, drill, locale);
+        items.add(PracticeItem(tacticName: board, durationMinutes: it.minutes));
+      }
+      p = Practice(name: name, items: items);
+    } else if (copyFrom != null && copyFrom != blankSentinel) {
       final base = await PracticeService.load(sport, copyFrom);
       p = Practice(
         name: name,

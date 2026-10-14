@@ -334,6 +334,7 @@
   "practice_item_note": "Nota (opcional)",
   "practice_new_blank": "Plan en blanco",
   "practice_copy_from": "Copiar de un plan existente",
+  "practice_from_template": "Desde una sesión lista",
   "practice_start": "Empezar sesión",
   "practice_item_done": "Ejercicio hecho: siguiente",
   "practice_complete_title": "Sesión completada",

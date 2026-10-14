@@ -334,6 +334,7 @@
   "edit_ball": "ボールを編集",
   "practice_new_blank": "空白のプラン",
   "practice_copy_from": "既存プランから複製",
+  "practice_from_template": "テンプレートから",
   "practice_start": "セッション開始",
   "practice_item_done": "ドリル完了 — 次へ",
   "practice_complete_title": "セッション完了",

@@ -225,6 +225,7 @@
   "practice_item_note": "Note (optional)",
   "practice_new_blank": "Blank plan",
   "practice_copy_from": "Copy from existing plan",
+  "practice_from_template": "From a ready session",
   "practice_start": "Start session",
   "practice_item_done": "Drill done — next up",
   "practice_complete_title": "Session complete",
