@@ -1,13 +1,28 @@
-Neu in 2.0.2
+Neu in 2.1.0
 
-DIE TAFEL BLEIBT AUF DEM FELD
-Auf dem iPad, auf dem Mac und auf einem quer gehaltenen Telefon wurden Spieler und Ball am Fenster statt am Feld ausgerichtet: Ein Korbleger endete hinter der Grundlinie, und der Werfer stand auf dem Ring. Jetzt steht alles dort, wo die Linien es vorgeben — in jeder Größe.
+SPIELTAG
+Lege Spielabschnitte und Startaufstellung fest, markiere den Torwart, lass die Uhr laufen und tippe zwei Spieler an, um sie zu wechseln. Die Uhr stoppt am Ende eines Abschnitts von selbst, +1 min für Nachspielzeit. Die Bank sortiert sich nach gespielten Minuten, und „Vorschlag“ gleicht die Spielzeit aus, ohne den Torwart anzurühren. Nach dem Spiel werden Minuten und Wechsel jedes Spielers als PDF exportiert, und beendete Spiele werden mit deinem Konto synchronisiert. Die Uhr braucht Pro; die Vorbereitung ist frei.
 
-ZWEI BÄLLE, EINER IN JEDER HAND
-Ein Spieler, der sich mit zwei Bällen aufwärmt, hat jetzt einen auf jeder Seite statt einen vor und einen hinter sich.
+SPIELBUCH
+Eigene Boards als „Im Spielbuch“ markieren und am Spieltag durchblättern: wischen zum nächsten, Play drücken.
 
-PLATZ FÜR DIE TASTEN
-Im Querformat lagen Menü, Seitenanzeige und Zoom-Tasten auf der Spielfläche. Die Tafel beginnt jetzt innerhalb davon.
+NBA-, NCAA- UND HIGHSCHOOL-FELDER
+Neben FIBA bietet das Feldmenü das NBA-Feld (16-ft-Zone, 23,75-ft-Dreierlinie), das NCAA-Feld (12-ft-Zone, 22′1¾″) und das NFHS-Highschool-Feld (84 ft, 19′9″, ohne Restricted Area).
 
-DIE BILDER DREHEN SICH MIT
-Die Tafel auf dem Startbildschirm und die in einer Übung sind genauso ausgerichtet wie die Tafel, die du öffnest.
+99 ÜBUNGEN
+Die Übungsbibliothek ist von 58 auf 99 gewachsen: Set Plays (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), Spain Pick-and-Roll mit seinen Reads, Einwurfspielzüge, Ganzfeldpresse und Pressbreak, Zonenangriff und -verteidigung, Mann-Verteidigung, Umschalten, Wurf und Abschluss, jeweils mit Trainerhinweisen in deiner Sprache.
+
+FERTIGE EINHEITEN
+Sechs fertige Trainingseinheiten aus den Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
+
+NOTIZEN AUF DEM BOARD
+Schreibe Text direkt aufs Board. Der Schrittkommentar einer Übung steht auf dem Board und wechselt mit jedem Schritt. Wähle Farbe oder Stärke, während eine Linie ausgewählt ist, um sie umzugestalten.
+
+FÜR DAS iPAD GEMACHT
+Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
+
+KLEINERE KORREKTUREN
+Der Pro-Bildschirm heißt jetzt „Alle Übungen, keine Werbung“. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Quer gehalten weicht die Seitenleiste der Dynamic Island aus. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

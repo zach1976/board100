@@ -1,29 +1,49 @@
-Gana la gain line.
+Gana la línea de ventaja.
 
-Pizarra de Rugby — Diseña líneas de touche, jugadas de scrum y patrones de tres cuartos — 7s, 10s y 15s.
+Pizarra de Rugby — Diseña touches, jugadas de melé y patrones de la línea de tres cuartos en un campo con sus líneas de 22 y de 10 metros — para seven, diez y quince.
 
 DIBUJA. JUEGA. COMPARTE.
 
-- Arrastra jugadores a un terreno en color a escala
+- Arrastra jugadores a un campo de rugby a escala y en color, con las líneas de 22, de 10 y de medio campo
 - Flechas, líneas, zonas — colores y estilos a tu gusto
 - Toca Play y los jugadores se mueven paso a paso
-- Guarda jugadas sin límite, exporta en imagen HD o PDF
+- Escribe una nota en cada paso: cambia mientras corre la jugada
+- Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
+
+40 EJERCICIOS, YA ESCRITOS
+
+Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Manejo de balón en rejilla, juego por fases 2-4-2, el ruck y el contra-ruck, jugadas de tres cuartos como el salto de pase, patadas territoriales y la persecución, melés, touches y el maul en avance, salidas desde la propia 22, juegos de contacto, físico. Busca y filtra por categoría, nivel y número de jugadores.
+
+- Seis sesiones listas, montadas con los ejercicios de la biblioteca: elige una al crear un plan y edítala desde ahí
+- Encadena ejercicios y tus propias pizarras en un plan, llévalo desde la banda y guarda el historial de cada sesión
+- Guarda tu plantilla con fotos y marca quién vino
+- Comparte una pizarra como enlace: tus jugadores la abren en el navegador, sin instalar nada
 
 FORMACIONES, LISTAS
 
-Touches · Jugadas de scrum · Ataque tres cuartos · Líneas defensivas · Sistema de ruck
-Un toque para cargar, edita.
+Touches · Jugadas de melé · Ataque de tres cuartos · Líneas defensivas · Sistemas de ruck
+Un toque para cargar, edita a tu manera.
+
+DÍA DE PARTIDO
+
+Define los periodos y el equipo inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego. Al acabar, los minutos y cambios de cada jugador se exportan en PDF. La preparación es gratis; el reloj requiere Pro.
 
 HECHO PARA EL BANQUILLO
 
 - Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.
+- iPad con barra lateral, atajos de teclado y Apple Pencil: el Pencil dibuja y el dedo mueve jugadores; en vertical u horizontal
+- Inicio de sesión opcional con Apple o Google: sincroniza pizarras, planes e historial entre dispositivos
 - Tema oscuro — descansa la vista en entrenamiento nocturno
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
 - AirPlay a TV — el vestuario se vuelve sala de guerra
-- Gratis, sin cuenta
 
-11 IDIOMAS
-Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+GRATIS Y PRO
+
+Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios: un solo pago (Lifetime), tuyo para siempre.
+
+14 IDIOMAS
+Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Cada nombre de ejercicio y cada indicación del entrenador también están traducidos.
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
 

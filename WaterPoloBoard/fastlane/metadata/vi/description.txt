@@ -1,29 +1,49 @@
-Vận hành tình huống thiếu người.
+Di chuyển thế hơn người.
 
-Bảng Chiến Thuật Bóng Nước — Lập kế hoạch tấn công 4-2, 3-3, phòng ngự M-drop và 6-on-5 — toàn hồ, mọi vị trí.
+Bảng chiến thuật Bóng nước giúp huấn luyện viên lên tấn công 4-2 và 3-3, phòng ngự M-drop và bài 6 đánh 5 trên bể có vạch 2 m, 5 m và 6 m — mọi vị trí.
 
 VẼ. PHÁT. CHIA SẺ.
 
-- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu
+- Kéo cầu thủ vào bể chuẩn tỉ lệ, đầy màu, có vạch 2 m, 5 m và 6 m
 - Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý
 - Chạm Play, cầu thủ tự di chuyển từng bước
-- Lưu không giới hạn, xuất ảnh HD hoặc PDF
+- Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
+- Lưu không giới hạn, xuất PNG, PDF hoặc video
+
+37 BÀI TẬP, ĐÃ VIẾT SẴN
+
+Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Đạp nước và chuyền, luân chuyển vòng ngoài, phản công 2v1, 6 đánh 5 trong đội hình 4-2, chuyền vào trung phong và ép đối thủ bị đuổi, kèm trước trung phong, ném phạt nhanh, sút mạnh từ điểm giữa, góc và chuyền phát động của thủ môn, đấu 4v4, thể lực. Tìm và lọc theo nhóm, trình độ và số người.
+
+- Sáu buổi tập có sẵn, ghép từ các bài trong thư viện — chọn một buổi khi tạo giáo án rồi chỉnh tiếp
+- Nối bài tập và bảng của riêng bạn thành giáo án, chạy cả buổi ngay bên sân và lưu lịch sử từng buổi
+- Lưu đội hình kèm ảnh và đánh dấu ai có mặt
+- Chia sẻ bảng bằng đường link — cầu thủ mở bằng trình duyệt, không cần cài app
 
 ĐỘI HÌNH, SẴN SÀNG
 
-Tấn công 4-2 · 3-3 · M-drop · 6-on-5 · Phản công
-Một chạm để tải, chỉnh tự do.
+Tấn công 4-2 · Tấn công 3-3 · Phòng ngự M-drop · Hơn người 6 đánh 5 · Phản công
+Một chạm để tải, chỉnh mọi vận động viên.
+
+NGÀY THI ĐẤU
+
+Đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu. Sau trận, số phút và thay người của từng cầu thủ xuất ra PDF. Thiết lập miễn phí; đồng hồ cần Pro.
 
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
 - Hoạt động offline — sân không Wi-Fi? Không sao.
+- iPad có thanh bên, phím tắt bàn phím và Apple Pencil — bút để vẽ, ngón tay để kéo cầu thủ; dọc hay ngang đều được
+- Đăng nhập bằng Apple hoặc Google (tùy chọn) để đồng bộ bảng, giáo án và lịch sử buổi tập giữa các thiết bị
 - Giao diện tối — dịu mắt khi tập tối
 - Hoàn tác/làm lại 50 bước — thử thoải mái
 - AirPlay lên TV — phòng thay đồ thành phòng tác chiến
-- Miễn phí, không cần tài khoản
 
-11 NGÔN NGỮ
-Tiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
+MIỄN PHÍ VÀ PRO
+
+Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập — mua một lần (Lifetime), dùng mãi mãi.
+
+14 NGÔN NGỮ
+Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Mọi tên bài tập và lời giảng cũng được dịch.
 
 Từ giải làng đến đội tuyển — dạy được là vẽ được.
 

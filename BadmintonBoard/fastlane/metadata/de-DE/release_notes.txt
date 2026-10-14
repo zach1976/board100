@@ -1,0 +1,19 @@
+Neu in 2.1.0
+
+FERTIGE EINHEITEN
+Sechs fertige Trainingseinheiten aus den 42 Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
+
+NOTIZEN AUF DEM BOARD
+Schreibe Text direkt aufs Board. Der Schrittkommentar einer Übung steht auf dem Board und wechselt mit jedem Schritt. Wähle Farbe oder Stärke, während eine Linie ausgewählt ist, um sie umzugestalten.
+
+DAS FELD IN SEINEN FARBEN
+Ein grünes Feld mit weißem Netzband, wie es die offizielle Palette vorsieht.
+
+FÜR DAS iPAD GEMACHT
+Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
+
+KLEINERE KORREKTUREN
+Der Pro-Bildschirm heißt jetzt „Alle Übungen, keine Werbung“. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Quer gehalten weicht die Seitenleiste der Dynamic Island aus. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

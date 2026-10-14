@@ -1,24 +1,19 @@
-Nouveautés de la version 2.0.0
+Nouveautés de la version 2.1.0
 
-Une grosse mise à jour : une bibliothèque d'exercices, des plans d'entraînement et un tableau entièrement redessiné.
+SÉANCES PRÊTES
+Six séances prêtes, composées des 42 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
 
-BIBLIOTHÈQUE D'EXERCICES — 42 EXERCICES
-Chaque exercice est un tableau animé avec sa disposition, le trajet du ballon et le point de coaching. Ouvrez-le et lancez la lecture, ou posez-le sur le tableau et modifiez-le comme le vôtre. Cherchez, ou filtrez par catégorie, niveau et effectif.
+NOTES SUR LE TABLEAU
+Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
 
-PLANS D'ENTRAÎNEMENT ET VOTRE EFFECTIF
-Enchaînez exercices et tableaux personnels dans un plan et déroulez-le depuis la touche, un élément à la fois, avec le relevé de ce que vous avez vraiment fait. Gardez vos joueurs avec leur photo et faites l'appel à chaque séance.
+LE TERRAIN DANS SES COULEURS
+Un terrain vert avec une bande de filet blanche, comme le veut la palette officielle.
 
-LE TABLEAU EST UNE CARTE
-Le terrain repose sur le fond sombre de son sport, avec des coins arrondis et une ombre douce, au lieu de déborder des bords de l'écran. Joueurs, matériel et ballon ont une ombre de contact, la surface de jeu a sa propre texture et les filets ont leurs mailles.
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
 
-COMMANDES REFAITES
-Une barre inférieure plus lisible, outils dans une capsule et lecture dans une autre ; des boutons d'angle plus grands qui évitent la Dynamic Island ; zoom et plein écran déplacés dans la barre. Sur iPad en paysage, les commandes passent sous le tableau et le terrain prend toute la largeur.
+ALLEMAND ET NÉERLANDAIS
+L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
 
-LE BALLON ET LES TRACÉS
-Le porteur a le ballon devant lui, du côté où il regarde — jamais derrière, jamais sous les pieds. Course, conduite et passe sont trois tracés distincts, dessinés sous les silhouettes, des pieds aux pieds. Et tous les exercices de la bibliothèque ont été réespacés pour qu'aucune silhouette n'en chevauche une autre.
-
-ET AUSSI
-- Partagez un tableau par lien web : celui qui l'ouvre n'a pas besoin de l'app
-- Exportez une action en vidéo aussi bien qu'en image
-- Copiez un joueur avec sa course sur la page suivante
-- Un écran de lancement en paysage
+AUTRES CORRECTIONS
+L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.

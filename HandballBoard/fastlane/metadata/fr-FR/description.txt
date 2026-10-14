@@ -1,31 +1,51 @@
-Forcez la zone des 6 mètres.
+Attaquez les six mètres.
 
-Handball Tactique — Concevez systèmes d'attaque, défenses 6-0 et 5-1 et contre-attaques sur terrain réglementaire.
+Handball Tactique — Planifiez systèmes d'attaque, défenses 6-0 et 5-1 et contre-attaques sur un terrain réglementaire avec ses zones de but orange.
 
 DESSINEZ. JOUEZ. PARTAGEZ.
 
-- Glissez les joueurs sur un terrain en couleurs précis
+- Glissez les joueurs sur un terrain de handball précis en couleurs, avec ses zones de but orange
 - Flèches, lignes, zones — couleurs et styles à votre goût
 - Touchez Play et les joueurs bougent étape par étape
-- Sauvegardez sans limite, exportez en image HD ou PDF
+- Écrivez une note à chaque étape : elle change au fil de l'action
+- Sauvegardez sans limite ; exportez en PNG, PDF ou vidéo
+
+42 EXERCICES, DÉJÀ RÉDIGÉS
+
+Chaque exercice est un tableau que vous déroulez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Passes en étoile, circulation par le pivot, attaques sur l'écran du pivot, contre-attaques de première et seconde vague, la roucoulette du pivot, défenses 3-2-1 et 6-0, le repli, l'engagement, jeux à 5 contre 5, gardien en un contre un, physique. Recherche et filtres par catégorie, niveau et effectif.
+
+- Six séances prêtes, composées des exercices de la bibliothèque : choisissez-en une en créant un plan et modifiez-la ensuite
+- Enchaînez exercices et tableaux perso en un plan, menez la séance depuis le bord du terrain et gardez l'historique de chaque séance
+- Gardez votre effectif avec photos et cochez qui est venu
+- Partagez un tableau par lien : vos joueurs l'ouvrent dans un navigateur, sans installer d'app
 
 FORMATIONS, PRÊTES À L'EMPLOI
 
-Défense 6-0 · 5-1 · 3-2-1 · Systèmes d'attaque · Contre-attaques
-Un tap pour charger, modifiez.
+Défense 6-0 · Défense 5-1 · 3-2-1 · Systèmes d'attaque · Contre-attaques
+Un tap pour charger, modifiez chaque poste.
+
+JOUR DE MATCH
+
+Réglez les périodes et votre équipe de départ, lancez le chrono et touchez deux joueurs pour les remplacer. Le banc est trié par minutes jouées et « Suggérer » équilibre le temps de jeu. Cartons jaunes, exclusions de deux minutes et cartons rouges sont notés. Après le match, les minutes et remplacements de chaque joueur s'exportent en PDF. La préparation est gratuite ; le chrono demande Pro.
 
 CONÇU POUR LE BORD DU TERRAIN
 
 - Fonctionne hors-ligne — pas de Wi-Fi sur le terrain ? Pas de souci.
+- iPad avec barre latérale, raccourcis clavier et Apple Pencil : le Pencil dessine, le doigt déplace les joueurs ; en portrait ou en paysage
+- Connexion facultative avec Apple ou Google : tableaux, plans et historique synchronisés entre vos appareils
 - Thème sombre — repose les yeux le soir
 - Annuler/refaire jusqu'à 50 étapes — testez sans peur
 - AirPlay vers TV — le vestiaire devient salle de stratégie
-- Gratuit, sans compte
 
-11 LANGUES
-Français · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+GRATUIT ET PRO
 
-Du foot du dimanche à l'équipe nationale — si vous l'enseignez, vous le dessinez.
+Téléchargement gratuit, sans compte. Pro retire les pubs et débloque toute la bibliothèque d'exercices : un achat unique (Lifetime), à vous pour toujours.
+
+14 LANGUES
+Français · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Chaque nom d'exercice et chaque consigne d'entraîneur sont traduits aussi.
+
+Du club du dimanche à l'équipe nationale — si vous l'enseignez, vous le dessinez.
 
 Conditions d’utilisation (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Politique de confidentialité: https://tacticsboard.100for1.com/privacy

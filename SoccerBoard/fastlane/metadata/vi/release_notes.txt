@@ -1,13 +1,22 @@
-Có gì mới trong 2.2.1
+Có gì mới trong 2.3.0
 
-CÚ SÚT VÀO LƯỚI
-Mọi bài tập dứt điểm đều kết thúc với quả bóng nằm xa phía sau khung thành: điểm đến được viết theo khung vẽ chứ không theo sân. Giờ cú sút kết thúc trong lưới, đúng như bài tập mô tả.
+NGÀY THI ĐẤU
+Đặt các hiệp và đội hình xuất phát, đánh dấu thủ môn, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Đồng hồ tự dừng khi hết hiệp, với +1 phút bù giờ. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu mà không đụng đến thủ môn. Thẻ vàng và thẻ đỏ được ghi theo từng cầu thủ, và bảng đá luân lưu ghi lại từng cú sút. Sau trận, số phút và các lần thay của từng cầu thủ xuất ra PDF, và trận đã kết thúc đồng bộ với tài khoản của bạn. Đồng hồ cần Pro; phần thiết lập miễn phí.
 
-BẢNG NẰM GỌN TRONG SÂN
-Trên iPad, trên Mac và trên điện thoại xoay ngang, cầu thủ và bóng được đặt theo cửa sổ chứ không theo sân, nên cả pha bóng lệch khỏi các đường kẻ vài mét. Giờ mọi thứ nằm đúng chỗ các đường kẻ chỉ ra, ở mọi kích thước màn hình.
+SỔ CHIẾN THUẬT
+Đánh dấu bảng của bạn là "Trong sổ chiến thuật" và lật xem từ ngày thi đấu: vuốt sang bảng tiếp theo, bấm phát.
 
-CHỪA CHỖ CHO CÁC NÚT
-Khi xoay ngang, nút menu, số trang và nút thu phóng nằm đè lên mặt sân. Bảng giờ bắt đầu từ phía trong chúng, và trên iPad thanh phát và thanh công cụ nằm chung một hàng nên sân lấy lại được phần chiều cao đó.
+BUỔI TẬP CÓ SẴN
+Sáu buổi tập có sẵn, ghép từ 137 bài tập trong thư viện: cơ bản, tấn công, phòng thủ, bóng chết, tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
 
-ẢNH NHỎ XOAY THEO BẢNG
-Bảng ở màn hình chính và trong một bài tập được vẽ cùng chiều với bảng bạn mở.
+GHI CHÚ TRÊN BẢNG
+Viết chữ thẳng lên bảng. Ghi chú từng bước của bài tập nằm trên bảng và đổi theo mỗi bước. Chọn màu hoặc độ dày khi đang chọn một đường để đổi kiểu đường đó.
+
+LÀM CHO iPAD
+Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
+
+TIẾNG ĐỨC VÀ TIẾNG HÀ LAN
+Ứng dụng giờ có tiếng Đức và tiếng Hà Lan: mọi màn hình, mọi tên bài tập và mọi lời giảng. Tổng cộng 14 ngôn ngữ.
+
+SỬA LỖI NHỎ
+Màn hình Pro nay có tên "Mọi bài tập, không quảng cáo". Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Khi xoay ngang, thanh bên tránh khỏi Dynamic Island. Nhiều nhãn còn tiếng Anh nay đã được dịch.

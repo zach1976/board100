@@ -1,29 +1,45 @@
-Gerakkan dia, kemudian smash menang.
+Gerakkan mereka. Kemudian menangi smash.
 
-Papan Taktik Badminton — Reka taktik perseorangan, beregu dan beregu campuran — depan-belakang, sisi-sisi, putaran.
+Papan Taktik Badminton membantu pemain dan jurulatih mereka gerakan perseorangan, beregu dan beregu campuran — depan-belakang, sisi-sisi dan putaran antara keduanya — di gelanggang hijau mengikut skala.
 
 LUKIS · MAIN · KONGSI
 
-- Seret pemain ke padang berwarna mengikut skala
+- Seret pemain ke gelanggang badminton hijau berwarna mengikut skala
 - Anak panah, garisan, zon — warna dan gaya bebas
 - Ketik Play, pemain bergerak langkah demi langkah
-- Simpan taktik tanpa had, eksport ke gambar HD atau PDF
+- Tulis nota pada setiap langkah — nota bertukar semasa gerakan dimainkan
+- Simpan taktik tanpa had; eksport ke PNG, PDF atau video
+
+42 LATIHAN, SUDAH DITULIS
+
+Setiap latihan ialah papan yang dijalankan rentak demi rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan. Kerja kaki ke empat penjuru, servis dan pulangan, servis flick dan tipuan selepasnya, permainan jaring, drive dan drop, smash dan pertahanan multi-bulu tangkis, putaran beregu selepas lob, permainan bersyarat, kecergasan. Cari dan tapis mengikut kategori, tahap dan bilangan pemain.
+
+- Enam sesi sedia ada yang dibina daripada latihan dalam pustaka — pilih satu semasa membuat pelan latihan dan ubah dari situ
+- Rangkaikan latihan dan papan anda sendiri menjadi pelan, jalankan sesi dari tepi padang, dan simpan sejarah setiap sesi
+- Simpan skuad bersama fotonya dan tandakan siapa yang hadir
+- Kongsi papan sebagai pautan — pemain membukanya dalam pelayar, tanpa aplikasi
 
 FORMASI SEDIA GUNA
 
-Perseorangan · Beregu depan-belakang · Sisi-sisi · Latihan putaran · Beregu campuran
-Satu sentuh muat, edit bebas.
+Perseorangan garisan belakang · Beregu depan-belakang · Sisi-sisi · Latihan putaran · Beregu campuran
+Satu sentuh muat, ubah bebas.
 
 DIBINA UNTUK TEPI PADANG
 
 - Berfungsi luar talian — padang tiada Wi-Fi? Tiada masalah.
+- iPad dengan bar sisi, pintasan papan kekunci dan Apple Pencil — Pencil melukis, jari menggerakkan pemain; menegak atau melintang
+- Log masuk pilihan dengan Apple atau Google menyegerakkan papan, pelan dan sejarah sesi antara peranti
 - Tema gelap — selesa untuk latihan malam
 - Buat asal/buat semula 50 langkah — cuba dengan yakin
 - AirPlay ke TV — bilik persalinan jadi bilik strategi
-- Percuma, tiada akaun
 
-11 BAHASA
-Bahasa Melayu · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia
+PERCUMA DAN PRO
+
+Percuma dimuat turun, tanpa akaun. Pro membuang iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime), milik anda selamanya.
+
+14 BAHASA
+Bahasa Melayu · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Deutsch · Nederlands
+Setiap nama latihan dan nota jurulatih turut diterjemahkan.
 
 Dari liga kampung ke pasukan kebangsaan — jika boleh dilatih, boleh dilukis.
 

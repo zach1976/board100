@@ -1,24 +1,33 @@
-Có gì mới trong 2.0.0
-
-Một bản cập nhật lớn: thư viện bài tập tích hợp, kế hoạch buổi tập, và bảng chiến thuật được vẽ lại từ đầu.
+Có gì mới trong 2.1.0
 
 THƯ VIỆN BÀI TẬP — 35 BÀI
-Mỗi bài tập là một bảng động kèm cách bố trí, đường bóng và điểm huấn luyện. Mở ra bấm phát, hoặc đưa lên bảng và sửa như bảng của bạn. Tìm kiếm, hoặc lọc theo nhóm, trình độ và số người.
+Mỗi bài tập là một bảng động kèm cách bố trí, đường bóng và điểm huấn luyện, với lời giảng bằng ngôn ngữ của bạn. Mở ra bấm phát, hoặc đưa lên bảng và sửa như bảng của bạn. Tìm kiếm, hoặc lọc theo nhóm, trình độ và số người.
 
 KẾ HOẠCH BUỔI TẬP VÀ ĐỘI HÌNH
 Xâu chuỗi các bài tập và bảng của riêng bạn thành một kế hoạch rồi chạy ngay bên đường biên, từng mục một, có ghi lại những gì đã thực sự tập. Lưu cầu thủ kèm ảnh và điểm danh mỗi buổi.
 
-BẢNG LÀ MỘT TẤM THẺ
-Sân nằm trên nền tối của chính môn thể thao đó, bo góc và có bóng đổ nhẹ, thay vì tràn ra mép màn hình. Cầu thủ, dụng cụ và bóng có bóng tiếp đất, mặt sân có kết cấu riêng, và lưới có mắt lưới.
+BUỔI TẬP CÓ SẴN
+Sáu buổi tập có sẵn, ghép từ các bài tập trong thư viện: cơ bản, tấn công, phòng thủ, bóng chết, tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
 
-ĐIỀU KHIỂN LÀM LẠI
-Thanh dưới rõ ràng hơn với công cụ trong một viên nang và phát lại trong một viên nang khác; nút góc lớn hơn và tránh Dynamic Island; thu phóng và toàn màn hình chuyển vào thanh. Trên iPad ở chế độ ngang, điều khiển nằm dưới bảng để sân chiếm trọn chiều rộng.
+GHI CHÚ TRÊN BẢNG
+Viết chữ thẳng lên bảng. Ghi chú từng bước của bài tập nằm trên bảng và đổi theo mỗi bước. Chọn màu hoặc độ dày khi đang chọn một đường để đổi kiểu đường đó.
 
-BÓNG VÀ ĐƯỜNG DI CHUYỂN
-Cầu thủ có bóng giữ bóng ở phía trước, bên anh ta đang hướng tới — không bao giờ ở sau lưng, không bao giờ dưới chân. Chạy, rê và chuyền là ba đường khác nhau, vẽ dưới các nhân vật, từ chân đến chân. Và mọi bảng bài tập trong thư viện đều được giãn lại để không nhân vật nào chồng lên nhau ở bất kỳ bước nào.
+BÀN ĐÚNG MÀU CỦA MÔN
+Bàn xanh dương trên sàn đỏ sẫm, theo bảng màu chính thức.
+
+BẢNG ĐƯỢC VẼ LẠI
+Sân nằm như một tấm thẻ trên nền tối của môn thể thao đó, bo góc và có bóng đổ nhẹ. Cầu thủ, dụng cụ và bóng có bóng tiếp đất, mặt sân có kết cấu và lưới có mắt lưới. Cầu thủ có bóng giữ bóng ở phía trước, bên đang hướng tới, và chạy, rê, chuyền là ba đường khác nhau vẽ dưới các nhân vật. Công cụ nằm trong một viên nang dưới và phát lại trong viên nang khác; trên iPad ở chế độ ngang sân chiếm trọn chiều rộng.
+
+LÀM CHO iPAD
+Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
+
+TIẾNG ĐỨC VÀ TIẾNG HÀ LAN
+Ứng dụng giờ có tiếng Đức và tiếng Hà Lan: mọi màn hình, mọi tên bài tập và mọi lời giảng. Tổng cộng 14 ngôn ngữ.
 
 NGOÀI RA
 - Chia sẻ bảng bằng liên kết web; người mở không cần cài ứng dụng
 - Xuất một pha di chuyển thành video chứ không chỉ ảnh tĩnh
 - Sao chép cầu thủ kèm đường chạy sang trang kế tiếp
-- Màn hình khởi động cho chế độ ngang
+
+SỬA LỖI NHỎ
+Màn hình Pro nay có tên "Mọi bài tập, không quảng cáo". Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Khi xoay ngang, thanh bên tránh khỏi Dynamic Island. Nhiều nhãn còn tiếng Anh nay đã được dịch.

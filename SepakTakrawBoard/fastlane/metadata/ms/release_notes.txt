@@ -1,24 +1,30 @@
-Apa yang Baharu dalam 2.0.0
-
-Kemas kini besar: pustaka latihan terbina dalam, pelan latihan, dan papan yang dilukis semula sepenuhnya.
+Apa Yang Baharu dalam 2.1.0
 
 PUSTAKA LATIHAN — 32 LATIHAN
-Setiap latihan ialah papan beranimasi lengkap dengan susunan, laluan bola dan poin kejurulatihan. Buka dan mainkan, atau letakkannya pada papan dan sunting seperti milik anda sendiri. Cari, atau tapis mengikut kategori, tahap dan bilangan pemain.
+Setiap latihan ialah papan beranimasi lengkap dengan susunan, laluan bola dan poin kejurulatihan, dengan nota jurulatih dalam bahasa anda. Buka dan mainkan, atau letakkannya pada papan dan sunting seperti milik anda sendiri. Cari, atau tapis mengikut kategori, tahap dan bilangan pemain.
 
 PELAN LATIHAN DAN SKUAD ANDA
 Rangkaikan latihan dan papan anda sendiri menjadi satu pelan dan jalankannya dari tepi padang, satu demi satu, dengan rekod apa yang benar-benar dijalankan. Simpan pemain berserta foto mereka dan tandakan kehadiran setiap sesi.
 
-PAPAN IALAH SEKEPING KAD
-Gelanggang terletak di atas latar gelap sukan itu sendiri dengan bucu bulat dan bayang lembut, bukan lagi memenuhi tepi skrin. Pemain, peralatan dan bola ada bayang sentuhan, permukaan permainan ada teksturnya sendiri, dan jaring ada jalinannya.
+SESI SEDIA ADA
+Enam sesi sedia ada yang dibina daripada latihan dalam pustaka: asas, menyerang, bertahan, bola mati, minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
 
-KAWALAN DIBINA SEMULA
-Bar bawah yang lebih jelas dengan alat dalam satu kapsul dan main balik dalam satu lagi; butang bucu lebih besar dan menjauhi Dynamic Island; zum dan skrin penuh dipindahkan ke dalam bar. Pada iPad dalam landskap, kawalan berada di bawah papan supaya gelanggang mengambil lebar penuh.
+NOTA PADA PAPAN
+Tulis teks terus pada papan. Nota langkah sesuatu latihan dipaparkan pada papan dan bertukar pada setiap langkah. Pilih warna atau ketebalan semasa satu garis dipilih untuk menukar gayanya.
 
-BOLA DAN LALUAN
-Pemain yang memegang bola meletakkannya di hadapan, pada sisi yang dihadapnya — tidak pernah di belakang, tidak pernah terpijak. Larian, kelecek dan hantaran ialah tiga garis berbeza, dilukis di bawah figura, dari kaki ke kaki. Dan semua papan latihan dalam pustaka dijarakkan semula supaya tiada figura bertindih pada mana-mana langkah.
+PAPAN YANG DILUKIS SEMULA
+Gelanggang terletak seperti kad di atas latar gelap sukan itu sendiri, dengan bucu bulat dan bayang lembut. Pemain, peralatan dan bola ada bayang sentuhan, permukaan ada teksturnya dan jaring ada jalinannya. Pemain yang memegang bola meletakkannya di hadapan pada sisi yang dihadapnya, dan larian, kelecek dan hantaran ialah tiga garis berbeza di bawah figura. Alat berada dalam satu kapsul bawah dan main balik dalam satu lagi; pada iPad landskap gelanggang mengambil lebar penuh.
+
+DIBUAT UNTUK iPAD
+Bar sisi menggantikan tab, pustaka latihan dan pelan di sebelah butirannya, dan panel yang dibuka di sebelah butangnya. Papan kekunci berfungsi (Space memainkan, anak panah melangkah, Cmd+Z membuat asal), dan Apple Pencil melukis sementara jari menggerakkan pemain.
+
+JERMAN DAN BELANDA
+Aplikasi kini bertutur dalam bahasa Jerman dan Belanda: setiap skrin, setiap nama latihan dan setiap nota jurulatih. Kesemuanya 14 bahasa.
 
 JUGA
 - Kongsi papan sebagai pautan web; penerimanya tidak perlu aplikasi
 - Eksport satu pergerakan sebagai video, bukan sekadar gambar
 - Salin pemain berserta lariannya ke halaman seterusnya
-- Skrin pelancaran untuk landskap
+
+PEMBAIKAN KECIL
+Skrin Pro kini bertajuk "Semua latihan, tanpa iklan". Kembali dari papan membawa anda semula ke pelan latihan yang sedang berjalan. Dalam landskap, bar sisi menjauhi Dynamic Island. Banyak label yang masih dalam bahasa Inggeris kini diterjemahkan.

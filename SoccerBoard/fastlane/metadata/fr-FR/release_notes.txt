@@ -1,13 +1,22 @@
-Nouveautés de la version 2.2.1
+Nouveautés de la version 2.3.0
 
-LES TIRS RENTRENT
-Tous les exercices de finition se terminaient avec le ballon loin derrière le but : la cible était écrite par rapport au cadre de dessin et non au terrain. Le tir finit désormais dans les filets, comme l'exercice l'annonce.
+JOUR DE MATCH
+Fixez les périodes et votre composition de départ, marquez le gardien, lancez le chrono et touchez deux joueurs pour les permuter. Le chrono s'arrête seul en fin de période, avec +1 min de temps additionnel. Le banc se classe par minutes jouées et « Suggérer » équilibre le temps de jeu sans toucher au gardien. Les cartons jaunes et rouges sont notés par joueur, et un panneau de tirs au but enregistre chaque tir. Après le match, les minutes et remplacements de chaque joueur s'exportent en PDF, et les matchs terminés se synchronisent avec votre compte. Le chrono demande Pro ; la préparation est gratuite.
 
-LE TABLEAU RESTE SUR LE TERRAIN
-Sur iPad, sur Mac et sur un téléphone tourné, les joueurs et le ballon étaient placés par rapport à la fenêtre et non au terrain : toute l'action se retrouvait à plusieurs mètres des lignes. Tout est maintenant là où les lignes le disent, à toutes les tailles.
+CAHIER DE JEU
+Marquez vos tableaux « Dans le cahier de jeu » et feuilletez-les le jour du match : glissez vers le suivant, appuyez sur lecture.
 
-DE LA PLACE POUR LES BOUTONS
-À l'horizontale, le menu, le numéro de page et le zoom se posaient sur la surface de jeu. Le tableau commence maintenant en deçà, et sur iPad la barre de lecture et la barre d'outils tiennent sur une seule ligne : le terrain récupère cette hauteur.
+SÉANCES PRÊTES
+Six séances prêtes, composées des 137 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
 
-LES VIGNETTES TOURNENT AVEC LE TABLEAU
-Le tableau de l'accueil et celui d'un exercice sont orientés comme celui que vous ouvrez.
+NOTES SUR LE TABLEAU
+Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
+
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
+
+ALLEMAND ET NÉERLANDAIS
+L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+
+AUTRES CORRECTIONS
+L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.

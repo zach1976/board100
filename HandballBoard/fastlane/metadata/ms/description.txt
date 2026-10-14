@@ -1,29 +1,49 @@
-Tembusi garisan 6 meter.
+Rempuh garisan 6 meter.
 
-Papan Taktik Bola Baling — Reka sistem serangan, pertahanan 6-0 dan 5-1 dan serangan balas — di gelanggang piawai.
+Papan Taktik Bola Baling membantu jurulatih merancang sistem serangan, pertahanan 6-0 dan 5-1 serta serangan balas di gelanggang piawai dengan kawasan gol jingga.
 
 LUKIS · MAIN · KONGSI
 
-- Seret pemain ke padang berwarna mengikut skala
+- Seret pemain ke gelanggang bola baling berwarna mengikut skala dengan kawasan gol jingga
 - Anak panah, garisan, zon — warna dan gaya bebas
 - Ketik Play, pemain bergerak langkah demi langkah
-- Simpan taktik tanpa had, eksport ke gambar HD atau PDF
+- Tulis nota pada setiap langkah — nota bertukar semasa gerakan dimainkan
+- Simpan taktik tanpa had; eksport ke PNG, PDF atau video
+
+42 LATIHAN, SUDAH DITULIS
+
+Setiap latihan ialah papan yang dijalankan rentak demi rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan. Hantaran bintang, peredaran melalui pivot, serangan dari skrin pivot, serangan balas gelombang pertama dan kedua, pusingan pivot, pertahanan 3-2-1 dan 6-0, berundur bertahan, throw-off, permainan 5 lawan 5, penjaga gol satu lawan satu, kecergasan. Cari dan tapis mengikut kategori, tahap dan bilangan pemain.
+
+- Enam sesi sedia ada yang dibina daripada latihan dalam pustaka — pilih satu semasa membuat pelan latihan dan ubah dari situ
+- Rangkaikan latihan dan papan anda sendiri menjadi pelan, jalankan sesi dari tepi padang, dan simpan sejarah setiap sesi
+- Simpan skuad bersama fotonya dan tandakan siapa yang hadir
+- Kongsi papan sebagai pautan — pemain membukanya dalam pelayar, tanpa aplikasi
 
 FORMASI SEDIA GUNA
 
-Pertahanan 6-0 · 5-1 · 3-2-1 · Sistem serangan · Serangan balas
-Satu sentuh muat, edit bebas.
+Pertahanan 6-0 · Pertahanan 5-1 · 3-2-1 · Sistem serangan · Serangan balas
+Satu sentuh muat, ubah mana-mana posisi.
+
+HARI PERLAWANAN
+
+Tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain, dan "Cadangan" menyamakan masa bermain. Kad kuning, penggantungan dua minit dan kad merah turut direkodkan. Selepas perlawanan, minit dan penggantian setiap pemain dieksport sebagai PDF. Persediaan adalah percuma; jam memerlukan Pro.
 
 DIBINA UNTUK TEPI PADANG
 
 - Berfungsi luar talian — padang tiada Wi-Fi? Tiada masalah.
+- iPad dengan bar sisi, pintasan papan kekunci dan Apple Pencil — Pencil melukis, jari menggerakkan pemain; menegak atau melintang
+- Log masuk pilihan dengan Apple atau Google menyegerakkan papan, pelan dan sejarah sesi antara peranti
 - Tema gelap — selesa untuk latihan malam
 - Buat asal/buat semula 50 langkah — cuba dengan yakin
 - AirPlay ke TV — bilik persalinan jadi bilik strategi
-- Percuma, tiada akaun
 
-11 BAHASA
-Bahasa Melayu · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia
+PERCUMA DAN PRO
+
+Percuma dimuat turun, tanpa akaun. Pro membuang iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime), milik anda selamanya.
+
+14 BAHASA
+Bahasa Melayu · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Deutsch · Nederlands
+Setiap nama latihan dan nota jurulatih turut diterjemahkan.
 
 Dari liga kampung ke pasukan kebangsaan — jika boleh dilatih, boleh dilukis.
 

@@ -1,29 +1,49 @@
-Penetra el área de 6 metros.
+Irrumpe en los seis metros.
 
-Pizarra de Balonmano — Diseña sistemas de ataque, defensas 6-0 y 5-1 y contraataques en cancha reglamentaria.
+Pizarra de Balonmano — Planifica sistemas de ataque, defensas 6-0 y 5-1 y contraataques en una pista reglamentaria con sus áreas de portería naranjas.
 
 DIBUJA. JUEGA. COMPARTE.
 
-- Arrastra jugadores a un terreno en color a escala
+- Arrastra jugadores a una pista de balonmano a escala y en color, con las áreas de portería naranjas
 - Flechas, líneas, zonas — colores y estilos a tu gusto
 - Toca Play y los jugadores se mueven paso a paso
-- Guarda jugadas sin límite, exporta en imagen HD o PDF
+- Escribe una nota en cada paso: cambia mientras corre la jugada
+- Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
+
+42 EJERCICIOS, YA ESCRITOS
+
+Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Pase en estrella, circulación por el pivote, ataques desde el bloqueo del pivote, contraataque de primera y segunda oleada, el giro del pivote, defensa 3-2-1 y 6-0, el repliegue, el saque de centro, juegos 5 contra 5, portero uno contra uno, físico. Busca y filtra por categoría, nivel y número de jugadores.
+
+- Seis sesiones listas, montadas con los ejercicios de la biblioteca: elige una al crear un plan y edítala desde ahí
+- Encadena ejercicios y tus propias pizarras en un plan, llévalo desde la banda y guarda el historial de cada sesión
+- Guarda tu plantilla con fotos y marca quién vino
+- Comparte una pizarra como enlace: tus jugadores la abren en el navegador, sin instalar nada
 
 FORMACIONES, LISTAS
 
-Defensa 6-0 · 5-1 · 3-2-1 · Sistemas de ataque · Contraataques
-Un toque para cargar, edita.
+Defensa 6-0 · Defensa 5-1 · 3-2-1 · Sistemas de ataque · Contraataques
+Un toque para cargar, edita cualquier posición.
+
+DÍA DE PARTIDO
+
+Define los periodos y el equipo inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego. Tarjetas amarillas, exclusiones de dos minutos y rojas quedan registradas. Al acabar, los minutos y cambios de cada jugador se exportan en PDF. La preparación es gratis; el reloj requiere Pro.
 
 HECHO PARA EL BANQUILLO
 
 - Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.
+- iPad con barra lateral, atajos de teclado y Apple Pencil: el Pencil dibuja y el dedo mueve jugadores; en vertical u horizontal
+- Inicio de sesión opcional con Apple o Google: sincroniza pizarras, planes e historial entre dispositivos
 - Tema oscuro — descansa la vista en entrenamiento nocturno
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
 - AirPlay a TV — el vestuario se vuelve sala de guerra
-- Gratis, sin cuenta
 
-11 IDIOMAS
-Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+GRATIS Y PRO
+
+Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios: un solo pago (Lifetime), tuyo para siempre.
+
+14 IDIOMAS
+Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Cada nombre de ejercicio y cada indicación del entrenador también están traducidos.
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
 

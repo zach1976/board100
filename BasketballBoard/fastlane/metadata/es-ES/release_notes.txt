@@ -1,13 +1,28 @@
-Novedades de la versión 2.0.2
+Novedades de la versión 2.1.0
 
-LA PIZARRA SE QUEDA EN LA PISTA
-En iPad, en Mac y en el móvil girado, los jugadores y el balón se dibujaban respecto a la ventana y no respecto a la pista: una bandeja acababa más allá de la línea de fondo y el tirador se quedaba sobre el aro. Ahora todo está donde dicen las líneas, a cualquier tamaño.
+DÍA DE PARTIDO
+Fija los periodos y tu once inicial, marca al portero, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El reloj se para solo al final de cada periodo, con +1 min de añadido. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego sin tocar al portero. Al acabar, los minutos y cambios de cada jugador se exportan en PDF, y los partidos terminados se sincronizan con tu cuenta. El reloj requiere Pro; la preparación es gratis.
 
-DOS BALONES, UNO A CADA LADO
-Quien calienta con dos balones los tiene uno a cada lado, no uno delante y otro detrás.
+LIBRO DE JUGADAS
+Marca tus pizarras como «En el libro de jugadas» y pásalas desde el día de partido: desliza a la siguiente y pulsa reproducir.
 
-SITIO PARA LOS BOTONES
-Girada la pantalla, el menú, el número de página y el zoom se apoyaban sobre la pista. La pizarra empieza ahora por dentro de ellos.
+PISTAS NBA, NCAA E INSTITUTO
+Junto a FIBA, el menú de pista ofrece la NBA (zona de 16 ft, triple a 23,75 ft), la NCAA (zona de 12 ft, 22′1¾″) y la de instituto NFHS (84 ft, 19′9″, sin semicírculo de no carga).
 
-LAS MINIATURAS GIRAN CON LA PIZARRA
-La pizarra de la pantalla de inicio y la de un ejercicio se dibujan en el mismo sentido que la que abres.
+99 EJERCICIOS
+La biblioteca ha pasado de 58 a 99 ejercicios: jugadas de sistema (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), bloqueo directo español y sus lecturas, saques de fondo y banda, presión a toda pista y su salida, ataque y defensa de zona, principios de defensa individual, transición, tiro y finalización, cada uno con indicaciones del entrenador en tu idioma.
+
+SESIONES LISTAS
+Seis sesiones listas, montadas con los ejercicios de la biblioteca: base, ataque, defensa, acciones a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
+
+NOTAS EN LA PIZARRA
+Escribe texto directamente en la pizarra. La nota de cada paso del ejercicio aparece en la pizarra y cambia con cada paso. Elige color o grosor con una línea seleccionada para cambiarle el estilo.
+
+HECHO PARA iPAD
+Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
+
+ALEMÁN Y NEERLANDÉS
+La app ahora habla alemán y neerlandés: cada pantalla, cada nombre de ejercicio y cada indicación del entrenador. Ya son 14 idiomas.
+
+OTROS ARREGLOS
+La pantalla Pro ahora se titula «Todos los ejercicios, sin anuncios». Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. En horizontal, la barra lateral se aparta de la Dynamic Island. Muchas etiquetas que seguían en inglés ya están traducidas.

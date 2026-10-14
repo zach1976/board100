@@ -1,0 +1,33 @@
+Nieuw in 2.1.0
+
+EEN OEFENBIBLIOTHEEK – 35 OEFENINGEN
+Elke oefening is een geanimeerd bord met opstelling, balbaan en coachaanwijzing in jouw taal. Open er een en speel af, of zet hem op het bord en bewerk hem als je eigen bord. Zoek, of filter op categorie, niveau en groepsgrootte.
+
+TRAININGSPLANNEN EN JE SELECTIE
+Rijg oefeningen en je eigen borden aaneen tot een plan en loop het vanaf de zijlijn door, onderdeel voor onderdeel, met een verslag van wat je werkelijk hebt gedaan. Bewaar je spelers met foto en noteer de aanwezigheid per training.
+
+KANT-EN-KLARE TRAININGEN
+Zes kant-en-klare trainingen uit de oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
+
+NOTITIES OP HET BORD
+Schrijf tekst rechtstreeks op het bord. De stapnotitie van een oefening staat op het bord en verandert met elke stap. Kies een kleur of dikte terwijl een lijn is geselecteerd om hem anders te stylen.
+
+HET VELD IN ZIJN EIGEN KLEUREN
+Een blauw veld in een groene omlijsting met een donker net, zoals het officiële palet het wil.
+
+HET BORD, OPNIEUW GETEKEND
+Het veld ligt als een kaart op de donkere ondergrond van zijn sport, met ronde hoeken en een zachte schaduw. Spelers, materiaal en bal werpen contactschaduwen, de ondergrond heeft zijn textuur en netten hun mazen. Een speler met de bal heeft hem voor zich, aan de kant waarheen hij kijkt, en loop, dribbel en pass zijn drie verschillende lijnen onder de figuren. De gereedschappen zitten in één capsule onderaan en het afspelen in een tweede; op de iPad in liggende stand neemt het veld de volle breedte.
+
+GEMAAKT VOOR DE iPAD
+Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
+
+DUITS EN NEDERLANDS
+De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
+
+OOK
+- Deel een bord als weblink; wie hem opent heeft geen app nodig
+- Exporteer een actie als video en niet alleen als afbeelding
+- Kopieer een speler met zijn loopactie naar de volgende pagina
+
+KLEINE VERBETERINGEN
+Het Pro-scherm heet nu „Alle oefeningen, geen advertenties“. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Gedraaid wijkt de zijbalk uit voor het Dynamic Island. Veel labels die nog Engels waren, zijn nu vertaald.

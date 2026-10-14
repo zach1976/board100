@@ -1,29 +1,54 @@
-Tu pizarra, convertida en el segundo cerebro del entrenador.
+Tu carpeta táctica, convertida en un cerebro de entrenador.
 
-Pizarra Táctica — 7 deportes en una app. Un lienzo profesional para entrenadores, jugadores y analistas.
+Pizarra Táctica da a entrenadores, jugadores y analistas un lienzo profesional para dibujar jugadas, fijar formaciones y animar movimientos — quince deportes en una app, cada uno en su propio campo.
 
 DIBUJA. JUEGA. COMPARTE.
 
-- Arrastra jugadores a un terreno en color a escala
+- Arrastra jugadores a un campo a escala y en color de cualquiera de los quince deportes
 - Flechas, líneas, zonas — colores y estilos a tu gusto
 - Toca Play y los jugadores se mueven paso a paso
-- Guarda jugadas sin límite, exporta en imagen HD o PDF
+- Escribe una nota en cada paso: cambia mientras corre la jugada
+- Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
+
+854 EJERCICIOS, YA ESCRITOS
+
+Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Rondos y balón parado en fútbol, bloqueo y continuación y defensa shell en baloncesto, recepción en las seis rotaciones en voleibol, córners cortos en hockey, contraataques en balonmano, touches y melés en rugby, defensa del toque y relevos en béisbol, 6 contra 5 en waterpolo, patrones de dobles en tenis, bádminton, pickleball y tenis playa, ataque de tercera bola en tenis de mesa, el regu en sepak takraw, pase y remate en futvóley. Busca y filtra por categoría, nivel y número de jugadores.
+
+- Seis sesiones listas, montadas con los ejercicios de la biblioteca: elige una al crear un plan y edítala desde ahí
+- Encadena ejercicios y tus propias pizarras en un plan, llévalo desde la banda y guarda el historial de cada sesión
+- Guarda tu plantilla con fotos y marca quién vino
+- Comparte una pizarra como enlace: tus jugadores la abren en el navegador, sin instalar nada
+
+QUINCE DEPORTES, UNA APP
+
+Fútbol · Baloncesto (pistas FIBA, NBA, NCAA e instituto) · Voleibol (pista y playa) · Hockey hierba (exterior, sala y Hockey5s) · Balonmano · Rugby · Béisbol · Waterpolo · Tenis · Bádminton · Tenis de mesa · Pickleball · Sepak takraw · Tenis playa · Futvóley
+Cada deporte trae su campo, sus marcadores, sus formaciones y su biblioteca de ejercicios. Cambia de deporte desde la pantalla de inicio.
 
 FORMACIONES, LISTAS
 
-Fútbol (5v5 / 7v7 / 11v11) · Baloncesto (3v3 / 5v5) · Voleibol (6v6) · Tenis · Bádminton · Tenis de mesa · Pickleball
-Formaciones individuales y dobles incluidas.
+4-4-2 · 4-3-3 · Horns · 5-Out · 5-1 · 6-2 · Defensas 6-0 y 5-1 · Touches · Formación I · Stacking · Individual y dobles en cada deporte de raqueta
+Un toque para cargar, ajusta desde ahí.
+
+DÍA DE PARTIDO
+
+En los deportes de equipo —fútbol, baloncesto, voleibol (por sets), hockey, balonmano, waterpolo y rugby— define los periodos y el equipo inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego; tarjetas y exclusiones donde el deporte las tiene. Al acabar, los minutos y cambios de cada jugador se exportan en PDF. La preparación es gratis; el reloj requiere Pro.
 
 HECHO PARA EL BANQUILLO
 
 - Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.
+- iPad con barra lateral, atajos de teclado y Apple Pencil: el Pencil dibuja y el dedo mueve jugadores; en vertical u horizontal
+- Inicio de sesión opcional con Apple o Google: sincroniza pizarras, planes e historial entre dispositivos
 - Tema oscuro — descansa la vista en entrenamiento nocturno
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
 - AirPlay a TV — el vestuario se vuelve sala de guerra
-- Gratis, sin compras integradas
 
-11 IDIOMAS
-Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+GRATIS Y PRO
+
+Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios: un solo pago (Lifetime) o una suscripción anual.
+
+14 IDIOMAS
+Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Cada nombre de ejercicio y cada indicación del entrenador también están traducidos.
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
 

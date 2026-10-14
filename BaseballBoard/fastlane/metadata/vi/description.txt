@@ -1,29 +1,45 @@
-Dựng bài trước khi giao bóng.
+Tính trước pha bóng trước khi ném.
 
-Bảng Chiến Thuật Bóng Chày — Sắp xếp xoay phòng ngự, chạy chốt, hỗ trợ pitcher — diamond và outfield, mọi vị trí.
+Bảng chiến thuật Bóng chày giúp huấn luyện viên xếp shift phòng thủ, bài chạy gôn và che chắn cho pitcher trên sân kim cương đúng chuẩn — nội dã, ngoại dã, mọi vị trí.
 
 VẼ. PHÁT. CHIA SẺ.
 
-- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu
+- Kéo cầu thủ vào sân bóng chày chuẩn tỉ lệ, đầy màu, nội dã và ngoại dã
 - Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý
 - Chạm Play, cầu thủ tự di chuyển từng bước
-- Lưu không giới hạn, xuất ảnh HD hoặc PDF
+- Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
+- Lưu không giới hạn, xuất PNG, PDF hoặc video
+
+40 BÀI TẬP, ĐÃ VIẾT SẴN
+
+Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Ném xa, double play 4-6-3, cut-off và tiếp bóng, tag-up, squeeze, nội dã thu vào, rundown, chặn bóng chạm đất, cơ bản phòng thủ, đấu tập theo tình huống, thể lực. Tìm và lọc theo nhóm, trình độ và số người.
+
+- Sáu buổi tập có sẵn, ghép từ các bài trong thư viện — chọn một buổi khi tạo giáo án rồi chỉnh tiếp
+- Nối bài tập và bảng của riêng bạn thành giáo án, chạy cả buổi ngay bên sân và lưu lịch sử từng buổi
+- Lưu đội hình kèm ảnh và đánh dấu ai có mặt
+- Chia sẻ bảng bằng đường link — cầu thủ mở bằng trình duyệt, không cần cài app
 
 ĐỘI HÌNH, SẴN SÀNG
 
-Xoay phòng ngự · Chạy chốt · Chống bunt · Cut-off · Hỗ trợ pitcher
-Kéo để lên kế hoạch.
+Shift phòng thủ · Chạy gôn · Phòng thủ bunt · Bài cut-off · Che chắn pitcher
+Kéo vị trí để lên kế hoạch.
 
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
 - Hoạt động offline — sân không Wi-Fi? Không sao.
+- iPad có thanh bên, phím tắt bàn phím và Apple Pencil — bút để vẽ, ngón tay để kéo cầu thủ; dọc hay ngang đều được
+- Đăng nhập bằng Apple hoặc Google (tùy chọn) để đồng bộ bảng, giáo án và lịch sử buổi tập giữa các thiết bị
 - Giao diện tối — dịu mắt khi tập tối
 - Hoàn tác/làm lại 50 bước — thử thoải mái
 - AirPlay lên TV — phòng thay đồ thành phòng tác chiến
-- Miễn phí, không cần tài khoản
 
-11 NGÔN NGỮ
-Tiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
+MIỄN PHÍ VÀ PRO
+
+Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập — mua một lần (Lifetime), dùng mãi mãi.
+
+14 NGÔN NGỮ
+Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Mọi tên bài tập và lời giảng cũng được dịch.
 
 Từ giải làng đến đội tuyển — dạy được là vẽ được.
 

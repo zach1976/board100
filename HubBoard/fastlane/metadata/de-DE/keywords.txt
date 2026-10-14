@@ -1,0 +1,1 @@
+Trainer,Coach,Playbook,Fußball,Basketball,Volleyball,Handball,Tennis,Badminton,Spielzüge,Training

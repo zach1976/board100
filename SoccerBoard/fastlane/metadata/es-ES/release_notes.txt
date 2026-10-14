@@ -1,13 +1,22 @@
-Novedades de la versión 2.2.1
+Novedades de la versión 2.3.0
 
-LOS TIROS ENTRAN
-Todos los ejercicios de definición acababan con el balón muy por detrás de la portería: el destino estaba escrito respecto al lienzo y no respecto al campo. Ahora el tiro acaba en la red, donde dice el ejercicio.
+DÍA DE PARTIDO
+Fija los periodos y tu once inicial, marca al portero, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El reloj se para solo al final de cada periodo, con +1 min de añadido. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego sin tocar al portero. Las tarjetas amarillas y rojas quedan anotadas por jugador, y un panel de tanda de penaltis registra cada lanzamiento. Al acabar, los minutos y cambios de cada jugador se exportan en PDF, y los partidos terminados se sincronizan con tu cuenta. El reloj requiere Pro; la preparación es gratis.
 
-LA PIZARRA SE QUEDA EN EL CAMPO
-En iPad, en Mac y en el móvil girado, los jugadores y el balón se colocaban respecto a la ventana y no al campo, así que toda la jugada quedaba varios metros fuera de las líneas. Ahora todo está donde dicen las líneas, a cualquier tamaño.
+LIBRO DE JUGADAS
+Marca tus pizarras como «En el libro de jugadas» y pásalas desde el día de partido: desliza a la siguiente y pulsa reproducir.
 
-SITIO PARA LOS BOTONES
-Girada la pantalla, el menú, el número de página y el zoom se apoyaban sobre el campo. La pizarra empieza ahora por dentro de ellos, y en iPad la barra de reproducción y la de herramientas comparten una fila, así que el campo recupera ese alto.
+SESIONES LISTAS
+Seis sesiones listas, montadas con los 137 ejercicios de la biblioteca: base, ataque, defensa, acciones a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
 
-LAS MINIATURAS GIRAN CON LA PIZARRA
-La pizarra de la pantalla de inicio y la de un ejercicio se dibujan en el mismo sentido que la que abres.
+NOTAS EN LA PIZARRA
+Escribe texto directamente en la pizarra. La nota de cada paso del ejercicio aparece en la pizarra y cambia con cada paso. Elige color o grosor con una línea seleccionada para cambiarle el estilo.
+
+HECHO PARA iPAD
+Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
+
+ALEMÁN Y NEERLANDÉS
+La app ahora habla alemán y neerlandés: cada pantalla, cada nombre de ejercicio y cada indicación del entrenador. Ya son 14 idiomas.
+
+OTROS ARREGLOS
+La pantalla Pro ahora se titula «Todos los ejercicios, sin anuncios». Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. En horizontal, la barra lateral se aparta de la Dynamic Island. Muchas etiquetas que seguían en inglés ya están traducidas.

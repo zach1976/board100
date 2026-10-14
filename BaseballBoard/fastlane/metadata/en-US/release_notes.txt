@@ -1,13 +1,16 @@
-What's New in 2.0.1
+What's New in 2.1.0
 
-THE BOARD KEEPS TO THE FIELD
-On iPad, on a Mac and on a phone turned sideways, the players and the ball were placed against the window instead of against the field, so the whole move sat off the lines. Everything now stands where the lines say, at any size.
+READY SESSIONS
+Six ready sessions, built from the library's 40 drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
 
-TWO BALLS, ONE EACH SIDE
-A player warming up with two balls has one at either side of him, instead of one in front and one behind.
+NOTES ON THE BOARD
+Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
 
-ROOM FOR THE BUTTONS
-Turned sideways, the menu, the page badge and the zoom buttons sat on the playing surface. The board now starts inside them, and on an iPad the playback and tool bars share one row so the field gets the height back.
+MADE FOR iPAD
+A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
 
-THE PICTURES TURN WITH THE BOARD
-The board on the home screen and the one on a drill are drawn the same way round as the board you open.
+GERMAN AND DUTCH
+The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
+
+SMALLER FIXES
+The Pro screen is now titled "All drills, no ads". Back from a board returns to the practice plan you were running. Turned sideways, the side bar moves away from the Dynamic Island. Many labels that were still in English are now translated.

@@ -1,0 +1,1 @@
+trainer,coach,playbook,voetbal,basketbal,volleybal,handbal,tennis,badminton,spelzetten,training,club

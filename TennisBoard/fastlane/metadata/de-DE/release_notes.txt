@@ -1,0 +1,33 @@
+Neu in 2.1.0
+
+EINE ÜBUNGSBIBLIOTHEK – 38 ÜBUNGEN
+Jede Übung ist ein animiertes Board mit Aufstellung, Ballweg und Trainerhinweis in deiner Sprache. Öffnen und abspielen, oder aufs Board legen und wie eine eigene bearbeiten. Suchen, oder nach Kategorie, Niveau und Kadergröße filtern.
+
+TRAININGSPLÄNE UND DEIN KADER
+Reihe Übungen und eigene Boards zu einem Plan und führe ihn vom Spielfeldrand aus, Punkt für Punkt, mit einem Protokoll dessen, was du wirklich gemacht hast. Verwalte deine Spieler mit Foto und erfasse die Anwesenheit pro Einheit.
+
+FERTIGE EINHEITEN
+Sechs fertige Trainingseinheiten aus den Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
+
+NOTIZEN AUF DEM BOARD
+Schreibe Text direkt aufs Board. Der Schrittkommentar einer Übung steht auf dem Board und wechselt mit jedem Schritt. Wähle Farbe oder Stärke, während eine Linie ausgewählt ist, um sie umzugestalten.
+
+DAS FELD IN SEINEN FARBEN
+Ein blauer Hartplatz in grüner Umgebung mit weißem Netzband, wie es die offizielle Palette vorsieht.
+
+DAS BOARD, NEU GEZEICHNET
+Das Feld liegt als Karte auf dem dunklen Grund seiner Sportart, mit runden Ecken und weichem Schatten. Spieler, Geräte und Ball werfen Kontaktschatten, der Boden hat seine Struktur und Netze ihre Maschen. Wer den Ball hat, hat ihn vor sich auf der Seite, in die er schaut; Lauf, Dribbling und Pass sind drei verschiedene Linien unter den Figuren. Die Werkzeuge sitzen in einer unteren Kapsel, die Wiedergabe in einer zweiten; auf dem iPad im Querformat nimmt das Feld die volle Breite.
+
+FÜR DAS iPAD GEMACHT
+Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
+
+AUSSERDEM
+- Ein Board als Weblink teilen; wer ihn öffnet, braucht keine App
+- Einen Spielzug als Video statt nur als Bild exportieren
+- Einen Spieler samt Laufweg auf die nächste Seite kopieren
+
+KLEINERE KORREKTUREN
+Der Pro-Bildschirm heißt jetzt „Alle Übungen, keine Werbung“. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Quer gehalten weicht die Seitenleiste der Dynamic Island aus. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

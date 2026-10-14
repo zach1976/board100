@@ -1,13 +1,22 @@
-Neu in 2.2.1
+Neu in 2.3.0
 
-SCHÜSSE GEHEN REIN
-Bei jeder Abschlussübung landete der Ball weit hinter dem Tor: Das Ziel war auf die Zeichenfläche statt auf das Spielfeld bezogen. Der Schuss endet jetzt im Netz, genau dort, wo die Übung es beschreibt.
+SPIELTAG
+Lege Spielabschnitte und Startaufstellung fest, markiere den Torwart, lass die Uhr laufen und tippe zwei Spieler an, um sie zu wechseln. Die Uhr stoppt am Ende eines Abschnitts von selbst, +1 min für Nachspielzeit. Die Bank sortiert sich nach gespielten Minuten, und „Vorschlag“ gleicht die Spielzeit aus, ohne den Torwart anzurühren. Gelbe und rote Karten werden pro Spieler festgehalten, und ein Elfmeterschießen-Feld notiert jeden Schuss. Nach dem Spiel werden Minuten und Wechsel jedes Spielers als PDF exportiert, und beendete Spiele werden mit deinem Konto synchronisiert. Die Uhr braucht Pro; die Vorbereitung ist frei.
 
-DIE TAFEL BLEIBT AUF DEM PLATZ
-Auf dem iPad, auf dem Mac und auf einem quer gehaltenen Telefon wurden Spieler und Ball am Fenster statt am Spielfeld ausgerichtet, sodass der ganze Spielzug mehrere Meter neben den Linien lag. Jetzt steht alles dort, wo die Linien es vorgeben — in jeder Größe.
+SPIELBUCH
+Eigene Boards als „Im Spielbuch“ markieren und am Spieltag durchblättern: wischen zum nächsten, Play drücken.
 
-PLATZ FÜR DIE TASTEN
-Im Querformat lagen Menü, Seitenanzeige und Zoom-Tasten auf der Spielfläche. Die Tafel beginnt jetzt innerhalb davon, und auf dem iPad teilen sich Wiedergabe- und Werkzeugleiste eine Zeile, damit das Spielfeld die Höhe zurückbekommt.
+FERTIGE EINHEITEN
+Sechs fertige Trainingseinheiten aus den 137 Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
 
-DIE BILDER DREHEN SICH MIT
-Die Tafel auf dem Startbildschirm und die in einer Übung sind genauso ausgerichtet wie die Tafel, die du öffnest.
+NOTIZEN AUF DEM BOARD
+Schreibe Text direkt aufs Board. Der Schrittkommentar einer Übung steht auf dem Board und wechselt mit jedem Schritt. Wähle Farbe oder Stärke, während eine Linie ausgewählt ist, um sie umzugestalten.
+
+FÜR DAS iPAD GEMACHT
+Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
+
+DEUTSCH UND NIEDERLÄNDISCH
+Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
+
+KLEINERE KORREKTUREN
+Der Pro-Bildschirm heißt jetzt „Alle Übungen, keine Werbung“. Zurück von einem Board führt wieder in den laufenden Trainingsplan. Quer gehalten weicht die Seitenleiste der Dynamic Island aus. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.

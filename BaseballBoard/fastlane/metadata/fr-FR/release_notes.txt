@@ -1,13 +1,16 @@
-Nouveautés de la version 2.0.1
+Nouveautés de la version 2.1.0
 
-LE TABLEAU RESTE SUR LE TERRAIN
-Sur iPad, sur Mac et sur un téléphone tourné, les joueurs et le ballon étaient placés par rapport à la fenêtre et non au terrain : toute l'action se retrouvait hors des lignes. Tout est maintenant là où les lignes le disent, à toutes les tailles.
+SÉANCES PRÊTES
+Six séances prêtes, composées des 40 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
 
-DEUX BALLONS, UN DE CHAQUE CÔTÉ
-À l'échauffement à deux ballons, il y en a un de chaque côté du joueur, et non un devant et un derrière.
+NOTES SUR LE TABLEAU
+Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
 
-DE LA PLACE POUR LES BOUTONS
-À l'horizontale, le menu, le numéro de page et le zoom se posaient sur la surface de jeu. Le tableau commence maintenant en deçà, et sur iPad la barre de lecture et la barre d'outils tiennent sur une seule ligne.
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
 
-LES VIGNETTES TOURNENT AVEC LE TABLEAU
-Le tableau de l'accueil et celui d'un exercice sont orientés comme celui que vous ouvrez.
+ALLEMAND ET NÉERLANDAIS
+L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+
+AUTRES CORRECTIONS
+L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.

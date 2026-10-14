@@ -1,13 +1,22 @@
-Apa Yang Baharu dalam 2.2.1
+Apa Yang Baharu dalam 2.3.0
 
-TENDANGAN MASUK GOL
-Setiap latihan penamat berakhir dengan bola jauh di belakang gol: titik sasaran ditulis terhadap kanvas, bukan terhadap padang. Kini tendangan berakhir di dalam jaring, seperti yang dikatakan latihan itu.
+HARI PERLAWANAN
+Tetapkan tempoh dan susunan pemain permulaan, tandakan penjaga gol, jalankan jam, dan ketik dua pemain untuk menukar mereka. Jam berhenti sendiri di hujung tempoh, dengan +1 minit masa tambahan. Bangku simpanan disusun mengikut minit bermain, dan "Cadangan" menyamakan masa bermain tanpa menyentuh penjaga gol. Kad kuning dan merah direkodkan bagi setiap pemain, dan panel penentuan penalti merekodkan setiap sepakan. Selepas perlawanan, minit dan penggantian setiap pemain dieksport sebagai PDF, dan perlawanan yang selesai disegerakkan ke akaun anda. Jam memerlukan Pro; persediaan adalah percuma.
 
-PAPAN KEKAL DI DALAM PADANG
-Pada iPad, Mac dan telefon yang dipusing, pemain dan bola diletakkan terhadap tetingkap, bukan padang, jadi seluruh pergerakan tersasar beberapa meter dari garisan. Kini semuanya berada di tempat yang ditunjuk garisan, pada apa jua saiz skrin.
+BUKU TAKTIK
+Tandakan papan anda sebagai "Dalam buku taktik" dan selak satu demi satu dari hari perlawanan: leret ke seterusnya, tekan main.
 
-RUANG UNTUK BUTANG
-Apabila dipusing, butang menu, nombor halaman dan zum berada di atas padang. Papan kini bermula di dalamnya, dan pada iPad bar main balik dan bar alat berkongsi satu baris supaya padang mendapat semula ketinggian itu.
+SESI SEDIA ADA
+Enam sesi sedia ada yang dibina daripada 137 latihan dalam pustaka: asas, menyerang, bertahan, bola mati, minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
 
-GAMBAR KECIL TURUT BERPUSING
-Papan di skrin utama dan pada sesuatu latihan dilukis mengikut arah papan yang anda buka.
+NOTA PADA PAPAN
+Tulis teks terus pada papan. Nota langkah sesuatu latihan dipaparkan pada papan dan bertukar pada setiap langkah. Pilih warna atau ketebalan semasa satu garis dipilih untuk menukar gayanya.
+
+DIBUAT UNTUK iPAD
+Bar sisi menggantikan tab, pustaka latihan dan pelan di sebelah butirannya, dan panel yang dibuka di sebelah butangnya. Papan kekunci berfungsi (Space memainkan, anak panah melangkah, Cmd+Z membuat asal), dan Apple Pencil melukis sementara jari menggerakkan pemain.
+
+JERMAN DAN BELANDA
+Aplikasi kini bertutur dalam bahasa Jerman dan Belanda: setiap skrin, setiap nama latihan dan setiap nota jurulatih. Kesemuanya 14 bahasa.
+
+PEMBAIKAN KECIL
+Skrin Pro kini bertajuk "Semua latihan, tanpa iklan". Kembali dari papan membawa anda semula ke pelan latihan yang sedang berjalan. Dalam landskap, bar sisi menjauhi Dynamic Island. Banyak label yang masih dalam bahasa Inggeris kini diterjemahkan.

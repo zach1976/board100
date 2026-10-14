@@ -1,24 +1,36 @@
-Novedades de la versión 2.0.0
-
-Una actualización grande: biblioteca de ejercicios, planes de entrenamiento y una pizarra redibujada de arriba abajo.
+Novedades de la versión 2.1.0
 
 BIBLIOTECA DE EJERCICIOS — 40 EJERCICIOS
-Cada ejercicio es una pizarra animada con su disposición, el recorrido del balón y el punto de entrenamiento. Ábrelo y dale al play, o llévalo a la pizarra y edítalo como uno tuyo. Búscalo o fíltralo por categoría, nivel y número de jugadores.
+Cada ejercicio es una pizarra animada con su disposición, el recorrido del balón y el punto de entrenamiento, con indicaciones en tu idioma. Ábrelo y dale al play, o llévalo a la pizarra y edítalo como uno tuyo. Búscalo o fíltralo por categoría, nivel y número de jugadores.
 
 PLANES DE ENTRENAMIENTO Y TU PLANTILLA
 Encadena ejercicios y tus propias pizarras en un plan y recórrelo desde la banda, uno a uno, con registro de lo que realmente hiciste. Guarda a tus jugadores con su foto y pasa lista en cada sesión.
 
-LA PIZARRA ES UNA TARJETA
-La pista se apoya sobre el fondo oscuro de su deporte, con esquinas redondeadas y una sombra suave, en lugar de salirse por los bordes de la pantalla. Jugadores, material y balón proyectan sombra de contacto, la superficie de juego tiene su propia textura y las redes tienen malla.
+SESIONES LISTAS
+Seis sesiones listas, montadas con los ejercicios de la biblioteca: base, ataque, defensa, acciones a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
 
-CONTROLES REHECHOS
-Una barra inferior más clara, con las herramientas en una cápsula y la reproducción en otra; botones de esquina más grandes que esquivan la Dynamic Island; zoom y pantalla completa dentro de la barra. En iPad en horizontal los controles quedan bajo la pizarra y la pista ocupa todo el ancho.
+DÍA DE PARTIDO
+Fija los periodos y tu once inicial, marca al portero, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El reloj se para solo al final de cada periodo, con +1 min de añadido. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego sin tocar al portero. Al acabar, los minutos y cambios de cada jugador se exportan en PDF, y los partidos terminados se sincronizan con tu cuenta. El reloj requiere Pro; la preparación es gratis.
 
-EL BALÓN Y LAS RUTAS
-El jugador con balón lo tiene por delante, del lado hacia el que mira: nunca detrás, nunca pisado. Carrera, conducción y pase son tres líneas distintas, dibujadas bajo las figuras, de pies a pies. Y todos los ejercicios de la biblioteca se han reespaciado para que ninguna figura se superponga a otra en ningún paso.
+LIBRO DE JUGADAS
+Marca tus pizarras como «En el libro de jugadas» y pásalas desde el día de partido: desliza a la siguiente y pulsa reproducir.
+
+NOTAS EN LA PIZARRA
+Escribe texto directamente en la pizarra. La nota de cada paso del ejercicio aparece en la pizarra y cambia con cada paso. Elige color o grosor con una línea seleccionada para cambiarle el estilo.
+
+LA PIZARRA, REDIBUJADA
+La pista se apoya como una tarjeta sobre el fondo oscuro de su deporte, con esquinas redondeadas y una sombra suave. Jugadores, material y balón proyectan sombra, la superficie tiene su textura y las redes tienen malla. El jugador con balón lo tiene por delante, del lado hacia el que mira, y carrera, conducción y pase son tres líneas distintas bajo las figuras. Las herramientas van en una cápsula inferior y la reproducción en otra; en iPad en horizontal la pista ocupa todo el ancho.
+
+HECHO PARA iPAD
+Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
+
+ALEMÁN Y NEERLANDÉS
+La app ahora habla alemán y neerlandés: cada pantalla, cada nombre de ejercicio y cada indicación del entrenador. Ya son 14 idiomas.
 
 ADEMÁS
 - Comparte una pizarra como enlace web: quien lo abra no necesita la app
 - Exporta una jugada como vídeo además de como imagen
 - Copia un jugador con su carrera a la página siguiente
-- Pantalla de inicio en horizontal
+
+OTROS ARREGLOS
+La pantalla Pro ahora se titula «Todos los ejercicios, sin anuncios». Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. En horizontal, la barra lateral se aparta de la Dynamic Island. Muchas etiquetas que seguían en inglés ya están traducidas.
