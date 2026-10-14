@@ -1,5 +1,11 @@
 Nouveautés de la version 2.2.0
 
+JOUR DE MATCH
+Réglez les périodes et votre équipe de départ, lancez le chrono et touchez deux joueurs pour les remplacer. Le banc est trié par minutes jouées et « Suggérer » équilibre le temps de jeu. Après le match, les minutes de chaque joueur et chaque remplacement s'exportent en PDF. Le chrono demande Pro ; la préparation est gratuite.
+
+SÉANCES PRÊTES
+Six séances prêtes, composées des exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
+
 SALLE ET HOCKEY5S
 Deux nouveaux terrains à côté du terrain extérieur : la salle FIH avec ses bandes et son cercle de 9 m, et le terrain de Hockey5s. Chaque tableau garde son terrain, et la liste des systèmes suit : 2-1-2 et 1-2-2 en salle, 2-2 et 1-2-1 en Hockey5s.
 

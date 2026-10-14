@@ -3,6 +3,18 @@ Nieuw in 2.1.0
 ALLE ZES ROTATIES
 Kies een rotatie en het bord zet je zes spelers waar ze staan, bij opslag of bij pass. Stap vooruit of terug door de rotaties, kies de zone van de spelverdeler en zet de libero erin. Een overlapcontrole markeert twee spelers die bij de opslag verkeerd zouden staan.
 
+REGELSETS
+Elk bord volgt de regels van FIVB, USAV, NFHS of NCAA. De wissellimiet staat naast de rotatiebalk, 6, 12, 18 of 15 per set, en onder de Amerikaanse regelsets mag de libero in één rotatie serveren.
+
+POSITIES CORRIGEREN
+Markeert de overlapcontrole twee spelers, dan zet één tik ze waar de regels het toestaan. Ongedaan maken zet ze terug.
+
+OPSTELLINGSFORMULIER
+Deel een opstellingsformulier als pdf in het papieren formaat: de zes zones, de servicevolgorde I tot VI, de libero en de regelset. Werkt offline, in jouw taal.
+
+KANT-EN-KLARE TRAININGEN
+Zes kant-en-klare trainingen uit de oefeningen van de bibliotheek, van basistraining tot wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
+
 150 OEFENINGEN
 De oefenbibliotheek is gegroeid van 44 naar 150: pass in elke rotatie van de systemen 5-1, 6-2 en 4-2, omschakelen naar de aanval, gericht serveren, de tweede bal van de spelverdeler, liberowissels, plus set-up, aanval, blok en verdediging, elk met coachaanwijzingen in je eigen taal.
 

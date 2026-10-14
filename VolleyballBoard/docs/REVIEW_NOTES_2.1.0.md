@@ -1,4 +1,4 @@
-# Review Notes — Volleyball Board 2.1.0 (build 4)
+# Review Notes — Volleyball Board 2.1.0 (build 5)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.0，本次是 2.0.0 → 2.1.0。
@@ -43,6 +43,16 @@ permissions and no new network endpoints.
    arrow is drawn beside the player; untranslated labels were translated.
 7. The app's interface and every drill's coaching notes are now also in
    German and Dutch (14 languages in all).
+8. Rule sets: the rotation bar offers FIVB, USAV, NFHS or NCAA per board.
+   The substitution limit (6/12/18/15 per set) shows beside it, and under
+   the US rule sets the libero may serve in one rotation.
+9. "Fix positions": when the overlap check marks two players, a red button
+   on the rotation bar moves them to a legal spot; Undo restores them.
+10. Lineup sheet: with a rotation on the board, the Share menu gains
+   "Lineup sheet", a PDF in the paper format (zones, serving order I–VI,
+   libero, rule set). It is generated on the device.
+11. Six ready sessions, built from the library's own drills: Plans → New →
+   "From a ready session".
 
 ## How to see it
 
@@ -53,8 +63,9 @@ back up a coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator (iPhone and iPad). The automated suite — 721 tests,
-including the rotation and overlap rules — passes, and every drill board in
+Run on the iOS Simulator (iPhone and iPad). The automated suite — 764 tests,
+including the rotation and overlap rules, the four rule sets and the lineup
+sheet — passes, and every drill board in
 the library was rendered through the app's own painters and reviewed.
 
 Thank you for reviewing.

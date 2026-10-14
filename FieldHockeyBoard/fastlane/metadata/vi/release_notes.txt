@@ -1,5 +1,11 @@
 Có gì mới trong 2.2.0
 
+NGÀY THI ĐẤU
+Đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu. Sau trận, số phút của từng cầu thủ và mọi lần thay người xuất ra PDF. Đồng hồ cần Pro; phần thiết lập miễn phí.
+
+BUỔI TẬP CÓ SẴN
+Sáu buổi tập có sẵn, ghép từ các bài tập trong thư viện: cơ bản, tấn công, phòng ngự, tình huống cố định, tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
+
 TRONG NHÀ VÀ HOCKEY5S
 Thêm hai loại sân bên cạnh sân ngoài trời: sân trong nhà của FIH với vách biên và vòng 9 m, và sân Hockey5s. Mỗi bảng nhớ sân của nó, danh sách đội hình cũng đổi theo: 2-1-2 và 1-2-2 trong nhà, 2-2 và 1-2-1 cho Hockey5s.
 

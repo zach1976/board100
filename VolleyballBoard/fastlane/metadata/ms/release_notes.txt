@@ -3,6 +3,18 @@ Apa Yang Baharu dalam 2.1.0
 KESEMUA ENAM PUTARAN
 Pilih putaran dan papan meletakkan enam pemain anda di kedudukan mereka, semasa servis atau menerima. Maju atau undur antara putaran, pilih zon pengumpan dan masukkan libero. Semakan pertindihan menandakan dua pemain yang tersalah kedudukan semasa bola diservis.
 
+SET PERATURAN
+Setiap papan mengikut peraturan FIVB, USAV, NFHS atau NCAA. Had penggantian dipaparkan di sebelah bar putaran, 6, 12, 18 atau 15 setiap set, dan di bawah peraturan AS libero boleh membuat servis dalam satu putaran.
+
+BETULKAN KEDUDUKAN
+Apabila semakan pertindihan menandakan dua pemain, satu ketikan meletakkan mereka di kedudukan yang sah. Buat asal mengembalikan mereka.
+
+HELAIAN SUSUNAN
+Kongsi helaian susunan pemain sebagai PDF dalam format kertas: enam zon, urutan servis I hingga VI, libero dan set peraturan. Berfungsi di luar talian, dalam bahasa anda.
+
+SESI SEDIA ADA
+Enam sesi sedia ada yang dibina daripada latihan dalam pustaka, dari sesi asas hingga minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
+
 150 LATIHAN
 Pustaka latihan bertambah daripada 44 kepada 150: penerimaan servis dalam setiap putaran sistem 5-1, 6-2 dan 4-2, peralihan ke serangan, servis bersasar, bola kedua pengumpan, pertukaran libero, serta umpanan, serangan, adangan dan pertahanan, setiap satu dengan nota jurulatih dalam bahasa anda.
 

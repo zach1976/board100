@@ -1,5 +1,11 @@
 Yang Baru di 2.2.0
 
+HARI PERTANDINGAN
+Atur babak dan starting line-up, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" meratakan waktu bermain. Setelah pertandingan, menit setiap pemain dan setiap pergantian dapat diekspor sebagai PDF. Jam memerlukan Pro; persiapannya gratis.
+
+SESI SIAP PAKAI
+Enam sesi siap pakai yang disusun dari latihan di pustaka: dasar, menyerang, bertahan, bola mati, pekan pertandingan, dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
+
 INDOOR DAN HOCKEY5S
 Dua lapangan baru di samping lapangan luar: lapangan indoor FIH dengan papan samping dan lingkaran 9 m, serta lapangan Hockey5s. Setiap papan mengingat lapangannya, dan daftar formasi mengikutinya: 2-1-2 dan 1-2-2 untuk indoor, 2-2 dan 1-2-1 untuk Hockey5s.
 

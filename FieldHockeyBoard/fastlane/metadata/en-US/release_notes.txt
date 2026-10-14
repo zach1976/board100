@@ -1,5 +1,11 @@
 What's New in 2.2.0
 
+MATCH DAY
+Set the periods and your starting line-up, run the clock, and tap two players to swap them. The bench sorts by minutes played, and Suggest evens out playing time. After the match, every player's minutes and every substitution export as a PDF. The clock needs Pro; the set-up is free.
+
+READY SESSIONS
+Six ready sessions, built from the library's own drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
+
 INDOOR AND HOCKEY5S
 Two new pitches beside the outdoor one: the FIH indoor pitch with its side boards and 9 m circle, and the Hockey5s court. Each board remembers its pitch, and the formation list follows it: 2-1-2 and 1-2-2 indoors, 2-2 and 1-2-1 for Hockey5s.
 

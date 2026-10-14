@@ -1,5 +1,11 @@
 Apa Yang Baharu dalam 2.2.0
 
+HARI PERLAWANAN
+Tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain, dan "Cadangan" menyamakan masa bermain. Selepas perlawanan, minit setiap pemain dan setiap penggantian boleh dieksport sebagai PDF. Jam memerlukan Pro; persediaan adalah percuma.
+
+SESI SEDIA ADA
+Enam sesi sedia ada yang dibina daripada latihan dalam pustaka: asas, serangan, pertahanan, bola mati, minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
+
 DALAM DEWAN DAN HOCKEY5S
 Dua padang baharu di sebelah padang luar: padang dalam dewan FIH dengan papan sisi dan bulatan 9 m, serta gelanggang Hockey5s. Setiap papan mengingati padangnya, dan senarai formasi mengikutinya: 2-1-2 dan 1-2-2 dalam dewan, 2-2 dan 1-2-1 untuk Hockey5s.
 

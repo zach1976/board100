@@ -3,6 +3,18 @@ Có gì mới trong 2.1.0
 ĐỦ SÁU VÒNG XOAY
 Chọn một vòng xoay và bảng đặt sáu cầu thủ vào đúng chỗ, khi phát bóng hoặc khi đỡ bước một. Tiến hoặc lùi qua các vòng xoay, chọn vùng của chuyền hai và đưa libero vào sân. Kiểm tra chồng vị trí đánh dấu hai cầu thủ đứng sai vị trí lúc phát bóng.
 
+BỘ LUẬT
+Mỗi bảng theo luật FIVB, USAV, NFHS hoặc NCAA. Giới hạn thay người hiện cạnh thanh xoay vòng (6, 12, 18 hoặc 15 mỗi set), và theo các bộ luật Mỹ, libero được phát bóng ở một vòng xoay.
+
+SỬA VỊ TRÍ
+Khi kiểm tra chồng vị trí đánh dấu hai cầu thủ, một chạm đưa họ về vị trí hợp lệ. Hoàn tác sẽ đưa họ trở lại.
+
+PHIẾU ĐỘI HÌNH
+Chia sẻ phiếu đội hình dạng PDF theo mẫu giấy: sáu khu vực, thứ tự phát bóng I đến VI, libero và bộ luật. Dùng được ngoại tuyến, bằng ngôn ngữ của bạn.
+
+BUỔI TẬP CÓ SẴN
+Sáu buổi tập có sẵn, ghép từ các bài tập trong thư viện, từ buổi tập cơ bản đến tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
+
 150 BÀI TẬP
 Thư viện tăng từ 44 lên 150 bài: đỡ bước một ở mọi vòng xoay của các hệ thống 5-1, 6-2 và 4-2, chuyển đổi sang tấn công, phát bóng có mục tiêu, quả thứ hai của chuyền hai, thay libero, thêm chuyền hai, tấn công, chắn bóng và phòng thủ, mỗi bài đều có lời giảng bằng tiếng Việt.
 

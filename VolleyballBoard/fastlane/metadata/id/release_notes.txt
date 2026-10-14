@@ -3,6 +3,18 @@ Yang Baru di 2.1.0
 SEMUA ENAM ROTASI
 Pilih rotasi dan papan menempatkan keenam pemainmu di posisinya, saat servis atau saat menerima. Maju atau mundur antar rotasi, pilih zona tosser, dan masukkan libero. Pemeriksaan tumpang tindih menandai dua pemain yang posisinya salah saat bola diservis.
 
+SET ATURAN
+Setiap papan mengikuti aturan FIVB, USAV, NFHS, atau NCAA. Batas pergantian tampil di samping bilah rotasi, 6, 12, 18, atau 15 per set, dan dengan aturan AS libero boleh melakukan servis pada satu rotasi.
+
+PERBAIKI POSISI
+Saat pemeriksaan tumpang tindih menandai dua pemain, satu ketukan menempatkan mereka di posisi yang sah. Urungkan mengembalikannya.
+
+LEMBAR LINE-UP
+Bagikan lembar line-up sebagai PDF dalam format kertas: enam zona, urutan servis I sampai VI, libero, dan set aturan. Bekerja tanpa koneksi, dalam bahasa Anda.
+
+SESI SIAP PAKAI
+Enam sesi siap pakai yang disusun dari latihan di pustaka, dari sesi dasar hingga pekan pertandingan dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
+
 150 LATIHAN
 Pustaka latihan bertambah dari 44 menjadi 150: penerimaan servis di setiap rotasi sistem 5-1, 6-2, dan 4-2, transisi ke serangan, servis terarah, bola kedua tosser, pergantian libero, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
 

@@ -3,6 +3,18 @@ What's New in 2.1.0
 ALL SIX ROTATIONS
 Pick a rotation and the board puts your six where they stand, in serve or in receive. Step forward or back through the rotations, choose the setter's zone and bring in the libero. An overlap check marks any two players who would be out of position when the ball is served.
 
+RULE SETS
+Each board follows FIVB, USAV, NFHS or NCAA rules. The substitution limit shows beside the rotation bar, 6, 12, 18 or 15 per set, and under the US rule sets the libero may serve in one rotation.
+
+FIX POSITIONS
+When the overlap check marks two players, one tap puts them where the rules allow. Undo brings them back.
+
+LINEUP SHEET
+Share a lineup sheet as a PDF in the paper format: the six zones, the serving order I to VI, the libero and the rule set. Works offline, in your language.
+
+READY SESSIONS
+Six ready sessions, built from the library's own drills, from a foundation session to match week and pre-season. Pick one when you create a practice plan and edit from there.
+
 150 DRILLS
 The drill library has grown from 44 to 150: serve receive in every rotation of the 5-1, 6-2 and 4-2 systems, transition attack, target serving, the setter's second ball, libero substitutions, plus setting, attacking, blocking and defence, each with coaching notes in your language.
 

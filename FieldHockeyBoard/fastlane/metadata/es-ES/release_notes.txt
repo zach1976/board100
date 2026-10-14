@@ -1,5 +1,11 @@
 Novedades de la versión 2.2.0
 
+DÍA DE PARTIDO
+Define los periodos y el once inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego. Al acabar, los minutos de cada jugador y cada cambio se exportan en PDF. El reloj requiere Pro; la preparación es gratis.
+
+SESIONES LISTAS
+Seis sesiones listas, montadas con los ejercicios de la biblioteca: base, ataque, defensa, jugadas a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
+
 SALA Y HOCKEY5S
 Dos campos nuevos junto al de exterior: la pista de sala de la FIH, con sus vallas laterales y su área de 9 m, y la pista de Hockey5s. Cada pizarra recuerda su campo y la lista de sistemas lo sigue: 2-1-2 y 1-2-2 en sala, 2-2 y 1-2-1 en Hockey5s.
 

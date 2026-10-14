@@ -3,6 +3,18 @@ Novedades de la versión 2.1.0
 LAS SEIS ROTACIONES
 Elige una rotación y la pizarra coloca a tus seis donde están, en saque o en recepción. Avanza o retrocede por las rotaciones, elige la zona del colocador y mete al líbero. Una comprobación de solapamiento marca a dos jugadores que estarían mal colocados en el momento del saque.
 
+REGLAMENTOS
+Cada pizarra sigue las reglas FIVB, USAV, NFHS o NCAA. El límite de cambios aparece junto a la barra de rotación (6, 12, 18 o 15 por set) y, con los reglamentos de EE. UU., el líbero puede sacar en una rotación.
+
+CORREGIR POSICIONES
+Cuando el control de solapamiento marca a dos jugadores, un toque los coloca donde las reglas lo permiten. Deshacer los devuelve.
+
+HOJA DE ALINEACIÓN
+Comparte una hoja de alineación en PDF con el formato de papel: las seis zonas, el orden de saque I a VI, el líbero y el reglamento. Funciona sin conexión, en tu idioma.
+
+SESIONES LISTAS
+Seis sesiones listas, montadas con los ejercicios de la biblioteca, desde la sesión de base hasta la semana de partido y la pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
+
 150 EJERCICIOS
 La biblioteca ha pasado de 44 a 150 ejercicios: recepción en cada rotación de los sistemas 5-1, 6-2 y 4-2, transición al ataque, saque dirigido, el segundo toque del colocador, cambios del líbero, además de colocación, ataque, bloqueo y defensa, cada uno con indicaciones del entrenador en tu idioma.
 

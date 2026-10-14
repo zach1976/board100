@@ -1,5 +1,11 @@
 Nieuw in 2.2.0
 
+WEDSTRIJDDAG
+Stel de periodes en je basisopstelling in, laat de klok lopen en tik twee spelers aan om te wisselen. De bank is gesorteerd op gespeelde minuten en „Voorstel“ verdeelt de speeltijd eerlijk. Na de wedstrijd exporteer je de minuten van elke speler en elke wissel als pdf. De klok vereist Pro, de voorbereiding is gratis.
+
+KANT-EN-KLARE TRAININGEN
+Zes kant-en-klare trainingen, opgebouwd uit de oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
+
 ZAAL EN HOCKEY5S
 Twee nieuwe velden naast het buitenveld: het FIH-zaalveld met boarding en 9 m-cirkel, en het Hockey5s-veld. Elk bord onthoudt zijn veld en de opstellingen volgen mee: 2-1-2 en 1-2-2 in de zaal, 2-2 en 1-2-1 bij Hockey5s.
 

@@ -3,6 +3,18 @@ Nouveautés de la version 2.1.0
 LES SIX ROTATIONS
 Choisissez une rotation et le tableau place vos six joueurs là où ils se tiennent, au service ou en réception. Avancez ou reculez dans les rotations, choisissez la zone du passeur et faites entrer le libéro. Un contrôle des chevauchements signale deux joueurs qui seraient mal placés au moment du service.
 
+RÈGLEMENTS
+Chaque tableau suit les règles FIVB, USAV, NFHS ou NCAA. La limite de remplacements s'affiche à côté de la barre de rotation (6, 12, 18 ou 15 par set) et, avec les règlements américains, le libéro peut servir dans une rotation.
+
+CORRIGER LES POSITIONS
+Quand le contrôle de chevauchement marque deux joueurs, une touche les place là où les règles l'autorisent. Annuler les ramène.
+
+FEUILLE DE POSITION
+Partagez une feuille de position en PDF au format papier : les six zones, l'ordre de service I à VI, le libéro et le règlement. Fonctionne hors ligne, dans votre langue.
+
+SÉANCES PRÊTES
+Six séances prêtes, composées des exercices de la bibliothèque, de la séance de base à la semaine de match et la présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
+
 150 EXERCICES
 La bibliothèque passe de 44 à 150 exercices : réception dans chaque rotation des systèmes 5-1, 6-2 et 4-2, transition vers l'attaque, service ciblé, la deuxième balle du passeur, changements du libéro, plus la passe, l'attaque, le contre et la défense, chacun avec des consignes d'entraîneur dans votre langue.
 

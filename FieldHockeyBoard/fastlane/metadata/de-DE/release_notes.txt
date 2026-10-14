@@ -1,5 +1,11 @@
 Neu in 2.2.0
 
+SPIELTAG
+Spielabschnitte und Startaufstellung festlegen, die Uhr laufen lassen und zwei Spieler antippen, um sie zu wechseln. Die Bank ist nach gespielten Minuten sortiert, und „Vorschlag“ gleicht die Spielzeit aus. Nach dem Spiel lassen sich die Minuten aller Spieler und jeder Wechsel als PDF exportieren. Die Uhr braucht Pro, die Vorbereitung ist kostenlos.
+
+FERTIGE EINHEITEN
+Sechs fertige Trainingseinheiten aus den Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
+
 HALLE UND HOCKEY5S
 Zwei neue Spielflächen neben dem Feld: die FIH-Halle mit Banden und 9-m-Kreis und das Hockey5s-Feld. Jedes Board merkt sich seine Spielfläche, und die Aufstellungen passen sich an: 2-1-2 und 1-2-2 in der Halle, 2-2 und 1-2-1 bei Hockey5s.
 

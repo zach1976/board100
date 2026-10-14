@@ -1,4 +1,4 @@
-# Review Notes — Field Hockey Board 2.2.0 (build 5)
+# Review Notes — Field Hockey Board 2.2.0 (build 6)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.1，本次是 2.0.1 → 2.2.0。
@@ -44,6 +44,16 @@ permissions and no new network endpoints.
    Island's side.
 8. The app's interface and every drill's coaching notes are now also in
    German and Dutch (14 languages in all).
+9. Match day: on the home page, the board card's "Match day" button opens a
+   substitution sheet. Set the periods and the starting line-up, run the
+   clock, tap two players to substitute, and the bench sorts by minutes
+   played; "Suggest" proposes swaps that even out playing time; afterwards
+   the minutes and substitutions export as a PDF. Setting a match up is
+   free; starting the clock asks for Pro through the purchase sheet above
+   (a sandbox purchase of either plan unlocks it). It stays on the device.
+10. Six ready sessions (foundation, attacking, defending, set pieces, match
+   week, pre-season), built from the library's own drills: Plans → New →
+   "From a ready session".
 
 ## How to see it
 
@@ -54,8 +64,9 @@ coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator (iPhone and iPad). The automated suite — 721 tests,
-including the indoor and Hockey5s pitches — passes, and every drill board in
+Run on the iOS Simulator (iPhone and iPad). The automated suite — 764 tests,
+including the indoor and Hockey5s pitches and the match-day clock and
+substitutions — passes, and every drill board in
 the library was rendered through the app's own painters and reviewed.
 
 Thank you for reviewing.
