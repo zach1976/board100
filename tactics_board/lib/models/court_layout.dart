@@ -11,7 +11,8 @@ import 'package:flutter/material.dart';
 ///
 /// `indoor` and `hockey5s` are not views of the pitch but other pitches
 /// (field hockey: the FIH indoor pitch and the Hockey5s court), as `nba`,
-/// `ncaa` and `highSchool` are basketball's other courts beside FIBA's. A
+/// `ncaa` and `highSchool` are basketball's other courts beside FIBA's,
+/// and `beach` is volleyball's 16 m × 8 m sand court for pairs. A
 /// board drawn on one says so (`courtLayout` in its JSON, by name) and
 /// reopens on it; see [CourtLayoutPitch.isOwnPitch] and
 /// TacticsState.courtLayout.
@@ -26,6 +27,7 @@ enum CourtLayout {
   nba,
   ncaa,
   highSchool,
+  beach,
 }
 
 extension CourtLayoutPitch on CourtLayout {
@@ -36,7 +38,8 @@ extension CourtLayoutPitch on CourtLayout {
       this == CourtLayout.hockey5s ||
       this == CourtLayout.nba ||
       this == CourtLayout.ncaa ||
-      this == CourtLayout.highSchool;
+      this == CourtLayout.highSchool ||
+      this == CourtLayout.beach;
 
   /// The pitch a board's JSON names (`courtLayout`), or null for none, an
   /// unknown name, or a layout that is only a view.

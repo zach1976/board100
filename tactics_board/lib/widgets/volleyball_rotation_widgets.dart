@@ -103,6 +103,44 @@ class RotationFaultPainter extends CustomPainter {
       ].any((d) => d);
 }
 
+/// Where the player being dragged may legally stand (see
+/// TacticsState.rotationLegalArea): a translucent green patch on the court
+/// with a thin border — red while his feet are outside it. Painted in the
+/// board's coordinates, under the people. Nothing when [rect] is inverted,
+/// which is the others being at fault among themselves.
+class RotationLegalAreaPainter extends CustomPainter {
+  final Rect rect;
+  final bool inside;
+  final double figureScale;
+
+  const RotationLegalAreaPainter({
+    required this.rect,
+    required this.inside,
+    this.figureScale = 1.0,
+  });
+
+  static const Color legalGreen = Color(0xFF4ADE80);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (rect.isEmpty) return;
+    canvas.drawRect(
+        rect, Paint()..color = legalGreen.withValues(alpha: 0.22));
+    canvas.drawRect(
+        rect,
+        Paint()
+          ..color = inside ? legalGreen : RotationFaultPainter.faultRed
+          ..strokeWidth = 1.5 * figureScale
+          ..style = PaintingStyle.stroke);
+  }
+
+  @override
+  bool shouldRepaint(RotationLegalAreaPainter old) =>
+      old.rect != rect ||
+      old.inside != inside ||
+      old.figureScale != figureScale;
+}
+
 /// What the board says about [faults]: the first, in words, and how many
 /// more. [labelOf] names a player by id.
 String rotationFaultMessage(

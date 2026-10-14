@@ -677,6 +677,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
   /// Last finger position while laying a run by dragging in add-move mode.
   Offset? _addMovePanPos;
 
+  /// The player under the finger on a volleyball rotation board, for the
+  /// patch of court he may legally stand on (RotationLegalAreaPainter).
+  String? _rotationDragId;
+
   // Apple Pencil (tablet only; a phone's board is unchanged). The Pencil
   // draws in any mode — Draw, or Move without switching — and a finger
   // moves players. While the Pencil is on the glass a touch is a palm: it
@@ -1789,6 +1793,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 state.presentationMode
             ? null
             : (at) => _elementMenu(state, player, at),
+        // Only a rotation board (volleyball) watches its drags: the patch
+        // of court the player under the finger may stand on.
+        onDragStart: state.rotation == null
+            ? null
+            : () {
+                if (_rotationDragId == player.id || !mounted) return;
+                setState(() => _rotationDragId = player.id);
+              },
+        onDragEnd: state.rotation == null
+            ? null
+            : () {
+                if (_rotationDragId != player.id || !mounted) return;
+                setState(() => _rotationDragId = null);
+              },
       );
     }
 
@@ -2220,6 +2238,10 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               size: Size(canvasW, canvasH),
             ),
           ),
+        // A volleyball rotation board while a player is being dragged:
+        // the patch of court he may legally stand on, under the people.
+        if (_rotationDragId != null)
+          ..._rotationLegalArea(state, canvasW, canvasH),
         // Players and the ball, over the ghosts and the routes.
         ...players.where((p) => !p.isMarker).map(playerIcon),
         // A volleyball rotation board with its overlap check on: the
@@ -2247,6 +2269,31 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           ),
       ],
     );
+  }
+
+  /// Where the player being dragged ([_rotationDragId]) may legally stand
+  /// (see TacticsState.rotationLegalArea). Nothing when the board is not
+  /// judging him — the check off, the server exempt, a beat on show.
+  List<Widget> _rotationLegalArea(
+      TacticsState state, double canvasW, double canvasH) {
+    final footward =
+        turnVector(const Offset(0, 1), (4 - widget.boardTurns) % 4);
+    final area = state.rotationLegalArea(_rotationDragId!, footward: footward);
+    if (area == null) return const [];
+    final (rect, inside) = area;
+    return [
+      IgnorePointer(
+        child: CustomPaint(
+          key: const ValueKey('rotation-legal-area'),
+          painter: RotationLegalAreaPainter(
+            rect: rect,
+            inside: inside,
+            figureScale: kFigureScale,
+          ),
+          size: Size(canvasW, canvasH),
+        ),
+      ),
+    ];
   }
 
   /// The overlap faults of a volleyball rotation board, drawn at the feet
@@ -2625,6 +2672,11 @@ class _PlayerOnBoard extends StatefulWidget {
   final void Function(Offset globalPosition)? onContextMenu;
   final bool labelAbove;
 
+  /// A single-player drag beginning and ending (not a group drag, not the
+  /// Pencil's palm).
+  final VoidCallback? onDragStart;
+  final VoidCallback? onDragEnd;
+
   const _PlayerOnBoard({
     super.key,
     required this.player,
@@ -2641,6 +2693,8 @@ class _PlayerOnBoard extends StatefulWidget {
     this.onTap,
     this.onLongPress,
     this.onContextMenu,
+    this.onDragStart,
+    this.onDragEnd,
   });
 
   @override
@@ -2692,6 +2746,9 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
                       pencilPointer != null);
               _baseScale = player.scale;
               _baseRotation = player.rotation;
+              if (!_ignoreDrag && !widget.isInMultiSelect) {
+                widget.onDragStart?.call();
+              }
             }
           : null,
       onScaleUpdate: canPan
@@ -2720,6 +2777,7 @@ class _PlayerOnBoardState extends State<_PlayerOnBoard> {
           : null,
       onScaleEnd: canPan
           ? (d) {
+              widget.onDragEnd?.call();
               if (_ignoreDrag) {
                 _ignoreDrag = false;
                 return;

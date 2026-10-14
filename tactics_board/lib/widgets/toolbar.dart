@@ -635,6 +635,8 @@ String _courtLayoutLabel(CourtLayout l) {
       return 'field_ncaa'.tr();
     case CourtLayout.highSchool:
       return 'field_high_school'.tr();
+    case CourtLayout.beach:
+      return 'field_beach'.tr();
   }
 }
 
@@ -1846,6 +1848,24 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // In the match-day playbook or not. Only where there is a match
+          // day to take it to.
+          if (widget.state.sportType.hasMatchDay)
+            IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+              icon: Icon(
+                  meta.playbook
+                      ? Icons.bookmark_rounded
+                      : Icons.bookmark_border_rounded,
+                  color: meta.playbook ? T.accent : Colors.white54,
+                  size: 20),
+              onPressed: () async {
+                await widget.state.setPlaybook(name, !meta.playbook);
+                await _loadList();
+              },
+              tooltip: (meta.playbook ? 'playbook_remove' : 'playbook_add').tr(),
+            ),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),

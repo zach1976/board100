@@ -269,6 +269,57 @@ void main() {
           isEmpty);
     });
 
+    test('legal rect: zone 3 between 4 and 2, net to zone 6', () {
+      final at = base();
+      final r = VolleyballRotation.legalRect(3, at)!;
+      expect(r.left, at[4]!.dx);
+      expect(r.right, at[2]!.dx);
+      expect(r.top, 0);
+      expect(r.bottom, at[6]!.dy);
+    });
+
+    test('legal rect: a back-row corner is bounded by the court', () {
+      final at = base();
+      final r = VolleyballRotation.legalRect(1, at)!;
+      expect(r.left, at[6]!.dx);
+      expect(r.right, 9);
+      expect(r.top, at[2]!.dy);
+      expect(r.bottom, 9);
+    });
+
+    test('legal rect: a pair with the server is no constraint', () {
+      final at = base();
+      expect(VolleyballRotation.legalRect(1, at, exemptZone: 1), isNull);
+      final r = VolleyballRotation.legalRect(6, at, exemptZone: 1)!;
+      expect(r.right, 9);
+      expect(r.left, at[5]!.dx);
+      expect(VolleyballRotation.legalRect(2, at, exemptZone: 1)!.bottom, 9);
+    });
+
+    test('legal rect: only the zones placed cut it down', () {
+      final r = VolleyballRotation.legalRect(3, {4: const Offset(2, 1)})!;
+      expect([r.left, r.top, r.right, r.bottom], [2, 0, 9, 9]);
+    });
+
+    test('legal rect agrees with the faults', () {
+      final at = base();
+      for (final z in at.keys) {
+        final r = VolleyballRotation.legalRect(z, at)!;
+        expect(r.contains(at[z]!), isTrue, reason: 'zone $z in base');
+        // Just over each edge is a fault of that zone's; just inside none.
+        for (final (dx, dy) in [(-0.1, 0.0), (0.1, 0.0), (0.0, -0.1), (0.0, 0.1)]) {
+          final over = at[z]!;
+          final x = dx < 0 ? r.left + dx : dx > 0 ? r.right + dx : over.dx;
+          final y = dy < 0 ? r.top + dy : dy > 0 ? r.bottom + dy : over.dy;
+          if (x < 0 || x > 9 || y < 0 || y > 9) continue; // off the court
+          final moved = Map<int, Offset>.from(at)..[z] = Offset(x, y);
+          expect(VolleyballRotation.faults(moved).where((f) => f.a == z || f.b == z),
+              isNotEmpty,
+              reason: 'zone $z at ($x, $y)');
+        }
+      }
+    });
+
     test('zones are read from where six stand', () {
       final at = base();
       final ids = {for (final e in at.entries) 'z${e.key}': e.value};

@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import 'player_icon.dart';
@@ -352,6 +354,30 @@ class VolleyballRotation {
       if (!moved) break;
     }
     return p;
+  }
+
+  /// Where [zone]'s feet may stand, given where the others in [at] are
+  /// (zone → feet, team frame): the court, cut down by the same pairs
+  /// [faults] judges — behind the front-row player ahead of him, ahead of
+  /// the back-row player behind, right of his left neighbour, left of his
+  /// right one. Top is towards the net. A pair with [exemptZone] is no
+  /// constraint, as in [legalize]; null when [zone] is itself the exempt
+  /// server, who may stand anywhere. The rect may come out inverted
+  /// ([Rect.isEmpty]) when the others are at fault among themselves.
+  static Rect? legalRect(int zone, Map<int, Offset> at, {int? exemptZone}) {
+    if (zone == exemptZone) return null;
+    var left = 0.0, top = 0.0, right = 9.0, bottom = 9.0;
+    for (final (f, b) in depthPairs) {
+      if (f == exemptZone || b == exemptZone) continue;
+      if (zone == f && at[b] != null) bottom = math.min(bottom, at[b]!.dy);
+      if (zone == b && at[f] != null) top = math.max(top, at[f]!.dy);
+    }
+    for (final (l, r) in lateralPairs) {
+      if (l == exemptZone || r == exemptZone) continue;
+      if (zone == l && at[r] != null) right = math.min(right, at[r]!.dx);
+      if (zone == r && at[l] != null) left = math.max(left, at[l]!.dx);
+    }
+    return Rect.fromLTRB(left, top, right, bottom);
   }
 
   static double _columnX(int zone) => switch (zone) {

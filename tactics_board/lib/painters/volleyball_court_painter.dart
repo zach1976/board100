@@ -24,6 +24,11 @@ class VolleyballCourtPainter extends CourtPainterBase {
       return;
     }
 
+    if (layout == CourtLayout.beach) {
+      _paintBeach(canvas, size);
+      return;
+    }
+
     final p = linePaint;
     final w = size.width;
     final h = size.height;
@@ -95,6 +100,69 @@ class VolleyballCourtPainter extends CourtPainterBase {
     // An indoor sport floor, laid in strips and lit from above.
     drawSurface(canvas, size, bands: 10, bandTint: 0.03);
     canvas.restore();
+  }
+
+  /// The beach court: 16 m × 8 m of sand, the same 2:1 as the indoor court
+  /// so it sits in the same box, with no attack lines and no centre line —
+  /// the beach game has neither — and lines in the blue tape the FIVB lays
+  /// on sand. The surface colour picker does not apply: sand is sand.
+  void _paintBeach(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    const courtRatio = 16.0 / 8.0;
+    double cw, ch;
+    if (h / w > courtRatio) {
+      cw = w * 0.84;
+      ch = cw * courtRatio;
+    } else {
+      ch = h * 0.84;
+      cw = ch / courtRatio;
+    }
+    final left = (w - cw) / 2;
+    final top = (h - ch) / 2;
+    final court = Rect.fromLTWH(left, top, cw, ch);
+
+    // Sand: the free zone a shade deeper than the raked court.
+    canvas.drawRect(Offset.zero & size,
+        Paint()..color = const Color(0xFFD9BC84)..style = PaintingStyle.fill);
+    canvas.drawRect(court,
+        Paint()..color = const Color(0xFFE8D2A0)..style = PaintingStyle.fill);
+    // Rake marks across the court, faint.
+    final rake = Paint()
+      ..color = const Color(0xFFD4B87E).withValues(alpha: 0.5)
+      ..strokeWidth = 1;
+    for (var y = top + ch / 24; y < top + ch; y += ch / 24) {
+      canvas.drawLine(Offset(left, y), Offset(left + cw, y), rake);
+    }
+
+    final scX = cw / 8.0;
+    final scY = ch / 16.0;
+    Offset o(double x, double y) => Offset(left + x * scX, top + y * scY);
+
+    final tape = Paint()
+      ..color = const Color(0xFF1F5FA8)
+      ..strokeWidth = 4
+      ..style = PaintingStyle.stroke;
+    canvas.drawRect(court, tape);
+
+    // Net: band, mesh, tape and posts, as on the indoor court.
+    final netBand = Paint()
+      ..color = Colors.white.withValues(alpha: 0.25)
+      ..strokeWidth = 12
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 8), o(8, 8), netBand);
+    drawNetMesh(canvas, o(0, 8), o(8, 8), 12);
+    final netLine = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 5
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 8), o(8, 8), netLine);
+    final postPaint = Paint()
+      ..color = const Color(0xFF37474F)
+      ..strokeWidth = 6
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 7.5), o(0, 8.5), postPaint);
+    canvas.drawLine(o(8, 7.5), o(8, 8.5), postPaint);
   }
 
   /// The free-zone colour that goes with a court colour: the FIVB pairings

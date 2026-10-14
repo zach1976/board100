@@ -5,6 +5,7 @@ import '../ui/tokens.dart' show SportPalette;
 import 'player_icon.dart';
 import 'court_layout.dart';
 import 'drill.dart' show DrillVocabulary;
+import 'match_day.dart' show MatchCardKind;
 import 'sport_formation.dart';
 
 /// How the hub's picker shelves the fifteen sports. Fifteen equal cards were
@@ -422,6 +423,14 @@ extension SportTypeExtension on SportType {
           CourtLayout.ncaa,
           CourtLayout.highSchool,
         ];
+      case SportType.volleyball:
+        // The indoor court, plus the beach: 16 m × 8 m of sand for pairs.
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.blank,
+          CourtLayout.beach,
+        ];
       default:
         // Goal sports → one goal end; net sports → one side of the net.
         return const [CourtLayout.full, CourtLayout.half, CourtLayout.blank];
@@ -604,7 +613,47 @@ extension SportTypeExtension on SportType {
   /// and Belgium ships, and a coach there expects it. The sheet itself is
   /// sport-agnostic — turn another sport on here and it gets its own
   /// defaults from [matchDayDefaults].
-  bool get hasMatchDay => this == SportType.fieldHockey;
+  bool get hasMatchDay =>
+      this == SportType.fieldHockey || this == SportType.volleyball;
+
+  /// Whether the match-day sheet counts sets instead of running a clock:
+  /// volleyball, where what a coach tracks is the score of the set, the
+  /// substitutions against the set's limit and the timeouts.
+  bool get matchDayCountsSets => this == SportType.volleyball;
+
+  /// Whether a drawn match of this sport goes to a shoot-out the sheet can
+  /// record. Hockey's and soccer's; only hockey has the sheet on now.
+  bool get hasShootOut =>
+      this == SportType.fieldHockey || this == SportType.soccer;
+
+  /// The cards this sport's referee shows, and how long each keeps the
+  /// player off: null is a booking (soccer's yellow) or, for a red card,
+  /// the rest of the match. Hockey: green two minutes, yellow five or ten,
+  /// red off. Handball: yellow, the two-minute suspension, red.
+  List<({MatchCardKind kind, int? seconds})> get matchDayCards {
+    switch (this) {
+      case SportType.fieldHockey:
+        return const [
+          (kind: MatchCardKind.green, seconds: 120),
+          (kind: MatchCardKind.yellow, seconds: 300),
+          (kind: MatchCardKind.yellow, seconds: 600),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      case SportType.soccer:
+        return const [
+          (kind: MatchCardKind.yellow, seconds: null),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      case SportType.handball:
+        return const [
+          (kind: MatchCardKind.yellow, seconds: null),
+          (kind: MatchCardKind.suspension, seconds: 120),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      default:
+        return const [];
+    }
+  }
 
   /// How a match of this sport is played, for the match-day sheet: periods,
   /// minutes per period, players on the pitch at once.
@@ -703,6 +752,22 @@ extension SportTypeExtension on SportType {
   /// their x's are pulled in to stay on it. Every other layout is a view of
   /// the full pitch and offers [formations].
   List<SportFormation> formationsOn(CourtLayout layout) {
+    if (this == SportType.volleyball && layout == CourtLayout.beach) {
+      // Beach volleyball is pairs: side by side to receive, or one up at
+      // the net to block with the other behind to dig.
+      return const [
+        SportFormation(
+          nameKey: 'formation_beach_side',
+          homePositions: [Offset(0.3, 0.8), Offset(0.7, 0.8)],
+          awayPositions: [Offset(0.7, 0.2), Offset(0.3, 0.2)],
+        ),
+        SportFormation(
+          nameKey: 'formation_beach_block',
+          homePositions: [Offset(0.5, 0.58), Offset(0.5, 0.85)],
+          awayPositions: [Offset(0.5, 0.42), Offset(0.5, 0.15)],
+        ),
+      ];
+    }
     if (this != SportType.fieldHockey) return formations;
     switch (layout) {
       case CourtLayout.indoor:

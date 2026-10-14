@@ -1984,12 +1984,25 @@ def _vr_column_x(z: int) -> float:
     return 1.5 if z in (4, 5) else 4.5 if z in (3, 6) else 7.5
 
 
+# RotationRules whose libero may serve — in one rotation position a set,
+# taken (as in the app) to be the first middle's: the libero serves when
+# MB1 reaches zone 1. Under "fivb" the libero never serves (19.3.1.4).
+VR_LIBERO_SERVES = ("usav", "nfhs", "ncaa")
+
+
 class VRSetup:
     """RotationSetup: system, rotation 1..6, receive or serve, libero in."""
 
-    def __init__(self, system="51", rotation=1, phase="receive", libero=True):
+    def __init__(self, system="51", rotation=1, phase="receive", libero=True,
+                 rules="fivb"):
         self.system, self.rotation = system, rotation
-        self.phase, self.libero = phase, libero
+        self.phase, self.libero, self.rules = phase, libero, rules
+
+    def board_setup(self) -> dict:
+        """The setup as the app stores it on the page (RotationSetup.toJson)."""
+        return {"team": 0, "system": "5-1" if self.system == "51" else "6-2",
+                "rot": self.rotation, "phase": self.phase,
+                "libero": self.libero, "check": True, "rules": self.rules}
 
     @property
     def lineup(self):
@@ -2010,7 +2023,8 @@ class VRSetup:
             z = self.zone_of(role)
             if vr_is_front(z):
                 continue
-            if self.phase == "serve" and z == 1:
+            if (self.phase == "serve" and z == 1
+                    and not (self.rules in VR_LIBERO_SERVES and role == "MB1")):
                 return None
             return role
         return None
@@ -2497,71 +2511,87 @@ def _spec(role: str) -> str:
     return "L" if role == "L" else role.rstrip("12")
 
 
+def _transition_board(s: VRSetup, bench: str | None = None) -> dict:
+    """Our serve and the transition after it, in `s`: the Drill's board.
+
+    `bench`: a middle drawn waiting in the replacement zone beside the
+    court because the libero is on — and serving — in his place
+    (libero_serve_family). The middles are then numbered on the board.
+    """
+    r = s.rotation
+    base = vr_base_positions(s)
+    _vr_assert_legal(s, base, exempt=1)
+    roles = s.zone_roles
+    both = sum(1 for v in roles.values() if v.startswith("MB")) == 2
+    # With the middle serving there is no libero: he runs in to 6 and
+    # the back-row outside defends 5 in the libero's place.
+    back_spec = dict(BASE_BACK)
+    if both:
+        back_spec.update({"MB": (4.5, 7.6), "OH": (1.8, 7.0)})
+    dest = {}
+    for z, role in roles.items():
+        sp = _spec(role)
+        dest[z] = (BASE_FRONT[sp] if vr_is_front(z) else back_spec[sp])
+    assert not vr_clashes(dest), (r, dest)
+    front = {(_spec(roles[z])): z for z in roles if vr_is_front(z)}
+    right = front.get("S", front.get("OPP"))
+    digger = next(z for z in roles if not vr_is_front(z) and dest[z] == (1.8, 7.0))
+    setter = _zone_of_role(roles, s.active_setter)
+    home, idx = [], {}
+    for z in sorted(roles, key=lambda z: (z != setter, z)):
+        role = roles[z]
+        if z == 1:
+            x, y = home_pt(VR_SERVER_SPOT[0], 0)[0], 1.0 + SERVE_BACK
+        else:
+            x, y = home_pt(*base[z])
+        dx, dy = home_pt(*dest[z])
+        # The back row and the server switch as the serve goes over;
+        # the front row as their pass goes up — two beats, so the
+        # crossing runs of a switch are not drawn on top of each other.
+        moves = [(dx, dy, 1 if vr_is_front(z) else 0)]
+        if z == setter:
+            moves.append(SET_POINT + (4,))
+        elif z == front["MB"]:
+            moves += [(0.72, dy, 2), (0.44, 0.68, 3), (0.50, 0.555, 5)]
+        elif z == front["OH"]:
+            moves += [LEFT_START + (3,), LEFT_HIT + (5,)]
+        elif z == right:
+            moves.append(RIGHT_START + (3,))
+        elif z == digger:
+            moves.append((dx + 0.02, dy - 0.02, 3))
+        idx[z] = len(home)
+        home.append(P(x, y, _vr_label(role, both or bench is not None), moves=moves))
+    if bench is not None:
+        # After the six, so the ball's indices above do not move.
+        home.append(P(*home_pt(*VR_BENCH_SPOT), _vr_label(bench, True)))
+    away = [P(*away_pt(4.5, 6.0), "P", moves=[(*away_pt(4.3, 5.6), 0)]),
+            P(*mirror(SET_POINT), "S"),
+            # Their outside opens off the net while the pass is up and
+            # approaches on the set.
+            P(*mirror((0.10, 0.86)), "A",
+              moves=[mirror(LEFT_START) + (1,), mirror(LEFT_HIT) + (2,)])]
+    return dict(
+        home=home, away=away,
+        markers=[M(*SET_POINT, "square", "")],
+        ball=idx[1],
+        # Serve; their pass, set and swing cross-court into our 5; the
+        # dig to our setter, the set to our outside, the kill.
+        ball_to=[("a0", 0), ("a1", 1), ("a2", 2), (idx[digger], 3),
+                 (idx[setter], 4), (idx[front["OH"]], 5),
+                 (ball_spot(LEFT_KILL), 6)],
+    )
+
+
 def transition_family() -> list[Drill]:
     out = []
     for r in range(1, 7):
         s = VRSetup("51", r, "serve")
-        base = vr_base_positions(s)
-        _vr_assert_legal(s, base, exempt=1)
-        roles = s.zone_roles
-        both = sum(1 for v in roles.values() if v.startswith("MB")) == 2
-        # With the middle serving there is no libero: he runs in to 6 and
-        # the back-row outside defends 5 in the libero's place.
-        back_spec = dict(BASE_BACK)
-        if both:
-            back_spec.update({"MB": (4.5, 7.6), "OH": (1.8, 7.0)})
-        dest = {}
-        for z, role in roles.items():
-            sp = _spec(role)
-            dest[z] = (BASE_FRONT[sp] if vr_is_front(z) else back_spec[sp])
-        assert not vr_clashes(dest), (r, dest)
-        front = {(_spec(roles[z])): z for z in roles if vr_is_front(z)}
-        right = front.get("S", front.get("OPP"))
-        digger = next(z for z in roles if not vr_is_front(z) and dest[z] == (1.8, 7.0))
-        setter = _zone_of_role(roles, "S")
-        home, idx = [], {}
-        for z in sorted(roles, key=lambda z: (z != setter, z)):
-            role = roles[z]
-            if z == 1:
-                x, y = home_pt(VR_SERVER_SPOT[0], 0)[0], 1.0 + SERVE_BACK
-            else:
-                x, y = home_pt(*base[z])
-            dx, dy = home_pt(*dest[z])
-            # The back row and the server switch as the serve goes over;
-            # the front row as their pass goes up — two beats, so the
-            # crossing runs of a switch are not drawn on top of each other.
-            moves = [(dx, dy, 1 if vr_is_front(z) else 0)]
-            if z == setter:
-                moves.append(SET_POINT + (4,))
-            elif z == front["MB"]:
-                moves += [(0.72, dy, 2), (0.44, 0.68, 3), (0.50, 0.555, 5)]
-            elif z == front["OH"]:
-                moves += [LEFT_START + (3,), LEFT_HIT + (5,)]
-            elif z == right:
-                moves.append(RIGHT_START + (3,))
-            elif z == digger:
-                moves.append((dx + 0.02, dy - 0.02, 3))
-            idx[z] = len(home)
-            home.append(P(x, y, _vr_label(role, both), moves=moves))
-        away = [P(*away_pt(4.5, 6.0), "P", moves=[(*away_pt(4.3, 5.6), 0)]),
-                P(*mirror(SET_POINT), "S"),
-                # Their outside opens off the net while the pass is up and
-                # approaches on the set.
-                P(*mirror((0.10, 0.86)), "A",
-                  moves=[mirror(LEFT_START) + (1,), mirror(LEFT_HIT) + (2,)])]
         out.append(Drill(
             id=f"vb_transition_r{r}", category="attacking", minutes=15, rel=True,
             free=(r in (1, 4)), level="development", off_surface=True,
             name=suffixed(_nv.full(_nv.NAME_TRANS), f"{r}"),
             note=_nv.full(_nv.POINT_TRANS), setup=_nv.full(_nv.SETUP_TRANS),
-            home=home, away=away,
-            markers=[M(*SET_POINT, "square", "")],
-            ball=idx[1],
-            # Serve; their pass, set and swing cross-court into our 5; the
-            # dig to our setter, the set to our outside, the kill.
-            ball_to=[("a0", 0), ("a1", 1), ("a2", 2), (idx[digger], 3),
-                     (idx[setter], 4), (idx[front["OH"]], 5),
-                     (ball_spot(LEFT_KILL), 6)],
+            **_transition_board(s),
         ))
     return out
 
@@ -2740,6 +2770,129 @@ def libero_family() -> list[Drill]:
     return out
 
 
+# ── 6. the libero serving (USAV / NFHS / NCAA) ──────────────────────────────
+#
+# Under the US rule sets the libero may serve, in one rotation position a
+# set — taken, as in the app, to be the first middle's: when MB1 rotates to
+# zone 1 the libero comes on for him and serves (rotation 3 in both the
+# 5-1 and the 6-2, where MB1 is third in the lineup). Under FIVB the
+# libero never serves, so vb_transition_r3 has the middle serving; these
+# boards are that rotation the American way, and the receive after it,
+# where the libero who served simply stays on. Each board carries its
+# RotationSetup with rules "usav" so the app's rotation tool opens on it.
+
+LIBSERVE_ROT = 3   # MB1 in zone 1: lineup index 2, (2 - (r - 1)) % 6 + 1 == 1
+LIBSERVE_NAME = _t(
+    "Libero serve rotation", "自由人发球轮次", "自由人發球輪次",
+    "リベロ サーブ ローテーション", "리베로 서브 로테이션",
+    "Rotación de saque del líbero", "Rotation de service du libéro",
+    "Rotasi servis libero", "Putaran servis libero",
+    "รอบเสิร์ฟของลิเบโร", "Vòng libero giao bóng")
+LIBSTAY_NAME = _t(
+    "Libero stays on to receive", "自由人留场接发球", "自由人留場接發球",
+    "リベロはそのままレセプションへ", "리베로가 남아서 리시브",
+    "El líbero se queda para recibir", "Le libéro reste pour la réception",
+    "Libero tetap di lapangan untuk menerima",
+    "Libero kekal di gelanggang untuk menerima",
+    "ลิเบโรอยู่ต่อเพื่อรับเสิร์ฟ", "Libero ở lại đỡ giao bóng")
+LIBSERVE_NOTE = _t(
+    "Under USAV, NFHS and NCAA rules the libero may serve, but in only one rotation position per set: here she comes on for the first middle (M1) as he rotates to zone 1 and serves in his place. The replacement must always be for that same player — she may not serve for the second middle later in the set. Under FIVB rules the libero never serves, so M1 serves for himself and the libero waits in the replacement zone.",
+    "USAV、NFHS 和 NCAA 规则允许自由人发球，但每局只能在一个轮次位置发：这里她在第一副攻（M1）转到 1 号位时替他上场，代替他发球。替换必须始终针对同一名球员——本局之后她不能再替第二副攻发球。FIVB 规则下自由人从不发球，M1 自己发，自由人在替换区等候。",
+    "USAV、NFHS 和 NCAA 規則允許自由人發球，但每局只能在一個輪次位置發：這裡她在第一副攻（M1）轉到 1 號位時替他上場，代替他發球。替換必須始終針對同一名球員——本局之後她不能再替第二副攻發球。FIVB 規則下自由人從不發球，M1 自己發，自由人在替換區等候。",
+    "USAV・NFHS・NCAAのルールではリベロがサーブを打てるが、1セットにつき1つのローテーション位置だけ。ここでは1人目のミドル（M1）が1番に回った時にリベロが代わって入り、彼の代わりにサーブを打つ。交代は常に同じ選手に対してでなければならず、同じセットの後半で2人目のミドルの代わりにサーブすることはできない。FIVBルールではリベロは決してサーブを打たないので、M1が自分でサーブし、リベロは交代ゾーンで待つ。",
+    "USAV, NFHS, NCAA 규정에서는 리베로가 서브할 수 있지만 세트당 한 로테이션 자리에서만이다. 여기서는 첫 번째 미들(M1)이 1번 자리로 돌 때 리베로가 그를 대신해 들어가 서브한다. 교체는 항상 같은 선수에 대해서만 가능하며, 같은 세트 뒤에 두 번째 미들 대신 서브할 수는 없다. FIVB 규정에서는 리베로가 서브하지 않으므로 M1이 직접 서브하고 리베로는 교체 구역에서 기다린다.",
+    "Con las reglas USAV, NFHS y NCAA el líbero puede sacar, pero solo en una posición de rotación por set: aquí entra por el primer central (M1) cuando él rota a la zona 1 y saca en su lugar. El reemplazo debe ser siempre por ese mismo jugador: no puede sacar por el segundo central más tarde en el set. Con las reglas FIVB el líbero nunca saca, así que M1 saca él mismo y el líbero espera en la zona de reemplazo.",
+    "Sous les règles USAV, NFHS et NCAA, le libéro peut servir, mais à une seule position de rotation par set : ici il entre pour le premier central (M1) quand celui-ci arrive en zone 1 et sert à sa place. Le remplacement doit toujours concerner ce même joueur — il ne peut pas servir pour le second central plus tard dans le set. Sous les règles FIVB, le libéro ne sert jamais : M1 sert lui-même et le libéro attend dans la zone de remplacement.",
+    "Menurut aturan USAV, NFHS, dan NCAA libero boleh melakukan servis, tetapi hanya di satu posisi rotasi per set: di sini ia masuk menggantikan middle pertama (M1) saat M1 berputar ke zona 1 dan melakukan servis untuknya. Penggantian harus selalu untuk pemain yang sama — ia tidak boleh servis menggantikan middle kedua di set yang sama. Menurut aturan FIVB libero tidak pernah servis, jadi M1 servis sendiri dan libero menunggu di zona pergantian.",
+    "Di bawah peraturan USAV, NFHS dan NCAA libero boleh membuat servis, tetapi hanya pada satu kedudukan putaran setiap set: di sini dia masuk menggantikan pemain tengah pertama (M1) apabila M1 berputar ke zon 1 dan membuat servis bagi pihaknya. Penggantian mesti sentiasa untuk pemain yang sama — dia tidak boleh servis bagi pemain tengah kedua kemudian dalam set itu. Di bawah peraturan FIVB libero tidak pernah servis, jadi M1 servis sendiri dan libero menunggu di zon penggantian.",
+    "กติกา USAV, NFHS และ NCAA อนุญาตให้ลิเบโรเสิร์ฟได้ แต่เพียงตำแหน่งเดียวในรอบหมุนเวียนต่อเซต ที่นี่เธอเข้าแทนบล็อกกลางคนแรก (M1) เมื่อเขาหมุนมาถึงตำแหน่ง 1 และเสิร์ฟแทนเขา การเปลี่ยนตัวต้องเป็นผู้เล่นคนเดิมเสมอ เธอจะเสิร์ฟแทนบล็อกกลางคนที่สองในเซตเดียวกันไม่ได้ กติกา FIVB ลิเบโรไม่มีสิทธิ์เสิร์ฟ M1 จึงเสิร์ฟเองและลิเบโรรอในเขตเปลี่ยนตัว",
+    "Theo luật USAV, NFHS và NCAA, libero được phát bóng nhưng chỉ ở một vị trí xoay vòng mỗi hiệp: ở đây cô vào thay phụ công thứ nhất (M1) khi anh xoay đến vị trí 1 và phát bóng thay anh. Việc thay thế phải luôn dành cho đúng cầu thủ đó — cô không được phát bóng thay phụ công thứ hai sau đó trong hiệp. Theo luật FIVB, libero không bao giờ phát bóng, nên M1 tự phát và libero chờ ở khu thay người.")
+LIBSTAY_NOTE = _t(
+    "Having served, the libero does not leave: the rally is lost, the other side serves, and she is still in zone 1 passing as a back-row player. Under US rules this is a replacement for M1 like any other, so she stays on until M1 rotates to the front row. Under FIVB the libero would not have served here at all — the serving rotation is where the two rulebooks differ, not the receive.",
+    "发完球自由人不下场：这一分丢了，对方发球，她仍然在 1 号位作为后排球员接一传。在美国规则下这只是对 M1 的一次普通替换，她一直留到 M1 轮转到前排为止。FIVB 规则下自由人根本不会在这里发球——两套规则不同的是发球那一轮，不是接发球。",
+    "發完球自由人不下場：這一分丟了，對方發球，她仍然在 1 號位作為後排球員接一傳。在美國規則下這只是對 M1 的一次普通替換，她一直留到 M1 輪轉到前排為止。FIVB 規則下自由人根本不會在這裡發球——兩套規則不同的是發球那一輪，不是接發球。",
+    "サーブを打った後もリベロは下がらない。ラリーを落とし、相手のサーブになっても、1番で後衛としてレセプションに入る。米国ルールではこれもM1に対する通常の交代なので、M1が前衛に回るまでそのまま残る。FIVBルールならリベロはそもそもここでサーブを打たない——2つのルールが違うのはサーブのローテーションであって、レセプションではない。",
+    "서브를 넣은 뒤에도 리베로는 나가지 않는다. 랠리를 내주고 상대가 서브해도 그녀는 여전히 1번 자리에서 후위 선수로 리시브한다. 미국 규정에서는 이것도 M1에 대한 평범한 교체이므로 M1이 전위로 돌 때까지 남아 있는다. FIVB 규정이라면 리베로는 애초에 여기서 서브하지 않는다 — 두 규정이 다른 것은 서브 로테이션이지 리시브가 아니다.",
+    "Tras sacar, el líbero no se va: se pierde el punto, saca el otro equipo y sigue en la zona 1 recibiendo como zaguero. Con las reglas de EE. UU. es un reemplazo por M1 como cualquier otro, así que se queda hasta que M1 rota a la línea delantera. Con las reglas FIVB el líbero ni siquiera habría sacado aquí: los dos reglamentos difieren en la rotación de saque, no en la recepción.",
+    "Après avoir servi, le libéro ne sort pas : l'échange est perdu, l'autre équipe sert et il est toujours en zone 1 à réceptionner comme arrière. Sous les règles américaines, c'est un remplacement de M1 comme un autre, il reste donc jusqu'à ce que M1 passe à l'avant. Sous les règles FIVB, le libéro n'aurait pas servi ici du tout — les deux règlements diffèrent sur la rotation de service, pas sur la réception.",
+    "Setelah servis libero tidak keluar: reli kalah, pihak lawan servis, dan ia masih di zona 1 menerima sebagai pemain barisan belakang. Menurut aturan AS ini pergantian untuk M1 seperti biasa, jadi ia tetap di lapangan sampai M1 berputar ke barisan depan. Menurut FIVB libero tidak akan servis di sini sama sekali — kedua aturan berbeda pada rotasi servis, bukan pada penerimaan.",
+    "Selepas servis libero tidak keluar: rali kalah, pihak lawan servis, dan dia masih di zon 1 menerima sebagai pemain barisan belakang. Di bawah peraturan AS ini penggantian untuk M1 seperti biasa, jadi dia kekal sehingga M1 berputar ke barisan hadapan. Di bawah FIVB libero langsung tidak akan servis di sini — kedua-dua peraturan berbeza pada putaran servis, bukan pada penerimaan.",
+    "เสิร์ฟแล้วลิเบโรไม่ต้องออก เสียแต้มนี้ไป อีกฝ่ายเสิร์ฟ เธอยังอยู่ตำแหน่ง 1 รับเสิร์ฟในฐานะผู้เล่นแดนหลัง ตามกติกาสหรัฐฯ นี่คือการเปลี่ยนตัวแทน M1 ตามปกติ เธอจึงอยู่ต่อจนกว่า M1 จะหมุนไปแดนหน้า ตามกติกา FIVB ลิเบโรจะไม่ได้เสิร์ฟตรงนี้เลย สองกติกาต่างกันที่รอบเสิร์ฟ ไม่ใช่การรับเสิร์ฟ",
+    "Phát bóng xong libero không rời sân: pha bóng thua, đối phương giao bóng, cô vẫn ở vị trí 1 đỡ bước một như một cầu thủ hàng sau. Theo luật Mỹ đây là lần thay M1 như mọi lần khác, nên cô ở lại cho đến khi M1 xoay lên hàng trên. Theo FIVB libero đã không hề phát bóng ở đây — hai bộ luật khác nhau ở vòng phát bóng, không phải ở khâu đỡ bước một.")
+LIBSERVE_SETUP = _t(
+    "Our six serve in rotation 3, the one where M1 reaches zone 1: L, the libero, serves from behind our end line in his place and M1 waits in the replacement zone beside the court. S is the setter, O1 and O2 the outside hitters, M2 the front-row middle and OP the opposite; in the 6-2, S1 sets from the back row and S2 hits as the opposite. Their passer (P), setter (S) and hitter (A) play the ball back over the net",
+    "我方六人在第 3 轮发球，也就是 M1 转到 1 号位的那一轮：自由人 L 在本方端线后代替他发球，M1 在场边的替换区等候。S 是二传，O1、O2 是主攻，M2 是前排副攻，OP 是接应；6-2 阵型里 S1 在后排组织，S2 当接应进攻。对方的接球人（P）、二传（S）和攻手（A）把球打回来",
+    "我方六人在第 3 輪發球，也就是 M1 轉到 1 號位的那一輪：自由人 L 在本方端線後代替他發球，M1 在場邊的替換區等候。S 是二傳，O1、O2 是主攻，M2 是前排副攻，OP 是接應；6-2 陣型裡 S1 在後排組織，S2 當接應進攻。對方的接球人（P）、二傳（S）和攻手（A）把球打回來",
+    "ローテーション3、M1が1番に回る回で味方6人がサーブ。リベロLが彼の代わりに自陣エンドライン後方からサーブし、M1はコート脇の交代ゾーンで待つ。Sはセッター、O1とO2はアウトサイド、M2は前衛ミドル、OPはオポジット。6-2ではS1が後衛からトスを上げ、S2がオポジットとして打つ。相手のレシーバー（P）、セッター（S）、アタッカー（A）がボールを返してくる",
+    "로테이션 3, M1이 1번 자리에 오는 로테이션에서 우리 여섯이 서브한다. 리베로 L이 그를 대신해 우리 엔드라인 뒤에서 서브하고, M1은 코트 옆 교체 구역에서 기다린다. S는 세터, O1과 O2는 아웃사이드, M2는 전위 미들, OP는 아포짓. 6-2에서는 S1이 후위에서 세트하고 S2가 아포짓으로 공격한다. 상대의 리시버(P), 세터(S), 공격수(A)가 공을 넘겨온다",
+    "Nuestros seis sacan en la rotación 3, aquella en la que M1 llega a la zona 1: L, el líbero, saca desde detrás de nuestra línea de fondo en su lugar y M1 espera en la zona de reemplazo junto a la pista. S es el colocador, O1 y O2 los receptores-atacantes, M2 el central delantero y OP el opuesto; en el 6-2, S1 coloca desde la zaga y S2 ataca como opuesto. Su receptor (P), colocador (S) y atacante (A) devuelven el balón por encima de la red",
+    "Nos six servent en rotation 3, celle où M1 arrive en zone 1 : L, le libéro, sert à sa place derrière notre ligne de fond et M1 attend dans la zone de remplacement à côté du terrain. S est le passeur, O1 et O2 les réceptionneurs-attaquants, M2 le central avant et OP le pointu ; en 6-2, S1 passe depuis l'arrière et S2 attaque comme pointu. Leur réceptionneur (P), passeur (S) et attaquant (A) renvoient le ballon par-dessus le filet",
+    "Enam pemain kita servis di rotasi 3, saat M1 tiba di zona 1: L, libero, servis dari belakang garis akhir kita menggantikannya dan M1 menunggu di zona pergantian di samping lapangan. S tosser, O1 dan O2 pemain sayap, M2 middle barisan depan, OP opposite; di 6-2, S1 mengumpan dari barisan belakang dan S2 menyerang sebagai opposite. Penerima (P), tosser (S) dan penyerang (A) lawan mengembalikan bola melewati net",
+    "Enam pemain kita servis pada putaran 3, apabila M1 tiba di zon 1: L, libero, servis dari belakang garisan hujung kita menggantikannya dan M1 menunggu di zon penggantian di tepi gelanggang. S pengumpan, O1 dan O2 pemain sayap, M2 pemain tengah barisan hadapan, OP opposite; dalam 6-2, S1 mengumpan dari barisan belakang dan S2 menyerang sebagai opposite. Penerima (P), pengumpan (S) dan penyerang (A) lawan memulangkan bola melepasi jaring",
+    "ฝ่ายเราหกคนเสิร์ฟในรอบที่ 3 ซึ่งเป็นรอบที่ M1 หมุนมาถึงตำแหน่ง 1 ลิเบโร L เสิร์ฟแทนเขาจากหลังเส้นหลังฝั่งเรา และ M1 รอในเขตเปลี่ยนตัวข้างสนาม S คือตัวเซต O1 กับ O2 คือตัวตบหัวเสา M2 คือบล็อกกลางแดนหน้า OP คือตัวตบตรงข้าม ในระบบ 6-2 S1 เซตจากแดนหลังและ S2 ตบในตำแหน่งตรงข้าม ฝ่ายตรงข้าม ตัวรับ (P) ตัวเซต (S) และตัวตบ (A) ตีบอลข้ามเน็ตกลับมา",
+    "Sáu người bên ta phát bóng ở vòng 3, vòng mà M1 xoay đến vị trí 1: libero L phát bóng thay anh từ sau vạch cuối sân bên ta, M1 chờ ở khu thay người cạnh sân. S là chuyền hai, O1 và O2 là chủ công, M2 là phụ công hàng trên, OP là đối chuyền; trong 6-2, S1 chuyền từ hàng sau và S2 đập như đối chuyền. Người đỡ (P), chuyền hai (S) và tay đập (A) của đối phương đưa bóng trở lại qua lưới")
+LIBSTAY_SETUP = _t(
+    "Rotation 3 again, the serve just lost: L, the libero who served, is still in zone 1 and passes from there, and M1 waits in the replacement zone beside the court. S is the setter, O1 and O2 the outside hitters, M2 the front-row middle and OP the opposite; in the 6-2, S1 sets from the back row and S2 hits as the opposite. Their server (SV) stands behind their end line",
+    "还是第 3 轮，刚刚发球丢分：发过球的自由人 L 仍在 1 号位、从那里接一传，M1 在场边的替换区等候。S 是二传，O1、O2 是主攻，M2 是前排副攻，OP 是接应；6-2 阵型里 S1 在后排组织，S2 当接应进攻。对方发球员（SV）站在对方端线后",
+    "還是第 3 輪，剛剛發球丟分：發過球的自由人 L 仍在 1 號位、從那裡接一傳，M1 在場邊的替換區等候。S 是二傳，O1、O2 是主攻，M2 是前排副攻，OP 是接應；6-2 陣型裡 S1 在後排組織，S2 當接應進攻。對方發球員（SV）站在對方端線後",
+    "同じローテーション3、サーブ権を失った直後。サーブを打ったリベロLはそのまま1番に残ってそこからレセプションし、M1はコート脇の交代ゾーンで待つ。Sはセッター、O1とO2はアウトサイド、M2は前衛ミドル、OPはオポジット。6-2ではS1が後衛からトスを上げ、S2がオポジットとして打つ。相手のサーバー（SV）はエンドライン後方に立つ",
+    "같은 로테이션 3, 방금 서브권을 잃은 뒤. 서브를 넣은 리베로 L이 그대로 1번 자리에 남아 거기서 리시브하고, M1은 코트 옆 교체 구역에서 기다린다. S는 세터, O1과 O2는 아웃사이드, M2는 전위 미들, OP는 아포짓. 6-2에서는 S1이 후위에서 세트하고 S2가 아포짓으로 공격한다. 상대 서버(SV)는 엔드라인 뒤에 선다",
+    "Otra vez la rotación 3, recién perdido el saque: L, el líbero que sacó, sigue en la zona 1 y recibe desde allí, y M1 espera en la zona de reemplazo junto a la pista. S es el colocador, O1 y O2 los receptores-atacantes, M2 el central delantero y OP el opuesto; en el 6-2, S1 coloca desde la zaga y S2 ataca como opuesto. Su sacador (SV) está detrás de su línea de fondo",
+    "Encore la rotation 3, le service tout juste perdu : L, le libéro qui a servi, est toujours en zone 1 et réceptionne de là, et M1 attend dans la zone de remplacement à côté du terrain. S est le passeur, O1 et O2 les réceptionneurs-attaquants, M2 le central avant et OP le pointu ; en 6-2, S1 passe depuis l'arrière et S2 attaque comme pointu. Leur serveur (SV) se tient derrière sa ligne de fond",
+    "Masih rotasi 3, servis baru saja hilang: L, libero yang tadi servis, masih di zona 1 dan menerima dari sana, dan M1 menunggu di zona pergantian di samping lapangan. S tosser, O1 dan O2 pemain sayap, M2 middle barisan depan, OP opposite; di 6-2, S1 mengumpan dari barisan belakang dan S2 menyerang sebagai opposite. Server lawan (SV) berdiri di belakang garis akhir mereka",
+    "Masih putaran 3, servis baru sahaja hilang: L, libero yang tadi servis, masih di zon 1 dan menerima dari situ, dan M1 menunggu di zon penggantian di tepi gelanggang. S pengumpan, O1 dan O2 pemain sayap, M2 pemain tengah barisan hadapan, OP opposite; dalam 6-2, S1 mengumpan dari barisan belakang dan S2 menyerang sebagai opposite. Pelayan servis lawan (SV) berdiri di belakang garisan hujung mereka",
+    "ยังเป็นรอบที่ 3 เพิ่งเสียเสิร์ฟไป ลิเบโร L ที่เพิ่งเสิร์ฟยังอยู่ตำแหน่ง 1 และรับเสิร์ฟจากตรงนั้น ส่วน M1 รอในเขตเปลี่ยนตัวข้างสนาม S คือตัวเซต O1 กับ O2 คือตัวตบหัวเสา M2 คือบล็อกกลางแดนหน้า OP คือตัวตบตรงข้าม ในระบบ 6-2 S1 เซตจากแดนหลังและ S2 ตบในตำแหน่งตรงข้าม ผู้เสิร์ฟฝ่ายตรงข้าม (SV) ยืนหลังเส้นหลังของตน",
+    "Vẫn vòng 3, vừa mất quyền phát bóng: libero L vừa phát bóng vẫn ở vị trí 1 và đỡ bước một từ đó, M1 chờ ở khu thay người cạnh sân. S là chuyền hai, O1 và O2 là chủ công, M2 là phụ công hàng trên, OP là đối chuyền; trong 6-2, S1 chuyền từ hàng sau và S2 đập như đối chuyền. Người phát bóng đối phương (SV) đứng sau vạch cuối sân của họ")
+
+
+def libero_serve_family() -> list[Drill]:
+    out = []
+    bench = home_pt(*VR_BENCH_SPOT)
+    for system in ("51", "62"):
+        # Our serve: the libero, on for M1, serves and runs to her base.
+        s = VRSetup(system, LIBSERVE_ROT, "serve", rules="usav")
+        assert s.zone_roles[1] == "L" and s.libero_replaces == "MB1", s.zone_roles
+        out.append(Drill(
+            id=f"vb_transition_libero_serve_{system}", category="setpiece",
+            minutes=12, rel=True, free=(system == "51"), level="development",
+            off_surface=True,
+            name=suffixed(LIBSERVE_NAME, f"{system[0]}-{system[1]}"),
+            note=LIBSERVE_NOTE, setup=LIBSERVE_SETUP,
+            rotation=s.board_setup(),
+            **_transition_board(s, bench="MB1"),
+        ))
+        # The receive after it: the libero who served stays on in zone 1.
+        s = VRSetup(system, LIBSERVE_ROT, "receive", rules="usav")
+        spot = vr_receive(s)
+        _vr_assert_legal(s, spot)
+        roles = s.zone_roles
+        lz = _zone_of_role(roles, "L")
+        assert lz == 1, roles
+        sz = _zone_of_role(roles, s.active_setter)
+        attacker = next(z for z in roles if vr_is_front(z) and roles[z].startswith("OH"))
+        at = {z: home_pt(*spot[z]) for z in roles}
+        runs, kill = _side_out_runs(roles, at, sz, attacker, b0=1)
+        home, idx = [], {}
+        for z in sorted(roles, key=lambda z: (z != sz, z)):
+            idx[z] = len(home)
+            home.append(P(*at[z], _vr_label(roles[z], True), moves=runs[z]))
+        home.append(P(*bench, _vr_label("MB1", True)))
+        out.append(Drill(
+            id=f"vb_receive_libero_serve_{system}", category="possession",
+            minutes=10, rel=True, free=False, level="development",
+            off_surface=True,
+            name=suffixed(LIBSTAY_NAME, f"{system[0]}-{system[1]}"),
+            note=LIBSTAY_NOTE, setup=LIBSTAY_SETUP,
+            rotation=s.board_setup(),
+            home=home, away=[P(*SERVE_SPOT, "SV", moves=[(0.5, 0.02, 1)])],
+            markers=[M(*SET_POINT, "square", "")],
+            ball=SERVE_SPOT,
+            ball_to=[(idx[lz], 1), (idx[sz], 2), (idx[attacker], 3),
+                     (ball_spot(kill), 4)],
+        ))
+    return out
+
+
 def volleyball_library() -> list[Drill]:
     return (warmup_family() + receive_family() + setting_family()
             + setter_family() + freeball_family() + attack_family()
@@ -2751,4 +2904,5 @@ def volleyball_library() -> list[Drill]:
             + dig_family() + counter_family() + rotation_family()
             + game_more()
             + receive_systems() + rotation62_late() + transition_family()
-            + target_serve_family() + second_ball_family() + libero_family())
+            + target_serve_family() + second_ball_family() + libero_family()
+            + libero_serve_family())

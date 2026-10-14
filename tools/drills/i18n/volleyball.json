@@ -1258,5 +1258,37 @@
  "Swapping during the rally instead of between rallies — the libero comes on late and the team plays a point a player short.": {
   "de-DE": "Mitten im Ballwechsel statt zwischen den Ballwechseln tauschen — die Libera kommt zu spät, und das Team spielt den Punkt in Unterzahl.",
   "nl-NL": "Wisselen tijdens de rally in plaats van tussen rally's — de libero komt te laat in en het team speelt het punt met een speler minder."
+ },
+ "Libero serve rotation": {
+  "de-DE": "Libero-Aufschlag, Rotation",
+  "nl-NL": "Opslag door de libero, rotatie"
+ },
+ "Libero stays on to receive": {
+  "de-DE": "Libero bleibt für die Annahme",
+  "nl-NL": "Libero blijft staan voor de receptie"
+ },
+ "Under USAV, NFHS and NCAA rules the libero may serve, but in only one rotation position per set: here she comes on for the first middle (M1) as he rotates to zone 1 and serves in his place. The replacement must always be for that same player — she may not serve for the second middle later in the set. Under FIVB rules the libero never serves, so M1 serves for himself and the libero waits in the replacement zone.": {
+  "de-DE": "Nach den Regeln von USAV, NFHS und NCAA darf der Libero aufschlagen, aber nur auf einer Rotationsposition pro Satz: Hier kommt er für den ersten Mittelblocker (M1), wenn dieser auf Position 1 rotiert, und schlägt an seiner Stelle auf. Der Wechsel muss immer für denselben Spieler erfolgen — später im Satz darf er nicht für den zweiten Mittelblocker aufschlagen. Nach FIVB-Regeln schlägt der Libero nie auf: M1 schlägt selbst auf, und der Libero wartet in der Wechselzone.",
+  "nl-NL": "Volgens de regels van USAV, NFHS en NCAA mag de libero serveren, maar in slechts één rotatiepositie per set: hier komt zij in voor de eerste middenaanvaller (M1) als hij naar positie 1 doordraait, en serveert zij in zijn plaats. De vervanging moet altijd voor dezelfde speler zijn — later in de set mag zij niet voor de tweede middenaanvaller serveren. Volgens de FIVB-regels serveert de libero nooit: M1 serveert zelf en de libero wacht in de wisselzone."
+ },
+ "Having served, the libero does not leave: the rally is lost, the other side serves, and she is still in zone 1 passing as a back-row player. Under US rules this is a replacement for M1 like any other, so she stays on until M1 rotates to the front row. Under FIVB the libero would not have served here at all — the serving rotation is where the two rulebooks differ, not the receive.": {
+  "de-DE": "Nach dem Aufschlag geht der Libero nicht vom Feld: Der Ballwechsel geht verloren, die andere Seite schlägt auf, und er steht weiter auf Position 1 und nimmt als Hinterspieler an. Nach US-Regeln ist das ein Wechsel für M1 wie jeder andere, also bleibt er, bis M1 in die vordere Reihe rotiert. Nach FIVB hätte der Libero hier gar nicht aufgeschlagen — die beiden Regelwerke unterscheiden sich in der Aufschlagrotation, nicht in der Annahme.",
+  "nl-NL": "Na de opslag gaat de libero niet van het veld: de rally gaat verloren, de andere kant serveert en zij staat nog steeds op positie 1 en past als achterspeler. Volgens de Amerikaanse regels is dit een gewone vervanging van M1, dus blijft zij staan tot M1 naar de voorste rij doordraait. Volgens de FIVB had de libero hier helemaal niet geserveerd — de twee reglementen verschillen in de opslagrotatie, niet in de receptie."
+ },
+ "Our six serve in rotation 3, the one where M1 reaches zone 1: L, the libero, serves from behind our end line in his place and M1 waits in the replacement zone beside the court. S is the setter, O1 and O2 the outside hitters, M2 the front-row middle and OP the opposite; in the 6-2, S1 sets from the back row and S2 hits as the opposite. Their passer (P), setter (S) and hitter (A) play the ball back over the net": {
+  "de-DE": "Unsere sechs schlagen in Rotation 3 auf, der Rotation, in der M1 Position 1 erreicht: L, der Libero, schlägt an seiner Stelle hinter unserer Grundlinie auf, und M1 wartet in der Wechselzone neben dem Feld. S ist der Zuspieler, O1 und O2 die Außenangreifer, M2 der vordere Mittelblocker und OP der Diagonalangreifer; im 6-2 stellt S1 aus der hinteren Reihe zu und S2 greift als Diagonal an. Ihr Annahmespieler (P), Zuspieler (S) und Angreifer (A) spielen den Ball über das Netz zurück",
+  "nl-NL": "Onze zes serveren in rotatie 3, de rotatie waarin M1 op positie 1 komt: L, de libero, serveert in zijn plaats van achter onze achterlijn en M1 wacht in de wisselzone naast het veld. S is de spelverdeler, O1 en O2 de passer-lopers, M2 de voorste middenaanvaller en OP de diagonaal; in de 6-2 verdeelt S1 vanuit de achterste rij en valt S2 aan als diagonaal. Hun passer (P), spelverdeler (S) en aanvaller (A) spelen de bal terug over het net"
+ },
+ "Rotation 3 again, the serve just lost: L, the libero who served, is still in zone 1 and passes from there, and M1 waits in the replacement zone beside the court. S is the setter, O1 and O2 the outside hitters, M2 the front-row middle and OP the opposite; in the 6-2, S1 sets from the back row and S2 hits as the opposite. Their server (SV) stands behind their end line": {
+  "de-DE": "Wieder Rotation 3, der Aufschlag gerade verloren: L, der Libero, der aufgeschlagen hat, steht weiter auf Position 1 und nimmt von dort an, und M1 wartet in der Wechselzone neben dem Feld. S ist der Zuspieler, O1 und O2 die Außenangreifer, M2 der vordere Mittelblocker und OP der Diagonalangreifer; im 6-2 stellt S1 aus der hinteren Reihe zu und S2 greift als Diagonal an. Ihr Aufschläger (SV) steht hinter seiner Grundlinie",
+  "nl-NL": "Opnieuw rotatie 3, de opslag net verloren: L, de libero die serveerde, staat nog op positie 1 en past van daaruit, en M1 wacht in de wisselzone naast het veld. S is de spelverdeler, O1 en O2 de passer-lopers, M2 de voorste middenaanvaller en OP de diagonaal; in de 6-2 verdeelt S1 vanuit de achterste rij en valt S2 aan als diagonaal. Hun serveerder (SV) staat achter zijn achterlijn"
+ },
+ "Serving for the second middle too — the libero may serve in only one rotation position a set, and the second swap is a fault.": {
+  "de-DE": "Auch für den zweiten Mittelblocker aufschlagen — der Libero darf nur auf einer Rotationsposition pro Satz aufschlagen, und der zweite Wechsel ist ein Fehler.",
+  "nl-NL": "Ook voor de tweede middenaanvaller serveren — de libero mag in slechts één rotatiepositie per set serveren, en de tweede wissel is een fout."
+ },
+ "Walking off after the serve — the libero who served is a legal replacement for M1 and leaves the back row a passer short for nothing.": {
+  "de-DE": "Nach dem Aufschlag vom Feld gehen — der Libero, der aufgeschlagen hat, ist ein regulärer Wechsel für M1 und nimmt der hinteren Reihe umsonst einen Annahmespieler.",
+  "nl-NL": "Na de opslag van het veld lopen — de libero die serveerde is een reglementaire vervanging van M1 en laat de achterste rij voor niets met een passer minder achter."
  }
 }

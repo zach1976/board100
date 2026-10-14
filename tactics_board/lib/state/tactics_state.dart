@@ -1299,6 +1299,41 @@ class TacticsState extends ChangeNotifier {
     return true;
   }
 
+  /// Where [id]'s feet may legally stand given where the other five are
+  /// (see [VolleyballRotation.legalRect]), in canvas coordinates, and
+  /// whether they stand there now. Null whenever [rotationFaults] would
+  /// judge nothing, when [id] holds no zone, or when he is the exempt
+  /// server.
+  (Rect, bool)? rotationLegalArea(String id,
+      {Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || !s.check || _sportType != SportType.volleyball) {
+      return null;
+    }
+    if (_canvasSize.isEmpty || _isAnimating || _atStep > 0 || _targetStep > 0) {
+      return null;
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    final zone =
+        who.entries.where((e) => e.value.id == id).firstOrNull?.key;
+    if (zone == null) return null;
+    final rect = VolleyballRotation.legalRect(zone, feet,
+        exemptZone: s.phase == RotationPhase.serve ? 1 : null);
+    if (rect == null) return null;
+    final p = feet[zone]!;
+    // Strict, as the rule is: level with a neighbour is a fault.
+    final inside = p.dx > rect.left &&
+        p.dx < rect.right &&
+        p.dy > rect.top &&
+        p.dy < rect.bottom;
+    return (
+      Rect.fromPoints(_rotToCanvas(rect.topLeft, s.team, c),
+          _rotToCanvas(rect.bottomRight, s.team, c)),
+      inside,
+    );
+  }
+
   // Drawing mode
   void setDrawingMode(bool enabled) {
     _isDrawingMode = enabled;
@@ -3588,6 +3623,7 @@ class TacticsState extends ChangeNotifier {
       folder: base.folder,
       description: base.description,
       coachingPoints: base.coachingPoints,
+      playbook: base.playbook,
       // A board keeps its own birthday. Saving board A's canvas over board B
       // must not stamp A's createdAt onto B.
       createdAt: onDisk?.createdAt ?? base.createdAt,
@@ -3637,6 +3673,37 @@ class TacticsState extends ChangeNotifier {
     final raw = json['meta'];
     if (raw is! Map) return null;
     return TacticMeta.fromJson(Map<String, dynamic>.from(raw), name: name);
+  }
+
+  /// A saved board's whole file, or null when it is missing or unreadable.
+  /// For a read-only look at it (the playbook); opening it for editing is
+  /// [loadTactics], which also logs it as a board the coach opened.
+  Future<Map<String, dynamic>?> readTacticJson(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    if (!await file.exists()) return null;
+    try {
+      return jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Put a saved board in the match-day playbook, or take it out. Only the
+  /// flag in its metadata changes; the board on the canvas is not written.
+  Future<void> setPlaybook(String name, bool inPlaybook) async {
+    final json = await readTacticJson(name);
+    if (json == null) return;
+    final meta = (_metaFromPayload(json, name) ?? TacticMeta.initial(name))
+        .copyWith(playbook: inPlaybook, updatedAt: DateTime.now());
+    final payload = Map<String, dynamic>.from(json)..['meta'] = meta.toJson();
+    final dir = await _tacticsDir;
+    await File('${dir.path}/$name.json').writeAsString(jsonEncode(payload));
+    if (currentTacticName == name) currentTacticMeta = meta;
+    CloudSyncService.markLocalChange();
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.pushTactic(name, _sportType.name, payload);
+    }
   }
 
   /// Metadata for a saved board, or null when the file is missing or predates

@@ -328,6 +328,11 @@ class Drill:
     # app draws its lines; coordinates stay fractions of the sport's court
     # box (COURT), which that pitch is drawn inside. None: the usual pitch.
     court: str | None = None
+    # The volleyball rotation the board was drawn in — the RotationSetup as
+    # the app's toJson writes it (system, rot, phase, libero, rules…) —
+    # shipped as the board's "rotation" so the in-app rotation tool opens
+    # on that system and rule set. None: not a rotation board.
+    rotation: dict | None = None
 
     @property
     def player_count(self) -> int:
@@ -2086,6 +2091,8 @@ def build(sport: str, library) -> dict:
             board["figureScale"] = TIGHT_FIGURE_SCALE
         if d.court is not None:
             board["courtLayout"] = d.court
+        if d.rotation is not None:
+            board["rotation"] = dict(d.rotation)
         if d.view is not None:
             # In the display frame's points, like the players. A board with
             # its own window opens on that, never on a half as well.

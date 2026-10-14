@@ -99,4 +99,59 @@ void main() {
     expect(utf8.decode(bytes.take(5).toList()), '%PDF-');
     expect(inflated(bytes), contains('/Image'));
   });
+
+  test('lists the cards and the shoot-out', () async {
+    final m = match();
+    // The match is finished; the record is read back as it was logged.
+    m.cards.add(const MatchCard(
+        playerId: 'b', kind: MatchCardKind.green, clock: 420, period: 1,
+        seconds: 120));
+    m.cards.add(const MatchCard(
+        playerId: 'c', kind: MatchCardKind.red, clock: 800, period: 1));
+    m.shootOut.addAll(const [
+      ShootOutAttempt(us: true, playerId: 'a', scored: true),
+      ShootOutAttempt(us: false, taker: '#4', scored: false),
+      ShootOutAttempt(us: true, playerId: 'b', scored: false),
+    ]);
+    final bytes = await PdfExportService.buildMatchSheet(m, words: words());
+    final text = inflated(bytes);
+    for (final word in ['Cards', 'Green', '07:00', 'Red', 'Shoot-out', '#4', 'Miss']) {
+      expect(text, contains(word), reason: word);
+    }
+  });
+
+  test('a match of sets prints the set scores, sets played and the subs',
+      () async {
+    final m = MatchDay(
+      name: 'vs Lions',
+      periods: 3,
+      periodSeconds: 0,
+      onPitch: 2,
+      players: const [
+        MatchPlayer(id: 'a', name: 'Ana', number: '7'),
+        MatchPlayer(id: 'b', name: 'Bo', number: '9'),
+        MatchPlayer(id: 'c', name: 'Cas'),
+        MatchPlayer(id: 'l', name: 'Lib'),
+      ],
+      starters: const ['a', 'b'],
+      startedAt: DateTime(2026, 10, 14, 10),
+      countsSets: true,
+      rules: 'usav',
+      liberos: const ['l'],
+    );
+    m.point(us: true, delta: 25);
+    m.point(us: false, delta: 19);
+    m.substitute('a', 'c');
+    m.substitute('b', 'l', null, SubstitutionKind.libero);
+    m.endSet();
+    m.point(us: true, delta: 25);
+    m.point(us: false, delta: 23);
+    m.endSet();
+    expect(m.isFinished, isTrue);
+    final bytes = await PdfExportService.buildMatchSheet(m, words: words());
+    final text = inflated(bytes);
+    for (final word in ['Lions', 'USAV', '25-19', '25-23', 'Libero', 'Cas', '1/12']) {
+      expect(text, contains(word), reason: word);
+    }
+  });
 }
