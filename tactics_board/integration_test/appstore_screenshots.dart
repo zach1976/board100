@@ -36,7 +36,7 @@ const outDir = String.fromEnvironment('SHOT_ROOT',
     defaultValue:
         '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw');
 
-// (ASC locale name, Flutter locale). 11 store locales.
+// (ASC locale name, Flutter locale). 13 store locales.
 final allLocales = <(String, Locale)>[
   ('en-US', const Locale('en', 'US')),
   ('es-ES', const Locale('es', 'ES')),
@@ -49,6 +49,8 @@ final allLocales = <(String, Locale)>[
   ('vi', const Locale('vi', 'VN')),
   ('zh-Hans', const Locale('zh', 'CN')),
   ('zh-Hant', const Locale('zh', 'TW')),
+  ('de-DE', const Locale('de', 'DE')),
+  ('nl-NL', const Locale('nl', 'NL')),
 ];
 
 final _supportedLocales = allLocales.map((e) => e.$2).toList();

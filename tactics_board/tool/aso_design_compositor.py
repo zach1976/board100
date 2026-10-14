@@ -76,7 +76,7 @@ BODY_FONT = {
     "ko":       (GOTHIC, 2),   # Medium
     "th":       (THON, 0),
 }
-LATIN_LOCALES = {"en-US", "es-ES", "fr-FR", "id", "ms", "vi"}
+LATIN_LOCALES = {"en-US", "es-ES", "fr-FR", "id", "ms", "vi", "de-DE", "nl-NL"}
 
 def _font(table, locale, size):
     path, idx = table.get(locale, table["default"])

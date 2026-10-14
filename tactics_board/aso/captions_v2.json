@@ -2389,6 +2389,60 @@
         "訓練素材",
         "載到板上 逐步播放 隨手改跑位"
       ]
+    ],
+    "de-DE": [
+      [
+        "Öffne",
+        "jede Einheit",
+        "Übungen, deine Boards und das Training von heute"
+      ],
+      [
+        "Stelle",
+        "jede Formation",
+        "Ganze Teams, Kleinfeld und eigene Marker"
+      ],
+      [
+        "Baue",
+        "einen Ablauf",
+        "Jeden Zug in klarer Reihenfolge ordnen"
+      ],
+      [
+        "Durchsuche",
+        "die Bibliothek",
+        "Suchen und filtern nach Kategorie, Niveau und Größe"
+      ],
+      [
+        "Starte",
+        "jede Übung",
+        "Aufs Board, Schritt für Schritt abspielen, Laufweg ändern"
+      ]
+    ],
+    "nl-NL": [
+      [
+        "Open",
+        "elke training",
+        "Oefeningen, je borden en de training van vandaag"
+      ],
+      [
+        "Zet",
+        "elke formatie",
+        "Volledige teams, kleine partijen en eigen markers"
+      ],
+      [
+        "Bouw",
+        "een tijdlijn",
+        "Zet elke actie in een duidelijke volgorde"
+      ],
+      [
+        "Blader",
+        "door de bibliotheek",
+        "Zoek en filter op categorie, niveau en groepsgrootte"
+      ],
+      [
+        "Speel",
+        "elke oefening",
+        "Op het bord, stap voor stap, en pas een loopweg aan"
+      ]
     ]
   },
   "soccer": {
@@ -4182,6 +4236,60 @@
         "使用",
         "訓練素材",
         "載到板上 逐步播放 隨手改跑位"
+      ]
+    ],
+    "de-DE": [
+      [
+        "Öffne",
+        "jede Einheit",
+        "Übungen, deine Boards und das Training von heute"
+      ],
+      [
+        "Stelle",
+        "jede Aufstellung",
+        "Ganze Teams, Ersatz und eigene Marker"
+      ],
+      [
+        "Baue",
+        "einen Ablauf",
+        "Jeden Zug in klarer Reihenfolge ordnen"
+      ],
+      [
+        "Durchsuche",
+        "die Bibliothek",
+        "Suchen und filtern nach Kategorie, Niveau und Größe"
+      ],
+      [
+        "Starte",
+        "jede Übung",
+        "Aufs Board, Schritt für Schritt abspielen, Laufweg ändern"
+      ]
+    ],
+    "nl-NL": [
+      [
+        "Open",
+        "elke training",
+        "Oefeningen, je borden en de training van vandaag"
+      ],
+      [
+        "Zet",
+        "elke opstelling",
+        "Volledige teams, wissels en eigen markers"
+      ],
+      [
+        "Bouw",
+        "een tijdlijn",
+        "Zet elke actie in een duidelijke volgorde"
+      ],
+      [
+        "Blader",
+        "door de bibliotheek",
+        "Zoek en filter op categorie, niveau en groepsgrootte"
+      ],
+      [
+        "Speel",
+        "elke oefening",
+        "Op het bord, stap voor stap, en pas een loopweg aan"
       ]
     ]
   },
