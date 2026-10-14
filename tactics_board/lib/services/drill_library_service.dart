@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../config_constants.dart';
 import '../models/drill.dart';
+import '../models/session_template.dart';
 import '../models/sport_type.dart';
 import '../pages/main_shell.dart' show kAppVersion;
 
@@ -90,6 +91,7 @@ class DrillLibraryService {
       }
     }
     _adoptStrings(json);
+    _adoptTemplates(sport, json);
     final drills = json == null
         ? const <Drill>[]
         : (json['drills'] as List)
@@ -185,6 +187,7 @@ class DrillLibraryService {
       _cache[sport] = parsed;
       _counts = null;
       _adoptStrings(json);
+      _adoptTemplates(sport, json);
     } catch (_) {
       // Offline, slow, or a bad payload — the bundled library is the product.
     }
@@ -199,6 +202,22 @@ class DrillLibraryService {
   /// tennis, correcting one word of a drill library needed an app release.
   /// A pack can now carry the corrected word and it wins over the app's.
   final Map<String, Map<String, String>> _strings = {};
+
+  /// The ready sessions a pack brings (its `plans`), by sport. Read with
+  /// the drills, so a pack that arrives over the air brings its sessions
+  /// along; a pack without any leaves the list empty, never stale.
+  final Map<SportType, List<SessionTemplate>> _templates = {};
+
+  /// The ready sessions for [sport], once [forSport] has answered.
+  List<SessionTemplate> templatesFor(SportType sport) =>
+      _templates[sport] ?? const [];
+
+  void _adoptTemplates(SportType sport, Map<String, dynamic>? pack) {
+    final raw = pack?['plans'];
+    _templates[sport] = raw is List
+        ? raw.map(SessionTemplate.fromJson).whereType<SessionTemplate>().toList()
+        : const [];
+  }
 
   void _adoptStrings(Map<String, dynamic>? pack) {
     final raw = pack?['strings'];
