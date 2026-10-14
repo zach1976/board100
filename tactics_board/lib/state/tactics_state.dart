@@ -1232,6 +1232,18 @@ class TacticsState extends ChangeNotifier {
       return const [];
     }
     final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    return [
+      for (final f in VolleyballRotation.faults(feet,
+          exemptZone: s.phase == RotationPhase.serve ? 1 : null))
+        RotationFault(who[f.a]!.id, who[f.b]!.id, f),
+    ];
+  }
+
+  /// Who stands in each zone of [s], and where their feet are in the
+  /// team's frame.
+  (Map<int, PlayerIcon>, Map<int, Offset>) _rotationFeet(
+      RotationSetup s, Rect c, Offset footward) {
     final byRole = _byRotationRole(s.team);
     final lineupRoles = <int, String>{
       for (var z = 1; z <= 6; z++) z: _lineupRoleAt(s, z),
@@ -1250,11 +1262,41 @@ class TacticsState extends ChangeNotifier {
             s.team,
             c),
     };
-    return [
-      for (final f in VolleyballRotation.faults(feet,
-          exemptZone: s.phase == RotationPhase.serve ? 1 : null))
-        RotationFault(who[f.a]!.id, who[f.b]!.id, f),
+    return (who, feet);
+  }
+
+  /// Move the side the least it takes to stand legally (see
+  /// [VolleyballRotation.legalize]) in one undoable step, as the "Fix
+  /// positions" button does; the server, when the side is serving, stays
+  /// where he is. False when nobody had to move.
+  bool legalizeRotation({Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || _sportType != SportType.volleyball || _canvasSize.isEmpty) {
+      return false;
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    final legal = VolleyballRotation.legalize(feet,
+        exemptZone: s.phase == RotationPhase.serve ? 1 : null);
+    final moved = [
+      for (final z in legal.keys)
+        if ((legal[z]! - feet[z]!).distance > 1e-6) z,
     ];
+    if (moved.isEmpty) return false;
+    _saveSnapshot();
+    _resetAnimationState();
+    for (final z in moved) {
+      final p = who[z]!;
+      final idx = _players.indexWhere((q) => q.id == p.id);
+      if (idx < 0) continue;
+      _players[idx] = _players[idx].copyWith(
+          position: _rotToCanvas(legal[z]!, s.team, c) -
+              footward * (_figureH / 2 * kFigureScale * p.scale));
+    }
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    notifyListeners();
+    return true;
   }
 
   // Drawing mode

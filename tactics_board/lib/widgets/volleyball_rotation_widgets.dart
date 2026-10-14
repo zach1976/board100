@@ -154,6 +154,14 @@ class _VolleyballRotationControlsState
     }
   }
 
+  /// Down the screen in the board's coordinates: the board is turned a
+  /// quarter in landscape (home_page.dart), so the feet are then to the
+  /// right of the figure's point.
+  Offset _footward(BuildContext context) =>
+      MediaQuery.of(context).orientation == Orientation.landscape
+          ? const Offset(1, 0)
+          : const Offset(0, 1);
+
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
@@ -242,6 +250,28 @@ class _VolleyballRotationControlsState
               runSpacing: 8,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
+                _Segmented(
+                  key: const ValueKey('rotation-rules'),
+                  options: [for (final r in RotationRules.values) r.label],
+                  selected: s.rules.index,
+                  onSelect: (i) =>
+                      _set(s.copyWith(rules: RotationRules.values[i])),
+                ),
+                Text(
+                  'rotation_subs'
+                      .tr(namedArgs: {'n': '${s.rules.substitutions}'}),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: Colors.white60, fontSize: 12),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
                 _Toggle(
                   label: 'rotation_libero'.tr(),
                   on: s.libero,
@@ -258,6 +288,45 @@ class _VolleyballRotationControlsState
                     }
                   },
                 ),
+                if (_live &&
+                    widget.state
+                        .rotationFaults(footward: _footward(context))
+                        .isNotEmpty)
+                  GestureDetector(
+                    key: const ValueKey('rotation-fix'),
+                    onTap: () => widget.state
+                        .legalizeRotation(footward: _footward(context)),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 7),
+                      decoration: BoxDecoration(
+                        color: RotationFaultPainter.faultRed
+                            .withValues(alpha: 0.18),
+                        borderRadius: BorderRadius.circular(10),
+                        border:
+                            Border.all(color: RotationFaultPainter.faultRed),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(Icons.auto_fix_high_rounded,
+                              size: 16, color: Colors.white),
+                          const SizedBox(width: 6),
+                          Flexible(
+                            child: Text(
+                              'rotation_fix'.tr(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 if (!_live)
                   GestureDetector(
                     key: const ValueKey('rotation-place'),
@@ -296,7 +365,10 @@ class _Segmented extends StatelessWidget {
   final int selected;
   final ValueChanged<int> onSelect;
   const _Segmented(
-      {required this.options, required this.selected, required this.onSelect});
+      {super.key,
+      required this.options,
+      required this.selected,
+      required this.onSelect});
 
   @override
   Widget build(BuildContext context) {

@@ -71,6 +71,66 @@ void main() {
     expect(s.rotationFaults(), hasLength(1));
   });
 
+  test('fix positions mends the overlap in one undoable step', () {
+    final s = board();
+    s.applyRotation(const RotationSetup(libero: false));
+    final oh2 = byRole(s, 'OH2'); // zone 5
+    final opp = byRole(s, 'OPP'); // zone 4
+    final others = {
+      for (final p in s.players)
+        if (p.id != oh2.id) p.id: p.position,
+    };
+    s.movePlayer(oh2.id, Offset(oh2.position.dx, opp.position.dy - 20));
+    s.movePlayerEnd(oh2.id, Offset(oh2.position.dx, opp.position.dy - 20));
+    expect(s.rotationFaults(), hasLength(1));
+
+    expect(s.legalizeRotation(), isTrue);
+    expect(s.rotationFaults(), isEmpty);
+    expect(s.rotation, isNotNull, reason: 'still a rotation board');
+    // Only the two at fault moved; and the one at the net stayed at it.
+    final moved = s.players
+        .where((p) => others.containsKey(p.id) && others[p.id] != p.position)
+        .map((p) => p.role)
+        .toList();
+    expect(moved, ['OPP']);
+    expect(byRole(s, 'OPP').position.dy, lessThan(byRole(s, 'OH2').position.dy));
+
+    s.undo();
+    expect(s.rotationFaults(), hasLength(1), reason: 'one step back');
+    expect(s.legalizeRotation(), isTrue);
+    expect(s.rotationFaults(), isEmpty);
+  });
+
+  test('fix positions leaves a legal side, and the server, alone', () {
+    final s = board();
+    s.applyRotation(const RotationSetup(phase: RotationPhase.serve));
+    final server = byRole(s, 'S');
+    final oh1 = byRole(s, 'OH1'); // zone 2
+    s.movePlayer(server.id, oh1.position - const Offset(60, 30));
+    s.movePlayerEnd(server.id, oh1.position - const Offset(60, 30));
+    final before = {for (final p in s.players) p.id: p.position};
+    expect(s.rotationFaults(), isEmpty);
+    expect(s.legalizeRotation(), isFalse);
+    expect({for (final p in s.players) p.id: p.position}, before);
+  });
+
+  test('the rule set is kept with the board', () {
+    final s = board();
+    s.applyRotation(const RotationSetup(rules: RotationRules.usav));
+    final json = jsonDecode(jsonEncode(s.toJson())) as Map<String, dynamic>;
+    final t = board()..loadFromJson(json);
+    expect(t.rotation!.rules, RotationRules.usav);
+    // USAV, rotation 3, serving: the libero is the server, behind the line.
+    t.applyRotation(t.rotation!
+        .copyWith(rotation: 3, phase: RotationPhase.serve));
+    final court = SportType.volleyball.fieldRect(canvas);
+    final l = byRole(t, VolleyballRotation.liberoRole);
+    expect(l.position.dy + 26, greaterThan(court.bottom));
+    expect(byRole(t, 'MB1').position.dx, greaterThan(court.right),
+        reason: 'the middle he serves for waits beside the court');
+    expect(t.rotationFaults(), isEmpty);
+  });
+
   test('the server may stand anywhere; a receiver may not', () {
     final s = board();
     s.applyRotation(const RotationSetup(phase: RotationPhase.serve));

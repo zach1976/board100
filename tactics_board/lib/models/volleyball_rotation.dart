@@ -19,6 +19,28 @@ enum RotationSystem { fiveOne, sixTwo }
 
 enum RotationPhase { receive, serve }
 
+/// Whose rulebook the board plays to. The overlap rules (7.4 / 7.5) are
+/// the same in all four; what differs is how many substitutions a set
+/// allows and whether the libero may serve.
+enum RotationRules {
+  fivb(6, liberoServes: false),
+  usav(12, liberoServes: true),
+  nfhs(18, liberoServes: true),
+  ncaa(15, liberoServes: true);
+
+  /// Substitutions a team may make in one set.
+  final int substitutions;
+
+  /// Whether the libero may serve — in one rotation position per set
+  /// (USAV, NFHS, NCAA) — or not at all (FIVB 19.3.1.4).
+  final bool liberoServes;
+
+  const RotationRules(this.substitutions, {required this.liberoServes});
+
+  /// "FIVB", "USAV" ... — proper nouns, the same in every language.
+  String get label => name.toUpperCase();
+}
+
 /// One overlap fault: zone [a] must be ahead of (depth) or to the left of
 /// (lateral) zone [b] and is not.
 class OverlapFault {
@@ -65,6 +87,7 @@ class RotationSetup {
   final RotationPhase phase;
   final bool libero;
   final bool check;
+  final RotationRules rules;
 
   const RotationSetup({
     this.team = PlayerTeam.home,
@@ -73,6 +96,7 @@ class RotationSetup {
     this.phase = RotationPhase.receive,
     this.libero = true,
     this.check = true,
+    this.rules = RotationRules.fivb,
   });
 
   RotationSetup copyWith({
@@ -82,6 +106,7 @@ class RotationSetup {
     RotationPhase? phase,
     bool? libero,
     bool? check,
+    RotationRules? rules,
   }) =>
       RotationSetup(
         team: team ?? this.team,
@@ -90,6 +115,7 @@ class RotationSetup {
         phase: phase ?? this.phase,
         libero: libero ?? this.libero,
         check: check ?? this.check,
+        rules: rules ?? this.rules,
       );
 
   /// [by] rotations on (negative: back), wrapping round 1..6.
@@ -105,20 +131,40 @@ class RotationSetup {
     return i < 0 ? null : VolleyballRotation.zoneFor(i, rotation);
   }
 
+  /// The lineup role standing in [zone] this rotation, the libero aside.
+  String roleInZone(int zone) {
+    for (var i = 0; i < 6; i++) {
+      if (VolleyballRotation.zoneFor(i, rotation) == zone) return lineup[i];
+    }
+    return lineup.first;
+  }
+
   /// The middle the libero is in for, or null when none is: the middle
-  /// blocker in the back row — except the one serving, since the libero
-  /// may not serve (FIVB 19.3.1.4).
+  /// blocker in the back row — except the one serving, since under FIVB
+  /// the libero may not serve (19.3.1.4). Where the [rules] let him serve
+  /// it is in ONE rotation position a set, taken here to be the first
+  /// middle's: the libero serves when MB1 reaches zone 1, and the second
+  /// middle serves for himself.
   String? get liberoReplaces {
     if (!libero) return null;
     for (final role in lineup) {
       if (!role.startsWith('MB')) continue;
       final z = zoneOf(role)!;
       if (VolleyballRotation.isFront(z)) continue;
-      if (phase == RotationPhase.serve && z == 1) return null;
+      if (phase == RotationPhase.serve &&
+          z == 1 &&
+          !(rules.liberoServes && role == 'MB1')) {
+        return null;
+      }
       return role;
     }
     return null;
   }
+
+  /// Whether the libero is the one serving this rotation.
+  bool get liberoServing =>
+      phase == RotationPhase.serve &&
+      zoneRoles[1] == VolleyballRotation.liberoRole;
 
   /// Who is on court in each zone, the libero in for the middle he replaces.
   Map<int, String> get zoneRoles {
@@ -144,6 +190,7 @@ class RotationSetup {
         'phase': phase.name,
         'libero': libero,
         'check': check,
+        'rules': rules.name,
       };
 
   /// Null for anything that is not a rotation this build understands.
@@ -164,6 +211,10 @@ class RotationSetup {
           : RotationPhase.receive,
       libero: json['libero'] != false,
       check: json['check'] != false,
+      rules: RotationRules.values
+          .where((r) => r.name == json['rules'])
+          .firstOrNull ??
+          RotationRules.fivb,
     );
   }
 
@@ -175,11 +226,12 @@ class RotationSetup {
       other.rotation == rotation &&
       other.phase == phase &&
       other.libero == libero &&
-      other.check == check;
+      other.check == check &&
+      other.rules == rules;
 
   @override
   int get hashCode =>
-      Object.hash(team, system, rotation, phase, libero, check);
+      Object.hash(team, system, rotation, phase, libero, check, rules);
 }
 
 class VolleyballRotation {

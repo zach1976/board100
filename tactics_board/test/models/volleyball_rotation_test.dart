@@ -158,6 +158,73 @@ void main() {
     });
   });
 
+  group('rule set', () {
+    test('each allows its own number of substitutions a set', () {
+      expect(RotationRules.fivb.substitutions, 6);
+      expect(RotationRules.usav.substitutions, 12);
+      expect(RotationRules.nfhs.substitutions, 18);
+      expect(RotationRules.ncaa.substitutions, 15);
+      expect(const RotationSetup().rules, RotationRules.fivb);
+    });
+
+    test('FIVB: the libero never serves', () {
+      // Rotation 3 of a 5-1 has MB1 in zone 1, rotation 6 MB2.
+      for (final r in [3, 6]) {
+        final s = RotationSetup(rotation: r, phase: RotationPhase.serve);
+        expect(s.liberoServing, isFalse, reason: 'R$r');
+        expect(s.zoneRoles[1], startsWith('MB'), reason: 'R$r');
+      }
+    });
+
+    for (final rules in [
+      RotationRules.usav,
+      RotationRules.nfhs,
+      RotationRules.ncaa,
+    ]) {
+      test('${rules.label}: the libero serves in one rotation position', () {
+        final r3 = RotationSetup(
+            rotation: 3, phase: RotationPhase.serve, rules: rules);
+        expect(r3.zoneOf('MB1'), 1);
+        expect(r3.liberoReplaces, 'MB1');
+        expect(r3.zoneRoles[1], VolleyballRotation.liberoRole);
+        expect(r3.liberoServing, isTrue);
+        // One position a set: the second middle serves for himself.
+        final r6 = r3.copyWith(rotation: 6);
+        expect(r6.zoneOf('MB2'), 1);
+        expect(r6.liberoReplaces, isNull);
+        expect(r6.zoneRoles[1], 'MB2');
+        expect(r6.liberoServing, isFalse);
+        // Receiving, the libero is in for the back-row middle as ever.
+        expect(r3.copyWith(phase: RotationPhase.receive).liberoReplaces, 'MB1');
+      });
+    }
+
+    test('the overlap rules are the same under every rule set', () {
+      final at = base();
+      at[5] = Offset(at[5]!.dx, at[4]!.dy - 0.5);
+      for (final rules in RotationRules.values) {
+        final s = RotationSetup(rules: rules);
+        expect(VolleyballRotation.faults(at),
+            [const OverlapFault(4, 5, depth: true)],
+            reason: s.rules.label);
+        for (var r = 1; r <= 6; r++) {
+          expect(
+              VolleyballRotation.faults(VolleyballRotation.basePositions(
+                  s.copyWith(rotation: r, phase: RotationPhase.serve)),
+                  exemptZone: 1),
+              isEmpty,
+              reason: '${rules.label} R$r');
+        }
+      }
+    });
+
+    test('the role in each zone, the libero aside', () {
+      const s = RotationSetup(rotation: 3);
+      expect([for (var z = 1; z <= 6; z++) s.roleInZone(z)],
+          ['MB1', 'OPP', 'OH2', 'MB2', 'S', 'OH1']);
+    });
+  });
+
   group('base positions', () {
     test('every rotation, both systems, both phases is legal and on court',
         () {
@@ -221,8 +288,15 @@ void main() {
         phase: RotationPhase.serve,
         libero: false,
         check: false,
+        rules: RotationRules.nfhs,
       );
       expect(RotationSetup.fromJson(s.toJson()), s);
+    });
+
+    test('a board saved before rule sets plays to FIVB', () {
+      expect(RotationSetup.fromJson({'rot': 2})!.rules, RotationRules.fivb);
+      expect(RotationSetup.fromJson({'rules': 'xyz'})!.rules,
+          RotationRules.fivb);
     });
 
     test('anything else reads as nothing, or as defaults', () {

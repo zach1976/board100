@@ -16,6 +16,7 @@ import '../models/sport_formation.dart';
 import '../models/court_layout.dart';
 import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
+import '../models/volleyball_rotation.dart';
 import '../painters/ball_painter.dart';
 import '../painters/badminton_court_painter.dart';
 import '../painters/baseball_court_painter.dart';
@@ -807,7 +808,10 @@ class _CourtLayoutTile extends StatelessWidget {
 
 /// Public function to share the board — prompts for PNG / PDF (/ Video) format
 Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
-  final format = await _pickShareFormat(context, showVideo: state.hasMoves);
+  final format = await _pickShareFormat(context,
+      showVideo: state.hasMoves,
+      showLineup:
+          state.sportType == SportType.volleyball && state.rotation != null);
   if (format == null || !context.mounted) return;
   // Returning from the share sheet must not trigger an app-open ad.
   AdService.instance.suppressNextAppOpen();
@@ -821,6 +825,8 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
       shared = await _sharePdf(context, state);
     case 'video':
       shared = await _shareVideo(context, state);
+    case 'lineup':
+      shared = await _shareLineup(context, state);
     case 'link':
       shared = await _shareLink(context, state);
     default:
@@ -999,7 +1005,8 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
   return ok;
 }
 
-Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
+Future<String?> _pickShareFormat(BuildContext context,
+    {bool showVideo = false, bool showLineup = false}) {
   return showBoardPanel(
       maxWidth: 360,
       context,
@@ -1027,6 +1034,16 @@ Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false})
                 subtitle: Text('share_video_hint'.tr(),
                     style: const TextStyle(color: Colors.white38, fontSize: 12)),
                 onTap: () => Navigator.pop(ctx, 'video'),
+              ),
+            // A volleyball rotation board can also go out as the paper
+            // lineup sheet: zones, serving order, libero, rule set.
+            if (showLineup)
+              ListTile(
+                leading: const Icon(Icons.grid_on_outlined, color: Colors.amberAccent),
+                title: Text('share_lineup'.tr(), style: const TextStyle(color: Colors.white)),
+                subtitle: Text('share_lineup_hint'.tr(),
+                    style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                onTap: () => Navigator.pop(ctx, 'lineup'),
               ),
             const Divider(color: Colors.white12, height: 12),
             // A link opens in any browser — the receiver needs neither the app
@@ -1122,6 +1139,47 @@ Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
     );
   } catch (e) {
     debugPrint('PDF export error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('save_error'.tr())),
+      );
+    }
+    return false;
+  }
+}
+
+/// The lineup sheet for the board's rotation, as a one-page PDF.
+Future<bool> _shareLineup(BuildContext context, TacticsState state) async {
+  final s = state.rotation;
+  if (s == null) return false;
+  try {
+    final labels = <String, String>{
+      for (final p in state.players)
+        if (p.team == s.team && p.role != null) p.role!: p.label,
+    };
+    final name = state.currentTacticName?.trim();
+    return await PdfExportService.exportLineupSheet(
+      s,
+      labels: labels,
+      title: name != null && name.isNotEmpty ? name : null,
+      words: LineupSheetStrings(
+        heading: 'share_lineup'.tr(),
+        team: s.team == PlayerTeam.away ? 'team_away'.tr() : 'team_home'.tr(),
+        rotation: 'rotation_number'.tr(namedArgs: {'n': '${s.rotation}'}),
+        system: s.system == RotationSystem.fiveOne ? '5-1' : '6-2',
+        phase: s.phase == RotationPhase.serve
+            ? 'rotation_serve'.tr()
+            : 'rotation_receive'.tr(),
+        servingOrder: 'lineup_serving_order'.tr(),
+        libero: 'rotation_libero'.tr(),
+        rules: 'rotation_rules'.tr(),
+        subs: 'rotation_subs'.tr(namedArgs: {'n': '${s.rules.substitutions}'}),
+        net: 'lineup_net'.tr(),
+      ),
+      filename: '${_friendlyFileStem(state)}_lineup.pdf',
+    );
+  } catch (e) {
+    debugPrint('Lineup sheet export error: $e');
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('save_error'.tr())),
