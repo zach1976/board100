@@ -309,9 +309,9 @@ extension SportTypeExtension on SportType {
   /// Court background color, used for external display padding.
   Color get courtColor {
     switch (this) {
-      case SportType.badminton:   return const Color(0xFF1B5E20);
-      case SportType.tableTennis: return const Color(0xFF1565C0);
-      case SportType.tennis:      return const Color(0xFF1565C0);
+      case SportType.badminton:   return const Color(0xFF2E7D4F); // BWF mat green
+      case SportType.tableTennis: return const Color(0xFF1D4F91); // ITTF table blue
+      case SportType.tennis:      return const Color(0xFF2A65A5); // hard-court blue
       case SportType.basketball:  return const Color(0xFFB5651D);
       case SportType.volleyball:  return const Color(0xFFF57F17);
       case SportType.pickleball:  return const Color(0xFF1769B4); // blue hard court
@@ -344,11 +344,11 @@ extension SportTypeExtension on SportType {
           CourtSurface(swatch: Color(0xFF4C5157), color: Color(0xFF4C5157)), // Slate grey
         ];
       case SportType.badminton:
-        return _surfaces(const [0xFF1B5E20, 0xFF1565C0, 0xFFB5762E, 0xFF4C5157]);
+        return _surfaces(const [0xFF2E7D4F, 0xFF1565C0, 0xFFB5762E, 0xFF4C5157]);
       case SportType.tableTennis:
-        return _surfaces(const [0xFF1565C0, 0xFF0D3A6B, 0xFF1B5E20, 0xFF4C5157]);
+        return _surfaces(const [0xFF1D4F91, 0xFF0D3A6B, 0xFF1B5E20, 0xFF4C5157]);
       case SportType.tennis:
-        return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFB5651D, 0xFF4C5157]);
+        return _surfaces(const [0xFF2A65A5, 0xFF2E7D32, 0xFFB5651D, 0xFF4C5157]);
       case SportType.volleyball:
         return _surfaces(const [0xFFF57F17, 0xFF1565C0, 0xFF1B5E20, 0xFF4C5157]);
       case SportType.pickleball:

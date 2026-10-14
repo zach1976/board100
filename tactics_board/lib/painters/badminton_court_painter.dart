@@ -61,13 +61,13 @@ class BadmintonCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 6.7), o(6.1, 6.7), netBand);
     drawNetMesh(canvas, o(0, 6.7), o(6.1, 6.7), 8);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 6.7), o(6.1, 6.7), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 6.7 - 0.3), o(0, 6.7 + 0.3), postPaint);
@@ -125,13 +125,13 @@ class BadmintonCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 0), o(6.1, 0), netBand);
     drawNetMesh(canvas, o(0, 0), o(6.1, 0), 8);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(6.1, 0), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, -0.3), o(0, 0.3), postPaint);

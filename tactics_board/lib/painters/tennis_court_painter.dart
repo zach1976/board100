@@ -13,11 +13,8 @@ class TennisCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // A hard court: one poured surface, so no strips — only the light.
-    drawSurface(canvas, size);
-
     // Blank court: surface only, no markings.
-    if (layout == CourtLayout.blank) return;
+    if (layout == CourtLayout.blank) return drawSurface(canvas, size);
 
     // Half court: one side of the net filling the board.
     if (layout == CourtLayout.half) {
@@ -42,6 +39,7 @@ class TennisCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _floor(canvas, size, Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / 10.97;
     final scY = ch / 23.77;
@@ -62,13 +60,13 @@ class TennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 23.77 / 2), o(10.97, 23.77 / 2), netBand);
     drawNetMesh(canvas, o(0, 23.77 / 2), o(10.97, 23.77 / 2), 10);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 23.77 / 2), o(10.97, 23.77 / 2), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     // ITF: the posts stand 0.914 m outside the doubles sidelines, and the
@@ -92,6 +90,26 @@ class TennisCourtPainter extends CourtPainterBase {
   }
 
   // Half court: home side only (net at top edge, baseline at bottom).
+  /// The surface: the court in its own colour, the run-off round it in
+  /// another. A blue hard court sits in green (the US Open look), any
+  /// other surface in a lighter shade of itself. One colour to the edge
+  /// of the canvas read as a court with no run-off. The net tape is white.
+  void _floor(Canvas canvas, Size size, Rect court) {
+    canvas.drawRect(Offset.zero & size,
+        Paint()..color = surroundFor(courtColor)..style = PaintingStyle.fill);
+    canvas.save();
+    canvas.clipRect(court);
+    // A hard court: one poured surface, so no strips — only the light.
+    drawSurface(canvas, size);
+    canvas.restore();
+  }
+
+  /// The run-off that goes with a court colour.
+  static Color surroundFor(Color court) {
+    if (court == const Color(0xFF2A65A5)) return const Color(0xFF3F7D4F);
+    final hsl = HSLColor.fromColor(court);
+    return hsl.withLightness((hsl.lightness + 0.14).clamp(0.0, 1.0)).toColor();
+  }
   void _paintHalf(Canvas canvas, Size size) {
     final p = linePaint;
     final w = size.width;
@@ -110,6 +128,7 @@ class TennisCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _floor(canvas, size, Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / 10.97;
     final scY = ch / halfLen;
@@ -131,13 +150,13 @@ class TennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 0), o(10.97, 0), netBand);
     drawNetMesh(canvas, o(0, 0), o(10.97, 0), 10);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(10.97, 0), netLine);
     // Net posts
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(-0.914, 0), o(0, 0), netLine);

@@ -14,9 +14,7 @@ class HandballCourtPainter extends CourtPainterBase {
 
   @override
   void paint(Canvas canvas, Size size) {
-    _drawFloor(canvas, size);
-
-    if (layout == CourtLayout.blank) return;
+    if (layout == CourtLayout.blank) return _drawFloor(canvas, size);
 
     if (layout == CourtLayout.half) {
       _paintHalf(canvas, size);
@@ -42,6 +40,7 @@ class HandballCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _drawFloor(canvas, size, court: Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / fieldW;
     final scY = ch / fieldH;
@@ -66,6 +65,9 @@ class HandballCourtPainter extends CourtPainterBase {
       ..style = PaintingStyle.stroke;
 
     void drawZone(double goalY, {required bool bottom}) {
+      // The goal area, filled: an IHF court has it in a second colour.
+      _fillGoalArea(canvas, o, goalLeft, goalRight, goalY, goal6,
+          bottom: bottom, court: Rect.fromLTWH(left, top, cw, ch));
       // 6m line — solid
       _drawCrescent(canvas, o, goalLeft, goalRight, goalY, goal6,
           bottom: bottom, paint: p);
@@ -142,6 +144,7 @@ class HandballCourtPainter extends CourtPainterBase {
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
+    _drawFloor(canvas, size, court: Rect.fromLTWH(left, top, cw, ch));
 
     final scX = cw / fieldW;
     final scY = ch / fieldH;
@@ -162,6 +165,8 @@ class HandballCourtPainter extends CourtPainterBase {
       ..strokeWidth = 1.5
       ..style = PaintingStyle.stroke;
 
+    _fillGoalArea(canvas, o, goalLeft, goalRight, 0, goal6,
+        bottom: false, court: Rect.fromLTWH(left, top, cw, ch));
     // 6m line — solid.
     _drawCrescent(canvas, o, goalLeft, goalRight, 0, goal6,
         bottom: false, paint: p);
@@ -266,9 +271,67 @@ class HandballCourtPainter extends CourtPainterBase {
     }
   }
 
-  void _drawFloor(Canvas canvas, Size size) {
+  void _drawFloor(Canvas canvas, Size size, {Rect? court}) {
+    // The floor outside the lines is a lighter shade of the court, as at
+    // an IHF championship — one blue to the edge of the canvas read as a
+    // court with no edge. The blank board has no court to stop at.
+    if (court != null) {
+      canvas.drawRect(Offset.zero & size,
+          Paint()..color = surroundFor(courtColor)..style = PaintingStyle.fill);
+      canvas.save();
+      canvas.clipRect(court);
+    }
     // An indoor sport floor, laid in strips and lit from above.
     drawSurface(canvas, size, bands: 10, bandTint: 0.03);
+    if (court != null) canvas.restore();
+  }
+
+  /// The surround that goes with a court colour: the championship light
+  /// blue round the blue, a lighter shade of itself round any other.
+  static Color surroundFor(Color court) {
+    if (court == const Color(0xFF1565C0)) return const Color(0xFF3C7DC9);
+    final hsl = HSLColor.fromColor(court);
+    return hsl.withLightness((hsl.lightness + 0.14).clamp(0.0, 1.0)).toColor();
+  }
+
+  /// The goal area's colour: IHF orange on the blue court, a lighter shade
+  /// of the court on any other.
+  static Color goalAreaFor(Color court) {
+    if (court == const Color(0xFF1565C0)) return const Color(0xFFE8732A);
+    final hsl = HSLColor.fromColor(court);
+    return hsl.withLightness((hsl.lightness + 0.10).clamp(0.0, 1.0)).toColor();
+  }
+
+  /// The 6 m area filled: the strip between the posts and a quarter-disc
+  /// off each, the same shape [_drawCrescent] strokes, clipped to the court.
+  void _fillGoalArea(
+    Canvas canvas,
+    Offset Function(double, double) o,
+    double goalLeft,
+    double goalRight,
+    double goalY,
+    double r, {
+    required bool bottom,
+    required Rect court,
+  }) {
+    final postL = o(goalLeft, goalY);
+    final postR = o(goalRight, goalY);
+    final rX = r * (o(1, 0).dx - o(0, 0).dx);
+    final rY = r * (o(0, 1).dy - o(0, 0).dy);
+    final leftRect = Rect.fromCenter(center: postL, width: rX * 2, height: rY * 2);
+    final rightRect = Rect.fromCenter(center: postR, width: rX * 2, height: rY * 2);
+    final d = bottom ? -r : r;
+    final path = Path()
+      ..moveTo(o(goalLeft - r, goalY).dx, o(goalLeft - r, goalY).dy)
+      ..arcTo(leftRect, pi, bottom ? pi / 2 : -pi / 2, false)
+      ..lineTo(o(goalRight, goalY + d).dx, o(goalRight, goalY + d).dy)
+      ..arcTo(rightRect, bottom ? -pi / 2 : pi / 2, bottom ? pi / 2 : -pi / 2, false)
+      ..close();
+    canvas.save();
+    canvas.clipRect(court);
+    canvas.drawPath(path,
+        Paint()..color = goalAreaFor(courtColor)..style = PaintingStyle.fill);
+    canvas.restore();
   }
 
   @override

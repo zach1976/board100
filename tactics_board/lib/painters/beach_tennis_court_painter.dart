@@ -74,12 +74,12 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, fieldH / 2), o(fieldW, fieldH / 2), netBand);
     drawNetMesh(canvas, o(0, fieldH / 2), o(fieldW, fieldH / 2), 10);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, fieldH / 2), o(fieldW, fieldH / 2), netLine);
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, fieldH / 2 - 0.4), o(0, fieldH / 2 + 0.4), postPaint);
@@ -138,12 +138,12 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     canvas.drawLine(o(0, 0), o(fieldW, 0), netBand);
     drawNetMesh(canvas, o(0, 0), o(fieldW, 0), 10);
     final netLine = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = Colors.white
       ..strokeWidth = 4
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, 0), o(fieldW, 0), netLine);
     final postPaint = Paint()
-      ..color = const Color(0xFFFFEB3B)
+      ..color = const Color(0xFF37474F)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
     canvas.drawLine(o(0, -0.4), o(0, 0.4), postPaint);
