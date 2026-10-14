@@ -314,7 +314,7 @@ extension SportTypeExtension on SportType {
       case SportType.tennis:      return const Color(0xFF1565C0);
       case SportType.basketball:  return const Color(0xFFB5651D);
       case SportType.volleyball:  return const Color(0xFFF57F17);
-      case SportType.pickleball:  return const Color(0xFF2E7D32);
+      case SportType.pickleball:  return const Color(0xFF1769B4); // blue hard court
       case SportType.soccer:      return const Color(0xFF2D8A2D);
       case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
       case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
@@ -352,7 +352,7 @@ extension SportTypeExtension on SportType {
       case SportType.volleyball:
         return _surfaces(const [0xFFF57F17, 0xFF1565C0, 0xFF1B5E20, 0xFF4C5157]);
       case SportType.pickleball:
-        return _surfaces(const [0xFF2E7D32, 0xFF1565C0, 0xFF5E35B1, 0xFF4C5157]);
+        return _surfaces(const [0xFF1769B4, 0xFF2E7D32, 0xFF5E35B1, 0xFF4C5157]);
       case SportType.fieldHockey:
         return _surfaces(const [0xFF1976D2, 0xFF2E7D32, 0xFF00897B, 0xFF4C5157]);
       case SportType.rugby:
