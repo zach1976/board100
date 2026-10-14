@@ -4,7 +4,7 @@ SEMUA ENAM ROTASI
 Pilih rotasi dan papan menempatkan keenam pemainmu di posisinya, saat servis atau saat menerima. Maju atau mundur antar rotasi, pilih zona tosser, dan masukkan libero. Pemeriksaan tumpang tindih menandai dua pemain yang posisinya salah saat bola diservis.
 
 SET ATURAN
-Setiap papan mengikuti aturan FIVB, USAV, NFHS, atau NCAA. Batas pergantian tampil di samping bilah rotasi, 6, 12, 18, atau 15 per set, dan dengan aturan AS libero boleh melakukan servis pada satu rotasi.
+Setiap papan mengikuti aturan FIVB, USAV, NFHS, atau NCAA. Batas pergantian tampil di samping bilah rotasi, 6, 12, 18, atau 15 per set, dan dengan aturan AS libero boleh melakukan servis pada satu rotasi. Empat latihan baru menunjukkan libero melakukan servis menurut aturan AS; total 154 latihan.
 
 PERBAIKI POSISI
 Saat pemeriksaan tumpang tindih menandai dua pemain, satu ketukan menempatkan mereka di posisi yang sah. Urungkan mengembalikannya.
@@ -12,11 +12,23 @@ Saat pemeriksaan tumpang tindih menandai dua pemain, satu ketukan menempatkan me
 LEMBAR LINE-UP
 Bagikan lembar line-up sebagai PDF dalam format kertas: enam zona, urutan servis I sampai VI, libero, dan set aturan. Bekerja tanpa koneksi, dalam bahasa Anda.
 
+AREA SAH
+Saat Anda menyeret pemain dalam rotasi, lapangan menampilkan area tempat ia boleh berdiri menurut lima pemain lain. Tepinya menjadi merah jika ia berada di luar.
+
+HARI PERTANDINGAN
+Lembar pergantian yang dihitung per set: enam di lapangan, bangku cadangan, pergantian terhadap batas set aturan, pergantian libero yang tidak dihitung, dua time-out, skor set. Tetap tersimpan saat aplikasi ditutup, dan ringkasannya diekspor sebagai PDF. Memulai pertandingan memerlukan Pro.
+
+BUKU TAKTIK
+Tandai papan Anda sebagai "Di buku taktik" dan buka satu per satu dari hari pertandingan: geser ke berikutnya, tekan putar.
+
+LAPANGAN PANTAI
+Lapangan pasir 16 kali 8 meter tanpa garis serang, dengan formasi berpasangan: berdampingan, atau blocker dan pemain bertahan.
+
 SESI SIAP PAKAI
 Enam sesi siap pakai yang disusun dari latihan di pustaka, dari sesi dasar hingga pekan pertandingan dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
 
-150 LATIHAN
-Pustaka latihan bertambah dari 44 menjadi 150: penerimaan servis di setiap rotasi sistem 5-1, 6-2, dan 4-2, transisi ke serangan, servis terarah, bola kedua tosser, pergantian libero, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
+154 LATIHAN
+Pustaka latihan bertambah dari 44 menjadi 154: penerimaan servis di setiap rotasi sistem 5-1, 6-2, dan 4-2, transisi ke serangan, servis terarah, bola kedua tosser, pergantian libero, ditambah umpan, serangan, blok, dan pertahanan, masing-masing dengan catatan pelatih dalam bahasamu.
 
 DIBUAT UNTUK iPAD
 Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.

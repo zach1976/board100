@@ -1,7 +1,10 @@
 Nouveautés de la version 2.2.0
 
 JOUR DE MATCH
-Réglez les périodes et votre équipe de départ, lancez le chrono et touchez deux joueurs pour les remplacer. Le banc est trié par minutes jouées et « Suggérer » équilibre le temps de jeu. Après le match, les minutes de chaque joueur et chaque remplacement s'exportent en PDF. Le chrono demande Pro ; la préparation est gratuite.
+Réglez les périodes et votre équipe de départ, marquez le gardien, lancez le chrono et touchez deux joueurs pour les remplacer. Le chrono s'arrête seul à la fin d'une période, avec +1 min pour le temps additionnel. Le banc est trié par minutes jouées et « Suggérer » équilibre le temps de jeu sans toucher au gardien. Cartons vert, jaune et rouge : un joueur suspendu sort 2, 5 ou 10 minutes et revient de lui-même ; un panneau de shoot-out note chaque tentative. Après le match, les minutes, cartons et remplacements de chaque joueur s'exportent en PDF, et les matchs terminés se synchronisent avec votre compte. Le chrono demande Pro ; la préparation est gratuite.
+
+CAHIER DE JEU
+Marquez vos tableaux, les petits corners par exemple, « Dans le cahier de jeu » et feuilletez-les le jour du match : glissez vers le suivant, appuyez sur lecture.
 
 SÉANCES PRÊTES
 Six séances prêtes, composées des exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.

@@ -10,7 +10,7 @@ LUKIS · MAIN · KONGSI
 - Tulis nota pada setiap langkah — nota bertukar semasa gerakan dimainkan
 - Simpan taktik tanpa had; eksport ke PNG, PDF atau video
 
-150 LATIHAN, SUDAH DITULIS
+154 LATIHAN, SUDAH DITULIS
 
 Setiap latihan ialah papan yang dijalankan rentak demi rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan. Terima servis dalam keenam-enam rotasi, umpanan, serangan dari setiap zon, sekatan, pertahanan, servis, permainan kecil, kecergasan.
 

@@ -1,7 +1,10 @@
 Apa Yang Baharu dalam 2.2.0
 
 HARI PERLAWANAN
-Tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain, dan "Cadangan" menyamakan masa bermain. Selepas perlawanan, minit setiap pemain dan setiap penggantian boleh dieksport sebagai PDF. Jam memerlukan Pro; persediaan adalah percuma.
+Tetapkan tempoh permainan dan pasukan permulaan, tandakan penjaga gol, jalankan jam, dan ketik dua pemain untuk menukar mereka. Jam berhenti sendiri di hujung tempoh, dengan +1 minit untuk masa tambahan. Bangku simpanan disusun mengikut minit bermain, dan "Cadangan" menyamakan masa bermain tanpa mengusik penjaga gol. Kad hijau, kuning dan merah: pemain yang digantung keluar 2, 5 atau 10 minit dan kembali sendiri; panel shoot-out merekod setiap percubaan. Selepas perlawanan, minit, kad dan penggantian setiap pemain dieksport sebagai PDF, dan perlawanan yang selesai disegerakkan dengan akaun anda. Jam memerlukan Pro; persediaan adalah percuma.
+
+BUKU TAKTIK
+Tandakan papan anda, contohnya penalty corner, sebagai "Dalam buku taktik" dan selak satu demi satu dari hari perlawanan: leret ke seterusnya, tekan main.
 
 SESI SEDIA ADA
 Enam sesi sedia ada yang dibina daripada latihan dalam pustaka: asas, serangan, pertahanan, bola mati, minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.

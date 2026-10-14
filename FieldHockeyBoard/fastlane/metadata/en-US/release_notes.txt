@@ -1,7 +1,10 @@
 What's New in 2.2.0
 
 MATCH DAY
-Set the periods and your starting line-up, run the clock, and tap two players to swap them. The bench sorts by minutes played, and Suggest evens out playing time. After the match, every player's minutes and every substitution export as a PDF. The clock needs Pro; the set-up is free.
+Set the periods and your starting line-up, mark the goalkeeper, run the clock, and tap two players to swap them. The clock stops itself at the end of a period, with a +1 min for added time. The bench sorts by minutes played, and Suggest evens out playing time without touching the keeper. Green, yellow and red cards: a suspended player leaves the pitch for 2, 5 or 10 minutes and comes back on their own; a shoot-out panel records each attempt. After the match, every player's minutes, cards and substitutions export as a PDF, and finished matches sync with your account. The clock needs Pro; the set-up is free.
+
+PLAYBOOK
+Mark your own boards, penalty corners for instance, "In playbook" and flip through them from match day, swiping from one to the next and pressing play.
 
 READY SESSIONS
 Six ready sessions, built from the library's own drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.

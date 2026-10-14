@@ -35,7 +35,7 @@ permissions and no new network endpoints.
    players for any of the six rotations, in serve or in receive. Coaches can
    step forward and back, choose the setter's zone and bring in the libero.
    An overlap check marks players who would be out of position at the serve.
-4. The drill library grows from 44 to 150 drills.
+4. The drill library grows from 44 to 154 drills.
 5. iPad: a side bar instead of tabs, list-beside-detail for drills and
    plans, panels as popovers, hardware keyboard shortcuts and Apple Pencil
    drawing.
@@ -53,6 +53,19 @@ permissions and no new network endpoints.
    libero, rule set). It is generated on the device.
 11. Six ready sessions, built from the library's own drills: Plans → New →
    "From a ready session".
+12. Match day: the home page's board card gains a "Match day" button: a
+   substitution sheet counted per set (rule set, best of 3 or 5, six
+   starters, liberos; substitutions against the rule set's limit, libero
+   replacements uncounted, two timeouts, the set score; summary and PDF).
+   Setting a match up is free; starting it asks for Pro through the
+   purchase sheet above (a sandbox purchase of either plan unlocks it).
+   Finished matches sync to the coach's account when signed in.
+13. While a player is dragged in a rotation, the court shades the area
+   where that player may legally stand.
+14. Playbook: a saved board can be marked "In playbook" (bookmark icon in
+   the Boards panel) and the match-day screen's "Playbook" button flips
+   through those boards full screen.
+15. The field menu offers a beach court (16 × 8 m sand, pairs formations).
 
 ## How to see it
 
@@ -63,9 +76,9 @@ back up a coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator (iPhone and iPad). The automated suite — 764 tests,
-including the rotation and overlap rules, the four rule sets and the lineup
-sheet — passes, and every drill board in
+Run on the iOS Simulator (iPhone and iPad). The automated suite — 798 tests,
+including the rotation and overlap rules, the four rule sets, the lineup
+sheet and the per-set match day — passes, and every drill board in
 the library was rendered through the app's own painters and reviewed.
 
 Thank you for reviewing.

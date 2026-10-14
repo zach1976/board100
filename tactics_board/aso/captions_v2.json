@@ -2100,9 +2100,9 @@
         "Drills, your boards and what to run today"
       ],
       [
-        "ADD",
-        "ANY FORMATION",
-        "Full squads, small sides and custom markers"
+        "SET",
+        "ANY ROTATION",
+        "FIVB, USAV, NFHS or NCAA, libero and overlap check"
       ],
       [
         "BUILD",
@@ -2127,9 +2127,9 @@
         "Latihan, papan anda dan sesi hari ini"
       ],
       [
-        "Tambah",
-        "mana-mana formasi",
-        "Pasukan penuh, format kecil dan penanda tersuai"
+        "Tetapkan",
+        "setiap putaran",
+        "FIVB, USAV, NFHS atau NCAA, libero, semak kedudukan"
       ],
       [
         "Bina",
@@ -2154,9 +2154,9 @@
         "ドリル・保存したボード・今日のメニュー"
       ],
       [
-        "フォーメーションを",
-        "追加する",
-        "フル編成・ミニゲーム・カスタム対応"
+        "ローテーションを",
+        "自由に設定",
+        "FIVB・USAV・NFHS・NCAA、リベロとポジション確認"
       ],
       [
         "タイムラインを",
@@ -2181,9 +2181,9 @@
         "Ejercicios, tus pizarras y el plan de hoy"
       ],
       [
-        "Añade",
-        "tu formación",
-        "Equipos completos, formatos reducidos y marcadores propios"
+        "Elige",
+        "cualquier rotación",
+        "FIVB, USAV, NFHS o NCAA, líbero y control de posiciones"
       ],
       [
         "Crea",
@@ -2209,8 +2209,8 @@
       ],
       [
         "设置",
-        "任意阵型",
-        "全队、小场与自定义标记"
+        "任意轮转",
+        "FIVB、USAV、NFHS、NCAA 规则，自由人与站位检查"
       ],
       [
         "搭建",
@@ -2235,9 +2235,9 @@
         "드릴, 내 보드, 오늘의 메뉴"
       ],
       [
-        "어떤 포메이션도",
-        "추가하라",
-        "풀 스쿼드, 미니 게임과 커스텀 마커"
+        "어떤 로테이션도",
+        "설정하라",
+        "FIVB, USAV, NFHS, NCAA, 리베로와 포지션 폴트 확인"
       ],
       [
         "타임라인을",
@@ -2262,9 +2262,9 @@
         "Exercices, vos tableaux et la séance du jour"
       ],
       [
-        "Ajoutez",
-        "vos formations",
-        "Effectif complet, petits jeux et repères perso"
+        "Réglez",
+        "toute rotation",
+        "FIVB, USAV, NFHS ou NCAA, libéro, fautes de position"
       ],
       [
         "Montez",
@@ -2289,9 +2289,9 @@
         "Bài tập, bảng đã lưu và lịch hôm nay"
       ],
       [
-        "THÊM",
-        "MỌI SƠ ĐỒ",
-        "Đội hình đầy đủ, sân nhỏ và ký hiệu tùy chỉnh"
+        "XẾP",
+        "MỌI VÒNG XOAY",
+        "FIVB, USAV, NFHS hay NCAA, libero, kiểm tra lỗi vị trí"
       ],
       [
         "DỰNG",
@@ -2316,9 +2316,9 @@
         "Latihan, papan tersimpan, dan sesi hari ini"
       ],
       [
-        "Tambah",
-        "Tiap Formasi",
-        "Tim penuh, format kecil, dan penanda kustom"
+        "Atur",
+        "Tiap Rotasi",
+        "FIVB, USAV, NFHS, atau NCAA, libero, dan cek posisi"
       ],
       [
         "Buat",
@@ -2343,9 +2343,9 @@
         "คลังดริลล์ กระดานของคุณ และแผนวันนี้"
       ],
       [
-        "เพิ่ม",
-        "ทุกแผนการเล่น",
-        "ทีมเต็ม เกมเล็ก และเครื่องหมายกำหนดเอง"
+        "ตั้ง",
+        "ทุกโรเทชั่น",
+        "เลือกกติกาได้สี่แบบ ลิเบอโร่ และตรวจตำแหน่ง"
       ],
       [
         "สร้าง",
@@ -2370,9 +2370,9 @@
         "練習庫 我的戰術板 今日安排"
       ],
       [
-        "排出",
-        "任意陣型",
-        "全隊 小場與自訂標記"
+        "設定",
+        "任意輪轉",
+        "FIVB USAV NFHS NCAA 規則 自由球員 站位檢查"
       ],
       [
         "建立",
@@ -2398,8 +2398,8 @@
       ],
       [
         "Stelle",
-        "jede Formation",
-        "Ganze Teams, Kleinfeld und eigene Marker"
+        "jede Rotation",
+        "FIVB, USAV, NFHS oder NCAA, Libero und Positionscheck"
       ],
       [
         "Baue",
@@ -2425,8 +2425,8 @@
       ],
       [
         "Zet",
-        "elke formatie",
-        "Volledige teams, kleine partijen en eigen markers"
+        "elke rotatie",
+        "FIVB, USAV, NFHS of NCAA, libero en opstellingscheck"
       ],
       [
         "Bouw",
@@ -3943,9 +3943,9 @@
   "fieldHockey": {
     "en-US": [
       [
-        "OPEN",
-        "EVERY SESSION",
-        "Drills, your boards and what to run today"
+        "RUN",
+        "MATCH DAY",
+        "Fair playing time, two-tap subs, cards and a PDF after"
       ],
       [
         "ADD",
@@ -3970,9 +3970,9 @@
     ],
     "ms": [
       [
-        "Buka",
-        "setiap sesi",
-        "Latihan, papan anda dan sesi hari ini"
+        "Urus",
+        "hari perlawanan",
+        "Masa main adil, tukar dua ketuk, kad dan PDF selepas"
       ],
       [
         "Tambah",
@@ -3997,9 +3997,9 @@
     ],
     "ja": [
       [
-        "今日の練習を",
-        "すぐ開く",
-        "ドリル・保存したボード・今日のメニュー"
+        "試合当日を",
+        "まるごと管理",
+        "公平な出場時間・素早い交代・カード・試合後PDF"
       ],
       [
         "メンバーを",
@@ -4024,9 +4024,9 @@
     ],
     "es-ES": [
       [
-        "Abre",
-        "cada sesión",
-        "Ejercicios, tus pizarras y el plan de hoy"
+        "Dirige",
+        "el día de partido",
+        "Minutos justos, cambios en dos toques, tarjetas y PDF"
       ],
       [
         "Añade",
@@ -4051,9 +4051,9 @@
     ],
     "zh-Hans": [
       [
-        "打开",
-        "今天的训练",
-        "练习库、我的战术板、今日安排"
+        "管理",
+        "比赛日",
+        "公平上场时间、两步换人、红黄牌、赛后 PDF"
       ],
       [
         "排出",
@@ -4078,9 +4078,9 @@
     ],
     "ko": [
       [
-        "오늘 훈련을",
-        "바로 열기",
-        "드릴, 내 보드, 오늘의 메뉴"
+        "경기 당일을",
+        "바로 운영",
+        "공평한 출전 시간, 빠른 교체, 카드, 경기 후 PDF"
       ],
       [
         "라인업을",
@@ -4105,9 +4105,9 @@
     ],
     "fr-FR": [
       [
-        "Ouvrez",
-        "chaque séance",
-        "Exercices, vos tableaux et la séance du jour"
+        "Gérez",
+        "jour de match",
+        "Temps de jeu équitable, changements, cartons et PDF"
       ],
       [
         "Ajoutez",
@@ -4132,9 +4132,9 @@
     ],
     "vi": [
       [
-        "MỞ",
-        "BUỔI TẬP HÔM NAY",
-        "Bài tập, bảng đã lưu và lịch hôm nay"
+        "ĐIỀU HÀNH",
+        "NGÀY THI ĐẤU",
+        "Phút chơi công bằng, thay người nhanh, thẻ, PDF"
       ],
       [
         "THÊM",
@@ -4159,9 +4159,9 @@
     ],
     "id": [
       [
-        "Buka",
-        "Tiap Sesi",
-        "Latihan, papan tersimpan, dan sesi hari ini"
+        "Kelola",
+        "Hari Tanding",
+        "Waktu main adil, ganti dua ketuk, kartu, dan PDF"
       ],
       [
         "Tambah",
@@ -4186,9 +4186,9 @@
     ],
     "th": [
       [
-        "เปิด",
-        "การฝึกวันนี้",
-        "คลังดริลล์ กระดานของคุณ และแผนวันนี้"
+        "คุม",
+        "วันแข่งขัน",
+        "เวลาลงสนามเป็นธรรม เปลี่ยนตัวไว ใบโทษ สรุปหลังเกม"
       ],
       [
         "เพิ่ม",
@@ -4213,9 +4213,9 @@
     ],
     "zh-Hant": [
       [
-        "打開",
-        "今天的訓練",
-        "練習庫 我的戰術板 今日安排"
+        "管理",
+        "比賽日",
+        "公平上場時間 兩步換人 紅黃牌 賽後PDF"
       ],
       [
         "排出",
@@ -4240,9 +4240,9 @@
     ],
     "de-DE": [
       [
-        "Öffne",
-        "jede Einheit",
-        "Übungen, deine Boards und das Training von heute"
+        "Leite",
+        "den Spieltag",
+        "Faire Spielzeit, Wechsel mit zwei Tipps, Karten, PDF danach"
       ],
       [
         "Stelle",
@@ -4267,9 +4267,9 @@
     ],
     "nl-NL": [
       [
-        "Open",
-        "elke training",
-        "Oefeningen, je borden en de training van vandaag"
+        "Leid",
+        "de wedstrijddag",
+        "Eerlijke speeltijd, snelle wissels, kaarten en een pdf"
       ],
       [
         "Zet",

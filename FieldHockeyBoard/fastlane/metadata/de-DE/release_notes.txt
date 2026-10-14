@@ -1,7 +1,10 @@
 Neu in 2.2.0
 
 SPIELTAG
-Spielabschnitte und Startaufstellung festlegen, die Uhr laufen lassen und zwei Spieler antippen, um sie zu wechseln. Die Bank ist nach gespielten Minuten sortiert, und „Vorschlag“ gleicht die Spielzeit aus. Nach dem Spiel lassen sich die Minuten aller Spieler und jeder Wechsel als PDF exportieren. Die Uhr braucht Pro, die Vorbereitung ist kostenlos.
+Spielabschnitte und Startaufstellung festlegen, den Torwart markieren, die Uhr laufen lassen und zwei Spieler antippen, um sie zu wechseln. Die Uhr stoppt am Ende eines Abschnitts von selbst, mit +1 min für Nachspielzeit. Die Bank ist nach gespielten Minuten sortiert, und „Vorschlag“ gleicht die Spielzeit aus, ohne den Torwart anzurühren. Grüne, gelbe und rote Karten: ein gesperrter Spieler verlässt das Feld für 2, 5 oder 10 Minuten und kommt von selbst zurück; ein Shoot-out-Feld hält jeden Versuch fest. Nach dem Spiel lassen sich die Minuten, Karten und Wechsel aller Spieler als PDF exportieren, und beendete Spiele werden mit dem Konto synchronisiert. Die Uhr braucht Pro, die Vorbereitung ist kostenlos.
+
+SPIELBUCH
+Eigene Boards, etwa Strafecken, als „Im Spielbuch“ markieren und am Spieltag durchblättern: wischen zum nächsten, Play drücken.
 
 FERTIGE EINHEITEN
 Sechs fertige Trainingseinheiten aus den Übungen der Bibliothek: Grundlagen, Angriff, Abwehr, Standards, Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.

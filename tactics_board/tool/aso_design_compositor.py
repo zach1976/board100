@@ -19,7 +19,21 @@ import argparse
 import json
 import math
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import sys
+
+# Thai (and any script with combining marks) needs a shaping engine: without
+# libraqm, FreeType alone draws every tone mark over a dotted circle, which
+# is what every Thai store shot carried until 2026-10-14. The conda Pillow
+# has no raqm; a PyPI wheel does. It lives, git-ignored, in build/pilenv:
+#     python3 -m pip install --target build/pilenv pillow
+_PILENV = Path(__file__).resolve().parents[2] / "build" / "pilenv"
+if _PILENV.is_dir() and str(_PILENV) not in sys.path:
+    sys.path.insert(0, str(_PILENV))
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, features
+
+if not features.check("raqm"):
+    sys.exit("✗ Pillow without libraqm: Thai tone marks would render as dotted "
+             "circles. Run: python3 -m pip install --target build/pilenv pillow")
 
 REPO = Path(__file__).resolve().parent.parent
 RAW = REPO / "fastlane" / "screenshots"

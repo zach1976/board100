@@ -1,7 +1,10 @@
 Yang Baru di 2.2.0
 
 HARI PERTANDINGAN
-Atur babak dan starting line-up, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" meratakan waktu bermain. Setelah pertandingan, menit setiap pemain dan setiap pergantian dapat diekspor sebagai PDF. Jam memerlukan Pro; persiapannya gratis.
+Atur babak dan starting line-up, tandai penjaga gawang, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Jam berhenti sendiri di akhir babak, dengan +1 menit untuk waktu tambahan. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" meratakan waktu bermain tanpa menyentuh kiper. Kartu hijau, kuning, dan merah: pemain yang dihukum keluar 2, 5, atau 10 menit dan kembali sendiri; panel shoot-out mencatat setiap percobaan. Setelah pertandingan, menit, kartu, dan pergantian setiap pemain diekspor sebagai PDF, dan pertandingan yang selesai disinkronkan dengan akun Anda. Jam memerlukan Pro; persiapannya gratis.
+
+BUKU TAKTIK
+Tandai papan Anda, misalnya penalty corner, sebagai "Di buku taktik" dan buka satu per satu dari hari pertandingan: geser ke berikutnya, tekan putar.
 
 SESI SIAP PAKAI
 Enam sesi siap pakai yang disusun dari latihan di pustaka: dasar, menyerang, bertahan, bola mati, pekan pertandingan, dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.

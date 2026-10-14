@@ -4,7 +4,7 @@ LES SIX ROTATIONS
 Choisissez une rotation et le tableau place vos six joueurs là où ils se tiennent, au service ou en réception. Avancez ou reculez dans les rotations, choisissez la zone du passeur et faites entrer le libéro. Un contrôle des chevauchements signale deux joueurs qui seraient mal placés au moment du service.
 
 RÈGLEMENTS
-Chaque tableau suit les règles FIVB, USAV, NFHS ou NCAA. La limite de remplacements s'affiche à côté de la barre de rotation (6, 12, 18 ou 15 par set) et, avec les règlements américains, le libéro peut servir dans une rotation.
+Chaque tableau suit les règles FIVB, USAV, NFHS ou NCAA. La limite de remplacements s'affiche à côté de la barre de rotation (6, 12, 18 ou 15 par set) et, avec les règlements américains, le libéro peut servir dans une rotation. Quatre nouveaux exercices montrent le libéro au service selon les règles américaines ; 154 exercices en tout.
 
 CORRIGER LES POSITIONS
 Quand le contrôle de chevauchement marque deux joueurs, une touche les place là où les règles l'autorisent. Annuler les ramène.
@@ -12,11 +12,23 @@ Quand le contrôle de chevauchement marque deux joueurs, une touche les place l�
 FEUILLE DE POSITION
 Partagez une feuille de position en PDF au format papier : les six zones, l'ordre de service I à VI, le libéro et le règlement. Fonctionne hors ligne, dans votre langue.
 
+ZONE AUTORISÉE
+Quand vous déplacez un joueur dans une rotation, le terrain affiche où il peut se tenir selon les cinq autres. Le bord devient rouge s'il est en dehors.
+
+JOUR DE MATCH
+Une feuille de remplacements comptée par set : les six sur le terrain, le banc, les remplacements face à la limite du règlement, les changements de libéro qui ne comptent pas, deux temps morts, le score du set. Résiste à la fermeture de l'app, et le résumé s'exporte en PDF. Lancer un match demande Pro.
+
+CAHIER DE JEU
+Marquez vos tableaux « Dans le cahier de jeu » et feuilletez-les le jour du match : glissez vers le suivant, appuyez sur lecture.
+
+TERRAIN DE PLAGE
+Un terrain de sable de 16 m sur 8 sans ligne d'attaque, avec des formations à deux : côte à côte, ou bloqueur et défenseur.
+
 SÉANCES PRÊTES
 Six séances prêtes, composées des exercices de la bibliothèque, de la séance de base à la semaine de match et la présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
 
-150 EXERCICES
-La bibliothèque passe de 44 à 150 exercices : réception dans chaque rotation des systèmes 5-1, 6-2 et 4-2, transition vers l'attaque, service ciblé, la deuxième balle du passeur, changements du libéro, plus la passe, l'attaque, le contre et la défense, chacun avec des consignes d'entraîneur dans votre langue.
+154 EXERCICES
+La bibliothèque passe de 44 à 154 exercices : réception dans chaque rotation des systèmes 5-1, 6-2 et 4-2, transition vers l'attaque, service ciblé, la deuxième balle du passeur, changements du libéro, plus la passe, l'attaque, le contre et la défense, chacun avec des consignes d'entraîneur dans votre langue.
 
 PENSÉ POUR L'iPAD
 Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.

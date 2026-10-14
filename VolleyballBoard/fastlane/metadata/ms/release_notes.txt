@@ -4,7 +4,7 @@ KESEMUA ENAM PUTARAN
 Pilih putaran dan papan meletakkan enam pemain anda di kedudukan mereka, semasa servis atau menerima. Maju atau undur antara putaran, pilih zon pengumpan dan masukkan libero. Semakan pertindihan menandakan dua pemain yang tersalah kedudukan semasa bola diservis.
 
 SET PERATURAN
-Setiap papan mengikut peraturan FIVB, USAV, NFHS atau NCAA. Had penggantian dipaparkan di sebelah bar putaran, 6, 12, 18 atau 15 setiap set, dan di bawah peraturan AS libero boleh membuat servis dalam satu putaran.
+Setiap papan mengikut peraturan FIVB, USAV, NFHS atau NCAA. Had penggantian dipaparkan di sebelah bar putaran, 6, 12, 18 atau 15 setiap set, dan di bawah peraturan AS libero boleh membuat servis dalam satu putaran. Empat latihan baharu menunjukkan libero membuat servis mengikut peraturan AS; 154 latihan kesemuanya.
 
 BETULKAN KEDUDUKAN
 Apabila semakan pertindihan menandakan dua pemain, satu ketikan meletakkan mereka di kedudukan yang sah. Buat asal mengembalikan mereka.
@@ -12,11 +12,23 @@ Apabila semakan pertindihan menandakan dua pemain, satu ketikan meletakkan merek
 HELAIAN SUSUNAN
 Kongsi helaian susunan pemain sebagai PDF dalam format kertas: enam zon, urutan servis I hingga VI, libero dan set peraturan. Berfungsi di luar talian, dalam bahasa anda.
 
+KAWASAN SAH
+Semasa anda menyeret pemain dalam putaran, gelanggang menunjukkan kawasan dia boleh berdiri mengikut lima pemain lain. Sempadannya menjadi merah jika dia berada di luar.
+
+HARI PERLAWANAN
+Helaian penggantian yang dikira setiap set: enam di gelanggang, bangku simpanan, penggantian berbanding had set peraturan, pertukaran libero yang tidak dikira, dua masa rehat, skor set. Kekal walaupun aplikasi ditutup, dan ringkasan dieksport sebagai PDF. Memulakan perlawanan memerlukan Pro.
+
+BUKU TAKTIK
+Tandakan papan anda sebagai "Dalam buku taktik" dan selak satu demi satu dari hari perlawanan: leret ke seterusnya, tekan main.
+
+GELANGGANG PANTAI
+Gelanggang pasir 16 kali 8 meter tanpa garisan serangan, dengan formasi berpasangan: bersebelahan, atau penghadang dan pemain pertahanan.
+
 SESI SEDIA ADA
 Enam sesi sedia ada yang dibina daripada latihan dalam pustaka, dari sesi asas hingga minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
 
-150 LATIHAN
-Pustaka latihan bertambah daripada 44 kepada 150: penerimaan servis dalam setiap putaran sistem 5-1, 6-2 dan 4-2, peralihan ke serangan, servis bersasar, bola kedua pengumpan, pertukaran libero, serta umpanan, serangan, adangan dan pertahanan, setiap satu dengan nota jurulatih dalam bahasa anda.
+154 LATIHAN
+Pustaka latihan bertambah daripada 44 kepada 154: penerimaan servis dalam setiap putaran sistem 5-1, 6-2 dan 4-2, peralihan ke serangan, servis bersasar, bola kedua pengumpan, pertukaran libero, serta umpanan, serangan, adangan dan pertahanan, setiap satu dengan nota jurulatih dalam bahasa anda.
 
 DIBUAT UNTUK iPAD
 Bar sisi menggantikan tab, pustaka latihan dan pelan di sebelah butirannya, dan panel yang dibuka di sebelah butangnya. Papan kekunci berfungsi (Space memainkan, anak panah melangkah, Cmd+Z membuat asal), dan Apple Pencil melukis sementara jari menggerakkan pemain.

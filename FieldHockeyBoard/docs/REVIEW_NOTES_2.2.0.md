@@ -50,8 +50,16 @@ permissions and no new network endpoints.
    played; "Suggest" proposes swaps that even out playing time; afterwards
    the minutes and substitutions export as a PDF. Setting a match up is
    free; starting the clock asks for Pro through the purchase sheet above
-   (a sandbox purchase of either plan unlocks it). It stays on the device.
-10. Six ready sessions (foundation, attacking, defending, set pieces, match
+   (a sandbox purchase of either plan unlocks it). The clock stops itself
+   at the end of a period ("+1 min" for added time); a player can be given
+   a green, yellow or red card and sits out 2, 5 or 10 minutes; a shoot-out
+   panel records attempts; the keeper is left out of the fair-time
+   suggestions. Finished matches are synced to the coach's account when
+   signed in, like practice plans.
+11. Playbook: a saved board can be marked "In playbook" (bookmark icon in
+   the Boards panel) and the match-day screen's "Playbook" button flips
+   through those boards full screen.
+12. Six ready sessions (foundation, attacking, defending, set pieces, match
    week, pre-season), built from the library's own drills: Plans → New →
    "From a ready session".
 
@@ -64,9 +72,9 @@ coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator (iPhone and iPad). The automated suite — 764 tests,
-including the indoor and Hockey5s pitches and the match-day clock and
-substitutions — passes, and every drill board in
+Run on the iOS Simulator (iPhone and iPad). The automated suite — 798 tests,
+including the indoor and Hockey5s pitches and the match-day clock, cards
+and substitutions — passes, and every drill board in
 the library was rendered through the app's own painters and reviewed.
 
 Thank you for reviewing.

@@ -1,7 +1,10 @@
 Nieuw in 2.2.0
 
 WEDSTRIJDDAG
-Stel de periodes en je basisopstelling in, laat de klok lopen en tik twee spelers aan om te wisselen. De bank is gesorteerd op gespeelde minuten en „Voorstel“ verdeelt de speeltijd eerlijk. Na de wedstrijd exporteer je de minuten van elke speler en elke wissel als pdf. De klok vereist Pro, de voorbereiding is gratis.
+Stel de periodes en je basisopstelling in, markeer de keeper, laat de klok lopen en tik twee spelers aan om te wisselen. De klok stopt vanzelf aan het einde van een periode, met +1 min voor extra tijd. De bank is gesorteerd op gespeelde minuten en „Voorstel“ verdeelt de speeltijd eerlijk zonder aan de keeper te komen. Groene, gele en rode kaarten: een geschorste speler verlaat het veld voor 2, 5 of 10 minuten en komt vanzelf terug; een shoot-outpaneel noteert elke poging. Na de wedstrijd exporteer je de minuten, kaarten en wissels van elke speler als pdf, en afgeronde wedstrijden synchroniseren met je account. De klok vereist Pro, de voorbereiding is gratis.
+
+PLAYBOOK
+Markeer je eigen borden, strafcorners bijvoorbeeld, als „In playbook“ en blader er op de wedstrijddag doorheen: veeg naar het volgende, druk op afspelen.
 
 KANT-EN-KLARE TRAININGEN
 Zes kant-en-klare trainingen, opgebouwd uit de oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.

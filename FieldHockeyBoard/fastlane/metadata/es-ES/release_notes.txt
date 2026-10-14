@@ -1,7 +1,10 @@
 Novedades de la versión 2.2.0
 
 DÍA DE PARTIDO
-Define los periodos y el once inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego. Al acabar, los minutos de cada jugador y cada cambio se exportan en PDF. El reloj requiere Pro; la preparación es gratis.
+Define los periodos y el once inicial, marca al portero, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El reloj se detiene solo al final de cada periodo, con +1 min para el tiempo añadido. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego sin tocar al portero. Tarjetas verde, amarilla y roja: el jugador suspendido sale 2, 5 o 10 minutos y vuelve solo; un panel de shoot-out registra cada intento. Al acabar, los minutos, tarjetas y cambios de cada jugador se exportan en PDF, y los partidos terminados se sincronizan con tu cuenta. El reloj requiere Pro; la preparación es gratis.
+
+LIBRO DE JUGADAS
+Marca tus pizarras, por ejemplo los córners cortos, como «En el libro de jugadas» y pásalas desde el día de partido: desliza a la siguiente y pulsa reproducir.
 
 SESIONES LISTAS
 Seis sesiones listas, montadas con los ejercicios de la biblioteca: base, ataque, defensa, jugadas a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
