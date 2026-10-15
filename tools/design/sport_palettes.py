@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""The colour system of the fifteen tactics-board apps (2026-10-15).
+"""SUPERSEDED — the dark colour system of 2026-10-15 morning. The app now
+uses the light system in sport_palettes_light.py; this is kept for the
+record and writes only its JSON and review page.
+
+The colour system of the fifteen tactics-board apps (2026-10-15).
 
 One source of truth. Everything is specified in OKLCH — perceptual
 lightness, chroma, hue — so that "equally dark" and "equally strong" are
@@ -381,7 +385,8 @@ def main():
     (REPO / 'tools/design/sport_palettes.json').write_text(json.dumps(
         {'sports': [{k: v for k, v in p.items() if k not in ('rationale',)} for p in pals],
          'shared': tok}, ensure_ascii=False, indent=2) + '\n')
-    (REPO / 'tactics_board/lib/ui/sport_palettes.g.dart').write_text(dart(pals, tok))
+    # Superseded 2026-10-15 by the light system (sport_palettes_light.py),
+    # which owns tactics_board/lib/ui/sport_palettes.g.dart now.
     (REPO / 'build').mkdir(exist_ok=True)
     (REPO / 'build/sport_palette_review.html').write_text(html(pals, tok))
     print('wrote json, dart, html')

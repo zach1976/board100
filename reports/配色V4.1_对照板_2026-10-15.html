@@ -1,0 +1,157 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>配色 V4.1 提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}body{margin:0;background:#F3F0E8;color:#16212E;font-family:Inter,-apple-system,"PingFang SC",sans-serif;padding:40px 16px 60px}
+.wrap{max-width:1360px;margin:0 auto}.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#526071;font-weight:600}
+h1{font-size:28px;margin:8px 0 10px}.lede{color:#526071;font-size:14px;line-height:1.65;max-width:900px;margin:0}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#526071;margin:40px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:26px}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #D8E0E8;border-radius:18px;padding:16px;box-shadow:0 1px 2px rgba(22,33,46,.04),0 6px 18px rgba(22,33,46,.05);display:flex;flex-direction:column;gap:11px;height:310px;box-sizing:border-box}
+header{display:flex;align-items:center;gap:10px}.no{font-size:11px;font-weight:600;color:#586577}header h3{margin:0;font-size:16px}.en{font-size:11px;color:#586577}
+.st{margin-left:auto;font-size:10.5px;font-weight:700;border:1.5px solid;border-radius:999px;padding:2px 8px}
+.sws{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.sw i{display:block;height:38px;border-radius:9px;box-shadow:inset 0 0 0 1px #D8E0E8}
+.sw b{display:block;font-size:9px;font-weight:600;margin-top:5px;color:#526071}.sw code{font-size:9px;color:#586577}
+.demo{background:#EEF3F8;border-radius:11px;padding:8px;display:flex;align-items:center;gap:7px}
+.btn{font-weight:600;font-size:12.5px;border-radius:8px;padding:7px 10px}.sel{background:#fff;border:2px solid;border-radius:8px;padding:5px 9px;font-size:12px}.txt{margin-left:auto;font-weight:600;font-size:12.5px}
+.sem{display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:#526071}.sem i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px}
+.alt{margin-top:auto;font-size:10.5px;color:#526071;display:flex;align-items:center;gap:5px;flex-wrap:wrap}.alt span{width:14px;height:14px;border-radius:4px;display:inline-block}
+.icons{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:10px}@media (max-width:1100px){.icons{grid-template-columns:repeat(8,1fr)}}
+.ic{text-align:center}.ic i{display:block;width:60px;height:60px;border-radius:14px;margin:0 auto 5px;box-shadow:0 1px 3px rgba(0,0,0,.15)}.ic small{font-size:10.5px;color:#526071}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#fff;border:1.5px solid;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+</style></head><body><div class="wrap">
+<div class="kicker">Tactics Board · Colour System V4.1 · Stage One proposal</div><h1>配色 V4.1 提案（待批准）</h1>
+<p class="lede">16 个 app 的色值完全按 V4.1 规范，未做任何改动。每张卡片右上角是该 app 最差一项的判定；有高风险碰撞的卡片底部列出候选替换色，仅供选择，没有采用。完整数值见同目录的验证报告。</p>
+<div class="grid"><article class="card">
+<header><span class="no">01</span><div><h3>排球</h3><code class="en">volleyball</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#2852B5"></i><b>Primary</b><code>#2852B5</code></div><div class="sw"><i style="background:#7DB7FF"></i><b>Secondary</b><code>#7DB7FF</code></div></div>
+<div class="demo"><span class="btn" style="background:#2852B5;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#2852B5">已选</span>
+<span class="txt" style="color:#2852B5">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#2852B5"></i>accentText #2852B5</span><span><i style="background:#2852B5"></i>selectedStroke #2852B5</span></div>
+<div class="alt">候选 <span style="background:#014EC7"></span><code>#014EC7</code> <span style="background:#3246CB"></span><code>#3246CB</code></div></article><article class="card">
+<header><span class="no">02</span><div><h3>足球</h3><code class="en">soccer</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#257D42"></i><b>Primary</b><code>#257D42</code></div><div class="sw"><i style="background:#8BCF67"></i><b>Secondary</b><code>#8BCF67</code></div></div>
+<div class="demo"><span class="btn" style="background:#257D42;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#257D42">已选</span>
+<span class="txt" style="color:#187339">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#187339"></i>accentText #187339</span><span><i style="background:#257D42"></i>selectedStroke #257D42</span></div>
+<div class="alt">候选 <span style="background:#596A04"></span><code>#596A04</code> <span style="background:#266A01"></span><code>#266A01</code></div></article><article class="card">
+<header><span class="no">03</span><div><h3>篮球</h3><code class="en">basketball</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#D06B25"></i><b>Primary</b><code>#D06B25</code></div><div class="sw"><i style="background:#FFB566"></i><b>Secondary</b><code>#FFB566</code></div></div>
+<div class="demo"><span class="btn" style="background:#D06B25;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#C66218">已选</span>
+<span class="txt" style="color:#A44C01">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#A44C01"></i>accentText #A44C01</span><span><i style="background:#C66218"></i>selectedStroke #C66218</span></div>
+</article><article class="card">
+<header><span class="no">04</span><div><h3>曲棍球</h3><code class="en">fieldHockey</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#0873A4"></i><b>Primary</b><code>#0873A4</code></div><div class="sw"><i style="background:#E3C86C"></i><b>Secondary</b><code>#E3C86C</code></div></div>
+<div class="demo"><span class="btn" style="background:#0873A4;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#0873A4">已选</span>
+<span class="txt" style="color:#046997">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#046997"></i>accentText #046997</span><span><i style="background:#0873A4"></i>selectedStroke #0873A4</span></div>
+</article><article class="card">
+<header><span class="no">05</span><div><h3>网球</h3><code class="en">tennis</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#C7D93B"></i><b>Primary</b><code>#C7D93B</code></div><div class="sw"><i style="background:#6E95DD"></i><b>Secondary</b><code>#6E95DD</code></div></div>
+<div class="demo"><span class="btn" style="background:#C7D93B;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#798601">已选</span>
+<span class="txt" style="color:#626C03">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#626C03"></i>accentText #626C03</span><span><i style="background:#798601"></i>selectedStroke #798601</span></div>
+</article><article class="card">
+<header><span class="no">06</span><div><h3>橄榄球</h3><code class="en">rugby</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#B98056"></i><b>Primary</b><code>#B98056</code></div><div class="sw"><i style="background:#6FA570"></i><b>Secondary</b><code>#6FA570</code></div></div>
+<div class="demo"><span class="btn" style="background:#B98056;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#AA7248">已选</span>
+<span class="txt" style="color:#8F592F">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#8F592F"></i>accentText #8F592F</span><span><i style="background:#AA7248"></i>selectedStroke #AA7248</span></div>
+<div class="alt">候选 <span style="background:#BE8881"></span><code>#BE8881</code> <span style="background:#CD9176"></span><code>#CD9176</code></div></article><article class="card">
+<header><span class="no">07</span><div><h3>羽毛球</h3><code class="en">badminton</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#087E78"></i><b>Primary</b><code>#087E78</code></div><div class="sw"><i style="background:#D8B688"></i><b>Secondary</b><code>#D8B688</code></div></div>
+<div class="demo"><span class="btn" style="background:#087E78;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#087E78">已选</span>
+<span class="txt" style="color:#00706B">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#00706B"></i>accentText #00706B</span><span><i style="background:#087E78"></i>selectedStroke #087E78</span></div>
+<div class="alt">候选 <span style="background:#045B38"></span><code>#045B38</code> <span style="background:#035132"></span><code>#035132</code></div></article><article class="card">
+<header><span class="no">08</span><div><h3>乒乓球</h3><code class="en">tableTennis</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#594695"></i><b>Primary</b><code>#594695</code></div><div class="sw"><i style="background:#E15C56"></i><b>Secondary</b><code>#E15C56</code></div></div>
+<div class="demo"><span class="btn" style="background:#594695;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#594695">已选</span>
+<span class="txt" style="color:#594695">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#594695"></i>accentText #594695</span><span><i style="background:#594695"></i>selectedStroke #594695</span></div>
+</article><article class="card">
+<header><span class="no">09</span><div><h3>匹克球</h3><code class="en">pickleball</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#159C85"></i><b>Primary</b><code>#159C85</code></div><div class="sw"><i style="background:#D7C96E"></i><b>Secondary</b><code>#D7C96E</code></div></div>
+<div class="demo"><span class="btn" style="background:#159C85;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#028F79">已选</span>
+<span class="txt" style="color:#037361">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#037361"></i>accentText #037361</span><span><i style="background:#028F79"></i>selectedStroke #028F79</span></div>
+</article><article class="card">
+<header><span class="no">10</span><div><h3>棒球</h3><code class="en">baseball</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#883C66"></i><b>Primary</b><code>#883C66</code></div><div class="sw"><i style="background:#C98E57"></i><b>Secondary</b><code>#C98E57</code></div></div>
+<div class="demo"><span class="btn" style="background:#883C66;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#883C66">已选</span>
+<span class="txt" style="color:#883C66">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#883C66"></i>accentText #883C66</span><span><i style="background:#883C66"></i>selectedStroke #883C66</span></div>
+</article><article class="card">
+<header><span class="no">11</span><div><h3>手球</h3><code class="en">handball</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#7385C3"></i><b>Primary</b><code>#7385C3</code></div><div class="sw"><i style="background:#E59B55"></i><b>Secondary</b><code>#E59B55</code></div></div>
+<div class="demo"><span class="btn" style="background:#7385C3;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#6B7DBA">已选</span>
+<span class="txt" style="color:#52639E">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#52639E"></i>accentText #52639E</span><span><i style="background:#6B7DBA"></i>selectedStroke #6B7DBA</span></div>
+</article><article class="card">
+<header><span class="no">12</span><div><h3>水球</h3><code class="en">waterPolo</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#227AA7"></i><b>Primary</b><code>#227AA7</code></div><div class="sw"><i style="background:#5E8FC8"></i><b>Secondary</b><code>#5E8FC8</code></div></div>
+<div class="demo"><span class="btn" style="background:#227AA7;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#227AA7">已选</span>
+<span class="txt" style="color:#056B97">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#056B97"></i>accentText #056B97</span><span><i style="background:#227AA7"></i>selectedStroke #227AA7</span></div>
+<div class="alt">候选 <span style="background:#05A5CA"></span><code>#05A5CA</code></div></article><article class="card">
+<header><span class="no">13</span><div><h3>藤球</h3><code class="en">sepakTakraw</code></div>
+<span class="st" style="color:#8B5900;border-color:#8B5900">对比度 BORDERLINE</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#AC862C"></i><b>Primary</b><code>#AC862C</code></div><div class="sw"><i style="background:#67A56C"></i><b>Secondary</b><code>#67A56C</code></div></div>
+<div class="demo"><span class="btn" style="background:#AC862C;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#9E791A">已选</span>
+<span class="txt" style="color:#826102">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#826102"></i>accentText #826102</span><span><i style="background:#9E791A"></i>selectedStroke #9E791A</span></div>
+</article><article class="card">
+<header><span class="no">14</span><div><h3>沙滩网球</h3><code class="en">beachTennis</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#E1C79B"></i><b>Primary</b><code>#E1C79B</code></div><div class="sw"><i style="background:#CFA087"></i><b>Secondary</b><code>#CFA087</code></div></div>
+<div class="demo"><span class="btn" style="background:#E1C79B;color:#16212E">打开战术板</span>
+<span class="sel" style="border-color:#937B52">已选</span>
+<span class="txt" style="color:#7A633A">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#7A633A"></i>accentText #7A633A</span><span><i style="background:#937B52"></i>selectedStroke #937B52</span></div>
+</article><article class="card">
+<header><span class="no">15</span><div><h3>足排球</h3><code class="en">footvolley</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#A64E29"></i><b>Primary</b><code>#A64E29</code></div><div class="sw"><i style="background:#39B9C8"></i><b>Secondary</b><code>#39B9C8</code></div></div>
+<div class="demo"><span class="btn" style="background:#A64E29;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#A64E29">已选</span>
+<span class="txt" style="color:#A24A25">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#A24A25"></i>accentText #A24A25</span><span><i style="background:#A64E29"></i>selectedStroke #A64E29</span></div>
+<div class="alt">候选 <span style="background:#983610"></span><code>#983610</code> <span style="background:#8A3203"></span><code>#8A3203</code></div></article><article class="card">
+<header><span class="no">16</span><div><h3>战术板合集</h3><code class="en">hub</code></div>
+<span class="st" style="color:#147D50;border-color:#147D50">对比度 PASS</span></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#344D63"></i><b>Primary</b><code>#344D63</code></div><div class="sw"><i style="background:#B49A6A"></i><b>Secondary</b><code>#B49A6A</code></div></div>
+<div class="demo"><span class="btn" style="background:#344D63;color:#FFFFFF">打开战术板</span>
+<span class="sel" style="border-color:#344D63">已选</span>
+<span class="txt" style="color:#344D63">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#344D63"></i>accentText #344D63</span><span><i style="background:#344D63"></i>selectedStroke #344D63</span></div>
+<div class="alt">备选 <span style="background:#023239"></span><code>#023239</code> <span style="background:#0A2739"></span><code>#0A2739</code></div></article></div>
+<h2>App Store 图标尺寸下并排（60pt）</h2><div class="icons"><div class="ic"><i style="background:linear-gradient(135deg,#2852B5 0 62%,#7DB7FF 62%)"></i><small>排球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#257D42 0 62%,#8BCF67 62%)"></i><small>足球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#D06B25 0 62%,#FFB566 62%)"></i><small>篮球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#0873A4 0 62%,#E3C86C 62%)"></i><small>曲棍球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#C7D93B 0 62%,#6E95DD 62%)"></i><small>网球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#B98056 0 62%,#6FA570 62%)"></i><small>橄榄球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#087E78 0 62%,#D8B688 62%)"></i><small>羽毛球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#594695 0 62%,#E15C56 62%)"></i><small>乒乓球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#159C85 0 62%,#D7C96E 62%)"></i><small>匹克球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#883C66 0 62%,#C98E57 62%)"></i><small>棒球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#7385C3 0 62%,#E59B55 62%)"></i><small>手球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#227AA7 0 62%,#5E8FC8 62%)"></i><small>水球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#AC862C 0 62%,#67A56C 62%)"></i><small>藤球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#E1C79B 0 62%,#CFA087 62%)"></i><small>沙滩网球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#A64E29 0 62%,#39B9C8 62%)"></i><small>足排球</small></div><div class="ic"><i style="background:linear-gradient(135deg,#344D63 0 62%,#B49A6A 62%)"></i><small>战术板合集</small></div></div>
+<h2>语义色</h2><div class="chips"><span class="chip" style="color:#147D50;border-color:#147D50">● success #147D50</span><span class="chip" style="color:#8B5900;border-color:#8B5900">● warning #8B5900</span><span class="chip" style="color:#B83240;border-color:#B83240">● error #B83240</span><span class="chip" style="color:#155E9E;border-color:#155E9E">● information #155E9E</span><span class="chip" style="color:#4A345C;border-color:#4A345C">● focus #4A345C</span></div>
+</div></body></html>
