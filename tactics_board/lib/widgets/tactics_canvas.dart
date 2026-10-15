@@ -2125,8 +2125,15 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
         ...players.where(routeShown).expand((player) {
           // The legs of the beat on show, keyed by their index
           // in the chain so a dot still selects its own waypoint.
-          final legs = stepLegs(player, stepLimit);
-          final from = stepStart(player, stepLimit);
+          //
+          // The same limit the routes and the ghosts take (limitFor):
+          // a followed element's route is drawn whole past beat zero,
+          // and its dots went on showing the beat alone — five legs of
+          // arrows turning on bare court, with no stop and no end
+          // figure on any of them. Reported off an iPad, 2026-10-16.
+          final limit = limitFor(player);
+          final legs = stepLegs(player, limit);
+          final from = stepStart(player, limit);
           final atStartTime = state.atStep == 0 && state.targetStep == 0;
           // A ball riding along with the players keeps only its
           // final dot — that one IS the ball at its current spot.
@@ -2179,6 +2186,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 if (isEnd && !player.isBall && !atStartTime && !chainSelected) {
                   return false;
                 }
+                // On the whole route the stop the token has reached
+                // this beat is under the token; a disc there peeked
+                // out round his boots like a second ring.
+                if (limit != stepLimit &&
+                    !isEnd &&
+                    entry.value == chainEndAt(player, restLimit)) {
+                  return false;
+                }
                 if (!ballEscorted) return true;
                 return isEnd;
               })
@@ -2212,7 +2227,13 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                   isSelected: chainSelected,
                   isPrimary:
                       chainSelected && state.selectedWaypointIndex == entry.key,
-                  isAtCurrentStep: isLast ? !atStartTime : true,
+                  // A whole route's end may lie beats ahead of the
+                  // token: a copy there is a destination, drawn as one.
+                  isAtCurrentStep: isLast
+                      ? !atStartTime &&
+                            (limit == stepLimit ||
+                                player.movePhases[entry.key] < restLimit)
+                      : true,
                   onLongPress: isLast
                       ? () => state.selectPlayer(player.id)
                       : null,
