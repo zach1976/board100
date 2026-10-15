@@ -685,7 +685,7 @@ class _SportHomePageState extends State<SportHomePage> {
                   'home_board_title'.tr(args: [sport.displayName]),
                   maxLines: 1,
                   style: TextStyle(
-                      color: T.text,
+                      color: _hasArt ? Colors.white : T.text,
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                       shadows: _hasArt ? const [
@@ -1286,7 +1286,7 @@ class _TodayRow extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: T.text,
+                        color: path != null ? Colors.white : T.text,
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         height: 1.25,

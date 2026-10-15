@@ -456,7 +456,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         '${all.length}',
                       ]),
                       style: TextStyle(
-                          color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
+                          color: T.accentText, fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
@@ -488,18 +488,18 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     height: 38,
                     child: TextField(
                       onChanged: (v) => setState(() => _query = v),
-                      style: const TextStyle(color: Colors.white, fontSize: 13.5),
+                      style: const TextStyle(color: T.text, fontSize: 13.5),
                       cursorColor: kAccent,
                       decoration: InputDecoration(
                         hintText: 'drills_search'.tr(),
-                        hintStyle: const TextStyle(color: Colors.white30, fontSize: 13.5),
-                        prefixIcon: const Icon(Icons.search_rounded, color: Colors.white38, size: 18),
+                        hintStyle: const TextStyle(color: T.textOff, fontSize: 13.5),
+                        prefixIcon: const Icon(Icons.search_rounded, color: T.textOff, size: 18),
                         prefixIconConstraints:
                             const BoxConstraints(minWidth: 34, minHeight: 34),
                         isDense: true,
                         contentPadding: const EdgeInsets.symmetric(vertical: 10),
                         filled: true,
-                        fillColor: Colors.white.withValues(alpha: 0.06),
+                        fillColor: T.surfaceHi,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(9),
                           borderSide: BorderSide.none,
@@ -612,7 +612,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                             const SizedBox(height: 10),
                             Text('drills_no_match'.tr(args: [_query.trim()]),
                                 style: const TextStyle(
-                                    color: Colors.white38, fontSize: 13)),
+                                    color: T.textOff, fontSize: 13)),
                           ],
                         ),
                       ),
@@ -757,7 +757,7 @@ class _UsageTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = switch (usage) {
-      3 => T.accent,
+      3 => T.accentText,
       2 => T.textDim,
       _ => T.textOff,
     };
@@ -1047,15 +1047,15 @@ class _VariantChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: locked ? 0.03 : 0.08),
+          color: locked ? T.surfaceHi : T.accentFill,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: locked ? Colors.white12 : kAccent.withValues(alpha: 0.55)),
+          border: Border.all(color: locked ? T.border : kAccent.withValues(alpha: 0.55)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(locked ? Icons.lock_outline : Icons.add_rounded,
-                size: 14, color: locked ? Colors.white38 : kAccent),
+                size: 14, color: locked ? T.textDisabled : T.accentText),
             const SizedBox(width: 5),
             // Flexible, not bare: a Wrap gives each chip the full row width,
             // so a long variant name — "the Australian formation", or its
@@ -1065,7 +1065,7 @@ class _VariantChip extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: locked ? Colors.white38 : Colors.white,
+                      color: locked ? T.textDisabled : T.text,
                       fontSize: 12.5,
                       fontWeight: FontWeight.w600)),
             ),
@@ -1091,9 +1091,9 @@ class _MineRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.05),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(11),
-          border: Border.all(color: Colors.white12),
+          border: Border.all(color: T.border),
         ),
         child: Row(
           children: [
@@ -1105,7 +1105,7 @@ class _MineRow extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: T.text,
                           fontSize: 15,
                           fontWeight: FontWeight.w600)),
                   if (meta.folder.isNotEmpty) ...[
@@ -1114,7 +1114,7 @@ class _MineRow extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            color: Colors.white54, fontSize: 12)),
+                            color: T.textOff, fontSize: 12)),
                   ],
                 ],
               ),

@@ -92,7 +92,7 @@ class LanguagePicker {
                                   child: Text(
                                     lang.name,
                                     style: TextStyle(
-                                      color: selected ? T.accent : T.text,
+                                      color: selected ? T.accentText : T.text,
                                       fontWeight: selected
                                           ? FontWeight.w600
                                           : FontWeight.w400,
@@ -104,7 +104,7 @@ class LanguagePicker {
                                 // colour alone.
                                 if (selected)
                                   Icon(Icons.check_rounded,
-                                      color: T.accent, size: 20),
+                                      color: T.accentText, size: 20),
                               ],
                             ),
                           ),

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
 import '../models/volleyball_rotation.dart';
 import '../state/tactics_state.dart';
+import '../ui/tokens.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Volleyball rotations: the controls in the Add sheet, and the overlap
@@ -256,7 +257,7 @@ class _VolleyballRotationControlsState
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: T.text,
                             fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
@@ -266,7 +267,7 @@ class _VolleyballRotationControlsState
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            color: Colors.white60, fontSize: 12),
+                            color: T.textOff, fontSize: 12),
                       ),
                     ],
                   ),
@@ -300,7 +301,7 @@ class _VolleyballRotationControlsState
                       .tr(namedArgs: {'n': '${s.rules.substitutions}'}),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white60, fontSize: 12),
+                  style: const TextStyle(color: T.textOff, fontSize: 12),
                 ),
               ],
             ),
@@ -348,7 +349,7 @@ class _VolleyballRotationControlsState
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Icon(Icons.auto_fix_high_rounded,
-                              size: 16, color: Colors.white),
+                              size: 16, color: T.danger),
                           const SizedBox(width: 6),
                           Flexible(
                             child: Text(
@@ -356,7 +357,7 @@ class _VolleyballRotationControlsState
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                  color: Colors.white,
+                                  color: T.danger,
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -376,14 +377,14 @@ class _VolleyballRotationControlsState
                       padding: const EdgeInsets.symmetric(
                           horizontal: 14, vertical: 8),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF4ADE80).withValues(alpha: 0.18),
+                        color: T.success.withValues(alpha: 0.18),
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: const Color(0xFF4ADE80)),
+                        border: Border.all(color: T.success),
                       ),
                       child: Text(
                         'rotation_place'.tr(),
                         style: const TextStyle(
-                            color: Color(0xFF4ADE80),
+                            color: T.success,
                             fontSize: 13,
                             fontWeight: FontWeight.w700),
                       ),
@@ -413,9 +414,9 @@ class _Segmented extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.08),
+        color: T.surfaceHi,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white24),
+        border: Border.all(color: T.border),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -429,7 +430,7 @@ class _Segmented extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: i == selected ? Colors.blue : Colors.transparent,
+                    color: i == selected ? T.toolOn : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
@@ -437,7 +438,7 @@ class _Segmented extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: i == selected ? Colors.white : Colors.white70,
+                      color: i == selected ? T.onToolOn : T.textDim,
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),
@@ -468,11 +469,11 @@ class _StepButton extends StatelessWidget {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.08),
+            color: T.surfaceHi,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.white24),
+            border: Border.all(color: T.border),
           ),
-          child: Icon(icon, color: Colors.white, size: 26),
+          child: Icon(icon, color: T.text, size: 26),
         ),
       ),
     );
@@ -492,22 +493,22 @@ class _Toggle extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
         decoration: BoxDecoration(
-          color: on ? Colors.blue.withValues(alpha: 0.25) : Colors.white.withValues(alpha: 0.06),
+          color: on ? T.accentFill : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: on ? Colors.blue : Colors.white24),
+          border: Border.all(color: on ? T.selectedStroke : T.border),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(on ? Icons.check_box_rounded : Icons.check_box_outline_blank_rounded,
-                size: 16, color: on ? Colors.white : Colors.white54),
+                size: 16, color: on ? T.accentText : T.textOff),
             const SizedBox(width: 6),
             Flexible(
               child: Text(label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: on ? Colors.white : Colors.white70,
+                      color: on ? T.accentText : T.textDim,
                       fontSize: 13,
                       fontWeight: FontWeight.w600)),
             ),

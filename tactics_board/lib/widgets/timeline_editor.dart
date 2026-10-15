@@ -69,7 +69,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
         if (players.isEmpty && strokes.isEmpty) {
           return const Padding(
             padding: EdgeInsets.all(20),
-            child: Center(child: Text('No moves', style: TextStyle(color: Colors.white54))),
+            child: Center(child: Text('No moves', style: TextStyle(color: T.textOff))),
           );
         }
         final phaseCount = _phaseCount;
@@ -83,21 +83,21 @@ class _TimelineEditorState extends State<TimelineEditor> {
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
               child: Row(
                 children: [
-                  const Icon(Icons.view_timeline_outlined, color: Colors.purpleAccent, size: 20),
+                  const Icon(Icons.view_timeline_outlined, color: T.textDim, size: 20),
                   const SizedBox(width: 8),
-                  Text('timeline'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text('timeline'.tr(), style: const TextStyle(color: T.text, fontWeight: FontWeight.bold, fontSize: 16)),
                   const Spacer(),
                   if (_selected.isNotEmpty)
                     GestureDetector(
                       onTap: () => setState(() => _selected.clear()),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(12)),
+                        decoration: BoxDecoration(color: T.surfaceHi, borderRadius: BorderRadius.circular(12)),
                         child: Text(
                           _selected.length > 1
                               ? 'Cancel (${_selected.length})'
                               : 'Cancel',
-                          style: const TextStyle(color: Colors.white54, fontSize: 12),
+                          style: const TextStyle(color: T.textOff, fontSize: 12),
                         ),
                       ),
                     ),
@@ -106,8 +106,8 @@ class _TimelineEditorState extends State<TimelineEditor> {
                     onTap: _resetToDefault,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                      decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(12)),
-                      child: Text('timeline_reset'.tr(), style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                      decoration: BoxDecoration(color: T.surfaceHi, borderRadius: BorderRadius.circular(12)),
+                      child: Text('timeline_reset'.tr(), style: const TextStyle(color: T.textOff, fontSize: 12)),
                     ),
                   ),
                 ],
@@ -120,7 +120,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                   _selected.length > 1
                       ? 'Tap an empty slot to shift the group · drag to move'
                       : 'Tap an empty slot to move · tap another block to add',
-                  style: TextStyle(color: T.accent, fontSize: 11),
+                  style: TextStyle(color: T.accentText, fontSize: 11),
                 ),
               ),
             // Playback controls — speed / loop / sequential.
@@ -140,7 +140,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         Text(
                           '${i + 1}',
                           style: TextStyle(
-                            color: isCurrent ? T.accent : Colors.white38,
+                            color: isCurrent ? T.accentText : T.textDisabled,
                             fontSize: 11,
                             fontWeight: isCurrent ? FontWeight.bold : FontWeight.w600,
                           ),
@@ -178,9 +178,9 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         padding: const EdgeInsets.fromLTRB(16, 8, 16, 2),
                         child: Row(
                           children: [
-                            Icon(Icons.draw_outlined, color: Colors.white38, size: 14),
+                            Icon(Icons.draw_outlined, color: T.textDisabled, size: 14),
                             const SizedBox(width: 4),
-                            Text('mode_draw'.tr(), style: const TextStyle(color: Colors.white38, fontSize: 11)),
+                            Text('mode_draw'.tr(), style: const TextStyle(color: T.textDisabled, fontSize: 11)),
                           ],
                         ),
                       ),
@@ -218,7 +218,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         alignment: Alignment.centerLeft,
                         child: Text('timeline_ball'.tr(),
                             style: const TextStyle(
-                                color: Colors.white70,
+                                color: T.textDim,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600)),
                       )
@@ -228,7 +228,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                         width: 14, height: 14,
                         decoration: BoxDecoration(
                           color: player.color, shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white24, width: 1),
+                          border: Border.all(color: T.border, width: 1),
                         ),
                       ),
                       const SizedBox(width: 4),
@@ -239,7 +239,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                       // Caught by a landscape capture run, not by a test:
                       // see tools/... LANDSCAPE=1 in appstore_screenshots.
                       Flexible(
-                        child: Text(player.label, style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
+                        child: Text(player.label, style: const TextStyle(color: T.textDim, fontSize: 12, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
                       ),
                     ],
                   ),
@@ -323,7 +323,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
               children: [
                 Icon(Icons.gesture_rounded, color: c, size: 14),
                 const SizedBox(width: 4),
-                Text('${index + 1}', style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600)),
+                Text('${index + 1}', style: const TextStyle(color: T.textDim, fontSize: 12, fontWeight: FontWeight.w600)),
               ],
             ),
           ),
@@ -362,7 +362,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                       height: 34,
                       margin: const EdgeInsets.symmetric(horizontal: 1),
                       decoration: BoxDecoration(
-                        color: inRange ? c.withValues(alpha: 0.4) : Colors.white.withValues(alpha: 0.03),
+                        color: inRange ? c.withValues(alpha: 0.4) : T.surfaceHi,
                         borderRadius: BorderRadius.circular(6),
                         border: Border.all(
                           color: inRange ? c.withValues(alpha: 0.7) : Colors.transparent,
@@ -416,7 +416,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 ? color.withValues(alpha: 0.5)
                 : canDrop
                     ? T.accent.withValues(alpha: 0.12)
-                    : Colors.white.withValues(alpha: 0.03);
+                    : T.surfaceHi;
     final borderColor = isSelected
         ? T.accent
         : isDropHover
@@ -440,21 +440,21 @@ class _TimelineEditorState extends State<TimelineEditor> {
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(label ?? '', style: TextStyle(color: T.accent, fontSize: 11, fontWeight: FontWeight.bold)),
+                    Text(label ?? '', style: TextStyle(color: T.accentText, fontSize: 11, fontWeight: FontWeight.bold)),
                     const SizedBox(width: 2),
                     GestureDetector(
                       onTap: onDelete,
-                      child: const Icon(Icons.close_rounded, color: Colors.redAccent, size: 14),
+                      child: const Icon(Icons.close_rounded, color: T.danger, size: 14),
                     ),
                   ],
                 )
               : Center(
                   child: icon != null
-                      ? Icon(icon, color: isSelected ? T.accent : Colors.white, size: 14)
+                      ? Icon(icon, color: isSelected ? T.accentText : T.text, size: 14)
                       : Text(
                           label ?? '',
                           style: TextStyle(
-                            color: isSelected ? T.accent : Colors.white,
+                            color: isSelected ? T.accentText : T.text,
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                           ),
@@ -510,13 +510,13 @@ class _TimelineEditorState extends State<TimelineEditor> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: T.surface,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 3)],
                   ),
                   child: Text(
                     '×${_selected.length}',
-                    style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold, decoration: TextDecoration.none),
+                    style: const TextStyle(color: T.text, fontSize: 10, fontWeight: FontWeight.bold, decoration: TextDecoration.none),
                   ),
                 ),
               ),
@@ -544,7 +544,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
       child: Row(
         children: [
           Text('speed'.tr(),
-              style: const TextStyle(color: Colors.white54, fontSize: 11)),
+              style: const TextStyle(color: T.textOff, fontSize: 11)),
           const SizedBox(width: 6),
           _speedChip(0.5),
           _speedChip(1.0),
@@ -568,12 +568,12 @@ class _TimelineEditorState extends State<TimelineEditor> {
         margin: const EdgeInsets.only(right: 4),
         padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
         decoration: BoxDecoration(
-          color: sel ? kAccent : Colors.white.withValues(alpha: 0.08),
+          color: sel ? kAccent : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(label,
             style: TextStyle(
-                color: sel ? Colors.white : Colors.white60,
+                color: sel ? T.onAccent : T.textOff,
                 fontSize: 11,
                 fontWeight: FontWeight.w600)),
       ),
@@ -587,10 +587,10 @@ class _TimelineEditorState extends State<TimelineEditor> {
         width: 30,
         height: 30,
         decoration: BoxDecoration(
-          color: on ? kAccent : Colors.white.withValues(alpha: 0.08),
+          color: on ? kAccent : T.surfaceHi,
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, size: 16, color: on ? Colors.white : Colors.white54),
+        child: Icon(icon, size: 16, color: on ? T.onAccent : T.textOff),
       ),
     );
   }
@@ -604,7 +604,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
       padding: const EdgeInsets.fromLTRB(8, 0, 12, 2),
       child: Row(
         children: [
-          const Icon(Icons.flag_outlined, color: Colors.white38, size: 14),
+          const Icon(Icons.flag_outlined, color: T.textDisabled, size: 14),
           Expanded(
             child: Slider(
               value: cur,
@@ -612,7 +612,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
               max: max.toDouble(),
               divisions: max,
               activeColor: kAccent,
-              inactiveColor: Colors.white24,
+              inactiveColor: T.border,
               label: '${cur.round()}',
               onChanged: state.isAnimating
                   ? null
@@ -624,7 +624,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
             ),
           ),
           Text('${state.atStep}/$max',
-              style: const TextStyle(color: Colors.white54, fontSize: 11)),
+              style: const TextStyle(color: T.textOff, fontSize: 11)),
         ],
       ),
     );
@@ -753,7 +753,7 @@ class _PlayerRowAvatarState extends State<_PlayerRowAvatar> {
                   fit: BoxFit.cover,
                 )
               : null,
-          border: Border.all(color: Colors.white24, width: 1),
+          border: Border.all(color: T.border, width: 1),
         ),
       ),
     );

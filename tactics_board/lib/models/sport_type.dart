@@ -290,7 +290,7 @@ extension SportTypeExtension on SportType {
   /// The app's chrome — page, sheet, card — in this sport's colour family:
   /// the teal ladder re-hued to [accent]. A single-sport build sets
   /// [T.palette] from this before the first frame; the hub never does, and
-  /// keeps [SportPalette.teal].
+  /// keeps [SportPalette.hub].
   SportPalette get chrome => SportPalette.fromColors(kSportColors[this]!);
 
   /// Court background color, used for external display padding.

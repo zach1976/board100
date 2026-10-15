@@ -212,7 +212,7 @@ class _StatCell extends StatelessWidget {
       children: [
         Text(value,
             style: TextStyle(
-                color: _kAccent,
+                color: T.accentText,
                 fontSize: 22,
                 fontWeight: FontWeight.bold)),
         const SizedBox(height: 2),
@@ -301,7 +301,7 @@ class _AttendanceRow extends StatelessWidget {
     final color = ratio < 0.5
         ? T.away
         : ratio < 0.75
-            ? const Color(0xFFFFB020)
+            ? T.warningIcon
             : _kAccent;
     final name = member.playerName?.trim().isNotEmpty == true
         ? member.playerName!

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
+import '../ui/tokens.dart';
 import '../ui_constants.dart';
 import 'toolbar.dart' show sheetConstraints, scaledSheet;
 
@@ -69,12 +70,12 @@ class _AttendanceSheetState extends State<AttendanceSheet> {
                 Expanded(
                   child: Text('attendance_title'.tr(),
                       style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                          color: T.text, fontWeight: FontWeight.bold, fontSize: 16)),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
                   child: Text('attendance_skip'.tr(),
-                      style: const TextStyle(color: Colors.white54)),
+                      style: const TextStyle(color: T.textOff)),
                 ),
               ],
             ),
@@ -83,7 +84,7 @@ class _AttendanceSheetState extends State<AttendanceSheet> {
               absent == 0
                   ? 'attendance_all_here'.tr()
                   : 'attendance_absent'.tr(args: ['$absent']),
-              style: const TextStyle(color: Colors.white54, fontSize: 12),
+              style: const TextStyle(color: T.textOff, fontSize: 12),
             ),
             const SizedBox(height: 14),
             Flexible(
@@ -111,7 +112,7 @@ class _AttendanceSheetState extends State<AttendanceSheet> {
                 style: FilledButton.styleFrom(backgroundColor: kAccent),
                 onPressed: () => Navigator.of(context).pop(_present.toList()),
                 child: Text('attendance_save'.tr(args: ['${_present.length}']),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+                    style: TextStyle(color: T.onAccent, fontWeight: FontWeight.w600)),
               ),
             ),
           ],
@@ -165,12 +166,12 @@ class _MemberToggleState extends State<_MemberToggle> {
                     width: 56, height: 56,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.07),
+                      color: T.surfaceHi,
                       image: _path != null
                           ? DecorationImage(image: FileImage(File(_path!)), fit: BoxFit.cover)
                           : null,
                       border: Border.all(
-                        color: present ? kAccent : Colors.white24,
+                        color: present ? T.selectedStroke : T.border,
                         width: present ? 2 : 1,
                       ),
                     ),
@@ -178,14 +179,14 @@ class _MemberToggleState extends State<_MemberToggle> {
                     child: _path == null
                         ? Text(label,
                             style: const TextStyle(
-                                color: Colors.white70, fontWeight: FontWeight.w700))
+                                color: T.textDim, fontWeight: FontWeight.w700))
                         : null,
                   ),
                 ),
                 if (!present)
                   const Positioned(
                     right: 0, bottom: 0,
-                    child: Icon(Icons.remove_circle_outline, color: Colors.white38, size: 18),
+                    child: Icon(Icons.remove_circle_outline, color: T.textDisabled, size: 18),
                   ),
               ],
             ),
@@ -197,7 +198,7 @@ class _MemberToggleState extends State<_MemberToggle> {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                color: present ? Colors.white70 : Colors.white30,
+                color: present ? T.textDim : T.textDisabled,
                 fontSize: 11,
               ),
             ),

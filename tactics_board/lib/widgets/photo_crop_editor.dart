@@ -20,7 +20,7 @@ class PhotoCropEditor extends StatefulWidget {
   static Future<void> show(BuildContext context, {required String photoId}) {
     return showDialog<void>(
       context: context,
-      barrierColor: Colors.black87,
+      barrierColor: const Color(0x8C000000),
       builder: (_) => PhotoCropEditor(photoId: photoId),
     );
   }
@@ -228,12 +228,12 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.swap_horiz, color: T.accent, size: 18),
+                    Icon(Icons.swap_horiz, color: T.accentText, size: 18),
                     const SizedBox(width: 6),
                     Text(
                       'photo_replace'.tr(),
                       style: TextStyle(
-                        color: T.accent,
+                        color: T.accentText,
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
@@ -254,7 +254,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.06),
+                        color: T.surfaceHi,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -280,17 +280,17 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                       ),
                       child: Center(
                         child: _saving
-                            ? const SizedBox(
+                            ? SizedBox(
                                 width: 18, height: 18,
                                 child: CircularProgressIndicator(
-                                  color: Colors.black87,
+                                  color: T.onAccent,
                                   strokeWidth: 2,
                                 ),
                               )
                             : Text(
                                 'save'.tr(),
-                                style: const TextStyle(
-                                  color: Colors.black87,
+                                style: TextStyle(
+                                  color: T.onAccent,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

@@ -89,11 +89,11 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
               height: 4,
               margin: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
-                  color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+                  color: T.border, borderRadius: BorderRadius.circular(2)),
             ),
             Text('line_style_title'.tr(),
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: 17,
                     fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
@@ -126,8 +126,8 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
                   ),
                   onPressed: _apply,
                   child: Text('confirm'.tr(),
-                      style: const TextStyle(
-                          color: Colors.white,
+                      style: TextStyle(
+                          color: T.onAccent,
                           fontWeight: FontWeight.bold,
                           fontSize: 15)),
                 ),
@@ -143,7 +143,7 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
         padding: const EdgeInsets.only(bottom: 8),
         child: Text(text,
             style: const TextStyle(
-                color: Colors.white70,
+                color: T.textDim,
                 fontSize: 13,
                 fontWeight: FontWeight.w600)),
       );
@@ -214,10 +214,12 @@ class _StyleCell extends StatelessWidget {
         width: width,
         height: 44,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
+          // A light pen (white, yellow) previews on a dark ground, the way
+          // it will sit on a court; a dark one on the card's own tint.
+          color: color.computeLuminance() > 0.5 ? T.text : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? const Color(0xFFFFD600) : Colors.transparent,
+            color: selected ? T.selectedStroke : Colors.transparent,
             width: 2,
           ),
         ),

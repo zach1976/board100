@@ -191,7 +191,7 @@ class AccountAvatar extends StatelessWidget {
   /// different colour, and its contrast is settled by construction rather
   /// than by which hue the hash happened to pick.
   static List<Color> get palette => <Color>[
-    T.accent,
+    T.accentText,
     T.home,
     T.success,
     T.warning,
@@ -206,7 +206,7 @@ class AccountAvatar extends StatelessWidget {
   /// not promise to keep between runs or platforms.
   static Color colorFor(String? name) {
     final key = (name ?? '').trim();
-    if (key.isEmpty) return T.accent;
+    if (key.isEmpty) return T.accentText;
     var h = 0;
     for (final r in key.runes) {
       // Masked to 29 bits: the same arithmetic on the web's 53-bit ints and
@@ -381,7 +381,7 @@ class _TabButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = selected ? T.accent : T.textOff;
+    final color = selected ? T.accentText : T.textOff;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
@@ -678,7 +678,7 @@ class _Stat extends StatelessWidget {
         children: [
           Text(value,
               style: TextStyle(
-                  color: T.accent,
+                  color: T.accentText,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   fontFeatures: [FontFeature.tabularFigures()])),

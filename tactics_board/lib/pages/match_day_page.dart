@@ -383,7 +383,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
       case MatchCardKind.green:
         return T.success;
       case MatchCardKind.yellow:
-        return T.warning;
+        return T.warningIcon;
       case MatchCardKind.red:
         return T.danger;
       case MatchCardKind.suspension:
@@ -507,7 +507,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
                   TextButton(
                       onPressed: () => Navigator.pop(c2, ctrl.text),
                       child: Text(scored ? 'matchday_goal'.tr() : 'matchday_miss'.tr(),
-                          style: TextStyle(color: T.accent))),
+                          style: TextStyle(color: T.accentText))),
                 ],
               ),
             );
@@ -645,7 +645,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             child: Text(action,
-                style: TextStyle(color: danger ? T.danger : T.accent)),
+                style: TextStyle(color: danger ? T.danger : T.accentText)),
           ),
         ],
       ),
@@ -734,7 +734,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text('matchday_apply'.tr(),
-                  style: TextStyle(color: T.accent))),
+                  style: TextStyle(color: T.accentText))),
         ],
       ),
     );
@@ -953,11 +953,11 @@ class _MatchDayPageState extends State<MatchDayPage> {
             Text('matchday_roster'.tr().toUpperCase(), style: T.label),
             TextButton.icon(
               onPressed: _loadTeam,
-              icon: Icon(Icons.groups_outlined, size: 18, color: T.accent),
+              icon: Icon(Icons.groups_outlined, size: 18, color: T.accentText),
               label: Text('matchday_load_team'.tr(),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: T.accent, fontSize: 13.5)),
+                  style: TextStyle(color: T.accentText, fontSize: 13.5)),
             ),
           ],
         ),
@@ -1104,7 +1104,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
               Text(
                 mmss(m.periodClock()),
                 style: TextStyle(
-                  color: over ? T.warning : T.accent,
+                  color: over ? T.warning : T.accentText,
                   fontSize: 64,
                   fontWeight: FontWeight.w300,
                   fontFeatures: const [FontFeature.tabularFigures()],
@@ -1113,12 +1113,31 @@ class _MatchDayPageState extends State<MatchDayPage> {
               if (over)
                 Padding(
                   padding: const EdgeInsets.only(bottom: T.s8),
-                  child: Text('matchday_period_over'.tr(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: T.warning,
-                          fontSize: 14.5,
-                          fontWeight: FontWeight.w600)),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: T.s12, vertical: T.s4),
+                    decoration: BoxDecoration(
+                      color: T.warningBackground,
+                      borderRadius: T.brSm,
+                      border: Border.all(color: T.warningBorder),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.warning_amber_rounded,
+                            size: 16, color: T.warningIcon),
+                        const SizedBox(width: T.s8),
+                        Flexible(
+                          child: Text('matchday_period_over'.tr(),
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: T.warning,
+                                  fontSize: 14.5,
+                                  fontWeight: FontWeight.w600)),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               const SizedBox(height: T.s8),
               Row(
@@ -1268,7 +1287,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
                 '${m.scoreUs} : ${m.scoreThem}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: T.accent,
+                  color: T.accentText,
                   fontSize: 56,
                   fontWeight: FontWeight.w300,
                   fontFeatures: [FontFeature.tabularFigures()],
@@ -1641,14 +1660,14 @@ class _Tag extends StatelessWidget {
       decoration: BoxDecoration(
         color: selected ? T.accentFill : T.surfaceHi,
         borderRadius: T.brSm,
-        border: Border.all(color: selected ? T.accent : T.border),
+        border: Border.all(color: selected ? T.selectedStroke : T.border),
       ),
       child: Text(
         label,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-            color: selected ? T.accent : T.textOff,
+            color: selected ? T.accentText : T.textOff,
             fontSize: 11.5,
             fontWeight: FontWeight.w700),
       ),

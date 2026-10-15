@@ -486,7 +486,7 @@ class _ThumbPainter extends CustomPainter {
     // ── people: a filled disc with a dark rim, so two of them touching are
     //    still two ────────────────────────────────────────────────────────
     final rim = Paint()
-      ..color = T.bg1.withAlpha(0xCC)
+      ..color = T.text.withAlpha(0xCC)
       ..strokeWidth = unit * 0.018
       ..style = PaintingStyle.stroke;
     for (final m in scene.marks.where((m) => m.kind != _Kind.gear)) {

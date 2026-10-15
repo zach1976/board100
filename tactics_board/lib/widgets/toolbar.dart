@@ -144,16 +144,16 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
     context: context,
     builder: (ctx) => AlertDialog(
       title: Text('photo_duplicate_title'.tr(),
-          style: const TextStyle(color: Colors.white)),
+          style: const TextStyle(color: T.text)),
       content: Text(
         'photo_duplicate_msg'.tr(args: ['$existingCount']),
-        style: const TextStyle(color: Colors.white70),
+        style: const TextStyle(color: T.textDim),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(false),
           child: Text('cancel'.tr(),
-              style: const TextStyle(color: Colors.white54)),
+              style: const TextStyle(color: T.textOff)),
         ),
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(true),
@@ -689,7 +689,7 @@ class _CourtSettingsSheet extends StatelessWidget {
         final surfaces = sport.courtSurfaces;
         final layouts = sport.courtLayouts;
         const headerStyle = TextStyle(
-            color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600);
+            color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600);
         return SafeArea(
           // Scrollable, because the sheet is taller than a small phone once a
           // language needs two lines for a heading — it overflowed its own
@@ -707,7 +707,7 @@ class _CourtSettingsSheet extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsets.only(bottom: 14),
                     decoration: BoxDecoration(
-                      color: Colors.white24,
+                      color: T.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -788,7 +788,7 @@ class _CourtLayoutTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: selected ? kAccent : Colors.white24,
+                  color: selected ? T.selectedStroke : T.border,
                   width: selected ? 3 : 1,
                 ),
               ),
@@ -801,7 +801,7 @@ class _CourtLayoutTile extends StatelessWidget {
           const SizedBox(height: 6),
           Text(label,
               style: TextStyle(
-                  color: selected ? kAccent : Colors.white70, fontSize: 12)),
+                  color: selected ? T.accentText : T.textDim, fontSize: 12)),
         ],
       ),
     );
@@ -874,7 +874,7 @@ Future<bool> _shareLink(BuildContext context, TacticsState state) async {
               ),
               const SizedBox(height: 14),
               Text('share_link_working'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+                  style: const TextStyle(color: T.text, fontSize: 14)),
             ],
           ),
         ),
@@ -965,7 +965,7 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('share_video_rendering'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+                  style: const TextStyle(color: T.text, fontSize: 14)),
               const SizedBox(height: 16),
               SizedBox(
                 width: 200,
@@ -974,10 +974,10 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
                   builder: (_, v, _) => Column(
                     children: [
                       LinearProgressIndicator(
-                          value: v, backgroundColor: Colors.white12, color: kAccent),
+                          value: v, backgroundColor: T.border, color: kAccent),
                       const SizedBox(height: 6),
                       Text('${(v * 100).round()}%',
-                          style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                          style: const TextStyle(color: T.textOff, fontSize: 12)),
                     ],
                   ),
                 ),
@@ -1020,42 +1020,42 @@ Future<String?> _pickShareFormat(BuildContext context,
           children: [
             ListTile(
               leading: Icon(Icons.image_outlined, color: T.accent),
-              title: const Text('PNG', style: TextStyle(color: Colors.white)),
+              title: const Text('PNG', style: TextStyle(color: T.text)),
               onTap: () => Navigator.pop(ctx, 'png'),
             ),
             ListTile(
-              leading: const Icon(Icons.picture_as_pdf_outlined, color: Colors.amberAccent),
-              title: const Text('PDF', style: TextStyle(color: Colors.white)),
+              leading: const Icon(Icons.picture_as_pdf_outlined, color: T.warningIcon),
+              title: const Text('PDF', style: TextStyle(color: T.text)),
               onTap: () => Navigator.pop(ctx, 'pdf'),
             ),
             // Video export animates the play; only meaningful when moves exist.
             if (showVideo)
               ListTile(
-                leading: const Icon(Icons.videocam_outlined, color: Colors.lightBlueAccent),
-                title: Text('share_video'.tr(), style: const TextStyle(color: Colors.white)),
+                leading: const Icon(Icons.videocam_outlined, color: T.info),
+                title: Text('share_video'.tr(), style: const TextStyle(color: T.text)),
                 subtitle: Text('share_video_hint'.tr(),
-                    style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                    style: const TextStyle(color: T.textOff, fontSize: 12)),
                 onTap: () => Navigator.pop(ctx, 'video'),
               ),
             // A volleyball rotation board can also go out as the paper
             // lineup sheet: zones, serving order, libero, rule set.
             if (showLineup)
               ListTile(
-                leading: const Icon(Icons.grid_on_outlined, color: Colors.amberAccent),
-                title: Text('share_lineup'.tr(), style: const TextStyle(color: Colors.white)),
+                leading: const Icon(Icons.grid_on_outlined, color: T.warningIcon),
+                title: Text('share_lineup'.tr(), style: const TextStyle(color: T.text)),
                 subtitle: Text('share_lineup_hint'.tr(),
-                    style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                    style: const TextStyle(color: T.textOff, fontSize: 12)),
                 onTap: () => Navigator.pop(ctx, 'lineup'),
               ),
-            const Divider(color: Colors.white12, height: 12),
+            const Divider(color: T.border, height: 12),
             // A link opens in any browser — the receiver needs neither the app
             // nor an account, which a PNG in a group chat can't say for a play
             // that moves.
             ListTile(
               leading: Icon(Icons.link, color: kAccent),
-              title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
+              title: Text('share_link'.tr(), style: const TextStyle(color: T.text)),
               subtitle: Text('share_link_hint'.tr(),
-                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                  style: const TextStyle(color: T.textOff, fontSize: 12)),
               onTap: () => Navigator.pop(ctx, 'link'),
             ),
             const SizedBox(height: 8),
@@ -1209,15 +1209,15 @@ void confirmClearAll(BuildContext context, TacticsState state) {
               ListTile(
                 leading: Icon(Icons.gesture_rounded, color: kAccent),
                 title: Text('clear_lines'.tr(),
-                    style: const TextStyle(color: Colors.white)),
+                    style: const TextStyle(color: T.text)),
                 onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
               ),
             ListTile(
               leading: const Icon(Icons.delete_sweep_outlined, color: kDanger),
               title: Text('clear_all'.tr(),
-                  style: const TextStyle(color: Colors.white)),
+                  style: const TextStyle(color: T.text)),
               subtitle: Text('clear_board_message'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                  style: const TextStyle(color: T.textOff, fontSize: 12)),
               onTap: () { Navigator.pop(ctx); state.clearAll(); },
             ),
             const SizedBox(height: 8),
@@ -1653,9 +1653,9 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         context: context,
         builder: (ctx) => AlertDialog(
           backgroundColor: kSurface,
-          title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
+          title: Text('save'.tr(), style: const TextStyle(color: T.text)),
           content: Text(meta.name,
-              style: const TextStyle(color: Colors.white70)),
+              style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
@@ -1692,14 +1692,14 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final newName = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Rename', style: TextStyle(color: Colors.white)),
+        title: const Text('Rename', style: TextStyle(color: T.text)),
         content: TextField(
           controller: ctrl,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
           decoration: InputDecoration(
             hintText: 'tactics_name'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
+            hintStyle: const TextStyle(color: T.textDisabled),
           ),
         ),
         actions: [
@@ -1729,8 +1729,8 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text(name, style: const TextStyle(color: Colors.white70)),
+        title: Text('save'.tr(), style: const TextStyle(color: T.text)),
+        content: Text(name, style: const TextStyle(color: T.textDim)),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
@@ -1763,7 +1763,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
               children: [
                 Icon(Icons.save_outlined, color: T.accent, size: 20),
                 const SizedBox(width: 8),
-                Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
+                Text('save'.tr(), style: const TextStyle(color: T.text, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
             ),
           ),
@@ -1776,13 +1776,13 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                 onTap: _openSavePage,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(color: T.buttonFill, borderRadius: BorderRadius.circular(10)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.add_rounded, color: Colors.white, size: 18),
+                      Icon(Icons.add_rounded, color: T.onAccent, size: 18),
                       const SizedBox(width: 6),
-                      Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                      Text('save'.tr(), style: TextStyle(color: T.onAccent, fontWeight: FontWeight.bold, fontSize: 14)),
                     ],
                   ),
                 ),
@@ -1791,10 +1791,10 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           ),
           // Saved list, grouped by folder
           if (_metas.isNotEmpty) ...[
-            const Divider(color: Colors.white12),
+            const Divider(color: T.border),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
-              child: Text('load'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13)),
+              child: Text('load'.tr(), style: TextStyle(color: T.textOff, fontSize: 13)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 260),
@@ -1819,16 +1819,16 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
         child: Row(
           children: [
-            const Icon(Icons.folder_outlined, color: Colors.white38, size: 16),
+            const Icon(Icons.folder_outlined, color: T.textOff, size: 16),
             const SizedBox(width: 6),
             Text(folder.isEmpty ? 'folder_default'.tr() : folder,
                 style: const TextStyle(
-                    color: Colors.white70,
+                    color: T.textDim,
                     fontSize: 12,
                     fontWeight: FontWeight.w600)),
             const SizedBox(width: 6),
             Text('$count',
-                style: const TextStyle(color: Colors.white30, fontSize: 12)),
+                style: const TextStyle(color: T.textDisabled, fontSize: 12)),
           ],
         ),
       );
@@ -1837,14 +1837,14 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final name = meta.name;
     return ListTile(
       dense: true,
-      leading: const Icon(Icons.description_outlined, color: Colors.white38, size: 20),
-      title: Text(name, style: const TextStyle(color: Colors.white, fontSize: 14)),
+      leading: const Icon(Icons.description_outlined, color: T.textOff, size: 20),
+      title: Text(name, style: const TextStyle(color: T.text, fontSize: 14)),
       subtitle: meta.description.isEmpty
           ? null
           : Text(meta.description,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white38, fontSize: 12)),
+              style: const TextStyle(color: T.textOff, fontSize: 12)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -1858,7 +1858,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                   meta.playbook
                       ? Icons.bookmark_rounded
                       : Icons.bookmark_border_rounded,
-                  color: meta.playbook ? T.accent : Colors.white54,
+                  color: meta.playbook ? T.accent : T.textOff,
                   size: 20),
               onPressed: () async {
                 await widget.state.setPlaybook(name, !meta.playbook);
@@ -1869,7 +1869,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.drive_file_rename_outline, color: Colors.white54, size: 20),
+            icon: const Icon(Icons.drive_file_rename_outline, color: T.textOff, size: 20),
             onPressed: () => _renameTactic(name),
             tooltip: 'Rename',
           ),
@@ -1889,15 +1889,15 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-              child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+              decoration: BoxDecoration(color: T.buttonFill, borderRadius: BorderRadius.circular(8)),
+              child: Text('load'.tr(), style: TextStyle(color: T.onAccent, fontSize: 12, fontWeight: FontWeight.bold)),
             ),
           ),
           const SizedBox(width: 4),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
+            icon: const Icon(Icons.delete_outline_rounded, color: T.danger, size: 20),
             onPressed: () async {
               await widget.state.deleteTactics(name);
               await _loadList();
@@ -1925,7 +1925,7 @@ class _AddPlayerBtn extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.12),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -1938,10 +1938,10 @@ class _AddPlayerBtn extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.add_rounded, color: Colors.white, size: 15 * s),
+            Icon(Icons.add_rounded, color: T.text, size: 15 * s),
             SizedBox(width: 4 * s),
             Text('add_label'.tr(),
-                style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
+                style: TextStyle(color: T.text, fontSize: 12 * s, fontWeight: FontWeight.w500)),
           ],
         ),
       ),
@@ -2058,7 +2058,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
           final faces = textFontFamily(font);
           return AlertDialog(
             title: Text('text_add_title'.tr(),
-                style: const TextStyle(color: Colors.white)),
+                style: const TextStyle(color: T.text)),
             // Scrollable for the same reason the edit dialog is: a phone
             // turned sideways leaves this box 402pt less a keyboard, and
             // the field with three rows of choices is more than that.
@@ -2107,7 +2107,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   Row(
                     children: [
                       const Icon(Icons.palette_outlined,
-                          color: Colors.white38, size: 14),
+                          color: T.textOff, size: 14),
                       const SizedBox(width: 8),
                       for (final c in kElementColors)
                         GestureDetector(
@@ -2120,7 +2120,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                               shape: BoxShape.circle,
                               color: c,
                               border: Border.all(
-                                color: ground == c ? kAccent : Colors.white24,
+                                color: ground == c ? T.selectedStroke : T.border,
                                 width: ground == c ? 2.5 : 1,
                               ),
                             ),
@@ -2132,7 +2132,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   Row(
                     children: [
                       const Icon(Icons.text_fields,
-                          color: Colors.white38, size: 14),
+                          color: T.textOff, size: 14),
                       const SizedBox(width: 8),
                       for (final f in kTextFonts)
                         TextFontChip(
@@ -2145,7 +2145,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                   Row(
                     children: [
                       const Icon(Icons.photo_size_select_small,
-                          color: Colors.white38, size: 14),
+                          color: T.textOff, size: 14),
                       Expanded(
                         child: Slider(
                           value: scale,
@@ -2153,7 +2153,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           max: 3.0,
                           divisions: 10,
                           activeColor: kAccent,
-                          inactiveColor: Colors.white24,
+                          inactiveColor: T.border,
                           onChanged: (v) => setLocal(() => scale = v),
                         ),
                       ),
@@ -2163,7 +2163,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           '${scale.toStringAsFixed(1)}×',
                           textAlign: TextAlign.right,
                           style: const TextStyle(
-                              color: Colors.white70, fontSize: 12),
+                              color: T.textDim, fontSize: 12),
                         ),
                       ),
                     ],
@@ -2646,7 +2646,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           width: 28, height: 28,
                           child: Icon(
                             Icons.add_photo_alternate_outlined,
-                            color: Colors.white70,
+                            color: T.textDim,
                             size: 22,
                           ),
                         ),
@@ -2672,16 +2672,16 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                         return Container(
                           width: 52 * s, height: 52 * s,
                           decoration: BoxDecoration(
-                            color: _showMore ? Colors.white.withValues(alpha: 0.12) : Colors.white.withValues(alpha: 0.05),
+                            color: _showMore ? T.accentFill : T.surfaceHi,
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.white24),
+                            border: Border.all(color: T.border),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(_showMore ? Icons.expand_less_rounded : Icons.more_horiz, color: Colors.white54, size: 18 * s),
+                              Icon(_showMore ? Icons.expand_less_rounded : Icons.more_horiz, color: T.textOff, size: 18 * s),
                               Text(_showMore ? 'less'.tr() : 'more'.tr(),
-                                  style: const TextStyle(color: Colors.white54, fontSize: 9)),
+                                  style: const TextStyle(color: T.textOff, fontSize: 9)),
                             ],
                           ),
                         );
@@ -2715,7 +2715,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: Row(
                   children: [
-                    const Icon(Icons.people_outline, color: Colors.white60, size: 18),
+                    const Icon(Icons.people_outline, color: T.textOff, size: 18),
                     const SizedBox(width: 8),
                     // Expanded instead of Text + Spacer: the label is long in
                     // several languages and had nothing to give, so the row
@@ -2725,12 +2725,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                              color: Colors.white,
+                              color: T.text,
                               fontWeight: FontWeight.w600,
                               fontSize: 14)),
                     ),
                     Icon(_showPhotos ? Icons.expand_less_rounded : Icons.expand_more_rounded,
-                        color: Colors.white54),
+                        color: T.textOff),
                   ],
                 ),
               ),
@@ -2961,15 +2961,15 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: Text('photo_duplicate_title'.tr(),
-              style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: T.text)),
           content: Text(
             'photo_duplicate_msg'.tr(args: ['$existing']),
-            style: const TextStyle(color: Colors.white70),
+            style: const TextStyle(color: T.textDim),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+              child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
@@ -3110,22 +3110,22 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final box = await showDialog<List<String>>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
+        title: Text('photo_group_name'.tr(), style: const TextStyle(color: T.text)),
         content: TextField(
           controller: controller,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
           decoration: InputDecoration(
             hintText: 'photo_group_name'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
-            enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
+            hintStyle: const TextStyle(color: T.textDisabled),
+            enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: T.borderStrong)),
             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop([controller.text]),
@@ -3149,13 +3149,13 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: const Icon(Icons.edit_outlined, color: Colors.white),
-              title: Text('photo_group_rename'.tr(), style: const TextStyle(color: Colors.white)),
+              leading: const Icon(Icons.edit_outlined, color: T.text),
+              title: Text('photo_group_rename'.tr(), style: const TextStyle(color: T.text)),
               onTap: () => Navigator.of(ctx).pop('rename'),
             ),
             ListTile(
-              leading: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent),
-              title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.redAccent)),
+              leading: const Icon(Icons.delete_outline_rounded, color: T.danger),
+              title: Text('photo_group_delete'.tr(), style: const TextStyle(color: T.danger)),
               onTap: () => Navigator.of(ctx).pop('delete'),
             ),
             const SizedBox(height: 8),
@@ -3175,16 +3175,16 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
-          content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
+          title: Text('photo_group_delete'.tr(), style: const TextStyle(color: T.text)),
+          content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+              child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+              child: Text('remove'.tr(), style: const TextStyle(color: T.danger)),
             ),
           ],
         ),
@@ -3372,12 +3372,12 @@ class _GroupTab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
           color: selected
-              ? T.accent.withValues(alpha: 0.18)
-              : Colors.white.withValues(alpha: 0.06),
+              ? T.accentFill
+              : T.surfaceHi,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: selected
-                ? T.accent
+                ? T.selectedStroke
                 : Colors.transparent,
             width: 1,
           ),
@@ -3385,7 +3385,7 @@ class _GroupTab extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? T.accent : Colors.white70,
+            color: selected ? T.accentText : T.textDim,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),
@@ -3482,7 +3482,7 @@ class _PhotoTileState extends State<_PhotoTile> {
       width: dim, height: dim,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white.withValues(alpha: 0.06),
+        color: T.surfaceHi,
         image: _path != null
             ? DecorationImage(
                 image: FileImage(File(_path!)),
@@ -3510,7 +3510,7 @@ class _PhotoTileState extends State<_PhotoTile> {
         height: dim * 1.15,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white.withValues(alpha: 0.06),
+          color: T.surfaceHi,
           image: _path != null
               ? DecorationImage(
                   image: FileImage(File(_path!)),
@@ -3569,7 +3569,7 @@ class _PhotoTileState extends State<_PhotoTile> {
             child: Container(
               width: 22, height: 22,
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: T.danger,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
@@ -3601,16 +3601,16 @@ class _AddPhotoTile extends StatelessWidget {
         width: 52 * s, height: 52 * s,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white.withValues(alpha: 0.08),
-          border: Border.all(color: Colors.white24, style: BorderStyle.solid, width: 1.2),
+          color: T.surfaceHi,
+          border: Border.all(color: T.border, style: BorderStyle.solid, width: 1.2),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.add_a_photo_outlined, color: Colors.white70, size: 18 * s),
+            Icon(Icons.add_a_photo_outlined, color: T.textDim, size: 18 * s),
             SizedBox(height: 2 * s),
             Text('photo_add_label'.tr(),
-                style: TextStyle(color: Colors.white54, fontSize: 9 * s)),
+                style: TextStyle(color: T.textOff, fontSize: 9 * s)),
           ],
         ),
       ),
@@ -3739,7 +3739,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
           clipper: MarkerShapeClipper(shape),
           child: _path != null
               ? Image.file(File(_path!), fit: BoxFit.cover)
-              : Container(color: Colors.white12),
+              : Container(color: T.border),
         ),
       ),
     );
@@ -3753,7 +3753,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
               clipper: MarkerShapeClipper(shape),
               child: _path != null
                   ? Image.file(File(_path!), fit: BoxFit.cover, width: 60, height: 60)
-                  : Container(color: Colors.white24),
+                  : Container(color: T.border),
             ),
             IgnorePointer(
               child: ClipPath(
@@ -3843,7 +3843,7 @@ class _CustomElementContentState extends State<_CustomElementContent> {
       clipper: MarkerShapeClipper(shape),
       child: _path != null
           ? Image.file(File(_path!), fit: BoxFit.cover)
-          : Container(color: Colors.white12),
+          : Container(color: T.border),
     );
   }
 }
@@ -3871,7 +3871,7 @@ class _PhotosManageDialog extends StatelessWidget {
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setSheet) => AlertDialog(
           title: Text('squad_member_title'.tr(),
-              style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: T.text)),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -3886,13 +3886,13 @@ class _PhotosManageDialog extends StatelessWidget {
                         initialValue: number,
                         maxLength: 3,
                         keyboardType: TextInputType.number,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: T.text),
                         decoration: InputDecoration(
                           labelText: 'squad_number'.tr(),
                           counterText: '',
-                          labelStyle: const TextStyle(color: Colors.white60),
+                          labelStyle: const TextStyle(color: T.textOff),
                           enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white30)),
+                              borderSide: BorderSide(color: T.borderStrong)),
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
@@ -3905,14 +3905,14 @@ class _PhotosManageDialog extends StatelessWidget {
                         initialValue: name,
                         maxLength: 12,
                         autofocus: true,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: T.text),
                         decoration: InputDecoration(
                           labelText: 'player_name'.tr(),
                           counterStyle:
-                              const TextStyle(color: Colors.white38, fontSize: 11),
-                          labelStyle: const TextStyle(color: Colors.white60),
+                              const TextStyle(color: T.textDisabled, fontSize: 11),
+                          labelStyle: const TextStyle(color: T.textOff),
                           enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white30)),
+                              borderSide: BorderSide(color: T.borderStrong)),
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
@@ -3924,7 +3924,7 @@ class _PhotosManageDialog extends StatelessWidget {
                 if (roles.isNotEmpty) ...[
                   const SizedBox(height: 14),
                   Text('role_title'.tr(),
-                      style: const TextStyle(color: Colors.white60, fontSize: 12)),
+                      style: const TextStyle(color: T.textOff, fontSize: 12)),
                   const SizedBox(height: 8),
                   Wrap(
                     spacing: 6,
@@ -3939,15 +3939,15 @@ class _PhotosManageDialog extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: role == r
                                   ? kAccent
-                                  : Colors.white.withValues(alpha: 0.08),
+                                  : T.surfaceHi,
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                  color: role == r ? kAccent : Colors.white24),
+                                  color: role == r ? T.selectedStroke : T.border),
                             ),
                             child: Text(
                               r ?? 'role_none'.tr(),
                               style: TextStyle(
-                                color: role == r ? Colors.white : Colors.white70,
+                                color: role == r ? T.onAccent : T.textDim,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -3964,12 +3964,12 @@ class _PhotosManageDialog extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
               child: Text('cancel'.tr(),
-                  style: const TextStyle(color: Colors.white54)),
+                  style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('confirm'.tr(),
-                  style: TextStyle(color: kAccent)),
+                  style: TextStyle(color: T.accentText)),
             ),
           ],
         ),
@@ -3989,15 +3989,15 @@ class _PhotosManageDialog extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
+        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: T.text)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+            child: Text('remove'.tr(), style: const TextStyle(color: T.danger)),
           ),
         ],
       ),
@@ -4027,19 +4027,19 @@ class _PhotosManageDialog extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'photo_manage_title'.tr(),
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(color: T.text, fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
-                    child: const Icon(Icons.close_rounded, color: Colors.white54),
+                    child: const Icon(Icons.close_rounded, color: T.textOff),
                   ),
                 ],
               ),
               const SizedBox(height: 8),
               Text(
                 'photo_manage_hint'.tr(),
-                style: const TextStyle(color: Colors.white54, fontSize: 12),
+                style: const TextStyle(color: T.textOff, fontSize: 12),
               ),
               const SizedBox(height: 12),
               Flexible(
@@ -4148,7 +4148,7 @@ class _ManageTileState extends State<_ManageTile> {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.06),
+                  color: T.surfaceHi,
                   image: _path != null
                       ? DecorationImage(
                           image: FileImage(File(_path!)),
@@ -4185,12 +4185,12 @@ class _ManageTileState extends State<_ManageTile> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                         decoration: BoxDecoration(
-                          color: kAccent.withValues(alpha: 0.22),
+                          color: T.accentFill,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(widget.photo.jerseyNumber!,
                             style: TextStyle(
-                                color: kAccent, fontSize: 11, fontWeight: FontWeight.w700)),
+                                color: T.accentText, fontSize: 11, fontWeight: FontWeight.w700)),
                       ),
                       const SizedBox(width: 4),
                     ],
@@ -4202,8 +4202,8 @@ class _ManageTileState extends State<_ManageTile> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: widget.photo.playerName?.trim().isNotEmpty == true
-                              ? Colors.white
-                              : Colors.white38,
+                              ? T.text
+                              : T.textOff,
                           fontSize: 12,
                         ),
                       ),
@@ -4212,7 +4212,7 @@ class _ManageTileState extends State<_ManageTile> {
                 ),
                 if (widget.photo.role?.isNotEmpty ?? false)
                   Text(widget.photo.role!,
-                      style: const TextStyle(color: Colors.white38, fontSize: 10)),
+                      style: const TextStyle(color: T.textOff, fontSize: 10)),
               ],
             ),
           ),
@@ -4223,7 +4223,7 @@ class _ManageTileState extends State<_ManageTile> {
           children: [
             _ManageAction(
               icon: Icons.badge_outlined,
-              color: kAccent,
+              color: T.accentText,
               onTap: widget.onEditIdentity,
             ),
             _ManageAction(
@@ -4233,7 +4233,7 @@ class _ManageTileState extends State<_ManageTile> {
             ),
             _ManageAction(
               icon: Icons.delete_outline_rounded,
-              color: Colors.redAccent,
+              color: T.danger,
               onTap: widget.onDelete,
             ),
           ],
@@ -4302,7 +4302,7 @@ class _EditModeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
-    final accent = editing ? T.accent : Colors.white54;
+    final accent = editing ? T.accentText : T.textOff;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -4310,8 +4310,8 @@ class _EditModeTile extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: editing
-              ? T.accent.withValues(alpha: 0.18)
-              : Colors.white.withValues(alpha: 0.06),
+              ? T.accentFill
+              : T.surfaceHi,
           border: Border.all(color: accent.withValues(alpha: 0.5), width: 1),
         ),
         child: Column(
@@ -4449,13 +4449,13 @@ class _PhotoTeamChip extends StatelessWidget {
         duration: const Duration(milliseconds: 140),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: selected ? color : Colors.white.withValues(alpha: 0.08),
+          color: selected ? color : T.surfaceHi,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : Colors.white60,
+            color: selected ? Colors.white : T.textOff,
             fontSize: 11,
             fontWeight: FontWeight.w600,
           ),
@@ -4798,10 +4798,10 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                     width: 56 * s,
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
-                      color: selected ? Colors.blue : Colors.white.withValues(alpha: 0.08),
+                      color: selected ? T.accentFill : T.surfaceHi,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: selected ? Colors.blue : Colors.white24,
+                        color: selected ? T.selectedStroke : T.border,
                         width: selected ? 2 : 1,
                       ),
                     ),
@@ -4809,7 +4809,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                       child: Text(
                         '${count.$1}v${count.$2}',
                         style: TextStyle(
-                          color: selected ? Colors.white : Colors.white70,
+                          color: selected ? T.accentText : T.textDim,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -4824,7 +4824,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           // Row 2: Formation (only if multiple formations for selected count)
           if (showFormations) ...[
             const SizedBox(height: 12),
-            Text('formation_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('formation_label'.tr(), style: TextStyle(color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -4845,17 +4845,17 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           decoration: BoxDecoration(
-                            color: _rotationMode ? Colors.blue : Colors.white.withValues(alpha: 0.08),
+                            color: _rotationMode ? T.accentFill : T.surfaceHi,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: _rotationMode ? Colors.blue : Colors.white24,
+                              color: _rotationMode ? T.selectedStroke : T.border,
                               width: _rotationMode ? 2 : 1,
                             ),
                           ),
                           child: Text(
                             'rotation_label'.tr(),
                             style: TextStyle(
-                              color: _rotationMode ? Colors.white : Colors.white70,
+                              color: _rotationMode ? T.accentText : T.textDim,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -4875,17 +4875,17 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
-                          color: selected ? Colors.blue : Colors.white.withValues(alpha: 0.08),
+                          color: selected ? T.accentFill : T.surfaceHi,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
-                            color: selected ? Colors.blue : Colors.white24,
+                            color: selected ? T.selectedStroke : T.border,
                             width: selected ? 2 : 1,
                           ),
                         ),
                         child: Text(
                           _formationName(f),
                           style: TextStyle(
-                            color: selected ? Colors.white : Colors.white70,
+                            color: selected ? T.accentText : T.textDim,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
@@ -4913,12 +4913,12 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           // Row 3: Team selection
           if (!_rotationMode && (_selectedFormation != null || (_selectedCount != null && formations.length == 1))) ...[
             const SizedBox(height: 12),
-            Text('team_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('team_label'.tr(), style: TextStyle(color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             Row(
               children: [
                 if (!halfPitch) ...[
-                  _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
+                  _buildTeamChip('both_teams'.tr(), _TeamOption.both, T.toolOn),
                   const SizedBox(width: 8),
                 ],
                 _buildTeamChip('team_home'.tr(), _TeamOption.home, T.home),
@@ -4934,7 +4934,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                   onTap: _apply,
                   onDropAt: _applyAtDrop,
                   child: const Icon(Icons.groups_outlined,
-                      color: Color(0xFF4ADE80), size: 26),
+                      color: T.success, size: 26),
                 ),
               ],
             ),
@@ -4952,17 +4952,17 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? activeColor : Colors.white.withValues(alpha: 0.08),
+          color: selected ? activeColor : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? activeColor : Colors.white24,
+            color: selected ? activeColor : T.border,
             width: selected ? 2 : 1,
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : Colors.white70,
+            color: selected ? Colors.white : T.textDim,
             fontSize: 13,
             fontWeight: FontWeight.w600,
           ),
@@ -5083,13 +5083,13 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
-          content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
+          title: Text('formation_replace_title'.tr(), style: const TextStyle(color: T.text)),
+          content: Text('formation_replace_message'.tr(), style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(onPressed: () => Navigator.pop(dCtx), child: Text('cancel'.tr())),
             TextButton(
               onPressed: () { Navigator.pop(dCtx); doApply(); },
-              child: Text('formation_apply'.tr(), style: const TextStyle(color: Colors.purple)),
+              child: Text('formation_apply'.tr(), style: TextStyle(color: T.accentText)),
             ),
           ],
         ),
@@ -5114,9 +5114,9 @@ class _FormationCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.07),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white24),
+          border: Border.all(color: T.border),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -5127,13 +5127,13 @@ class _FormationCard extends StatelessWidget {
                 ..._dots(homeDots),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('vs', style: TextStyle(color: Colors.white38, fontSize: 10)),
+                  child: Text('vs', style: TextStyle(color: T.textDisabled, fontSize: 10)),
                 ),
                 ..._dots(awayDots),
               ],
             ),
             const SizedBox(height: 6),
-            Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text(label, style: const TextStyle(color: T.text, fontSize: 13, fontWeight: FontWeight.w600)),
           ],
         ),
       ),
@@ -5338,9 +5338,9 @@ class _MarkerCard extends StatelessWidget {
         width: s > 1 ? 100 : 60 * s,
         padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 4 * s),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.07),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white24),
+          border: Border.all(color: T.border),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -5358,7 +5358,7 @@ class _MarkerCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                    color: Colors.white60, fontSize: 10.5, height: 1.15),
+                    color: T.textOff, fontSize: 10.5, height: 1.15),
               ),
             ),
           ],
@@ -5638,7 +5638,7 @@ class _ColorDot extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: selected
-                    ? Border.all(color: T.accent, width: 2)
+                    ? Border.all(color: T.selectedStroke, width: 2)
                     : Border.all(color: T.border),
               ),
               child: Center(
@@ -5689,7 +5689,7 @@ class _PlayCircle extends StatelessWidget {
         : primary
             ? T.onLime
             : active
-                ? T.accent
+                ? T.accentText
                 : T.text;
     final Color bg = primary
         ? T.lime
@@ -5834,7 +5834,7 @@ class _StepIndicator extends StatelessWidget {
     final s = uiScale(context);
     return Text(
       '${state.atStep}/${state.maxMoveSteps}',
-      style: TextStyle(color: Colors.white, fontSize: 16 * s, fontWeight: FontWeight.bold),
+      style: TextStyle(color: T.text, fontSize: 16 * s, fontWeight: FontWeight.bold),
     );
   }
 }

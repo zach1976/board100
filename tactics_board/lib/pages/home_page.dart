@@ -611,11 +611,11 @@ class TacticsBoardHomePage extends StatelessWidget {
                               child: _GlassCircle(
                                 size: chromeCircle(context),
                                 border: inPlanMode
-                                    ? Border.all(color: T.accent, width: 1.5)
+                                    ? Border.all(color: T.selectedStroke, width: 1.5)
                                     : null,
                                 child: Icon(
                                   Icons.arrow_back_ios_new,
-                                  color: inPlanMode ? T.accent : Colors.white,
+                                  color: inPlanMode ? T.accentText : T.text,
                                   size: 16 * uiScale(context),
                                 ),
                               ),
@@ -738,7 +738,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                                       size: d,
                                       child: Icon(
                                         icon,
-                                        color: Colors.white,
+                                        color: T.text,
                                         size: 18 * uiScale(context),
                                       ),
                                     ),
@@ -971,13 +971,13 @@ class TacticsBoardHomePage extends StatelessWidget {
               children: [
                 _lCircleBtn(
                   Icons.undo_rounded,
-                  kAccent,
+                  T.accentText,
                   state.canUndo ? state.undo : null,
                 ),
                 const SizedBox(width: 12),
                 _lCircleBtn(
                   Icons.redo_rounded,
-                  kAccent,
+                  T.accentText,
                   state.canRedo ? state.redo : null,
                 ),
               ],
@@ -1023,14 +1023,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                   Icons.delete_sweep_outlined,
                   'clear',
                   () => confirmClearAll(context, state),
-                  color: Colors.redAccent,
+                  color: T.danger,
                 ),
               ),
             ],
             const Spacer(),
             // Play controls
             if (state.hasMoves) ...[
-              const Divider(color: Colors.white12),
+              const Divider(color: T.border),
               const SizedBox(height: 4),
               // Step + controls in compact layout
               Row(
@@ -1046,7 +1046,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     child: Text(
                       '${state.atStep}/${state.maxMoveSteps}',
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: T.text,
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                       ),
@@ -1076,7 +1076,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                         ? Icons.stop_rounded
                         : Icons.play_arrow_rounded,
                     // Play is the one coloured control: the app's accent.
-                    T.accent,
+                    T.accentText,
                     !state.isAnimating
                         ? state.startAnimation
                         : state.stopAnimation,
@@ -1125,7 +1125,7 @@ class TacticsBoardHomePage extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
-          color: active ? Colors.blue : Colors.white10,
+          color: active ? T.toolOn : T.surfaceHi,
           borderRadius: BorderRadius.circular(8),
         ),
         // One line, shrunk to fit rather than wrapped: the rail is narrow and
@@ -1140,7 +1140,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               maxLines: 1,
               softWrap: false,
               style: TextStyle(
-                color: active ? Colors.white : Colors.white54,
+                color: active ? T.onToolOn : T.textOff,
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
@@ -1181,7 +1181,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(8),
         ),
         // Shrunk to fit rather than clipped, same as _lBtn: these rows step
@@ -1191,13 +1191,13 @@ class TacticsBoardHomePage extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, color: color ?? Colors.white70, size: 18),
+              Icon(icon, color: color ?? T.textDim, size: 18),
               const SizedBox(width: 6),
               Text(
                 key.tr(),
                 maxLines: 1,
                 softWrap: false,
-                style: TextStyle(color: color ?? Colors.white70, fontSize: 13),
+                style: TextStyle(color: color ?? T.textDim, fontSize: 13),
               ),
             ],
           ),
@@ -1238,7 +1238,7 @@ class _GlassCircleState extends State<_GlassCircle> {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.30),
+            color: Colors.black.withValues(alpha: 0.18),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1252,17 +1252,17 @@ class _GlassCircleState extends State<_GlassCircle> {
             height: size,
             alignment: Alignment.center,
             decoration: BoxDecoration(
+              // Light glass: the disc sits on the light page above the board
+              // as often as on the court, and a dark disc went grey on the
+              // page. White at 82% over the blur reads on both.
               color: _hover
-                  ? Colors.white.withValues(alpha: 0.16)
-                  : Colors.black.withValues(alpha: 0.28),
+                  ? Colors.white.withValues(alpha: 0.95)
+                  : Colors.white.withValues(alpha: 0.82),
               shape: BoxShape.circle,
-              // A hairline of the pitch's own light, so the circle has an
-              // edge on a bright turf as well as a dark one. Callers that
-              // pass their own border — the plan-mode accent ring — still
-              // win, because theirs says something this one does not.
-              border:
-                  border ??
-                  Border.all(color: Colors.white.withValues(alpha: 0.22)),
+              // A hairline so the circle has an edge on a bright court as
+              // well as the page. Callers that pass their own border — the
+              // plan-mode accent ring — still win.
+              border: border ?? Border.all(color: T.border),
             ),
             child: child,
           ),
@@ -1301,7 +1301,7 @@ class _PagesButton extends StatelessWidget {
                   size: dim,
                   child: Icon(
                     Icons.chevron_left,
-                    color: index > 0 ? Colors.white : Colors.white24,
+                    color: index > 0 ? T.text : T.textDisabled,
                     size: 20 * s,
                   ),
                 ),
@@ -1315,7 +1315,7 @@ class _PagesButton extends StatelessWidget {
                 child: Text(
                   count > 1 ? '${index + 1}/$count' : '1',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: (count > 1 ? 11 : 13) * s,
                     fontWeight: FontWeight.w700,
                     fontFeatures: const [FontFeature.tabularFigures()],
@@ -1333,7 +1333,7 @@ class _PagesButton extends StatelessWidget {
                   size: dim,
                   child: Icon(
                     Icons.chevron_right,
-                    color: index < count - 1 ? Colors.white : Colors.white24,
+                    color: index < count - 1 ? T.text : T.textDisabled,
                     size: 20 * s,
                   ),
                 ),
@@ -1439,14 +1439,14 @@ class _PageRow extends StatelessWidget {
         decoration: BoxDecoration(
           color: current ? T.accentFill : T.surfaceHi,
           borderRadius: T.brMd,
-          border: current ? Border.all(color: T.accent, width: 1.5) : null,
+          border: current ? Border.all(color: T.selectedStroke, width: 1.5) : null,
         ),
         child: Row(
           children: [
             Text(
               '${index + 1}',
               style: TextStyle(
-                color: current ? T.accent : T.textDim,
+                color: current ? T.accentText : T.textDim,
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
               ),
@@ -1504,7 +1504,7 @@ class _MenuButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: _GlassCircle(
         size: chromeCircle(context),
-        child: Icon(Icons.more_horiz, color: Colors.white, size: 18 * s),
+        child: Icon(Icons.more_horiz, color: T.text, size: 18 * s),
       ),
       itemBuilder: (ctx) {
         final sport = ctx.read<TacticsState>().sportType;
@@ -1737,7 +1737,7 @@ class _ContactPageState extends State<ContactPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('send_success'.tr()),
-            backgroundColor: Colors.green,
+            backgroundColor: T.success,
           ),
         );
         Navigator.pop(context);
@@ -1772,7 +1772,7 @@ class _ContactPageState extends State<ContactPage> {
           children: [
             Text(
               'contact_subtitle'.tr(),
-              style: const TextStyle(color: Colors.white70, fontSize: 16),
+              style: const TextStyle(color: T.textDim, fontSize: 16),
             ),
             const SizedBox(height: 20),
             _field(_emailCtrl, 'your_email'.tr(), TextInputType.emailAddress),
@@ -1784,19 +1784,20 @@ class _ContactPageState extends State<ContactPage> {
             ElevatedButton(
               onPressed: _sending ? null : _send,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
+                backgroundColor: T.buttonFill,
+                foregroundColor: T.onAccent,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
               child: _sending
-                  ? const SizedBox(
+                  ? SizedBox(
                       width: 20,
                       height: 20,
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
-                        color: Colors.white,
+                        color: T.onAccent,
                       ),
                     )
                   : Text(
@@ -1858,19 +1859,19 @@ class _ContactPageState extends State<ContactPage> {
       controller: ctrl,
       keyboardType: type,
       maxLines: maxLines,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: T.text),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: Colors.white38),
+        labelStyle: const TextStyle(color: T.textOff),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.08),
+        fillColor: T.surface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Colors.blue),
+          borderSide: const BorderSide(color: T.focus),
         ),
       ),
     );
@@ -1917,7 +1918,7 @@ class _LoginPageState extends State<LoginPage> {
     if (!mounted) return;
     setState(() => _loading = false);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('sync_done'.tr()), backgroundColor: Colors.green),
+      SnackBar(content: Text('sync_done'.tr()), backgroundColor: T.success),
     );
   }
 
@@ -1931,7 +1932,7 @@ class _LoginPageState extends State<LoginPage> {
           content: Text(
             '${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!',
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: T.success,
         ),
       );
       // Keep spinner on while we pull cloud data so the user doesn't see a
@@ -1958,7 +1959,7 @@ class _LoginPageState extends State<LoginPage> {
           content: Text(
             '${'welcome'.tr()}, ${result.name ?? result.email ?? 'User'}!',
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: T.success,
         ),
       );
       await CloudSyncService.syncNow();
@@ -1998,14 +1999,14 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         const Icon(
           Icons.check_circle_outline_rounded,
-          color: Colors.green,
+          color: T.success,
           size: 80,
         ),
         const SizedBox(height: 16),
         Text(
           _auth.userName ?? 'User',
           style: const TextStyle(
-            color: Colors.white,
+            color: T.text,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -2013,7 +2014,7 @@ class _LoginPageState extends State<LoginPage> {
         if (_auth.userEmail != null)
           Text(
             _auth.userEmail!,
-            style: const TextStyle(color: Colors.white54, fontSize: 14),
+            style: const TextStyle(color: T.textOff, fontSize: 14),
           ),
         const SizedBox(height: 28),
         _buildSyncStatus(),
@@ -2030,10 +2031,10 @@ class _LoginPageState extends State<LoginPage> {
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: T.accent,
-              foregroundColor: T.bg0,
-              disabledBackgroundColor: Colors.white.withValues(alpha: 0.08),
-              disabledForegroundColor: Colors.white38,
+              backgroundColor: T.buttonFill,
+              foregroundColor: T.onAccent,
+              disabledBackgroundColor: T.disabledFill,
+              disabledForegroundColor: T.textDisabled,
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -2051,7 +2052,8 @@ class _LoginPageState extends State<LoginPage> {
               setState(() {});
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: T.danger,
+              foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -2067,7 +2069,7 @@ class _LoginPageState extends State<LoginPage> {
         TextButton(
           onPressed: _confirmDeleteAccount,
           style: TextButton.styleFrom(
-            foregroundColor: Colors.white38,
+            foregroundColor: T.textOff,
             padding: EdgeInsets.zero,
             minimumSize: const Size(0, 28),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -2075,10 +2077,10 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             'delete_account'.tr(),
             style: const TextStyle(
-              color: Colors.white38,
+              color: T.textOff,
               fontSize: 12,
               decoration: TextDecoration.underline,
-              decorationColor: Colors.white24,
+              decorationColor: T.border,
             ),
           ),
         ),
@@ -2117,7 +2119,7 @@ class _LoginPageState extends State<LoginPage> {
       primary = 'sync_status_never'.tr();
     } else {
       icon = Icons.cloud_done_outlined;
-      color = T.accent;
+      color = T.accentText;
       primary = 'sync_status_synced'.tr();
     }
 
@@ -2129,7 +2131,7 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.06),
+        color: T.surface,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -2153,7 +2155,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 2),
                   Text(
                     secondary,
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                    style: const TextStyle(color: T.textOff, fontSize: 12),
                   ),
                 ],
               ],
@@ -2182,11 +2184,11 @@ class _LoginPageState extends State<LoginPage> {
       builder: (ctx) => AlertDialog(
         title: Text(
           'delete_account'.tr(),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
         ),
         content: Text(
           'delete_account_confirm'.tr(),
-          style: const TextStyle(color: Colors.white70),
+          style: const TextStyle(color: T.textDim),
         ),
         actions: [
           TextButton(
@@ -2227,7 +2229,7 @@ class _LoginPageState extends State<LoginPage> {
             },
             child: Text(
               'delete_account'.tr(),
-              style: const TextStyle(color: Colors.red),
+              style: const TextStyle(color: T.danger),
             ),
           ),
         ],
@@ -2239,11 +2241,11 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.person_outline, color: Colors.white38, size: 80),
+        const Icon(Icons.person_outline, color: T.textDisabled, size: 80),
         const SizedBox(height: 24),
         Text(
           'login_subtitle'.tr(),
-          style: TextStyle(color: Colors.white70, fontSize: 16),
+          style: TextStyle(color: T.textDim, fontSize: 16),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 40),
@@ -2341,7 +2343,7 @@ class _ScorerPromoSheet extends StatelessWidget {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: Colors.blue.withValues(alpha: 0.15),
+                color: T.accentFill,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Center(child: SportGlyph(sport: sport, size: 46)),
@@ -2350,7 +2352,7 @@ class _ScorerPromoSheet extends StatelessWidget {
             Text(
               appName,
               style: const TextStyle(
-                color: Colors.white,
+                color: T.text,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -2358,7 +2360,7 @@ class _ScorerPromoSheet extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               'scorer_description'.tr(),
-              style: const TextStyle(color: Colors.white60, fontSize: 14),
+              style: const TextStyle(color: T.textOff, fontSize: 14),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
@@ -2393,8 +2395,8 @@ class _ScorerPromoSheet extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: T.buttonFill,
+                  foregroundColor: T.onAccent,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -2410,7 +2412,7 @@ class _ScorerPromoSheet extends StatelessWidget {
                 child: Text(
                   'trainer_also_try'.tr(),
                   style: const TextStyle(
-                    color: Colors.white70,
+                    color: T.textDim,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
@@ -2452,9 +2454,9 @@ class _ScorerPromoSheet extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.06),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
+          border: Border.all(color: T.border),
         ),
         child: Row(
           children: [
@@ -2462,10 +2464,10 @@ class _ScorerPromoSheet extends StatelessWidget {
               width: 38,
               height: 38,
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.08),
+                color: T.surface,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon, color: Colors.white70, size: 20),
+              child: Icon(icon, color: T.textDim, size: 20),
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -2475,19 +2477,19 @@ class _ScorerPromoSheet extends StatelessWidget {
                   Text(
                     name,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: T.text,
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     desc,
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                    style: const TextStyle(color: T.textOff, fontSize: 12),
                   ),
                 ],
               ),
             ),
-            const Icon(Icons.open_in_new, color: Colors.white38, size: 18),
+            const Icon(Icons.open_in_new, color: T.textDisabled, size: 18),
           ],
         ),
       ),
@@ -2498,17 +2500,17 @@ class _ScorerPromoSheet extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.08),
+        color: T.surfaceHi,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: Colors.white54, size: 14),
+          Icon(icon, color: T.textOff, size: 14),
           const SizedBox(width: 4),
           Text(
             label,
-            style: const TextStyle(color: Colors.white54, fontSize: 12),
+            style: const TextStyle(color: T.textOff, fontSize: 12),
           ),
         ],
       ),
@@ -2529,7 +2531,7 @@ class _ScorerPromoSheet extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('scorer_link_copied'.tr()),
-            backgroundColor: Colors.green,
+            backgroundColor: T.success,
           ),
         );
       }
@@ -2572,7 +2574,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     max: 3.0,
     divisions: 10,
     activeColor: kAccent,
-    inactiveColor: Colors.white24,
+    inactiveColor: T.border,
     onChanged: (v) => widget.state.updatePlayer(p.id, scale: v),
   );
 
@@ -2644,7 +2646,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                                   p.label,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    color: Colors.white,
+                                    color: T.text,
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -2680,7 +2682,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 // Colour + size — collapsed by default; this reveals Row 2.
                 _editAction(
                   Icons.tune,
-                  _expanded ? kAccent : Colors.white60,
+                  _expanded ? T.accentText : T.textOff,
                   () => setState(() => _expanded = !_expanded),
                 ),
               ],
@@ -2688,7 +2690,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               // Copy. The paste is in the + sheet, because that is where
               // things come onto the board from; a coach who copies here
               // and finds nothing to press next is told where to look.
-              _editAction(Icons.copy_rounded, Colors.white70, () {
+              _editAction(Icons.copy_rounded, T.textDim, () {
                 widget.state.copyPlayer(p.id);
                 final m = ScaffoldMessenger.maybeOf(context);
                 m?.hideCurrentSnackBar();
@@ -2715,7 +2717,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 },
                 child: const Icon(
                   Icons.close_rounded,
-                  color: Colors.white54,
+                  color: T.textOff,
                   size: 20,
                 ),
               ),
@@ -2731,26 +2733,26 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               children: [
                 const Icon(
                   Icons.rotate_90_degrees_ccw,
-                  color: Colors.white38,
+                  color: T.textDisabled,
                   size: 14,
                 ),
                 const SizedBox(width: 8),
                 _editAction(
                   Icons.rotate_left,
-                  Colors.white70,
+                  T.textDim,
                   () => _turn(p, -_notch(p)),
                 ),
                 const SizedBox(width: 6),
                 _editAction(
                   Icons.rotate_right,
-                  Colors.white70,
+                  T.textDim,
                   () => _turn(p, _notch(p)),
                 ),
                 const SizedBox(width: 10),
                 Text(
                   _degrees(_shown(p)),
                   style: const TextStyle(
-                    color: Colors.white54,
+                    color: T.textOff,
                     fontSize: 12,
                     fontFeatures: [FontFeature.tabularFigures()],
                   ),
@@ -2770,7 +2772,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                       child: Text(
                         'rotate_reset'.tr(),
                         style: TextStyle(
-                          color: kAccent,
+                          color: T.accentText,
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
@@ -2813,8 +2815,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                           color: c,
                           border: Border.all(
                             color: p.customColor == c
-                                ? kAccent
-                                : Colors.white24,
+                                ? T.selectedStroke
+                                : T.border,
                             width: p.customColor == c ? 2.5 : 1,
                           ),
                         ),
@@ -2824,7 +2826,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 if (!isPicture) const Spacer(),
                 const Icon(
                   Icons.photo_size_select_small,
-                  color: Colors.white38,
+                  color: T.textDisabled,
                   size: 14,
                 ),
                 // Beside six swatches the slider gets a fixed 100pt, which is
@@ -2846,7 +2848,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 children: [
                   const Icon(
                     Icons.category_outlined,
-                    color: Colors.white38,
+                    color: T.textDisabled,
                     size: 14,
                   ),
                   const SizedBox(width: 8),
@@ -2862,12 +2864,12 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                         height: 32,
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.06),
+                          color: T.surface,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: p.markerShape == shape
-                                ? kAccent
-                                : Colors.white24,
+                                ? T.selectedStroke
+                                : T.border,
                             width: p.markerShape == shape ? 2 : 1,
                           ),
                         ),
@@ -2876,7 +2878,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                           child: ColoredBox(
                             color: p.markerShape == shape
                                 ? kAccent
-                                : Colors.white70,
+                                : T.textDim,
                           ),
                         ),
                       ),
@@ -2892,7 +2894,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 children: [
                   const Icon(
                     Icons.text_fields,
-                    color: Colors.white38,
+                    color: T.textDisabled,
                     size: 14,
                   ),
                   const SizedBox(width: 8),
@@ -2987,7 +2989,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
         builder: (ctx, setDialogState) => AlertDialog(
           title: Text(
             _titleKey().tr(),
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(color: T.text),
           ),
           // Scrollable, because the dialog's own height is whatever is left of
           // a phone turned sideways — 402pt, less the title, the actions and
@@ -3027,7 +3029,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                         Text(
                           'avatar_pick_title'.tr(),
                           style: TextStyle(
-                            color: kAccent,
+                            color: T.accentText,
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                           ),
@@ -3057,7 +3059,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                                 border: Border.all(
                                   color: team == t
                                       ? PlayerIcon.teamColor(t)
-                                      : Colors.white24,
+                                      : T.border,
                                   width: team == t ? 2 : 1,
                                 ),
                               ),
@@ -3080,8 +3082,8 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                                         .tr(),
                                     style: TextStyle(
                                       color: team == t
-                                          ? Colors.white
-                                          : Colors.white60,
+                                          ? T.text
+                                          : T.textOff,
                                       fontSize: 13,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -3104,7 +3106,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                       Text(
                         'role_title'.tr(),
                         style: const TextStyle(
-                          color: Colors.white60,
+                          color: T.textOff,
                           fontSize: 13,
                         ),
                       ),
@@ -3125,17 +3127,17 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                           decoration: BoxDecoration(
                             color: role != null
                                 ? kAccent.withValues(alpha: 0.22)
-                                : Colors.white.withValues(alpha: 0.08),
+                                : T.surfaceHi,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: role != null ? kAccent : Colors.white24,
+                              color: role != null ? T.selectedStroke : T.border,
                               width: 1,
                             ),
                           ),
                           child: Text(
                             role ?? 'role_set'.tr(),
                             style: TextStyle(
-                              color: role != null ? kAccent : Colors.white70,
+                              color: role != null ? T.accentText : T.textDim,
                               fontSize: 13,
                               fontWeight: FontWeight.w700,
                             ),
@@ -3157,16 +3159,16 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                   // four as it grows. Two was a slot to type a name in.
                   minLines: isTextElement(p) ? 2 : null,
                   maxLines: isTextElement(p) ? 4 : 1,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: T.text),
                   decoration: InputDecoration(
                     counterStyle: const TextStyle(
-                      color: Colors.white38,
+                      color: T.textOff,
                       fontSize: 11,
                     ),
                     labelText: 'player_name'.tr(),
-                    labelStyle: const TextStyle(color: Colors.white60),
+                    labelStyle: const TextStyle(color: T.textOff),
                     enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white30),
+                      borderSide: BorderSide(color: T.borderStrong),
                     ),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: kAccent),
@@ -3183,14 +3185,14 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               onPressed: () => Navigator.of(ctx).pop(),
               child: Text(
                 'cancel'.tr(),
-                style: const TextStyle(color: Colors.white54),
+                style: const TextStyle(color: T.textOff),
               ),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop([text]),
               child: Text(
                 'confirm'.tr(),
-                style: TextStyle(color: kAccent),
+                style: TextStyle(color: T.accentText),
               ),
             ),
           ],
@@ -3301,7 +3303,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
     final on = p.holdsImplement ?? sport.implementHeldByDefault;
     return _editAction(
       Icons.sports_tennis,
-      on ? kAccent : Colors.white54,
+      on ? T.accentText : T.textOff,
       () => widget.state.updatePlayer(p.id, holdsImplement: !on),
     );
   }
@@ -3310,7 +3312,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
   /// is what a formation lays down and what draws the default figure.
   Widget _genderAction(PlayerIcon p, PlayerGender g, IconData icon) {
     final on = p.gender == g;
-    return _editAction(icon, on ? kAccent : Colors.white54, () {
+    return _editAction(icon, on ? T.accentText : T.textOff, () {
       widget.state.updatePlayer(
         p.id,
         gender: on ? PlayerGender.unspecified : g,
@@ -3356,21 +3358,21 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
         decoration: BoxDecoration(
           color: assigned
               ? kAccent.withValues(alpha: 0.22)
-              : Colors.white.withValues(alpha: 0.08),
+              : T.surfaceHi,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: assigned ? kAccent : Colors.white24,
+            color: assigned ? T.selectedStroke : T.border,
             width: 1,
           ),
         ),
         child: iconOnly
-            ? const Icon(Icons.place_outlined, color: Colors.white70, size: 14)
+            ? const Icon(Icons.place_outlined, color: T.textDim, size: 14)
             : Text(
                 assigned ? p.role! : 'role_set'.tr(),
                 overflow: TextOverflow.ellipsis,
                 softWrap: false,
                 style: TextStyle(
-                  color: assigned ? kAccent : Colors.white70,
+                  color: assigned ? T.accentText : T.textDim,
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                 ),
@@ -3408,7 +3410,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                 Text(
                   'role_title'.tr(),
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -3443,17 +3445,17 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
         decoration: BoxDecoration(
-          color: selected ? kAccent : Colors.white.withValues(alpha: 0.08),
+          color: selected ? T.accentFill : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? kAccent : Colors.white24,
+            color: selected ? T.selectedStroke : T.border,
             width: selected ? 2 : 1,
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : Colors.white70,
+            color: selected ? T.accentText : T.textDim,
             fontSize: 13,
             fontWeight: FontWeight.w600,
           ),
@@ -3996,7 +3998,7 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                             width: 32,
                             height: 3.5,
                             decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.28),
+                              color: T.borderStrong,
                               borderRadius: BorderRadius.circular(2),
                             ),
                           ),
@@ -4137,7 +4139,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                   child: Text(
                     'avatar_pick_title'.tr(),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: T.text,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
@@ -4145,7 +4147,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.close_rounded, color: Colors.white54),
+                  child: const Icon(Icons.close_rounded, color: T.textOff),
                 ),
               ],
             ),
@@ -4175,7 +4177,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                       child: Text(
                         'photo_no_faces'.tr(),
                         style: const TextStyle(
-                          color: Colors.white38,
+                          color: T.textOff,
                           fontSize: 13,
                         ),
                       ),
@@ -4200,8 +4202,8 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                                 ),
                                 border: Border.all(
                                   color: entry.$1.id == widget.currentPhotoId
-                                      ? kAccent
-                                      : Colors.white24,
+                                      ? T.selectedStroke
+                                      : T.border,
                                   width: entry.$1.id == widget.currentPhotoId
                                       ? 2.5
                                       : 1,
@@ -4215,26 +4217,26 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 },
               ),
             ),
-            const Divider(color: Colors.white12, height: 24),
+            const Divider(color: T.border, height: 24),
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(
                 Icons.add_a_photo_outlined,
-                color: Colors.white,
+                color: T.text,
               ),
               title: Text(
                 'avatar_upload_new'.tr(),
-                style: const TextStyle(color: Colors.white, fontSize: 15),
+                style: const TextStyle(color: T.text, fontSize: 15),
               ),
               onTap: _upload,
             ),
             if (widget.currentPhotoId != null) ...[
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                leading: Icon(Icons.crop, color: kAccent),
+                leading: Icon(Icons.crop, color: T.accentText),
                 title: Text(
                   'photo_crop_title'.tr(),
-                  style: TextStyle(color: kAccent, fontSize: 15),
+                  style: TextStyle(color: T.accentText, fontSize: 15),
                 ),
                 onTap: () => PhotoCropEditor.show(
                   context,
@@ -4245,11 +4247,11 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(
                   Icons.person_outline,
-                  color: Colors.white54,
+                  color: T.textOff,
                 ),
                 title: Text(
                   'avatar_remove'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 15),
+                  style: const TextStyle(color: T.textOff, fontSize: 15),
                 ),
                 onTap: () => Navigator.of(context).pop(''),
               ),
@@ -4294,14 +4296,14 @@ class _MoveToggle extends StatelessWidget {
             Icon(
               on ? Icons.check_rounded : Icons.directions_run,
               size: 14,
-              color: on ? Colors.white : kAccent,
+              color: on ? T.onAccent : T.accentText,
             ),
             if (!compact) ...[
               const SizedBox(width: 4),
               Text(
                 on ? 'move_done'.tr() : 'move_add'.tr(),
                 style: TextStyle(
-                  color: on ? Colors.white : kAccent,
+                  color: on ? T.onAccent : T.accentText,
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                 ),
@@ -4337,10 +4339,10 @@ class _ZoomModeButton extends StatelessWidget {
           onTap: context.read<TacticsState>().toggleZoomMode,
           child: _GlassCircle(
             size: chromeCircle(context),
-            border: on ? Border.all(color: kAccent, width: 1.5) : null,
+            border: on ? Border.all(color: T.selectedStroke, width: 1.5) : null,
             child: Icon(
               Icons.pinch,
-              color: on ? kAccent : Colors.white,
+              color: on ? T.accentText : T.text,
               size: 17 * uiScale(context),
             ),
           ),
@@ -4361,7 +4363,7 @@ class _FullscreenButton extends StatelessWidget {
           size: chromeCircle(context),
           child: Icon(
             visible ? Icons.fullscreen : Icons.fullscreen_exit,
-            color: Colors.white,
+            color: T.text,
             size: 18 * uiScale(context),
           ),
         ),
@@ -4420,7 +4422,7 @@ class _ZoomResetButtonState extends State<_ZoomResetButton> {
           size: chromeCircle(context),
           child: Icon(
             Icons.zoom_out_map,
-            color: Colors.white,
+            color: T.text,
             size: 17 * uiScale(context),
           ),
         ),
@@ -4466,12 +4468,12 @@ class _PresentationOverlay extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.close_rounded, color: T.textDim, size: 18),
+                    const Icon(Icons.close_rounded, color: Colors.white70, size: 18),
                     const SizedBox(width: 6),
                     Text(
                       'present_exit'.tr(),
                       style: const TextStyle(
-                        color: T.text,
+                        color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                       ),
@@ -4532,7 +4534,7 @@ class _BigPlayControls extends StatelessWidget {
           Text(
             '${state.atStep}/${state.maxMoveSteps}',
             style: const TextStyle(
-              color: T.text,
+              color: Colors.white,
               fontSize: 19,
               fontWeight: FontWeight.w600,
               fontFeatures: [FontFeature.tabularFigures()],
@@ -4565,7 +4567,7 @@ class _BigPlayControls extends StatelessWidget {
                 state.routesOn
                     ? Icons.timeline_rounded
                     : Icons.visibility_off_outlined,
-                color: state.routesOn ? T.accent : T.textDim,
+                color: state.routesOn ? T.accent : Colors.white70,
                 size: 25,
               ),
             ),
@@ -4593,10 +4595,10 @@ class _BigPlayControls extends StatelessWidget {
           child: Icon(
             icon,
             color: onTap == null
-                ? T.textOff
+                ? Colors.white54
                 : primary
                 ? T.onLime
-                : T.text,
+                : Colors.white,
             size: primary ? 34 : 28,
           ),
         ),
@@ -4735,7 +4737,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                     width: 38,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Colors.white24,
+                      color: T.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -4764,7 +4766,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   'pro_title'.tr(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 0.2,
@@ -4775,7 +4777,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   'pro_subtitle'.tr(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.white60,
+                    color: T.textOff,
                     fontSize: 13.5,
                     height: 1.35,
                   ),
@@ -4796,7 +4798,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                     child: Text(
                       'pro_unavailable'.tr(),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white54),
+                      style: const TextStyle(color: T.textOff),
                     ),
                   )
                 else ...[
@@ -4828,7 +4830,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       child: Text(
                         'pro_restore'.tr(),
                         style: const TextStyle(
-                          color: Colors.white70,
+                          color: T.textDim,
                           fontSize: 13,
                         ),
                       ),
@@ -4840,7 +4842,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       'pro_legal'.tr(),
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Colors.white38,
+                        color: T.textOff,
                         fontSize: 11,
                         height: 1.45,
                       ),
@@ -4853,7 +4855,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       _link('pro_terms'.tr(), _termsUrl),
                       const Text(
                         '    ·    ',
-                        style: TextStyle(color: Colors.white24, fontSize: 12),
+                        style: TextStyle(color: T.textDisabled, fontSize: 12),
                       ),
                       _link('pro_privacy'.tr(), _privacyUrl),
                     ],
@@ -4868,7 +4870,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
             child: IconButton(
               icon: const Icon(
                 Icons.close_rounded,
-                color: Colors.white54,
+                color: T.textOff,
                 size: 22,
               ),
               onPressed: () => Navigator.of(context).maybePop(),
@@ -4894,7 +4896,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
           Icon(Icons.shield_outlined, color: kAccent, size: 44),
           Padding(
             padding: const EdgeInsets.only(bottom: 4),
-            child: Icon(Icons.star_rounded, color: T.bg0, size: 20),
+            child: Icon(Icons.star_rounded, color: T.accentText, size: 20),
           ),
         ],
       ),
@@ -4907,7 +4909,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       decoration: BoxDecoration(
         color: kSurfaceHi,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: T.border),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -4927,7 +4929,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
   }
 
   Widget _benefitDivider() =>
-      Container(width: 1, height: 44, color: Colors.white10);
+      Container(width: 1, height: 44, color: T.border);
 
   Widget _benefit(IconData icon, String title, String sub) {
     return Expanded(
@@ -4943,7 +4945,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                color: Colors.white,
+                color: T.text,
                 fontSize: 12.5,
                 fontWeight: FontWeight.w600,
               ),
@@ -4955,7 +4957,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                color: Colors.white38,
+                color: T.textOff,
                 fontSize: 10.5,
                 height: 1.25,
               ),
@@ -4987,7 +4989,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               color: selected ? kAccentFill : kSurfaceHi,
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
-                color: selected ? kAccent : Colors.white12,
+                color: selected ? T.selectedStroke : T.border,
                 width: selected ? 1.6 : 1,
               ),
               boxShadow: selected
@@ -5008,12 +5010,12 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: selected ? kAccentFill : Colors.white10,
+                    color: selected ? kAccentFill : T.surface,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
                     icon,
-                    color: selected ? kAccent : Colors.white70,
+                    color: selected ? T.accentText : T.textDim,
                     size: 22,
                   ),
                 ),
@@ -5025,7 +5027,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       Text(
                         title,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: T.text,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                         ),
@@ -5036,7 +5038,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          color: Colors.white54,
+                          color: T.textOff,
                           fontSize: 12,
                         ),
                       ),
@@ -5050,7 +5052,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                     Text(
                       p.price,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: T.text,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -5060,7 +5062,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                       Text(
                         priceSub,
                         style: TextStyle(
-                          color: selected ? kAccent : Colors.white38,
+                          color: selected ? T.accentText : T.textOff,
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
                         ),
@@ -5088,7 +5090,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               child: Text(
                 badge,
                 style: TextStyle(
-                  color: T.bg0,
+                  color: T.onAccent,
                   fontSize: 10.5,
                   fontWeight: FontWeight.w800,
                 ),
@@ -5106,7 +5108,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: selected ? kAccent : Colors.white38,
+          color: selected ? T.selectedStroke : T.borderStrong,
           width: selected ? 6.5 : 1.6,
         ),
       ),
@@ -5118,7 +5120,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
     return Opacity(
       opacity: enabled ? 1 : 0.6,
       child: DecoratedBox(
-        decoration: BoxDecoration(color: T.accent, borderRadius: T.brMd),
+        decoration: BoxDecoration(color: T.buttonFill, borderRadius: T.brMd),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
@@ -5128,27 +5130,27 @@ class _PaywallSheetState extends State<_PaywallSheet> {
               height: 54,
               alignment: Alignment.center,
               child: _busy
-                  ? const SizedBox(
+                  ? SizedBox(
                       width: 22,
                       height: 22,
                       child: CircularProgressIndicator(
                         strokeWidth: 2.4,
-                        color: Colors.white,
+                        color: T.onAccent,
                       ),
                     )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.lock_open_rounded,
-                          color: Colors.white,
+                          color: T.onAccent,
                           size: 20,
                         ),
                         const SizedBox(width: 10),
                         Text(
                           'pro_cta'.tr(),
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: T.onAccent,
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
                           ),
@@ -5167,7 +5169,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       onTap: () => launchUrl(url, mode: LaunchMode.externalApplication),
       child: Text(
         label,
-        style: const TextStyle(color: Colors.white38, fontSize: 12),
+        style: const TextStyle(color: T.textOff, fontSize: 12),
       ),
     );
   }

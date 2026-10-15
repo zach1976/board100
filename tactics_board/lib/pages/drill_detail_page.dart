@@ -211,7 +211,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                           ? Icons.star_rounded
                           : Icons.star_border_rounded,
                       onTap: _toggleStar,
-                      color: _mark.starred ? T.warning : null,
+                      color: _mark.starred ? T.warningIcon : null,
                     ),
                     const SizedBox(width: T.s8),
                   ],
@@ -225,7 +225,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       ? Icons.star_rounded
                       : Icons.star_border_rounded,
                   onTap: _toggleStar,
-                  color: _mark.starred ? T.warning : null,
+                  color: _mark.starred ? T.warningIcon : null,
                 ),
               ],
             ),
@@ -412,9 +412,9 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     return Container(
       padding: const EdgeInsets.all(T.s12),
       decoration: BoxDecoration(
-        color: T.warning.withValues(alpha: 0.09),
+        color: T.warningBackground,
         borderRadius: T.brMd,
-        border: Border.all(color: T.warning.withValues(alpha: 0.22)),
+        border: Border.all(color: T.warningBorder),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,7 +422,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
           const Padding(
             padding: EdgeInsets.only(top: 2),
             child:
-                Icon(Icons.warning_amber_rounded, size: 16, color: T.warning),
+                Icon(Icons.warning_amber_rounded, size: 16, color: T.warningIcon),
           ),
           const SizedBox(width: T.s8),
           Expanded(
@@ -430,8 +430,8 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('drills_common_mistake'.tr(),
-                    style: TextStyle(
-                        color: T.warning.withValues(alpha: 0.9),
+                    style: const TextStyle(
+                        color: T.warning,
                         fontSize: 10.5,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.8)),
@@ -830,7 +830,7 @@ class _BeatRow extends StatelessWidget {
               ),
               child: Text('${index + 1}',
                   style: TextStyle(
-                      color: current ? const Color(0xFF04231F) : T.textDim,
+                      color: current ? T.onAccent : T.textDim,
                       fontSize: 11,
                       fontWeight: FontWeight.w700)),
             ),
@@ -903,7 +903,7 @@ class _MyNote extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Icon(empty ? Icons.edit_note : Icons.sticky_note_2_outlined,
-                size: 16, color: empty ? T.textOff : T.accent),
+                size: 16, color: empty ? T.textOff : T.accentText),
             const SizedBox(width: T.s8),
             Expanded(
               child: Column(
@@ -911,7 +911,7 @@ class _MyNote extends StatelessWidget {
                 children: [
                   Text('drill_note_title'.tr(),
                       style: TextStyle(
-                          color: empty ? T.textOff : T.accent,
+                          color: empty ? T.textOff : T.accentText,
                           fontSize: 10.5,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.8)),

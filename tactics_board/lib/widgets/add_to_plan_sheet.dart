@@ -158,10 +158,10 @@ class _PlanPicker extends StatelessWidget {
                 children: [
                   ListTile(
                     leading:
-                        Icon(Icons.add_circle_outline, color: T.accent),
+                        Icon(Icons.add_circle_outline, color: T.accentText),
                     title: Text('practice_new'.tr(),
                         style: TextStyle(
-                            color: T.accent, fontWeight: FontWeight.w600)),
+                            color: T.accentText, fontWeight: FontWeight.w600)),
                     onTap: () => Navigator.pop(context, newPlan),
                   ),
                   if (names.isNotEmpty) const TacticalDivider(),

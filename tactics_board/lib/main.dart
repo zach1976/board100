@@ -116,20 +116,21 @@ class TacticsBoardApp extends StatelessWidget {
           locale: context.locale,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-              seedColor: T.accent, // teal/emerald
-              brightness: Brightness.dark,
+              seedColor: T.accent,
+              brightness: Brightness.light,
+              surface: T.surface,
             ),
-            // §04: the page behind everything is the deep green-black, not
-            // an elevated surface. Screens that set their own background were
-            // hiding this; the ones that do not were a step too light.
+            // §04: the page behind everything is the warm off-white page,
+            // not a card. Screens that set their own background were hiding
+            // this; the ones that do not were a step too light.
             scaffoldBackgroundColor: T.bg0,
             appBarTheme: const AppBarTheme(
-              systemOverlayStyle: SystemUiOverlayStyle.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             sliderTheme: SliderThemeData(
               thumbColor: T.accent,
               activeTrackColor: T.accent,
-              inactiveTrackColor: T.surfaceHi,
+              inactiveTrackColor: T.border,
               overlayColor: T.accentFill,
             ),
             // One shape and one type scale for all twenty-three dialogs.
@@ -157,9 +158,11 @@ class TacticsBoardApp extends StatelessWidget {
               surfaceTintColor: Colors.transparent,
               elevation: 0,
             ),
+            // A snack bar is the one dark surface: it has to be seen over a
+            // light page and a bright court alike.
             snackBarTheme: SnackBarThemeData(
-              backgroundColor: T.surfaceHi,
-              contentTextStyle: T.body,
+              backgroundColor: T.text,
+              contentTextStyle: T.body.copyWith(color: Colors.white),
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(borderRadius: T.brMd),
               // A floating SnackBar defaults to sitting 8pt off the bottom,

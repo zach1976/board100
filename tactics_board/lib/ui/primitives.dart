@@ -204,7 +204,7 @@ class TacticalIconButton extends StatelessWidget {
     final tint = onTap == null
         ? T.textOff
         : active
-            ? T.accent
+            ? T.accentText
             : (color ?? T.textDim);
     return Semantics(
       button: true,
@@ -369,7 +369,7 @@ class TacticalChip extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (icon != null) ...[
-                  Icon(icon, size: 15, color: selected ? T.accent : T.textDim),
+                  Icon(icon, size: 15, color: selected ? T.accentText : T.textDim),
                   const SizedBox(width: 5),
                 ],
                 Text(
@@ -379,7 +379,7 @@ class TacticalChip extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.5,
                     fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-                    color: selected ? T.accent : T.textDim,
+                    color: selected ? T.accentText : T.textDim,
                   ),
                 ),
                 if (count != null) ...[
@@ -393,7 +393,7 @@ class TacticalChip extends StatelessWidget {
                       // Dimmer than the label: it is the size of the thing,
                       // not its name.
                       color: selected
-                          ? T.accent.withValues(alpha: 0.75)
+                          ? T.accentText.withValues(alpha: 0.75)
                           : T.textOff,
                     ),
                   ),
@@ -438,7 +438,7 @@ class TacticalCard extends StatelessWidget {
           decoration: selected
               ? BoxDecoration(
                   borderRadius: T.brMd,
-                  border: Border.all(color: T.accent, width: 1.5))
+                  border: Border.all(color: T.selectedStroke, width: 1.5))
               : null,
           child: child,
         ),
@@ -827,7 +827,7 @@ class SequenceView extends StatelessWidget {
       height: 40,
       padding: const EdgeInsets.symmetric(horizontal: T.s8),
       decoration: BoxDecoration(
-        color: active ? T.accent : const Color(0xFF123B3F),
+        color: active ? T.accent : T.surfaceHi,
         borderRadius: BorderRadius.circular(T.rSm + 1),
       ),
       child: Align(
@@ -893,7 +893,7 @@ class StepStrip extends StatelessWidget {
                     duration: const Duration(milliseconds: 140),
                     height: 3,
                     decoration: BoxDecoration(
-                      color: i < index ? T.accent : const Color(0x1FFFFFFF),
+                      color: i < index ? T.accent : T.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),

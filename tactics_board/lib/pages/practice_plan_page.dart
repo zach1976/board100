@@ -89,9 +89,9 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
-                  leading: Icon(Icons.add_circle_outline, color: _kAccent),
+                  leading: Icon(Icons.add_circle_outline, color: T.accentText),
                   title: Text('practice_new_blank'.tr(),
-                      style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                      style: TextStyle(color: T.accentText, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
                 if (templates.isNotEmpty) ...[
@@ -276,7 +276,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
             hintText: 'practice_import_paste'.tr(),
             hintStyle: const TextStyle(color: T.textOff),
             filled: true,
-            fillColor: Color(0x42000000),
+            fillColor: T.surfaceHi,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,
@@ -289,14 +289,14 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
               final data = await Clipboard.getData('text/plain');
               if (data?.text != null) ctrl.text = data!.text!;
             },
-            child: Text('paste'.tr(), style: TextStyle(color: _kAccent)),
+            child: Text('paste'.tr(), style: TextStyle(color: T.accentText)),
           ),
           TextButton(
               onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
             child: Text('confirm'.tr(),
-                style: TextStyle(color: _kAccent)),
+                style: TextStyle(color: T.accentText)),
           ),
         ],
       ),
@@ -585,9 +585,9 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                       style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
-                  leading: Icon(Icons.add_circle_outline, color: _kAccent),
+                  leading: Icon(Icons.add_circle_outline, color: T.accentText),
                   title: Text('plan_blank_board'.tr(),
-                      style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                      style: TextStyle(color: T.accentText, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
                 const Divider(color: T.border, height: 1),
@@ -661,13 +661,13 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               // until this row the only way to put one in was to leave the
               // editor, find it, and "Add to plan" from its page.
               ListTile(
-                leading: Icon(Icons.menu_book_outlined, color: _kAccent),
-                title: Text('plan_from_library'.tr(), style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                leading: Icon(Icons.menu_book_outlined, color: T.accentText),
+                title: Text('plan_from_library'.tr(), style: TextStyle(color: T.accentText, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, librarySentinel),
               ),
               ListTile(
-                leading: Icon(Icons.add_circle_outline, color: _kAccent),
-                title: Text('plan_new_board'.tr(), style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                leading: Icon(Icons.add_circle_outline, color: T.accentText),
+                title: Text('plan_new_board'.tr(), style: TextStyle(color: T.accentText, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, newSentinel),
               ),
               if (names.isNotEmpty) ...[
@@ -860,7 +860,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                     style: const TextStyle(color: T.textDim, fontSize: 13)),
                 const Spacer(),
                 Text('${_p.totalMinutes} ${'practice_minutes'.tr()}',
-                    style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                    style: TextStyle(color: T.accentText, fontWeight: FontWeight.bold)),
               ],
             ),
             const SizedBox(height: 8),
@@ -925,8 +925,8 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               icon: const Icon(Icons.add_rounded),
               label: Text('plan_add_drill'.tr()),
               style: ElevatedButton.styleFrom(
-                backgroundColor: _kAccent,
-                foregroundColor: Colors.black,
+                backgroundColor: T.buttonFill,
+                foregroundColor: T.onAccent,
               ),
             ),
           ];

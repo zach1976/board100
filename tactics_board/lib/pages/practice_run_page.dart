@@ -21,7 +21,6 @@ import 'home_page.dart' show TacticsBoardHomePage;
 
 Color get _kBg => T.bg1;
 Color get _kCard => T.surface;
-Color get _kAccent => T.accent;
 
 class PracticeRunPage extends StatefulWidget {
   final TacticsState state;
@@ -276,7 +275,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx),
             child: Text('confirm'.tr(),
-                style: TextStyle(color: _kAccent)),
+                style: TextStyle(color: T.accentText)),
           ),
         ],
       ),
@@ -339,7 +338,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
     final timer = Text(
                 _mmss(_secLeft),
                 style: TextStyle(
-                  color: _secLeft == 0 ? T.danger : _kAccent,
+                  color: _secLeft == 0 ? T.danger : T.accentText,
                   fontSize: 84,
                   fontWeight: FontWeight.w300,
                   fontFeatures: const [FontFeature.tabularFigures()],
@@ -389,8 +388,8 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
                       icon: const Icon(Icons.open_in_full),
                       label: Text('practice_open_board'.tr()),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _kAccent,
-                        foregroundColor: Colors.black,
+                        backgroundColor: T.buttonFill,
+                        foregroundColor: T.onAccent,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
@@ -567,8 +566,8 @@ class _RoundBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bg = primary ? _kAccent : _kCard;
-    final fg = primary ? Colors.black : T.text;
+    final bg = primary ? T.buttonFill : _kCard;
+    final fg = primary ? T.onAccent : T.text;
     return Opacity(
       opacity: enabled ? 1 : 0.35,
       child: GestureDetector(

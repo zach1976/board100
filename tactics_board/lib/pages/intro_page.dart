@@ -196,7 +196,11 @@ class _IntroPageState extends State<IntroPage> {
                           heightFactor: 1,
                           child: Text('intro_skip'.tr(),
                             style: const TextStyle(
-                                color: T.textDim,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                      color: Color(0x99000000), blurRadius: 6)
+                                ],
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600)),
                         ),
@@ -222,9 +226,11 @@ class _IntroPageState extends State<IntroPage> {
                           // for a flat surface, and over a photograph of
                           // grass the two unvisited dots disappear — leaving
                           // one dash that reads as a bug, not as "1 of 3".
-                          color: i == _at
-                              ? T.accent
-                              : const Color(0x66FFFFFF),
+                          color: artW > 0
+                              ? (i == _at ? T.accent : T.textDisabled)
+                              : (i == _at
+                                  ? Colors.white
+                                  : const Color(0x66FFFFFF)),
                           borderRadius: BorderRadius.circular(3),
                         ),
                       ),
@@ -281,6 +287,9 @@ class _PanelView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final artW = _sideArtWidth(context);
+    // Over the photograph (and its scrim) the words are white; beside it on
+    // a tablet's light page they are ink.
+    final onPhoto = artW == null;
     final words = Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -300,8 +309,10 @@ class _PanelView extends StatelessWidget {
                             : 'home_board_title'.tr(args: [sport!.displayName]),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            color: T.textOff,
+                        style: TextStyle(
+                            color: onPhoto
+                                ? const Color(0xB3FFFFFF)
+                                : T.textOff,
                             fontSize: 11.5,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 2.2),
@@ -310,17 +321,19 @@ class _PanelView extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: T.s20),
-                _StrokeTitle(raw: panel.title),
+                _StrokeTitle(raw: panel.title, onPhoto: onPhoto),
                 const SizedBox(height: T.s16),
                 Text(
                   panel.body,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: T.textDim, fontSize: 15.5, height: 1.6),
+                  style: TextStyle(
+                      color: onPhoto ? const Color(0xE6FFFFFF) : T.textDim,
+                      fontSize: 15.5,
+                      height: 1.6),
                 ),
                 if (panel.pillars.isNotEmpty) ...[
                   const SizedBox(height: T.s32),
-                  _Pillars(items: panel.pillars),
+                  _Pillars(items: panel.pillars, onPhoto: onPhoto),
                 ],
               ],
             );
@@ -487,7 +500,8 @@ class _NoArt extends StatelessWidget {
 /// still reads correctly instead of guessing.
 class _StrokeTitle extends StatelessWidget {
   final String raw;
-  const _StrokeTitle({required this.raw});
+  final bool onPhoto;
+  const _StrokeTitle({required this.raw, this.onPhoto = false});
 
   static const _style = TextStyle(
     color: T.text,
@@ -505,7 +519,11 @@ class _StrokeTitle extends StatelessWidget {
     // default face while every other line on the page uses the theme's, and
     // in a locale whose glyphs only exist in the fallback family it renders
     // as empty boxes.
-    final style = DefaultTextStyle.of(context).style.merge(_style);
+    final base = DefaultTextStyle.of(context).style.merge(_style);
+    // On the scrim the whole title is white, the marked run included: a
+    // dark brand (the hub's slate, rugby's brown) would otherwise vanish
+    // into it. The stroke beneath still carries the brand.
+    final style = onPhoto ? base.copyWith(color: Colors.white) : base;
     return LayoutBuilder(
       builder: (context, c) {
         final tp = TextPainter(
@@ -513,7 +531,8 @@ class _StrokeTitle extends StatelessWidget {
             TextSpan(text: m.text.substring(0, m.start), style: style),
             TextSpan(
                 text: m.text.substring(m.start, m.end),
-                style: style.copyWith(color: T.accent)),
+                style: style.copyWith(
+                    color: onPhoto ? Colors.white : T.accentText)),
             TextSpan(text: m.text.substring(m.end), style: style),
           ]),
           textAlign: TextAlign.center,
@@ -591,7 +610,8 @@ class _Marked {
 
 class _Pillars extends StatelessWidget {
   final List<(IconData, String)> items;
-  const _Pillars({required this.items});
+  final bool onPhoto;
+  const _Pillars({required this.items, this.onPhoto = false});
 
   @override
   Widget build(BuildContext context) {
@@ -616,8 +636,10 @@ class _Pillars extends StatelessWidget {
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      color: T.text, fontSize: 12.5, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: onPhoto ? Colors.white : T.text,
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -642,7 +664,7 @@ class _BigCta extends StatelessWidget {
     return Semantics(
       button: true,
       child: Material(
-        color: T.accent,
+        color: T.buttonFill,
         borderRadius: BorderRadius.circular(30),
         child: InkWell(
           onTap: onTap,
@@ -657,15 +679,15 @@ class _BigCta extends StatelessWidget {
                     label,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                        color: Color(0xFF04231F),
+                    style: TextStyle(
+                        color: T.onAccent,
                         fontSize: 17,
                         fontWeight: FontWeight.w700),
                   ),
                 ),
                 const SizedBox(width: T.s12),
-                const Icon(Icons.arrow_forward,
-                    size: 20, color: Color(0xFF04231F)),
+                Icon(Icons.arrow_forward,
+                    size: 20, color: T.onAccent),
               ],
             ),
           ),

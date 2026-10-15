@@ -31,7 +31,7 @@ class ElementImportFlow {
     if (!context.mounted) return;
     await showDialog<void>(
       context: context,
-      barrierColor: Colors.black87,
+      barrierColor: const Color(0x8C000000),
       builder: (_) => _ElementCropDialog(sourcePath: picked!.path),
     );
   }
@@ -98,7 +98,7 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
                   child: Text(
                     'element_crop_title'.tr(),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: T.text,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
@@ -106,14 +106,14 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.close_rounded, color: Colors.white54),
+                  child: const Icon(Icons.close_rounded, color: T.textOff),
                 ),
               ],
             ),
             const SizedBox(height: 6),
             Text(
               'photo_crop_hint'.tr(),
-              style: const TextStyle(color: Colors.white54, fontSize: 12),
+              style: const TextStyle(color: T.textOff, fontSize: 12),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
@@ -180,13 +180,13 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.06),
+                        color: T.surfaceHi,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
                         child: Text(
                           'photo_crop_reset'.tr(),
-                          style: const TextStyle(color: Colors.white70),
+                          style: const TextStyle(color: T.textDim),
                         ),
                       ),
                     ),
@@ -206,15 +206,15 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
                       ),
                       child: Center(
                         child: _saving
-                            ? const SizedBox(
+                            ? SizedBox(
                                 width: 18, height: 18,
                                 child: CircularProgressIndicator(
-                                  color: Colors.black87, strokeWidth: 2),
+                                  color: T.onAccent, strokeWidth: 2),
                               )
                             : Text(
                                 'save'.tr(),
-                                style: const TextStyle(
-                                  color: Colors.black87,
+                                style: TextStyle(
+                                  color: T.onAccent,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -252,9 +252,9 @@ class _ShapeChip extends StatelessWidget {
           shape: BoxShape.circle,
           color: selected
               ? T.accent.withValues(alpha: 0.18)
-              : Colors.white.withValues(alpha: 0.06),
+              : T.surfaceHi,
           border: Border.all(
-            color: selected ? T.accent : Colors.white24,
+            color: selected ? T.selectedStroke : T.border,
             width: 1.5,
           ),
         ),
@@ -265,7 +265,7 @@ class _ShapeChip extends StatelessWidget {
             clipper: MarkerShapeClipper(shape),
             child: Container(color: selected
                 ? T.accent
-                : Colors.white60),
+                : T.textOff),
           ),
         ),
       ),

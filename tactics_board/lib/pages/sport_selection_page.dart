@@ -392,7 +392,7 @@ class _ContinueCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text('hub_continue'.tr().toUpperCase(),
-                          style: T.label.copyWith(color: T.accent)),
+                          style: T.label.copyWith(color: T.accentText)),
                       const SizedBox(height: T.s4),
                       Row(children: [
                         SportGlyph(sport: sport, size: 20),

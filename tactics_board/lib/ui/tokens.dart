@@ -16,91 +16,109 @@ class T {
   const T._();
 
   // ── Surfaces ────────────────────────────────────────────────────────────
-  // Four steps, deepest first. Background0 is the page behind everything;
-  // Surface is a sheet; SurfaceHi is a row or card sitting on a sheet.
-  //
-  // These six are the only tokens that change per app: a single-sport build
-  // takes its chrome's hue from the sport (navy for a volleyball hall, green
-  // for a pitch) so the app and its store set are one colour family. The hub
-  // keeps the teal they all started from. [palette] is set once, in main(),
-  // before the first frame — which is why these are getters and not consts,
-  // and why nothing below may write `const Foo(color: T.bg0)`.
-  static SportPalette _p = SportPalette.teal;
+  // Light, V4.3 (2026-10-15). The ladder, lightest page first: bg0 is the
+  // warm off-white page behind everything; bg1 a bar or nav strip; surface
+  // a white card or sheet; surfaceHi a row or selected tile on a card, one
+  // step of cool tint down from white. Shared by all sixteen apps — only
+  // the accents change per sport. [palette] is set once, in main(), before
+  // the first frame, which is why the accent tokens are getters and why
+  // nothing below may write `const Foo(color: T.accent)`.
+  static SportPalette _p = SportPalette.hub;
   static SportPalette get palette => _p;
   static set palette(SportPalette p) => _p = p;
 
-  static Color get bg0 => _p.bg0;
-  static Color get bg1 => _p.bg1;
-  static Color get surface => _p.surface;
-  static Color get surfaceHi => _p.surfaceHi;
+  static const bg0 = LightTokens.appBackground;
+  static const bg1 = LightTokens.secondarySurface;
+  static const surface = LightTokens.surface;
+  static const surfaceHi = LightTokens.elevatedSurface;
 
-  /// A sheet sits a step above the page but below an elevated surface, so it
-  /// does not read as a card the page is wearing. §25.
-  static Color get sheet => _p.sheet;
+  /// A sheet is a white card rising from the page. §25.
+  static const sheet = LightTokens.surface;
 
   /// The tinted ground a coach's note sits on — barely a surface at all. §11.
-  static Color get tint => _p.tint;
+  static const tint = LightTokens.secondarySurface;
 
-  /// The one border. Low-contrast on purpose: contrast between surfaces does
-  /// most of the separating, and a line is only added where that is not
-  /// enough.
-  // Text, borders and the functional colours are the family's
-  // (tools/design/sport_palettes.py → FamilyTokens): one cool neutral scale
-  // for every app, so a warm chrome no longer wears teal-tinted greys.
-  static const border = Color(0xB333383F); // divider @ 70%
-  static const borderStrong = FamilyTokens.borderStrong; // a focused control only
+  /// The page canvas behind a scrolling list, one step warmer than [bg0].
+  static const canvas = LightTokens.pageBackground;
+
+  /// Decorative dividers and card edges: low contrast on purpose. An input
+  /// boundary or anything that must be found takes [borderStrong] (≥ 3:1).
+  static const border = LightTokens.decorativeBorder;
+  static const borderStrong = LightTokens.inputBorder;
 
   // ── Text ────────────────────────────────────────────────────────────────
-  static const text = FamilyTokens.textPrimary;
-  static const textDim = FamilyTokens.textSecondary;
-  // ≥ 3:1 on every sport's elevated surface (the script checks it).
-  static const textOff = FamilyTokens.textTertiary;
-  static const textDisabled = FamilyTokens.textDisabled;
+  static const text = LightTokens.textPrimary;
+  static const textDim = LightTokens.textSecondary;
+  static const textOff = LightTokens.textTertiary;
+  /// Disabled: never carries information a coach has to read.
+  static const textDisabled = Color(0xFF8A97A6);
+  static const disabledFill = LightTokens.disabledSurface;
 
   // ── Accent ──────────────────────────────────────────────────────────────
-  // One accent per app: the sport's primary (the hub keeps its teal). It
-  // carries every action, selection and the play button — the board used to
-  // show teal, blue, lime and a sport colour at once, and none of them led.
+  // One brand per app: the sport's primary (the hub its slate). Fills and
+  // identity use [accent]; anything a coach reads in the brand colour uses
+  // [accentText], and a selection outline [selectedStroke] — both derived
+  // to read on every light ground (V4.3 audit).
 
-  /// The primary interactive colour. Selection, primary actions, focus.
+  /// The brand colour: filled surfaces, identity, large graphics.
   static Color get accent => _p.accent;
 
-  /// Pressed / currently-running. One step brighter, never a glow.
-  static Color get accentActive =>
-      Color.lerp(_p.accent, const Color(0xFFFFFFFF), 0.12)!;
+  /// Brand-coloured text: links, selected nav labels, active chips.
+  static Color get accentText => _p.accentText;
 
-  /// Foreground on a filled accent: dark ink on a light accent, white on a
-  /// deep one — whichever the script measured at ≥ 4.5:1.
+  /// A selected card, tab or tool's outline.
+  static Color get selectedStroke => _p.selectedStroke;
+
+  /// Pressed / currently-running. One step darker, never a glow.
+  static Color get accentActive =>
+      Color.lerp(_p.accent, const Color(0xFF000000), 0.10)!;
+
+  /// The filled button: the brand, or a sibling of it tuned so its label
+  /// reads at 5:1.
+  static Color get buttonFill => _p.buttonFill;
+
+  /// Foreground on [buttonFill] / [accent]: dark ink or white, whichever
+  /// the audit measured.
   static Color get onAccent => _p.onAccent;
 
-  /// Accent as a tinted fill behind an active control. Used instead of a
-  /// solid accent block, which reads as a button even when it is a state.
-  static Color get accentFill => _p.accent.withValues(alpha: 0.12);
+  /// The brand as a soft tinted ground behind a selected row or a branded
+  /// panel; [accentText] reads on it.
+  static Color get accentFill => _p.soft;
   static Color get accentFillHi => _p.accent.withValues(alpha: 0.20);
 
-  /// The sport's secondary accent: small supporting details only.
+  /// The sport's secondary accent: decorative only. Text in it takes
+  /// [accent2Text], a thin stroke [accent2Stroke].
   static Color get accent2 => _p.secondary;
+  static Color get accent2Text => _p.secondaryText;
+  static Color get accent2Stroke => _p.secondaryStroke;
 
-  /// The tool a coach is currently IN — Move, Draw, Select. A light neutral
-  /// pill, not a second hue: a mode is a state, and the accent is kept for
-  /// the one action beside it (play).
-  static const toolOn = Color(0xFF4A525C);
+  /// The tool a coach is currently IN — Move, Draw, Select. A dark neutral
+  /// pill: a mode is a state, and the brand is kept for actions.
+  static const toolOn = LightTokens.textSecondary;
   static const onToolOn = Color(0xFFFFFFFF);
 
-  /// Playback: play, and the running animation. The app's accent.
-  static Color get lime => _p.accent;
+  /// Playback: play, and the running animation. The app's button fill.
+  static Color get lime => _p.buttonFill;
   static Color get onLime => _p.onAccent;
-  static Color get limeFill => _p.accent.withValues(alpha: 0.14);
+  static Color get limeFill => _p.soft;
 
   // ── Semantic ────────────────────────────────────────────────────────────
+  // The state of the app, the same in every sport. Never a brand colour.
   // Team colours belong to the board, not the chrome: unchanged.
   static const home = Color(0xFF4D8FE8);
   static const away = Color(0xFFE86452);
-  static const success = FamilyTokens.success;
-  static const warning = FamilyTokens.warning;
-  static const danger = FamilyTokens.error;
-  static const info = FamilyTokens.info;
-  static const focus = FamilyTokens.focus;
+  static const success = LightTokens.success;
+  static const danger = LightTokens.error;
+  static const info = LightTokens.information;
+  static const focus = LightTokens.focus;
+
+  /// Warning is four tokens: the amber icon always sits beside
+  /// [warningText] (the only one that is read), on [warningBackground]
+  /// inside [warningBorder].
+  static const warning = LightTokens.warningText;
+  static const warningIcon = LightTokens.warningIcon;
+  static const warningBackground = LightTokens.warningBackground;
+  static const warningBorder = LightTokens.warningBorder;
 
   /// Movement on the board, by what the movement IS — not by whose turn it
   /// is to be colourful. §09.
@@ -185,10 +203,10 @@ class T {
   /// One shadow for floating chrome, one for a sheet. Not a shadow on
   /// everything: most separation comes from the surface step.
   static const List<BoxShadow> shadowFloat = [
-    BoxShadow(color: Color(0x59000000), blurRadius: 18, offset: Offset(0, 6)),
+    BoxShadow(color: Color(0x1F16212E), blurRadius: 18, offset: Offset(0, 6)),
   ];
   static const List<BoxShadow> shadowSheet = [
-    BoxShadow(color: Color(0x73000000), blurRadius: 32, offset: Offset(0, -8)),
+    BoxShadow(color: Color(0x2616212E), blurRadius: 32, offset: Offset(0, -8)),
   ];
 
   // ── Type ────────────────────────────────────────────────────────────────
@@ -244,79 +262,42 @@ class T {
       fontSize: 12, fontWeight: FontWeight.w600, color: textDim, letterSpacing: 0.6);
 }
 
-/// The six chrome surfaces of one app, deepest first.
-///
-/// Every sport's set is the teal reference with its hue replaced — the same
-/// six lightness and saturation steps, so the surface ladder (page, sheet,
-/// card) separates identically in every app and only the colour family moves.
+/// One app's colours as the tokens read them (V4.3).
 class SportPalette {
   const SportPalette({
-    required this.bg0,
-    required this.bg1,
-    required this.surface,
-    required this.surfaceHi,
-    required this.sheet,
-    required this.tint,
-    this.accent = const Color(0xFF20C7C3),
-    this.onAccent = const Color(0xFF062526),
-    this.secondary = const Color(0xFF8FA3B5),
+    required this.accent,
+    required this.onAccent,
+    required this.buttonFill,
+    required this.accentText,
+    required this.selectedStroke,
+    required this.secondary,
+    required this.secondaryText,
+    required this.secondaryStroke,
+    required this.soft,
   });
 
-  final Color bg0;
-  final Color bg1;
-  final Color surface;
-  final Color surfaceHi;
-  final Color sheet;
-  final Color tint;
   final Color accent;
   final Color onAccent;
+  final Color buttonFill;
+  final Color accentText;
+  final Color selectedStroke;
   final Color secondary;
+  final Color secondaryText;
+  final Color secondaryStroke;
+  final Color soft;
 
-  /// The hub: the family's slate surfaces at the family hue itself, with
-  /// the teal it has always worn as its accent.
-  static const teal = SportPalette(
-    bg0: Color(0xFF0D1116),
-    bg1: Color(0xFF12161C),
-    surface: Color(0xFF171C22),
-    surfaceHi: Color(0xFF252B32),
-    sheet: Color(0xFF171C22),
-    tint: Color(0xFF12161C),
-  );
-
-  /// A sport's palette from the family system (sport_palettes.g.dart).
-  /// Background, surface, elevated → bg0, surface, surfaceHi; the steps in
-  /// between are mixes, so the four-step ladder the screens were built on
-  /// keeps its order.
-  factory SportPalette.fromColors(SportColors c) => SportPalette(
-        bg0: c.background,
-        bg1: Color.lerp(c.background, c.surface, 0.5)!,
-        surface: c.surface,
-        surfaceHi: c.elevatedSurface,
-        sheet: c.surface,
-        tint: Color.lerp(c.background, c.surface, 0.5)!,
+  factory SportPalette.fromColors(SportColorPalette c) => SportPalette(
         accent: c.primaryAccent,
-        onAccent: c.onPrimaryAccent,
+        onAccent: c.primaryButtonForeground,
+        buttonFill: c.primaryButtonFill,
+        accentText: c.accentText,
+        selectedStroke: c.selectedStroke,
         secondary: c.secondaryAccent,
+        secondaryText: c.secondaryAccentText,
+        secondaryStroke: c.secondaryAccentStroke,
+        soft: c.accentSoftBackground,
       );
 
-  /// The teal ladder re-hued. [hue] is in degrees; [saturation] scales the
-  /// reference's own, so a sand-coloured chrome can sit a little quieter than
-  /// a blue one without a second ladder.
-  factory SportPalette.hue(double hue, {double saturation = 1.0}) {
-    Color re(Color c) {
-      final h = HSLColor.fromColor(c);
-      return h
-          .withHue(hue % 360)
-          .withSaturation((h.saturation * saturation).clamp(0.0, 1.0))
-          .toColor();
-    }
-    return SportPalette(
-      bg0: re(teal.bg0),
-      bg1: re(teal.bg1),
-      surface: re(teal.surface),
-      surfaceHi: re(teal.surfaceHi),
-      sheet: re(teal.sheet),
-      tint: re(teal.tint),
-    );
-  }
+  /// The hub's own brand (the `null` row of the table).
+  static final hub = SportPalette.fromColors(kSportColors[null]!);
 }
