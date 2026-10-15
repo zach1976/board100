@@ -1,0 +1,374 @@
+{
+  "version": "4.3-candidate",
+  "shared": {
+    "pageBackground": "#F3F0E8",
+    "appBackground": "#F6F4EE",
+    "surface": "#FFFFFF",
+    "elevatedSurface": "#EEF3F8",
+    "secondarySurface": "#F7F9FC",
+    "textPrimary": "#16212E",
+    "textSecondary": "#394657",
+    "textTertiary": "#586577",
+    "decorativeBorder": "#D8E0E8",
+    "inputBorder": "#728091",
+    "disabledSurface": "#C8D0D9"
+  },
+  "semantic": {
+    "success": "#004E18",
+    "warning": "#543F03",
+    "error": "#BB234A",
+    "information": "#132C84",
+    "focus": "#4B1758"
+  },
+  "warning": {
+    "warningIcon": "#E1A50C",
+    "warningText": "#543F03",
+    "warningBackground": "#FFF2D6",
+    "warningBorder": "#B87808"
+  },
+  "apps": [
+    {
+      "id": "volleyball",
+      "zh": "排球",
+      "en": "Volleyball",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#1942C7",
+      "secondaryAccent": "#7DB7FF",
+      "primaryButtonFill": "#1942C7",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#1942C7",
+      "selectedStroke": "#1942C7",
+      "secondaryAccentText": "#3067A9",
+      "secondaryAccentStroke": "#4981C6",
+      "accentSoftBackground": "#E3E8F8"
+    },
+    {
+      "id": "soccer",
+      "zh": "足球",
+      "en": "Soccer",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#478B01",
+      "secondaryAccent": "#8BCF67",
+      "primaryButtonFill": "#3F7D00",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#397201",
+      "selectedStroke": "#478B01",
+      "secondaryAccentText": "#377400",
+      "secondaryAccentStroke": "#4D8E23",
+      "accentSoftBackground": "#E9F1E1"
+    },
+    {
+      "id": "basketball",
+      "zh": "篮球",
+      "en": "Basketball",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#F37436",
+      "secondaryAccent": "#FFB566",
+      "primaryButtonFill": "#F37436",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#AF4500",
+      "selectedStroke": "#D55910",
+      "secondaryAccentText": "#935800",
+      "secondaryAccentStroke": "#B46F12",
+      "accentSoftBackground": "#FEEEE7"
+    },
+    {
+      "id": "fieldHockey",
+      "zh": "曲棍球",
+      "en": "Field Hockey",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#076CA5",
+      "secondaryAccent": "#E3C86C",
+      "primaryButtonFill": "#076CA5",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#0468A0",
+      "selectedStroke": "#076CA5",
+      "secondaryAccentText": "#7A6401",
+      "secondaryAccentStroke": "#977D15",
+      "accentSoftBackground": "#E1EDF4"
+    },
+    {
+      "id": "tennis",
+      "zh": "网球",
+      "en": "Tennis",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#C7D93B",
+      "secondaryAccent": "#6E95DD",
+      "primaryButtonFill": "#C7D93B",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#626C04",
+      "selectedStroke": "#7A8602",
+      "secondaryAccentText": "#4165A9",
+      "secondaryAccentStroke": "#597FC5",
+      "accentSoftBackground": "#F8FAE7"
+    },
+    {
+      "id": "rugby",
+      "zh": "橄榄球",
+      "en": "Rugby",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#81543E",
+      "secondaryAccent": "#6FA570",
+      "primaryButtonFill": "#81543E",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#81543E",
+      "selectedStroke": "#81543E",
+      "secondaryAccentText": "#3E7240",
+      "secondaryAccentStroke": "#568B58",
+      "accentSoftBackground": "#F0EAE8"
+    },
+    {
+      "id": "badminton",
+      "zh": "羽毛球",
+      "en": "Badminton",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#046E5C",
+      "secondaryAccent": "#D8B688",
+      "primaryButtonFill": "#046E5C",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#046E5C",
+      "selectedStroke": "#046E5C",
+      "secondaryAccentText": "#7F6135",
+      "secondaryAccentStroke": "#9A7A4E",
+      "accentSoftBackground": "#E1EEEB"
+    },
+    {
+      "id": "tableTennis",
+      "zh": "乒乓球",
+      "en": "Table Tennis",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#604595",
+      "secondaryAccent": "#E15C56",
+      "primaryButtonFill": "#604595",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#604595",
+      "selectedStroke": "#604595",
+      "secondaryAccentText": "#B93735",
+      "secondaryAccentStroke": "#D7534E",
+      "accentSoftBackground": "#ECE9F2"
+    },
+    {
+      "id": "pickleball",
+      "zh": "匹克球",
+      "en": "Pickleball",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#1F9E84",
+      "secondaryAccent": "#D7C96E",
+      "primaryButtonFill": "#23A288",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#02745F",
+      "selectedStroke": "#0A8E76",
+      "secondaryAccentText": "#746702",
+      "secondaryAccentStroke": "#8E801E",
+      "accentSoftBackground": "#E4F3F0"
+    },
+    {
+      "id": "baseball",
+      "zh": "棒球",
+      "en": "Baseball",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#7B2B54",
+      "secondaryAccent": "#C98E57",
+      "primaryButtonFill": "#7B2B54",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#7B2B54",
+      "selectedStroke": "#7B2B54",
+      "secondaryAccentText": "#905920",
+      "secondaryAccentStroke": "#AB723B",
+      "accentSoftBackground": "#EFE6EA"
+    },
+    {
+      "id": "handball",
+      "zh": "手球",
+      "en": "Handball",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#8081C8",
+      "secondaryAccent": "#E59B55",
+      "primaryButtonFill": "#8889D0",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#605FA3",
+      "selectedStroke": "#7778BE",
+      "secondaryAccentText": "#975603",
+      "secondaryAccentStroke": "#B56F24",
+      "accentSoftBackground": "#F0F0F8"
+    },
+    {
+      "id": "waterPolo",
+      "zh": "水球",
+      "en": "Water Polo",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#04A7D8",
+      "secondaryAccent": "#5E8FC8",
+      "primaryButtonFill": "#04A7D8",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#026F91",
+      "selectedStroke": "#0289B1",
+      "secondaryAccentText": "#39689E",
+      "secondaryAccentStroke": "#5282BA",
+      "accentSoftBackground": "#E1F4FA"
+    },
+    {
+      "id": "sepakTakraw",
+      "zh": "藤球",
+      "en": "Sepak Takraw",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#A38B23",
+      "secondaryAccent": "#67A56C",
+      "primaryButtonFill": "#A78F27",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#796503",
+      "selectedStroke": "#957D09",
+      "secondaryAccentText": "#36733D",
+      "secondaryAccentStroke": "#4F8C54",
+      "accentSoftBackground": "#F4F1E5"
+    },
+    {
+      "id": "beachTennis",
+      "zh": "沙滩网球",
+      "en": "Beach Tennis",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#E1C79B",
+      "secondaryAccent": "#CFA087",
+      "primaryButtonFill": "#E1C79B",
+      "primaryButtonForeground": "#16212E",
+      "accentText": "#7B633A",
+      "selectedStroke": "#947C52",
+      "secondaryAccentText": "#875C45",
+      "secondaryAccentStroke": "#A2755D",
+      "accentSoftBackground": "#FBF8F3"
+    },
+    {
+      "id": "footvolley",
+      "zh": "足排球",
+      "en": "Footvolley",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#BF5914",
+      "secondaryAccent": "#39B9C8",
+      "primaryButtonFill": "#B65102",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#A64902",
+      "selectedStroke": "#BF5914",
+      "secondaryAccentText": "#01717C",
+      "secondaryAccentStroke": "#048C99",
+      "accentSoftBackground": "#F7EBE3"
+    },
+    {
+      "id": "hub",
+      "zh": "战术板合集",
+      "en": "Sports Tactics Hub",
+      "background": "#F6F4EE",
+      "surface": "#FFFFFF",
+      "elevatedSurface": "#EEF3F8",
+      "primaryAccent": "#29495C",
+      "secondaryAccent": "#B49A6A",
+      "primaryButtonFill": "#29495C",
+      "primaryButtonForeground": "#FFFFFF",
+      "accentText": "#29495C",
+      "selectedStroke": "#29495C",
+      "secondaryAccentText": "#7B6334",
+      "secondaryAccentStroke": "#957C4D",
+      "accentSoftBackground": "#E5E9EB"
+    }
+  ],
+  "changed": {
+    "volleyball": [
+      "#2C50CC",
+      "#1942C7"
+    ],
+    "soccer": [
+      "#268435",
+      "#478B01"
+    ],
+    "basketball": [
+      "#DB631E",
+      "#F37436"
+    ],
+    "rugby": [
+      "#B27F6F",
+      "#81543E"
+    ],
+    "badminton": [
+      "#087D77",
+      "#046E5C"
+    ],
+    "baseball": [
+      "#883C66",
+      "#7B2B54"
+    ],
+    "waterPolo": [
+      "#218EB6",
+      "#04A7D8"
+    ],
+    "footvolley": [
+      "#AA5026",
+      "#BF5914"
+    ],
+    "hub": [
+      "#365058",
+      "#29495C"
+    ],
+    "success": [
+      "#10663A",
+      "#004E18"
+    ],
+    "information": [
+      "#0D4A8E",
+      "#132C84"
+    ],
+    "focus": [
+      "#4D295C",
+      "#4B1758"
+    ],
+    "warningIcon": [
+      "#D99816",
+      "#E1A50C"
+    ],
+    "warningText": [
+      "#795000",
+      "#543F03"
+    ]
+  },
+  "summary": {
+    "apps": 16,
+    "changedTokens": 14,
+    "unchangedTokens": 8,
+    "brandMin": 0.1203,
+    "brandMedian": 0.2494,
+    "brandBelow012": 0,
+    "brand012to014": 16,
+    "semanticBelow012": 0,
+    "hubVsFocus": 0.1416,
+    "wcagFailures": 0,
+    "borderline": 1
+  }
+}
