@@ -1,7 +1,12 @@
-2.0.0
+Novedades de la versión 2.2.0
 
-• Biblioteca de 36 ejercicios animados: ábrelo, dale al play o llévalo a la pizarra y edítalo
-• Planes de entrenamiento para la banda, y plantilla con fotos y asistencia
-• Pizarra redibujada: tarjeta redondeada, sombras de contacto, superficies con textura, redes con malla
-• Controles rehechos; en tablet horizontal la pista ocupa todo el ancho
-• El balón va delante de quien lo lleva y las rutas pasan bajo las figuras
+• Día de partido: periodos, once inicial, reloj, cambios; tarjetas verde, amarilla y roja con suspensión; shoot-out; PDF (el reloj requiere Pro)
+• Libro de jugadas desde el día de partido
+• Sesiones listas: seis planes
+• Pista de sala y de Hockey5s junto a la de exterior
+• 65 ejercicios, antes 36
+• Notas en la pizarra que cambian con cada paso
+• Fondos azul hockey
+• Diseño para tablet, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos

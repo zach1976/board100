@@ -1,0 +1,9 @@
+Có gì mới trong 2.3.0
+
+• Ngày thi đấu: hiệp, đội hình, đồng hồ, thay người, thẻ và đá luân lưu; số phút xuất ra PDF (đồng hồ cần Pro)
+• Sổ chiến thuật, lật xem từ ngày thi đấu
+• Buổi tập có sẵn: sáu giáo án ghép từ 137 bài tập
+• Ghi chú trên bảng, đổi theo mỗi bước
+• Giao diện máy tính bảng với thanh bên, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Sửa lỗi nhỏ và dịch thêm nhiều nhãn

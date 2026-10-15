@@ -1,7 +1,11 @@
-2.0.0
+What's new in 2.1.0
 
-• A library of 674 animated drills — open one, press play, or put it on the board and edit it like your own
-• Practice plans you can run from the touchline, and a squad with photos and attendance
-• The board redrawn: a rounded card, contact shadows, textured surfaces, mesh nets
-• Rebuilt controls; on a tablet in landscape the court takes the full width
-• The ball sits in front of the player holding it, and routes run under the figures
+• 854 animated drills with coaching notes
+• Practice plans, six ready sessions, your squad
+• Match day: line-up, clock, substitutions, cards; PDF export (clock needs Pro)
+• Playbook from match day
+• Volleyball rotations and rule sets, indoor hockey, Hockey5s, NBA/NCAA/high-school courts
+• Notes on the board; the board redrawn
+• Tablet layout, keyboard and stylus
+• German and Dutch: 14 languages
+• Web links, video export, smaller fixes

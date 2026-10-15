@@ -1,28 +1,55 @@
-Otak kedua pelatih — 7 olahraga, 1 papan.
+Papan klip-mu, ditingkatkan jadi otak pelatih seutuhnya.
 
-Papan Taktik — 7 olahraga dalam satu aplikasi. Kanvas profesional untuk pelatih, pemain, dan analis.
+Papan Taktik memberi pelatih, pemain, dan analis satu kanvas profesional untuk menggambar skema, menata formasi, dan menganimasikan pergerakan — lima belas cabang olahraga dalam satu aplikasi, masing-masing di lapangannya sendiri.
 
 GAMBAR · MAINKAN · BAGIKAN
 
-- Seret pemain ke lapangan akurat berwarna
+- Seret pemain ke lapangan akurat berwarna untuk salah satu dari lima belas cabang olahraga
 - Panah, garis, zona — warna dan gaya bebas atur
 - Ketuk Play, pemain bergerak per langkah
-- Simpan taktik tanpa batas, ekspor ke gambar HD atau PDF
+- Tulis catatan di tiap langkah — catatan berganti saat skema berjalan
+- Simpan taktik tanpa batas; ekspor ke PNG, PDF, atau video
+
+854 LATIHAN, SUDAH DITULIS
+
+Setiap latihan adalah papan yang dijalankan per ketukan: apa yang dilatih, cara menatanya, dan satu kalimat yang perlu diteriakkan. Rondo dan bola mati untuk sepak bola, pick-and-roll dan shell defense untuk basket, terima servis di keenam rotasi untuk voli, penalty corner untuk hoki, serangan balik untuk bola tangan, lineout dan scrum untuk rugby, pertahanan bunt dan cut-off untuk bisbol, 6 lawan 5 untuk polo air, pola ganda untuk tenis, bulu tangkis, pickleball, dan tenis pantai, serangan bola ketiga untuk tenis meja, permainan regu untuk sepak takraw, umpan-smash untuk footvolley. Cari dan saring menurut kategori, level, dan jumlah pemain.
+
+- Enam sesi siap pakai yang disusun dari latihan di pustaka — pilih satu saat membuat rencana latihan, lalu ubah sesukamu
+- Rangkai latihan dan papanmu sendiri menjadi rencana sesi, jalankan dari pinggir lapangan, dan simpan riwayat setiap sesi
+- Simpan skuad beserta fotonya dan centang siapa yang datang
+- Bagikan papan sebagai tautan — pemain membukanya di peramban, tanpa aplikasi
+
+LIMA BELAS CABANG, SATU APLIKASI
+
+Sepak bola · Basket (lapangan FIBA, NBA, NCAA, dan SMA) · Voli (indoor dan pantai) · Hoki (outdoor, indoor, dan Hockey5s) · Bola tangan · Rugby · Bisbol · Polo air · Tenis · Bulu tangkis · Tenis meja · Pickleball · Sepak takraw · Tenis pantai · Footvolley
+Setiap cabang membawa lapangan, penanda, formasi, dan pustaka latihannya sendiri. Ganti cabang dari layar beranda.
 
 FORMASI SIAP PAKAI
 
-Sepak bola (5v5 / 7v7 / 11v11) · Basket (3v3 / 5v5) · Voli (6v6) · Tenis · Bulu tangkis · Tenis meja · Pickleball
-Formasi tunggal & ganda tersedia.
+4-4-2 · 4-3-3 · Horns · 5-Out · 5-1 · 6-2 · Pertahanan 6-0 dan 5-1 · Lineout · Formasi I · Stacking · Tunggal dan ganda untuk setiap olahraga raket
+Satu ketuk muat, atur sendiri dari sana.
+
+HARI PERTANDINGAN
+
+Untuk olahraga tim — sepak bola, basket, voli (per set), hoki, bola tangan, polo air, dan rugby — atur babak dan starting line-up, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Bangku cadangan diurutkan menurut menit bermain dan "Saran" meratakan waktu bermain; kartu dan hukuman untuk olahraga yang memilikinya. Setelah pertandingan, menit dan pergantian setiap pemain diekspor sebagai PDF. Persiapannya gratis; jam memerlukan Pro.
 
 DIBUAT UNTUK PINGGIR LAPANGAN
 
 - Bekerja offline — tidak ada Wi-Fi di lapangan? Tidak masalah.
+- Tata letak tablet dengan bilah samping, pintasan keyboard, dan dukungan stilus — stilus untuk menggambar, jari untuk menggeser pemain; tegak atau mendatar
+- Masuk opsional dengan Google untuk menyinkronkan papan, rencana, dan riwayat sesi antarperangkat
 - Tema gelap — nyaman untuk latihan malam
 - Undo/redo hingga 50 langkah — coba sepuasnya
-- Hubungkan ke layar eksternal atau TV untuk tampilan layar besar
-- Gratis, tanpa pembelian dalam aplikasi
+- Siap layar besar — cerminkan ke TV, ruang ganti jadi ruang strategi
 
-11 BAHASA
-Bahasa Indonesia · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Melayu
+GRATIS DAN PRO
+
+Gratis diunduh, tanpa akun. Pro menghapus iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime) atau langganan tahunan.
+
+14 BAHASA
+Bahasa Indonesia · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Melayu · Deutsch · Nederlands
+Setiap nama latihan dan catatan pelatih juga sudah diterjemahkan.
 
 Dari liga RT sampai timnas — kalau bisa kau latih, bisa kau gambar.
+
+Kebijakan Privasi: https://tacticsboard.100for1.com/privacy

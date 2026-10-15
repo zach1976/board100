@@ -1,0 +1,11 @@
+What's new in 2.1.0
+
+• Match day: periods, line-up, clock, substitutions; minutes export as PDF (clock needs Pro)
+• Playbook, flipped through from match day
+• NBA, NCAA and high-school courts beside FIBA
+• 99 drills, up from 58: set plays, Spain pick-and-roll, presses, zones, transition
+• Ready sessions: six practice plans
+• Notes on the board, changing with each step
+• Tablet layout with side bar, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes

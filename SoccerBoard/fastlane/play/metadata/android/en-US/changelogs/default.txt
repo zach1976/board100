@@ -1,7 +1,9 @@
-2.2.0
+What's new in 2.3.0
 
-• A library of 137 animated drills — open one, press play, or put it on the board and edit it like your own
-• Practice plans you can run from the touchline, and a squad with photos and attendance
-• The board redrawn: a rounded card, contact shadows, textured surfaces, mesh nets
-• Rebuilt controls; on a tablet in landscape the court takes the full width
-• The ball sits in front of the player holding it, and routes run under the figures
+• Match day: periods, line-up, clock, substitutions, cards and shoot-out; minutes export as PDF (clock needs Pro)
+• Playbook, flipped through from match day
+• Ready sessions: six practice plans built from the 137 drills
+• Notes on the board, changing with each step
+• Tablet layout with side bar, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes and more translated labels

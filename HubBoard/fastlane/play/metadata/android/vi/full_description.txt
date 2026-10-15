@@ -1,28 +1,55 @@
-Bộ não thứ hai của HLV — 7 môn, 1 bảng vẽ.
+Tấm bảng kẹp của bạn, nâng cấp thành cả bộ não huấn luyện.
 
-Bảng Chiến Thuật — 7 môn trong 1 app. Khung vẽ chuyên nghiệp cho HLV, cầu thủ và nhà phân tích.
+Bảng Chiến Thuật cho huấn luyện viên, cầu thủ và nhà phân tích một khung vẽ chuyên nghiệp để vẽ pha bóng, xếp đội hình và làm chuyển động — mười lăm môn trong một ứng dụng, mỗi môn trên sân riêng của nó.
 
 VẼ. PHÁT. CHIA SẺ.
 
-- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu
+- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu, chọn trong mười lăm môn
 - Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý
 - Chạm Play, cầu thủ tự di chuyển từng bước
-- Lưu không giới hạn, xuất ảnh HD hoặc PDF
+- Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
+- Lưu không giới hạn, xuất PNG, PDF hoặc video
+
+854 BÀI TẬP, ĐÃ VIẾT SẴN
+
+Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Rondo và tình huống cố định cho bóng đá, pick-and-roll và phòng ngự shell cho bóng rổ, đỡ bước một ở cả sáu vòng xoay cho bóng chuyền, phạt góc ngắn cho khúc côn cầu, phản công nhanh cho bóng ném, line-out và scrum cho rugby, phòng thủ bunt và cut-off cho bóng chày, 6 đánh 5 cho bóng nước, bài đánh đôi cho tennis, cầu lông, pickleball và tennis bãi biển, tấn công quả thứ ba cho bóng bàn, lối chơi regu cho cầu mây, chuyền hai và đập cho footvolley. Tìm và lọc theo nhóm, trình độ và số người.
+
+- Sáu buổi tập có sẵn, ghép từ các bài trong thư viện — chọn một buổi khi tạo giáo án rồi chỉnh tiếp
+- Nối bài tập và bảng của riêng bạn thành giáo án, chạy cả buổi ngay bên sân và lưu lịch sử từng buổi
+- Lưu đội hình kèm ảnh và đánh dấu ai có mặt
+- Chia sẻ bảng bằng đường link — cầu thủ mở bằng trình duyệt, không cần cài app
+
+MƯỜI LĂM MÔN, MỘT ỨNG DỤNG
+
+Bóng đá · Bóng rổ (sân FIBA, NBA, NCAA và trung học) · Bóng chuyền (trong nhà và bãi biển) · Khúc côn cầu (ngoài trời, trong nhà và Hockey5s) · Bóng ném · Rugby · Bóng chày · Bóng nước · Tennis · Cầu lông · Bóng bàn · Pickleball · Cầu mây · Tennis bãi biển · Footvolley
+Mỗi môn có sân, dụng cụ, đội hình và thư viện bài tập riêng. Đổi môn ngay từ màn hình chính.
 
 ĐỘI HÌNH, SẴN SÀNG
 
-Bóng đá (5v5 / 7v7 / 11v11) · Bóng rổ (3v3 / 5v5) · Bóng chuyền (6v6) · Quần vợt · Cầu lông · Bóng bàn · Pickleball
-Đội hình đơn và đôi tích hợp.
+4-4-2 · 4-3-3 · Horns · 5-Out · 5-1 · 6-2 · Phòng ngự 6-0 và 5-1 · Line-out · Đội hình chữ I · Stacking · Đơn và đôi cho mọi môn vợt
+Một chạm để tải, chỉnh tiếp từ đó.
+
+NGÀY THI ĐẤU
+
+Với các môn đồng đội — bóng đá, bóng rổ, bóng chuyền (theo set), khúc côn cầu, bóng ném, bóng nước và rugby — đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, "Gợi ý" cân bằng thời gian thi đấu; thẻ và phạt ở môn nào có. Sau trận, số phút và thay người của từng cầu thủ xuất ra PDF. Thiết lập miễn phí; đồng hồ cần Pro.
 
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
 - Hoạt động offline — sân không Wi-Fi? Không sao.
+- Máy tính bảng có thanh bên, phím tắt bàn phím và hỗ trợ bút cảm ứng — bút để vẽ, ngón tay để kéo cầu thủ; dọc hay ngang đều được
+- Đăng nhập bằng Google (tùy chọn) để đồng bộ bảng, giáo án và lịch sử buổi tập giữa các thiết bị
 - Giao diện tối — dịu mắt khi tập tối
 - Hoàn tác/làm lại 50 bước — thử thoải mái
-- Kết nối màn hình ngoài hoặc TV để xem trên màn hình lớn
-- Miễn phí, không mua trong app
+- Sẵn sàng cho màn hình lớn — chiếu lên TV, phòng thay đồ thành phòng tác chiến
 
-11 NGÔN NGỮ
-Tiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
+MIỄN PHÍ VÀ PRO
+
+Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập — mua một lần (Lifetime) hoặc thuê bao theo năm.
+
+14 NGÔN NGỮ
+Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Mọi tên bài tập và lời giảng cũng được dịch.
 
 Từ giải làng đến đội tuyển — dạy được là vẽ được.
+
+Chính sách bảo mật: https://tacticsboard.100for1.com/privacy

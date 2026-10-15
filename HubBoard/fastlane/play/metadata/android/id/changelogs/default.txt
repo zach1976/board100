@@ -1,7 +1,11 @@
-2.0.0
+Yang Baru di 2.1.0
 
-• Pustaka 674 latihan beranimasi — buka lalu putar, atau taruh di papan dan sunting
-• Rencana latihan untuk dijalankan dari pinggir lapangan, skuad dengan foto dan kehadiran
-• Papan digambar ulang: kartu membulat, bayangan kontak, tekstur lapangan, jaring beranyam
-• Kontrol dibangun ulang; di tablet lanskap lapangan memakai lebar penuh
-• Bola berada di depan pemain yang memegangnya, rute digambar di bawah figur
+• 854 latihan animasi dengan catatan pelatih
+• Rencana latihan, enam sesi siap pakai, skuad Anda
+• Hari pertandingan: line-up, jam, pergantian, kartu; ekspor PDF (jam memerlukan Pro)
+• Buku taktik dari hari pertandingan
+• Rotasi dan set aturan voli, hoki indoor, Hockey5s, lapangan NBA/NCAA/SMA
+• Catatan di papan; papan digambar ulang
+• Tata letak tablet, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Tautan web, ekspor video, perbaikan kecil

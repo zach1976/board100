@@ -1,0 +1,11 @@
+Có gì mới trong 2.1.0
+
+• 854 bài tập hoạt hình kèm lời giảng
+• Giáo án, sáu buổi tập có sẵn, đội hình của bạn
+• Ngày thi đấu: đội hình, đồng hồ, thay người, thẻ; xuất PDF (đồng hồ cần Pro)
+• Sổ chiến thuật từ ngày thi đấu
+• Vòng xoay và bộ luật bóng chuyền, khúc côn cầu trong nhà, Hockey5s, sân NBA/NCAA/trung học
+• Ghi chú trên bảng; bảng được vẽ lại
+• Giao diện máy tính bảng, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Liên kết web, xuất video, sửa lỗi nhỏ

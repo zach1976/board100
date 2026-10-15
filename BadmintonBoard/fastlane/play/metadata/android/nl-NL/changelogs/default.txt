@@ -1,0 +1,8 @@
+Nieuw in 2.1.0
+
+• Kant-en-klare trainingen: zes plannen uit de 42 oefeningen
+• Notities op het bord, die met elke stap veranderen
+• Een groen veld met witte netband, zoals het officiële palet het wil
+• Tabletweergave met zijbalk, toetsenbord en stylus
+• Duits en Nederlands: 14 talen
+• Kleine verbeteringen en meer vertaalde labels

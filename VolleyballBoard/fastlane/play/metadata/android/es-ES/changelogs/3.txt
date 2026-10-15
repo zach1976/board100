@@ -1,0 +1,11 @@
+Novedades de la versión 2.1.0
+
+• Las seis rotaciones en saque o recepción, con control de solapamiento y corrección de un toque
+• Reglamentos FIVB, USAV, NFHS o NCAA, con sus límites de cambios
+• Hoja de alineación en PDF; la zona legal al arrastrar
+• Día de partido: hoja de cambios por set (requiere Pro)
+• Libro de jugadas; pista de playa para parejas
+• 154 ejercicios, antes 44; seis sesiones listas
+• Diseño para tablet, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos

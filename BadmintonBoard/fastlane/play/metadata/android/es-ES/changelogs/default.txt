@@ -1,7 +1,8 @@
-2.0.0
+Novedades de la versión 2.1.0
 
-• Biblioteca de 42 ejercicios animados: ábrelo, dale al play o llévalo a la pizarra y edítalo
-• Planes de entrenamiento para la banda, y plantilla con fotos y asistencia
-• Pizarra redibujada: tarjeta redondeada, sombras de contacto, superficies con textura, redes con malla
-• Controles rehechos; en tablet horizontal la pista ocupa todo el ancho
-• El balón va delante de quien lo lleva y las rutas pasan bajo las figuras
+• Sesiones listas: seis planes montados con los 42 ejercicios
+• Notas en la pizarra que cambian con cada paso
+• Pista verde con banda blanca en la red, como marca la paleta oficial
+• Diseño para tablet con barra lateral, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos y más etiquetas traducidas

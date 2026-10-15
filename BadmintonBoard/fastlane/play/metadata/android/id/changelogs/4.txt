@@ -1,0 +1,8 @@
+Yang Baru di 2.1.0
+
+• Sesi siap pakai: enam rencana dari 42 latihan
+• Catatan di papan yang berganti di setiap langkah
+• Lapangan hijau dengan pita net putih, sesuai palet resmi
+• Tata letak tablet dengan bilah samping, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil dan lebih banyak label diterjemahkan

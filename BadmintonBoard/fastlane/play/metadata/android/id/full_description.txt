@@ -1,28 +1,46 @@
-Geser dulu, lalu smash menang.
+Gerakkan mereka. Lalu menangkan smash.
 
-Papan Taktik Bulu Tangkis — Rancang taktik tunggal, ganda, dan ganda campuran — depan-belakang, samping-samping, rotasi.
+Papan Taktik Bulu Tangkis membantu pemain dan pelatih merancang skema tunggal, ganda, dan campuran — depan-belakang, berdampingan, dan rotasi di antaranya — di lapangan hijau berskala akurat.
 
 GAMBAR · MAINKAN · BAGIKAN
 
-- Seret pemain ke lapangan akurat berwarna
+- Seret pemain ke lapangan bulu tangkis hijau yang akurat dan berwarna
 - Panah, garis, zona — warna dan gaya bebas atur
 - Ketuk Play, pemain bergerak per langkah
-- Simpan taktik tanpa batas, ekspor ke gambar HD atau PDF
+- Tulis catatan di tiap langkah — catatan berganti saat skema berjalan
+- Simpan taktik tanpa batas; ekspor ke PNG, PDF, atau video
+
+42 LATIHAN, SUDAH DITULIS
+
+Setiap latihan adalah papan yang dijalankan per ketukan: apa yang dilatih, cara menatanya, dan satu kalimat yang perlu diteriakkan. Footwork ke empat sudut, servis dan pengembalian, servis flick dan tipuan setelahnya, permainan net, drive dan drop, smash dan bertahan dengan multi-shuttle, rotasi ganda setelah lob, permainan bersyarat, fisik. Cari dan saring menurut kategori, level, dan jumlah pemain.
+
+- Enam sesi siap pakai yang disusun dari latihan di pustaka — pilih satu saat membuat rencana latihan, lalu ubah sesukamu
+- Rangkai latihan dan papanmu sendiri menjadi rencana sesi, jalankan dari pinggir lapangan, dan simpan riwayat setiap sesi
+- Simpan skuad beserta fotonya dan centang siapa yang datang
+- Bagikan papan sebagai tautan — pemain membukanya di peramban, tanpa aplikasi
 
 FORMASI SIAP PAKAI
 
-Tunggal · Ganda depan-belakang · Sisi-sisi · Latihan rotasi · Ganda campuran
-Satu ketuk muat, edit bebas.
+Tunggal garis belakang · Ganda depan-belakang · Berdampingan · Latihan rotasi · Ganda campuran
+Satu ketuk muat, ubah bebas.
 
 DIBUAT UNTUK PINGGIR LAPANGAN
 
 - Bekerja offline — tidak ada Wi-Fi di lapangan? Tidak masalah.
+- Tata letak tablet dengan bilah samping, pintasan keyboard, dan dukungan stilus — stilus untuk menggambar, jari untuk menggeser pemain; tegak atau mendatar
+- Masuk opsional dengan Google untuk menyinkronkan papan, rencana, dan riwayat sesi antarperangkat
 - Tema gelap — nyaman untuk latihan malam
 - Undo/redo hingga 50 langkah — coba sepuasnya
-- Hubungkan ke layar eksternal atau TV untuk tampilan layar besar
-- Gratis, tanpa akun
+- Siap layar besar — cerminkan ke TV, ruang ganti jadi ruang strategi
 
-11 BAHASA
-Bahasa Indonesia · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Melayu
+GRATIS DAN PRO
+
+Gratis diunduh, tanpa akun. Pro menghapus iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime), milikmu selamanya.
+
+14 BAHASA
+Bahasa Indonesia · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Melayu · Deutsch · Nederlands
+Setiap nama latihan dan catatan pelatih juga sudah diterjemahkan.
 
 Dari liga RT sampai timnas — kalau bisa kau latih, bisa kau gambar.
+
+Kebijakan Privasi: https://tacticsboard.100for1.com/privacy

@@ -1,0 +1,9 @@
+Nouveautés de la version 2.3.0
+
+• Jour de match : périodes, composition, chrono, remplacements, cartons et tirs au but ; minutes en PDF (le chrono demande Pro)
+• Cahier de jeu, feuilleté le jour du match
+• Séances prêtes : six plans composés des 137 exercices
+• Notes sur le tableau, qui changent à chaque étape
+• Mise en page tablette avec barre latérale, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections et davantage de libellés traduits

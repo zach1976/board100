@@ -1,0 +1,9 @@
+What's new in 2.3.0
+
+• Match day: periods, line-up, clock, substitutions, cards and shoot-out; minutes export as PDF (clock needs Pro)
+• Playbook, flipped through from match day
+• Ready sessions: six practice plans built from the 137 drills
+• Notes on the board, changing with each step
+• Tablet layout with side bar, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes and more translated labels

@@ -1,7 +1,9 @@
-2.2.0
+Apa Yang Baharu dalam 2.3.0
 
-• Pustaka 137 latihan beranimasi — buka dan mainkan, atau letak pada papan dan sunting
-• Pelan latihan untuk dijalankan dari tepi padang, skuad dengan foto dan kehadiran
-• Papan dilukis semula: kad bucu bulat, bayang sentuhan, tekstur gelanggang, jaring berjalin
-• Kawalan dibina semula; pada tablet landskap gelanggang mengambil lebar penuh
-• Bola di hadapan pemain yang memegangnya, laluan dilukis di bawah figura
+• Hari perlawanan: tempoh, susunan, jam, penggantian, kad dan penentuan penalti; minit dieksport sebagai PDF (jam memerlukan Pro)
+• Buku taktik, diselak dari hari perlawanan
+• Sesi sedia ada: enam pelan daripada 137 latihan
+• Nota pada papan yang bertukar pada setiap langkah
+• Susun atur tablet dengan bar sisi, papan kekunci dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Pembaikan kecil dan lebih banyak label diterjemahkan

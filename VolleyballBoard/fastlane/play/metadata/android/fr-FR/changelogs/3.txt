@@ -1,0 +1,11 @@
+Nouveautés de la version 2.1.0
+
+• Les six rotations, service ou réception, avec contrôle de chevauchement et correction d'une touche
+• Règlements FIVB, USAV, NFHS, NCAA et leurs limites de remplacements
+• Feuille de position en PDF ; zone autorisée au déplacement
+• Jour de match : feuille de remplacements par set (Pro)
+• Cahier de jeu ; terrain de plage
+• 154 exercices au lieu de 44 ; six séances prêtes
+• Tablette, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections

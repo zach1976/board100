@@ -1,0 +1,9 @@
+Yang Baru di 2.3.0
+
+• Hari pertandingan: babak, susunan pemain, jam, pergantian, kartu, dan adu penalti; menit diekspor ke PDF (jam memerlukan Pro)
+• Buku taktik, dibuka dari hari pertandingan
+• Sesi siap pakai: enam rencana dari 137 latihan
+• Catatan di papan yang berganti di setiap langkah
+• Tata letak tablet dengan bilah samping, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil dan lebih banyak label diterjemahkan

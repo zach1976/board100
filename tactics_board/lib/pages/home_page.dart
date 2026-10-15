@@ -2248,15 +2248,19 @@ class _LoginPageState extends State<LoginPage> {
         if (_loading)
           const CircularProgressIndicator()
         else ...[
-          // Apple Sign In
-          _signInButton(
-            icon: Icons.apple,
-            label: 'login_apple'.tr(),
-            color: Colors.white,
-            bgColor: Colors.black,
-            onTap: _loginWithApple,
-          ),
-          const SizedBox(height: 14),
+          // Apple Sign In — Apple platforms only: on Android the plugin
+          // needs a web redirect this app has not set up, so the button
+          // could only fail.
+          if (Platform.isIOS || Platform.isMacOS) ...[
+            _signInButton(
+              icon: Icons.apple,
+              label: 'login_apple'.tr(),
+              color: Colors.white,
+              bgColor: Colors.black,
+              onTap: _loginWithApple,
+            ),
+            const SizedBox(height: 14),
+          ],
           // Google Sign In
           _signInButton(
             icon: Icons.g_mobiledata,

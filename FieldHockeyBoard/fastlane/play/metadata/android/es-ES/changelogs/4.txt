@@ -1,0 +1,12 @@
+Novedades de la versión 2.2.0
+
+• Día de partido: periodos, once inicial, reloj, cambios; tarjetas verde, amarilla y roja con suspensión; shoot-out; PDF (el reloj requiere Pro)
+• Libro de jugadas desde el día de partido
+• Sesiones listas: seis planes
+• Pista de sala y de Hockey5s junto a la de exterior
+• 65 ejercicios, antes 36
+• Notas en la pizarra que cambian con cada paso
+• Fondos azul hockey
+• Diseño para tablet, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos

@@ -7,7 +7,16 @@ DIBUJA. JUEGA. COMPARTE.
 - Arrastra jugadores a un terreno en color a escala
 - Flechas, líneas, zonas — colores y estilos a tu gusto
 - Toca Play y los jugadores se mueven paso a paso
-- Guarda jugadas sin límite, exporta en imagen HD o PDF
+- Escribe una nota en cada paso: cambia mientras corre la jugada
+- Guarda jugadas sin límite; exporta en PNG, PDF o vídeo
+
+65 EJERCICIOS, YA ESCRITOS
+
+Cada ejercicio es una pizarra que recorres paso a paso: qué entrena, cómo montarlo y la frase que hay que decir mientras corre. Salida de bola, entradas al área, tiro y desvíos, presión, córner corto en ataque y defensa, portería, juegos reducidos, físico.
+
+- Encadena ejercicios y tus propias pizarras en un plan, llévalo desde la banda y guarda el historial de cada sesión
+- Guarda tu plantilla con fotos y marca quién vino
+- Comparte una pizarra como enlace: tus jugadores la abren en el navegador, sin instalar nada
 
 FORMACIONES, LISTAS
 
@@ -17,12 +26,16 @@ Un toque para cargar, afina.
 HECHO PARA EL BANQUILLO
 
 - Funciona sin conexión — ¿no hay Wi-Fi en la cancha? Sin problema.
+- Diseño para tablet y compatible con lápiz: el lápiz dibuja y el dedo mueve jugadores; en vertical u horizontal
+- Inicio de sesión opcional con Google: sincroniza pizarras, planes e historial entre dispositivos
 - Tema oscuro — descansa la vista en entrenamiento nocturno
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
-- Conecta a una pantalla externa o TV para verlo en grande
-- Gratis, sin cuenta
+- Listo para pantalla grande — duplica en una TV y el vestuario se vuelve sala de guerra
+- Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios.
 
-11 IDIOMAS
-Español · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+14 IDIOMAS
+Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
 
 De la liga del domingo a la selección — si lo entrenas, lo dibujas.
+
+Política de privacidad: https://tacticsboard.100for1.com/privacy

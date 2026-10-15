@@ -1,7 +1,11 @@
-2.0.0
+What's new in 2.1.0
 
-• A library of 44 animated drills — open one, press play, or put it on the board and edit it like your own
-• Practice plans you can run from the touchline, and a squad with photos and attendance
-• The board redrawn: a rounded card, contact shadows, textured surfaces, mesh nets
-• Rebuilt controls; on a tablet in landscape the court takes the full width
-• The ball sits in front of the player holding it, and routes run under the figures
+• All six rotations in serve or receive, with an overlap check and a one-tap fix
+• Rule sets: FIVB, USAV, NFHS or NCAA, with their substitution limits
+• Lineup sheet as a PDF; the legal area shown while you drag
+• Match day: a substitution sheet counted by set (needs Pro)
+• Playbook from match day; a beach court for pairs
+• 154 drills, up from 44; six ready sessions
+• Tablet layout with side bar, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes

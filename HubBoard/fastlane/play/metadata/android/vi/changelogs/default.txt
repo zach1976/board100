@@ -1,7 +1,11 @@
-2.0.0
+Có gì mới trong 2.1.0
 
-• Thư viện 674 bài tập động — mở ra bấm phát, hoặc đưa lên bảng và sửa như của bạn
-• Kế hoạch buổi tập chạy ngay bên đường biên, đội hình có ảnh và điểm danh
-• Bảng được vẽ lại: thẻ bo góc, bóng tiếp đất, mặt sân có kết cấu, lưới có mắt
-• Điều khiển làm lại; trên máy tính bảng nằm ngang, sân chiếm trọn chiều rộng
-• Bóng nằm trước cầu thủ đang giữ, đường di chuyển vẽ dưới nhân vật
+• 854 bài tập hoạt hình kèm lời giảng
+• Giáo án, sáu buổi tập có sẵn, đội hình của bạn
+• Ngày thi đấu: đội hình, đồng hồ, thay người, thẻ; xuất PDF (đồng hồ cần Pro)
+• Sổ chiến thuật từ ngày thi đấu
+• Vòng xoay và bộ luật bóng chuyền, khúc côn cầu trong nhà, Hockey5s, sân NBA/NCAA/trung học
+• Ghi chú trên bảng; bảng được vẽ lại
+• Giao diện máy tính bảng, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Liên kết web, xuất video, sửa lỗi nhỏ

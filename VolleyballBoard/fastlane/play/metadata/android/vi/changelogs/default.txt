@@ -1,7 +1,11 @@
-2.0.0
+Có gì mới trong 2.1.0
 
-• Thư viện 44 bài tập động — mở ra bấm phát, hoặc đưa lên bảng và sửa như của bạn
-• Kế hoạch buổi tập chạy ngay bên đường biên, đội hình có ảnh và điểm danh
-• Bảng được vẽ lại: thẻ bo góc, bóng tiếp đất, mặt sân có kết cấu, lưới có mắt
-• Điều khiển làm lại; trên máy tính bảng nằm ngang, sân chiếm trọn chiều rộng
-• Bóng nằm trước cầu thủ đang giữ, đường di chuyển vẽ dưới nhân vật
+• Đủ sáu vòng xoay khi phát hoặc đỡ bước một, có kiểm tra chồng vị trí và sửa bằng một chạm
+• Bộ luật FIVB, USAV, NFHS hoặc NCAA, kèm giới hạn thay người
+• Phiếu đội hình dạng PDF; vùng hợp lệ hiện khi kéo
+• Ngày thi đấu: phiếu thay người theo set (cần Pro)
+• Sổ chiến thuật; sân bãi biển cho đội đôi
+• 154 bài tập, tăng từ 44; sáu buổi tập có sẵn
+• Giao diện máy tính bảng, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Sửa lỗi nhỏ

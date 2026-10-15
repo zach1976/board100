@@ -1,7 +1,11 @@
-2.0.0
+Apa Yang Baharu dalam 2.1.0
 
-• Pustaka 58 latihan beranimasi — buka dan mainkan, atau letak pada papan dan sunting
-• Pelan latihan untuk dijalankan dari tepi padang, skuad dengan foto dan kehadiran
-• Papan dilukis semula: kad bucu bulat, bayang sentuhan, tekstur gelanggang, jaring berjalin
-• Kawalan dibina semula; pada tablet landskap gelanggang mengambil lebar penuh
-• Bola di hadapan pemain yang memegangnya, laluan dilukis di bawah figura
+• Hari perlawanan: tempoh, susunan, jam, penggantian; minit sebagai PDF (jam memerlukan Pro)
+• Buku taktik dari hari perlawanan
+• Gelanggang NBA, NCAA dan sekolah tinggi di sebelah FIBA
+• 99 latihan, daripada 58: set play, Spain pick-and-roll, tekanan, zon, peralihan
+• Sesi sedia ada: enam pelan latihan
+• Nota pada papan yang bertukar pada setiap langkah
+• Susun atur tablet, papan kekunci dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Pembaikan kecil

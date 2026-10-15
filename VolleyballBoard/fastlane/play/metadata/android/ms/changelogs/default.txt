@@ -1,7 +1,11 @@
-2.0.0
+Apa Yang Baharu dalam 2.1.0
 
-• Pustaka 44 latihan beranimasi — buka dan mainkan, atau letak pada papan dan sunting
-• Pelan latihan untuk dijalankan dari tepi padang, skuad dengan foto dan kehadiran
-• Papan dilukis semula: kad bucu bulat, bayang sentuhan, tekstur gelanggang, jaring berjalin
-• Kawalan dibina semula; pada tablet landskap gelanggang mengambil lebar penuh
-• Bola di hadapan pemain yang memegangnya, laluan dilukis di bawah figura
+• Enam putaran semasa servis atau menerima, semakan pertindihan dan pembetulan satu ketikan
+• Set peraturan FIVB, USAV, NFHS atau NCAA dengan had penggantian
+• Helaian susunan sebagai PDF; kawasan sah semasa menyeret
+• Hari perlawanan: helaian penggantian setiap set (perlu Pro)
+• Buku taktik; gelanggang pantai
+• 154 latihan, daripada 44; enam sesi sedia ada
+• Susun atur tablet, papan kekunci dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Pembaikan kecil

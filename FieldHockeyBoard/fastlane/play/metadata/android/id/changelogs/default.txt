@@ -1,7 +1,12 @@
-2.0.0
+Yang Baru di 2.2.0
 
-• Pustaka 36 latihan beranimasi — buka lalu putar, atau taruh di papan dan sunting
-• Rencana latihan untuk dijalankan dari pinggir lapangan, skuad dengan foto dan kehadiran
-• Papan digambar ulang: kartu membulat, bayangan kontak, tekstur lapangan, jaring beranyam
-• Kontrol dibangun ulang; di tablet lanskap lapangan memakai lebar penuh
-• Bola berada di depan pemain yang memegangnya, rute digambar di bawah figur
+• Hari pertandingan: babak, line-up, jam, pergantian; kartu hijau, kuning, dan merah dengan hukuman berwaktu; shoot-out; ekspor PDF (jam memerlukan Pro)
+• Buku taktik dari hari pertandingan
+• Sesi siap pakai: enam rencana latihan
+• Lapangan indoor dan Hockey5s di samping lapangan luar
+• 65 latihan, dari 36
+• Catatan di papan yang berganti di setiap langkah
+• Latar biru hoki
+• Tata letak tablet, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil

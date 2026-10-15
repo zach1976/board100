@@ -1,7 +1,12 @@
-2.0.0
+Có gì mới trong 2.2.0
 
-• Thư viện 36 bài tập động — mở ra bấm phát, hoặc đưa lên bảng và sửa như của bạn
-• Kế hoạch buổi tập chạy ngay bên đường biên, đội hình có ảnh và điểm danh
-• Bảng được vẽ lại: thẻ bo góc, bóng tiếp đất, mặt sân có kết cấu, lưới có mắt
-• Điều khiển làm lại; trên máy tính bảng nằm ngang, sân chiếm trọn chiều rộng
-• Bóng nằm trước cầu thủ đang giữ, đường di chuyển vẽ dưới nhân vật
+• Ngày thi đấu: hiệp, đội hình, đồng hồ, thay người; thẻ xanh, vàng, đỏ với thời gian phạt; shoot-out; xuất PDF (đồng hồ cần Pro)
+• Sổ chiến thuật, lật xem từ ngày thi đấu
+• Buổi tập có sẵn: sáu giáo án
+• Sân trong nhà và Hockey5s bên cạnh sân ngoài trời
+• 65 bài tập, tăng từ 36
+• Ghi chú trên bảng, đổi theo từng bước
+• Nền xanh khúc côn cầu
+• Giao diện máy tính bảng với thanh bên, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Sửa lỗi nhỏ

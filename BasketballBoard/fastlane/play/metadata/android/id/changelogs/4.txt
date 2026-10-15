@@ -1,0 +1,11 @@
+Yang Baru di 2.1.0
+
+• Hari pertandingan: babak, susunan pemain, jam, pergantian; menit diekspor ke PDF (jam memerlukan Pro)
+• Buku taktik, dibuka dari hari pertandingan
+• Lapangan NBA, NCAA, dan SMA di samping FIBA
+• 99 latihan, dari 58: set play, Spain pick-and-roll, press, zona, transisi
+• Sesi siap pakai: enam rencana latihan
+• Catatan di papan yang berganti di setiap langkah
+• Tata letak tablet dengan bilah samping, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil

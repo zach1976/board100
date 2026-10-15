@@ -1,0 +1,11 @@
+Nieuw in 2.1.0
+
+• Alle zes rotaties bij opslag of pass, met overlapcontrole en correctie in één tik
+• Regelsets FIVB, USAV, NFHS of NCAA, met hun wissellimieten
+• Opstellingsformulier als pdf; toegestaan gebied tijdens het slepen
+• Wedstrijddag: wisselformulier per set (vereist Pro)
+• Playbook op de wedstrijddag; strandveld voor duo's
+• 154 oefeningen, was 44; zes kant-en-klare trainingen
+• Tabletweergave, toetsenbord en stylus
+• Duits en Nederlands: 14 talen
+• Kleine verbeteringen

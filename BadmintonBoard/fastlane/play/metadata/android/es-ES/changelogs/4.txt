@@ -1,0 +1,8 @@
+Novedades de la versión 2.1.0
+
+• Sesiones listas: seis planes montados con los 42 ejercicios
+• Notas en la pizarra que cambian con cada paso
+• Pista verde con banda blanca en la red, como marca la paleta oficial
+• Diseño para tablet con barra lateral, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos y más etiquetas traducidas

@@ -1,28 +1,55 @@
-Otak kedua jurulatih — 7 sukan, 1 papan.
+Papan klip anda, dinaik taraf menjadi otak jurulatih sepenuhnya.
 
-Papan Taktik — 7 sukan dalam satu aplikasi. Kanvas profesional untuk jurulatih, pemain dan penganalisis.
+Papan Taktik memberi jurulatih, pemain dan penganalisis satu kanvas profesional untuk melukis gerakan, menyusun formasi dan menganimasikan pergerakan — lima belas sukan dalam satu aplikasi, setiap satu di gelanggangnya sendiri.
 
 LUKIS · MAIN · KONGSI
 
-- Seret pemain ke padang berwarna mengikut skala
+- Seret pemain ke gelanggang berwarna mengikut skala bagi mana-mana daripada lima belas sukan
 - Anak panah, garisan, zon — warna dan gaya bebas
 - Ketik Play, pemain bergerak langkah demi langkah
-- Simpan taktik tanpa had, eksport ke gambar HD atau PDF
+- Tulis nota pada setiap langkah — nota bertukar semasa gerakan dimainkan
+- Simpan taktik tanpa had; eksport ke PNG, PDF atau video
+
+854 LATIHAN, SUDAH DITULIS
+
+Setiap latihan ialah papan yang dijalankan rentak demi rentak: apa yang dilatih, cara menyusunnya, dan satu ayat yang perlu dilaungkan. Rondo dan bola mati untuk bola sepak, pick-and-roll dan shell defense untuk bola keranjang, terima servis dalam keenam-enam rotasi untuk bola tampar, sudut penalti untuk hoki, serangan balas untuk bola baling, lineout dan scrum untuk ragbi, pertahanan bunt dan cut-off untuk besbol, 6 lawan 5 untuk polo air, corak beregu untuk tenis, badminton, pickleball dan tenis pantai, serangan bola ketiga untuk ping pong, permainan regu untuk sepak takraw, umpan dan rejam untuk footvolley. Cari dan tapis mengikut kategori, tahap dan bilangan pemain.
+
+- Enam sesi sedia ada yang dibina daripada latihan dalam pustaka — pilih satu semasa membuat pelan latihan dan ubah dari situ
+- Rangkaikan latihan dan papan anda sendiri menjadi pelan, jalankan sesi dari tepi padang, dan simpan sejarah setiap sesi
+- Simpan skuad bersama fotonya dan tandakan siapa yang hadir
+- Kongsi papan sebagai pautan — pemain membukanya dalam pelayar, tanpa aplikasi
+
+LIMA BELAS SUKAN, SATU APLIKASI
+
+Bola sepak · Bola keranjang (gelanggang FIBA, NBA, NCAA dan sekolah) · Bola tampar (dalaman dan pantai) · Hoki (luar, dalam dewan dan Hockey5s) · Bola baling · Ragbi · Besbol · Polo air · Tenis · Badminton · Ping pong · Pickleball · Sepak takraw · Tenis pantai · Footvolley
+Setiap sukan membawa gelanggang, penanda, formasi dan pustaka latihannya sendiri. Tukar sukan dari skrin utama.
 
 FORMASI SEDIA GUNA
 
-Bola sepak (5v5 / 7v7 / 11v11) · Bola keranjang (3v3 / 5v5) · Bola tampar (6v6) · Tenis · Badminton · Ping pong · Pickleball
-Formasi tunggal & beregu tersedia.
+4-4-2 · 4-3-3 · Horns · 5-Out · 5-1 · 6-2 · Pertahanan 6-0 dan 5-1 · Lineout · Formasi I · Stacking · Perseorangan dan beregu untuk setiap sukan raket
+Satu sentuh muat, ubah dari situ.
+
+HARI PERLAWANAN
+
+Untuk sukan berpasukan — bola sepak, bola keranjang, bola tampar (mengikut set), hoki, bola baling, polo air dan ragbi — tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain dan "Cadangan" menyamakan masa bermain; kad dan penggantungan bagi sukan yang ada. Selepas perlawanan, minit dan penggantian setiap pemain dieksport sebagai PDF. Persediaan adalah percuma; jam memerlukan Pro.
 
 DIBINA UNTUK TEPI PADANG
 
 - Berfungsi luar talian — padang tiada Wi-Fi? Tiada masalah.
+- Susun atur tablet dengan bar sisi, pintasan papan kekunci dan sokongan stilus — stilus melukis, jari menggerakkan pemain; menegak atau melintang
+- Log masuk pilihan dengan Google menyegerakkan papan, pelan dan sejarah sesi antara peranti
 - Tema gelap — selesa untuk latihan malam
 - Buat asal/buat semula 50 langkah — cuba dengan yakin
-- Sambung ke paparan luaran atau TV untuk paparan skrin besar
-- Percuma, tiada pembelian dalam aplikasi
+- Sedia untuk skrin besar — cerminkan ke TV, bilik persalinan jadi bilik strategi
 
-11 BAHASA
-Bahasa Melayu · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia
+PERCUMA DAN PRO
+
+Percuma dimuat turun, tanpa akaun. Pro membuang iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime) atau langganan tahunan.
+
+14 BAHASA
+Bahasa Melayu · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Deutsch · Nederlands
+Setiap nama latihan dan nota jurulatih turut diterjemahkan.
 
 Dari liga kampung ke pasukan kebangsaan — jika boleh dilatih, boleh dilukis.
+
+Dasar Privasi: https://tacticsboard.100for1.com/privacy

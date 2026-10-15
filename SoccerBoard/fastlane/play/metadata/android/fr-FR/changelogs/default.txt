@@ -1,7 +1,9 @@
-2.2.0
+Nouveautés de la version 2.3.0
 
-• Une bibliothèque de 137 exercices animés : ouvrez, lancez, ou posez-le sur le tableau pour le modifier
-• Des plans d'entraînement à dérouler depuis la touche, un effectif avec photos et présences
-• Tableau redessiné : carte arrondie, ombres de contact, surfaces texturées, filets maillés
-• Commandes refaites ; sur tablette en paysage, le terrain prend toute la largeur
-• Le ballon est devant son porteur, les tracés passent sous les joueurs
+• Jour de match : périodes, composition, chrono, remplacements, cartons et tirs au but ; minutes en PDF (le chrono demande Pro)
+• Cahier de jeu, feuilleté le jour du match
+• Séances prêtes : six plans composés des 137 exercices
+• Notes sur le tableau, qui changent à chaque étape
+• Mise en page tablette avec barre latérale, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections et davantage de libellés traduits

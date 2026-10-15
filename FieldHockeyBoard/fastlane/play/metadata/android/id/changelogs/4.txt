@@ -1,0 +1,12 @@
+Yang Baru di 2.2.0
+
+• Hari pertandingan: babak, line-up, jam, pergantian; kartu hijau, kuning, dan merah dengan hukuman berwaktu; shoot-out; ekspor PDF (jam memerlukan Pro)
+• Buku taktik dari hari pertandingan
+• Sesi siap pakai: enam rencana latihan
+• Lapangan indoor dan Hockey5s di samping lapangan luar
+• 65 latihan, dari 36
+• Catatan di papan yang berganti di setiap langkah
+• Latar biru hoki
+• Tata letak tablet, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil

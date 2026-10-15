@@ -1,0 +1,11 @@
+Neu in 2.1.0
+
+• 854 animierte Übungen mit Trainerhinweisen
+• Trainingspläne, sechs fertige Einheiten, dein Kader
+• Spieltag: Aufstellung, Uhr, Wechsel, Karten; PDF-Export (Uhr braucht Pro)
+• Spielbuch am Spieltag
+• Volleyball-Rotationen und Regelwerke, Hallenhockey, Hockey5s, NBA-/NCAA-/Highschool-Felder
+• Notizen auf dem Board; das Board neu gezeichnet
+• Tablet-Layout, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Weblinks, Videoexport, kleinere Korrekturen

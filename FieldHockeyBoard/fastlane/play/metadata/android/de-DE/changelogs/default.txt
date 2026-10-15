@@ -1,0 +1,12 @@
+Neu in 2.2.0
+
+• Spieltag: Abschnitte, Aufstellung, Uhr, Wechsel; grüne, gelbe und rote Karten mit Zeitstrafen; Shoot-out; PDF-Export (Uhr braucht Pro)
+• Spielbuch, am Spieltag durchblättern
+• Fertige Einheiten: sechs Trainingspläne
+• Halle und Hockey5s neben dem Feld
+• 65 Übungen statt 36
+• Notizen auf dem Board, die mit jedem Schritt wechseln
+• Hockeyblaue Hintergründe
+• Tablet-Layout mit Seitenleiste, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Kleinere Korrekturen

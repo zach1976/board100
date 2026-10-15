@@ -1,28 +1,41 @@
 Set the rotation. Win the rally.
 
-Volleyball Board is a tactics board for coaches and players to plan rotations, attack systems, and serve-receive — from 6v6 indoor to beach doubles.
-
-Free · Works offline · No ads · No account
+Volleyball Board helps coaches design rotations, attack systems, and serve-receive formations — from 6v6 indoor to beach doubles.
 
 DRAW IT. PLAY IT. SHARE IT.
 
-- Drag players onto a full-color volleyball court
-- Draw arrows, lines, and zones in your own colors and styles
-- Tap Play to animate player movements step by step
-- Save your tactics and export them as an image or PDF to share
+- Drag players onto an accurate, full-color court
+- Draw arrows, lines, and zones — colors and styles your way
+- Tap Play to animate movements step by step
+- Write a note on each step — it changes as the play runs
+- Save unlimited tactics; export as PNG, PDF or video
+
+154 DRILLS, ALREADY WRITTEN
+
+Every drill is a board you can step through: what it trains, how to set it up, and the one thing to say while it runs. Serve receive in all six rotations, setting, attacking from every zone, blocking, defense, serving, small-sided games, conditioning.
+
+- String drills and your own boards into a practice plan, run it from the sideline, and keep a history of every session
+- Keep your squad with photos, and mark who turned up
+- Share a board as a link — players open it in a browser, no app needed
 
 FORMATIONS, READY TO GO
 
 5-1 · 6-2 · 4-2 · Rotation 1-6 · Serve receive · Beach doubles
-Load a preset with one tap, then customize positions.
+Load with one tap, customize positions.
 
 BUILT FOR THE SIDELINE
 
-- Works fully offline — no internet needed
-- Dark theme for evening practice
-- Multi-step undo and redo
-- Connect to an external display or TV for a big-screen coaching view
-- No ads, no in-app purchases
+- Works offline — no Wi-Fi at the field? No problem.
+- Tablet layout and stylus support — a stylus draws, a finger moves players; portrait or landscape
+- Optional Google sign-in syncs your boards, plans and session history across devices
+- Dark theme — easy on the eyes during evening practice
+- Undo/redo up to 50 steps — experiment fearlessly
+- Big-screen ready — mirror to a TV and turn the locker room into a war room
+- Free to download, no account needed. Pro removes ads and unlocks the full drill library.
 
-11 LANGUAGES
-English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+14 LANGUAGES
+English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+
+From youth teams to the national team — if you can coach it, you can draw it.
+
+Privacy Policy: https://tacticsboard.100for1.com/privacy

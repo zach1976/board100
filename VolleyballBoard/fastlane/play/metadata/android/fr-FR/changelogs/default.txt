@@ -1,7 +1,11 @@
-2.0.0
+Nouveautés de la version 2.1.0
 
-• Une bibliothèque de 44 exercices animés : ouvrez, lancez, ou posez-le sur le tableau pour le modifier
-• Des plans d'entraînement à dérouler depuis la touche, un effectif avec photos et présences
-• Tableau redessiné : carte arrondie, ombres de contact, surfaces texturées, filets maillés
-• Commandes refaites ; sur tablette en paysage, le terrain prend toute la largeur
-• Le ballon est devant son porteur, les tracés passent sous les joueurs
+• Les six rotations, service ou réception, avec contrôle de chevauchement et correction d'une touche
+• Règlements FIVB, USAV, NFHS, NCAA et leurs limites de remplacements
+• Feuille de position en PDF ; zone autorisée au déplacement
+• Jour de match : feuille de remplacements par set (Pro)
+• Cahier de jeu ; terrain de plage
+• 154 exercices au lieu de 44 ; six séances prêtes
+• Tablette, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections

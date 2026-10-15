@@ -1,7 +1,8 @@
-2.0.0
+Nouveautés de la version 2.1.0
 
-• Une bibliothèque de 42 exercices animés : ouvrez, lancez, ou posez-le sur le tableau pour le modifier
-• Des plans d'entraînement à dérouler depuis la touche, un effectif avec photos et présences
-• Tableau redessiné : carte arrondie, ombres de contact, surfaces texturées, filets maillés
-• Commandes refaites ; sur tablette en paysage, le terrain prend toute la largeur
-• Le ballon est devant son porteur, les tracés passent sous les joueurs
+• Séances prêtes : six plans composés des 42 exercices
+• Notes sur le tableau, qui changent à chaque étape
+• Un terrain vert avec une bande de filet blanche, comme le veut la palette officielle
+• Mise en page tablette avec barre latérale, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections et davantage de libellés traduits

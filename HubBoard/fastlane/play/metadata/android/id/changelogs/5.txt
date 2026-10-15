@@ -1,0 +1,11 @@
+Yang Baru di 2.1.0
+
+• 854 latihan animasi dengan catatan pelatih
+• Rencana latihan, enam sesi siap pakai, skuad Anda
+• Hari pertandingan: line-up, jam, pergantian, kartu; ekspor PDF (jam memerlukan Pro)
+• Buku taktik dari hari pertandingan
+• Rotasi dan set aturan voli, hoki indoor, Hockey5s, lapangan NBA/NCAA/SMA
+• Catatan di papan; papan digambar ulang
+• Tata letak tablet, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Tautan web, ekspor video, perbaikan kecil

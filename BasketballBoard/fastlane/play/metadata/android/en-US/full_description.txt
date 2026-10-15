@@ -1,15 +1,22 @@
 Run the play before tip-off.
 
-Basketball Board lets coaches diagram pick-and-rolls, motion offense, and defensive rotations on an accurate full-court — for 3v3 and 5v5.
-
-Free forever · Works offline · No account
+Basketball Board lets coaches diagram pick-and-rolls, motion offense, and defensive rotations on a regulation FIBA court — for 3v3 and 5v5.
 
 DRAW IT. PLAY IT. SHARE IT.
 
 - Drag players onto an accurate, full-color court
 - Draw arrows, lines, and zones — colors and styles your way
 - Tap Play to animate movements step by step
-- Save unlimited tactics, share as crisp images or PDF
+- Write a note on each step — it changes as the play runs
+- Save unlimited tactics; export as PNG, PDF or video
+
+99 DRILLS, ALREADY WRITTEN
+
+Every drill is a board you can step through: what it trains, how to set it up, and the one thing to say while it runs. Layup lines, pick-and-roll and how to guard it, cuts, shooting spots, post moves, shell defense, zones, inbounds plays, transition, conditioning.
+
+- String drills and your own boards into a practice plan, run it from the sideline, and keep a history of every session
+- Keep your squad with photos, and mark who turned up
+- Share a board as a link — players open it in a browser, no app needed
 
 FORMATIONS, READY TO GO
 
@@ -18,13 +25,17 @@ Load in one tap, edit freely.
 
 BUILT FOR THE SIDELINE
 
-- Works offline — no Wi-Fi at the gym? No problem.
+- Works offline — no Wi-Fi at the field? No problem.
+- Tablet layout and stylus support — a stylus draws, a finger moves players; portrait or landscape
+- Optional Google sign-in syncs your boards, plans and session history across devices
 - Dark theme — easy on the eyes during evening practice
 - Undo/redo up to 50 steps — experiment fearlessly
 - Big-screen ready — mirror to a TV and turn the locker room into a war room
-- Free, no account required
+- Free to download, no account needed. Pro removes ads and unlocks the full drill library.
 
-11 LANGUAGES
-English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+14 LANGUAGES
+English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
 
-From Sunday league to the national team — if you can coach it, you can draw it.
+From youth teams to the national team — if you can coach it, you can draw it.
+
+Privacy Policy: https://tacticsboard.100for1.com/privacy

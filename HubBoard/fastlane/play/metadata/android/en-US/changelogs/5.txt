@@ -1,0 +1,11 @@
+What's new in 2.1.0
+
+• 854 animated drills with coaching notes
+• Practice plans, six ready sessions, your squad
+• Match day: line-up, clock, substitutions, cards; PDF export (clock needs Pro)
+• Playbook from match day
+• Volleyball rotations and rule sets, indoor hockey, Hockey5s, NBA/NCAA/high-school courts
+• Notes on the board; the board redrawn
+• Tablet layout, keyboard and stylus
+• German and Dutch: 14 languages
+• Web links, video export, smaller fixes
