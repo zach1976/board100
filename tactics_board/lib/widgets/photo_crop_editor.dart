@@ -150,7 +150,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
           children: [
             Row(
               children: [
-                const Icon(Icons.crop, color: T.accent),
+                Icon(Icons.crop, color: T.accent),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -183,7 +183,7 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                   width: viewport, height: viewport,
                   color: Colors.black,
                   child: _path == null
-                      ? const Center(
+                      ? Center(
                           child: CircularProgressIndicator(
                             color: T.accent,
                             strokeWidth: 3,
@@ -228,11 +228,11 @@ class _PhotoCropEditorState extends State<PhotoCropEditor> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.swap_horiz, color: T.accent, size: 18),
+                    Icon(Icons.swap_horiz, color: T.accent, size: 18),
                     const SizedBox(width: 6),
                     Text(
                       'photo_replace'.tr(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: T.accent,
                         fontSize: 13,
                         fontWeight: FontWeight.w600,

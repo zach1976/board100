@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'sport_palettes.g.dart';
+
 /// The design system, in one file.
 ///
 /// Before this existed the app carried 380 hardcoded colours across 202
@@ -42,57 +44,63 @@ class T {
   /// The one border. Low-contrast on purpose: contrast between surfaces does
   /// most of the separating, and a line is only added where that is not
   /// enough.
-  static const border = Color(0x2EB4CDD2); // rgba(180,205,210,.18)
-  static const borderStrong = Color(0x52B4CDD2); // for a focused control only
+  // Text, borders and the functional colours are the family's
+  // (tools/design/sport_palettes.py → FamilyTokens): one cool neutral scale
+  // for every app, so a warm chrome no longer wears teal-tinted greys.
+  static const border = Color(0xB333383F); // divider @ 70%
+  static const borderStrong = FamilyTokens.borderStrong; // a focused control only
 
   // ── Text ────────────────────────────────────────────────────────────────
-  static const text = Color(0xFFF4F7F5);
-  static const textDim = Color(0xFFA9BAB8);
-  // Lifted from 0xFF718A88, which was 3.2:1 on the hub's surfaceHi and
-  // under 3:1 on some re-hued chromes (audit 2026-10-11 m13): 4.5:1 on the
-  // teal card now, still a clear step below textDim.
-  static const textOff = Color(0xFF8BA4A1);
-  static const textDisabled = Color(0xFF506765);
+  static const text = FamilyTokens.textPrimary;
+  static const textDim = FamilyTokens.textSecondary;
+  // ≥ 3:1 on every sport's elevated surface (the script checks it).
+  static const textOff = FamilyTokens.textTertiary;
+  static const textDisabled = FamilyTokens.textDisabled;
 
   // ── Accent ──────────────────────────────────────────────────────────────
+  // One accent per app: the sport's primary (the hub keeps its teal). It
+  // carries every action, selection and the play button — the board used to
+  // show teal, blue, lime and a sport colour at once, and none of them led.
+
   /// The primary interactive colour. Selection, primary actions, focus.
-  static const accent = Color(0xFF20C7C3);
+  static Color get accent => _p.accent;
 
   /// Pressed / currently-running. One step brighter, never a glow.
-  static const accentActive = Color(0xFF2DD4CF);
+  static Color get accentActive =>
+      Color.lerp(_p.accent, const Color(0xFFFFFFFF), 0.12)!;
 
-  /// Foreground on a filled accent button. Dark enough to read at 17pt
-  /// semibold without going to pure black, which is harsh on teal.
-  static const onAccent = Color(0xFF062526);
+  /// Foreground on a filled accent: dark ink on a light accent, white on a
+  /// deep one — whichever the script measured at ≥ 4.5:1.
+  static Color get onAccent => _p.onAccent;
 
   /// Accent as a tinted fill behind an active control. Used instead of a
   /// solid accent block, which reads as a button even when it is a state.
-  static const accentFill = Color(0x1F20C7C3); // rgba(32,199,195,.12)
-  static const accentFillHi = Color(0x3320C7C3); // ~20%, pressed
+  static Color get accentFill => _p.accent.withValues(alpha: 0.12);
+  static Color get accentFillHi => _p.accent.withValues(alpha: 0.20);
 
-  /// The tool a coach is currently IN — Move, Draw, Select. Solid, and blue
-  /// rather than [accent], for two reasons: a mode is a state and wants the
-  /// weight of a filled pill, and a solid teal one sits a few degrees from
-  /// [lime] on the play button beside it, which made the two read as one
-  /// group of "on" things rather than a mode and an action.
-  static const toolOn = Color(0xFF2F6BFF);
+  /// The sport's secondary accent: small supporting details only.
+  static Color get accent2 => _p.secondary;
+
+  /// The tool a coach is currently IN — Move, Draw, Select. A light neutral
+  /// pill, not a second hue: a mode is a state, and the accent is kept for
+  /// the one action beside it (play).
+  static const toolOn = Color(0xFF4A525C);
   static const onToolOn = Color(0xFFFFFFFF);
 
-  /// Playback only: play, and the running animation. Never navigation.
-  static const lime = Color(0xFFA8F05A);
-
-  /// Foreground on [lime]. Lime is bright enough that white text on it is
-  /// unreadable and pure black is harsh, so the play glyph gets a very dark
-  /// green instead. Two screens had this value written out by hand.
-  static const onLime = Color(0xFF16240A);
-  static const limeFill = Color(0x24A8F05A);
+  /// Playback: play, and the running animation. The app's accent.
+  static Color get lime => _p.accent;
+  static Color get onLime => _p.onAccent;
+  static Color get limeFill => _p.accent.withValues(alpha: 0.14);
 
   // ── Semantic ────────────────────────────────────────────────────────────
+  // Team colours belong to the board, not the chrome: unchanged.
   static const home = Color(0xFF4D8FE8);
   static const away = Color(0xFFE86452);
-  static const success = Color(0xFF4DBA78);
-  static const warning = Color(0xFFE9A94B);
-  static const danger = Color(0xFFE26B62);
+  static const success = FamilyTokens.success;
+  static const warning = FamilyTokens.warning;
+  static const danger = FamilyTokens.error;
+  static const info = FamilyTokens.info;
+  static const focus = FamilyTokens.focus;
 
   /// Movement on the board, by what the movement IS — not by whose turn it
   /// is to be colourful. §09.
@@ -249,6 +257,9 @@ class SportPalette {
     required this.surfaceHi,
     required this.sheet,
     required this.tint,
+    this.accent = const Color(0xFF20C7C3),
+    this.onAccent = const Color(0xFF062526),
+    this.secondary = const Color(0xFF8FA3B5),
   });
 
   final Color bg0;
@@ -257,16 +268,36 @@ class SportPalette {
   final Color surfaceHi;
   final Color sheet;
   final Color tint;
+  final Color accent;
+  final Color onAccent;
+  final Color secondary;
 
-  /// What every app shipped with before 2.1, and what the hub still uses.
+  /// The hub: the family's slate surfaces at the family hue itself, with
+  /// the teal it has always worn as its accent.
   static const teal = SportPalette(
-    bg0: Color(0xFF071D1F),
-    bg1: Color(0xFF0B272A),
-    surface: Color(0xFF103338),
-    surfaceHi: Color(0xFF153D42),
-    sheet: Color(0xFF0D292C),
-    tint: Color(0xFF0B292A),
+    bg0: Color(0xFF0D1116),
+    bg1: Color(0xFF12161C),
+    surface: Color(0xFF171C22),
+    surfaceHi: Color(0xFF252B32),
+    sheet: Color(0xFF171C22),
+    tint: Color(0xFF12161C),
   );
+
+  /// A sport's palette from the family system (sport_palettes.g.dart).
+  /// Background, surface, elevated → bg0, surface, surfaceHi; the steps in
+  /// between are mixes, so the four-step ladder the screens were built on
+  /// keeps its order.
+  factory SportPalette.fromColors(SportColors c) => SportPalette(
+        bg0: c.background,
+        bg1: Color.lerp(c.background, c.surface, 0.5)!,
+        surface: c.surface,
+        surfaceHi: c.elevatedSurface,
+        sheet: c.surface,
+        tint: Color.lerp(c.background, c.surface, 0.5)!,
+        accent: c.primaryAccent,
+        onAccent: c.onPrimaryAccent,
+        secondary: c.secondaryAccent,
+      );
 
   /// The teal ladder re-hued. [hue] is in degrees; [saturation] scales the
   /// reference's own, so a sand-coloured chrome can sit a little quieter than

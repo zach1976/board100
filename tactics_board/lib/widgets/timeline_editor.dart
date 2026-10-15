@@ -120,7 +120,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
                   _selected.length > 1
                       ? 'Tap an empty slot to shift the group · drag to move'
                       : 'Tap an empty slot to move · tap another block to add',
-                  style: const TextStyle(color: T.accent, fontSize: 11),
+                  style: TextStyle(color: T.accent, fontSize: 11),
                 ),
               ),
             // Playback controls — speed / loop / sequential.
@@ -440,7 +440,7 @@ class _TimelineEditorState extends State<TimelineEditor> {
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(label ?? '', style: const TextStyle(color: T.accent, fontSize: 11, fontWeight: FontWeight.bold)),
+                    Text(label ?? '', style: TextStyle(color: T.accent, fontSize: 11, fontWeight: FontWeight.bold)),
                     const SizedBox(width: 2),
                     GestureDetector(
                       onTap: onDelete,

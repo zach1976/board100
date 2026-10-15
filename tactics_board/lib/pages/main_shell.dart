@@ -190,14 +190,14 @@ class AccountAvatar extends StatelessWidget {
   /// a generated avatar is the same object it has always been, in a
   /// different colour, and its contrast is settled by construction rather
   /// than by which hue the hash happened to pick.
-  static const palette = <Color>[
+  static List<Color> get palette => <Color>[
     T.accent,
     T.home,
     T.success,
     T.warning,
     T.routeAlt,
     T.away,
-    T.lime,
+    T.info,
   ];
 
   /// Which of them this name gets. The same coach is the same colour on
@@ -677,7 +677,7 @@ class _Stat extends StatelessWidget {
       child: Column(
         children: [
           Text(value,
-              style: const TextStyle(
+              style: TextStyle(
                   color: T.accent,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,

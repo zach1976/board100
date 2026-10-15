@@ -64,7 +64,7 @@ class _AttendanceSheetState extends State<AttendanceSheet> {
           children: [
             Row(
               children: [
-                const Icon(Icons.how_to_reg_outlined, color: kAccent),
+                Icon(Icons.how_to_reg_outlined, color: kAccent),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text('attendance_title'.tr(),

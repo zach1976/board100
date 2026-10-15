@@ -158,7 +158,7 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(true),
           child: Text('photo_add_another'.tr(),
-              style: const TextStyle(color: T.accent)),
+              style: TextStyle(color: T.accent)),
         ),
       ],
     ),
@@ -868,7 +868,7 @@ Future<bool> _shareLink(BuildContext context, TacticsState state) async {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 30, height: 30,
                 child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
               ),
@@ -1019,7 +1019,7 @@ Future<String?> _pickShareFormat(BuildContext context,
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: const Icon(Icons.image_outlined, color: T.accent),
+              leading: Icon(Icons.image_outlined, color: T.accent),
               title: const Text('PNG', style: TextStyle(color: Colors.white)),
               onTap: () => Navigator.pop(ctx, 'png'),
             ),
@@ -1052,7 +1052,7 @@ Future<String?> _pickShareFormat(BuildContext context,
             // nor an account, which a PNG in a group chat can't say for a play
             // that moves.
             ListTile(
-              leading: const Icon(Icons.link, color: kAccent),
+              leading: Icon(Icons.link, color: kAccent),
               title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
               subtitle: Text('share_link_hint'.tr(),
                   style: const TextStyle(color: Colors.white38, fontSize: 12)),
@@ -1207,7 +1207,7 @@ void confirmClearAll(BuildContext context, TacticsState state) {
           children: [
             if (hasStrokes)
               ListTile(
-                leading: const Icon(Icons.gesture_rounded, color: kAccent),
+                leading: Icon(Icons.gesture_rounded, color: kAccent),
                 title: Text('clear_lines'.tr(),
                     style: const TextStyle(color: Colors.white)),
                 onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
@@ -1663,7 +1663,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text('confirm'.tr(),
-                  style: const TextStyle(color: T.accent)),
+                  style: TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -1706,7 +1706,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1735,7 +1735,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1761,7 +1761,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
             child: Row(
               children: [
-                const Icon(Icons.save_outlined, color: T.accent, size: 20),
+                Icon(Icons.save_outlined, color: T.accent, size: 20),
                 const SizedBox(width: 8),
                 Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
@@ -1876,7 +1876,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.save_as_outlined, color: T.accent, size: 20),
+            icon: Icon(Icons.save_as_outlined, color: T.accent, size: 20),
             onPressed: () => _overwriteTactic(name),
             tooltip: 'Update',
           ),
@@ -2974,7 +2974,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('photo_add_another'.tr(),
-                  style: const TextStyle(color: T.accent)),
+                  style: TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -3119,7 +3119,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
             hintText: 'photo_group_name'.tr(),
             hintStyle: const TextStyle(color: Colors.white38),
             enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
-            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
+            focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
           ),
         ),
         actions: [
@@ -3129,7 +3129,7 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop([controller.text]),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -3893,7 +3893,7 @@ class _PhotosManageDialog extends StatelessWidget {
                           labelStyle: const TextStyle(color: Colors.white60),
                           enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white30)),
-                          focusedBorder: const UnderlineInputBorder(
+                          focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
                         onChanged: (v) => number = v,
@@ -3913,7 +3913,7 @@ class _PhotosManageDialog extends StatelessWidget {
                           labelStyle: const TextStyle(color: Colors.white60),
                           enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white30)),
-                          focusedBorder: const UnderlineInputBorder(
+                          focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
                         onChanged: (v) => name = v,
@@ -3969,7 +3969,7 @@ class _PhotosManageDialog extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('confirm'.tr(),
-                  style: const TextStyle(color: kAccent)),
+                  style: TextStyle(color: kAccent)),
             ),
           ],
         ),
@@ -4022,7 +4022,7 @@ class _PhotosManageDialog extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.edit_outlined, color: T.accent),
+                  Icon(Icons.edit_outlined, color: T.accent),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
@@ -4189,7 +4189,7 @@ class _ManageTileState extends State<_ManageTile> {
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(widget.photo.jerseyNumber!,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: kAccent, fontSize: 11, fontWeight: FontWeight.w700)),
                       ),
                       const SizedBox(width: 4),
@@ -4399,12 +4399,12 @@ class _AddAllTile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.group_add_outlined,
+            Icon(Icons.group_add_outlined,
                 color: T.accent, size: 22),
             const SizedBox(height: 1),
             Text(
               '+$count',
-              style: const TextStyle(
+              style: TextStyle(
                 color: T.accent,
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
@@ -5310,7 +5310,7 @@ class _PasteRow extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(Icons.content_paste_rounded,
+              Icon(Icons.content_paste_rounded,
                   color: T.accent, size: 18),
             ],
           ),

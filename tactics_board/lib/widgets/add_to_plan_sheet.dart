@@ -158,9 +158,9 @@ class _PlanPicker extends StatelessWidget {
                 children: [
                   ListTile(
                     leading:
-                        const Icon(Icons.add_circle_outline, color: T.accent),
+                        Icon(Icons.add_circle_outline, color: T.accent),
                     title: Text('practice_new'.tr(),
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: T.accent, fontWeight: FontWeight.w600)),
                     onTap: () => Navigator.pop(context, newPlan),
                   ),

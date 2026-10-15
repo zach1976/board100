@@ -120,7 +120,7 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
             child: Text('confirm'.tr(),
-                style: const TextStyle(color: T.accent)),
+                style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -148,7 +148,7 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.check_rounded, color: T.accent),
+            icon: Icon(Icons.check_rounded, color: T.accent),
             onPressed: _confirm,
           ),
         ],
@@ -274,10 +274,10 @@ class _FolderPicker extends StatelessWidget {
                   _tile(context, '', 'folder_default'.tr()),
                   for (final f in folders) _tile(context, f, f),
                   ListTile(
-                    leading: const Icon(Icons.create_new_folder_outlined,
+                    leading: Icon(Icons.create_new_folder_outlined,
                         color: T.accent, size: 20),
                     title: Text('new_folder'.tr(),
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: T.accent, fontSize: 14)),
                     onTap: () => Navigator.pop(context, _kNewFolderSentinel),
                   ),
@@ -295,7 +295,7 @@ class _FolderPicker extends StatelessWidget {
         title: Text(label,
             style: const TextStyle(color: Colors.white, fontSize: 14)),
         trailing: value == selected
-            ? const Icon(Icons.check_rounded, color: T.accent, size: 20)
+            ? Icon(Icons.check_rounded, color: T.accent, size: 20)
             : null,
         onTap: () => Navigator.pop(context, value),
       );

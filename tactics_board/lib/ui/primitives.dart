@@ -218,7 +218,7 @@ class TacticalIconButton extends StatelessWidget {
           height: T.tap,
           alignment: Alignment.center,
           decoration: active
-              ? const BoxDecoration(color: T.accentFill, shape: BoxShape.circle)
+              ? BoxDecoration(color: T.accentFill, shape: BoxShape.circle)
               : null,
           child: Icon(icon, size: size, color: tint),
         ),
@@ -502,7 +502,7 @@ class TacticalSearchField extends StatelessWidget {
               borderRadius: T.brSm, borderSide: BorderSide.none),
           enabledBorder: const OutlineInputBorder(
               borderRadius: T.brSm, borderSide: BorderSide.none),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
               borderRadius: T.brSm,
               borderSide: BorderSide(color: T.accent, width: 1.5)),
         ),
@@ -775,7 +775,7 @@ class CoachNote extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: T.tint,
-        border: const Border(left: BorderSide(color: T.accent, width: 2.5)),
+        border: Border(left: BorderSide(color: T.accent, width: 2.5)),
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(T.rSm),
           bottomRight: Radius.circular(T.rSm),

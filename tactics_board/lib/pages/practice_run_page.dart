@@ -21,7 +21,7 @@ import 'home_page.dart' show TacticsBoardHomePage;
 
 Color get _kBg => T.bg1;
 Color get _kCard => T.surface;
-const _kAccent = T.accent;
+Color get _kAccent => T.accent;
 
 class PracticeRunPage extends StatefulWidget {
   final TacticsState state;
@@ -276,7 +276,7 @@ class _PracticeRunPageState extends State<PracticeRunPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx),
             child: Text('confirm'.tr(),
-                style: const TextStyle(color: _kAccent)),
+                style: TextStyle(color: _kAccent)),
           ),
         ],
       ),

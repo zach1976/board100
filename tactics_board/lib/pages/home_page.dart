@@ -1038,7 +1038,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                 children: [
                   _lCircleBtn(
                     Icons.chevron_left_rounded,
-                    Colors.blue,
+                    T.textDim,
                     state.atStep > 0 ? state.stepBackward : null,
                   ),
                   Padding(
@@ -1054,7 +1054,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   ),
                   _lCircleBtn(
                     Icons.chevron_right_rounded,
-                    Colors.blue,
+                    T.textDim,
                     state.atStep < state.maxMoveSteps
                         ? state.stepForward
                         : null,
@@ -1067,7 +1067,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                 children: [
                   _lCircleBtn(
                     Icons.replay,
-                    Colors.orange,
+                    T.textDim,
                     state.atStep > 0 ? state.clearAnimatedPositions : null,
                   ),
                   const SizedBox(width: 4),
@@ -1075,7 +1075,8 @@ class TacticsBoardHomePage extends StatelessWidget {
                     state.isAnimating
                         ? Icons.stop_rounded
                         : Icons.play_arrow_rounded,
-                    Colors.green,
+                    // Play is the one coloured control: the app's accent.
+                    T.accent,
                     !state.isAnimating
                         ? state.startAnimation
                         : state.stopAnimation,
@@ -1083,13 +1084,13 @@ class TacticsBoardHomePage extends StatelessWidget {
                   const SizedBox(width: 4),
                   _lCircleBtn(
                     Icons.show_chart,
-                    state.routesOn ? Colors.white54 : Colors.redAccent,
+                    state.routesOn ? T.textDim : T.warning,
                     state.toggleShowMoveLines,
                   ),
                   const SizedBox(width: 4),
                   _lCircleBtn(
                     Icons.view_timeline_outlined,
-                    Colors.purpleAccent,
+                    T.textDim,
                     () {
                       showModalBottomSheet(
                         context: context,
@@ -2768,7 +2769,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                       ),
                       child: Text(
                         'rotate_reset'.tr(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: kAccent,
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -3025,7 +3026,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                         const SizedBox(height: 6),
                         Text(
                           'avatar_pick_title'.tr(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: kAccent,
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -3167,7 +3168,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
                     enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.white30),
                     ),
-                    focusedBorder: const UnderlineInputBorder(
+                    focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: kAccent),
                     ),
                   ),
@@ -3189,7 +3190,7 @@ class _PlayerEditBarState extends State<_PlayerEditBar> {
               onPressed: () => Navigator.of(ctx).pop([text]),
               child: Text(
                 'confirm'.tr(),
-                style: const TextStyle(color: kAccent),
+                style: TextStyle(color: kAccent),
               ),
             ),
           ],
@@ -4157,7 +4158,7 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
                 future: _photos,
                 builder: (ctx, snap) {
                   if (snap.connectionState != ConnectionState.done) {
-                    return const Center(
+                    return Center(
                       child: Padding(
                         padding: EdgeInsets.all(16),
                         child: CircularProgressIndicator(
@@ -4230,10 +4231,10 @@ class _AvatarPickerSheetState extends State<_AvatarPickerSheet> {
             if (widget.currentPhotoId != null) ...[
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                leading: const Icon(Icons.crop, color: kAccent),
+                leading: Icon(Icons.crop, color: kAccent),
                 title: Text(
                   'photo_crop_title'.tr(),
-                  style: const TextStyle(color: kAccent, fontSize: 15),
+                  style: TextStyle(color: kAccent, fontSize: 15),
                 ),
                 onTap: () => PhotoCropEditor.show(
                   context,
@@ -4783,7 +4784,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
                 _benefits(),
                 const SizedBox(height: 18),
                 if (_loading)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 28),
                     child: Center(
                       child: CircularProgressIndicator(color: kAccent),
@@ -4890,7 +4891,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const Icon(Icons.shield_outlined, color: kAccent, size: 44),
+          Icon(Icons.shield_outlined, color: kAccent, size: 44),
           Padding(
             padding: const EdgeInsets.only(bottom: 4),
             child: Icon(Icons.star_rounded, color: T.bg0, size: 20),
@@ -5077,7 +5078,7 @@ class _PaywallSheetState extends State<_PaywallSheet> {
             right: -1,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: kAccent,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(14),
@@ -5267,7 +5268,7 @@ class _FocusHintState extends State<_FocusHint> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.timeline_rounded, size: 18, color: T.accent),
+              Icon(Icons.timeline_rounded, size: 18, color: T.accent),
               const SizedBox(width: T.s8),
               Flexible(
                 child: Text(
@@ -5379,7 +5380,7 @@ class _FirstRunHintState extends State<_FirstRunHint> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.add_rounded, size: 18, color: T.accent),
+                  Icon(Icons.add_rounded, size: 18, color: T.accent),
                   const SizedBox(width: T.s8),
                   Flexible(
                     child: Text(

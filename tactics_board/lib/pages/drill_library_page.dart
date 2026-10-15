@@ -455,7 +455,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         '${all.where((d) => d.free).length}',
                         '${all.length}',
                       ]),
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -463,7 +463,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                 const SizedBox(height: 12),
 
                 if (snap.connectionState != ConnectionState.done)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 40),
                     child: Center(
                       child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
@@ -1122,7 +1122,7 @@ class _MineRow extends StatelessWidget {
             const SizedBox(width: 8),
             // Same as the drill rows: this opens the board, it does not
             // add the board to anything.
-            const Icon(Icons.dashboard_outlined, color: kAccent, size: 26),
+            Icon(Icons.dashboard_outlined, color: kAccent, size: 26),
           ],
         ),
       ),

@@ -12,7 +12,7 @@ import '../services/practice_history_service.dart';
 
 Color get _kBg => T.bg1;
 Color get _kCard => T.surface;
-const _kAccent = T.accent;
+Color get _kAccent => T.accent;
 
 class PracticeHistoryPage extends StatefulWidget {
   final SportType sport;
@@ -127,7 +127,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: _kAccent))
+          ? Center(child: CircularProgressIndicator(color: _kAccent))
           : _sessions.isEmpty
               ? TacticalEmptyState(
                   image: packageAsset('assets/icon/empty_history.png'),
@@ -211,7 +211,7 @@ class _StatCell extends StatelessWidget {
     return Column(
       children: [
         Text(value,
-            style: const TextStyle(
+            style: TextStyle(
                 color: _kAccent,
                 fontSize: 22,
                 fontWeight: FontWeight.bold)),
@@ -258,7 +258,7 @@ class _AttendanceStrip extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.how_to_reg_outlined, color: _kAccent, size: 18),
+              Icon(Icons.how_to_reg_outlined, color: _kAccent, size: 18),
               const SizedBox(width: 6),
               Text('attendance_season_title'.tr(),
                   style: const TextStyle(

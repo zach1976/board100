@@ -469,7 +469,7 @@ class _NoArt extends StatelessWidget {
         child: Container(
           width: 108,
           height: 108,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: T.accentFill, shape: BoxShape.circle),
           child: Icon(icon, size: 44, color: T.accent),
         ),
@@ -606,7 +606,7 @@ class _Pillars extends StatelessWidget {
                 Container(
                   width: 44,
                   height: 44,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       color: T.accentFill, shape: BoxShape.circle),
                   child: Icon(items[i].$1, size: 21, color: T.accent),
                 ),

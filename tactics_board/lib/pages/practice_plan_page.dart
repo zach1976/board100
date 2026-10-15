@@ -23,7 +23,7 @@ import 'practice_run_page.dart';
 
 Color get _kBg => T.bg1;
 Color get _kCard => T.surface;
-const _kAccent = T.accent;
+Color get _kAccent => T.accent;
 
 class PracticePlanPage extends StatefulWidget {
   final TacticsState state;
@@ -89,9 +89,9 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                       style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
-                  leading: const Icon(Icons.add_circle_outline, color: _kAccent),
+                  leading: Icon(Icons.add_circle_outline, color: _kAccent),
                   title: Text('practice_new_blank'.tr(),
-                      style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                      style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
                 if (templates.isNotEmpty) ...[
@@ -289,14 +289,14 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
               final data = await Clipboard.getData('text/plain');
               if (data?.text != null) ctrl.text = data!.text!;
             },
-            child: Text('paste'.tr(), style: const TextStyle(color: _kAccent)),
+            child: Text('paste'.tr(), style: TextStyle(color: _kAccent)),
           ),
           TextButton(
               onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
             child: Text('confirm'.tr(),
-                style: const TextStyle(color: _kAccent)),
+                style: TextStyle(color: _kAccent)),
           ),
         ],
       ),
@@ -353,7 +353,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
             tooltip: 'practice_import'.tr(),
           ),
           IconButton(
-            icon: const Icon(Icons.add_rounded, color: _kAccent),
+            icon: Icon(Icons.add_rounded, color: _kAccent),
             onPressed: _createNew,
             tooltip: 'practice_new'.tr(),
           ),
@@ -368,7 +368,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
           });
         }
         final list = _loading
-          ? const Center(child: CircularProgressIndicator(color: _kAccent))
+          ? Center(child: CircularProgressIndicator(color: _kAccent))
           : _names.isEmpty
               ? _EmptyState(onCreate: _createNew)
               : ListView.separated(
@@ -391,7 +391,7 @@ class _PracticePlanPageState extends State<PracticePlanPage> {
                         return ListTile(
                           selected: _split && _selected?.name == name,
                           selectedTileColor: T.accentFill,
-                          leading: const Icon(Icons.event_note_outlined, color: _kAccent),
+                          leading: Icon(Icons.event_note_outlined, color: _kAccent),
                           title: Text(name, style: const TextStyle(color: T.text)),
                           subtitle: Text(subtitle, style: const TextStyle(color: T.textDim)),
                           trailing: Row(
@@ -585,9 +585,9 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                       style: const TextStyle(color: T.text, fontWeight: FontWeight.bold)),
                 ),
                 ListTile(
-                  leading: const Icon(Icons.add_circle_outline, color: _kAccent),
+                  leading: Icon(Icons.add_circle_outline, color: _kAccent),
                   title: Text('plan_blank_board'.tr(),
-                      style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                      style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                   onTap: () => Navigator.pop(ctx, blankSentinel),
                 ),
                 const Divider(color: T.border, height: 1),
@@ -661,13 +661,13 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
               // until this row the only way to put one in was to leave the
               // editor, find it, and "Add to plan" from its page.
               ListTile(
-                leading: const Icon(Icons.menu_book_outlined, color: _kAccent),
-                title: Text('plan_from_library'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                leading: Icon(Icons.menu_book_outlined, color: _kAccent),
+                title: Text('plan_from_library'.tr(), style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, librarySentinel),
               ),
               ListTile(
-                leading: const Icon(Icons.add_circle_outline, color: _kAccent),
-                title: Text('plan_new_board'.tr(), style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                leading: Icon(Icons.add_circle_outline, color: _kAccent),
+                title: Text('plan_new_board'.tr(), style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
                 onTap: () => Navigator.pop(ctx, newSentinel),
               ),
               if (names.isNotEmpty) ...[
@@ -793,7 +793,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
           actions: [
             if (_p.items.isNotEmpty)
               IconButton(
-                icon: const Icon(Icons.play_circle_outline, color: _kAccent),
+                icon: Icon(Icons.play_circle_outline, color: _kAccent),
                 tooltip: 'practice_start'.tr(),
                 onPressed: _startRun,
               ),
@@ -860,7 +860,7 @@ class _PracticeEditPageState extends State<PracticeEditPage> {
                     style: const TextStyle(color: T.textDim, fontSize: 13)),
                 const Spacer(),
                 Text('${_p.totalMinutes} ${'practice_minutes'.tr()}',
-                    style: const TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
+                    style: TextStyle(color: _kAccent, fontWeight: FontWeight.bold)),
               ],
             ),
             const SizedBox(height: 8),
@@ -1007,7 +1007,7 @@ class _ItemCardState extends State<_ItemCard> {
                 Container(
                   width: 9,
                   height: 9,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       color: T.accent, shape: BoxShape.circle),
                 ),
                 // The rail continues to the next item, and stops at the last.
@@ -1046,7 +1046,7 @@ class _ItemCardState extends State<_ItemCard> {
                   onTap: widget.onLoad,
                   child: Row(
                     children: [
-                      const Icon(Icons.description_outlined, color: _kAccent, size: 18),
+                      Icon(Icons.description_outlined, color: _kAccent, size: 18),
                       const SizedBox(width: 6),
                       Flexible(
                         child: Text(
@@ -1060,7 +1060,7 @@ class _ItemCardState extends State<_ItemCard> {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.edit_outlined, color: _kAccent, size: 20),
+                icon: Icon(Icons.edit_outlined, color: _kAccent, size: 20),
                 onPressed: widget.onLoad,
                 tooltip: 'practice_edit'.tr(),
               ),

@@ -802,7 +802,7 @@ class _SportHomePageState extends State<SportHomePage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
               child: Text(action,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: T.accent,
                       fontSize: 13,
                       fontWeight: FontWeight.w600)),
@@ -1554,7 +1554,7 @@ class _LearnBlock extends StatelessWidget {
                 BoxDecoration(color: T.surface, borderRadius: T.brMd),
             child: Row(
               children: [
-                const Icon(Icons.school_outlined, size: 20, color: T.accent),
+                Icon(Icons.school_outlined, size: 20, color: T.accent),
                 const SizedBox(width: T.s12),
                 Expanded(
                   child: Column(

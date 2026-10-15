@@ -300,7 +300,7 @@ class _Bullet extends StatelessWidget {
           width: 5,
           height: 5,
           margin: const EdgeInsets.only(top: 7, right: 8),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: T.accent, shape: BoxShape.circle),
         ),
         Expanded(

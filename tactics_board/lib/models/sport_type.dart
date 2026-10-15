@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../ui/sport_palettes.g.dart' show kSportColors;
 import '../ui/tokens.dart' show SportPalette;
 import 'player_icon.dart';
 import 'court_layout.dart';
@@ -281,31 +282,16 @@ extension SportTypeExtension on SportType {
 
   /// The sport's own colour — the one its icon is painted in and its card
   /// on the hub's picker is tinted with.
-  Color get accent {
-    switch (this) {
-      case SportType.badminton:    return const Color(0xFF43A047);
-      case SportType.tableTennis:  return const Color(0xFF1E88E5);
-      case SportType.tennis:       return const Color(0xFF5C6BC0);
-      case SportType.basketball:   return const Color(0xFFE65100);
-      case SportType.volleyball:   return const Color(0xFFFFA000);
-      case SportType.pickleball:   return const Color(0xFF00897B);
-      case SportType.soccer:       return const Color(0xFF66BB6A);
-      case SportType.fieldHockey:  return const Color(0xFF42A5F5);
-      case SportType.rugby:        return const Color(0xFF8D6E63);
-      case SportType.baseball:     return const Color(0xFFD32F2F);
-      case SportType.handball:     return const Color(0xFF1976D2);
-      case SportType.waterPolo:    return const Color(0xFF0288D1);
-      case SportType.sepakTakraw:  return const Color(0xFFD4A017);
-      case SportType.beachTennis:  return const Color(0xFFE6B058);
-      case SportType.footvolley:   return const Color(0xFFFBC02D);
-    }
-  }
+  /// The sport's primary accent, from the family colour system
+  /// (tools/design/sport_palettes.py).
+  Color get accent => kSportColors[this]!.primaryAccent;
+
 
   /// The app's chrome — page, sheet, card — in this sport's colour family:
   /// the teal ladder re-hued to [accent]. A single-sport build sets
   /// [T.palette] from this before the first frame; the hub never does, and
   /// keeps [SportPalette.teal].
-  SportPalette get chrome => SportPalette.hue(HSLColor.fromColor(accent).hue);
+  SportPalette get chrome => SportPalette.fromColors(kSportColors[this]!);
 
   /// Court background color, used for external display padding.
   Color get courtColor {

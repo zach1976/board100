@@ -103,7 +103,7 @@ class LanguagePicker {
                                 // Selection is a tint AND a mark, never
                                 // colour alone.
                                 if (selected)
-                                  const Icon(Icons.check_rounded,
+                                  Icon(Icons.check_rounded,
                                       color: T.accent, size: 20),
                               ],
                             ),

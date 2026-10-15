@@ -507,7 +507,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
                   TextButton(
                       onPressed: () => Navigator.pop(c2, ctrl.text),
                       child: Text(scored ? 'matchday_goal'.tr() : 'matchday_miss'.tr(),
-                          style: const TextStyle(color: T.accent))),
+                          style: TextStyle(color: T.accent))),
                 ],
               ),
             );
@@ -734,7 +734,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text('matchday_apply'.tr(),
-                  style: const TextStyle(color: T.accent))),
+                  style: TextStyle(color: T.accent))),
         ],
       ),
     );
@@ -819,7 +819,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
     final viewing = _viewing;
     final Widget body;
     if (_loading) {
-      body = const Center(child: CircularProgressIndicator(color: T.accent));
+      body = Center(child: CircularProgressIndicator(color: T.accent));
     } else if (viewing != null) {
       body = _summary(viewing, current: false);
     } else if (m == null) {
@@ -953,11 +953,11 @@ class _MatchDayPageState extends State<MatchDayPage> {
             Text('matchday_roster'.tr().toUpperCase(), style: T.label),
             TextButton.icon(
               onPressed: _loadTeam,
-              icon: const Icon(Icons.groups_outlined, size: 18, color: T.accent),
+              icon: Icon(Icons.groups_outlined, size: 18, color: T.accent),
               label: Text('matchday_load_team'.tr(),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: T.accent, fontSize: 13.5)),
+                  style: TextStyle(color: T.accent, fontSize: 13.5)),
             ),
           ],
         ),
@@ -1267,7 +1267,7 @@ class _MatchDayPageState extends State<MatchDayPage> {
               Text(
                 '${m.scoreUs} : ${m.scoreThem}',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: T.accent,
                   fontSize: 56,
                   fontWeight: FontWeight.w300,

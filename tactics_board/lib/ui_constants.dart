@@ -15,10 +15,10 @@ import 'ui/tokens.dart';
 /// `kAccent` should become `T.accent` and this file should shrink.
 
 /// The single brand accent. Selected/active state, primary actions, focus.
-const Color kAccent = T.accent;
+Color get kAccent => T.accent;
 
 /// Accent at low opacity, for tinted fills behind active controls.
-const Color kAccentFill = T.accentFill;
+Color get kAccentFill => T.accentFill;
 
 /// Base surface for modal sheets and dialogs.
 Color get kSurface => T.surface;

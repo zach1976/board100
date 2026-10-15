@@ -91,7 +91,7 @@ class _ElementCropDialogState extends State<_ElementCropDialog> {
           children: [
             Row(
               children: [
-                const Icon(Icons.add_photo_alternate_outlined,
+                Icon(Icons.add_photo_alternate_outlined,
                     color: T.accent),
                 const SizedBox(width: 8),
                 Expanded(
