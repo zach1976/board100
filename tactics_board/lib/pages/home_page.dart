@@ -13,6 +13,7 @@ import '../config_constants.dart';
 import '../main.dart';
 import '../models/player_icon.dart';
 import '../models/player_role.dart';
+import '../models/court_layout.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
@@ -3613,44 +3614,68 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
     Rect atRest,
     Rect? target,
     List<Rect> texts,
-    double boardTop,
-  ) {
+    double boardTop, {
+    List<Rect> figures = const [],
+    Rect? ownHalf,
+    double minDx = 0,
+    double maxDx = 0,
+  }) {
     // 64: under the back / pages / menu circles across the top.
     final up = (boardTop + 64) - atRest.top;
-    if (up >= 0) return Offset.zero;
+    if (up >= 0 && minDx == maxDx) return Offset.zero;
+    final top = math.min(up, 0.0);
     double covered(Rect r, Rect o) {
       final x = r.intersect(o);
       return x.isEmpty ? 0 : x.width * x.height;
     }
 
-    double cost(double dy) {
-      final r = atRest.shift(Offset(0, dy));
+    // The selection (and the run it is drawing) above all; then the words
+    // on the board and the other players; and, on a net court, the side
+    // of the net the selected player is on — nobody crosses the net, so
+    // the other half is where the bar is in nobody's way.
+    double cost(Offset d) {
+      final r = atRest.shift(d);
       var c = target == null ? 0.0 : covered(r, target) * 1000;
       for (final t in texts) {
         c += covered(r, t);
       }
+      for (final f in figures) {
+        c += covered(r, f);
+      }
+      if (ownHalf != null) c += covered(r, ownHalf) * 0.3;
       return c;
     }
 
     // The foot, the head, and every place where the bar's edge just clears
-    // an edge of something it should not cover.
-    final candidates = <double>{0, up};
-    for (final o in [?target, ...texts]) {
-      candidates.add((o.top - 4) - atRest.bottom);
-      candidates.add((o.bottom + 4) - atRest.top);
+    // an edge of something it should not cover — down the screen, and
+    // across it where the bar is narrower than the screen (sideways).
+    final ys = <double>{0, top};
+    final xs = <double>{0, minDx, maxDx};
+    for (final o in [?target, ...texts, ...figures, ?ownHalf]) {
+      ys.add((o.top - 4) - atRest.bottom);
+      ys.add((o.bottom + 4) - atRest.top);
+      xs.add((o.left - 4) - atRest.right);
+      xs.add((o.right + 4) - atRest.left);
     }
-    var best = 0.0;
-    var bestCost = cost(0);
+    var best = Offset.zero;
+    var bestCost = cost(best);
     if (bestCost == 0) return Offset.zero;
-    for (final raw in candidates) {
-      final dy = raw.clamp(up, 0.0);
-      final c = cost(dy);
-      if (c < bestCost - 0.5 || (c <= bestCost + 0.5 && dy > best)) {
-        best = dy;
-        bestCost = c;
+    for (final rx in xs) {
+      final dx = rx.clamp(minDx, maxDx).toDouble();
+      for (final ry in ys) {
+        final d = Offset(dx, ry.clamp(top, 0.0).toDouble());
+        final c = cost(d);
+        // Of equal places, the one nearest the foot, then the centre.
+        if (c < bestCost - 0.5 ||
+            (c <= bestCost + 0.5 &&
+                (d.dy > best.dy + 0.5 ||
+                    (d.dy >= best.dy - 0.5 && d.dx.abs() < best.dx.abs())))) {
+          best = d;
+          bestCost = c;
+        }
       }
     }
-    return Offset(0, best);
+    return best;
   }
 
   /// A canvas rect on the screen: the bounds of its corners carried through
@@ -3685,7 +3710,40 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       orElse: () => null,
     );
     if (p == null) return null;
-    return _elementRect(state, canvas, p);
+    final box = _elementRect(state, canvas, p);
+    if (p.moves.isEmpty) return box;
+    // The run being drawn is part of what is being edited: a bar over the
+    // route hid the very line the coach was adding a point to.
+    var route = Rect.fromPoints(p.position, p.position);
+    for (final pt in p.moves) {
+      route = route.expandToInclude(Rect.fromPoints(pt, pt));
+    }
+    return box.expandToInclude(_onScreen(canvas, route.inflate(24)));
+  }
+
+  /// On a court with a net, the selected player's side of it on the
+  /// screen — the half the bar should stay off. Null elsewhere, or on a
+  /// layout that shows only one side.
+  Rect? _ownHalf(TacticsState state, RenderBox canvas) {
+    final sport = state.sportType;
+    if (!sport.hasNet) return null;
+    final layout = state.courtLayout(sport);
+    if (layout == CourtLayout.half || layout == CourtLayout.blank) {
+      return null;
+    }
+    final id = state.selectedPlayerId;
+    if (id == null) return null;
+    final p = state.players.cast<PlayerIcon?>().firstWhere(
+      (x) => x?.id == id,
+      orElse: () => null,
+    );
+    if (p == null || isTextElement(p)) return null;
+    final size = canvas.size;
+    final net = sport.fieldRect(size).center.dy;
+    final half = p.position.dy < net
+        ? Rect.fromLTRB(0, 0, size.width, net)
+        : Rect.fromLTRB(0, net, size.width, size.height);
+    return _onScreen(canvas, half);
   }
 
   /// A box round one element on the screen.
@@ -3732,6 +3790,8 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
   void _place(TacticsState state, String key) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || _placedFor == key) return;
+      final sameSelection = _placedFor != null &&
+          _placedFor!.split('#').first == key.split('#').first;
       final panel = _panelKey.currentContext?.findRenderObject();
       final canvas = boardRepaintKey.currentContext?.findRenderObject();
       if (panel is! RenderBox ||
@@ -3756,6 +3816,14 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
       final drawing =
           state.isDrawingMode && state.selectedStrokeId == null;
       final target = _targetRect(state, canvas);
+      // The same player, a point added to his run: if the bar where it is
+      // still keeps clear of him and the run, leave it — the coach may
+      // have put it there.
+      if (sameSelection &&
+          target != null &&
+          !atRest.shift(_drag).overlaps(target)) {
+        return;
+      }
       // A tablet docks the bar beside what it edits — a player at the
       // left touchline had his bar 500pt away at the bottom centre. Just
       // under it, or over it when there is no room under; across, centred
@@ -3775,16 +3843,27 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         if (near != _drag) setState(() => _drag = near);
         return;
       }
+      final screenW = MediaQuery.sizeOf(context).width;
       final slot = _slotFor(
         atRest,
         target,
-        [
-          ..._textRects(state, canvas),
-          if (drawing)
-            for (final p in state.players)
-              if (!isTextElement(p)) _elementRect(state, canvas, p),
-        ],
+        _textRects(state, canvas),
         board.top,
+        // The other players: drawing, the bar keeps clear of all of them
+        // (audit 2026-10-11 M3); editing one, of the rest of them too — a
+        // bar across the foot sat on the back row.
+        figures: [
+          for (final p in state.players)
+            if (!isTextElement(p) &&
+                p.id != state.selectedPlayerId &&
+                !p.isBall)
+              _elementRect(state, canvas, p),
+        ],
+        ownHalf: drawing ? null : _ownHalf(state, canvas),
+        // Sideways the bar is narrower than the screen and can move
+        // across it too, onto the far half of the court.
+        minDx: math.min(0.0, board.left + 4 - atRest.left),
+        maxDx: math.max(0.0, math.min(board.right, screenW - 8) - 4 - atRest.right),
       );
       if (slot != _drag) setState(() => _drag = slot);
     });
@@ -3806,8 +3885,19 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
           _placedFor = null;
           return const SizedBox.shrink();
         }
-        final placeKey =
-            state.selectedStrokeId ?? state.selectedPlayerId ?? 'draw';
+        final selected = state.selectedPlayerId == null
+            ? null
+            : state.players.cast<PlayerIcon?>().firstWhere(
+                (p) => p?.id == state.selectedPlayerId,
+                orElse: () => null,
+              );
+        // A point added to the selected player's run places the bar again:
+        // the run may have grown under it.
+        final placeKey = state.selectedStrokeId ??
+            (selected != null
+                ? '${selected.id}#${selected.moves.length}'
+                : state.selectedPlayerId) ??
+            'draw';
         if (_placedFor != placeKey) _place(state, placeKey);
 
         // The edit surface is shown inline, anchored just above the toolbar —
