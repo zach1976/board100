@@ -349,10 +349,13 @@ class PlayerMovesPainter extends CustomPainter {
   // grow with its players, and are exactly these on a phone.
   static double get _strokeWidth => 2.8 * gBoardFigureScale;
   static double get _arrowSize => 13.0 * gBoardFigureScale;
-  // Half of the 28pt numbered disc, its white rim and shadow, and air: at
-  // 17 the dashes ran up to the rim and read as a line through the
-  // number (reported off an iPad, 2026-10-16).
-  static double get _waypointRadius => 21.0 * gBoardFigureScale;
+  /// How far a line keeps from a numbered stop (the 28pt disc, its white
+  /// rim and shadow). A person's dashes at 17 ran up to the rim and read
+  /// as a line through the number, so a run keeps 21. A pass ARRIVES: its
+  /// head stops at the rim, at 17, or it pointed at the air a stride short
+  /// of the receiver. Reported off an iPad, 2026-10-16.
+  static double _stopClear(PlayerIcon p) =>
+      (p.isBall ? 17.0 : 21.0) * gBoardFigureScale;
 
   void _paintMoves(Canvas canvas, PlayerIcon player,
       {bool whole = false,
@@ -462,13 +465,13 @@ class PlayerMovesPainter extends CustomPainter {
               ? _personClear(to - from, player.scale * kFigureScale,
                   badge: badge)
               : iconRadius)
-          : _waypointRadius;
+          : _stopClear(player);
       final endRadius = isLastSegment
           ? (person
               ? _personClear(from - to, player.scale * kFigureScale,
                   badge: badge)
               : iconRadius)
-          : _waypointRadius;
+          : _stopClear(player);
       final dist = (to - from).distance;
       // A ball that has not left yet has no line. Mid-flight the line ends
       // where the ball is, and in the first frames of a pass that is a few
