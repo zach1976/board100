@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -309,6 +310,61 @@ class BoardPopoverRoute<T2> extends PopupRoute<T2> {
   @override
   Duration get transitionDuration => const Duration(milliseconds: 160);
 
+  /// No barrier. A tap outside the panel closes it AND lands where it was
+  /// aimed: with a barrier the ⋯ menu beside an open Add panel took two
+  /// taps, one to close the panel and one for the menu, and the board —
+  /// which is what the panel is about — could not be touched at all. The
+  /// route watches every pointer instead (see [_onPointer]).
+  @override
+  Iterable<OverlayEntry> createOverlayEntries() =>
+      super.createOverlayEntries().skip(1).toList();
+
+  final GlobalKey _panelKey = GlobalKey();
+
+  @override
+  void install() {
+    super.install();
+    GestureBinding.instance.pointerRouter.addGlobalRoute(_onPointer);
+  }
+
+  @override
+  void dispose() {
+    GestureBinding.instance.pointerRouter.removeGlobalRoute(_onPointer);
+    super.dispose();
+  }
+
+  /// Pointers that went down outside the panel.
+  final Set<int> _outside = {};
+
+  /// Closes on the UP of a pointer that went down outside the panel. Not
+  /// on the down: a route change cancels every active pointer (Navigator
+  /// does that so a tap begun on one page cannot finish on the next), so
+  /// closing on the down cancelled the tap on the ⋯ menu and it took a
+  /// second one. By the up the menu's tap has fired — and pushed its own
+  /// route, which is why this removes itself rather than popping the top.
+  void _onPointer(PointerEvent e) {
+    if (!isActive) return;
+    if (e is PointerDownEvent) {
+      final ro = _panelKey.currentContext?.findRenderObject();
+      if (ro is RenderBox && ro.hasSize && ro.attached) {
+        final box = ro.localToGlobal(Offset.zero) & ro.size;
+        if (box.contains(e.position)) return;
+      }
+      _outside.add(e.pointer);
+      return;
+    }
+    if (e is PointerCancelEvent) {
+      _outside.remove(e.pointer);
+      return;
+    }
+    if (e is! PointerUpEvent || !_outside.remove(e.pointer)) return;
+    if (isCurrent) {
+      navigator?.pop();
+    } else {
+      navigator?.removeRoute(this);
+    }
+  }
+
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
@@ -324,6 +380,7 @@ class BoardPopoverRoute<T2> extends PopupRoute<T2> {
           child: Material(
             type: MaterialType.transparency,
             child: DecoratedBox(
+              key: _panelKey,
               decoration: BoxDecoration(
                 color: T.surface,
                 borderRadius: BorderRadius.circular(T.rDialog),

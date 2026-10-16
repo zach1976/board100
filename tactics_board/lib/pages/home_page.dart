@@ -16,6 +16,7 @@ import '../models/player_role.dart';
 import '../models/court_layout.dart';
 import '../models/sport_type.dart';
 import '../models/sport_theme.dart';
+import '../models/volleyball_rotation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../services/ad_service.dart';
@@ -658,6 +659,14 @@ class TacticsBoardHomePage extends StatelessWidget {
                         right: 12,
                         child: _MenuButton(),
                       ),
+                      // A rotation board's stepper, top centre: see
+                      // _RotationPill.
+                      Positioned(
+                        top: chromeTop,
+                        left: 0,
+                        right: 0,
+                        child: const Center(child: _RotationPill()),
+                      ),
                       _CollapsibleEditPanel(),
                       // Zoom and fullscreen live in the tool capsule now, on every screen
                       // wide enough to hold them (viewButtonsInBar). What stays on the
@@ -1275,6 +1284,106 @@ class _GlassCircleState extends State<_GlassCircle> {
         ),
       ),
     ));
+  }
+}
+
+/// A rotation board's stepper, on the board: ‹ Rotation n › with the
+/// setter's zone under it. The full controls — system, phase, rule set,
+/// the libero — stay in the Add panel, but that panel covers the near half
+/// of the court on an iPad, so stepping through rotations there showed
+/// nothing moving. Top centre, in the band over the far court, which a
+/// rotation board leaves empty. Reported 2026-10-16.
+class _RotationPill extends StatelessWidget {
+  const _RotationPill();
+
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, RotationSetup?>(
+      selector: (_, s) => s.rotation,
+      builder: (context, r, _) {
+        if (r == null) return const SizedBox.shrink();
+        final state = context.read<TacticsState>();
+        final s = uiScale(context);
+        final dim = chromeCircle(context);
+        Widget arrow(IconData icon, int by, String tip) => Semantics(
+              button: true,
+              label: tip,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => state.applyRotation(r.rotated(by)),
+                child: SizedBox(
+                  width: dim,
+                  height: dim,
+                  child: Icon(icon, color: T.text, size: 22 * s),
+                ),
+              ),
+            );
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(dim),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.18),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(dim),
+            child: BackdropFilter(
+              filter: ui.ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 4 * s),
+                decoration: BoxDecoration(
+                  // The same light glass as the circles beside it.
+                  color: Colors.white.withValues(alpha: 0.82),
+                  borderRadius: BorderRadius.circular(dim),
+                  border: Border.all(color: T.border),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    arrow(Icons.chevron_left_rounded, -1,
+                        'rotation_back'.tr()),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6 * s),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'rotation_number'
+                                .tr(namedArgs: {'n': '${r.rotation}'}),
+                            style: TextStyle(
+                              color: T.text,
+                              fontSize: 13 * s,
+                              fontWeight: FontWeight.w700,
+                              height: 1.1,
+                            ),
+                          ),
+                          Text(
+                            'rotation_setter_zone'.tr(namedArgs: {
+                              'z': '${r.zoneOf(r.activeSetter) ?? ''}'
+                            }),
+                            style: TextStyle(
+                              color: T.textOff,
+                              fontSize: 10.5 * s,
+                              height: 1.1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    arrow(Icons.chevron_right_rounded, 1,
+                        'rotation_forward'.tr()),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }
 
