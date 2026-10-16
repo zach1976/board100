@@ -471,8 +471,11 @@ class _PopoverLayout extends SingleChildLayoutDelegate {
 /// Public function to show save/load bottom sheet
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
   if (boardPanelsArePopovers(context)) {
+    // The full panel width: a row is a name and five controls, and at the
+    // tablet's 1.4x the controls alone took 300pt of a 420pt panel —
+    // "Board 1" broke over two lines. Reported off an iPad, 2026-10-16.
     showBoardPanel<void>(context,
-        maxWidth: 420,
+        maxWidth: kPanelMaxWidth,
         builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)));
     return;
   }
@@ -1914,7 +1917,10 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     return ListTile(
       dense: true,
       leading: const Icon(Icons.description_outlined, color: T.textOff, size: 20),
-      title: Text(name, style: const TextStyle(color: T.text, fontSize: 14)),
+      title: Text(name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(color: T.text, fontSize: 14)),
       subtitle: meta.description.isEmpty
           ? null
           : Text(meta.description,
