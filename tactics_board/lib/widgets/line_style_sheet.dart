@@ -208,20 +208,36 @@ class _StyleCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // A light pen (white, yellow) previews on a dark ground, the way it
+    // will sit on a court; a dark one on the card's own tint.
+    final dark = color.computeLuminance() > 0.5;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: width,
         height: 44,
         decoration: BoxDecoration(
-          // A light pen (white, yellow) previews on a dark ground, the way
-          // it will sit on a court; a dark one on the card's own tint.
-          color: color.computeLuminance() > 0.5 ? T.text : T.surfaceHi,
+          color: dark ? T.text : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
+          // The chosen cell: a ring the ground cannot swallow — white on a
+          // dark cell, where a 2pt blue hairline on near-black was the
+          // selection nobody could find (reported off an iPad, 2026-10-16)
+          // — with the accent round the outside of it either way.
           border: Border.all(
-            color: selected ? T.selectedStroke : Colors.transparent,
-            width: 2,
+            color: selected
+                ? (dark ? Colors.white : T.selectedStroke)
+                : Colors.transparent,
+            width: selected ? 2.5 : 2,
           ),
+          boxShadow: selected
+              ? [
+                  BoxShadow(
+                    color: T.selectedStroke,
+                    blurRadius: 0,
+                    spreadRadius: 2,
+                  ),
+                ]
+              : null,
         ),
         child: CustomPaint(
           painter: LineStylePreviewPainter(shape: shape, dash: dash, arrow: arrow, color: color),
