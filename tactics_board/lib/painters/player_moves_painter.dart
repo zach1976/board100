@@ -202,6 +202,13 @@ Offset stepStart(PlayerIcon player, int phaseLimit) {
 /// What a line on the board is saying: a run, a carry, or the ball alone.
 enum _Line { dash, wave, solid }
 
+/// A name badge's box round the feet point, on the screen's axes.
+class _Badge {
+  final double halfWidth, above, below;
+  const _Badge(
+      {required this.halfWidth, required this.above, required this.below});
+}
+
 /// Which half of a route this painter draws.
 ///
 /// A route used to be painted in one pass over the people, so that an
@@ -342,8 +349,10 @@ class PlayerMovesPainter extends CustomPainter {
   // grow with its players, and are exactly these on a phone.
   static double get _strokeWidth => 2.8 * gBoardFigureScale;
   static double get _arrowSize => 13.0 * gBoardFigureScale;
-  // half of 28.0 dot + shadow margin
-  static double get _waypointRadius => 17.0 * gBoardFigureScale;
+  // Half of the 28pt numbered disc, its white rim and shadow, and air: at
+  // 17 the dashes ran up to the rim and read as a line through the
+  // number (reported off an iPad, 2026-10-16).
+  static double get _waypointRadius => 21.0 * gBoardFigureScale;
 
   void _paintMoves(Canvas canvas, PlayerIcon player,
       {bool whole = false,
@@ -420,6 +429,10 @@ class PlayerMovesPainter extends CustomPainter {
         ? kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3
         : 5.0 * player.scale * kFigureScale;
     final person = !player.isBall && !player.isMarker && footward != Offset.zero;
+    // The badge under the feet of a player whose name is not a number: a
+    // line arriving from below, or from beside, used to put its head
+    // under it — the one place a run's arrival was sure to be hidden.
+    final badge = person ? _labelBadge(player) : null;
 
     for (int i = 0; i < points.length - 1; i++) {
       // Three kinds of line, which is the whole point of drawing them:
@@ -445,10 +458,16 @@ class PlayerMovesPainter extends CustomPainter {
       // Offset both ends: start from source edge, end at destination edge
       final isLastSegment = i == points.length - 2;
       final startRadius = i == 0
-          ? (person ? _personClear(to - from, player.scale * kFigureScale) : iconRadius)
+          ? (person
+              ? _personClear(to - from, player.scale * kFigureScale,
+                  badge: badge)
+              : iconRadius)
           : _waypointRadius;
       final endRadius = isLastSegment
-          ? (person ? _personClear(from - to, player.scale * kFigureScale) : iconRadius)
+          ? (person
+              ? _personClear(from - to, player.scale * kFigureScale,
+                  badge: badge)
+              : iconRadius)
           : _waypointRadius;
       final dist = (to - from).distance;
       // A ball that has not left yet has no line. Mid-flight the line ends
@@ -528,7 +547,13 @@ class PlayerMovesPainter extends CustomPainter {
   /// box — straight up, the whole 50; sideways, 12; straight down, nothing —
   /// plus a few points of air. Worked in screen space via [footward],
   /// because the box stands upright whichever way the board is turned.
-  double _personClear(Offset away, double scale) {
+  ///
+  /// [badge] is the name badge under the feet, when there is one (see
+  /// [_labelBadge]): a second box round the same point, and the ray has to
+  /// leave both. Without it a run arriving from below ended at the feet,
+  /// which is under the badge, so its head was never seen; from beside,
+  /// the badge is wider than the body and hid the head the same way.
+  double _personClear(Offset away, double scale, {_Badge? badge}) {
     final len = away.distance;
     if (len < 1e-6) return 5.0 * scale;
     final u = away / len;
@@ -542,7 +567,43 @@ class PlayerMovesPainter extends CustomPainter {
     if (uy < -1e-6) t = t < up / -uy ? t : up / -uy;
     if (uy > 1e-6) t = 0;
     if (t == double.infinity) t = hw;
+    if (badge != null) {
+      // Where the ray leaves the badge's box: both boxes hold the feet,
+      // so leaving their union is leaving whichever it leaves last.
+      var b = double.infinity;
+      if (ux.abs() > 1e-6) b = badge.halfWidth / ux.abs();
+      if (uy > 1e-6) b = min(b, badge.below / uy);
+      if (uy < -1e-6) b = min(b, badge.above / -uy);
+      if (b == double.infinity) b = badge.halfWidth;
+      t = max(t, b);
+    }
     return t + 4.0 * scale;
+  }
+
+  /// The name badge under [p]'s feet, as the token draws it (see the label
+  /// in player_icon_widget.dart): a chip of the name at 12pt w800 with 5pt
+  /// of padding, its middle 29.7pt below the figure's middle. Measured
+  /// from the feet point the routes use, 25.2pt below the middle. Null
+  /// for a number, which is worn on the shirt.
+  _Badge? _labelBadge(PlayerIcon p) {
+    if (p.label.isEmpty || p.labelInside) return null;
+    final k = kFigureScale * p.scale;
+    final tp = TextPainter(
+      text: TextSpan(
+          text: p.label,
+          style: TextStyle(
+              fontSize: 12 * k, fontWeight: FontWeight.w800, height: 1.2)),
+      maxLines: 1,
+      textDirection: ui.TextDirection.ltr,
+    )..layout();
+    final w = tp.width, h = tp.height;
+    tp.dispose();
+    final mid = (kPlayerIconBase * 0.5 + 11.7) * k - kPlayerIconBase * 0.70 * k;
+    return _Badge(
+      halfWidth: w / 2 + 5 * k,
+      above: max(0, h / 2 + 1.5 * k - mid),
+      below: mid + h / 2 + 1.5 * k,
+    );
   }
 
   /// A short person run drawn alongside the figures rather than between
