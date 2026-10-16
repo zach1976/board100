@@ -3116,9 +3116,13 @@ class _WaypointDotState extends State<_WaypointDot> {
         ),
       );
     }
+    // At the feet like the quiet ring and the line (drawOffset): the disc a
+    // selected chain shows was placed on the point itself, a stride above
+    // where its legs met, so the arrows read as missing the stop.
+    // Reported 2026-10-16.
     return Positioned(
-      left: widget.position.dx - hitSize / 2,
-      top: widget.position.dy - hitSize / 2,
+      left: widget.position.dx + widget.drawOffset.dx - hitSize / 2,
+      top: widget.position.dy + widget.drawOffset.dy - hitSize / 2,
       child: GestureDetector(
         onTap: _onTap,
         onPanUpdate: _onPanUpdate,
