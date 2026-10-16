@@ -676,13 +676,23 @@ class TacticsBoardHomePage extends StatelessWidget {
                             context.select<TacticsState, bool>(
                                 (s) => !s.hasMoves && s.toolbarVisible);
                         if (below) return const SizedBox.shrink();
+                        // The phone's playback row is taken: down the
+                        // board's left margin instead, level with the net,
+                        // as a column — the band over the court is too
+                        // thin for the pill and it overlapped the corner.
+                        if (islandRow) {
+                          return const Positioned(
+                            left: 6,
+                            top: 0,
+                            bottom: 0,
+                            child: Center(child: _RotationPill(vertical: true)),
+                          );
+                        }
                         return Positioned(
-                          top: islandRow ? _pagesTop(topPad) : chromeTop,
-                          left: islandRow ? 12 : 0,
-                          right: islandRow ? null : 0,
-                          child: islandRow
-                              ? const _RotationPill()
-                              : const Center(child: _RotationPill()),
+                          top: chromeTop,
+                          left: 0,
+                          right: 0,
+                          child: const Center(child: _RotationPill()),
                         );
                       }),
                       _CollapsibleEditPanel(),
@@ -1327,7 +1337,11 @@ class _GlassCircleState extends State<_GlassCircle> {
 /// nothing moving. Top centre, in the band over the far court, which a
 /// rotation board leaves empty. Reported 2026-10-16.
 class _RotationPill extends StatelessWidget {
-  const _RotationPill();
+  /// A column down the board's margin: chevron, "R3", chevron. For an
+  /// upright phone whose playback row is taken; the zone is in the Add
+  /// panel.
+  final bool vertical;
+  const _RotationPill({this.vertical = false});
 
   @override
   Widget build(BuildContext context) {
@@ -1338,6 +1352,40 @@ class _RotationPill extends StatelessWidget {
         final state = context.read<TacticsState>();
         final s = uiScale(context);
         final dim = chromeCircle(context);
+        if (vertical) {
+          Widget tap(IconData icon, int by, String tip) => Semantics(
+                button: true,
+                label: tip,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => state.applyRotation(r.rotated(by)),
+                  child: SizedBox(
+                    width: dim,
+                    height: dim * 0.8,
+                    child: Icon(icon, color: T.text, size: 22 * s),
+                  ),
+                ),
+              );
+          return _glass(
+            dim,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                tap(Icons.expand_less_rounded, -1, 'rotation_back'.tr()),
+                Text(
+                  'R${r.rotation}',
+                  style: TextStyle(
+                    color: T.text,
+                    fontSize: 13 * s,
+                    fontWeight: FontWeight.w700,
+                    height: 1,
+                  ),
+                ),
+                tap(Icons.expand_more_rounded, 1, 'rotation_forward'.tr()),
+              ],
+            ),
+          );
+        }
         Widget arrow(IconData icon, int by, String tip) => Semantics(
               button: true,
               label: tip,
@@ -1351,30 +1399,11 @@ class _RotationPill extends StatelessWidget {
                 ),
               ),
             );
-        return DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(dim),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.18),
-                blurRadius: 8,
-                offset: const Offset(0, 2),
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(dim),
-            child: BackdropFilter(
-              filter: ui.ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4 * s),
-                decoration: BoxDecoration(
-                  // The same light glass as the circles beside it.
-                  color: Colors.white.withValues(alpha: 0.82),
-                  borderRadius: BorderRadius.circular(dim),
-                  border: Border.all(color: T.border),
-                ),
-                child: Row(
+        return _glass(
+          dim,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4 * s),
+            child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     arrow(Icons.chevron_left_rounded, -1,
@@ -1411,13 +1440,39 @@ class _RotationPill extends StatelessWidget {
                         'rotation_forward'.tr()),
                   ],
                 ),
-              ),
-            ),
           ),
         );
       },
     );
   }
+
+  /// The same light glass as the circles beside it.
+  static Widget _glass(double radius, Widget child) => DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.18),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(radius),
+          child: BackdropFilter(
+            filter: ui.ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.82),
+                borderRadius: BorderRadius.circular(radius),
+                border: Border.all(color: T.border),
+              ),
+              child: child,
+            ),
+          ),
+        ),
+      );
 }
 
 /// The page counter, and the way in to the rest of them.
