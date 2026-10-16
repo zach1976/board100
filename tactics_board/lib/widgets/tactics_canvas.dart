@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart' show kDoubleTapTimeout, PointerDeviceKind;
+import 'package:flutter/gestures.dart' show DragStartBehavior, kDoubleTapTimeout, PointerDeviceKind;
 import 'package:flutter/material.dart';
 import '../ui/tokens.dart';
 import 'package:flutter/services.dart';
@@ -1186,6 +1186,12 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                 (state.isDrawingMode || state.multiSelectMode || isAddMove);
 
             final board = GestureDetector(
+              // The line starts where the finger went DOWN. By default a
+              // pan reports where it was recognised — past the slop, and a
+              // fast first stroke of a mouse or Pencil can be a long way
+              // past it — so a straight line set off from nowhere near the
+              // point the coach pressed. Reported off an iPad, 2026-10-16.
+              dragStartBehavior: DragStartBehavior.down,
               onPanStart: pannable
                   ? (d) {
                       _panIgnored = pencilAware &&

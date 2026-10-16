@@ -32,6 +32,7 @@ import '../services/sync_service.dart';
 import '../widgets/player_icon_widget.dart'
     show
         boardFigureScaleFor,
+        gBoardFigureScale,
         gTightFigureScale,
         kFigureScale,
         kPlayerIconBase,
@@ -3348,20 +3349,22 @@ class TacticsState extends ChangeNotifier {
     // longest of the drill's steps (the note changes words at every beat),
     // the way TextElementChip lays it out: 13pt semibold, 1.25 line height,
     // three lines at most, 8 by 4.5 of padding and a 1pt border.
+    // Set with the board's figures, as TextElementChip draws it.
+    final k = math.max(1.0, gBoardFigureScale);
     var chipW = 0.0, chipH = 0.0;
     for (final b in drillBeats) {
       final tp = TextPainter(
         text: TextSpan(
           text: b,
-          style: const TextStyle(
-              fontSize: 13, height: 1.25, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              fontSize: 13 * k, height: 1.25, fontWeight: FontWeight.w600),
         ),
         maxLines: 3,
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
-      )..layout(maxWidth: maxWidth - 18);
-      chipW = math.max(chipW, tp.width + 18);
-      chipH = math.max(chipH, tp.height + 11);
+      )..layout(maxWidth: maxWidth - 18 * k);
+      chipW = math.max(chipW, tp.width + 18 * k);
+      chipH = math.max(chipH, tp.height + 11 * k);
       tp.dispose();
     }
     // Sideways the chip lies on its side: its height runs across the canvas.

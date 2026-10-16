@@ -2104,7 +2104,14 @@ class TextElementChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scale = player.scale;
+    // With the board's figures (gBoardFigureScale): on an iPad the people
+    // and their labels are half as big again, and a sentence under the
+    // court set in a phone's 13pt read as the one thing nobody had
+    // enlarged. The width it may wrap in stays the screen's (see
+    // textElementMaxWidth) — placeDrillNote measures it at that width.
+    // Never smaller: an upright volleyball board shrinks its figures to
+    // keep the far server on it, and words have no server to keep.
+    final scale = player.scale * max(1.0, gBoardFigureScale);
     // An empty one would be an invisible thing you cannot tap again, so it
     // keeps the tool's own glyph until something is typed into it.
     final empty = player.label.trim().isEmpty;
@@ -2113,7 +2120,7 @@ class TextElementChip extends StatelessWidget {
       constraints: BoxConstraints(
           maxWidth: textElementMaxWidth(context, player.label,
                   note: player.id == kDrillNoteElementId) *
-              scale),
+              player.scale),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: 8 * scale, vertical: 4.5 * scale),
