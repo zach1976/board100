@@ -670,6 +670,12 @@ class TacticsBoardHomePage extends StatelessWidget {
                       Builder(builder: (context) {
                         final islandRow = !isLandscape &&
                             MediaQuery.sizeOf(context).shortestSide < 600;
+                        // In the bottom chrome instead, while that row is
+                        // free: see _bottomBar.
+                        final below = _pillInBottomRow(context) &&
+                            context.select<TacticsState, bool>(
+                                (s) => !s.hasMoves && s.toolbarVisible);
+                        if (below) return const SizedBox.shrink();
                         return Positioned(
                           top: islandRow ? _pagesTop(topPad) : chromeTop,
                           left: islandRow ? 12 : 0,
@@ -850,6 +856,13 @@ class TacticsBoardHomePage extends StatelessWidget {
     HapticFeedback.lightImpact();
   }
 
+  /// An upright phone: the rotation stepper lives in the playback row of
+  /// the bottom chrome whenever that row has no playback capsule in it.
+  bool _pillInBottomRow(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+    return size.shortestSide < 600 && size.height > size.width;
+  }
+
   Widget _bottomBar(BuildContext context, double bottomPad) {
     return Selector<TacticsState, ({bool visible, bool moves, bool present})>(
       selector: (_, s) => (
@@ -903,13 +916,21 @@ class TacticsBoardHomePage extends StatelessWidget {
                 if (sel.visible)
                   SizedBox(
                     height: playBarHeight(context),
+                    // A board with nothing to play leaves this row empty,
+                    // and an upright phone's rotation stepper takes it
+                    // (see _RotationPill): the board's top band, where it
+                    // sat, is a thin strip between the island row and the
+                    // far court. With runs on the board the playback
+                    // capsule is here and the pill goes back up.
                     child: sel.moves
                         ? Center(
                             child: PlayControlsBar(
                               state: context.read<TacticsState>(),
                             ),
                           )
-                        : null,
+                        : _pillInBottomRow(context)
+                            ? const Center(child: _RotationPill())
+                            : null,
                   ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 200),
