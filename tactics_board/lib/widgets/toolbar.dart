@@ -108,7 +108,26 @@ bool viewButtonsInBar(BuildContext context) {
   // down the right — so the pair stays on the board there, whatever the
   // width. (Same two tests as the home page's isLandscape / isTablet.)
   if (size.shortestSide < 600 && size.width > size.height) return false;
+  // An upright 11-inch iPad lays the playback capsule and the tool capsule
+  // in one row (tightTabletRow), which leaves the tools 390pt: four icons,
+  // undo and redo. The pair floats on the board there, as on a narrow
+  // phone, and the boards button keeps to the ⋯ menu.
+  if (tightTabletRow(context)) return false;
   return size.width >= 390;
+}
+
+/// An upright tablet wide enough for the two capsules side by side only
+/// once the tools are icons alone: the 11-inch iPad and the 10th
+/// generation (834 and 820pt). The 13-inch (1024) holds the view pair and
+/// the boards button as well; the mini (744) and Split View stack the
+/// capsules as before. The board is bounded by its height upright — the
+/// court is twice as tall as it is wide — so the row given back is court.
+bool tightTabletRow(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  return size.shortestSide >= 600 &&
+      size.height > size.width &&
+      size.width >= 760 &&
+      size.width < 1000;
 }
 
 /// How tall the playback capsule is, so the row that holds it can be that
@@ -1435,7 +1454,7 @@ class _PrimaryToolbar extends StatelessWidget {
               // It is also in the ⋯ menu, which is why it is the one that
               // steps aside: with the view buttons in the bar a phone's
               // width holds everything else and not this.
-              if (mq.size.width >= 460) ...[
+              if (mq.size.width >= 460 && !tightTabletRow(context)) ...[
                 const BarDivider(),
                 Builder(builder: (btn) => TacticalIconButton(
                   icon: Icons.folder_outlined,
@@ -2670,7 +2689,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                       child: Builder(builder: (ctx) {
                         final s = uiScale(ctx);
                         return Container(
-                          width: 52 * s, height: 52 * s,
+                          width: 52 * s, height: _MarkerCard.heightFor(ctx),
                           decoration: BoxDecoration(
                             color: _showMore ? T.accentFill : T.surfaceHi,
                             borderRadius: BorderRadius.circular(10),
@@ -4671,6 +4690,70 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   static String _formationName(SportFormation f) =>
       _plainName(f) ? 'formation_standard'.tr() : f.nameKey.tr();
 
+  /// Volleyball: the six placed by rotation instead of a formation.
+  Widget _rotationChip() =>
+      Padding(
+        padding: const EdgeInsets.only(right: 8),
+        child: GestureDetector(
+          key: const ValueKey('rotation-chip'),
+          onTap: () => setState(() {
+            _rotationMode = true;
+            _selectedFormation = null;
+          }),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: _rotationMode ? T.accentFill : T.surfaceHi,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: _rotationMode ? T.selectedStroke : T.border,
+                width: _rotationMode ? 2 : 1,
+              ),
+            ),
+            child: Text(
+              'rotation_label'.tr(),
+              style: TextStyle(
+                color: _rotationMode ? T.accentText : T.textDim,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget _formationChip(SportFormation f) {
+    final selected = _selectedFormation == f;
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: () => setState(() {
+          _selectedFormation = f;
+          _rotationMode = false;
+        }),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: BoxDecoration(
+            color: selected ? T.accentFill : T.surfaceHi,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: selected ? T.selectedStroke : T.border,
+              width: selected ? 2 : 1,
+            ),
+          ),
+          child: Text(
+            _formationName(f),
+            style: TextStyle(
+              color: selected ? T.accentText : T.textDim,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   void _apply() {
     if (_selectedFormation == null) return;
     final f = _selectedFormation!;
@@ -4755,9 +4838,13 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   @override
   Widget build(BuildContext context) {
     final formations = _formationsForCount;
-    // Auto-select if only one formation for this count
-    if (_selectedCount != null && formations.length == 1 && _selectedFormation == null) {
-      _selectedFormation = formations.first;
+    // The standard set-up is the default: picked the moment a count is, so
+    // Apply is one tap — unless the sheet is in rotation mode. (The only
+    // formation of its count is the default whatever it is called.)
+    if (_selectedCount != null && _selectedFormation == null && !_rotationMode) {
+      _selectedFormation = formations.length == 1
+          ? formations.first
+          : formations.where(_plainName).firstOrNull;
     }
     // The formation row: several to choose from, or one with a name of its
     // own (the power play) that the count chip cannot say.
@@ -4830,70 +4917,14 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  // Volleyball: the six placed by rotation instead. First,
-                  // so a coach opening the sheet on a rotation board sees
-                  // the chip that is selected.
-                  if (_offersRotation)
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: GestureDetector(
-                        key: const ValueKey('rotation-chip'),
-                        onTap: () => setState(() {
-                          _rotationMode = true;
-                          _selectedFormation = null;
-                        }),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                          decoration: BoxDecoration(
-                            color: _rotationMode ? T.accentFill : T.surfaceHi,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: _rotationMode ? T.selectedStroke : T.border,
-                              width: _rotationMode ? 2 : 1,
-                            ),
-                          ),
-                          child: Text(
-                            'rotation_label'.tr(),
-                            style: TextStyle(
-                              color: _rotationMode ? T.accentText : T.textDim,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ...formations.map((f) {
-                  final selected = _selectedFormation == f;
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: GestureDetector(
-                      onTap: () => setState(() {
-                        _selectedFormation = f;
-                        _rotationMode = false;
-                      }),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: selected ? T.accentFill : T.surfaceHi,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: selected ? T.selectedStroke : T.border,
-                            width: selected ? 2 : 1,
-                          ),
-                        ),
-                        child: Text(
-                          _formationName(f),
-                          style: TextStyle(
-                            color: selected ? T.accentText : T.textDim,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                })],
+                  // The standard set-up first, as the default. Volleyball's
+                  // Rotation chip comes right after it, before the named
+                  // set-ups, still in view when it is the one selected.
+                  for (final (i, f) in formations.indexed) ...[
+                    _formationChip(f),
+                    if (_offersRotation && i == 0) _rotationChip(),
+                  ],
+                ],
               ),
             ),
           ],
@@ -5326,6 +5357,17 @@ class _MarkerCard extends StatelessWidget {
   final VoidCallback onTap;
   const _MarkerCard({required this.label, required this.child, required this.onTap});
 
+  /// Every card is this tall: padding, the 28pt glyph, its gap and two
+  /// lines of label. On one line "Water goal" and "Lane rope" came out as
+  /// "Water g…" and "Lane r…". The "More" tile matches it.
+  static double heightFor(BuildContext context) {
+    final s = uiScale(context);
+    return 16 * s +
+        28 +
+        4 * s +
+        MediaQuery.textScalerOf(context).scale(10.5) * 1.15 * 2 + 3;
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
@@ -5336,22 +5378,24 @@ class _MarkerCard extends StatelessWidget {
         // Rumah" and "Segitiga" broke over two lines; the tiles wrap there
         // (see _strip), so the width costs nothing.
         width: s > 1 ? 100 : 60 * s,
+        height: heightFor(context),
         padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 4 * s),
         decoration: BoxDecoration(
           color: T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: T.border),
         ),
+        // Centred in the card's fixed height: a one-line word used to sit
+        // at the top of a two-line band, leaving the glyph and the word
+        // riding high with a blank strip under them.
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             child,
             SizedBox(height: 4 * s),
-            // Two lines, centred, in a band of two lines' height so every
-            // card in the strip stays the same size. On one line "Water
-            // goal" and "Lane rope" came out as "Water g…" and "Lane r…".
-            SizedBox(
-              height: MediaQuery.textScalerOf(context).scale(10.5) * 1.15 * 2 + 1,
+            // Flexible: a glyph a point taller than its box, or a font's
+            // own line height, must shorten the label, not overflow.
+            Flexible(
               child: Text(
                 label,
                 maxLines: 2,

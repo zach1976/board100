@@ -14,9 +14,12 @@ void main() {
   testWidgets('popovers, context menu, toolbar labels', (tester) async {
     final state = await pumpBoard(tester, kPro);
 
-    // Add: a popover anchored over its button, every tile inside it.
-    final addBtn = tester.getRect(find.text('Add').last);
-    await tester.tap(find.text('Add').last);
+    // Add: a popover anchored over its button, every tile inside it. By
+    // its icon: on an upright tablet the tool capsule shares its row with
+    // the playback capsule, and in the test font (every glyph an em wide)
+    // the four tools' words do not fit beside it.
+    final addBtn = tester.getRect(find.byIcon(Icons.add_rounded).first);
+    await tester.tap(find.byIcon(Icons.add_rounded).first);
     await settle(tester);
     expect(find.byType(PopoverScope), findsOneWidget);
     expect(find.byType(BottomSheet), findsNothing);

@@ -3021,6 +3021,12 @@ class TacticsState extends ChangeNotifier {
       // A note not placed yet (the board is laid out a frame after the
       // drill lands) is still owed on the board read back.
       if (drillBeats.isNotEmpty && noteWanted) 'noteWanted': true,
+      // Which way round the board was when the app put the note under the
+      // court, so a board read back still moves it when the device turns.
+      // Read back as null the note stayed put, and a restart turned every
+      // landscape iPad's note into a chip cut off at the board's left edge.
+      if (drillBeats.isNotEmpty && notePlacedSideways != null)
+        'noteSideways': notePlacedSideways,
       // A tight drill's figure size, and the half it is zoomed to, so the
       // board reads back the way it was left.
       if (_figureScale != 1.0) 'figureScale': _figureScale,
@@ -3085,7 +3091,8 @@ class TacticsState extends ChangeNotifier {
         p.rotation = 0;
       }
     }
-    notePlacedSideways = null;
+    final noteSide = json['noteSideways'];
+    notePlacedSideways = noteSide is bool ? noteSide : null;
     _strokes = (live['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
     _rotation = _rotationFrom(live);
     _rescaleFromSaved(live);

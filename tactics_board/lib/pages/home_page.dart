@@ -848,8 +848,14 @@ class TacticsBoardHomePage extends StatelessWidget {
             // a board that already has the width for them is a phone layout
             // nobody shrank the screen for. The threshold is the tool bar's own
             // cap plus what the playback capsule takes; below it they stack, so
-            // a portrait iPad and every phone keep what they had.
-            final oneRow = sel.visible && sel.moves && box.maxWidth >= 1100;
+            // every phone keeps what it had. An upright tablet from 760pt
+            // joins them too, the tools folding to icons (tightTabletRow):
+            // the court is twice as tall as it is wide, so the row given
+            // back is all court.
+            final oneRow = sel.visible &&
+                sel.moves &&
+                (box.maxWidth >= 1100 ||
+                    (uiScale(context) > 1 && box.maxWidth >= 760));
             if (oneRow) {
               return Column(
                 mainAxisSize: MainAxisSize.min,
