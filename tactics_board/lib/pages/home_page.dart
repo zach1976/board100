@@ -659,14 +659,26 @@ class TacticsBoardHomePage extends StatelessWidget {
                         right: 12,
                         child: _MenuButton(),
                       ),
-                      // A rotation board's stepper, top centre: see
-                      // _RotationPill.
-                      Positioned(
-                        top: chromeTop,
-                        left: 0,
-                        right: 0,
-                        child: const Center(child: _RotationPill()),
-                      ),
+                      // A rotation board's stepper: see _RotationPill. Top
+                      // centre of the chrome row on a tablet and a phone
+                      // turned sideways. Upright, a phone's top centre is
+                      // the Dynamic Island — the pill sat behind it — so
+                      // there it goes down a row and to the left, on the
+                      // board's band over the far court, which a rotation
+                      // board leaves empty; a multi-page board's pages
+                      // badge shares that row on the right.
+                      Builder(builder: (context) {
+                        final islandRow = !isLandscape &&
+                            MediaQuery.sizeOf(context).shortestSide < 600;
+                        return Positioned(
+                          top: islandRow ? _pagesTop(topPad) : chromeTop,
+                          left: islandRow ? 12 : 0,
+                          right: islandRow ? null : 0,
+                          child: islandRow
+                              ? const _RotationPill()
+                              : const Center(child: _RotationPill()),
+                        );
+                      }),
                       _CollapsibleEditPanel(),
                       // Zoom and fullscreen live in the tool capsule now, on every screen
                       // wide enough to hold them (viewButtonsInBar). What stays on the
