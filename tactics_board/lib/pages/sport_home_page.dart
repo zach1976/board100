@@ -647,7 +647,12 @@ class _SportHomePageState extends State<SportHomePage> {
   /// buttons — but the scrim is drawn anyway, because a gradient that is
   /// only needed when the picture is wrong costs nothing when it is right.
   Widget _hero(SportType sport) {
-    final top = MediaQuery.paddingOf(context).top;
+    // The inset itself (viewPadding), not only what is left of it after
+    // whatever stands between the window and this page has taken its
+    // share: a route or a scroll view that consumes the top padding left
+    // the title under the Dynamic Island (reported 2026-10-16).
+    final mq = MediaQuery.of(context);
+    final top = math.max(mq.padding.top, mq.viewPadding.top);
     // In the same centred column as the page below it, so on a window wider
     // than [_kMaxColumn] the title starts where the cards start rather than
     // 150pt to their left. Only the photograph bleeds.
