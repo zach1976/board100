@@ -1870,18 +1870,23 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           size: Size(canvasW, canvasH),
           child: SizedBox(width: canvasW, height: canvasH),
         ),
-        // Drawing layer (filter by phase during step playback)
-        RotatedBox(
-          quarterTurns: (4 - widget.boardTurns) % 4,
-          child: CustomPaint(
-            painter: DrawingPainter(
-              strokes: _visibleStrokes(state, players),
-              currentStroke: state.currentStroke,
-              selectedStrokeId: state.selectedStrokeId,
-              multiSelectStrokeIds: state.multiSelectStrokeIds,
-            ),
-            size: Size(canvasW, canvasH),
+        // Drawing layer (filter by phase during step playback). In the
+        // board's own frame, like the court under it: a line is a mark on
+        // the floor and turns with the floor. It was counter-turned here,
+        // the way the figures are so they stay upright — and a 900x1360
+        // layer turned a quarter inside a 900x1360 box is laid out
+        // sideways, so on an iPad turned sideways every line was drawn
+        // turned 90° from where it was traced, and from where it is hit-
+        // tested (hitTestStroke works in the board's frame). Reported off
+        // an iPad, 2026-10-16.
+        CustomPaint(
+          painter: DrawingPainter(
+            strokes: _visibleStrokes(state, players),
+            currentStroke: state.currentStroke,
+            selectedStrokeId: state.selectedStrokeId,
+            multiSelectStrokeIds: state.multiSelectStrokeIds,
           ),
+          size: Size(canvasW, canvasH),
         ),
         // Equipment first — under the ghosts as well as under
         // the live tokens. Reordering only the icon pass left a
