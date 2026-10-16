@@ -431,9 +431,31 @@ class TacticsBoardHomePage extends StatelessWidget {
               // and the page badge sat on top of him.
               LayoutBuilder(
                 builder: (context, box) {
-                  final top = isLandscape
+                  var top = isLandscape
                       ? T.s8
                       : _pagesBand(context, topPad, wideChrome);
+                  // An upright phone whose court leaves a deep band at its
+                  // far end — a volleyball or tennis court, with the
+                  // server's zone behind the end line — starts its card
+                  // right under the inset, and the corner circles float
+                  // on that band, the way they float on the board turned
+                  // sideways. The row they stood on was page, and the
+                  // court lost it (reported 2026-10-16). A pitch whose
+                  // band is shallow keeps the card below the circles: a
+                  // penalty corner's injector stands in that corner.
+                  if (!isLandscape &&
+                      !wideChrome &&
+                      MediaQuery.sizeOf(context).shortestSide < 600) {
+                    final reach = _chromeTop(topPad) + chromeCircle(context) -
+                        topPad;
+                    final canvas = Size(box.maxWidth - T.s8 * 2,
+                        box.maxHeight - topPad - T.s8);
+                    final sport = context.read<TacticsState>().sportType;
+                    if (canvas.height > 0 &&
+                        sport.fieldRect(canvas).top >= reach + 28) {
+                      top = topPad;
+                    }
+                  }
                   final side = isLandscape
                       ? _endGutter(
                           context,
