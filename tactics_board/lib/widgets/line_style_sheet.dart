@@ -62,11 +62,12 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
       ..setLineShape(_shape)
       ..setStrokeStyle(_dash)
       ..setArrowStyle(_arrow);
-    // With a line picked out, this sheet restyles that line as well. Shape
-    // is the one thing it cannot change — see updateStroke.
+    // With a line picked out, this sheet restyles that line as well —
+    // its shape included, see updateStroke.
     final sel = widget.state.selectedStroke;
     if (sel != null) {
-      widget.state.updateStroke(sel.id, style: _dash, arrow: _arrow);
+      widget.state.updateStroke(sel.id,
+          style: _dash, arrow: _arrow, shape: _shape);
     }
   }
 

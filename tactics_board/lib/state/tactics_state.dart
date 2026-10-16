@@ -2575,23 +2575,31 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
   }
 
-  // Note: no `shape` parameter. Switching an existing stroke to
-  // LineShape.straight would have to discard its interior points (see
-  // _finalizeStroke), which is unrecoverable. Shape is chosen before the
-  // stroke is drawn.
+  /// Restyle a line on the board. [shape] too: made straight, a line keeps
+  /// its two ends and drops the rest of its points (what _finalizeStroke
+  /// does to a straight line as it is drawn) — the snapshot has them, so
+  /// undo brings the curve back. Shape used to be the one thing the style
+  /// sheet could not change on a drawn line, and picking a style for the
+  /// selected line then changed nothing a coach could see (reported off
+  /// an iPad, 2026-10-16).
   ///
   /// [snapshot] is what undo steps back to. A slider drag calls this once per
   /// division, so it passes false for every step after the first: otherwise
   /// one drag of the thickness slider costs seven taps of undo.
-  void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow, bool snapshot = true}) {
+  void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow, LineShape? shape, bool snapshot = true}) {
     final idx = _strokes.indexWhere((s) => s.id == id);
     if (idx < 0) return;
     if (snapshot) _saveSnapshot();
-    _strokes[idx] = _strokes[idx].copyWith(
+    final was = _strokes[idx];
+    _strokes[idx] = was.copyWith(
       color: color,
       width: width,
       style: style,
       arrow: arrow,
+      shape: shape,
+      points: shape == LineShape.straight && was.points.length > 2
+          ? [was.points.first, was.points.last]
+          : null,
     );
     notifyListeners();
   }
