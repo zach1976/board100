@@ -159,7 +159,10 @@ class TacticsBoardHomePage extends StatelessWidget {
             : _buildPortrait(context, topPad, bottomPad),
       )),
     );
-    if (isTablet) {
+    // An upright phone too: its two capsules stand ~150pt, and the app's
+    // 96pt lift laid a drill's name across the playback capsule (reported
+    // 2026-10-17). Measured, not guessed, the same way as the tablet's.
+    if (isTablet || !isLandscape) {
       // A tablet's two capsules are 1.4x a phone's, and stacked in portrait
       // they stand ~170pt tall: the app's 96pt lift left a drill's name, or
       // "Saved", lying over the step counter and Play for four seconds,

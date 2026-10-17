@@ -3461,10 +3461,33 @@ class TacticsState extends ChangeNotifier {
       // chip, and the goal stands in it. Rather than print the sentence
       // over the goal, lay it just inside the end line — over the goal
       // area's markings, if no one stands there.
+      // Which end: the one whose shooting circle has fewer people in it,
+      // not the band outside the line, which is a sliver at both ends
+      // and told the two apart by nothing. And a stride in from the line
+      // (12pt, not 4): the goal stands just outside it, and a chip on
+      // the line read as a sentence pressed onto the goal (reported off
+      // a phone, 2026-10-17).
       if (best > 0.5 && !sideways && goalSports.contains(_sportType)) {
-        final inside = flip
-            ? court.top + 4 + extentY / 2
-            : court.bottom - 4 - extentY / 2;
+        final depth = court.height * 0.22;
+        final c0 = 12.0 + extentY / 2;
+        int inEnd(Rect zone) {
+          var n = 0;
+          for (final p in _players) {
+            if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) {
+              continue;
+            }
+            for (final pt in [p.position, ...p.moves]) {
+              if (zone.contains(pt)) n++;
+            }
+          }
+          return n;
+        }
+        final topEnd = inEnd(Rect.fromLTRB(
+            court.left, court.top - depth, court.right, court.top + depth));
+        final footEnd = inEnd(Rect.fromLTRB(court.left, court.bottom - depth,
+            court.right, court.bottom + depth));
+        final atTop = topEnd < footEnd || (topEnd == footEnd && flip);
+        final inside = atTop ? court.top + c0 : court.bottom - c0;
         final c = Offset(fit(w / 2, extentX, w), inside);
         if (covers(c) < best - 0.5) at = c;
       }
