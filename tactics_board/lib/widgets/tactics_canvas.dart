@@ -1972,6 +1972,19 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
               // has nothing to be a ghost of.
               final legs = stepLegs(p, limit);
               if (legs.isEmpty) return false;
+              // A person's short run — shorter than a figure and a
+              // quarter, where its line is a stub beside the two copies
+              // rather than between them — leaves no ghost. The two
+              // copies stood on each other, and three men stepping
+              // forward in a diagonal line put six bodies and three
+              // stubs in the space of two; the stub beside the live copy
+              // already says which way he came, and about how far.
+              // Reported off a phone, 2026-10-17.
+              if (!p.isBall) {
+                final k = p.scale * kFigureScale;
+                final run = (legs.last.value - stepStart(p, limit)).distance;
+                if (run < 70 * k) return false;
+              }
               // For a ball, measure where the two are DRAWN, not how
               // far the leg is. A ball is pulled to its holder's
               // feet, so a handoff — where it changes hands without

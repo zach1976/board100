@@ -519,7 +519,21 @@ class PlayerMovesPainter extends CustomPainter {
         if (across < 24.0 * k && along < 28.0 * k) continue;
         if (layer != RouteLayer.shafts) {
           _drawBeside(canvas, color, from, to,
-              player.scale * kFigureScale, strong: strong, style: style);
+              player.scale * kFigureScale,
+              strong: strong,
+              style: style,
+              avoid: [
+                for (final o in players)
+                  if (o.id != player.id && !o.isMarker) ...[
+                    o.position,
+                    ...o.moves,
+                    // And along their lines, every ten points, twice
+                    // over: a stub laid on a pass line is camouflaged,
+                    // which is worse than one crossing a body.
+                    for (final pt in _alongLegs(o, 10.0 * kFigureScale))
+                      ...[pt, pt],
+                  ],
+              ]);
         }
         continue;
       }
@@ -609,12 +623,30 @@ class PlayerMovesPainter extends CustomPainter {
     );
   }
 
+  /// Points every [step] along [p]'s whole route, start to last stop.
+  static Iterable<Offset> _alongLegs(PlayerIcon p, double step) sync* {
+    var from = p.position;
+    for (final to in p.moves) {
+      final d = to - from;
+      final len = d.distance;
+      if (len > step) {
+        final u = d / len;
+        for (var t = step; t < len; t += step) {
+          yield from + u * t;
+        }
+      }
+      from = to;
+    }
+  }
+
   /// A short person run drawn alongside the figures rather than between
   /// them: the same direction and span, moved sideways (in screen space,
   /// via [footward]) past the body's half-width, at least a readable length.
   void _drawBeside(Canvas canvas, Color color, Offset from, Offset to,
       double scale,
-      {bool strong = false, _Line style = _Line.dash}) {
+      {bool strong = false,
+      _Line style = _Line.dash,
+      Iterable<Offset> avoid = const []}) {
     final delta = to - from;
     final dist = delta.distance;
     if (dist < 0.5) return;
@@ -623,7 +655,19 @@ class PlayerMovesPainter extends CustomPainter {
     // To the figure's right on screen, unless the run itself is sideways,
     // in which case below the feet keeps it off both bodies.
     final sideways = (dir.dx * right.dx + dir.dy * right.dy).abs() > 0.7;
-    final side = sideways ? footward * (8.0 * scale) : right * (18.0 * scale);
+    var side = sideways ? footward * (8.0 * scale) : right * (18.0 * scale);
+    // Or the left, when the right has people on it: three men stepping
+    // forward in a diagonal line each had a stub to the right, across the
+    // next man and his ghost, and the three read as one thicket
+    // (reported off a phone, 2026-10-17). The side with fewer figures
+    // within a token of the stub's middle wins; the right on a tie.
+    if (!sideways && avoid.isNotEmpty) {
+      final centre = (from + to) / 2;
+      final reach = 30.0 * scale;
+      int near(Offset at) =>
+          avoid.where((o) => (o - at).distance < reach).length;
+      if (near(centre - side) < near(centre + side)) side = -side;
+    }
     final mid = (from + to) / 2 + side;
     final half = max(dist / 2, 10.0 * scale);
     final tail = mid - dir * half;
