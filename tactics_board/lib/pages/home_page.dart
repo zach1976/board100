@@ -950,8 +950,12 @@ class TacticsBoardHomePage extends StatelessWidget {
         : EdgeInsets.only(right: math.max(0, pad.right - edge));
     return Consumer<TacticsState>(
       builder: (context, state, _) => Padding(
+        // With Back at its head (rail on the left) the column is a row
+        // taller and ran 10pt off the foot of a 402pt screen (reported
+        // 2026-10-17). The head comes up 8: a 44pt circle 14 in from the
+        // edge is clear of the screen's 55pt corner from 12 down.
         padding: onLeft
-            ? EdgeInsets.fromLTRB(edge, vPad, 4, vPad)
+            ? EdgeInsets.fromLTRB(edge, rounded ? 12 : vPad, 4, vPad)
             : EdgeInsets.fromLTRB(4, vPad, edge, vPad),
         child: Column(
           children: [
@@ -959,7 +963,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             // there (reported 2026-10-17); the board's own corner otherwise.
             if (onLeft) ...[
               const Align(alignment: Alignment.centerLeft, child: _BackButton()),
-              const SizedBox(height: 10),
+              const SizedBox(height: 4),
             ],
             // Mode buttons — Move / Draw / Select, matching the portrait
             // toolbar's _ModeSegment so landscape exposes the same modes.
@@ -993,7 +997,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: onLeft ? 6 : 10),
             // Undo / Redo — always reachable
             Padding(
               padding: dodge,
@@ -1016,7 +1020,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               ],
             ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: onLeft ? 6 : 10),
             // Action buttons
             Padding(
               padding: dodge,
