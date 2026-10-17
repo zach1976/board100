@@ -1063,21 +1063,26 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             // Undo / Redo — always reachable
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Padding(
+              padding: dodge,
+              child: Row(
+              // Flush with Add's two edges below, not centred in the rail
+              // (reported 2026-10-17): the same island dodge, one circle
+              // at each end.
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _lCircleBtn(
                   Icons.undo_rounded,
                   T.accentText,
                   state.canUndo ? state.undo : null,
                 ),
-                const SizedBox(width: 12),
                 _lCircleBtn(
                   Icons.redo_rounded,
                   T.accentText,
                   state.canRedo ? state.redo : null,
                 ),
               ],
+            ),
             ),
             const SizedBox(height: 10),
             // Action buttons
