@@ -520,14 +520,13 @@ class TacticsBoardHomePage extends StatelessWidget {
                       ),
                     );
                   }
-                  // The rail's side keeps no gutter: the board runs up to
-                  // the rail, and the one circle there — Back, in the top
-                  // corner — lies over the corner of the court, where a
-                  // drill puts nobody (reported 2026-10-17). The far side
-                  // keeps the gutter the four circles there need.
-                  final railLeft = IslandSide.side.value == 'left';
-                  final leftPad = isLandscape && railLeft ? T.s8 : side;
-                  final rightPad = isLandscape && !railLeft ? T.s8 : side;
+                  // Menu and pages stand at the board's right end whichever
+                  // side the rail is on; its left end has at most Back, in
+                  // the corner. So only the right end keeps the gutter —
+                  // with the rail on the right it was the left that did,
+                  // and the column stood on the goal (2026-10-17).
+                  final leftPad = isLandscape ? T.s8 : side;
+                  final rightPad = side;
                   return Padding(
                     padding: EdgeInsets.fromLTRB(leftPad, top, rightPad, foot),
                     child: DecoratedBox(
@@ -977,7 +976,7 @@ class TacticsBoardHomePage extends StatelessWidget {
         // edge is clear of the screen's 55pt corner from 12 down.
         padding: onLeft
             ? EdgeInsets.fromLTRB(edge, rounded ? 12 : vPad, 4, vPad)
-            : EdgeInsets.fromLTRB(4, vPad, edge, vPad),
+            : EdgeInsets.fromLTRB(4, rounded ? 12 : vPad, edge, vPad),
         child: Column(
           children: [
             // The way back, at the top-left of the screen when the rail is
@@ -985,26 +984,26 @@ class TacticsBoardHomePage extends StatelessWidget {
             // Back at the head, and beside it the view's two circles —
             // zoom and fullscreen — taken off the board's right edge, which
             // keeps only menu and pages (asked for 2026-10-17).
-            if (onLeft) ...[
-              Row(
-                children: [
-                  const _BackButton(),
-                  const Spacer(),
-                  _lCircleBtn(
-                    Icons.pinch,
-                    state.zoomMode ? T.accentText : T.textDim,
-                    state.toggleZoomMode,
-                  ),
-                  const SizedBox(width: 10),
-                  _lCircleBtn(
-                    Icons.fullscreen,
-                    T.textDim,
-                    state.toggleToolbar,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-            ],
+            // On the right the head holds the two view circles alone; Back
+            // stays in the board's own top-left corner (2026-10-17).
+            Row(
+              children: [
+                if (onLeft) ...[const _BackButton(), const Spacer()],
+                _lCircleBtn(
+                  Icons.pinch,
+                  state.zoomMode ? T.accentText : T.textDim,
+                  state.toggleZoomMode,
+                ),
+                const SizedBox(width: 10),
+                _lCircleBtn(
+                  Icons.fullscreen,
+                  T.textDim,
+                  state.toggleToolbar,
+                ),
+                if (!onLeft) const Spacer(),
+              ],
+            ),
+            const SizedBox(height: 8),
             // Mode buttons — Move / Draw / Select, matching the portrait
             // toolbar's _ModeSegment so landscape exposes the same modes.
             Row(
@@ -1037,7 +1036,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: onLeft ? 6 : 10),
+            const SizedBox(height: 6),
             // Undo / Redo — always reachable
             Padding(
               padding: dodge,
@@ -1060,7 +1059,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               ],
             ),
             ),
-            SizedBox(height: onLeft ? 6 : 10),
+            const SizedBox(height: 6),
             // Action buttons
             Padding(
               padding: dodge,
@@ -1508,9 +1507,7 @@ class _RotationPill extends StatelessWidget {
 /// fullscreen ride at the rail's head beside Back instead of floating.
 bool _viewInRail(BuildContext context) {
   final size = MediaQuery.sizeOf(context);
-  return size.width > size.height &&
-      size.shortestSide < 600 &&
-      IslandSide.side.value == 'left';
+  return size.width > size.height && size.shortestSide < 600;
 }
 
 /// The way back off the board: to the home page, or to the plan or the run
