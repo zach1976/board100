@@ -166,15 +166,20 @@ abstract class CourtPainterBase extends CustomPainter {
     if (len <= 0 || band <= 0) return;
     final u = d / len;
     final n = Offset(-u.dy, u.dx) * (band / 2);
+    // Threads both ways, and bright enough to read as mesh: one way at
+    // 28% was a faint comb nobody saw as a net (volleyball's editor mock,
+    // 2026-10-17).
     final thread = Paint()
-      ..color = Colors.white.withValues(alpha: 0.28)
-      ..strokeWidth = 0.7;
-    final gap = band * 0.55;
+      ..color = Colors.white.withValues(alpha: 0.5)
+      ..strokeWidth = 0.9;
+    final gap = band * 0.4;
     for (double t = gap; t < len; t += gap) {
       final at = a + u * t;
       canvas.drawLine(at - n, at + n, thread);
     }
-    canvas.drawLine(a, b, thread);
+    for (final f in const [-0.5, 0.0, 0.5]) {
+      canvas.drawLine(a + n * f, b + n * f, thread);
+    }
   }
 
   void drawDashedLine(Canvas canvas, Paint paint, Offset p1, Offset p2,

@@ -38,10 +38,19 @@ extension SportThemeExtension on SportType {
   /// (tools/design/sport_palettes.py): the surface at the head fading to
   /// the page background at the foot, and the panels on the surface. It was
   /// a hand-written table of fifteen gradients, half of them brown.
+  ///
+  /// The board page is the one page that is not light: its ground is the
+  /// sport's own colour taken deep — the accent most of the way to black —
+  /// so the court and the white capsules sit on it the way a pitch sits
+  /// in a stadium at night, and the pale page around the board stops
+  /// reading as a document with a picture in it. (Volleyball's editor
+  /// mock, 2026-10-17.) The panels stay the light surface.
   SportTheme get theme {
     final c = kSportColors[this]!;
+    final deep = Color.lerp(c.primaryAccent, Colors.black, 0.58)!;
+    final deeper = Color.lerp(c.primaryAccent, Colors.black, 0.68)!;
     return SportTheme(
-      pageGradient: [c.surface, c.background],
+      pageGradient: [deep, deeper],
       panelColor: c.surface,
     );
   }

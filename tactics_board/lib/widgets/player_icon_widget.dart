@@ -1124,11 +1124,13 @@ class PlayerIconWidget extends StatelessWidget {
               // Upright on screen like the body above it.
               quarterTurns: BoardOrientation.counterTurns(context),
               child: Container(
+              // A pill, not a tag: rounded to its own height, a little
+              // wider (volleyball's editor mock, 2026-10-17).
               padding: EdgeInsets.symmetric(
-                  horizontal: 5 * kFigureScale, vertical: 1.5 * kFigureScale),
+                  horizontal: 7 * kFigureScale, vertical: 2 * kFigureScale),
               decoration: BoxDecoration(
-                color: player.color.withValues(alpha: 0.9),
-                borderRadius: BorderRadius.circular(4 * kFigureScale),
+                color: player.color.withValues(alpha: 0.92),
+                borderRadius: BorderRadius.circular(12 * kFigureScale),
                 boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 2)],
               ),
               child: Text(
