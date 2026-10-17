@@ -603,26 +603,44 @@ class TacticsBoardHomePage extends StatelessWidget {
                       // band — a badge beside the menu sat on the touchline — so there it
                       // stacks under the menu, down the end margin, the same column the
                       // zoom and fullscreen buttons make at the bottom corner.
-                      Positioned(
-                        top: across
-                            ? chromeTop
-                            : isLandscape
-                            ? _chromeTop(topPad) + chromeCircle(context) + T.s8
-                            : wideChrome
-                            ? _pagesTop(topPad)
-                            : _chromeTop(topPad),
-                        right: across
-                            ? 12 + chromeCircle(context) + T.s8
-                            : wideChrome || isLandscape
-                            ? 12
-                            : 12 + chromeCircle(context),
-                        child: const _PagesButton(),
-                      ),
-                      Positioned(
-                        top: chromeTop,
-                        right: 12,
-                        child: _MenuButton(),
-                      ),
+                      // With the rail on the right, the menu is at the top of
+                      // the rail — the screen's top-right corner — and pages
+                      // takes its place on the board (asked for 2026-10-17).
+                      Builder(builder: (context) {
+                        final menuInRail = _menuInRail(context) &&
+                            context.select<TacticsState, bool>(
+                                (s) => s.toolbarVisible && !s.presentationMode);
+                        return Positioned(
+                          top: menuInRail
+                              ? chromeTop
+                              : across
+                              ? chromeTop
+                              : isLandscape
+                              ? _chromeTop(topPad) + chromeCircle(context) + T.s8
+                              : wideChrome
+                              ? _pagesTop(topPad)
+                              : _chromeTop(topPad),
+                          right: menuInRail
+                              ? 12
+                              : across
+                              ? 12 + chromeCircle(context) + T.s8
+                              : wideChrome || isLandscape
+                              ? 12
+                              : 12 + chromeCircle(context),
+                          child: const _PagesButton(),
+                        );
+                      }),
+                      Builder(builder: (context) {
+                        final menuInRail = _menuInRail(context) &&
+                            context.select<TacticsState, bool>(
+                                (s) => s.toolbarVisible && !s.presentationMode);
+                        if (menuInRail) return const SizedBox.shrink();
+                        return Positioned(
+                          top: chromeTop,
+                          right: 12,
+                          child: _MenuButton(),
+                        );
+                      }),
                       // A rotation board's stepper: see _RotationPill. Top
                       // centre of the chrome row on a tablet and a phone
                       // turned sideways. Upright, a phone's top centre is
@@ -1000,7 +1018,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   T.textDim,
                   state.toggleToolbar,
                 ),
-                if (!onLeft) const Spacer(),
+                if (!onLeft) ...[const Spacer(), _MenuButton()],
               ],
             ),
             const SizedBox(height: 8),
@@ -1505,6 +1523,11 @@ class _RotationPill extends StatelessWidget {
 
 /// A sideways phone whose rail stands at the screen's left: zoom and
 /// fullscreen ride at the rail's head beside Back instead of floating.
+/// A sideways phone whose rail stands at the screen's right: the menu is
+/// at the rail's head, the screen's top-right corner.
+bool _menuInRail(BuildContext context) =>
+    _viewInRail(context) && IslandSide.side.value != 'left';
+
 bool _viewInRail(BuildContext context) {
   final size = MediaQuery.sizeOf(context);
   return size.width > size.height && size.shortestSide < 600;
