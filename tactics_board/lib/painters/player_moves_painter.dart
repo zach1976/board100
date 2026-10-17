@@ -522,6 +522,10 @@ class PlayerMovesPainter extends CustomPainter {
               player.scale * kFigureScale,
               strong: strong,
               style: style,
+              // Arriving at a numbered stop, the stub aims at it; only a
+              // leg that ends at a figure runs alongside instead.
+              aimAt: isLastSegment ? null : to,
+              aimClear: endRadius,
               avoid: [
                 for (final o in players)
                   if (o.id != player.id && !o.isMarker) ...[
@@ -642,10 +646,19 @@ class PlayerMovesPainter extends CustomPainter {
   /// A short person run drawn alongside the figures rather than between
   /// them: the same direction and span, moved sideways (in screen space,
   /// via [footward]) past the body's half-width, at least a readable length.
+  ///
+  /// [aimAt]: the leg ends at a numbered stop rather than a figure. Then
+  /// only the tail steps aside — out from beside the body — and the head
+  /// points at the stop, [aimClear] short of it. Drawn parallel and
+  /// offset at both ends, the stub ran up past the stop to end beside it:
+  /// an arrow from the man's shoulder to nowhere, with the stop a stride
+  /// to its left (reported off a phone, 2026-10-17).
   void _drawBeside(Canvas canvas, Color color, Offset from, Offset to,
       double scale,
       {bool strong = false,
       _Line style = _Line.dash,
+      Offset? aimAt,
+      double aimClear = 0,
       Iterable<Offset> avoid = const []}) {
     final delta = to - from;
     final dist = delta.distance;
@@ -667,6 +680,19 @@ class PlayerMovesPainter extends CustomPainter {
       int near(Offset at) =>
           avoid.where((o) => (o - at).distance < reach).length;
       if (near(centre - side) < near(centre + side)) side = -side;
+    }
+    if (aimAt != null) {
+      final tail = from + side;
+      final d = aimAt - tail;
+      final len = d.distance;
+      if (len < 1e-6) return;
+      final tip = aimAt - d / len * aimClear;
+      // Shorter than a head: the stop itself, on his shoulder, says it.
+      if ((tip - tail).distance < 8.0 * scale) return;
+      _drawLine(canvas, color, tail, tip,
+          strong: strong, fade: true, style: style);
+      _drawArrowHead(canvas, color, tail, tip, strong: strong);
+      return;
     }
     final mid = (from + to) / 2 + side;
     final half = max(dist / 2, 10.0 * scale);
