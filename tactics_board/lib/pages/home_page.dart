@@ -485,13 +485,17 @@ class TacticsBoardHomePage extends StatelessWidget {
                       top = topPad;
                     }
                   }
+                  // Upright on a phone the card runs edge to edge too: the
+                  // court is fitted by the card's width there, and the 8pt
+                  // of page at each side was court (reported 2026-10-17).
+                  final phone = MediaQuery.sizeOf(context).shortestSide < 600;
                   final side = isLandscape
                       ? _endGutter(
                           context,
                           Size(box.maxWidth, box.maxHeight - top - foot),
                           across,
                         )
-                      : T.s8;
+                      : (phone ? 0.0 : T.s8);
                   // A drill's step note is a text element on the board, not chrome
                   // painted over it — so it is placed once the board knows its own
                   // size and which way round it is drawn, which is this frame.
@@ -574,115 +578,18 @@ class TacticsBoardHomePage extends StatelessWidget {
                       // back button at all, and once the home page went in front of it
                       // there was no way off the board. The board swallows the edge-swipe
                       // (it draws with it), so this is the only way back.
-                      Positioned(
-                        top: chromeTop,
-                        left: 12,
-                        child: Selector<TacticsState, (String?, String?)>(
-                          selector: (_, s) =>
-                              (s.editingFromPlan, s.runningPlanName),
-                          builder: (context, tuple, _) {
-                            final planName = tuple.$1;
-                            final runName = tuple.$2;
-                            final inPlanMode =
-                                planName != null || runName != null;
-                            // Named for VoiceOver: a bare GestureDetector
-                            // was a silent, unlabelled spot on the screen.
-                            return Semantics(
-                              button: true,
-                              label: 'common_back'.tr(),
-                              child: GestureDetector(
-                              onTap: () async {
-                                final state = context.read<TacticsState>();
-                                if (runName != null) {
-                                  // Auto-save tactic edits made during a run, matching the
-                                  // plan-edit branch below.
-                                  if (state.currentTacticName != null) {
-                                    try {
-                                      await state.saveTactics(
-                                        state.currentTacticName!,
-                                      );
-                                    } catch (_) {}
-                                  }
-                                  final startIdx = state.runningItemIndex;
-                                  state.runningPlanName = null;
-                                  state.editingFromPlan = null;
-                                  // The run page that opened this board is
-                                  // right underneath: go back to it. Pushing
-                                  // a fresh one each time is what looped.
-                                  if (!context.mounted) return;
-                                  if (Navigator.of(context).canPop()) {
-                                    Navigator.of(context).pop();
-                                    return;
-                                  }
-                                  final p =
-                                      await PracticeService.load(
-                                        state.sportType,
-                                        runName,
-                                      ) ??
-                                      Practice(name: runName);
-                                  if (!context.mounted) return;
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => PracticeRunPage(
-                                        state: state,
-                                        practice: p,
-                                        initialIndex: startIdx,
-                                      ),
-                                    ),
-                                  );
-                                  return;
-                                }
-                                if (planName != null) {
-                                  // Auto-save tactic edits made while in plan-edit mode, so
-                                  // the disk file (and cloud sync) pick up new players/moves
-                                  // without requiring a manual Save tap.
-                                  if (state.currentTacticName != null) {
-                                    try {
-                                      await state.saveTactics(
-                                        state.currentTacticName!,
-                                      );
-                                    } catch (_) {}
-                                  }
-                                  state.editingFromPlan = null;
-                                  final p =
-                                      await PracticeService.load(
-                                        state.sportType,
-                                        planName,
-                                      ) ??
-                                      Practice(name: planName);
-                                  if (!context.mounted) return;
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => PracticeEditPage(
-                                        state: state,
-                                        practice: p,
-                                      ),
-                                    ),
-                                  );
-                                  return;
-                                }
-                                // Back to the sport's home page, which is what pushed
-                                // the board. It used to replace the route with the sport
-                                // grid, which skipped the home page in the hub and did
-                                // not exist at all in a single-sport build.
-                                Navigator.of(context).maybePop();
-                              },
-                              child: _GlassCircle(
-                                size: chromeCircle(context),
-                                border: inPlanMode
-                                    ? Border.all(color: T.selectedStroke, width: 1.5)
-                                    : null,
-                                child: Icon(
-                                  Icons.arrow_back_ios_new,
-                                  color: inPlanMode ? T.accentText : T.text,
-                                  size: 16 * uiScale(context),
-                                ),
-                              ),
-                              ),
-                            );
-                          },
+                      // Not when the rail stands at the screen's left: the
+                      // way back is at its head there, the top-left of the
+                      // screen (reported 2026-10-17).
+                      if (!(isLandscape &&
+                          MediaQuery.sizeOf(context).shortestSide < 600 &&
+                          IslandSide.side.value == 'left' &&
+                          state.toolbarVisible))
+                        Positioned(
+                          top: chromeTop,
+                          left: 12,
+                          child: const _BackButton(),
                         ),
-                      ),
                       // Pages. Always there, because a routine is several boards and the
                       // way to make the second one has to be visible before anybody knows
                       // they want it; a coach wrote a review saying there was no easy way
@@ -1048,6 +955,12 @@ class TacticsBoardHomePage extends StatelessWidget {
             : EdgeInsets.fromLTRB(4, vPad, edge, vPad),
         child: Column(
           children: [
+            // The way back, at the top-left of the screen when the rail is
+            // there (reported 2026-10-17); the board's own corner otherwise.
+            if (onLeft) ...[
+              const Align(alignment: Alignment.centerLeft, child: _BackButton()),
+              const SizedBox(height: 10),
+            ],
             // Mode buttons — Move / Draw / Select, matching the portrait
             // toolbar's _ModeSegment so landscape exposes the same modes.
             Row(
@@ -1544,6 +1457,123 @@ class _RotationPill extends StatelessWidget {
           ),
         ),
       );
+}
+
+
+/// The way back off the board: to the home page, or to the plan or the run
+/// that opened it. On the board's top-left corner, or at the head of a
+/// sideways phone's rail when that is the screen's top-left.
+class _BackButton extends StatelessWidget {
+  const _BackButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TacticsState, (String?, String?)>(
+                          selector: (_, s) =>
+                              (s.editingFromPlan, s.runningPlanName),
+                          builder: (context, tuple, _) {
+                            final planName = tuple.$1;
+                            final runName = tuple.$2;
+                            final inPlanMode =
+                                planName != null || runName != null;
+                            // Named for VoiceOver: a bare GestureDetector
+                            // was a silent, unlabelled spot on the screen.
+                            return Semantics(
+                              button: true,
+                              label: 'common_back'.tr(),
+                              child: GestureDetector(
+                              onTap: () async {
+                                final state = context.read<TacticsState>();
+                                if (runName != null) {
+                                  // Auto-save tactic edits made during a run, matching the
+                                  // plan-edit branch below.
+                                  if (state.currentTacticName != null) {
+                                    try {
+                                      await state.saveTactics(
+                                        state.currentTacticName!,
+                                      );
+                                    } catch (_) {}
+                                  }
+                                  final startIdx = state.runningItemIndex;
+                                  state.runningPlanName = null;
+                                  state.editingFromPlan = null;
+                                  // The run page that opened this board is
+                                  // right underneath: go back to it. Pushing
+                                  // a fresh one each time is what looped.
+                                  if (!context.mounted) return;
+                                  if (Navigator.of(context).canPop()) {
+                                    Navigator.of(context).pop();
+                                    return;
+                                  }
+                                  final p =
+                                      await PracticeService.load(
+                                        state.sportType,
+                                        runName,
+                                      ) ??
+                                      Practice(name: runName);
+                                  if (!context.mounted) return;
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => PracticeRunPage(
+                                        state: state,
+                                        practice: p,
+                                        initialIndex: startIdx,
+                                      ),
+                                    ),
+                                  );
+                                  return;
+                                }
+                                if (planName != null) {
+                                  // Auto-save tactic edits made while in plan-edit mode, so
+                                  // the disk file (and cloud sync) pick up new players/moves
+                                  // without requiring a manual Save tap.
+                                  if (state.currentTacticName != null) {
+                                    try {
+                                      await state.saveTactics(
+                                        state.currentTacticName!,
+                                      );
+                                    } catch (_) {}
+                                  }
+                                  state.editingFromPlan = null;
+                                  final p =
+                                      await PracticeService.load(
+                                        state.sportType,
+                                        planName,
+                                      ) ??
+                                      Practice(name: planName);
+                                  if (!context.mounted) return;
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => PracticeEditPage(
+                                        state: state,
+                                        practice: p,
+                                      ),
+                                    ),
+                                  );
+                                  return;
+                                }
+                                // Back to the sport's home page, which is what pushed
+                                // the board. It used to replace the route with the sport
+                                // grid, which skipped the home page in the hub and did
+                                // not exist at all in a single-sport build.
+                                Navigator.of(context).maybePop();
+                              },
+                              child: _GlassCircle(
+                                size: chromeCircle(context),
+                                border: inPlanMode
+                                    ? Border.all(color: T.selectedStroke, width: 1.5)
+                                    : null,
+                                child: Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: inPlanMode ? T.accentText : T.text,
+                                  size: 16 * uiScale(context),
+                                ),
+                              ),
+                              ),
+                            );
+                          },
+                        );
+  }
 }
 
 /// The page counter, and the way in to the rest of them.
