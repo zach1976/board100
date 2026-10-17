@@ -262,10 +262,22 @@ class TacticsBoardHomePage extends StatelessWidget {
           ? SizedBox(
               // The rail's contents are text at uiScale, so the rail has to
               // scale with them; a fixed width overflows on a tablet.
-              width: kRailWidth * uiScale(context),
-              child: Material(
-                color: sel.theme.panelColor,
-                child: _landscapeSidePanel(context),
+              // Plus the capsule's own margin, so its rows keep the width
+              // they were measured for.
+              width: kRailWidth * uiScale(context) + 12,
+              // A capsule on the page's ground, like the two the upright
+              // phone docks at its foot — not a white strip down the edge,
+              // which on the sport's deep ground read as another page
+              // (reported 2026-10-17).
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 6, vertical: T.s8),
+                child: Material(
+                  color: sel.theme.panelColor,
+                  borderRadius: BorderRadius.circular(T.rLg),
+                  clipBehavior: Clip.antiAlias,
+                  child: _landscapeSidePanel(context),
+                ),
               ),
             )
           : const SizedBox.shrink(),
@@ -4163,10 +4175,21 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
         final tabletScale = screen.shortestSide >= 600
             ? math.min(1.45, (screen.width - 16) / 540).clamp(1.0, 1.45)
             : 1.0;
+        // The pen's panel steps aside while a line is being drawn: it
+        // stands across the foot of the board — a third of it on a phone
+        // turned sideways — and a stroke that ran under it stopped there
+        // (reported 2026-10-17). Gone from the moment the finger is down
+        // to the moment it lifts, and back for the next choice.
+        final inking = hasDrawing && state.currentStroke != null;
         return Positioned(
           left: 8 + _drag.dx,
           right: 8 - _drag.dx,
           bottom: 10 - _drag.dy,
+          child: IgnorePointer(
+            ignoring: inking,
+            child: AnimatedOpacity(
+              opacity: inking ? 0.0 : 1.0,
+              duration: const Duration(milliseconds: 120),
           child: Center(
             child: _ScaledBox(
               scale: tabletScale.toDouble(),
@@ -4237,6 +4260,8 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
                 ),
               ),
             )),
+          ),
+            ),
           ),
         );
       },
