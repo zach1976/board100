@@ -459,8 +459,16 @@ class TacticsBoardHomePage extends StatelessWidget {
               // and the page badge sat on top of him.
               LayoutBuilder(
                 builder: (context, box) {
+                  // A phone turned sideways gives the card the whole
+                  // height: the 8pt of page above and below it were the
+                  // one margin left on a screen with none to spare, and a
+                  // pitch fitted by the card's height grows by them
+                  // (reported 2026-10-17). A tablet keeps its breathing room.
+                  final phoneSideways = isLandscape &&
+                      MediaQuery.sizeOf(context).shortestSide < 600;
+                  final foot = phoneSideways ? 0.0 : T.s8;
                   var top = isLandscape
-                      ? T.s8
+                      ? foot
                       : _pagesBand(context, topPad, wideChrome);
                   // An upright phone whose court leaves a deep band at its
                   // far end — a volleyball or tennis court, with the
@@ -487,7 +495,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                   final side = isLandscape
                       ? _endGutter(
                           context,
-                          Size(box.maxWidth, box.maxHeight - top - T.s8),
+                          Size(box.maxWidth, box.maxHeight - top - foot),
                           across,
                         )
                       : T.s8;
@@ -516,7 +524,7 @@ class TacticsBoardHomePage extends StatelessWidget {
                     );
                   }
                   return Padding(
-                    padding: EdgeInsets.fromLTRB(side, top, side, T.s8),
+                    padding: EdgeInsets.fromLTRB(side, top, side, foot),
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
