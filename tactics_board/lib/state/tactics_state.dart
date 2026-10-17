@@ -3432,8 +3432,17 @@ class TacticsState extends ChangeNotifier {
       final across = sideways
           ? [b.center.dx, b.right - extentX / 2 - margin, b.left + extentX / 2 + margin]
           : [b.center.dy, b.bottom - extentY / 2 - margin, b.top + extentY / 2 + margin];
+      // Sideways the ends of a band are where the corner circles float —
+      // back and menu at the head, zoom and fullscreen at the foot — so
+      // a note slid to an end was drawn under them (reported 2026-10-17).
+      // A circle and its margin kept clear at both ends.
+      const corner = 72.0;
       final along = sideways
-          ? [h / 2, extentY / 2 + margin, h - extentY / 2 - margin]
+          ? [
+              h / 2,
+              extentY / 2 + margin + corner,
+              h - extentY / 2 - margin - corner,
+            ]
           : [w / 2, extentX / 2 + margin, w - extentX / 2 - margin];
       return [
         for (final l in along)
