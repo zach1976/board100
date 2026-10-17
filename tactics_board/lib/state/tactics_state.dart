@@ -1337,6 +1337,11 @@ class TacticsState extends ChangeNotifier {
 
   // Drawing mode
   void setDrawingMode(bool enabled) {
+    // Picking a tool is picking up the board again: zoom mode hands every
+    // gesture to the viewer, and with it on, Draw lit up and nothing drew,
+    // Move lit up and nobody moved (reported off a phone, 2026-10-17). The
+    // zoom itself stays; only the pinch-and-pan mode ends.
+    _zoomMode = false;
     _isDrawingMode = enabled;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
@@ -1365,6 +1370,8 @@ class TacticsState extends ChangeNotifier {
     if (_multiSelectMode == enabled) return;
     _multiSelectMode = enabled;
     if (enabled) {
+      // A tool picked ends zoom mode: see setDrawingMode.
+      _zoomMode = false;
       _isDrawingMode = false;
       _selectedPlayerId = null;
       _selectedWaypointIndex = null;
