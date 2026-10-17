@@ -5555,11 +5555,14 @@ class DrawingOptionsBar extends StatelessWidget {
                           Expanded(
                             child: CustomPaint(
                               size: const Size(56, 20),
+                              // The picked-out line's own style when there
+                              // is one: the pen's showed a wavy plain line
+                              // over a straight arrow (2026-10-17).
                               painter: LineStylePreviewPainter(
-                                shape: state.lineShape,
-                                dash: state.strokeStyle,
-                                arrow: state.arrowStyle,
-                                color: state.strokeColor,
+                                shape: sel?.shape ?? state.lineShape,
+                                dash: sel?.style ?? state.strokeStyle,
+                                arrow: sel?.arrow ?? state.arrowStyle,
+                                color: sel?.color ?? state.strokeColor,
                               ),
                             ),
                           ),
@@ -5601,7 +5604,7 @@ class DrawingOptionsBar extends StatelessWidget {
               // again: updateStroke existed and nothing ever called it.
               ...kStrokeColors.map((c) => _ColorDot(
                     color: c,
-                    selected: state.strokeColor == c,
+                    selected: (sel?.color ?? state.strokeColor) == c,
                     onTap: () {
                       state.setStrokeColor(c);
                       if (sel != null) state.updateStroke(sel.id, color: c);
@@ -5623,7 +5626,7 @@ class DrawingOptionsBar extends StatelessWidget {
                     tickMarkShape: SliderTickMarkShape.noTickMark,
                   ),
                   child: Slider(
-                    value: state.strokeWidth,
+                    value: (sel?.width ?? state.strokeWidth).clamp(1.0, 8.0).toDouble(),
                     min: 1,
                     max: 8,
                     divisions: 7,

@@ -47,12 +47,18 @@ class _LineStyleSheet extends StatefulWidget {
 }
 
 class _LineStyleSheetState extends State<_LineStyleSheet> {
-  late LineShape _shape = widget.state.lineShape;
-  late StrokeStyle _dash = widget.state.strokeStyle;
-  late ArrowStyle _arrow = widget.state.arrowStyle;
+  // Opened on a picked-out line, the sheet starts from that line's style,
+  // not the pen's.
+  late LineShape _shape =
+      widget.state.selectedStroke?.shape ?? widget.state.lineShape;
+  late StrokeStyle _dash =
+      widget.state.selectedStroke?.style ?? widget.state.strokeStyle;
+  late ArrowStyle _arrow =
+      widget.state.selectedStroke?.arrow ?? widget.state.arrowStyle;
   /// Read only: the grid draws its previews in the pen's colour. Which
   /// colour, and how thick, is chosen on the bar itself.
-  late final Color _color = widget.state.strokeColor;
+  late final Color _color =
+      widget.state.selectedStroke?.color ?? widget.state.strokeColor;
 
   /// Push the current selection to the board immediately. Called on every tap
   /// so a choice takes effect without a separate "confirm" press — a selected
