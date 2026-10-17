@@ -526,7 +526,16 @@ class TacticsBoardHomePage extends StatelessWidget {
                   // with the rail on the right it was the left that did,
                   // and the column stood on the goal (2026-10-17).
                   final leftPad = isLandscape ? T.s8 : side;
-                  final rightPad = side;
+                  // With the rail on the right the menu is in it, and the
+                  // board's right end keeps only the pages badge, in the top
+                  // corner like Back on the left: no gutter there either, so
+                  // the board runs up to the rail (asked for 2026-10-17).
+                  final rightPad = isLandscape &&
+                          _menuInRail(context) &&
+                          context.select<TacticsState, bool>(
+                              (s) => s.toolbarVisible && !s.presentationMode)
+                      ? T.s8
+                      : side;
                   return Padding(
                     padding: EdgeInsets.fromLTRB(leftPad, top, rightPad, foot),
                     child: DecoratedBox(
