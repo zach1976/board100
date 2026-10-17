@@ -272,18 +272,13 @@ class TacticsBoardHomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 6, vertical: T.s8),
-                child: Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: sel.theme.panelColor,
-                    borderRadius: BorderRadius.circular(T.rLg),
-                    border: Border.all(color: T.border),
-                    boxShadow: T.shadowFloat,
-                  ),
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: _landscapeSidePanel(context),
-                  ),
+                // On the page's own ground, the sport's colour taken deep,
+                // exactly as the upright phone has it under its capsules:
+                // each control is a white chip on it, and nothing is a
+                // white strip (reported 2026-10-17, twice).
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: _landscapeSidePanel(context),
                 ),
               ),
             )
@@ -1132,7 +1127,7 @@ class TacticsBoardHomePage extends StatelessWidget {
             const Spacer(),
             // Play controls
             if (state.hasMoves) ...[
-              const Divider(color: T.border),
+              const Divider(color: Color(0x4DFFFFFF)),
               const SizedBox(height: 4),
               // Step + controls in compact layout
               Row(
@@ -1147,8 +1142,9 @@ class TacticsBoardHomePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: Text(
                       '${state.atStep}/${state.maxMoveSteps}',
+                      // On the page's deep ground, like the chips' rims.
                       style: const TextStyle(
-                        color: T.text,
+                        color: Colors.white,
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                       ),
@@ -1231,8 +1227,9 @@ class TacticsBoardHomePage extends StatelessWidget {
         // beside a white page (reported 2026-10-17). The chosen one is
         // the dark pill, as upright.
         decoration: BoxDecoration(
-          color: active ? T.toolOn : Colors.transparent,
+          color: active ? T.toolOn : T.surface,
           borderRadius: BorderRadius.circular(8),
+          boxShadow: T.shadowFloat,
         ),
         // One line, shrunk to fit rather than wrapped: the rail is narrow and
         // "Sélectionner" took three lines of it, which pushed the playback
@@ -1246,7 +1243,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               maxLines: 1,
               softWrap: false,
               style: TextStyle(
-                color: active ? T.onToolOn : T.textOff,
+                color: active ? T.onToolOn : T.textDim,
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
@@ -1265,8 +1262,12 @@ class TacticsBoardHomePage extends StatelessWidget {
         child: Container(
           width: 32,
           height: 32,
-          decoration: const BoxDecoration(shape: BoxShape.circle),
-          child: Icon(icon, color: color, size: 19),
+          decoration: BoxDecoration(
+            color: T.surface,
+            shape: BoxShape.circle,
+            boxShadow: T.shadowFloat,
+          ),
+          child: Icon(icon, color: color, size: 18),
         ),
       ),
     );
@@ -1283,10 +1284,10 @@ class TacticsBoardHomePage extends StatelessWidget {
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 10),
-        // A hairline, not a grey fill: see _lBtn.
         decoration: BoxDecoration(
+          color: T.surface,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: T.border),
+          boxShadow: T.shadowFloat,
         ),
         // Shrunk to fit rather than clipped, same as _lBtn: these rows step
         // aside for the island and "Añadir" is wider than what is left.
