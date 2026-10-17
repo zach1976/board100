@@ -692,7 +692,6 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
 
   bool _pencilCanDraw(TacticsState state) =>
       !state.presentationMode &&
-      !state.zoomMode &&
       !state.isAnimating &&
       !state.multiSelectMode &&
       !(state.isAddingMove && state.selectedPlayerId != null) &&
@@ -1172,17 +1171,20 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             final isAddMove =
                 state.isAddingMove && state.selectedPlayerId != null;
             final locked = state.presentationMode;
-            // Zoom mode + presentation both lock the board content and hand
-            // every gesture to the InteractiveViewer. In normal editing the
-            // board carries NO InteractiveViewer, so its scale recogniser can
-            // never fight a single-finger player drag.
+            // Presentation locks the board and hands every gesture to the
+            // InteractiveViewer. Zoom mode mounts the viewer too, but for
+            // two fingers only (panEnabled off): one finger still taps,
+            // drags and draws on the board — a coach who has zoomed in on
+            // the circle wants to work there, and with the board locked
+            // under the zoom nothing answered a tap (reported off a phone,
+            // 2026-10-17). In normal editing the board carries NO viewer.
             final useViewer = locked || state.zoomMode;
 
             // Canvas-level single-finger gestures: drawing, erasing,
             // multi-select lasso, or laying a run. All off while the board
-            // is locked (presentation) or being zoomed.
+            // is locked (presentation).
             final pannable =
-                !useViewer &&
+                !locked &&
                 (state.isDrawingMode || state.multiSelectMode || isAddMove);
 
             final board = GestureDetector(
@@ -1282,7 +1284,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                       }
                     }
                   : null,
-              onTapUp: (!state.isAnimating && !useViewer)
+              onTapUp: (!state.isAnimating && !locked)
                   ? (d) {
                       if (state.multiSelectMode) {
                         // In select mode: hit a stroke → toggle its membership;
@@ -1324,7 +1326,7 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
                     }
                   : null,
               child: IgnorePointer(
-                ignoring: useViewer,
+                ignoring: locked,
                 child: BoardOrientation(
                   quarterTurns: widget.boardTurns,
                   // Keyed by the figure scale: the painters compare their
@@ -1364,7 +1366,9 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
             return useViewer
                 ? InteractiveViewer(
                     transformationController: state.transformationController,
-                    panEnabled: true,
+                    // Zoom mode: two fingers pinch and move the view, one
+                    // finger is the board's. A presentation pans with one.
+                    panEnabled: locked,
                     scaleEnabled: true,
                     minScale: 1.0,
                     maxScale: 4.0,

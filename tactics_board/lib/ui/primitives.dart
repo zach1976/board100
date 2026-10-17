@@ -74,8 +74,15 @@ class TacticalSheet extends StatelessWidget {
               borderRadius: T.brSheet,
               boxShadow: T.shadowSheet,
             ),
+      // Not the sides: a phone turned sideways reports the island's 59pt
+      // on both edges, and the sheet — 640 wide at most, centred — is
+      // already clear of them; honouring them put 59pt of nothing inside
+      // each edge of the Add sheet (reported 2026-10-17). Upright, a
+      // full-width sheet has no side inset to honour anyway.
       child: SafeArea(
         top: false,
+        left: false,
+        right: false,
         bottom: !popover,
         child: Padding(
           padding: padding,

@@ -540,7 +540,6 @@ class TacticsBoardHomePage extends StatelessWidget {
                   // overlaps the Half Court / zoom / fullscreen buttons.
                   final editPanelOpen =
                       !state.isAnimating &&
-                      !state.zoomMode &&
                       (state.isDrawingMode ||
                           state.selectedStrokeId != null ||
                           state.selectedPlayerId != null);
@@ -4131,7 +4130,7 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
   Widget build(BuildContext context) {
     return Consumer<TacticsState>(
       builder: (context, state, _) {
-        if (state.isAnimating || state.presentationMode || state.zoomMode) {
+        if (state.isAnimating || state.presentationMode) {
           _placedFor = null;
           return const SizedBox.shrink();
         }
