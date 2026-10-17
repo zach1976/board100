@@ -3,6 +3,8 @@
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.1，本次是 2.0.1 → 2.2.0。
 >
+> **10-17 篮球/足球被 2.1(b) 退回：审核员找不到内购入口。** 入口段改成三条明确路径。
+>
 > **年订阅随本版本首次送审**（fieldhockey_remove_ads_yearly，READY_TO_SUBMIT）：
 > submit 时要把订阅一起加进 reviewSubmission，否则商店依旧只显示买断。
 >
@@ -16,35 +18,43 @@ Dear App Review team,
 Field Hockey Board 2.2.0 is a feature release over 2.0.1. There are no new
 permissions and no new network endpoints.
 
-## In-app purchase submitted with this version
+## Where to find the In-App Purchases
 
-1. The auto-renewable yearly subscription "fieldhockey_remove_ads_yearly"
-   (group "Tactics Board Pro") is submitted for the first time with this
-   version. It removes ads and unlocks the full drill library, the same as
-   the already approved one-time "Lifetime" purchase.
-2. To see it: open any board → the menu button (top corner) → "Remove Ads",
-   or open a locked drill in the Drills tab and tap "Unlock with Pro". The purchase sheet
-   lists both plans with their localized prices, states that the yearly plan
-   auto-renews and can be cancelled in Settings, and links the Terms of Use
-   (standard EULA) and the Privacy Policy. "Restore Purchases" is on the same
+Both purchases — "Remove Ads (Yearly)" (fieldhockey_remove_ads_yearly, auto-renewable,
+submitted for the first time with this version) and the already approved
+one-time "Lifetime" — are on one purchase sheet. Three ways to it, any one
+is enough:
+
+1. From the board: on the Home tab tap "Open the board" (or "New board").
+   On the board, tap the round "⋯" button in the top-right corner, then
+   "Remove Ads". The purchase sheet opens.
+2. From the drills: open the "Drills" tab and tap any drill marked with a
+   lock, then "Unlock with Pro". The same sheet opens.
+3. From match day: on the Home tab tap "Match day", set up a match and tap
+   the clock's start button; starting the clock asks for Pro with the same
    sheet.
+
+The sheet shows both plans with localized prices, the auto-renewal terms,
+the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
+Nothing restricts the purchases by storefront or device. The Paid Apps
+Agreement is in effect (the Lifetime purchase is live).
 
 ## New in 2.2.0
 
-3. Two new pitches beside the outdoor one: the FIH indoor pitch and the
+1. Two new pitches beside the outdoor one: the FIH indoor pitch and the
    Hockey5s court, chosen from the board's field menu. Each board keeps its
    own pitch, and the formation list follows it.
-4. The drill library grows from 36 to 65 drills, six of them indoor.
-5. Text can be written on the board, and a drill's step note sits on the
+2. The drill library grows from 36 to 65 drills, six of them indoor.
+3. Text can be written on the board, and a drill's step note sits on the
    board and changes with each step.
-6. The app's backgrounds take the sport's blue instead of the shared dark teal.
-7. iPad: a side bar instead of tabs, list-beside-detail for drills and
+4. The app's backgrounds take the sport's blue instead of the shared dark teal.
+5. iPad: a side bar instead of tabs, list-beside-detail for drills and
    plans, panels as popovers, hardware keyboard shortcuts and Apple Pencil
    drawing. In landscape on iPhone the side bar keeps to the Dynamic
    Island's side.
-8. The app's interface and every drill's coaching notes are now also in
+6. The app's interface and every drill's coaching notes are now also in
    German and Dutch (14 languages in all).
-9. Match day: on the home page, the board card's "Match day" button opens a
+7. Match day: on the home page, the board card's "Match day" button opens a
    substitution sheet. Set the periods and the starting line-up, run the
    clock, tap two players to substitute, and the bench sorts by minutes
    played; "Suggest" proposes swaps that even out playing time; afterwards
@@ -56,10 +66,10 @@ permissions and no new network endpoints.
    panel records attempts; the keeper is left out of the fair-time
    suggestions. Finished matches are synced to the coach's account when
    signed in, like practice plans.
-11. Playbook: a saved board can be marked "In playbook" (bookmark icon in
+9. Playbook: a saved board can be marked "In playbook" (bookmark icon in
    the Boards panel) and the match-day screen's "Playbook" button flips
    through those boards full screen.
-12. Six ready sessions (foundation, attacking, defending, set pieces, match
+10. Six ready sessions (foundation, attacking, defending, set pieces, match
    week, pre-season), built from the library's own drills: Plans → New →
    "From a ready session".
 
