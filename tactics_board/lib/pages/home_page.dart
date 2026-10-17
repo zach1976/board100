@@ -391,13 +391,24 @@ class TacticsBoardHomePage extends StatelessWidget {
     if (across) return small;
     final need = 12 + chromeCircle(context) + 4;
     final sport = context.select<TacticsState, SportType>((s) => s.sportType);
-    final card = Size(box.width - small * 2, box.height);
     // Sideways the canvas is a RotatedBox away: it is laid out portrait, with
     // the card's height for its width. fieldRect's own height is the court's
     // length, which runs across the screen.
-    final court = sport.fieldRect(Size(card.height, card.width));
-    final clear = small + (card.width - court.height) / 2;
-    return clear >= need ? small : need;
+    // Only the shortfall, not the whole of [need]: it was all or nothing,
+    // and a basketball court that was 18pt short of clear gave up 60 at
+    // each end — a fifth of the board's length — for the circles to stand
+    // on page (reported 2026-10-17). A court fitted by the card's length
+    // shrinks as the card does, so the answer is found by stepping, each
+    // step measured against the court the smaller card would draw.
+    var gutter = small;
+    for (var i = 0; i < 4; i++) {
+      final card = Size(box.width - gutter * 2, box.height);
+      final court = sport.fieldRect(Size(card.height, card.width));
+      final clear = gutter + (card.width - court.height) / 2;
+      if (clear >= need - 0.5) break;
+      gutter = math.min(need, gutter + (need - clear));
+    }
+    return gutter;
   }
 
   Widget _canvasStack(BuildContext context, double topPad) {
