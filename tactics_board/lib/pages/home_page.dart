@@ -4262,7 +4262,11 @@ class _CollapsibleEditPanelState extends State<_CollapsibleEditPanel> {
             child: _ScaledBox(
               scale: tabletScale.toDouble(),
               child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 540),
+              // The pen's panel is two short rows — a style picker, six
+              // colours and a thickness — and at 540 the slider ran half
+              // the screen and the panel covered most of a sideways board
+              // (2026-10-17). A player's bar keeps 540 for its actions.
+              constraints: BoxConstraints(maxWidth: hasDrawing ? 400 : 540),
               child: GestureDetector(
                 // Translucent, so the chip and the actions inside still
                 // get their taps; this only claims the drag.
