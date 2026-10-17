@@ -5574,11 +5574,8 @@ class DrawingOptionsBar extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: T.s8),
-              _EraserToggle(
-                on: state.eraserMode,
-                onTap: () => state.setEraserMode(!state.eraserMode),
-              ),
+              // No eraser here: a line is removed by picking it out and
+              // tapping the bin above (2026-10-17).
               // A way out that is not the toolbar. Closing the pen's panel
               // puts the pen down: the bottom bar goes back to Move, which
               // is what a coach is about to do next. With a line picked
@@ -5655,71 +5652,6 @@ class DrawingOptionsBar extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared small widgets
 // ─────────────────────────────────────────────────────────────────────────────
-
-/// The eraser toggle in the drawing panel.
-///
-/// It was a [TacticalChip], whose "on" is a 12%-opacity teal wash — fine for
-/// a filter you read a list of, invisible for a mode that changes what every
-/// tap on the board does. On it is now solid, the way the active tool in the
-/// bottom bar is solid, and it says so in words.
-class _EraserToggle extends StatelessWidget {
-  final bool on;
-  final VoidCallback onTap;
-
-  const _EraserToggle({required this.on, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      toggled: on,
-      child: Material(
-        color: on ? T.toolOn : T.surfaceHi,
-        borderRadius: T.brSm,
-        child: InkWell(
-          onTap: () {
-            HapticFeedback.selectionClick();
-            onTap();
-          },
-          borderRadius: T.brSm,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 120),
-            height: T.tap,
-            padding: const EdgeInsets.symmetric(horizontal: T.s12),
-            decoration: BoxDecoration(
-              borderRadius: T.brSm,
-              border: Border.all(
-                color: on ? T.onToolOn.withValues(alpha: 0.55) : T.border,
-                width: on ? 1.5 : 1,
-              ),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  on ? Icons.backspace_rounded : Icons.backspace_outlined,
-                  size: 17,
-                  color: on ? T.onToolOn : T.textDim,
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  'eraser'.tr(),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 13.5,
-                    fontWeight: on ? FontWeight.w700 : FontWeight.w400,
-                    color: on ? T.onToolOn : T.textDim,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class _ColorDot extends StatelessWidget {
   final Color color;
