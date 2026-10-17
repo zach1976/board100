@@ -277,8 +277,14 @@ def step_text():
             # privacy URL) has to exist before the version's text means
             # anything. It cannot be added while the appInfo is locked.
             if info_locked:
-                print(f"  ! {locale}: appInfo 已锁，无法新建名称，跳过此语言")
-                continue
+                # The version's text, keywords and screenshots do not need
+                # the name: the listing shows the app's primary-language
+                # name in this store until the next version adds it.
+                # Skipping the whole language left the German and Dutch
+                # stores without a word of their own (basketball 2.1.0,
+                # locked by Mac 2.0.2 in review, 2026-10-17).
+                print(f"  ! {locale}: appInfo 已锁，名称暂用主语言，版本文案照推")
+        if locale not in ilocs and name and not info_locked:
             attrs = {"locale": locale, "name": name}
             if sub:
                 attrs["subtitle"] = sub
