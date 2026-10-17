@@ -674,10 +674,15 @@ class TacticsBoardHomePage extends StatelessWidget {
                         selector: (_, s) => s.toolbarVisible,
                         builder: (context, visible, _) {
                           final inBar = viewButtonsInBar(context);
+                          // A sideways phone whose rail is on the left
+                          // carries zoom and fullscreen at the rail's head,
+                          // beside Back; only the zoom reset, and the way
+                          // out of fullscreen, still float here.
+                          final inRail = visible && _viewInRail(context);
                           final buttons = [
                             _ZoomResetButton(across: across),
-                            if (!inBar) _ZoomModeButton(across: across),
-                            if (!inBar || !visible) _FullscreenButton(),
+                            if (!inBar && !inRail) _ZoomModeButton(across: across),
+                            if ((!inBar || !visible) && !inRail) _FullscreenButton(),
                           ];
                           final pair = IgnorePointer(
                             ignoring: editPanelOpen,
@@ -977,9 +982,28 @@ class TacticsBoardHomePage extends StatelessWidget {
           children: [
             // The way back, at the top-left of the screen when the rail is
             // there (reported 2026-10-17); the board's own corner otherwise.
+            // Back at the head, and beside it the view's two circles —
+            // zoom and fullscreen — taken off the board's right edge, which
+            // keeps only menu and pages (asked for 2026-10-17).
             if (onLeft) ...[
-              const Align(alignment: Alignment.centerLeft, child: _BackButton()),
-              const SizedBox(height: 4),
+              Row(
+                children: [
+                  const _BackButton(),
+                  const Spacer(),
+                  _lCircleBtn(
+                    Icons.pinch,
+                    state.zoomMode ? T.accentText : T.textDim,
+                    state.toggleZoomMode,
+                  ),
+                  const SizedBox(width: 10),
+                  _lCircleBtn(
+                    Icons.fullscreen,
+                    T.textDim,
+                    state.toggleToolbar,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
             ],
             // Mode buttons — Move / Draw / Select, matching the portrait
             // toolbar's _ModeSegment so landscape exposes the same modes.
@@ -1479,6 +1503,15 @@ class _RotationPill extends StatelessWidget {
       );
 }
 
+
+/// A sideways phone whose rail stands at the screen's left: zoom and
+/// fullscreen ride at the rail's head beside Back instead of floating.
+bool _viewInRail(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  return size.width > size.height &&
+      size.shortestSide < 600 &&
+      IslandSide.side.value == 'left';
+}
 
 /// The way back off the board: to the home page, or to the plan or the run
 /// that opened it. On the board's top-left corner, or at the head of a
