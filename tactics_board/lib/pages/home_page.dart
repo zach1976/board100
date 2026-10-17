@@ -262,16 +262,9 @@ class TacticsBoardHomePage extends StatelessWidget {
           ? SizedBox(
               // The rail's contents are text at uiScale, so the rail has to
               // scale with them; a fixed width overflows on a tablet.
-              // Plus the capsule's own margin, so its rows keep the width
-              // they were measured for.
-              width: kRailWidth * uiScale(context) + 12,
-              // A capsule on the page's ground, like the two the upright
-              // phone docks at its foot — not a white strip down the edge,
-              // which on the sport's deep ground read as another page
-              // (reported 2026-10-17).
+              width: kRailWidth * uiScale(context),
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 6, vertical: T.s8),
+                padding: const EdgeInsets.symmetric(vertical: T.s8),
                 // On the page's own ground, the sport's colour taken deep,
                 // exactly as the upright phone has it under its capsules:
                 // each control is a white chip on it, and nothing is a
@@ -523,8 +516,16 @@ class TacticsBoardHomePage extends StatelessWidget {
                       ),
                     );
                   }
+                  // The rail's side keeps no gutter: the board runs up to
+                  // the rail, and the one circle there — Back, in the top
+                  // corner — lies over the corner of the court, where a
+                  // drill puts nobody (reported 2026-10-17). The far side
+                  // keeps the gutter the four circles there need.
+                  final railLeft = IslandSide.side.value == 'left';
+                  final leftPad = isLandscape && railLeft ? T.s8 : side;
+                  final rightPad = isLandscape && !railLeft ? T.s8 : side;
                   return Padding(
-                    padding: EdgeInsets.fromLTRB(side, top, side, foot),
+                    padding: EdgeInsets.fromLTRB(leftPad, top, rightPad, foot),
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
