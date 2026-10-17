@@ -977,28 +977,9 @@ class TacticsBoardHomePage extends StatelessWidget {
           children: [
             // The way back, at the top-left of the screen when the rail is
             // there (reported 2026-10-17); the board's own corner otherwise.
-            // Back at the head, with undo and redo beside it in the room
-            // its row had to its right (asked for 2026-10-17): one row
-            // instead of two.
             if (onLeft) ...[
-              Row(
-                children: [
-                  const _BackButton(),
-                  const Spacer(),
-                  _lCircleBtn(
-                    Icons.undo_rounded,
-                    T.accentText,
-                    state.canUndo ? state.undo : null,
-                  ),
-                  const SizedBox(width: 10),
-                  _lCircleBtn(
-                    Icons.redo_rounded,
-                    T.accentText,
-                    state.canRedo ? state.redo : null,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
+              const Align(alignment: Alignment.centerLeft, child: _BackButton()),
+              const SizedBox(height: 4),
             ],
             // Mode buttons — Move / Draw / Select, matching the portrait
             // toolbar's _ModeSegment so landscape exposes the same modes.
@@ -1034,7 +1015,6 @@ class TacticsBoardHomePage extends StatelessWidget {
             ),
             SizedBox(height: onLeft ? 6 : 10),
             // Undo / Redo — always reachable
-            if (!onLeft) ...[
             Padding(
               padding: dodge,
               child: Row(
@@ -1056,8 +1036,7 @@ class TacticsBoardHomePage extends StatelessWidget {
               ],
             ),
             ),
-            const SizedBox(height: 10),
-            ],
+            SizedBox(height: onLeft ? 6 : 10),
             // Action buttons
             Padding(
               padding: dodge,
