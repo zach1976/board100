@@ -272,11 +272,18 @@ class TacticsBoardHomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 6, vertical: T.s8),
-                child: Material(
-                  color: sel.theme.panelColor,
-                  borderRadius: BorderRadius.circular(T.rLg),
+                child: Container(
                   clipBehavior: Clip.antiAlias,
-                  child: _landscapeSidePanel(context),
+                  decoration: BoxDecoration(
+                    color: sel.theme.panelColor,
+                    borderRadius: BorderRadius.circular(T.rLg),
+                    border: Border.all(color: T.border),
+                    boxShadow: T.shadowFloat,
+                  ),
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: _landscapeSidePanel(context),
+                  ),
                 ),
               ),
             )
@@ -1219,8 +1226,12 @@ class TacticsBoardHomePage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
+        // On the capsule's own white, like the upright tool bar's tools:
+        // a grey chip under every button made the rail a grey block
+        // beside a white page (reported 2026-10-17). The chosen one is
+        // the dark pill, as upright.
         decoration: BoxDecoration(
-          color: active ? T.toolOn : T.surfaceHi,
+          color: active ? T.toolOn : Colors.transparent,
           borderRadius: BorderRadius.circular(8),
         ),
         // One line, shrunk to fit rather than wrapped: the rail is narrow and
@@ -1254,11 +1265,8 @@ class TacticsBoardHomePage extends StatelessWidget {
         child: Container(
           width: 32,
           height: 32,
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(icon, color: color, size: 17),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
+          child: Icon(icon, color: color, size: 19),
         ),
       ),
     );
@@ -1275,9 +1283,10 @@ class TacticsBoardHomePage extends StatelessWidget {
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 10),
+        // A hairline, not a grey fill: see _lBtn.
         decoration: BoxDecoration(
-          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: T.border),
         ),
         // Shrunk to fit rather than clipped, same as _lBtn: these rows step
         // aside for the island and "Añadir" is wider than what is left.
