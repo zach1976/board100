@@ -679,32 +679,48 @@ class TacticsBoardHomePage extends StatelessWidget {
                             if (!inBar) _ZoomModeButton(across: across),
                             if (!inBar || !visible) _FullscreenButton(),
                           ];
+                          final pair = IgnorePointer(
+                            ignoring: editPanelOpen,
+                            child: AnimatedOpacity(
+                              opacity: editPanelOpen ? 0.0 : 1.0,
+                              duration: const Duration(milliseconds: 160),
+                              // Laid along the bottom band where there is one, so the
+                              // pair does not climb the end margin the board no longer
+                              // leaves for it.
+                              child: across
+                                  ? Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: buttons,
+                                    )
+                                  : Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: buttons,
+                                    ),
+                            ),
+                          );
+                          // A phone turned sideways with the circles down the
+                          // end: the pair joins menu and pages at the top of
+                          // that column, so the foot of the board — where a
+                          // drill's sentence and the bottom corner's players
+                          // are — is clear (asked for 2026-10-17).
+                          if (isLandscape &&
+                              !across &&
+                              MediaQuery.sizeOf(context).shortestSide < 600) {
+                            return Positioned(
+                              top: _chromeTop(topPad) +
+                                  2 * (chromeCircle(context) + T.s8),
+                              right: 12,
+                              child: pair,
+                            );
+                          }
                           return _ClearOfText(
                             // 4 rather than 12 where the band is the court's own
                             // clearance: [_chromeAcross] measured it to the point.
                             bottom: across ? 4 : 12,
                             right: 12,
-                            child: IgnorePointer(
-                              ignoring: editPanelOpen,
-                              child: AnimatedOpacity(
-                                opacity: editPanelOpen ? 0.0 : 1.0,
-                                duration: const Duration(milliseconds: 160),
-                                // Laid along the bottom band where there is one, so the
-                                // pair does not climb the end margin the board no longer
-                                // leaves for it.
-                                child: across
-                                    ? Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: buttons,
-                                      )
-                                    : Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: buttons,
-                                      ),
-                              ),
-                            ),
+                            child: pair,
                           );
                         },
                       ),
