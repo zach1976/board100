@@ -1,28 +1,9 @@
-Novedades de la versión 2.1.0
+Novedades de la 2.1.1
 
-DÍA DE PARTIDO
-Fija los periodos y tu once inicial, marca al portero, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El reloj se para solo al final de cada periodo, con +1 min de añadido. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego sin tocar al portero. Al acabar, los minutos y cambios de cada jugador se exportan en PDF, y los partidos terminados se sincronizan con tu cuenta. El reloj requiere Pro; la preparación es gratis.
-
-LIBRO DE JUGADAS
-Marca tus pizarras como «En el libro de jugadas» y pásalas desde el día de partido: desliza a la siguiente y pulsa reproducir.
-
-PISTAS NBA, NCAA E INSTITUTO
-Junto a FIBA, el menú de pista ofrece la NBA (zona de 16 ft, triple a 23,75 ft), la NCAA (zona de 12 ft, 22′1¾″) y la de instituto NFHS (84 ft, 19′9″, sin semicírculo de no carga).
-
-99 EJERCICIOS
-La biblioteca ha pasado de 58 a 99 ejercicios: jugadas de sistema (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), bloqueo directo español y sus lecturas, saques de fondo y banda, presión a toda pista y su salida, ataque y defensa de zona, principios de defensa individual, transición, tiro y finalización, cada uno con indicaciones del entrenador en tu idioma.
-
-SESIONES LISTAS
-Seis sesiones listas, montadas con los ejercicios de la biblioteca: base, ataque, defensa, acciones a balón parado, semana de partido y pretemporada. Elige una al crear un plan de entrenamiento y edítala desde ahí.
-
-NOTAS EN LA PIZARRA
-Escribe texto directamente en la pizarra. La nota de cada paso del ejercicio aparece en la pizarra y cambia con cada paso. Elige color o grosor con una línea seleccionada para cambiarle el estilo.
-
-HECHO PARA iPAD
-Una barra lateral en lugar de pestañas, la biblioteca de ejercicios y los planes junto a su detalle, y paneles que se abren junto a su botón. El teclado funciona (Espacio reproduce, las flechas avanzan paso a paso, Cmd+Z deshace) y el Apple Pencil dibuja mientras los dedos mueven jugadores.
-
-ALEMÁN Y NEERLANDÉS
-La app ahora habla alemán y neerlandés: cada pantalla, cada nombre de ejercicio y cada indicación del entrenador. Ya son 14 idiomas.
-
-OTROS ARREGLOS
-La pantalla Pro ahora se titula «Todos los ejercicios, sin anuncios». Volver desde una pizarra te devuelve al plan de entrenamiento que estabas siguiendo. En horizontal, la barra lateral se aparta de la Dynamic Island. Muchas etiquetas que seguían en inglés ya están traducidas.
+• Una pista más grande: en el móvil la pizarra ocupa toda la pantalla, en vertical y en horizontal.
+• En horizontal en el móvil, Atrás, zoom y pantalla completa van en la barra lateral, sin tapar la pista.
+• Dibujo: la línea empieza justo donde pulsas, el panel se aparta mientras dibujas y una línea seleccionada muestra y cambia su propio estilo. Para borrarla, selecciónala y toca la papelera.
+• Amplía y sigue trabajando: un dedo mueve jugadores y dibuja, dos dedos hacen zoom.
+• Movimientos más claros: las flechas llegan a sus paradas numeradas y el pase llega al receptor.
+• La pizarra luce los colores de tu deporte.
+• El enlace al marcador muestra la app real de marcador, con su icono.

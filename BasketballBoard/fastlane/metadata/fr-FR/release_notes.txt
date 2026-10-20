@@ -1,28 +1,9 @@
-Nouveautés de la version 2.1.0
+Nouveautés de la 2.1.1
 
-JOUR DE MATCH
-Fixez les périodes et votre composition de départ, marquez le gardien, lancez le chrono et touchez deux joueurs pour les permuter. Le chrono s'arrête seul en fin de période, avec +1 min de temps additionnel. Le banc se classe par minutes jouées et « Suggérer » équilibre le temps de jeu sans toucher au gardien. Après le match, les minutes et remplacements de chaque joueur s'exportent en PDF, et les matchs terminés se synchronisent avec votre compte. Le chrono demande Pro ; la préparation est gratuite.
-
-CAHIER DE JEU
-Marquez vos tableaux « Dans le cahier de jeu » et feuilletez-les le jour du match : glissez vers le suivant, appuyez sur lecture.
-
-TERRAINS NBA, NCAA ET LYCÉE
-À côté de la FIBA, le menu du terrain propose la NBA (raquette de 16 ft, arc à 23,75 ft), la NCAA (raquette de 12 ft, 22′1¾″) et le lycée NFHS (84 ft, arc à 19′9″, sans zone restrictive).
-
-99 EXERCICES
-La bibliothèque passe de 58 à 99 exercices : systèmes (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), pick-and-roll espagnol et ses lectures, remises en jeu, presses tout terrain et leurs sorties, attaque et défense de zone, principes de défense individuelle, transition, tir et finition, chacun avec des consignes d'entraîneur dans votre langue.
-
-SÉANCES PRÊTES
-Six séances prêtes, composées des exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
-
-NOTES SUR LE TABLEAU
-Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
-
-PENSÉ POUR L'iPAD
-Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
-
-ALLEMAND ET NÉERLANDAIS
-L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
-
-AUTRES CORRECTIONS
-L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.
+• Un terrain plus grand : sur téléphone, le tableau occupe tout l'écran, en portrait comme en paysage.
+• En paysage sur téléphone, Retour, zoom et plein écran passent dans la barre latérale : plus rien ne cache le terrain.
+• Dessin : la ligne part exactement de là où vous appuyez, le panneau s'écarte pendant que vous dessinez, et une ligne sélectionnée affiche et modifie son propre style. Pour la supprimer, sélectionnez-la puis touchez la corbeille.
+• Zoomez et continuez : un doigt déplace les joueurs et dessine, deux doigts zooment.
+• Déplacements plus lisibles : les flèches rejoignent leurs étapes numérotées et la passe arrive au receveur.
+• La page du tableau prend les couleurs de votre sport.
+• Le lien Marqueur affiche la vraie app de score, avec son icône.

@@ -1,40 +1,9 @@
-Nieuw in 2.1.0
+Nieuw in 2.1.1
 
-ALLE ZES ROTATIES
-Kies een rotatie en het bord zet je zes spelers waar ze staan, bij opslag of bij pass. Stap vooruit of terug door de rotaties, kies de zone van de spelverdeler en zet de libero erin. Een overlapcontrole markeert twee spelers die bij de opslag verkeerd zouden staan.
-
-REGELSETS
-Elk bord volgt de regels van FIVB, USAV, NFHS of NCAA. De wissellimiet staat naast de rotatiebalk, 6, 12, 18 of 15 per set, en onder de Amerikaanse regelsets mag de libero in één rotatie serveren. Vier nieuwe oefeningen tonen de serverende libero volgens de Amerikaanse regels, 154 oefeningen in totaal.
-
-POSITIES CORRIGEREN
-Markeert de overlapcontrole twee spelers, dan zet één tik ze waar de regels het toestaan. Ongedaan maken zet ze terug.
-
-OPSTELLINGSFORMULIER
-Deel een opstellingsformulier als pdf in het papieren formaat: de zes zones, de servicevolgorde I tot VI, de libero en de regelset. Werkt offline, in jouw taal.
-
-TOEGESTAAN GEBIED
-Sleep je een speler in een rotatie, dan toont het veld waar hij volgens de andere vijf mag staan. De rand wordt rood als hij erbuiten staat.
-
-WEDSTRIJDDAG
-Een wisselformulier dat per set telt: de zes op het veld, de bank, wissels tegen de limiet van de regelset, liberowissels die niet tellen, twee time-outs, de setstand. Overleeft het sluiten van de app, en de samenvatting exporteer je als pdf. Een wedstrijd starten vereist Pro.
-
-PLAYBOOK
-Markeer je eigen borden als „In playbook“ en blader er op de wedstrijddag doorheen: veeg naar het volgende, druk op afspelen.
-
-STRANDVELD
-Een zandveld van 16 bij 8 meter zonder aanvalslijn, met opstellingen voor duo's: naast elkaar, of blokkeerder en verdediger.
-
-KANT-EN-KLARE TRAININGEN
-Zes kant-en-klare trainingen uit de oefeningen van de bibliotheek, van basistraining tot wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
-
-154 OEFENINGEN
-De oefenbibliotheek is gegroeid van 44 naar 154: pass in elke rotatie van de systemen 5-1, 6-2 en 4-2, omschakelen naar de aanval, gericht serveren, de tweede bal van de spelverdeler, liberowissels, plus set-up, aanval, blok en verdediging, elk met coachaanwijzingen in je eigen taal.
-
-GEMAAKT VOOR DE iPAD
-Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
-
-DUITS EN NEDERLANDS
-De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
-
-KLEINE VERBETERINGEN
-Terug vanaf een bord brengt je weer in het trainingsplan dat liep. De pijl van een korte loop staat naast de speler in plaats van over hem heen. Veel labels die nog Engels waren, zijn nu vertaald.
+• Een groter veld: op de telefoon vult het bord nu het hele scherm, staand en liggend.
+• Liggend op de telefoon staan Terug, zoom en volledig scherm in de zijbalk, zodat niets het veld bedekt.
+• Tekenen: een lijn begint precies waar je drukt, het tekenpaneel wijkt tijdens het tekenen en een geselecteerde lijn toont en wijzigt haar eigen stijl. Verwijderen: selecteer de lijn en tik op de prullenbak.
+• Inzoomen en doorwerken: één vinger verplaatst spelers en tekent, twee vingers zoomen.
+• Duidelijkere looplijnen: pijlen raken hun genummerde punten en de pass bereikt de ontvanger.
+• De bordpagina draagt de kleuren van je sport.
+• De link naar de scoreteller toont de echte score-app, met haar icoon.

@@ -1,40 +1,9 @@
-Neu in 2.1.0
+Neu in 2.1.1
 
-ALLE SECHS ROTATIONEN
-Wähle eine Rotation, und das Board stellt deine sechs dorthin, wo sie stehen – bei Aufschlag oder Annahme. Gehe vor oder zurück durch die Rotationen, wähle die Zone des Zuspielers und bring den Libero ins Spiel. Eine Überlappungsprüfung markiert zwei Spieler, die beim Aufschlag falsch stehen würden.
-
-REGELWERKE
-Jedes Board folgt den Regeln von FIVB, USAV, NFHS oder NCAA. Das Wechsellimit steht neben der Rotationsleiste – 6, 12, 18 oder 15 pro Satz –, und nach den US-Regelwerken darf der Libero in einer Rotation aufschlagen. Vier neue Übungen zeigen den aufschlagenden Libero nach US-Regeln, insgesamt 154 Übungen.
-
-POSITIONEN KORRIGIEREN
-Markiert die Überlappungsprüfung zwei Spieler, stellt ein Tipp sie dorthin, wo die Regeln es erlauben. Rückgängig holt sie zurück.
-
-AUFSTELLUNGSBOGEN
-Einen Aufstellungsbogen als PDF im Papierformat teilen: die sechs Zonen, die Aufschlagreihenfolge I bis VI, der Libero und das Regelwerk. Funktioniert offline, in Ihrer Sprache.
-
-LEGALER BEREICH
-Beim Ziehen eines Spielers in einer Rotation zeigt das Feld den Bereich, in dem er nach den anderen fünf regelkonform stehen darf. Der Rand wird rot, wenn er außerhalb steht.
-
-SPIELTAG
-Ein Wechselbogen, der pro Satz zählt: die sechs auf dem Feld, die Bank, Wechsel gegen das Limit des Regelwerks, Libero-Tausche, die nicht zählen, zwei Auszeiten, der Satzstand. Übersteht das Schließen der App, und die Zusammenfassung wird als PDF exportiert. Ein Spiel zu starten braucht Pro.
-
-SPIELBUCH
-Eigene Boards als „Im Spielbuch“ markieren und am Spieltag durchblättern: wischen zum nächsten, Play drücken.
-
-STRANDFELD
-Ein 16 × 8 m Sandfeld ohne Angriffslinie, mit Aufstellungen für Zweierteams: nebeneinander oder Blocker und Abwehr.
-
-FERTIGE EINHEITEN
-Sechs fertige Trainingseinheiten aus den Übungen der Bibliothek, von der Grundlageneinheit bis zu Spielwoche und Saisonvorbereitung. Beim Anlegen eines Trainingsplans eine auswählen und von dort aus anpassen.
-
-154 ÜBUNGEN
-Die Übungsbibliothek ist von 44 auf 154 gewachsen: Annahme in jeder Rotation der Systeme 5-1, 6-2 und 4-2, Umschalten zum Angriff, gezielter Aufschlag, der zweite Ball des Zuspielers, Libero-Wechsel, dazu Zuspiel, Angriff, Block und Abwehr, jeweils mit Trainerhinweisen in deiner Sprache.
-
-FÜR DAS iPAD GEMACHT
-Eine Seitenleiste statt Tabs, Übungsbibliothek und Pläne neben ihren Details, Fenster, die direkt an ihrer Taste aufgehen. Die Tastatur funktioniert (Leertaste spielt ab, Pfeile gehen Schritt für Schritt, Cmd+Z macht rückgängig), und der Apple Pencil zeichnet, während die Finger Spieler verschieben.
-
-DEUTSCH UND NIEDERLÄNDISCH
-Die App spricht jetzt Deutsch und Niederländisch: jeder Bildschirm, jeder Übungsname und jeder Trainerhinweis. Damit sind es 14 Sprachen.
-
-KLEINERE KORREKTUREN
-Zurück von einem Board führt wieder in den laufenden Trainingsplan. Der Pfeil eines kurzen Laufwegs liegt neben dem Spieler statt quer über ihm. Viele Beschriftungen, die noch englisch waren, sind jetzt übersetzt.
+• Größeres Spielfeld: Auf dem Handy füllt die Tafel jetzt den ganzen Bildschirm, hoch und quer.
+• Quer auf dem Handy liegen Zurück, Zoom und Vollbild in der Seitenleiste – nichts verdeckt das Feld.
+• Zeichnen: Die Linie beginnt genau dort, wo du drückst, das Stiftfeld weicht beim Zeichnen aus, und eine ausgewählte Linie zeigt und ändert ihren eigenen Stil. Zum Löschen auswählen und auf den Papierkorb tippen.
+• Zoomen und weiterarbeiten: Ein Finger bewegt Spieler und zeichnet, zwei Finger zoomen.
+• Klarere Laufwege: Pfeile treffen ihre nummerierten Punkte, der Pass erreicht den Empfänger.
+• Die Tafel trägt die Farben deiner Sportart.
+• Der Link zum Punktezähler zeigt die echte Punktezähler-App mit ihrem Symbol.

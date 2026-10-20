@@ -1,28 +1,9 @@
-Yang Baru di 2.1.0
+Yang baru di 2.1.1
 
-HARI PERTANDINGAN
-Atur babak dan susunan pemain awal, tandai kiper, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Jam berhenti sendiri di akhir babak, dengan +1 menit untuk waktu tambahan. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" menyamakan waktu bermain tanpa menyentuh kiper. Setelah pertandingan, menit dan pergantian setiap pemain diekspor sebagai PDF, dan pertandingan yang selesai disinkronkan ke akun Anda. Jam memerlukan Pro; persiapannya gratis.
-
-BUKU TAKTIK
-Tandai papan Anda sebagai "Di buku taktik" dan buka satu per satu dari hari pertandingan: geser ke berikutnya, tekan putar.
-
-LAPANGAN NBA, NCAA, DAN SMA
-Di samping FIBA, menu lapangan menyediakan lapangan NBA (key 16 ft, busur 23,75 ft), NCAA (key 12 ft, 22′1¾″), dan SMA NFHS (84 ft, busur 19′9″, tanpa area terbatas).
-
-99 LATIHAN
-Pustaka latihan bertambah dari 58 menjadi 99: set play (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), Spain pick-and-roll beserta bacaannya, inbound play, press seluruh lapangan dan cara memecahnya, serangan dan pertahanan zona, prinsip man-to-man, transisi, tembakan, dan penyelesaian, masing-masing dengan catatan pelatih dalam bahasa Anda.
-
-SESI SIAP PAKAI
-Enam sesi siap pakai yang disusun dari latihan di pustaka: dasar, menyerang, bertahan, bola mati, pekan pertandingan, dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
-
-CATATAN DI PAPAN
-Tulis teks langsung di papan. Catatan langkah sebuah latihan tampil di papan dan berganti di setiap langkah. Pilih warna atau ketebalan saat sebuah garis dipilih untuk mengubah gayanya.
-
-DIBUAT UNTUK iPAD
-Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
-
-JERMAN DAN BELANDA
-Aplikasi kini berbahasa Jerman dan Belanda: setiap layar, setiap nama latihan, dan setiap catatan pelatih. Totalnya 14 bahasa.
-
-PERBAIKAN KECIL
-Layar Pro kini berjudul "Semua latihan, tanpa iklan". Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Dalam posisi lanskap, bilah samping menjauh dari Dynamic Island. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.
+• Lapangan lebih besar: di ponsel papan kini memenuhi layar, tegak maupun mendatar.
+• Saat ponsel mendatar, Kembali, zoom, dan layar penuh ada di bilah samping sehingga tidak menutupi lapangan.
+• Menggambar: garis dimulai tepat di tempat Anda menekan, panel menyingkir saat menggambar, dan garis yang dipilih menampilkan serta mengubah gayanya sendiri. Untuk menghapus, pilih garis lalu ketuk tempat sampah.
+• Perbesar dan tetap bekerja: satu jari memindahkan pemain dan menggambar, dua jari untuk zoom.
+• Pergerakan lebih jelas: panah tepat mengenai titik bernomor, dan operan sampai ke penerima.
+• Halaman papan memakai warna olahraga Anda.
+• Tautan Skor menampilkan aplikasi skor yang sebenarnya, lengkap dengan ikonnya.

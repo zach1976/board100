@@ -1,31 +1,9 @@
-Nieuw in 2.2.0
+Nieuw in 2.2.1
 
-WEDSTRIJDDAG
-Stel de periodes en je basisopstelling in, markeer de keeper, laat de klok lopen en tik twee spelers aan om te wisselen. De klok stopt vanzelf aan het einde van een periode, met +1 min voor extra tijd. De bank is gesorteerd op gespeelde minuten en „Voorstel“ verdeelt de speeltijd eerlijk zonder aan de keeper te komen. Groene, gele en rode kaarten: een geschorste speler verlaat het veld voor 2, 5 of 10 minuten en komt vanzelf terug; een shoot-outpaneel noteert elke poging. Na de wedstrijd exporteer je de minuten, kaarten en wissels van elke speler als pdf, en afgeronde wedstrijden synchroniseren met je account. De klok vereist Pro, de voorbereiding is gratis.
-
-PLAYBOOK
-Markeer je eigen borden, strafcorners bijvoorbeeld, als „In playbook“ en blader er op de wedstrijddag doorheen: veeg naar het volgende, druk op afspelen.
-
-KANT-EN-KLARE TRAININGEN
-Zes kant-en-klare trainingen, opgebouwd uit de oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
-
-ZAAL EN HOCKEY5S
-Twee nieuwe velden naast het buitenveld: het FIH-zaalveld met boarding en 9 m-cirkel, en het Hockey5s-veld. Elk bord onthoudt zijn veld en de opstellingen volgen mee: 2-1-2 en 1-2-2 in de zaal, 2-2 en 1-2-1 bij Hockey5s.
-
-65 OEFENINGEN
-De oefenbibliotheek is gegroeid van 36 naar 65: strafcorner aanvallend en verdedigend, druksignalen, tegendruk, opbouwen onder druk, scoops, overtal, keepen en zes zaaloefeningen, elk met coachaanwijzingen in je eigen taal.
-
-NOTITIES OP HET BORD
-Schrijf tekst direct op het bord. De uitleg bij elke stap van een oefening staat op het bord en wisselt mee. Kies een kleur of dikte terwijl een lijn geselecteerd is om die aan te passen.
-
-HOCKEYBLAUW
-De achtergronden van de app hebben nu het blauw van een hockeyveld in plaats van het donkere turquoise dat alle sporten deelden.
-
-GEMAAKT VOOR DE iPAD
-Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
-
-DUITS EN NEDERLANDS
-De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
-
-KLEINE VERBETERINGEN
-In liggende stand schuift de zijbalk weg van het Dynamic Island. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Veel labels die nog Engels waren, zijn nu vertaald.
+• Een groter veld: op de telefoon vult het bord nu het hele scherm, staand en liggend.
+• Liggend op de telefoon staan Terug, zoom en volledig scherm in de zijbalk, zodat niets het veld bedekt.
+• Tekenen: een lijn begint precies waar je drukt, het tekenpaneel wijkt tijdens het tekenen en een geselecteerde lijn toont en wijzigt haar eigen stijl. Verwijderen: selecteer de lijn en tik op de prullenbak.
+• Inzoomen en doorwerken: één vinger verplaatst spelers en tekent, twee vingers zoomen.
+• Duidelijkere looplijnen: pijlen raken hun genummerde punten en de pass bereikt de ontvanger.
+• De bordpagina draagt de kleuren van je sport.
+• De link naar de scoreteller toont de echte score-app, met haar icoon.

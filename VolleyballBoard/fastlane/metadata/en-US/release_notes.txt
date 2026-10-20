@@ -1,40 +1,9 @@
-What's New in 2.1.0
+What's New in 2.1.1
 
-ALL SIX ROTATIONS
-Pick a rotation and the board puts your six where they stand, in serve or in receive. Step forward or back through the rotations, choose the setter's zone and bring in the libero. An overlap check marks any two players who would be out of position when the ball is served.
-
-RULE SETS
-Each board follows FIVB, USAV, NFHS or NCAA rules. The substitution limit shows beside the rotation bar, 6, 12, 18 or 15 per set, and under the US rule sets the libero may serve in one rotation. Four new drills show the libero serving under the US rules, 154 drills in all.
-
-FIX POSITIONS
-When the overlap check marks two players, one tap puts them where the rules allow. Undo brings them back.
-
-LINEUP SHEET
-Share a lineup sheet as a PDF in the paper format: the six zones, the serving order I to VI, the libero and the rule set. Works offline, in your language.
-
-LEGAL AREA
-While you drag a player in a rotation, the court shows the area where they may legally stand given the other five. The border turns red if they are outside it.
-
-MATCH DAY
-A substitution sheet counted by set: the six on court, the bench, substitutions against the rule set's limit, libero replacements that do not count, two timeouts, the set score. Survives closing the app, and the summary exports as a PDF. Starting a match needs Pro.
-
-PLAYBOOK
-Mark your own boards "In playbook" and flip through them from match day, swiping from one to the next and pressing play.
-
-BEACH COURT
-A 16 by 8 metre sand court with no attack line, and pairs formations: side by side, or blocker and defender.
-
-READY SESSIONS
-Six ready sessions, built from the library's own drills, from a foundation session to match week and pre-season. Pick one when you create a practice plan and edit from there.
-
-154 DRILLS
-The drill library has grown from 44 to 154: serve receive in every rotation of the 5-1, 6-2 and 4-2 systems, transition attack, target serving, the setter's second ball, libero substitutions, plus setting, attacking, blocking and defence, each with coaching notes in your language.
-
-MADE FOR iPAD
-A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
-
-GERMAN AND DUTCH
-The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
-
-SMALLER FIXES
-Back from a board returns to the practice plan you were running. A short run's arrow sits beside the player instead of across him. Many labels that were still in English are now translated.
+• A bigger court: on a phone the board now runs edge to edge, upright and sideways.
+• Sideways on a phone, Back, zoom and fullscreen sit in the side bar, so nothing covers the court.
+• Drawing: a line starts exactly where you press, the pen panel steps aside while you draw, and a selected line shows and changes its own style. To delete a line, select it and tap the bin.
+• Zoom in and keep working: one finger moves players and draws, two fingers zoom.
+• Runs read cleaner: arrows meet their numbered stops, and a pass reaches the receiver.
+• The board page wears your sport's colours.
+• The Scorer link shows the real scoring app, with its icon.

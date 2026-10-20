@@ -1,28 +1,9 @@
-Nieuw in 2.1.0
+Nieuw in 2.1.1
 
-WEDSTRIJDDAG
-Stel de speelhelften en je basisopstelling in, markeer de keeper, laat de klok lopen en tik twee spelers aan om te wisselen. De klok stopt vanzelf aan het einde van een helft, met +1 min voor blessuretijd. De bank sorteert op gespeelde minuten, en „Voorstel“ verdeelt de speeltijd eerlijk zonder de keeper aan te raken. Na de wedstrijd exporteer je de minuten en wissels van elke speler als pdf, en afgeronde wedstrijden synchroniseren met je account. De klok vereist Pro; het klaarzetten is gratis.
-
-PLAYBOOK
-Markeer je eigen borden als „In playbook“ en blader er op de wedstrijddag doorheen: veeg naar het volgende, druk op afspelen.
-
-NBA-, NCAA- EN HIGHSCHOOLVELDEN
-Naast FIBA biedt het veldmenu het NBA-veld (16 ft bucket, 23,75 ft driepuntslijn), het NCAA-veld (12 ft bucket, 22′1¾″) en het NFHS-highschoolveld (84 ft, 19′9″, zonder restricted area).
-
-99 OEFENINGEN
-De oefenbibliotheek is gegroeid van 58 naar 99: set plays (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), Spain pick-and-roll met zijn reads, inbounds-plays, full-court press en press break, zoneaanval en -verdediging, man-to-man principes, omschakelen, schieten en afronden, elk met coachaanwijzingen in je eigen taal.
-
-KANT-EN-KLARE TRAININGEN
-Zes kant-en-klare trainingen uit de oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
-
-NOTITIES OP HET BORD
-Schrijf tekst rechtstreeks op het bord. De stapnotitie van een oefening staat op het bord en verandert met elke stap. Kies een kleur of dikte terwijl een lijn is geselecteerd om hem anders te stylen.
-
-GEMAAKT VOOR DE iPAD
-Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
-
-DUITS EN NEDERLANDS
-De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
-
-KLEINE VERBETERINGEN
-Het Pro-scherm heet nu „Alle oefeningen, geen advertenties“. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Gedraaid wijkt de zijbalk uit voor het Dynamic Island. Veel labels die nog Engels waren, zijn nu vertaald.
+• Een groter veld: op de telefoon vult het bord nu het hele scherm, staand en liggend.
+• Liggend op de telefoon staan Terug, zoom en volledig scherm in de zijbalk, zodat niets het veld bedekt.
+• Tekenen: een lijn begint precies waar je drukt, het tekenpaneel wijkt tijdens het tekenen en een geselecteerde lijn toont en wijzigt haar eigen stijl. Verwijderen: selecteer de lijn en tik op de prullenbak.
+• Inzoomen en doorwerken: één vinger verplaatst spelers en tekent, twee vingers zoomen.
+• Duidelijkere looplijnen: pijlen raken hun genummerde punten en de pass bereikt de ontvanger.
+• De bordpagina draagt de kleuren van je sport.
+• De link naar de scoreteller toont de echte score-app, met haar icoon.

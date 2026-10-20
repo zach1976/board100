@@ -1,31 +1,9 @@
-Yang Baru di 2.2.0
+Yang baru di 2.2.1
 
-HARI PERTANDINGAN
-Atur babak dan starting line-up, tandai penjaga gawang, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Jam berhenti sendiri di akhir babak, dengan +1 menit untuk waktu tambahan. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" meratakan waktu bermain tanpa menyentuh kiper. Kartu hijau, kuning, dan merah: pemain yang dihukum keluar 2, 5, atau 10 menit dan kembali sendiri; panel shoot-out mencatat setiap percobaan. Setelah pertandingan, menit, kartu, dan pergantian setiap pemain diekspor sebagai PDF, dan pertandingan yang selesai disinkronkan dengan akun Anda. Jam memerlukan Pro; persiapannya gratis.
-
-BUKU TAKTIK
-Tandai papan Anda, misalnya penalty corner, sebagai "Di buku taktik" dan buka satu per satu dari hari pertandingan: geser ke berikutnya, tekan putar.
-
-SESI SIAP PAKAI
-Enam sesi siap pakai yang disusun dari latihan di pustaka: dasar, menyerang, bertahan, bola mati, pekan pertandingan, dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
-
-INDOOR DAN HOCKEY5S
-Dua lapangan baru di samping lapangan luar: lapangan indoor FIH dengan papan samping dan lingkaran 9 m, serta lapangan Hockey5s. Setiap papan mengingat lapangannya, dan daftar formasi mengikutinya: 2-1-2 dan 1-2-2 untuk indoor, 2-2 dan 1-2-1 untuk Hockey5s.
-
-65 LATIHAN
-Pustaka latihan bertambah dari 36 menjadi 65: serangan dan pertahanan penalty corner, pemicu pressing, counter-press, membangun serangan saat ditekan, umpan lambung, keunggulan jumlah, penjaga gawang, dan enam latihan indoor, masing-masing dengan catatan pelatih dalam bahasamu.
-
-CATATAN DI PAPAN
-Tulis teks langsung di papan. Catatan tiap langkah latihan ada di papan dan berganti di setiap langkah. Pilih warna atau ketebalan saat garis dipilih untuk mengubah gayanya.
-
-BIRU HOKI
-Latar aplikasi kini memakai biru lapangan hoki, bukan toska gelap yang dipakai semua cabang olahraga.
-
-DIBUAT UNTUK iPAD
-Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
-
-JERMAN DAN BELANDA
-Aplikasi kini berbahasa Jerman dan Belanda: setiap layar, setiap nama latihan, dan setiap catatan pelatih. Totalnya 14 bahasa.
-
-PERBAIKAN KECIL
-Saat miring, bilah samping menjauh dari Dynamic Island. Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.
+• Lapangan lebih besar: di ponsel papan kini memenuhi layar, tegak maupun mendatar.
+• Saat ponsel mendatar, Kembali, zoom, dan layar penuh ada di bilah samping sehingga tidak menutupi lapangan.
+• Menggambar: garis dimulai tepat di tempat Anda menekan, panel menyingkir saat menggambar, dan garis yang dipilih menampilkan serta mengubah gayanya sendiri. Untuk menghapus, pilih garis lalu ketuk tempat sampah.
+• Perbesar dan tetap bekerja: satu jari memindahkan pemain dan menggambar, dua jari untuk zoom.
+• Pergerakan lebih jelas: panah tepat mengenai titik bernomor, dan operan sampai ke penerima.
+• Halaman papan memakai warna olahraga Anda.
+• Tautan Skor menampilkan aplikasi skor yang sebenarnya, lengkap dengan ikonnya.

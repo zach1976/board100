@@ -1,31 +1,9 @@
-Có gì mới trong 2.2.0
+Có gì mới trong 2.2.1
 
-NGÀY THI ĐẤU
-Đặt số hiệp và đội hình xuất phát, đánh dấu thủ môn, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Đồng hồ tự dừng khi hết hiệp, có +1 phút cho thời gian bù giờ. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu mà không động đến thủ môn. Thẻ xanh, vàng và đỏ: cầu thủ bị phạt rời sân 2, 5 hoặc 10 phút rồi tự trở lại; bảng shoot-out ghi lại từng lượt. Sau trận, số phút, thẻ và thay người của từng cầu thủ xuất ra PDF, và các trận đã kết thúc đồng bộ với tài khoản của bạn. Đồng hồ cần Pro; phần thiết lập miễn phí.
-
-SỔ CHIẾN THUẬT
-Đánh dấu bảng của bạn, ví dụ phạt góc, là "Trong sổ chiến thuật" và lật xem từ ngày thi đấu: vuốt sang bảng tiếp theo, bấm phát.
-
-BUỔI TẬP CÓ SẴN
-Sáu buổi tập có sẵn, ghép từ các bài tập trong thư viện: cơ bản, tấn công, phòng ngự, tình huống cố định, tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
-
-TRONG NHÀ VÀ HOCKEY5S
-Thêm hai loại sân bên cạnh sân ngoài trời: sân trong nhà của FIH với vách biên và vòng 9 m, và sân Hockey5s. Mỗi bảng nhớ sân của nó, danh sách đội hình cũng đổi theo: 2-1-2 và 1-2-2 trong nhà, 2-2 và 1-2-1 cho Hockey5s.
-
-65 BÀI TẬP
-Thư viện tăng từ 36 lên 65 bài: phạt góc ngắn khi tấn công và phòng thủ, tín hiệu pressing, phản pressing, triển khai bóng khi bị ép, chuyền bổng, hơn người, thủ môn và sáu bài trong nhà, mỗi bài đều có lời giảng bằng tiếng Việt.
-
-GHI CHÚ TRÊN BẢNG
-Viết chữ thẳng lên bảng. Ghi chú cho từng bước của bài tập nằm trên bảng và đổi theo từng bước. Chọn màu hoặc độ dày khi đang chọn một đường để đổi kiểu đường đó.
-
-XANH KHÚC CÔN CẦU
-Nền của ứng dụng giờ mang màu xanh của sân khúc côn cầu thay cho màu xanh ngọc tối mà mọi môn dùng chung.
-
-LÀM CHO iPAD
-Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
-
-TIẾNG ĐỨC VÀ TIẾNG HÀ LAN
-Ứng dụng giờ có tiếng Đức và tiếng Hà Lan: mọi màn hình, mọi tên bài tập và mọi lời giảng. Tổng cộng 14 ngôn ngữ.
-
-SỬA LỖI NHỎ
-Khi xoay ngang, thanh bên dời ra xa Dynamic Island. Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Nhiều nhãn còn tiếng Anh nay đã được dịch.
+• Sân lớn hơn: trên điện thoại, bảng giờ phủ kín màn hình cả khi dọc lẫn ngang.
+• Khi xoay ngang điện thoại, Quay lại, thu phóng và toàn màn hình nằm ở thanh bên, không che sân.
+• Vẽ: đường bắt đầu đúng chỗ bạn chạm, bảng bút tự tránh khi bạn vẽ, và đường đang chọn hiển thị và đổi kiểu của chính nó. Muốn xoá, chọn đường rồi chạm thùng rác.
+• Phóng to vẫn làm việc được: một ngón di chuyển cầu thủ và vẽ, hai ngón để thu phóng.
+• Di chuyển rõ hơn: mũi tên chạm đúng các điểm đánh số, đường chuyền tới tận người nhận.
+• Trang bảng mang màu của môn thể thao của bạn.
+• Liên kết Bảng điểm hiển thị đúng ứng dụng tính điểm, kèm biểu tượng.

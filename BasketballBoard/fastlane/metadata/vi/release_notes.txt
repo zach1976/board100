@@ -1,28 +1,9 @@
-Có gì mới trong 2.1.0
+Có gì mới trong 2.1.1
 
-NGÀY THI ĐẤU
-Đặt các hiệp và đội hình xuất phát, đánh dấu thủ môn, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Đồng hồ tự dừng khi hết hiệp, với +1 phút bù giờ. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu mà không đụng đến thủ môn. Sau trận, số phút và các lần thay của từng cầu thủ xuất ra PDF, và trận đã kết thúc đồng bộ với tài khoản của bạn. Đồng hồ cần Pro; phần thiết lập miễn phí.
-
-SỔ CHIẾN THUẬT
-Đánh dấu bảng của bạn là "Trong sổ chiến thuật" và lật xem từ ngày thi đấu: vuốt sang bảng tiếp theo, bấm phát.
-
-SÂN NBA, NCAA VÀ TRUNG HỌC
-Bên cạnh FIBA, menu sân có sân NBA (khu vực 16 ft, vòng 3 điểm 23,75 ft), sân NCAA (khu vực 12 ft, 22′1¾″) và sân trung học NFHS (84 ft, vòng 19′9″, không có vùng cấm va chạm).
-
-99 BÀI TẬP
-Thư viện tăng từ 58 lên 99 bài: các bài phối hợp (Flex, Floppy, UCLA, Hammer, Elevator, Chicago, Iverson), Spain pick-and-roll và các cách đọc tình huống, phát bóng biên, ép sân toàn sân và cách phá ép, tấn công và phòng thủ khu vực, nguyên tắc kèm người, chuyển đổi, ném rổ và dứt điểm, mỗi bài đều có lời giảng bằng tiếng Việt.
-
-BUỔI TẬP CÓ SẴN
-Sáu buổi tập có sẵn, ghép từ các bài tập trong thư viện: cơ bản, tấn công, phòng thủ, bóng chết, tuần thi đấu và tiền mùa giải. Chọn một buổi khi tạo giáo án rồi chỉnh sửa tiếp.
-
-GHI CHÚ TRÊN BẢNG
-Viết chữ thẳng lên bảng. Ghi chú từng bước của bài tập nằm trên bảng và đổi theo mỗi bước. Chọn màu hoặc độ dày khi đang chọn một đường để đổi kiểu đường đó.
-
-LÀM CHO iPAD
-Thanh bên thay cho các tab, thư viện bài tập và giáo án nằm cạnh phần chi tiết, các bảng mở ngay cạnh nút của nó. Dùng được bàn phím (Space để phát, phím mũi tên để đi từng bước, Cmd+Z để hoàn tác), và Apple Pencil vẽ trong khi ngón tay di chuyển cầu thủ.
-
-TIẾNG ĐỨC VÀ TIẾNG HÀ LAN
-Ứng dụng giờ có tiếng Đức và tiếng Hà Lan: mọi màn hình, mọi tên bài tập và mọi lời giảng. Tổng cộng 14 ngôn ngữ.
-
-SỬA LỖI NHỎ
-Màn hình Pro nay có tên "Mọi bài tập, không quảng cáo". Quay lại từ một bảng sẽ về đúng giáo án đang chạy. Khi xoay ngang, thanh bên tránh khỏi Dynamic Island. Nhiều nhãn còn tiếng Anh nay đã được dịch.
+• Sân lớn hơn: trên điện thoại, bảng giờ phủ kín màn hình cả khi dọc lẫn ngang.
+• Khi xoay ngang điện thoại, Quay lại, thu phóng và toàn màn hình nằm ở thanh bên, không che sân.
+• Vẽ: đường bắt đầu đúng chỗ bạn chạm, bảng bút tự tránh khi bạn vẽ, và đường đang chọn hiển thị và đổi kiểu của chính nó. Muốn xoá, chọn đường rồi chạm thùng rác.
+• Phóng to vẫn làm việc được: một ngón di chuyển cầu thủ và vẽ, hai ngón để thu phóng.
+• Di chuyển rõ hơn: mũi tên chạm đúng các điểm đánh số, đường chuyền tới tận người nhận.
+• Trang bảng mang màu của môn thể thao của bạn.
+• Liên kết Bảng điểm hiển thị đúng ứng dụng tính điểm, kèm biểu tượng.

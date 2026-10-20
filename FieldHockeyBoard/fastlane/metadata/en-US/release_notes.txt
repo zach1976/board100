@@ -1,31 +1,9 @@
-What's New in 2.2.0
+What's New in 2.2.1
 
-MATCH DAY
-Set the periods and your starting line-up, mark the goalkeeper, run the clock, and tap two players to swap them. The clock stops itself at the end of a period, with a +1 min for added time. The bench sorts by minutes played, and Suggest evens out playing time without touching the keeper. Green, yellow and red cards: a suspended player leaves the pitch for 2, 5 or 10 minutes and comes back on their own; a shoot-out panel records each attempt. After the match, every player's minutes, cards and substitutions export as a PDF, and finished matches sync with your account. The clock needs Pro; the set-up is free.
-
-PLAYBOOK
-Mark your own boards, penalty corners for instance, "In playbook" and flip through them from match day, swiping from one to the next and pressing play.
-
-READY SESSIONS
-Six ready sessions, built from the library's own drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
-
-INDOOR AND HOCKEY5S
-Two new pitches beside the outdoor one: the FIH indoor pitch with its side boards and 9 m circle, and the Hockey5s court. Each board remembers its pitch, and the formation list follows it: 2-1-2 and 1-2-2 indoors, 2-2 and 1-2-1 for Hockey5s.
-
-65 DRILLS
-The drill library has grown from 36 to 65: penalty corner attack and defence, pressing triggers, the counter-press, playing out of a press, aerial passes, overloads, goalkeeping and six indoor drills, each with coaching notes in your language.
-
-NOTES ON THE BOARD
-Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
-
-FIELD HOCKEY BLUE
-The app's backgrounds now take the blue of a hockey pitch instead of the dark teal every sport shared.
-
-MADE FOR iPAD
-A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
-
-GERMAN AND DUTCH
-The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
-
-SMALLER FIXES
-Turned sideways, the side bar moves away from the Dynamic Island. Back from a board returns to the practice plan you were running. Many labels that were still in English are now translated.
+• A bigger court: on a phone the board now runs edge to edge, upright and sideways.
+• Sideways on a phone, Back, zoom and fullscreen sit in the side bar, so nothing covers the court.
+• Drawing: a line starts exactly where you press, the pen panel steps aside while you draw, and a selected line shows and changes its own style. To delete a line, select it and tap the bin.
+• Zoom in and keep working: one finger moves players and draws, two fingers zoom.
+• Runs read cleaner: arrows meet their numbered stops, and a pass reaches the receiver.
+• The board page wears your sport's colours.
+• The Scorer link shows the real scoring app, with its icon.
