@@ -198,7 +198,7 @@ void main() {
     // cut of this film. The offered name is accepted as it stands.
     final opened = await tapText('New board');
     await hold(600);
-    final named = await tapText('Apply');
+    final named = await tapText('Create') || await tapText('Apply');
     print('PREVIEW_STEP new_board=$opened named=$named');
     // The first sight of the board: empty, both goals on it.
     await hold(1500);
@@ -228,8 +228,12 @@ void main() {
       // The LAST match: volleyball's first formation is called "6v6", the
       // same word as the count chip above it, and tapping the first match
       // pressed the count twice while the formation went unchosen.
-      await tapFinder(find.text(_formationChip).last);
-      await hold(400);
+      // A sheet that pre-selects its standard shape may not list this name;
+      // then the chip already chosen is the one to apply.
+      if (find.text(_formationChip).evaluate().isNotEmpty) {
+        await tapFinder(find.text(_formationChip).last);
+        await hold(400);
+      }
     }
     final applied = await tapText('Apply');
     print('PREVIEW_STEP add=$add1 squad=$squad($_squadChip) apply=$applied');
