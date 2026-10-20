@@ -528,6 +528,9 @@ def load_captions():
 FLAGSHIP_SPORTS = ["soccer", "basketball", "volleyball", "tennis", "badminton", "handball"]
 
 
+STORE_ORDER = [5, 2, 3, 1, 4]
+
+
 def render_sport_locale(captions, sport, locale, outbase):
     """Render one sport+locale's whole set. Returns count rendered.
 
@@ -564,7 +567,12 @@ def render_sport_locale(captions, sport, locale, outbase):
             print(f"⚠️  missing raw {src}")
             continue
         white, green, sub = shots[i]
-        out = out_dir / f"{i+1:02d}_{sport}_s{i+1}.png"
+        # The listing's order is not the shooting order: the store shows
+        # shot 5 first, then 2, 3, 1, 4 (set by hand on field hockey's
+        # listing 2026-10-20, then made the rule for every app). Upload
+        # steps sort by file name, so the prefix is the store position.
+        pos = STORE_ORDER.index(i + 1) + 1 if i + 1 in STORE_ORDER else i + 1
+        out = out_dir / f"{pos:02d}_{sport}_s{i+1}.png"
         compose(src, out, src_sport, locale, "TACTICS BOARD", white, green, sub,
                 slot=i + 1)
         n += 1
