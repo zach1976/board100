@@ -3,7 +3,8 @@
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 1.1.25，本次是 1.1.25 → 2.1.0。
 >
-> **无新内购**：买断 "Lifetime" 已过审且不变，本版本不随审任何内购。
+> **年订阅随本版本首次送审**（sepaktakraw_remove_ads_yearly，READY_TO_SUBMIT）：submit 会把它一起加进
+> reviewSubmission。入口段 10-21 补（篮球/足球曾因找不到内购被 2.1(b) 退回）。
 >
 > **送审前必须确认**（zachs_app_base.md 6.4）：账号当前没有其他 app 在审，
 > 距上一个过审 ≥1 周。16 个 app 一次只送一个。真机 QA 未做，下面不写真机。
@@ -13,8 +14,27 @@
 Dear App Review team,
 
 Sepak Takraw Board 2.1.0 is a feature release over 1.1.25. There are no new
-permissions and no new network endpoints. The one-time "Lifetime"
-purchase is unchanged; no new in-app purchase is submitted.
+permissions and no new network endpoints. With this version the yearly subscription is submitted for the
+first time; see below for where to find it.
+
+## Where to find the In-App Purchases
+
+Both purchases — "Remove Ads (Yearly)" (sepaktakraw_remove_ads_yearly,
+auto-renewable, submitted for the first time with this version) and
+the already approved one-time "Remove Ads (Lifetime)" — are on one
+purchase sheet. Two ways to it, any one is
+enough:
+
+1. From the board: on the Home tab tap "Open the board" (or "New board").
+   On the board, tap the round "⋯" button in the top-right corner, then
+   "Remove Ads". The purchase sheet opens.
+2. From the drills: open the "Drills" tab and tap any drill marked with a
+   lock, then "Unlock with Pro". The same sheet opens.
+
+The sheet shows both plans with localized prices, the auto-renewal terms,
+the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
+Nothing restricts the purchases by storefront or device. The Paid Apps
+Agreement is in effect (the Lifetime purchase is live).
 
 ## Drill library and practice plans (new since 1.1.25)
 
@@ -32,14 +52,9 @@ purchase is unchanged; no new in-app purchase is submitted.
 
 ## The board, redrawn
 
-4. The board is drawn as a card on the sport's own dark ground; players,
-   equipment and the ball cast contact shadows, and nets are drawn as mesh.
-   A player holding the ball has it in front of them on the side they face;
-   run, dribble and pass are three different lines beneath the figures. The
-   controls were rebuilt (tools in one bottom capsule, playback in another,
-   corner buttons clear of the Dynamic Island), and players are placed
-   against the court rather than the window, so they stand where the lines
-   say at any size.
+4. The board is redrawn: a card on the sport's own ground with contact
+   shadows and mesh nets; run, dribble and pass are distinct lines; the
+   controls were rebuilt and players stand where the lines say at any size.
 5. Text can be written on the board, a drill's step note sits on the board
    and changes with each step, and a selected line can be restyled.
 
@@ -47,8 +62,7 @@ purchase is unchanged; no new in-app purchase is submitted.
 
 6. iPad: a side bar instead of tabs, list-beside-detail for drills and
    plans, panels as popovers, hardware keyboard shortcuts and Apple Pencil
-   drawing while fingers move players. In landscape on iPhone the side bar
-   keeps to the Dynamic Island's side.
+   drawing while fingers move players.
 7. The app's interface and every drill's coaching notes are now also in
    German and Dutch (14 languages in all).
 8. A saved board can be shared as a web link (no app needed to open it), a
@@ -66,16 +80,14 @@ purchase is unchanged; no new in-app purchase is submitted.
    privacy manifest declares `NSPrivacyTracking = false`, and the App
    Privacy label declares no tracking. These three agree.
 
-## How to see it
+## Account
 
-Open the app → Drills → any card → "Put on the board" → press play, or use
-the step arrows under the board. No account is required; Sign in with Apple
-and Google are optional and only back up a coach's own boards.
+No account is required; Sign in with Apple and Google are optional
+and only back up a coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator (iPhone and iPad). The automated suite — 798 tests,
-including the drill library, practice plans and the board's drawing tools — passes, and every drill board was
-rendered through the app's own painters and reviewed.
+Run on the iOS Simulator (iPhone and iPad); the automated suite (798 tests)
+passes and every drill board was rendered and reviewed.
 
 Thank you for reviewing.

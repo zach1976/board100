@@ -3,7 +3,8 @@
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
 > Information。线上版本是 2.0.1，本次是 2.0.1 → 2.1.0。
 >
-> **无新内购**：买断 "Lifetime" 已过审且不变，本版本不随审任何内购。
+> **年订阅随本版本首次送审**（baseball_remove_ads_yearly，READY_TO_SUBMIT）：submit 会把它一起加进
+> reviewSubmission。入口段 10-21 补（篮球/足球曾因找不到内购被 2.1(b) 退回）。
 >
 > **送审前必须确认**（zachs_app_base.md 6.4）：账号当前没有其他 app 在审，
 > 距上一个过审 ≥1 周。16 个 app 一次只送一个。真机 QA 未做，下面不写真机。
@@ -13,8 +14,27 @@
 Dear App Review team,
 
 Baseball Board 2.1.0 is a feature release over 2.0.1. There are no new
-permissions and no new network endpoints. The one-time "Lifetime"
-purchase is unchanged; no new in-app purchase is submitted.
+permissions and no new network endpoints. With this version the yearly subscription is submitted for the
+first time; see below for where to find it.
+
+## Where to find the In-App Purchases
+
+Both purchases — "Remove Ads (Yearly)" (baseball_remove_ads_yearly,
+auto-renewable, submitted for the first time with this version) and
+the already approved one-time "Remove Ads (Lifetime)" — are on one
+purchase sheet. Two ways to it, any one is
+enough:
+
+1. From the board: on the Home tab tap "Open the board" (or "New board").
+   On the board, tap the round "⋯" button in the top-right corner, then
+   "Remove Ads". The purchase sheet opens.
+2. From the drills: open the "Drills" tab and tap any drill marked with a
+   lock, then "Unlock with Pro". The same sheet opens.
+
+The sheet shows both plans with localized prices, the auto-renewal terms,
+the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
+Nothing restricts the purchases by storefront or device. The Paid Apps
+Agreement is in effect (the Lifetime purchase is live).
 
 ## New in 2.1.0
 
