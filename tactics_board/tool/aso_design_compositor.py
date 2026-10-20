@@ -332,6 +332,12 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     phone_bot = int(H * bottom_frac)
     phone_h = phone_bot - phone_top
     bezel = max(24, round(24 * W / 1290))
+    # A tablet is not a big phone: an iPad Pro's black border is ~4.4% of
+    # the screen's short side and its screen corners only ~1.75% — the
+    # phone's radii, scaled to this canvas, cut the app's corner buttons off.
+    tablet = max(sw, sh) / min(sw, sh) < 1.5
+    if tablet:
+        bezel = round(phone_h * 0.044 / 1.088)
     screen_h = phone_h - 2 * bezel
     screen_w = int(screen_h * aspect)
     phone_w = screen_w + 2 * bezel
@@ -346,7 +352,8 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     k = W / 1290
     sd.rounded_rectangle([px - 6 * k, py + 14 * k, px + phone_w + 6 * k,
                           py + phone_h + 24 * k],
-                         radius=round(120 * k), fill=(0, 0, 0, 150))
+                         radius=round(120 * k) if not tablet else bezel + round(screen_h * 0.0175),
+                         fill=(0, 0, 0, 150))
     sh_layer = sh_layer.filter(ImageFilter.GaussianBlur(28))
     layer.alpha_composite(sh_layer)
 
@@ -354,17 +361,19 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     frame = vgrad(phone_w, phone_h, [
         (0.0, (94, 100, 110)), (0.5, (52, 57, 66)), (1.0, (78, 84, 94))
     ]).convert("RGBA")
-    fmask = rounded_mask((phone_w, phone_h), round(118 * k))
+    scr_r = round(screen_h * 0.0175) if tablet else round(96 * k)
+    fmask = rounded_mask((phone_w, phone_h), bezel + scr_r if tablet else round(118 * k))
     layer.paste(frame, (px, py), fmask)
 
     # inner black gap then screen
-    gap = max(6, round(6 * k))
+    gap = max(6, round(6 * k)) if not tablet else max(4, round(phone_h * 0.004))
     inner = Image.new("RGBA", (phone_w - 2*gap, phone_h - 2*gap), (8, 8, 10, 255))
-    layer.paste(inner, (px+gap, py+gap), rounded_mask(inner.size, round(112 * k)))
+    layer.paste(inner, (px+gap, py+gap), rounded_mask(
+        inner.size, bezel + scr_r - gap if tablet else round(112 * k)))
 
     # screen
     scr = shot.resize((screen_w, screen_h), Image.LANCZOS)
-    smask = rounded_mask((screen_w, screen_h), round(96 * k))
+    smask = rounded_mask((screen_w, screen_h), scr_r)
     layer.paste(scr, (px+bezel, py+bezel), smask)
 
     # dynamic island pill near top center of screen — a phone's. A tablet
@@ -377,13 +386,20 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
         di_y = py + bezel + round(26 * k)
         di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
 
-    # side buttons
+    # side buttons — a phone's; an iPad held sideways shows none on its
+    # long edges, only the top button and volume on the top edge.
     bd = ImageDraw.Draw(layer)
     bcol = (40, 44, 52, 255)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.20), px+2, py+int(phone_h*0.255)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.30), px+2, py+int(phone_h*0.40)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.41), px+2, py+int(phone_h*0.51)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px+phone_w-2, py+int(phone_h*0.27), px+phone_w+3, py+int(phone_h*0.40)], radius=3, fill=bcol)
+    if tablet:
+        bd.rounded_rectangle([px+int(phone_w*0.06), py-3, px+int(phone_w*0.10), py+2], radius=3, fill=bcol)
+        bd.rounded_rectangle([px+phone_w-int(phone_w*0.16), py-3, px+phone_w-int(phone_w*0.12), py+2], radius=3, fill=bcol)
+        bd.rounded_rectangle([px+phone_w-int(phone_w*0.11), py-3, px+phone_w-int(phone_w*0.07), py+2], radius=3, fill=bcol)
+    for b in ([] if tablet else [
+            [px-3, py+int(phone_h*0.20), px+2, py+int(phone_h*0.255)],
+            [px-3, py+int(phone_h*0.30), px+2, py+int(phone_h*0.40)],
+            [px-3, py+int(phone_h*0.41), px+2, py+int(phone_h*0.51)],
+            [px+phone_w-2, py+int(phone_h*0.27), px+phone_w+3, py+int(phone_h*0.40)]]):
+        bd.rounded_rectangle(b, radius=3, fill=bcol)
 
     # reflection under phone
     refl = layer.crop((px, py+phone_h-int(phone_h*0.18), px+phone_w, py+phone_h)).transpose(Image.FLIP_TOP_BOTTOM)
