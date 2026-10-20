@@ -238,7 +238,8 @@ extension SportTypeExtension on SportType {
   }
 
   /// Apple numeric ID of the corresponding ScoreSyncer scoring app.
-  /// Empty string means the app is not yet on the App Store.
+  /// Empty string means the app is not yet on the App Store. All fifteen
+  /// are live as of 2026-10-20 (checked against the public lookup API).
   String get scorerAppleId {
     switch (this) {
       case SportType.badminton:    return '6747377276';
@@ -247,15 +248,15 @@ extension SportTypeExtension on SportType {
       case SportType.basketball:   return '6761400751';
       case SportType.volleyball:   return '6761400656';
       case SportType.pickleball:   return '6744628482';
-      case SportType.soccer:       return ''; // not yet on App Store
-      case SportType.fieldHockey:  return ''; // not yet on App Store
-      case SportType.rugby:        return ''; // not yet on App Store
-      case SportType.baseball:     return ''; // not yet on App Store
-      case SportType.handball:     return ''; // not yet on App Store
-      case SportType.waterPolo:    return ''; // not yet on App Store
-      case SportType.sepakTakraw:  return ''; // not yet on App Store
-      case SportType.beachTennis:  return ''; // not yet on App Store
-      case SportType.footvolley:   return ''; // not yet on App Store
+      case SportType.soccer:       return '6761400537';
+      case SportType.fieldHockey:  return '6763750556';
+      case SportType.rugby:        return '6763750560';
+      case SportType.baseball:     return '6763750754';
+      case SportType.handball:     return '6763750892';
+      case SportType.waterPolo:    return '6763750564';
+      case SportType.sepakTakraw:  return '6763750187';
+      case SportType.beachTennis:  return '6763750311';
+      case SportType.footvolley:   return '6763750249';
     }
   }
 

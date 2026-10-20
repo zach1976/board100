@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -2050,6 +2051,68 @@ class _MenuButton extends StatelessWidget {
   }
 }
 
+/// An App Store listing's name and icon, from the public lookup API.
+class _StoreApp {
+  final String name;
+  final String? icon;
+  const _StoreApp(this.name, this.icon);
+
+  static final Map<String, Future<_StoreApp?>> _cache = {};
+
+  static Future<_StoreApp?> lookup(String id) =>
+      _cache.putIfAbsent(id, () async {
+        if (id.isEmpty) return null;
+        try {
+          final r = await http
+              .get(Uri.parse('https://itunes.apple.com/lookup?id=$id'))
+              .timeout(const Duration(seconds: 6));
+          if (r.statusCode != 200) return null;
+          final results = (jsonDecode(r.body)['results'] as List?) ?? const [];
+          if (results.isEmpty) return null;
+          final first = results.first as Map<String, dynamic>;
+          final icon = (first['artworkUrl512'] ?? first['artworkUrl100'])
+              as String?;
+          return _StoreApp(first['trackName'] as String? ?? '', icon);
+        } catch (_) {
+          return null;
+        }
+      });
+}
+
+/// The scorer app's real icon, or the sport's glyph until it loads.
+class _ScorerIcon extends StatelessWidget {
+  final SportType sport;
+  const _ScorerIcon({required this.sport});
+
+  @override
+  Widget build(BuildContext context) {
+    final glyph = Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        color: T.accentFill,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Center(child: SportGlyph(sport: sport, size: 46)),
+    );
+    return FutureBuilder<_StoreApp?>(
+      future: _StoreApp.lookup(sport.scorerAppleId),
+      builder: (_, snap) {
+        final url = snap.data?.icon;
+        if (url == null) return glyph;
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(18),
+          child: Image.network(url,
+              width: 80,
+              height: 80,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => glyph),
+        );
+      },
+    );
+  }
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Contact Us page — email form via API (same as ScoreSyncer/zach_base)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2724,24 +2787,24 @@ class _ScorerPromoSheet extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // App icon area
-            Container(
-              width: 80,
-              height: 80,
-              decoration: BoxDecoration(
-                color: T.accentFill,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(child: SportGlyph(sport: sport, size: 46)),
-            ),
+            // The scorer's own App Store icon and name, read live from the
+            // public lookup the way the scorer's "Also try" card reads ours,
+            // so a new icon or name shows without an update here. The sport
+            // glyph and the table's name stand in while it loads or if it
+            // cannot (2026-10-20: the promo showed a glyph, not the app).
+            _ScorerIcon(sport: sport),
             const SizedBox(height: 16),
-            Text(
-              appName,
+            FutureBuilder<_StoreApp?>(
+              future: _StoreApp.lookup(sport.scorerAppleId),
+              builder: (_, snap) => Text(
+              snap.data?.name ?? appName,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 color: T.text,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
+            ),
             ),
             const SizedBox(height: 8),
             Text(
