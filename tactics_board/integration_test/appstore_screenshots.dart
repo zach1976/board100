@@ -213,6 +213,28 @@ const _showcaseIds = <SportType, List<String>>{
   ],
 };
 
+/// The drill on s5, which the store lists FIRST (the compositor's
+/// STORE_ORDER): the one a coach of the sport recognises at a glance. The
+/// heuristic below only ever found cone-heavy warm-ups, and in nine sports
+/// with no cones it found nothing and fell back to a formation.
+const _leadIds = <SportType, String>{
+  SportType.soccer: 'rondo_4v2',
+  SportType.basketball: 'bb_pick_and_roll',
+  SportType.volleyball: 'vb_receive_r1',
+  SportType.fieldHockey: 'fh_corner_drag_flick',
+  SportType.badminton: 'bd_smash_straight',
+  SportType.tennis: 'tn_serve_plus_one',
+  SportType.tableTennis: 'tt_multiball',
+  SportType.pickleball: 'pb_third_drop',
+  SportType.baseball: 'bb_dp_six_four_three',
+  SportType.handball: 'hb_attack_cross_backs',
+  SportType.rugby: 'rg_move_miss_pass',
+  SportType.waterPolo: 'wp_manup_four_two',
+  SportType.sepakTakraw: 'st_feed_receiving_the_serve',
+  SportType.beachTennis: 'bt_smash_straight',
+  SportType.footvolley: 'fv_attack_the_shark_attack',
+};
+
 /// The drill to photograph: the shipped library's own, chosen for what a
 /// store screenshot has to show at a glance — a ball that travels, the
 /// equipment that makes the shape, and enough beats to have a past and a
@@ -222,6 +244,12 @@ Future<Drill?> _showcase(WidgetTester t, SportType sport, {int slot = 0}) async 
   await t.runAsync(() async {
     all = await DrillLibraryService.instance.forSport(sport);
   });
+  final lead = slot == 2 ? _leadIds[sport] : null;
+  if (lead != null) {
+    for (final d in all) {
+      if (d.id == lead) return d;
+    }
+  }
   final names = _showcaseIds[sport];
   if (names != null && names.isNotEmpty) {
     final named = names[slot.clamp(0, names.length - 1)];
