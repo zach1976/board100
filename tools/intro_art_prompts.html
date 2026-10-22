@@ -381,7 +381,7 @@
   const STYLE_HEAD =
 `Premium 3D product render for a mobile app onboarding screen. Vertical 9:19.5 composition (1080x2340).
 
-A coach's magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. On the board face: {COURT}, drawn in clean thin SOLID white lines — every court line solid, no dashed or dotted court markings — {DISCS}`;
+A coach's magnetic tactics board is the subject — black rounded frame, folding hinged corners, slightly glossy surface — standing at a gentle three-quarter angle, lit by one soft key light from the upper left with a cool rim light down its right edge. The board face is painted {FACE} — the real colour of that sport's playing surface, not a generic green chalkboard. On it: {COURT}, drawn in clean thin SOLID white lines — every court line solid, no dashed or dotted court markings — {DISCS}`;
 
   // What the magnets do on the board. One sport overrides it: table tennis
   // players stand on the floor around the table, not on it.
@@ -393,7 +393,7 @@ A coach's magnetic tactics board is the subject — black rounded frame, folding
 `with a few glossy red and blue magnetic discs standing where that sport's players stand, and ONE white dashed arc showing the ball travelling between two of them. No other arrows or lines.`;
 
   const STYLE_TAIL =
-`Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs and the props described above; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading "Plan / Train / Improve" and "Better Players / Brighter Teams" with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
+`Colour: deep desaturated forest green throughout, falling to near-black in the corners, with a soft vignette. The only saturated colours in the frame are the red and blue magnetic discs, the props described above and the board face in its own court colour; everything else is muted green and charcoal. Mint-teal (#18C7BC) chalk doodles float faintly on the background — small hand-drawn X and O marks, curved dashed arrows, and two handwritten cursive lines reading "Plan / Train / Improve" and "Better Players / Brighter Teams" with an underline flourish, all in low-opacity mint chalk, clearly decorative and set back behind the objects.
 
 COMPOSITION RULE (most important): the top 40% of the frame must stay empty, dark and uncluttered — only the faint chalk doodles and the background gradient live up there. The board and every prop sit entirely in the lower 60% of the frame. Nothing crosses into the top edge.
 
@@ -426,6 +426,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
   // Order matches tools/sports.tsv, hub first.
   const SPORTS = [
     { key: 'tactics_board', dir: 'HubBoard', zh: '战术板（合集）',
+      FACE: 'green football turf with faint mowing stripes',
       // A blank grid with discs scattered over it looked like no sport at
       // all (2026-10-22). The hub's board shows the one pitch everybody
       // knows, with a shape a coach would recognise.
@@ -436,6 +437,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of red and yellow training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'soccer', dir: 'SoccerBoard', zh: '足球战术板',
+      FACE: 'green football turf with faint mowing stripes',
       COURT: 'a full football pitch seen vertically, with the centre circle, both penalty areas and goal boxes',
       DISCS: 'with glossy BLUE magnetic discs set out as a 4-3-3 in the near half (a goalkeeper in the goal box, a back four, three midfielders, three forwards) and four RED discs as a defensive line in the far half. ONE white dashed arrow shows a single pass from a midfielder out to the left winger. No other arrows, lines or discs on the board.',
       SURFACE: 'mown green grass turf with faint mowing stripes',
@@ -443,6 +445,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of red and yellow training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'basketball', dir: 'BasketballBoard', zh: '篮球战术板',
+      FACE: 'light maple hardwood',
       COURT: 'a full basketball court seen vertically, with the centre circle, both keys and the three-point arcs',
       DISCS: 'with five BLUE magnetic discs in the far half-court in an offensive set — the point guard at the top of the three-point arc, two players at the elbows of the key, two in the corners — and five RED discs each guarding one of them. ONE white dashed arrow shows a single pass from the point guard to the player at the right elbow. No other arrows, lines or discs on the board.',
       SURFACE: 'polished light hardwood flooring with long reflected highlights',
@@ -450,6 +453,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of orange training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'volleyball', dir: 'VolleyballBoard', zh: '排球战术板',
+      FACE: 'ROYAL BLUE inside the court lines with an ORANGE-YELLOW free zone around them (never green, teal or grey)',
       COURT: 'a volleyball court seen vertically, with the centre net line and both attack lines',
       DISCS: 'with six BLUE magnetic discs in the near court in a serve-receive shape — three along the net, three in a W across the back — and six RED discs in the far court, three at the net and three deep. ONE white dashed arc shows the serve, leaving the far court\'s back-right corner, crossing the net and landing deep in the near court\'s left side. No other arrows, lines or discs on the board.',
       SURFACE: 'a glossy indoor volleyball floor in the standard competition colours — a bright ROYAL BLUE playing court inside crisp white lines with a warm ORANGE-YELLOW free zone around it. This floor is the one exception to the muted-green palette: its blue must read as a clean saturated blue, never teal, cyan, green or grey',
@@ -457,6 +461,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a pair of black knee pads',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'badminton', dir: 'BadmintonBoard', zh: '羽毛球战术板',
+      FACE: 'green synthetic badminton mat',
       COURT: 'a badminton doubles court seen vertically, with the short service lines, the net line and the tramlines',
       DISCS: 'with EXACTLY two glossy magnetic discs: one BLUE disc in the centre of the near court just behind its short service line (the base position), and one RED disc in the same spot in the far court. ONE white dashed arc shows a clear, rising from the blue disc, crossing high over the net and landing in the far court\'s rear corner. No other arrows, lines or discs on the board.',
       SURFACE: 'a green and blue synthetic badminton mat',
@@ -464,6 +469,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a badminton racket lying flat',
       PROP_B: 'an open tube of shuttlecocks' },
     { key: 'tableTennis', dir: 'TableTennisBoard', zh: '乒乓球战术板',
+      FACE: 'a dark charcoal floor, with the small table itself in deep blue',
       COURT: 'a table tennis table drawn SMALL in the centre of the board as a FLAT top-down 2D diagram — a plain rectangle painted on the board face, its edges parallel to the board\'s edges, with no perspective, no tilt, no legs, no thickness and no cast shadow (it is a drawing on the board, not an object standing on it) — a blue rectangle with white edge lines, a centre line and the net across the middle — with wide empty dark floor around it on every side',
       DISCS: 'with one glossy red magnetic disc standing on the floor beyond the far END of the table and one glossy blue disc on the floor beyond the near end, both well outside the table\'s edge lines (nothing is placed on the table top itself — players stand around a table, not on it), and white solid and dashed arrows tracing each player\'s sidesteps along the floor at their own end. ONE white dashed arc shows the ball travelling diagonally across the table from the near player to the far player. No other arrows or lines',
       SURFACE: 'a dark blue table tennis table top',
@@ -471,6 +477,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a red and black table tennis paddle',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'tennis', dir: 'TennisBoard', zh: '网球战术板',
+      FACE: 'blue hard court inside the lines with a green surround',
       COURT: 'a tennis court seen vertically, with the service boxes, the baselines and the net line',
       DISCS: 'with EXACTLY two glossy magnetic discs: one BLUE disc centred just behind the near baseline, one RED disc centred just behind the far baseline. ONE white dashed arc shows a cross-court forehand, leaving the near court\'s right corner and landing in the far court\'s right corner. No other arrows, lines or discs on the board.',
       SURFACE: 'a blue acrylic hard court with crisp white lines',
@@ -478,6 +485,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a tennis racket lying flat',
       PROP_B: 'a can of tennis balls' },
     { key: 'pickleball', dir: 'PickleballBoard', zh: '匹克球战术板',
+      FACE: 'blue court surface with a green surround',
       COURT: 'a pickleball court seen vertically, with the non-volley kitchen zone and both service courts',
       DISCS: 'with EXACTLY four glossy magnetic discs and no others: two BLUE discs side by side just behind the near kitchen line, one in each service court, and two RED discs side by side on the far baseline. ONE white dashed arc shows the ball: it leaves the far-right red disc, crosses the net and drops short into the near kitchen — a third-shot drop. No other arrows, lines or discs on the board.',
       // Doubles is 2v2 and the default formation put seven magnets and
@@ -488,6 +496,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a pickleball paddle — a SOLID flat slab of graphite with a square face and rounded corners and a short grip, like an oversized table tennis bat, with NO strings and NO oval head: it is not a tennis or badminton racket',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'fieldHockey', dir: 'FieldHockeyBoard', zh: '曲棍球战术板',
+      FACE: 'blue water-based synthetic turf',
       COURT: 'a field hockey pitch seen vertically, with both shooting circles and the 23-metre lines',
       DISCS: 'with glossy BLUE magnetic discs set out as a 4-3-3 in the near half (a goalkeeper in the goal, a back four, three midfielders, three forwards) and four RED discs as a defensive line just outside the far shooting circle. ONE white dashed arrow shows a single pass from a midfielder to the right forward. No other arrows, lines or discs on the board.',
       SURFACE: 'blue water-based astroturf, still damp and faintly reflective',
@@ -495,6 +504,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a field hockey stick leaning against the board',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'rugby', dir: 'RugbyBoard', zh: '橄榄球战术板',
+      FACE: 'green grass',
       COURT: 'a rugby pitch seen vertically, with the in-goal areas, the 22-metre lines and the halfway line',
       DISCS: 'with a BLUE backline of seven magnetic discs fanned out diagonally from a ruck near the near 22-metre line — scrum-half at the ruck, fly-half, two centres, two wings, full-back behind — and seven RED discs in a flat defensive line across the pitch facing them. ONE white dashed arrow shows a single pass from the scrum-half to the fly-half. No other arrows, lines or discs on the board.',
       SURFACE: 'worn green grass with patches of churned mud',
@@ -502,6 +512,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of red and yellow training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'baseball', dir: 'BaseballBoard', zh: '棒球战术板',
+      FACE: 'green grass with a reddish-brown dirt infield',
       COURT: 'a baseball diamond seen from above, with the infield, the bases and the foul lines',
       DISCS: 'with nine RED magnetic discs at the fielding positions — pitcher on the mound, catcher behind home plate, first, second and third base, shortstop, left, centre and right field — and one BLUE disc on first base as a runner. ONE white dashed arrow shows a throw from the shortstop to first base. No other arrows, lines or discs on the board.',
       SURFACE: 'the edge of a dirt infield meeting mown outfield grass',
@@ -509,6 +520,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a worn leather catcher’s glove',
       PROP_B: 'a wooden baseball bat lying flat' },
     { key: 'handball', dir: 'HandballBoard', zh: '手球战术板',
+      FACE: 'blue court flooring with orange goal areas',
       COURT: 'a handball court seen vertically, with both 6-metre and 9-metre arcs and both goals',
       DISCS: 'with six BLUE magnetic discs attacking the far goal — two wings in the corners, two backs and a centre back around the 9-metre arc, a pivot on the 6-metre line — six RED discs in a flat 6-0 along the far 6-metre arc and a red goalkeeper in the far goal. ONE white dashed arrow shows a single pass from the centre back to the left back. No other arrows, lines or discs on the board.',
       SURFACE: 'a blue and yellow resin indoor court',
@@ -516,6 +528,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of blue training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'waterPolo', dir: 'WaterPoloBoard', zh: '水球战术板',
+      FACE: 'pool-water blue',
       COURT: 'a water polo pool seen vertically, with the 2-metre and 5-metre lines and both goals',
       DISCS: 'with six BLUE magnetic discs attacking the far goal in a 3-3 umbrella — three along the 5-metre line, two on the wings and a centre forward on the 2-metre line — six RED discs guarding them and a red goalkeeper in the far goal. ONE white dashed arrow shows a single pass from the top of the umbrella into the centre forward. No other arrows, lines or discs on the board.',
       SURFACE: 'wet blue pool-deck tiles at the water’s edge, with dark water and a floating lane rope behind',
@@ -523,6 +536,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a blue water polo cap with ear guards',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'sepakTakraw', dir: 'SepakTakrawBoard', zh: '藤球战术板',
+      FACE: 'blue court flooring',
       COURT: 'a sepak takraw court seen vertically, with the net line and both service circles',
       DISCS: 'with EXACTLY six glossy magnetic discs: three BLUE in the near court — the server (tekong) in the centre service circle and the two inside players at the quarter circles — and three RED in the same shape in the far court. ONE white dashed arc shows the serve, rising from the tekong, crossing the net and landing deep in the far court. No other arrows, lines or discs on the board.',
       SURFACE: 'a dark green synthetic indoor court',
@@ -530,6 +544,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a stack of red and yellow training cones',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'beachTennis', dir: 'BeachTennisBoard', zh: '沙滩网球战术板',
+      FACE: 'golden sand',
       COURT: 'a beach tennis court seen vertically, with the net line and the sidelines',
       DISCS: 'with EXACTLY four glossy magnetic discs: two BLUE side by side close to the net in the near court, two RED side by side close to the net in the far court. ONE white dashed arc shows a volley crossing the net diagonally from the blue pair\'s right side to the red pair\'s left side. No other arrows, lines or discs on the board.',
       SURFACE: 'fine golden beach sand, raked flat with a few footprints',
@@ -537,6 +552,7 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_A: 'a beach tennis paddle standing upright in the sand',
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
     { key: 'footvolley', dir: 'FootvolleyBoard', zh: '足排球战术板',
+      FACE: 'golden sand',
       COURT: 'a footvolley court seen vertically, with the net line and the sidelines',
       DISCS: 'with EXACTLY four glossy magnetic discs: two BLUE in the near court, one close to the net and one deep, and two RED in the same shape in the far court. ONE white dashed arc shows the ball lofted from the deep blue disc over the net into the far court. No other arrows, lines or discs on the board.',
       SURFACE: 'fine golden beach sand with footprints, a net post at the edge of frame',
@@ -559,7 +575,8 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       .replace(/\{BALL\}/g, sport.BALL)
       .replace(/\{PROP_A\}/g, sport.PROP_A)
       .replace(/\{PROP_B\}/g, sport.PROP_B)
-      .replace(/\{DISCS\}/g, sport.DISCS || DISCS_DEFAULT);
+      .replace(/\{DISCS\}/g, sport.DISCS || DISCS_DEFAULT)
+      .replace(/\{FACE\}/g, sport.FACE || 'deep green');
     // Line 1 is the file the image is delivered as, line 2 its size — the
     // same two-line head every prompt sheet in this repo starts with, so the
     // image comes back already named for install_intro_art.py --all.
