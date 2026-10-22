@@ -852,13 +852,13 @@ def gaps_family() -> list[Drill]:
             # Feed and move, clear and cover, recover — the clear used to
             # wait a beat after 1 had arrived, with nothing happening on
             # the board but the feeder shuffling sideways.
-            home=[P(*BASE, "1", moves=[(0.30, 0.84, 0), BASE + (2,)])],
+            home=[P(*BASE, "1", moves=[(0.28, 0.92, 0), BASE + (2,)])],
             away=[P(*mirror(BASE), "C", coach=True, moves=[(0.34, 0.30, 1)])],
             # The cone is the centre he recovers to — the note says so — not
             # the corner he hits from: there it sat on the baseline (2026-10-22).
             markers=[M(*BASE, "cone", ""), M(0.72, 0.14, "zone", "")],
             ball=mirror(BASE),
-            ball_moves=[(0.30, 0.84, 0), (0.72, 0.14, 1)],
+            ball_moves=[(0.28, 0.92, 0), (0.72, 0.14, 1)],
         ),
         Drill(
             id="bd_net_battle", category="attacking", minutes=8, rel=True,
