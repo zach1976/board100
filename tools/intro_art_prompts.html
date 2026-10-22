@@ -181,6 +181,14 @@
   footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--off); font-size: 13px; }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* flat sheet (2026-10-22): every sport in order, no tabs */
+  .sportblock { margin: 36px 0 0; padding-top: 24px; border-top: 1px solid var(--line, #2a3a33); }
+  .sporthead { font-size: 22px; margin: 0 0 12px; }
+  .sporthead .k { font-size: 12px; font-weight: 400; opacity: .6; margin-left: 10px; }
+  .sportblock .shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 540px; margin-bottom: 14px; }
+  .sportblock .promptcard { margin-bottom: 14px; }
+  .sportblock .prompt { max-height: none; }
 </style>
 
 <div class="wrap">
@@ -189,8 +197,8 @@
     <h1>Intro 背景图 <em>提示词</em></h1>
     <p class="lede">
       新 intro 的排版、文字、下划线、按钮全部由代码画。图片只负责一件事：
-      一张竖幅的场景底图，上面 40% 是空的。左边选运动和屏，右边就是可以直接粘进
-      ChatGPT 的英文提示词。
+      一张竖幅的场景底图，上面 40% 是空的。16 个 app 按顺序排下来，每个 app 三条可以直接粘进
+      ChatGPT 的英文提示词，上面是它已经出好的图。
     </p>
   </header>
 
@@ -202,29 +210,7 @@
       同一套光和同一块板子才能让 16 个 app 看起来是一家的。
     </p>
 
-    <div class="composer">
-      <div class="rail">
-        <p class="rail-label">运动 / APP</p>
-        <div class="sports" id="sports"></div>
-        <p class="rail-label second">第几屏</p>
-        <div class="panels" id="panels"></div>
-      </div>
-
-      <div class="promptcard">
-        <div class="promptbar">
-          <div class="who">
-            <b id="who-sport">足球战术板</b> · <span id="who-panel">第 1 屏</span>
-            <span class="file" id="who-file"></span>
-          </div>
-          <button class="copy" id="copy" type="button">复制提示词</button>
-        </div>
-        <div class="made">
-          <p class="rail-label">这个 app 已经出好的图 <span class="dim" id="made-note"></span></p>
-          <div class="shots" id="shots"></div>
-        </div>
-        <pre class="prompt" id="prompt"></pre>
-      </div>
-    </div>
+    <div id="all"></div>
   </section>
 
   <section>
@@ -561,12 +547,6 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
       PROP_B: 'a chrome coach’s whistle on a black lanyard' },
   ];
 
-  // ?sport=<key> opens the page on that sport; otherwise soccer, the one with
-  // a real mockup to compare against.
-  const want = new URLSearchParams(location.search).get('sport');
-  let sportAt = Math.max(0, SPORTS.findIndex((s) => s.key === want));
-  if (sportAt === 0 && want !== SPORTS[0].key) sportAt = 1;
-  let panelAt = 0;
 
   function compose(sport, panel) {
     const fill = (s) => s
@@ -586,133 +566,101 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
 
   // The per-sport words are highlighted so it is obvious at a glance what
   // changed between two sports — the rest being identical is the point.
-  function render() {
-    const sport = SPORTS[sportAt];
-    const panel = PANELS[panelAt];
-    const text = compose(sport, panel);
-
-    const varied = [sport.COURT, sport.SURFACE, sport.BALL, sport.PROP_A, sport.PROP_B, sport.DISCS]
+  function highlight(sport, text) {
+    const varied = [sport.COURT, sport.SURFACE, sport.BALL, sport.PROP_A, sport.PROP_B, sport.DISCS, sport.FACE]
       .filter(Boolean)
       .sort((a, b) => b.length - a.length);
     let html = '';
     let rest = text;
-    // Walk the string, wrapping any occurrence of a substituted phrase.
-    outer: while (rest.length) {
+    while (rest.length) {
       let bestAt = -1, bestPhrase = null;
       for (const p of varied) {
         const i = rest.indexOf(p);
         if (i !== -1 && (bestAt === -1 || i < bestAt)) { bestAt = i; bestPhrase = p; }
       }
-      if (bestAt === -1) { html += esc(rest); break outer; }
+      if (bestAt === -1) { html += esc(rest); break; }
       html += esc(rest.slice(0, bestAt));
       html += '<span class="var">' + esc(bestPhrase) + '</span>';
       rest = rest.slice(bestAt + bestPhrase.length);
     }
+    return html;
+  }
 
-    document.getElementById('prompt').innerHTML = html;
-    document.getElementById('who-sport').textContent = sport.zh;
-    document.getElementById('who-panel').textContent = '第 ' + panel.n + ' 屏';
-    document.getElementById('who-file').textContent =
-      sport.dir + '/assets/intro/intro_' + panel.n + '.webp';
-
-    for (const b of document.querySelectorAll('#sports button')) {
-      b.setAttribute('aria-pressed', String(Number(b.dataset.i) === sportAt));
-    }
-    for (const b of document.querySelectorAll('#panels button')) {
-      b.setAttribute('aria-pressed', String(Number(b.dataset.i) === panelAt));
-    }
-    const c = document.getElementById('copy');
-    c.classList.remove('done');
-    c.textContent = '复制提示词';
-    renderShots(sport);
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   // The images that already exist, read straight out of the shells — the
   // page sits in tools/, so each app's assets/intro/ is one level up.
   const artPath = (sport, n) => '../' + sport.dir + '/assets/intro/intro_' + n + '.webp';
 
-  function renderShots(sport) {
-    const el = document.getElementById('shots');
-    el.innerHTML = '';
-    PANELS.forEach((panel, i) => {
-      const d = document.createElement('div');
-      d.className = 'shot';
-      d.setAttribute('aria-current', String(i === panelAt));
-      const img = document.createElement('img');
-      img.src = artPath(sport, panel.n);
-      img.alt = 'intro_' + panel.n;
-      const tag = document.createElement('div');
-      tag.className = 'tag';
-      tag.textContent = '第 ' + panel.n + ' 屏 · ' + panel.t;
-      img.addEventListener('error', () => { d.classList.add('missing'); tag.textContent = '第 ' + panel.n + ' 屏 · 还没有'; });
-      d.append(img, tag);
-      d.addEventListener('click', () => { panelAt = i; render(); });
-      el.appendChild(d);
-    });
-    document.getElementById('made-note').textContent = '（' + sport.dir + '/assets/intro/）';
-  }
-
-  // Dot every sport that already has all three, so the rail doubles as a
-  // progress board: which apps still need their intro shot.
-  SPORTS.forEach((sport, i) => {
-    let have = 0;
-    PANELS.forEach((panel) => {
-      const probe = new Image();
-      probe.onload = () => {
-        if (++have === PANELS.length) {
-          const b = document.querySelector('#sports button[data-i="' + i + '"]');
-          if (b && !b.querySelector('.dot')) { const dot = document.createElement('span'); dot.className = 'dot'; b.appendChild(dot); }
-        }
-      };
-      probe.src = artPath(sport, panel.n);
-    });
-  });
-
-  function esc(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  const sportsEl = document.getElementById('sports');
-  SPORTS.forEach((s, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'pick';
-    b.dataset.i = String(i);
-    b.innerHTML = '<span>' + s.zh + '</span><span class="k">' + s.key + '</span>';
-    b.addEventListener('click', () => { sportAt = i; render(); });
-    sportsEl.appendChild(b);
-  });
-
-  const panelsEl = document.getElementById('panels');
-  PANELS.forEach((p, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'pick';
-    b.dataset.i = String(i);
-    b.innerHTML = '<span class="t">' + p.n + '. ' + p.t + '</span><span class="d">' + p.d + '</span>';
-    b.addEventListener('click', () => { panelAt = i; render(); });
-    panelsEl.appendChild(b);
-  });
-
-  document.getElementById('copy').addEventListener('click', async (e) => {
-    const text = compose(SPORTS[sportAt], PANELS[panelAt]);
+  async function copyText(btn, text, pre) {
     try {
       await navigator.clipboard.writeText(text);
     } catch (_) {
       // Clipboard is blocked in some embedded viewers; select it instead so
       // a manual Cmd-C still works rather than the button doing nothing.
       const r = document.createRange();
-      r.selectNodeContents(document.getElementById('prompt'));
+      r.selectNodeContents(pre);
       const sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(r);
-      e.target.textContent = '已选中，按 ⌘C';
-      e.target.classList.add('done');
+      btn.textContent = '已选中，按 ⌘C';
+      btn.classList.add('done');
       return;
     }
-    e.target.textContent = '已复制 ✓';
-    e.target.classList.add('done');
+    btn.textContent = '已复制 ✓';
+    btn.classList.add('done');
+    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('done'); }, 1500);
+  }
+
+  // Every sport, in sports.tsv order, one after another: no tabs to click
+  // through, the whole sheet reads top to bottom and ⌘F finds a sport.
+  const all = document.getElementById('all');
+  SPORTS.forEach((sport) => {
+    const sec = document.createElement('div');
+    sec.className = 'sportblock';
+    sec.id = sport.key;
+    sec.innerHTML = '<h3 class="sporthead">' + esc(sport.zh) +
+      ' <span class="k">' + esc(sport.key) + ' · ' + esc(sport.dir) + '/assets/intro/</span></h3>';
+    const shots = document.createElement('div');
+    shots.className = 'shots';
+    PANELS.forEach((panel) => {
+      const d = document.createElement('div');
+      d.className = 'shot';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.src = artPath(sport, panel.n);
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = '第 ' + panel.n + ' 屏';
+      img.addEventListener('error', () => { d.classList.add('missing'); tag.textContent = '第 ' + panel.n + ' 屏 · 还没有'; });
+      d.appendChild(img); d.appendChild(tag);
+      shots.appendChild(d);
+    });
+    sec.appendChild(shots);
+    PANELS.forEach((panel) => {
+      const text = compose(sport, panel);
+      const card = document.createElement('div');
+      card.className = 'promptcard';
+      const bar = document.createElement('div');
+      bar.className = 'promptbar';
+      bar.innerHTML = '<div class="who"><b>第 ' + panel.n + ' 屏 · ' + esc(panel.t) + '</b> <span class="file">' +
+        esc(sport.key + '_' + panel.n + '.png') + '</span></div>';
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'copy'; btn.textContent = '复制';
+      bar.appendChild(btn);
+      const pre = document.createElement('pre');
+      pre.className = 'prompt';
+      pre.innerHTML = highlight(sport, text);
+      btn.addEventListener('click', () => copyText(btn, text, pre));
+      card.appendChild(bar); card.appendChild(pre);
+      sec.appendChild(card);
+    });
+    all.appendChild(sec);
   });
 
-  render();
+  // ?sport=<key> or #<key> jumps to that app.
+  const want = new URLSearchParams(location.search).get('sport') || location.hash.slice(1);
+  if (want && document.getElementById(want)) document.getElementById(want).scrollIntoView();
 </script>
