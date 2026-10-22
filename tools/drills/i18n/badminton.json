@@ -298,5 +298,9 @@
  "with spin": {
   "de-DE": "mit Spin",
   "nl-NL": "met spin"
+ },
+ "A game with one rule added, so the tactic the session was about has to be used to win.": {
+  "de-DE": "Ein Spiel mit einer zusätzlichen Vorgabe, damit die Taktik der Einheit zum Gewinnen eingesetzt werden muss.",
+  "nl-NL": "Een partij met één extra regel, zodat je de tactiek van de training moet gebruiken om te winnen."
  }
 }

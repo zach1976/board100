@@ -530,19 +530,18 @@ BADMINTON = {
         "ซ้อมเสิร์ฟและรับเสิร์ฟ — สองลูกที่ไม่มีใครเร่งคุณได้ จึงต้องวาง ไม่ใช่ตี และลูกแรกถัดไปตัดสินว่าใครบุก",
         "Tập giao và đỡ giao cầu — hai cú không ai ép được bạn, nên phải đặt chứ không đánh; cú đầu tiên sau đó quyết định ai tấn công."),
     "ssg": _P(
-        "A game with a constraint — half the court, the front court only, two "
-        "against one — so the tactic the session was about has to be used to "
-        "win.",
-        "限制性对抗：半场、只打前场、二打一——加一条限制，这堂课练的战术就成了赢球的必需品。",
-        "限制性對抗：半場、只打前場、二打一——加一條限制，這堂課練的戰術就成了贏球的必需品。",
-        "条件付きのゲーム。半面、前だけ、2対1。縛りがあるから、その日の戦術を使わなければ勝てない。",
-        "조건을 건 게임. 반 코트, 앞쪽만, 2대1. 제약이 있으니 그날 연습한 전술을 써야 이긴다.",
-        "Un juego con condición: media pista, solo la zona delantera, dos contra uno, para que la táctica de la sesión sea necesaria para ganar.",
-        "Un jeu à contrainte : demi-court, avant-court seulement, deux contre un, pour que la tactique de la séance soit nécessaire pour gagner.",
-        "Permainan dengan batasan — setengah lapangan, depan saja, dua lawan satu — agar taktik sesi ini harus dipakai untuk menang.",
-        "Permainan bersyarat — separuh gelanggang, depan sahaja, dua lawan satu — supaya taktik sesi ini perlu digunakan untuk menang.",
-        "เกมมีเงื่อนไข — ครึ่งคอร์ต เฉพาะหน้าคอร์ต สองต่อหนึ่ง — เพื่อให้แทคติกที่ซ้อมวันนี้ต้องถูกใช้เพื่อชนะ",
-        "Trận đấu có điều kiện — nửa sân, chỉ đánh trước sân, hai đấu một — để chiến thuật của buổi tập phải được dùng mới thắng được."),
+        "A game with one rule added, so the tactic the session was about has "
+        "to be used to win.",
+        "限制性对抗：给对抗加一条规则，这堂课练的战术就成了赢球的必需品。",
+        "限制性對抗：給對抗加一條規則，這堂課練的戰術就成了贏球的必需品。",
+        "条件付きのゲーム。縛りを一つ加えるから、その日の戦術を使わなければ勝てない。",
+        "조건을 건 게임. 규칙을 하나 더하니 그날 연습한 전술을 써야 이긴다.",
+        "Un juego con una condición añadida, para que la táctica de la sesión sea necesaria para ganar.",
+        "Un jeu avec une contrainte ajoutée, pour que la tactique de la séance soit nécessaire pour gagner.",
+        "Permainan dengan satu aturan tambahan, agar taktik sesi ini harus dipakai untuk menang.",
+        "Permainan dengan satu syarat tambahan, supaya taktik sesi ini perlu digunakan untuk menang.",
+        "เกมที่เพิ่มเงื่อนไขหนึ่งข้อ เพื่อให้แทคติกที่ซ้อมวันนี้ต้องถูกใช้เพื่อชนะ",
+        "Trận đấu có thêm một điều kiện, để chiến thuật của buổi tập phải được dùng mới thắng được."),
     "conditioning": _P(
         "Fitness for the court — shadow footwork, line shuttles and jump "
         "series, so the sixth corner is reached as fast as the first.",
