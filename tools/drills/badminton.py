@@ -12,13 +12,15 @@ BASE = (0.50, 0.72)
 FL, FR = (0.18, 0.58), (0.82, 0.58)
 RL, RR = (0.14, 0.94), (0.86, 0.94)
 NET_L, NET_R = (0.22, 0.545), (0.78, 0.545)
-# Where a feeder stands, just the other side of the net.
-FEED = (0.50, 0.44)
 # A far-side server stands in his service court with his FEET behind his
 # short service line (0.352): the figure hangs half its height below its
 # point, toward the net, so at 0.315 his feet were over the line, in the
 # front court (tools/check_baselines.py).
 SRV_FAR_Y = 0.5 - 1.98 / 13.4 - figure_clear("badminton")
+# Where a feeder stands: behind his short service line, feeding from
+# mid-court the way a coach with a box of shuttles does. At 0.44 the
+# figure hung half its height toward the net and his feet were on the tape.
+FEED = (0.50, SRV_FAR_Y)
 
 
 def mirror(pt):
