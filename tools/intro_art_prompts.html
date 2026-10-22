@@ -419,7 +419,11 @@ Do NOT include: any headline text, numbers, captions, UI elements, buttons, phon
   // Order matches tools/sports.tsv, hub first.
   const SPORTS = [
     { key: 'tactics_board', dir: 'HubBoard', zh: '战术板（合集）',
-      COURT: 'a blank magnetic tactics board face with faint white grid lines and no sport markings',
+      // A blank grid with discs scattered over it looked like no sport at
+      // all (2026-10-22). The hub's board shows the one pitch everybody
+      // knows, with a shape a coach would recognise.
+      COURT: 'a full football pitch seen vertically — centre circle, both penalty areas and goal boxes',
+      DISCS: 'with glossy BLUE magnetic discs set out as a 4-3-3 in the near half (a goalkeeper in the goal box, a back four, three midfielders, three forwards) and four RED discs as a defensive line in the far half, and ONE white dashed arrow showing a single pass from a midfielder out to the left winger. No other arrows.',
       SURFACE: 'a dark slate table top',
       BALL: 'a football, a basketball and a volleyball grouped together',
       PROP_A: 'a stack of red and yellow training cones',
