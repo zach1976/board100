@@ -7,10 +7,15 @@ whose position is the other half of the answer.
 """
 from .engine import Drill, M, P, figure_clear, suffixed
 
-BASE = (0.50, 0.72)
+# The base is the middle of the half court. A figure is drawn centred on its
+# point with its feet half a figure below it, so 0.72 LOOKED a metre too
+# close to the net (2026-10-22); 0.76 reads as centre.
+BASE = (0.50, 0.76)
 # The four corners a singles player is worked between, plus the net tape.
+# The rear corners are at the baseline — a clear is hit from it, not from
+# a metre inside it.
 FL, FR = (0.18, 0.58), (0.82, 0.58)
-RL, RR = (0.14, 0.94), (0.86, 0.94)
+RL, RR = (0.14, 0.96), (0.86, 0.96)
 NET_L, NET_R = (0.22, 0.545), (0.78, 0.545)
 # A far-side server stands in his service court with his FEET behind his
 # short service line (0.352): the figure hangs half its height below its
@@ -849,7 +854,9 @@ def gaps_family() -> list[Drill]:
             # the board but the feeder shuffling sideways.
             home=[P(*BASE, "1", moves=[(0.30, 0.84, 0), BASE + (2,)])],
             away=[P(*mirror(BASE), "C", coach=True, moves=[(0.34, 0.30, 1)])],
-            markers=[M(0.30, 0.86, "cone", ""), M(0.72, 0.14, "zone", "")],
+            # The cone is the centre he recovers to — the note says so — not
+            # the corner he hits from: there it sat on the baseline (2026-10-22).
+            markers=[M(*BASE, "cone", ""), M(0.72, 0.14, "zone", "")],
             ball=mirror(BASE),
             ball_moves=[(0.30, 0.84, 0), (0.72, 0.14, 1)],
         ),
