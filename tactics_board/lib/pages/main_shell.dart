@@ -96,6 +96,9 @@ class _MainShellState extends State<MainShell> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
+    // A toast the board raised (the drill's name, "saved") belongs to the
+    // board: the app-wide messenger would otherwise keep it over the list.
+    if (mounted) ScaffoldMessenger.of(context).removeCurrentSnackBar();
     await state.autosave();
     // Whatever happened on the board — a drill loaded, a board saved — is
     // news to the home tab's lists.
