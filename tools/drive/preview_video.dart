@@ -196,6 +196,11 @@ void main() {
     // New board asks for a name first, and the field takes focus, which is
     // what put a keyboard and iOS's own swipe-typing tutorial over the first
     // cut of this film. The offered name is accepted as it stands.
+    // The hub opens on its sport grid, not a sport: walk into this one.
+    if (find.text('New board').evaluate().isEmpty) {
+      await tapText(_sport.displayName);
+      await hold(1500);
+    }
     final opened = await tapText('New board');
     await hold(600);
     final named = await tapText('Create') || await tapText('Apply');
@@ -214,7 +219,12 @@ void main() {
     // nothing a film should be papering over.)
     final add1 = await tapIcon(Icons.add_rounded);
     await hold(700);
-    final squad = await tapText(_squadChip);
+    // Chips name the real head counts, so baseball's defence with its
+    // runners reads 9v4, not 9v9: when the guess is not there, the first
+    // "NvM" chip the sheet shows.
+    final squad = await tapText(_squadChip) ||
+        await tapFinder(find.byWidgetPredicate((w) =>
+            w is Text && RegExp(r'^\d+v\d+$').hasMatch(w.data ?? '')));
     await hold(500);
     // A Formation row appears only where one head count has more than one
     // shape to it: baseball's nine are Defense, Bases Loaded or Shift.
@@ -268,6 +278,14 @@ void main() {
       if (c.dy < screen.height * 0.50 || c.dy > screen.height * 0.72) continue;
       if (mine == null || c.dx < mine.dx) mine = c;
     }
+    // Tennis serves from behind the baseline, below that band: anyone in
+    // the home half, then.
+    if (mine == null) {
+      for (final c in crowd) {
+        if (c.dy < screen.height * 0.50) continue;
+        if (mine == null || c.dx < mine.dx) mine = c;
+      }
+    }
     var picked = false;
     if (mine != null) {
       await touch(mine);
@@ -290,7 +308,14 @@ void main() {
       // spots, take the one standing in the most open court.
       Offset? best;
       var bestGap = -1.0;
-      for (final d in const [
+      // A net sport's edit bar floats at the net, which is exactly where
+      // "up the court" lands; there the run stays in his own half.
+      for (final d in _sport.hasNet ? const [
+        Offset(0.26, -0.08),
+        Offset(-0.26, -0.08),
+        Offset(0.30, 0.06),
+        Offset(-0.30, 0.06),
+      ] : const [
         Offset(0.22, -0.20),
         Offset(-0.22, -0.20),
         Offset(0.26, -0.30),
