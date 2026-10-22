@@ -141,6 +141,21 @@ flutter:
     - assets/icon/marker_mannequin.png
     - assets/icon/marker_pole.png
     - assets/icon/marker_disc.png
+    - assets/icon/sport_soccer.png
+    - assets/icon/sport_basketball.png
+    - assets/icon/sport_volleyball.png
+    - assets/icon/sport_fieldHockey.png
+    - assets/icon/sport_badminton.png
+    - assets/icon/sport_tennis.png
+    - assets/icon/sport_tableTennis.png
+    - assets/icon/sport_pickleball.png
+    - assets/icon/sport_baseball.png
+    - assets/icon/sport_handball.png
+    - assets/icon/sport_rugby.png
+    - assets/icon/sport_waterPolo.png
+    - assets/icon/sport_sepakTakraw.png
+    - assets/icon/sport_beachTennis.png
+    - assets/icon/sport_footvolley.png
     - assets/icon/marker_ring.png
     - assets/icon/marker_rebounder.png
     - assets/icon/marker_bench.png
