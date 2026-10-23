@@ -5094,7 +5094,10 @@ void showPaywallSheet(BuildContext context) {
   // on an iPad the board's own toolbar showed through them (2026-10-23).
   TacticalSheet.show(
     context,
+    // Taller than a picker: at the usual 0.72 of a phone's height the
+    // "Unlock Now" button and the terms sat below the fold.
     builder: (_) => const TacticalSheet(
+      maxHeightFraction: 0.92,
       padding: EdgeInsets.only(top: T.s12),
       child: _PaywallSheet(),
     ),
