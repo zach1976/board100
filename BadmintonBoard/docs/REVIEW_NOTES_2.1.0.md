@@ -20,21 +20,30 @@ first time; see below for where to find it.
 ## Where to find the In-App Purchases
 
 Both purchases — "Remove Ads (Yearly)" (badminton_remove_ads_yearly,
-auto-renewable, submitted for the first time with this version) and
-the already approved one-time "Remove Ads (Lifetime)" — are on one
-purchase sheet. Two ways to it, any one is
-enough:
+auto-renewable, submitted for the first time with this version) and the
+already approved one-time "Remove Ads (Lifetime)" — are on one purchase
+sheet. Two ways to it, either one is enough. Verified on an iPad (11-inch
+and 13-inch) and on iPhone with this exact build:
 
-1. From the board: on the Home tab tap "Open the board" (or "New board").
-   On the board, tap the round "⋯" button in the top-right corner, then
-   "Remove Ads". The purchase sheet opens.
-2. From the drills: open the "Drills" tab and tap any drill marked with a
-   lock, then "Unlock with Pro". The same sheet opens.
+1. From the board. On an iPad the tabs are a side bar down the left edge
+   (Home, Board, Drills, Me). Tap "Home", then the "New board" button at
+   the top of the page (it reads "Open the board" once a board has been
+   saved). Name the board and tap "Create". On the board, tap the round
+   "⋯" button in the TOP-RIGHT corner of the screen (next to the step
+   counter "1"). The menu that drops down ends with "Remove Ads" — tap
+   it. The purchase sheet opens.
+2. From the drills. Tap "Drills" in the side bar (or the tab bar on
+   iPhone). 14 of the 42 drills are free; the other 28 show a lock on
+   their card. Tap any locked drill, then "Unlock with Pro". The same
+   sheet opens.
 
-The sheet shows both plans with localized prices, the auto-renewal terms,
-the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
-Nothing restricts the purchases by storefront or device. The Paid Apps
-Agreement is in effect (the Lifetime purchase is live).
+The sheet shows both plans with localized prices (Yearly $2.99 / year,
+Lifetime $6.99 one-time), the auto-renewal terms, the Terms of Use (EULA)
+and Privacy Policy links, and "Restore Purchases". Tap a plan, then
+"Unlock Now" to start the StoreKit purchase. Nothing restricts the
+purchases by storefront, device or account; they are not gated behind sign-
+in. The Paid Apps Agreement is in effect (the Lifetime purchase has been
+live since 2.0.0).
 
 ## New in 2.1.0
 
