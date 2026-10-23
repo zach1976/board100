@@ -852,7 +852,11 @@ def gaps_family() -> list[Drill]:
             # Feed and move, clear and cover, recover — the clear used to
             # wait a beat after 1 had arrived, with nothing happening on
             # the board but the feeder shuffling sideways.
-            home=[P(*BASE, "1", moves=[(0.28, 0.92, 0), BASE + (2,)])],
+            # Locked facing the net: the corner he clears from is the
+            # backhand rear, where the board turns a man retreating for a
+            # backhand — and round the head is the shot you take instead
+            # of turning (2026-10-23).
+            home=[P(*BASE, "1", lock=True, moves=[(0.28, 0.92, 0), BASE + (2,)])],
             away=[P(*mirror(BASE), "C", coach=True, moves=[(0.34, 0.30, 1)])],
             # The cone is the centre he recovers to — the note says so — not
             # the corner he hits from: there it sat on the baseline (2026-10-22).

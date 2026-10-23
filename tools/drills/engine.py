@@ -169,6 +169,11 @@ class P:
     # and "2" in the opponents' red said nothing: a feeder is labelled C,
     # wears slate instead of a team's colour, and carries the role.
     coach: bool = False
+    # Faces his own way whatever the beats do: the app's faceLock. For a
+    # badminton man clearing round the head from the backhand rear corner —
+    # the one place the board would otherwise turn him to face his own
+    # baseline, and the one shot whose point is that he does not.
+    lock: bool = False
 
 
 @dataclass
@@ -362,6 +367,7 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int,
         # Omitted unless the drill says otherwise, which reads back as
         # "whatever this sport normally does".
         **({"holds": holds} if holds is not None else {}),
+        **({"faceLock": True} if p.lock else {}),
     }
 
 
@@ -1291,7 +1297,7 @@ def build_board(drill: Drill, sport: str) -> dict:
     people = list(drill.home) + list(drill.away)
     for pd, pl in zip(players, people):
         hd = facing.get(id(pl))
-        if hd is None:
+        if hd is None or pl.lock:
             continue
         r = facing_to_rotation(hd, pd["team"])
         if r != 0.0:

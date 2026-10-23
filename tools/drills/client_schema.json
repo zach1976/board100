@@ -43,6 +43,7 @@
   "player": {
    "attachedTo": "2.0.0",
    "customColor": "2.0.0",
+   "faceLock": "2.0.0",
    "gender": "2.0.0",
    "holder": "2.0.0",
    "holds": "2.0.0",

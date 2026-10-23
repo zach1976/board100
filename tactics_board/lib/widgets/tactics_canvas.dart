@@ -1729,7 +1729,14 @@ class _TacticsCanvasState extends State<TacticsCanvas> {
           ? playerFacing(player)
           // In motion too: a table tennis player steps back from the table
           // facing it; drawn along his travel he spun round mid-step.
-          : moving && !squareToNet(state.sportType)
+          // Badminton the same way, with the stance of where the beat
+          // lands him: the one corner he turns his back for is the
+          // backhand rear, and faceAcrossNet knows which that is — drawn
+          // along his travel every retreat to the rear, forehand corner
+          // included, had him spin round and run at the baseline.
+          : moving &&
+                !squareToNet(state.sportType) &&
+                state.sportType != SportType.badminton
           ? playerHeadingAt(player, animPos)
           : faceAcrossNet(
               boardHeading(players, player, beat) ?? playerFacing(player),

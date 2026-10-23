@@ -7975,7 +7975,7 @@
             "photoId": null,
             "role": null,
             "attachedTo": null,
-            "rotation": -2.356194
+            "faceLock": true
           },
           {
             "id": "d1",
