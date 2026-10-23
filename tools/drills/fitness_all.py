@@ -403,13 +403,17 @@ def _badminton():
         Drill(
             id="bdfit_six_corner", category="conditioning", minutes=10, rel=True,
             purpose=PURPOSE_COURT, free=True, name=SHADOW_NAME, note=SHADOW_NOTE,
-            home=[P(0.50, 0.66, "A",
-                    moves=[(0.28, 0.56, 0), (0.50, 0.66, 1), (0.72, 0.56, 2), (0.50, 0.66, 3),
-                           (0.24, 0.88, 4), (0.50, 0.66, 5), (0.76, 0.88, 6), (0.50, 0.66, 7)],
+            # Base is the middle of the half court (the same spot every other
+            # badminton drill uses), the net cones sit out by the singles
+            # sidelines and the rear pair on the baseline — the six points
+            # a singles player actually covers, not a ring round the net.
+            home=[P(0.50, 0.76, "A",
+                    moves=[(0.18, 0.58, 0), (0.50, 0.76, 1), (0.82, 0.58, 2), (0.50, 0.76, 3),
+                           (0.14, 0.96, 4), (0.50, 0.76, 5), (0.86, 0.96, 6), (0.50, 0.76, 7)],
                     why={0: "sprint", 1: "reset", 2: "sprint", 3: "reset",
                          4: "sprint", 5: "reset", 6: "sprint", 7: "reset"})],
-            markers=[M(0.50, 0.68), M(0.26, 0.54), M(0.74, 0.54), M(0.22, 0.90), M(0.78, 0.90),
-                     M(0.14, 0.68), M(0.86, 0.68)],
+            markers=[M(0.50, 0.78), M(0.18, 0.58), M(0.82, 0.58), M(0.14, 0.96), M(0.86, 0.96),
+                     M(0.10, 0.76), M(0.90, 0.76)],
             setup=_s("a cone on base in the middle of the court and six around it — two at the net, two at the sides, two in the rear corners; the player starts on base",
                      "中心位放一个锥标，周围六个锥标：网前两个、两侧各一个、后场两角各一个，球员站在中心位",
                      "中心位放一個錐標，周圍六個錐標：網前兩個、兩側各一個、後場兩角各一個，球員站在中心位"),
