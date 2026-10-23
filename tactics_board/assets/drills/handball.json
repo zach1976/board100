@@ -1,6 +1,6 @@
 {
   "sport": "handball",
-  "version": 6,
+  "version": 7,
   "minClient": "2.0.0",
   "drills": [
     {

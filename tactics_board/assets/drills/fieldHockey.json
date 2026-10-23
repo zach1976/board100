@@ -1,6 +1,6 @@
 {
   "sport": "fieldHockey",
-  "version": 6,
+  "version": 7,
   "minClient": "2.2.0",
   "drills": [
     {

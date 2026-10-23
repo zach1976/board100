@@ -1,6 +1,6 @@
 {
   "sport": "volleyball",
-  "version": 6,
+  "version": 7,
   "minClient": "2.1.0",
   "drills": [
     {
