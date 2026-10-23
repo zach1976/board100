@@ -2,7 +2,7 @@ name: footvolley_board
 description: "Footvolley Board — single-sport shell over the shared tactics_board core."
 publish_to: 'none'
 # Kept in lockstep with the core: every app in this repo ships one version.
-version: 2.1.0+2
+version: 2.1.0+3
 
 environment:
   sdk: ^3.11.0
