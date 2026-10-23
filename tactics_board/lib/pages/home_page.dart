@@ -2021,7 +2021,7 @@ class _MenuButton extends StatelessWidget {
   }
 
   void _showPaywall(BuildContext context) {
-    TacticalSheet.show(context, builder: (_) => const _PaywallSheet());
+    showPaywallSheet(context);
   }
 
   void _showPracticePlan(BuildContext context) {
@@ -5087,7 +5087,18 @@ class _BigPlayControls extends StatelessWidget {
 /// match-day sheet's clock. The sheet stays private to this file; this is
 /// the one door in.
 void showPaywallSheet(BuildContext context) {
-  TacticalSheet.show(context, builder: (_) => const _PaywallSheet());
+  // Inside a TacticalSheet like every other sheet: the surface, the
+  // corners and the safe area come from it. Handed to the route bare, the
+  // paywall had no background at all — its title, the restore button and
+  // the subscription terms were drawn straight onto the dimmed board, and
+  // on an iPad the board's own toolbar showed through them (2026-10-23).
+  TacticalSheet.show(
+    context,
+    builder: (_) => const TacticalSheet(
+      padding: EdgeInsets.only(top: T.s12),
+      child: _PaywallSheet(),
+    ),
+  );
 }
 
 class _PaywallSheet extends StatefulWidget {
@@ -5193,22 +5204,12 @@ class _PaywallSheetState extends State<_PaywallSheet> {
         clipBehavior: Clip.none,
         children: [
           SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+            padding: const EdgeInsets.fromLTRB(20, 4, 20, 18),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Center(
-                  child: Container(
-                    width: 38,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: T.border,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
+                // The grab handle is the sheet's own now.
                 // The banner carries the premium mood; the badge anchors it.
                 Center(
                   child: Stack(
