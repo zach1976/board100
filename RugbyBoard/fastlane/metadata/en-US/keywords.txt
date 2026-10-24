@@ -1,1 +1,1 @@
-tactics board,training plan,schedule,scrum,formation,coaching demo,tactical analysis,match review
+tactics board,training plan,schedule,scrum,formation,demo,analysis,match review

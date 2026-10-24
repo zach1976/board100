@@ -1,1 +1,1 @@
-Taktiktafel,Trainingsplan,Trainingseinheit,Stacking,Doppeltaktik,Lehrdemo,Taktikanalyse,Spielanalyse
+Taktiktafel,Trainingsplan,Einheiten,Stacking,Doppeltaktik,Lehrdemo,Taktikanalyse,Spielanalyse

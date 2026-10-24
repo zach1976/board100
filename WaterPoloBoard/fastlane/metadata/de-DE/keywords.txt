@@ -1,1 +1,1 @@
-Taktiktafel,Trainingsplan,Trainingseinheit,Überzahl,Aufstellung,Lehrdemo,Taktikanalyse,Spielanalyse
+Taktiktafel,Trainingsplan,Einheiten,Überzahl,Aufstellung,Lehrdemo,Taktikanalyse,Spielanalyse

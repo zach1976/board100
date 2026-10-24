@@ -1,1 +1,1 @@
-tactics board,training plan,schedule,serve,footwork,coaching demo,tactical analysis,match review
+tactics board,training plan,schedule,serve,footwork,demo,analysis,match review

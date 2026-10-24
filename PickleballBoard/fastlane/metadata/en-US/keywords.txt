@@ -1,1 +1,1 @@
-tactics board,training plan,schedule,kitchen,stacking,coaching demo,tactical analysis,match review
+tactics board,training plan,schedule,kitchen,stacking,demo,analysis,match review

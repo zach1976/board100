@@ -1,1 +1,1 @@
-Multisport Taktiktafel,Trainingsplan,Einheiten,Basketball,Fußball,Demo,Taktikanalyse,Spielanalyse
+Multisport-Tafel,Trainingsplan,Einheiten,Basketball,Fußball,Lehrdemo,Taktikanalyse,Spielanalyse

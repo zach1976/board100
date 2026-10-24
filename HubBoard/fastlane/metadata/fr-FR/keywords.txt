@@ -1,1 +1,1 @@
-tableau multisport,plan d'entraînement,séances,basket,football,démo,analyse tactique,revue de match
+tableau multisport,entraînement,séances,basket,football,démo,analyse,revue de match

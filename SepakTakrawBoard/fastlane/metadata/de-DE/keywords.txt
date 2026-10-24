@@ -1,1 +1,1 @@
-Taktiktafel,Trainingsplan,Trainingseinheit,Regu,Angreifer,Lehrdemo,Taktikanalyse,Spielanalyse
+Taktiktafel,Trainingsplan,Einheiten,Regu,Angreifer,Lehrdemo,Taktikanalyse,Spielanalyse

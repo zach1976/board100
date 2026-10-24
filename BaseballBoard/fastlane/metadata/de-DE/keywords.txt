@@ -1,1 +1,1 @@
-Trainingsplan,Einheiten,Aufstellung,Defensivformation,Lehrdemo,Taktikanalyse,Spielanalyse
+Taktiktafel,Trainingsplan,Einheiten,Aufstellung,Defensive,Lehrdemo,Taktikanalyse,Spielanalyse

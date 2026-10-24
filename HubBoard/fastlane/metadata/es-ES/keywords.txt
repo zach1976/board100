@@ -1,1 +1,1 @@
-pizarra multideporte,entrenamiento,sesiones,baloncesto,fútbol,demo,análisis táctico,repaso
+pizarra multideporte,entrenamiento,sesiones,baloncesto,fútbol,demo,análisis,repaso
