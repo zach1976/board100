@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Einzel,Volley,Grundlinie,Übungen,Verein,Jugend,Spielzüge,Court,Mixed
+Taktiktafel,Trainingsplan,Einheiten,Aufschlag,Doppelaufstellung,Lehrdemo,Taktikanalyse,Spielanalyse

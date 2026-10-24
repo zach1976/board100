@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Softball,Aufstellung,Lineup,Pitcher,Abwehr,Verein,Jugend,Playbook,Übungen
+Trainingsplan,Einheiten,Aufstellung,Defensivformation,Lehrdemo,Taktikanalyse,Spielanalyse

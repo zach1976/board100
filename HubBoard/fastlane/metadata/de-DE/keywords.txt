@@ -1,1 +1,1 @@
-Trainer,Coach,Playbook,Fußball,Basketball,Volleyball,Handball,Tennis,Badminton,Spielzüge,Training
+Taktiktafel,Multisport,Trainerboard,Basketball,Fußball,Trainingsdemo,Taktikanalyse,Spielanalyse

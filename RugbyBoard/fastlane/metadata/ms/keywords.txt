@@ -1,1 +1,1 @@
-ragbi,union,sevens,scrum,lineout,maul,ruck,belakang,depan,papan,jurulatih,taktik
+papan taktik,pelan latihan,jadual,scrum,formasi,demo,analisis,ulasan perlawanan

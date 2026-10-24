@@ -1,1 +1,1 @@
-softball,lancer,frappe,défense,bunt,vol de base,double jeu,signes,mlb,wbc,olympique,batte
+tableau tactique,entraînement,séances,alignement,placement défensif,démo,analyse,revue de match

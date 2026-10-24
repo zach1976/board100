@@ -1,1 +1,1 @@
-6v6,4-2,5-1,6-2,setter,libero,servis,rejaman,sekat,jurulatih,pantai,penerimaan,pertahanan,sesi
+latihan,jadual latihan,hantaran,terima servis,libero,pengumpan,penyerang,tengah,sekatan,servis

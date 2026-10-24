@@ -1,1 +1,1 @@
-bisbol,softbol,pitching,batting,fielding,bunt,curi base,double play,sandi,pelatih,susunan,taktik
+papan taktik,rencana latihan,jadwal,susunan pemain,formasi bertahan,demo,analisis,evaluasi laga

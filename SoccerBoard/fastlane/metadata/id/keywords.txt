@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,pelatih,pojok,tendangan bebas,set piece,rencana,sesi,drill,strategi,akademi,klub
+latihan,rencana sesi,demo,analisis taktik,evaluasi,praktik,pelatih,formasi,starting,junior,futsal

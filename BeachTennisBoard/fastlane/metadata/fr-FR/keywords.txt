@@ -1,1 +1,1 @@
-plage,double,smash,lob,sable,raquette,itf,beach pro tour,stacking
+tableau tactique,entraînement,séances,stacking,tactique en double,démo,analyse,revue de match

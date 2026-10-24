@@ -1,1 +1,1 @@
-football,formation,whiteboard,practice,plan,session,training,futsal,set piece,corner,free kick,4-3-3
+drill library,session plan,coaching demo,tactical analysis,match review,practice,coach,formation

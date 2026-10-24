@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Kreisläufer,Tempogegenstoß,Torwart,Spielzüge,Übungen,Verein,Jugend,Playbook
+Taktiktafel,Trainingsplan,Trainingseinheit,Formation,Gegenstoß,Lehrdemo,Taktikanalyse,Spielanalyse

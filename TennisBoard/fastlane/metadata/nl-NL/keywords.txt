@@ -1,1 +1,1 @@
-tactiek,trainer,coach,enkel,volley,basislijn,oefeningen,club,jeugd,spelzetten,baan,mixed
+tactiekbord,trainingsplan,schema,opslag,dubbelopstelling,demo,analyse,wedstrijd

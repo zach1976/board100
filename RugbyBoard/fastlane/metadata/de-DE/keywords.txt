@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Lineout,Scrum,Ruck,7er,15er,Abwehr,Verein,Jugend,Playbook
+Taktiktafel,Trainingsplan,Trainingseinheit,Gedränge,Aufstellung,Lehrdemo,Taktikanalyse,Spielanalyse

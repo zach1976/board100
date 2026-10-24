@@ -1,1 +1,1 @@
-tactics board, coach playbook, multi sport tactics, team training board
+tactics board,multisport,coach whiteboard,basketball,soccer,training demo,analysis,match review

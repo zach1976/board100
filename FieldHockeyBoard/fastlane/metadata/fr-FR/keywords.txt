@@ -1,1 +1,1 @@
-court,long,pressing,entraîneur,séance,entraînement,crosse,gardien,tableau,schéma,flick,formation
+exercices,plan de séance,petit corner,long corner,flick,push,gardien,pressing,revue,coach,tableau

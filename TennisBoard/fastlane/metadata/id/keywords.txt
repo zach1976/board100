@@ -1,1 +1,1 @@
-tenis,ganda,tunggal,servis,return,voli,baseline,deuce,lapangan,pelatih,taktik
+papan taktik,rencana latihan,jadwal,servis,posisi ganda,demo,analisis,evaluasi laga

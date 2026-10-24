@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Dink,Drop,Aufschlag,Training,Übungen,Verein,Spielzüge,Paddle,Einzel
+Taktiktafel,Trainingsplan,Trainingseinheit,Kitchen,Stacking,Lehrdemo,Taktikanalyse,Spielanalyse

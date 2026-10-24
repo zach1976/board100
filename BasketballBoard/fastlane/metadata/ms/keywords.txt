@@ -1,1 +1,1 @@
-3x3,5v5,pick roll,horns,zon,serangan,pertahanan,jurulatih,gelanggang,set play,sesi,kelab,drill
+latihan,jadual latihan,zon,man to man,serangan pantas,screen,horns,5 out,inbound,playbook,jurulatih

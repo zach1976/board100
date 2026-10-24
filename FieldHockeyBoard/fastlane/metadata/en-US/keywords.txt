@@ -1,1 +1,1 @@
-short,pc,pitch,press,practice,plan,session,training,whiteboard,lineup,formation,drag flick,circle
+drill library,practice plan,penalty corner,long corner,drag flick,push,goalkeeper,press,match review

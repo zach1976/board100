@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Libero,Zuspieler,Annahme,Block,Aufschlag,Beach,5-1,Abwehr,Trainingsplan,Jugend
+Übungen,Trainingsplan,Annahme,Aufschlagannahme,Libero,Zuspieler,Außenangreifer,Mitte,Block,Aufschlag

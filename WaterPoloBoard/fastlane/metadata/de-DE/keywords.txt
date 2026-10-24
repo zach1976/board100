@@ -1,1 +1,1 @@
-Taktik,Trainer,Water Polo,Center,Torwart,Abwehr,Spielzüge,Übungen,Verein,Jugend,Playbook,Schwimmen
+Taktiktafel,Trainingsplan,Trainingseinheit,Überzahl,Aufstellung,Lehrdemo,Taktikanalyse,Spielanalyse

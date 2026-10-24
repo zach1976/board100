@@ -1,1 +1,1 @@
-tactiek,trainer,coach,sepaktakraw,kick volleybal,feeder,striker,service,oefeningen,training,net
+tactiekbord,trainingsplan,schema,regu,aanvaller,demo,analyse,wedstrijd

@@ -1,1 +1,1 @@
-fútbol,baloncesto,voleibol,tenis,bádminton,béisbol,rugby,hockey,entrenador,equipo,club
+pizarra táctica,tácticas multideporte,pizarra entrenador,baloncesto,fútbol,demo,análisis,repaso

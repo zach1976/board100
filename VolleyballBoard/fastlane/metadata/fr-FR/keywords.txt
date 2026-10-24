@@ -1,1 +1,1 @@
-6v6,libéro,passeur,attaquant,réception,contre,beach,entraîneur,5-1,6-2,service,système,séance
+exercices,plan de séance,réception,libéro,passeur,attaquant,central,contre,service,défense,5-1,beach

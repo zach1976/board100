@@ -1,1 +1,1 @@
-softbol,pitcheo,bateo,defensa,toque,robo,doble play,señas,mlb,liga mexicana,wbc,olímpico
+pizarra táctica,entrenamiento,sesiones,alineación,shift defensivo,demo,análisis,repaso

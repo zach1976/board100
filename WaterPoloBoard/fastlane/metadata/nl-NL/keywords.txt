@@ -1,1 +1,1 @@
-tactiek,trainer,midvoor,keeper,verdediging,spelzetten,oefeningen,club,jeugd,playbook,water polo
+tactiekbord,trainingsplan,schema,overtal,opstelling,demo,analyse,wedstrijd

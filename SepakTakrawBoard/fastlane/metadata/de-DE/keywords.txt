@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Sepaktakraw,Kick Volleyball,Feeder,Striker,Aufschlag,Übungen,Training,Netz
+Taktiktafel,Trainingsplan,Trainingseinheit,Regu,Angreifer,Lehrdemo,Taktikanalyse,Spielanalyse

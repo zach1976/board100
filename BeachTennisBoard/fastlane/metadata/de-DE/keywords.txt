@@ -1,1 +1,1 @@
-Taktik,Trainer,Beach Tennis,Strand,Sand,Volley,Lob,Aufschlag,Übungen,Training,Spielzüge,Mixed
+Taktiktafel,Trainingsplan,Trainingseinheit,Stacking,Doppeltaktik,Lehrdemo,Taktikanalyse,Spielanalyse

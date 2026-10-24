@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Futevôlei,Fußvolleyball,Sand,Volley,Aufschlag,Übungen,Training,Brasilien
+Taktiktafel,Trainingsplan,Einheiten,Fallrückzieher,drei Kontakte,Lehrdemo,Taktikanalyse,Spielanalyse

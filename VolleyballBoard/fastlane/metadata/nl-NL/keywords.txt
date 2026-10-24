@@ -1,1 +1,1 @@
-tactiek,trainer,coach,libero,spelverdeler,pass,blok,service,beach,5-1,6-2,opstelling,trainingsplan
+oefeningen,trainingsplan,pass,servicepass,libero,spelverdeler,buitenaanvaller,midden,blok,service

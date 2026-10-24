@@ -1,1 +1,1 @@
-vóley,líbero,colocador,atacante,recepción,bloqueo,playa,entrenador,5-1,6-2,saque,alineación,6v6
+ejercicios,plan de práctica,recepción,saque,líbero,colocador,receptor,central,bloqueo,defensa,5-1

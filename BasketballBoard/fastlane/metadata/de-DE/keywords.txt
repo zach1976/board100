@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Training,Pick and Roll,Zone,Manndeckung,Einwurf,3x3,Jugend,Trainingsplan
+Übungen,Trainingsplan,Zonenverteidigung,Mann gegen Mann,Fastbreak,Block,Horns,5 out,Einwurf,Playbook

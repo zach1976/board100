@@ -1,1 +1,1 @@
-tactiek,trainer,pingpong,dubbel,topspin,training,oefeningen,club,jeugd,spelzetten,competitie
+tactiekbord,trainingsplan,schema,opslag,looplijnen,demo,analyse,wedstrijd

@@ -1,1 +1,1 @@
-6v6,4-2,5-1,6-2,tosser,libero,servis,smash,blok,pelatih,bola,pantai,receive,strategi
+latihan,jadwal latihan,passing,terima servis,libero,tosser,spiker,middle,blok,servis,bertahan,5-1

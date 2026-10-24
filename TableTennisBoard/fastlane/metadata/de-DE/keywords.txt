@@ -1,1 +1,1 @@
-Taktik,Trainer,Ping Pong,Doppel,Topspin,Training,Übungen,Verein,Jugend,Spielzüge,Liga,Platte
+Taktiktafel,Trainingsplan,Trainingseinheit,Aufschlag,Laufwege,Lehrdemo,Taktikanalyse,Spielanalyse

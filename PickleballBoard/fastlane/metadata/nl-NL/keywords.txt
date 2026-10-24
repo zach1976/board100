@@ -1,1 +1,1 @@
-tactiek,trainer,coach,dink,drop,service,training,oefeningen,club,spelzetten,paddle,enkel
+tactiekbord,trainingsplan,schema,kitchen,stacking,demo,analyse,wedstrijd

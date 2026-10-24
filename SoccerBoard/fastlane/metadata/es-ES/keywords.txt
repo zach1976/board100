@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,saque esquina,entrenador,ejercicios,balón parado,sesión,formación,cantera,7v7
+ejercicios,sesión,demo,análisis táctico,repaso,práctica,entrenador,formación,alineación,cantera

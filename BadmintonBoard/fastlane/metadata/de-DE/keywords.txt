@@ -1,1 +1,1 @@
-Taktik,Trainer,Coach,Mixed,Federball,Smash,Aufschlag,Training,Übungen,Verein,Jugend,Spielzüge
+Taktiktafel,Trainingsplan,Einheiten,Rotation,Doppelaufstellung,Lehrdemo,Taktikanalyse,Spielanalyse

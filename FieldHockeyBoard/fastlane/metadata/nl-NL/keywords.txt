@@ -1,1 +1,1 @@
-veldhockey,tactiek,trainer,coach,trainingsplan,opstelling,pressing,keeper,jeugd,corner,sleeppush
+oefeningen,trainingsplan,strafcorner,lange corner,sleeppush,push,keeper,druk zetten,wedstrijd,coach
