@@ -1,1 +1,1 @@
-drill library,practice plan,penalty corner,long corner,drag flick,push,goalkeeper,press,match review
+tactics board,training plan,schedule,penalty corner,press,demo,analysis,match review

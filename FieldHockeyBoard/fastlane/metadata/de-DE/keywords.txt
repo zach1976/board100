@@ -1,1 +1,1 @@
-Übungen,Trainingsplan,Strafecke,lange Ecke,Schlenzer,Schieben,Torwart,Pressing,Spielanalyse,Trainer
+Taktiktafel,Trainingsplan,Trainingseinheit,Strafecke,Pressing,Lehrdemo,Taktikanalyse,Spielanalyse

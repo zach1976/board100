@@ -1,1 +1,1 @@
-oefeningen,trainingsplan,demo,tactische analyse,wedstrijd,training,trainer,formatie,opstelling,jeugd
+tactiekbord,trainingsplan,schema,formatie,spelhervattingen,demo,analyse,wedstrijd

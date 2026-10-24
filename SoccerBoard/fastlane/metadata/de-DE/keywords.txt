@@ -1,1 +1,1 @@
-Übungen,Trainingsplan,Demo,Taktikanalyse,Spielanalyse,Training,Trainer,Formation,Aufstellung,Jugend
+Taktiktafel,Trainingsplan,Trainingseinheit,Formation,Standards,Lehrdemo,Taktikanalyse,Spielanalyse

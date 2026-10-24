@@ -1,1 +1,1 @@
-papan taktik,multi olahraga,papan pelatih,basket,sepak bola,demo latihan,analisis,evaluasi
+papan taktik multi olahraga,rencana latihan,jadwal,basket,sepak bola,demo,analisis,evaluasi

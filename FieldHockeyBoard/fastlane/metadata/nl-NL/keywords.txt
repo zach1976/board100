@@ -1,1 +1,1 @@
-oefeningen,trainingsplan,strafcorner,lange corner,sleeppush,push,keeper,druk zetten,wedstrijd,coach
+tactiekbord,trainingsplan,schema,strafcorner,druk zetten,demo,analyse,wedstrijd

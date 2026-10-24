@@ -1,1 +1,1 @@
-latihan,jadwal latihan,penalty corner,long corner,drag flick,push,kiper,pressing,evaluasi,pelatih
+papan taktik,rencana latihan,jadwal,penalty corner,pressing,demo,analisis,evaluasi laga

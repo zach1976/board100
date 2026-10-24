@@ -1,1 +1,1 @@
-oefeningen,trainingsplan,pass,servicepass,libero,spelverdeler,buitenaanvaller,midden,blok,service
+tactiekbord,trainingsplan,schema,rotatie,pass-opstelling,demo,analyse,wedstrijd
