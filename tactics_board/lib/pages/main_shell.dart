@@ -8,6 +8,7 @@ import '../services/auth_service.dart';
 import '../services/drill_library_service.dart';
 import '../services/drill_notes_service.dart';
 import '../services/practice_service.dart';
+import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
@@ -530,6 +531,37 @@ class _MinePageState extends State<_MinePage> {
             ],
           ),
           const SizedBox(height: T.s24),
+
+          // The purchases have a row of their own here, where a settings
+          // page is expected to have one. They used to be reachable only
+          // from a board's ⋯ menu and a locked drill, and App Review went
+          // looking on this page and sent four releases back under 2.1(b)
+          // "cannot locate the In-App Purchases" (2026-10-17 to 10-25).
+          if (PurchaseService.instance.isStoreEnabled) ...[
+            _SectionLabel('pro_title'.tr()),
+            _Card(children: [
+              if (!PurchaseService.instance.hasPro)
+                _Row(
+                  icon: Icons.workspace_premium_outlined,
+                  label: 'menu_remove_ads'.tr(),
+                  onTap: () => showPaywallSheet(context),
+                ),
+              _Row(
+                icon: Icons.restore_rounded,
+                label: 'pro_restore'.tr(),
+                onTap: () async {
+                  final pro = await PurchaseService.instance.restore();
+                  if (!context.mounted) return;
+                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          (pro ? 'pro_thanks' : 'pro_restore_none').tr())));
+                },
+                last: true,
+              ),
+            ]),
+            const SizedBox(height: T.s24),
+          ],
 
           _SectionLabel('mine_content'.tr()),
           _Card(children: [
