@@ -82,9 +82,4 @@ The sheet shows the auto-renewal terms and the Terms of Use (EULA) and Privacy P
 No account is required; Sign in with Apple and Google are optional
 and only back up a coach's own boards.
 
-## What was tested
-
-Run on the iOS Simulator (iPhone and iPad); the automated suite (798 tests)
-passes and every drill board was rendered and reviewed.
-
 Thank you for reviewing.
