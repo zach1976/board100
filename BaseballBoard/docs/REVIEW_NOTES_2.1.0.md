@@ -19,22 +19,14 @@ first time; see below for where to find it.
 
 ## Where to find the In-App Purchases
 
-Both purchases — "Remove Ads (Yearly)" (baseball_remove_ads_yearly,
-auto-renewable, submitted for the first time with this version) and
-the already approved one-time "Remove Ads (Lifetime)" — are on one
-purchase sheet. Two ways to it, any one is
-enough:
+Both purchases are on one purchase sheet: "Remove Ads (Yearly)" (baseball_remove_ads_yearly, auto-renewable) and "Remove Ads (Lifetime)" (one-time). New in this build, the quickest way to it:
 
-1. From the board: on the Home tab tap "Open the board" (or "New board").
-   On the board, tap the round "⋯" button in the top-right corner, then
-   "Remove Ads". The purchase sheet opens.
-2. From the drills: open the "Drills" tab and tap any drill marked with a
-   lock, then "Unlock with Pro". The same sheet opens.
+1. Tap "Me" — the last item of the side bar on the left edge of the screen on iPad, or of the tab bar at the bottom on iPhone. (On first launch, tap "Skip" at the top right to leave the intro.)
+2. The first section on the Me page is "All drills, no ads". Tap "Remove Ads". The purchase sheet opens with both plans and their localized prices; select one and tap "Unlock Now". "Restore Purchases" is the row right under it, and also on the sheet.
 
-The sheet shows both plans with localized prices, the auto-renewal terms,
-the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
-Nothing restricts the purchases by storefront or device. The Paid Apps
-Agreement is in effect (the Lifetime purchase is live).
+The same sheet also opens from a board's round "⋯" button (top-right corner, menu item "Remove Ads") and from any drill marked with a lock in the Drills tab ("Unlock with Pro").
+
+The sheet shows the auto-renewal terms and the Terms of Use (EULA) and Privacy Policy links. Nothing restricts the purchases by storefront, device or sign-in, and they work without an account. The Paid Apps Agreement is in effect (the Lifetime purchase is live).
 
 ## New in 2.1.0
 

@@ -18,23 +18,14 @@ to find them.
 
 ## Where to find the In-App Purchases
 
-Both purchases — "Remove Ads (Yearly)" (remove_ads_annual,
-auto-renewable) and the one-time "Remove Ads (Lifetime)", both
-already approved — are on one purchase sheet. Three ways to it, any one is
-enough:
+Both purchases are on one purchase sheet: "Remove Ads (Yearly)" (auto-renewable) and "Remove Ads (Lifetime)" (one-time). New in this build, the quickest way to it:
 
-1. From the board: on the Home tab tap "Open the board" (or "New board").
-   On the board, tap the round "⋯" button in the top-right corner, then
-   "Remove Ads". The purchase sheet opens.
-2. From the drills: open the "Drills" tab and tap any drill marked with a
-   lock, then "Unlock with Pro". The same sheet opens.
-3. From match day: on the Home tab tap "Match day" (with a team sport such as soccer picked), set up a match
-   and tap the clock's start button; starting the clock asks for Pro
-   with the same sheet.
+1. Tap "Me" — the last item of the side bar on the left edge of the screen on iPad, or of the tab bar at the bottom on iPhone. (On first launch, tap "Skip" at the top right to leave the intro.)
+2. The first section on the Me page is "All drills, no ads". Tap "Remove Ads". The purchase sheet opens with both plans and their localized prices; select one and tap "Unlock Now". "Restore Purchases" is the row right under it, and also on the sheet.
 
-The sheet shows both plans with localized prices, the auto-renewal terms,
-the Terms of Use (EULA) and Privacy Policy links, and "Restore Purchases".
-The Paid Apps Agreement is in effect.
+The same sheet also opens from a board's round "⋯" button (top-right corner, menu item "Remove Ads") and from any drill marked with a lock in the Drills tab ("Unlock with Pro").
+
+The sheet shows the auto-renewal terms and the Terms of Use (EULA) and Privacy Policy links. Nothing restricts the purchases by storefront, device or sign-in, and they work without an account. The Paid Apps Agreement is in effect (the Lifetime purchase is live).
 
 ## Drill library and practice plans (new since 1.1.25)
 
