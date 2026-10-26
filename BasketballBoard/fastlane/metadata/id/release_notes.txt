@@ -1,9 +1,10 @@
-Yang baru di 2.1.1
+Yang baru di versi 2.1.2
 
-• Lapangan lebih besar: di ponsel papan kini memenuhi layar, tegak maupun mendatar.
-• Saat ponsel mendatar, Kembali, zoom, dan layar penuh ada di bilah samping sehingga tidak menutupi lapangan.
-• Menggambar: garis dimulai tepat di tempat Anda menekan, panel menyingkir saat menggambar, dan garis yang dipilih menampilkan serta mengubah gayanya sendiri. Untuk menghapus, pilih garis lalu ketuk tempat sampah.
-• Perbesar dan tetap bekerja: satu jari memindahkan pemain dan menggambar, dua jari untuk zoom.
-• Pergerakan lebih jelas: panah tepat mengenai titik bernomor, dan operan sampai ke penerima.
-• Halaman papan memakai warna olahraga Anda.
-• Tautan Skor menampilkan aplikasi skor yang sebenarnya, lengkap dengan ikonnya.
+PRO LEBIH MUDAH DITEMUKAN
+"Hapus Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, cukup satu ketukan. Lembar pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
+
+IKON OLAHRAGA DAN PENGANTAR BARU
+Ikon olahraga dan tiga layar pengantar saat pertama dibuka digambar ulang.
+
+PERBAIKAN LAIN
+Setelah papan ditutup, nama latihan tidak lagi tertinggal di atas daftar.

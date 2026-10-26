@@ -1,9 +1,10 @@
-Nieuw in 2.2.1
+Nieuw in versie 2.2.2
 
-• Een groter veld: op de telefoon vult het bord nu het hele scherm, staand en liggend.
-• Liggend op de telefoon staan Terug, zoom en volledig scherm in de zijbalk, zodat niets het veld bedekt.
-• Tekenen: een lijn begint precies waar je drukt, het tekenpaneel wijkt tijdens het tekenen en een geselecteerde lijn toont en wijzigt haar eigen stijl. Verwijderen: selecteer de lijn en tik op de prullenbak.
-• Inzoomen en doorwerken: één vinger verplaatst spelers en tekent, twee vingers zoomen.
-• Duidelijkere looplijnen: pijlen raken hun genummerde punten en de pass bereikt de ontvanger.
-• De bordpagina draagt de kleuren van je sport.
-• De link naar de scoreteller toont de echte score-app, met haar icoon.
+PRO SNELLER GEVONDEN
+'Reclame verwijderen' en 'Aankopen herstellen' staan nu op de pagina Ik, één tik verwijderd. Het aankoopscherm is een eigen wit paneel, ook op iPad goed leesbaar.
+
+NIEUWE SPORTICONEN EN INTRODUCTIE
+De sporticonen en de drie introductieschermen bij de eerste start zijn opnieuw getekend.
+
+KLEINERE VERBETERINGEN
+Na het sluiten van een bord blijft de naam van de oefening niet meer boven de lijst hangen.

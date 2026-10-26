@@ -1,19 +1,13 @@
-Nouveautés de la version 2.1.0
+Nouveautés de la version 2.1.1
 
-SÉANCES PRÊTES
-Six séances prêtes, composées des 42 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
+DÉPLACEMENTS CORRIGÉS
+Les exercices de déplacement partent du centre du demi-terrain, plots du fond sur la ligne de fond et plots avant près des lignes de côté. Le joueur ne se retourne plus vers le fond coup droit ; seul le fond revers le fait tourner, et le dégagement au-dessus de la tête reste face au filet.
 
-NOTES SUR LE TABLEAU
-Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
+PRO, PLUS FACILE À TROUVER
+« Supprimer les pubs » et « Restaurer les achats » sont désormais sur la page Moi, à portée de doigt. La fiche d'achat est un panneau blanc à part, lisible aussi sur iPad.
 
-LE TERRAIN DANS SES COULEURS
-Un terrain vert avec une bande de filet blanche, comme le veut la palette officielle.
-
-PENSÉ POUR L'iPAD
-Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
-
-ALLEMAND ET NÉERLANDAIS
-L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+NOUVELLES ICÔNES ET INTRODUCTION
+Les icônes des sports et les trois écrans d'introduction du premier lancement ont été redessinés.
 
 AUTRES CORRECTIONS
-L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.
+Une fois le tableau fermé, le nom de l'exercice ne reste plus au-dessus de la liste.

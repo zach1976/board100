@@ -1,9 +1,10 @@
-Neu in 2.2.1
+Neu in Version 2.2.2
 
-• Größeres Spielfeld: Auf dem Handy füllt die Tafel jetzt den ganzen Bildschirm, hoch und quer.
-• Quer auf dem Handy liegen Zurück, Zoom und Vollbild in der Seitenleiste – nichts verdeckt das Feld.
-• Zeichnen: Die Linie beginnt genau dort, wo du drückst, das Stiftfeld weicht beim Zeichnen aus, und eine ausgewählte Linie zeigt und ändert ihren eigenen Stil. Zum Löschen auswählen und auf den Papierkorb tippen.
-• Zoomen und weiterarbeiten: Ein Finger bewegt Spieler und zeichnet, zwei Finger zoomen.
-• Klarere Laufwege: Pfeile treffen ihre nummerierten Punkte, der Pass erreicht den Empfänger.
-• Die Tafel trägt die Farben deiner Sportart.
-• Der Link zum Punktezähler zeigt die echte Punktezähler-App mit ihrem Symbol.
+PRO SCHNELLER GEFUNDEN
+„Werbung entfernen“ und „Käufe wiederherstellen“ stehen jetzt auf der Seite „Ich“, nur einen Tipp entfernt. Das Kaufblatt ist ein eigenes weißes Panel und auch auf dem iPad gut lesbar.
+
+NEUE SPORTSYMBOLE UND EINFÜHRUNG
+Die Sportsymbole und die drei Einführungsseiten beim ersten Start sind neu gezeichnet.
+
+WEITERE KORREKTUREN
+Nach dem Schließen einer Tafel bleibt der Übungsname nicht mehr über der Liste stehen.

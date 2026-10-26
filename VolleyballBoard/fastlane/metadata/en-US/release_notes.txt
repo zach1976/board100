@@ -1,9 +1,10 @@
-What's New in 2.1.1
+What's New in 2.1.2
 
-• A bigger court: on a phone the board now runs edge to edge, upright and sideways.
-• Sideways on a phone, Back, zoom and fullscreen sit in the side bar, so nothing covers the court.
-• Drawing: a line starts exactly where you press, the pen panel steps aside while you draw, and a selected line shows and changes its own style. To delete a line, select it and tap the bin.
-• Zoom in and keep working: one finger moves players and draws, two fingers zoom.
-• Runs read cleaner: arrows meet their numbered stops, and a pass reaches the receiver.
-• The board page wears your sport's colours.
-• The Scorer link shows the real scoring app, with its icon.
+PRO, EASIER TO FIND
+"Remove Ads" and "Restore Purchases" now sit on the Me page, one tap away. The purchase sheet is its own white panel, clear to read on iPad too.
+
+NEW SPORT ICONS AND INTRO
+The sport icons and the three intro screens you see on first launch are all redrawn.
+
+SMALLER FIXES
+After you close a board, the drill name no longer hangs over the list.

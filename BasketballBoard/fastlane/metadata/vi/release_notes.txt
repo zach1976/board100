@@ -1,9 +1,10 @@
-Có gì mới trong 2.1.1
+Có gì mới trong phiên bản 2.1.2
 
-• Sân lớn hơn: trên điện thoại, bảng giờ phủ kín màn hình cả khi dọc lẫn ngang.
-• Khi xoay ngang điện thoại, Quay lại, thu phóng và toàn màn hình nằm ở thanh bên, không che sân.
-• Vẽ: đường bắt đầu đúng chỗ bạn chạm, bảng bút tự tránh khi bạn vẽ, và đường đang chọn hiển thị và đổi kiểu của chính nó. Muốn xoá, chọn đường rồi chạm thùng rác.
-• Phóng to vẫn làm việc được: một ngón di chuyển cầu thủ và vẽ, hai ngón để thu phóng.
-• Di chuyển rõ hơn: mũi tên chạm đúng các điểm đánh số, đường chuyền tới tận người nhận.
-• Trang bảng mang màu của môn thể thao của bạn.
-• Liên kết Bảng điểm hiển thị đúng ứng dụng tính điểm, kèm biểu tượng.
+DỄ TÌM PRO HƠN
+"Xóa quảng cáo" và "Khôi phục giao dịch" nay nằm ở trang Của tôi, chỉ một chạm. Trang mua là một bảng trắng riêng, dễ đọc cả trên iPad.
+
+BIỂU TƯỢNG MÔN VÀ MÀN GIỚI THIỆU MỚI
+Biểu tượng các môn và ba màn giới thiệu khi mở lần đầu đều được vẽ lại.
+
+SỬA LỖI KHÁC
+Sau khi đóng bảng, tên bài tập không còn nằm đè lên danh sách.

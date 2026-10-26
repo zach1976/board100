@@ -1,22 +1,10 @@
-Yang Baru di 2.3.0
+Yang baru di versi 2.3.1
 
-HARI PERTANDINGAN
-Atur babak dan susunan pemain awal, tandai kiper, jalankan jam, lalu ketuk dua pemain untuk menukarnya. Jam berhenti sendiri di akhir babak, dengan +1 menit untuk waktu tambahan. Bangku cadangan diurutkan menurut menit bermain, dan "Saran" menyamakan waktu bermain tanpa menyentuh kiper. Kartu kuning dan merah dicatat per pemain, dan panel adu penalti merekam setiap tendangan. Setelah pertandingan, menit dan pergantian setiap pemain diekspor sebagai PDF, dan pertandingan yang selesai disinkronkan ke akun Anda. Jam memerlukan Pro; persiapannya gratis.
+PRO LEBIH MUDAH DITEMUKAN
+"Hapus Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, cukup satu ketukan. Lembar pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
 
-BUKU TAKTIK
-Tandai papan Anda sebagai "Di buku taktik" dan buka satu per satu dari hari pertandingan: geser ke berikutnya, tekan putar.
+IKON OLAHRAGA DAN PENGANTAR BARU
+Ikon olahraga dan tiga layar pengantar saat pertama dibuka digambar ulang.
 
-SESI SIAP PAKAI
-Enam sesi siap pakai yang disusun dari 137 latihan di pustaka: dasar, menyerang, bertahan, bola mati, pekan pertandingan, dan pramusim. Pilih salah satu saat membuat rencana latihan, lalu ubah sesuka Anda.
-
-CATATAN DI PAPAN
-Tulis teks langsung di papan. Catatan langkah sebuah latihan tampil di papan dan berganti di setiap langkah. Pilih warna atau ketebalan saat sebuah garis dipilih untuk mengubah gayanya.
-
-DIBUAT UNTUK iPAD
-Bilah samping sebagai ganti tab, pustaka latihan dan rencana di samping detailnya, dan panel yang terbuka di dekat tombolnya. Keyboard bisa dipakai (Spasi memutar, panah melangkah, Cmd+Z membatalkan), dan Apple Pencil menggambar sementara jari memindahkan pemain.
-
-JERMAN DAN BELANDA
-Aplikasi kini berbahasa Jerman dan Belanda: setiap layar, setiap nama latihan, dan setiap catatan pelatih. Totalnya 14 bahasa.
-
-PERBAIKAN KECIL
-Layar Pro kini berjudul "Semua latihan, tanpa iklan". Kembali dari papan membawamu ke rencana latihan yang sedang berjalan. Dalam posisi lanskap, bilah samping menjauh dari Dynamic Island. Banyak label yang masih berbahasa Inggris kini sudah diterjemahkan.
+PERBAIKAN LAIN
+Setelah papan ditutup, nama latihan tidak lagi tertinggal di atas daftar.

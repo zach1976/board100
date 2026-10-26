@@ -1,19 +1,13 @@
-What's New in 2.1.0
+What's New in 2.1.1
 
-READY SESSIONS
-Six ready sessions, built from the library's 42 drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
+FOOTWORK, CORRECTED
+Footwork drills start from the middle of the half court, with the rear cones on the baseline and the front cones by the sidelines. Players no longer turn going to the forehand rear; only the backhand rear corner turns them, and a round-the-head clear stays facing the net.
 
-NOTES ON THE BOARD
-Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
+PRO, EASIER TO FIND
+"Remove Ads" and "Restore Purchases" now sit on the Me page, one tap away. The purchase sheet is its own white panel, clear to read on iPad too.
 
-THE COURT IN ITS OWN COLOURS
-A green court with white net tape, as the official palette has it.
-
-MADE FOR iPAD
-A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
-
-GERMAN AND DUTCH
-The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
+NEW SPORT ICONS AND INTRO
+The sport icons and the three intro screens you see on first launch are all redrawn.
 
 SMALLER FIXES
-The Pro screen is now titled "All drills, no ads". Back from a board returns to the practice plan you were running. Turned sideways, the side bar moves away from the Dynamic Island. Many labels that were still in English are now translated.
+After you close a board, the drill name no longer hangs over the list.

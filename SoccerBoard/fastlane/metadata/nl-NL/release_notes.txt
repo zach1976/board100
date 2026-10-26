@@ -1,22 +1,10 @@
-Nieuw in 2.3.0
+Nieuw in versie 2.3.1
 
-WEDSTRIJDDAG
-Stel de speelhelften en je basisopstelling in, markeer de keeper, laat de klok lopen en tik twee spelers aan om te wisselen. De klok stopt vanzelf aan het einde van een helft, met +1 min voor blessuretijd. De bank sorteert op gespeelde minuten, en „Voorstel“ verdeelt de speeltijd eerlijk zonder de keeper aan te raken. Gele en rode kaarten worden per speler bijgehouden, en een strafschoppenpaneel noteert elke schop. Na de wedstrijd exporteer je de minuten en wissels van elke speler als pdf, en afgeronde wedstrijden synchroniseren met je account. De klok vereist Pro; het klaarzetten is gratis.
+PRO SNELLER GEVONDEN
+'Reclame verwijderen' en 'Aankopen herstellen' staan nu op de pagina Ik, één tik verwijderd. Het aankoopscherm is een eigen wit paneel, ook op iPad goed leesbaar.
 
-PLAYBOOK
-Markeer je eigen borden als „In playbook“ en blader er op de wedstrijddag doorheen: veeg naar het volgende, druk op afspelen.
+NIEUWE SPORTICONEN EN INTRODUCTIE
+De sporticonen en de drie introductieschermen bij de eerste start zijn opnieuw getekend.
 
-KANT-EN-KLARE TRAININGEN
-Zes kant-en-klare trainingen uit de 137 oefeningen van de bibliotheek: basis, aanval, verdediging, standaardsituaties, wedstrijdweek en voorbereiding. Kies er een bij het aanmaken van een trainingsplan en pas aan.
-
-NOTITIES OP HET BORD
-Schrijf tekst rechtstreeks op het bord. De stapnotitie van een oefening staat op het bord en verandert met elke stap. Kies een kleur of dikte terwijl een lijn is geselecteerd om hem anders te stylen.
-
-GEMAAKT VOOR DE iPAD
-Een zijbalk in plaats van tabbladen, de oefenbibliotheek en plannen naast hun details, en panelen die naast hun knop openen. Het toetsenbord werkt (spatie speelt af, pijltjes stappen, Cmd+Z maakt ongedaan), en de Apple Pencil tekent terwijl je vingers spelers verplaatsen.
-
-DUITS EN NEDERLANDS
-De app spreekt nu Duits en Nederlands: elk scherm, elke oefennaam en elke coachaanwijzing. Dat maakt 14 talen.
-
-KLEINE VERBETERINGEN
-Het Pro-scherm heet nu „Alle oefeningen, geen advertenties“. Terug vanaf een bord brengt je weer in het trainingsplan dat liep. Gedraaid wijkt de zijbalk uit voor het Dynamic Island. Veel labels die nog Engels waren, zijn nu vertaald.
+KLEINERE VERBETERINGEN
+Na het sluiten van een bord blijft de naam van de oefening niet meer boven de lijst hangen.

@@ -1,9 +1,10 @@
-Baharu dalam 2.1.1
+Apa yang baharu dalam versi 2.1.2
 
-• Gelanggang lebih besar: pada telefon papan kini memenuhi skrin, menegak dan melintang.
-• Apabila telefon melintang, Kembali, zum dan skrin penuh berada di bar sisi supaya tidak menutup gelanggang.
-• Melukis: garisan bermula tepat di tempat anda tekan, panel beralih ketika melukis, dan garisan yang dipilih menunjukkan serta menukar gayanya sendiri. Untuk memadam, pilih garisan dan ketik tong sampah.
-• Zum dan terus bekerja: satu jari menggerakkan pemain dan melukis, dua jari untuk zum.
-• Pergerakan lebih jelas: anak panah tepat menyentuh titik bernombor, dan hantaran sampai kepada penerima.
-• Halaman papan memakai warna sukan anda.
-• Pautan Skor memaparkan aplikasi skor yang sebenar, bersama ikonnya.
+PRO LEBIH MUDAH DICARI
+"Buang Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, hanya satu ketikan. Helaian pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
+
+IKON SUKAN DAN PENGENALAN BAHARU
+Ikon sukan dan tiga skrin pengenalan semasa pertama kali dibuka dilukis semula.
+
+PEMBETULAN LAIN
+Selepas papan ditutup, nama latihan tidak lagi tertinggal di atas senarai.

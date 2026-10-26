@@ -1,9 +1,10 @@
-Nouveautés de la 2.1.1
+Nouveautés de la version 2.1.2
 
-• Un terrain plus grand : sur téléphone, le tableau occupe tout l'écran, en portrait comme en paysage.
-• En paysage sur téléphone, Retour, zoom et plein écran passent dans la barre latérale : plus rien ne cache le terrain.
-• Dessin : la ligne part exactement de là où vous appuyez, le panneau s'écarte pendant que vous dessinez, et une ligne sélectionnée affiche et modifie son propre style. Pour la supprimer, sélectionnez-la puis touchez la corbeille.
-• Zoomez et continuez : un doigt déplace les joueurs et dessine, deux doigts zooment.
-• Déplacements plus lisibles : les flèches rejoignent leurs étapes numérotées et la passe arrive au receveur.
-• La page du tableau prend les couleurs de votre sport.
-• Le lien Marqueur affiche la vraie app de score, avec son icône.
+PRO, PLUS FACILE À TROUVER
+« Supprimer les pubs » et « Restaurer les achats » sont désormais sur la page Moi, à portée de doigt. La fiche d'achat est un panneau blanc à part, lisible aussi sur iPad.
+
+NOUVELLES ICÔNES ET INTRODUCTION
+Les icônes des sports et les trois écrans d'introduction du premier lancement ont été redessinés.
+
+AUTRES CORRECTIONS
+Une fois le tableau fermé, le nom de l'exercice ne reste plus au-dessus de la liste.

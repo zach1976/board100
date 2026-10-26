@@ -1,19 +1,13 @@
-Apa Yang Baharu dalam 2.1.0
+Apa yang baharu dalam versi 2.1.1
 
-SESI SEDIA ADA
-Enam sesi sedia ada yang dibina daripada 42 latihan dalam pustaka: asas, menyerang, bertahan, bola mati, minggu perlawanan dan pramusim. Pilih satu semasa membuat pelan latihan dan ubah dari situ.
+KERJA KAKI DIPERBETULKAN
+Latihan kerja kaki kini bermula dari tengah separuh gelanggang, kon belakang di garisan belakang dan kon depan berhampiran garisan tepi. Pemain tidak lagi berpusing ke belakang forehand; hanya sudut belakang backhand yang memusingkannya, dan pukulan round-the-head kekal menghadap jaring.
 
-NOTA PADA PAPAN
-Tulis teks terus pada papan. Nota langkah sesuatu latihan dipaparkan pada papan dan bertukar pada setiap langkah. Pilih warna atau ketebalan semasa satu garis dipilih untuk menukar gayanya.
+PRO LEBIH MUDAH DICARI
+"Buang Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, hanya satu ketikan. Helaian pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
 
-GELANGGANG DENGAN WARNANYA SENDIRI
-Gelanggang hijau dengan pita jaring putih, mengikut palet rasmi.
+IKON SUKAN DAN PENGENALAN BAHARU
+Ikon sukan dan tiga skrin pengenalan semasa pertama kali dibuka dilukis semula.
 
-DIBUAT UNTUK iPAD
-Bar sisi menggantikan tab, pustaka latihan dan pelan di sebelah butirannya, dan panel yang dibuka di sebelah butangnya. Papan kekunci berfungsi (Space memainkan, anak panah melangkah, Cmd+Z membuat asal), dan Apple Pencil melukis sementara jari menggerakkan pemain.
-
-JERMAN DAN BELANDA
-Aplikasi kini bertutur dalam bahasa Jerman dan Belanda: setiap skrin, setiap nama latihan dan setiap nota jurulatih. Kesemuanya 14 bahasa.
-
-PEMBAIKAN KECIL
-Skrin Pro kini bertajuk "Semua latihan, tanpa iklan". Kembali dari papan membawa anda semula ke pelan latihan yang sedang berjalan. Dalam landskap, bar sisi menjauhi Dynamic Island. Banyak label yang masih dalam bahasa Inggeris kini diterjemahkan.
+PEMBETULAN LAIN
+Selepas papan ditutup, nama latihan tidak lagi tertinggal di atas senarai.

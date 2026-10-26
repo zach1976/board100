@@ -1,22 +1,10 @@
-Nouveautés de la version 2.3.0
+Nouveautés de la version 2.3.1
 
-JOUR DE MATCH
-Fixez les périodes et votre composition de départ, marquez le gardien, lancez le chrono et touchez deux joueurs pour les permuter. Le chrono s'arrête seul en fin de période, avec +1 min de temps additionnel. Le banc se classe par minutes jouées et « Suggérer » équilibre le temps de jeu sans toucher au gardien. Les cartons jaunes et rouges sont notés par joueur, et un panneau de tirs au but enregistre chaque tir. Après le match, les minutes et remplacements de chaque joueur s'exportent en PDF, et les matchs terminés se synchronisent avec votre compte. Le chrono demande Pro ; la préparation est gratuite.
+PRO, PLUS FACILE À TROUVER
+« Supprimer les pubs » et « Restaurer les achats » sont désormais sur la page Moi, à portée de doigt. La fiche d'achat est un panneau blanc à part, lisible aussi sur iPad.
 
-CAHIER DE JEU
-Marquez vos tableaux « Dans le cahier de jeu » et feuilletez-les le jour du match : glissez vers le suivant, appuyez sur lecture.
-
-SÉANCES PRÊTES
-Six séances prêtes, composées des 137 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
-
-NOTES SUR LE TABLEAU
-Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
-
-PENSÉ POUR L'iPAD
-Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
-
-ALLEMAND ET NÉERLANDAIS
-L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+NOUVELLES ICÔNES ET INTRODUCTION
+Les icônes des sports et les trois écrans d'introduction du premier lancement ont été redessinés.
 
 AUTRES CORRECTIONS
-L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.
+Une fois le tableau fermé, le nom de l'exercice ne reste plus au-dessus de la liste.

@@ -1,9 +1,10 @@
-Novedades de la 2.1.1
+Novedades de la versión 2.1.2
 
-• Una pista más grande: en el móvil la pizarra ocupa toda la pantalla, en vertical y en horizontal.
-• En horizontal en el móvil, Atrás, zoom y pantalla completa van en la barra lateral, sin tapar la pista.
-• Dibujo: la línea empieza justo donde pulsas, el panel se aparta mientras dibujas y una línea seleccionada muestra y cambia su propio estilo. Para borrarla, selecciónala y toca la papelera.
-• Amplía y sigue trabajando: un dedo mueve jugadores y dibuja, dos dedos hacen zoom.
-• Movimientos más claros: las flechas llegan a sus paradas numeradas y el pase llega al receptor.
-• La pizarra luce los colores de tu deporte.
-• El enlace al marcador muestra la app real de marcador, con su icono.
+PRO, MÁS FÁCIL DE ENCONTRAR
+«Quitar anuncios» y «Restaurar compras» están ahora en la página Mi cuenta, a un toque. La hoja de compra es un panel blanco propio, fácil de leer también en iPad.
+
+NUEVOS ICONOS E INTRODUCCIÓN
+Los iconos de los deportes y las tres pantallas de introducción del primer inicio se han redibujado.
+
+OTRAS CORRECCIONES
+Al cerrar una pizarra, el nombre del ejercicio ya no se queda sobre la lista.
