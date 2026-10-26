@@ -1,5 +1,7 @@
 # App Review Notes — Badminton Board 2.1.1
 
+Dear App Review team,
+
 Badminton Board 2.1.1 is a maintenance release over 2.1.0: no new permissions, no new network endpoints, no new purchases.
 
 ## Where to find the In-App Purchases

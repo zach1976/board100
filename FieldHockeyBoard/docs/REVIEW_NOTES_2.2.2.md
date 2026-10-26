@@ -1,5 +1,7 @@
 # App Review Notes — Field Hockey Board 2.2.2
 
+Dear App Review team,
+
 Field Hockey Board 2.2.2 is a maintenance release over 2.2.1: no new permissions, no new network endpoints, no new purchases.
 
 ## Where to find the In-App Purchases

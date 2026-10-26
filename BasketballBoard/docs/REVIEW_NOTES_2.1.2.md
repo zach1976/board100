@@ -1,5 +1,7 @@
 # App Review Notes — Basketball Board 2.1.2
 
+Dear App Review team,
+
 Basketball Board 2.1.2 is a maintenance release over 2.1.1: no new permissions, no new network endpoints, no new purchases.
 
 ## Where to find the In-App Purchases

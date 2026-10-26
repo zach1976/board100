@@ -1,5 +1,7 @@
 # App Review Notes — Soccer Board 2.3.1
 
+Dear App Review team,
+
 Soccer Board 2.3.1 is a maintenance release over 2.3.0: no new permissions, no new network endpoints, no new purchases.
 
 ## Where to find the In-App Purchases
