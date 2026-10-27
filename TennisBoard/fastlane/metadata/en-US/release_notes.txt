@@ -1,33 +1,10 @@
-What's New in 2.1.0
+What's New in 2.1.1
 
-A DRILL LIBRARY — 38 DRILLS
-Every drill is an animated board carrying its setup, the ball path and the coaching point, with coaching notes in your language. Open one, press play, or put it on the board and edit it like your own. Search it, or filter by category, level and squad size.
+PRO, EASIER TO FIND
+"Remove Ads" and "Restore Purchases" now sit on the Me page, one tap away. The purchase sheet is its own white panel, clear to read on iPad too.
 
-PRACTICE PLANS AND YOUR SQUAD
-String drills and your own boards into a plan and run it from the touchline, one item at a time, with a record of what you actually ran. Keep your players with their photos and mark attendance per session.
-
-READY SESSIONS
-Six ready sessions, built from the library's own drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
-
-NOTES ON THE BOARD
-Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
-
-THE COURT IN ITS OWN COLOURS
-A blue hard court in a green surround, with white net tape, as the official palette has it.
-
-THE BOARD, REDRAWN
-The court sits as a card on the sport's own dark ground, with rounded corners and a soft shadow. Players, equipment and the ball cast contact shadows, the surface has its texture and nets have mesh. A player with the ball has it ahead of them, on the side they face, and run, dribble and pass are three different lines drawn beneath the figures. The tools sit in one bottom capsule and playback in another; on iPad in landscape the court takes the full width.
-
-MADE FOR iPAD
-A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
-
-GERMAN AND DUTCH
-The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
-
-ALSO
-- Share a board as a web link; whoever opens it needs no app
-- Export a move as a video as well as a still image
-- Copy a player with their run onto the next page
+NEW SPORT ICONS AND INTRO
+The sport icons and the three intro screens you see on first launch are all redrawn.
 
 SMALLER FIXES
-The Pro screen is now titled "All drills, no ads". Back from a board returns to the practice plan you were running. Turned sideways, the side bar moves away from the Dynamic Island. Many labels that were still in English are now translated.
+After you close a board, the drill name no longer hangs over the list.
