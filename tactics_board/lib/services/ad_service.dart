@@ -70,6 +70,11 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       // appOpen: 'ca-app-pub-4247621509300508/2353917358',
       interstitial: 'ca-app-pub-4247621509300508/6733357514',
     ),
+    // Android units created 2026-10-29 (AdMob app ~1629179306).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/1201803893',
+      interstitial: 'ca-app-pub-4247621509300508/7301589648',
+    ),
   ),
   SportType.pickleball: _SportAds(
     ios: _AdUnitIds(
@@ -83,6 +88,11 @@ const Map<SportType, _SportAds> _liveAdUnits = {
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/9521960937',
       interstitial: 'ca-app-pub-4247621509300508/3511086352',
+    ),
+    // Android units created 2026-10-29 (AdMob app ~5787916166).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/9124525948',
+      interstitial: 'ca-app-pub-4247621509300508/2240834657',
     ),
   ),
   SportType.fieldHockey: _SportAds(
