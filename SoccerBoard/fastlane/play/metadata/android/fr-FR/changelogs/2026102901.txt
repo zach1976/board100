@@ -1,0 +1,3 @@
+• Nouvelles icônes des sports et introduction redessinée
+• Tous les exercices et fonctions inclus, financé par la publicité
+• Corrections : le nom de l'exercice ne reste plus au-dessus de la liste après la fermeture d'un tableau

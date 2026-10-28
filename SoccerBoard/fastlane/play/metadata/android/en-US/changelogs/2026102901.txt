@@ -1,0 +1,3 @@
+• New sport icons and redrawn intro screens
+• Every drill and feature included, supported by ads
+• Smaller fixes: the drill name no longer stays over the list after closing a board

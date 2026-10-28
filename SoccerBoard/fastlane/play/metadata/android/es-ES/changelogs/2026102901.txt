@@ -1,0 +1,3 @@
+• Nuevos iconos de deportes e introducción redibujada
+• Todos los ejercicios y funciones incluidos, financiado con anuncios
+• Correcciones: el nombre del ejercicio ya no queda sobre la lista al cerrar una pizarra
