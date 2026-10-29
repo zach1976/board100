@@ -211,8 +211,13 @@ class AdService {
   // board apps ran a 4-minute gap at 11.5% — frequency was never the driver of
   // the accidental clicks, finger-on-glass was. Widening the gap would cost
   // impressions without moving CTR. See TapGuard.
-  static const Duration _minInterstitialGap = Duration(minutes: 3);
+  //
+  // 2026-10-29: interstitial gap 3 -> 4 min and a cross-type gate added — base
+  // rule zachs_app_base §6.5 requires ANY two full-screen ads (interstitial /
+  // app-open, either order) to be at least 4 minutes apart.
+  static const Duration _minInterstitialGap = Duration(minutes: 4);
   static const Duration _minAppOpenGap = Duration(minutes: 4);
+  static const Duration _minAnyFullScreenGap = Duration(minutes: 4);
   // How long a suppressNextAppOpen() request stays armed (covers the round
   // trip out to a picker/share/auth flow and back).
   static const Duration _suppressWindow = Duration(seconds: 60);
@@ -254,6 +259,12 @@ class AdService {
   DateTime? _appOpenLoadedAt;
   DateTime? _lastAppOpenShownAt;
   DateTime? _backgroundedAt; // when the app last actually went to background
+  // Last time ANY full-screen ad was shown or closed (§6.5 cross-type gate).
+  DateTime? _lastAnyFullScreenAt;
+
+  bool _tooSoonAfterAnyFullScreen(DateTime now) =>
+      _lastAnyFullScreenAt != null &&
+      now.difference(_lastAnyFullScreenAt!) < _minAnyFullScreenGap;
 
   bool _isShowingFullScreenAd = false;
   bool _coldStart = true;
@@ -507,6 +518,7 @@ class AdService {
         now.difference(_lastInterstitialAt!) < _minInterstitialGap) {
       return; // throttled — keep the loaded ad for later
     }
+    if (_tooSoonAfterAnyFullScreen(now)) return; // §6.5 cross-type gap
     if (!_interstitialUnderDailyCap) return;
     // Last gate before showing: never drop an ad under a moving finger.
     // Deferred rather than dropped — a share flow usually settles within a
@@ -532,12 +544,14 @@ class AdService {
       onAdShowedFullScreenContent: (_) {
         _isShowingFullScreenAd = true;
         _lastInterstitialAt = DateTime.now();
+        _lastAnyFullScreenAt = _lastInterstitialAt;
         _recordShown(appOpen: false);
         _trace(
             'interstitial SHOWN ($_interstitialToday/$_maxInterstitialsPerDay today)');
       },
       onAdDismissedFullScreenContent: (ad) {
         _isShowingFullScreenAd = false;
+        _lastAnyFullScreenAt = DateTime.now();
         ad.dispose();
         _loadInterstitial();
       },
@@ -649,6 +663,7 @@ class AdService {
         return;
       }
     }
+    if (_tooSoonAfterAnyFullScreen(now)) return; // §6.5 cross-type gap
     // Last gate before showing: never drop an ad under a moving finger. In a
     // drawing app this is the gate that matters — a cold-start ad landing
     // mid-stroke is the single largest source of accidental clicks.
@@ -679,11 +694,13 @@ class AdService {
       onAdShowedFullScreenContent: (_) {
         _isShowingFullScreenAd = true;
         _lastAppOpenShownAt = DateTime.now();
+        _lastAnyFullScreenAt = _lastAppOpenShownAt;
         _recordShown(appOpen: true);
         _trace('app open SHOWN ($_appOpenToday/$_maxAppOpenPerDay today)');
       },
       onAdDismissedFullScreenContent: (ad) {
         _isShowingFullScreenAd = false;
+        _lastAnyFullScreenAt = DateTime.now();
         ad.dispose();
         _loadAppOpenAd();
       },
