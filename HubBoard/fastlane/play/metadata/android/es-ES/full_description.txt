@@ -31,7 +31,7 @@ Un toque para cargar, ajusta desde ahí.
 
 DÍA DE PARTIDO
 
-En los deportes de equipo —fútbol, baloncesto, voleibol (por sets), hockey, balonmano, waterpolo y rugby— define los periodos y el equipo inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego; tarjetas y exclusiones donde el deporte las tiene. Al acabar, los minutos y cambios de cada jugador se exportan en PDF. La preparación es gratis; el reloj requiere Pro.
+En los deportes de equipo —fútbol, baloncesto, voleibol (por sets), hockey, balonmano, waterpolo y rugby— define los periodos y el equipo inicial, pon en marcha el reloj y toca a dos jugadores para cambiarlos. El banquillo se ordena por minutos jugados y «Sugerir» reparte el tiempo de juego; tarjetas y exclusiones donde el deporte las tiene. Al acabar, los minutos y cambios de cada jugador se exportan en PDF.
 
 HECHO PARA EL BANQUILLO
 
@@ -42,9 +42,9 @@ HECHO PARA EL BANQUILLO
 - Deshacer/rehacer hasta 50 pasos — experimenta sin miedo
 - Listo para pantalla grande — duplica en una TV y el vestuario se vuelve sala de guerra
 
-GRATIS Y PRO
+GRATIS
 
-Descarga gratis y sin cuenta. Pro quita los anuncios y desbloquea toda la biblioteca de ejercicios: un solo pago (Lifetime) o una suscripción anual.
+Descarga gratis y sin cuenta. Incluye todos los ejercicios y funciones; la app se financia con anuncios.
 
 14 IDIOMAS
 Español · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands

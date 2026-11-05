@@ -31,7 +31,7 @@ Một chạm để tải, chỉnh tiếp từ đó.
 
 NGÀY THI ĐẤU
 
-Với các môn đồng đội — bóng đá, bóng rổ, bóng chuyền (theo set), khúc côn cầu, bóng ném, bóng nước và rugby — đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, "Gợi ý" cân bằng thời gian thi đấu; thẻ và phạt ở môn nào có. Sau trận, số phút và thay người của từng cầu thủ xuất ra PDF. Thiết lập miễn phí; đồng hồ cần Pro.
+Với các môn đồng đội — bóng đá, bóng rổ, bóng chuyền (theo set), khúc côn cầu, bóng ném, bóng nước và rugby — đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, "Gợi ý" cân bằng thời gian thi đấu; thẻ và phạt ở môn nào có. Sau trận, số phút và thay người của từng cầu thủ xuất ra PDF.
 
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
@@ -42,9 +42,9 @@ DÀNH CHO BÊN ĐƯỜNG BIÊN
 - Hoàn tác/làm lại 50 bước — thử thoải mái
 - Sẵn sàng cho màn hình lớn — chiếu lên TV, phòng thay đồ thành phòng tác chiến
 
-MIỄN PHÍ VÀ PRO
+MIỄN PHÍ
 
-Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập — mua một lần (Lifetime) hoặc thuê bao theo năm.
+Tải miễn phí, không cần tài khoản. Có đầy đủ mọi bài tập và tính năng; ứng dụng được hỗ trợ bằng quảng cáo.
 
 14 NGÔN NGỮ
 Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands

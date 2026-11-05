@@ -31,7 +31,7 @@ Satu sentuh muat, ubah dari situ.
 
 HARI PERLAWANAN
 
-Untuk sukan berpasukan — bola sepak, bola keranjang, bola tampar (mengikut set), hoki, bola baling, polo air dan ragbi — tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain dan "Cadangan" menyamakan masa bermain; kad dan penggantungan bagi sukan yang ada. Selepas perlawanan, minit dan penggantian setiap pemain dieksport sebagai PDF. Persediaan adalah percuma; jam memerlukan Pro.
+Untuk sukan berpasukan — bola sepak, bola keranjang, bola tampar (mengikut set), hoki, bola baling, polo air dan ragbi — tetapkan tempoh permainan dan pasukan permulaan, jalankan jam, dan ketik dua pemain untuk menukar mereka. Bangku simpanan disusun mengikut minit bermain dan "Cadangan" menyamakan masa bermain; kad dan penggantungan bagi sukan yang ada. Selepas perlawanan, minit dan penggantian setiap pemain dieksport sebagai PDF.
 
 DIBINA UNTUK TEPI PADANG
 
@@ -42,9 +42,9 @@ DIBINA UNTUK TEPI PADANG
 - Buat asal/buat semula 50 langkah — cuba dengan yakin
 - Sedia untuk skrin besar — cerminkan ke TV, bilik persalinan jadi bilik strategi
 
-PERCUMA DAN PRO
+PERCUMA
 
-Percuma dimuat turun, tanpa akaun. Pro membuang iklan dan membuka seluruh pustaka latihan — sekali bayar (Lifetime) atau langganan tahunan.
+Percuma dimuat turun, tanpa akaun. Semua latihan dan ciri disertakan; aplikasi disokong oleh iklan.
 
 14 BAHASA
 Bahasa Melayu · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Deutsch · Nederlands
