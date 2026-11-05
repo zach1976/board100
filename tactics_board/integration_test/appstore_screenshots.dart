@@ -17,8 +17,10 @@ import 'package:tactics_board/services/drill_library_service.dart';
 import 'package:tactics_board/services/recent_boards_service.dart';
 import 'package:tactics_board/services/working_board_service.dart';
 import 'package:tactics_board/state/tactics_state.dart';
+import 'package:tactics_board/ui/tokens.dart';
 import 'package:tactics_board/pages/drill_library_page.dart';
 import 'package:tactics_board/pages/home_page.dart';
+import 'package:tactics_board/pages/sport_selection_page.dart';
 import 'package:tactics_board/pages/main_shell.dart';
 import 'package:tactics_board/pages/sport_home_page.dart';
 import 'package:tactics_board/widgets/player_icon_widget.dart' show PlayerArt;
@@ -34,7 +36,7 @@ const outDir = String.fromEnvironment('SHOT_ROOT',
     defaultValue:
         '/Users/zhenyusong/projects/board100/tactics_board/aso/screenshots_v2_raw');
 
-// (ASC locale name, Flutter locale). 11 store locales.
+// (ASC locale name, Flutter locale). 13 store locales.
 final allLocales = <(String, Locale)>[
   ('en-US', const Locale('en', 'US')),
   ('es-ES', const Locale('es', 'ES')),
@@ -47,6 +49,8 @@ final allLocales = <(String, Locale)>[
   ('vi', const Locale('vi', 'VN')),
   ('zh-Hans', const Locale('zh', 'CN')),
   ('zh-Hant', const Locale('zh', 'TW')),
+  ('de-DE', const Locale('de', 'DE')),
+  ('nl-NL', const Locale('nl', 'NL')),
 ];
 
 final _supportedLocales = allLocales.map((e) => e.$2).toList();
@@ -162,6 +166,22 @@ void main() {
         });
       }
     }
+
+    // The hub's own front door. Its other four shots come from four
+    // different sports (FLAGSHIP_SPORTS in the compositor), which is the
+    // point of a multi-sport listing — but the first one is a home page,
+    // and a home page carries the app's name. Borrowing soccer's put
+    // "Soccer Board" at the top of the Tactics Board listing. This is the
+    // page the hub actually opens on: every sport it covers, in one grid.
+    for (final (lang, locale) in allLocales) {
+      testWidgets('tactics_board_${lang}_s1', (t) async {
+        await _launch(t, SportType.soccer, locale, const SportSelectionPage());
+        await t.runAsync(
+            () => Future<void>.delayed(const Duration(milliseconds: 600)));
+        await t.pumpAndSettle();
+        await _shot(binding, 'tactics_board/$lang/s1', t);
+      });
+    }
   });
 }
 
@@ -193,6 +213,28 @@ const _showcaseIds = <SportType, List<String>>{
   ],
 };
 
+/// The drill on s5, which the store lists FIRST (the compositor's
+/// STORE_ORDER): the one a coach of the sport recognises at a glance. The
+/// heuristic below only ever found cone-heavy warm-ups, and in nine sports
+/// with no cones it found nothing and fell back to a formation.
+const _leadIds = <SportType, String>{
+  SportType.soccer: 'rondo_4v2',
+  SportType.basketball: 'bb_pick_and_roll',
+  SportType.volleyball: 'vb_receive_r1',
+  SportType.fieldHockey: 'fh_corner_drag_flick',
+  SportType.badminton: 'bd_smash_straight',
+  SportType.tennis: 'tn_serve_plus_one',
+  SportType.tableTennis: 'tt_multiball',
+  SportType.pickleball: 'pb_third_drop',
+  SportType.baseball: 'bb_dp_six_four_three',
+  SportType.handball: 'hb_attack_cross_backs',
+  SportType.rugby: 'rg_move_miss_pass',
+  SportType.waterPolo: 'wp_manup_four_two',
+  SportType.sepakTakraw: 'st_feed_receiving_the_serve',
+  SportType.beachTennis: 'bt_smash_straight',
+  SportType.footvolley: 'fv_attack_the_shark_attack',
+};
+
 /// The drill to photograph: the shipped library's own, chosen for what a
 /// store screenshot has to show at a glance — a ball that travels, the
 /// equipment that makes the shape, and enough beats to have a past and a
@@ -202,6 +244,12 @@ Future<Drill?> _showcase(WidgetTester t, SportType sport, {int slot = 0}) async 
   await t.runAsync(() async {
     all = await DrillLibraryService.instance.forSport(sport);
   });
+  final lead = slot == 2 ? _leadIds[sport] : null;
+  if (lead != null) {
+    for (final d in all) {
+      if (d.id == lead) return d;
+    }
+  }
   final names = _showcaseIds[sport];
   if (names != null && names.isNotEmpty) {
     final named = names[slot.clamp(0, names.length - 1)];
@@ -436,6 +484,9 @@ void _orient(WidgetTester t) {
 Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
     Widget home) async {
   _orient(t);
+  // The chrome a single-sport build wears is set in its main(), which this
+  // harness does not go through — without this every shot came out teal.
+  T.palette = sport.chrome;
   await EasyLocalization.ensureInitialized();
   // The figures, the ball and the equipment decode like any other asset. A
   // test that shoots the moment it pumps catches the board drawn with the
@@ -462,7 +513,15 @@ Future<void> _launch(WidgetTester t, SportType sport, Locale locale,
             supportedLocales: ctx.supportedLocales,
             locale: locale,
             theme: _theme(),
-            home: _landscape ? RepaintBoundary(key: _shotKey, child: home) : home,
+            home: home,
+            // The boundary goes round the Navigator, not round [home]: a
+            // bottom sheet and a pushed page live in the Navigator's
+            // overlay, above home, and a boundary on home alone shot the
+            // Add sheet, the timeline and the drill library as the board
+            // or the home page under them.
+            builder: _landscape
+                ? (_, child) => RepaintBoundary(key: _shotKey, child: child)
+                : null,
           ),
         );
       }),

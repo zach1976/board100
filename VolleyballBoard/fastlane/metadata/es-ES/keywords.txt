@@ -1,1 +1,1 @@
-voleibol,6v6,líbero,colocador,atacante,recepción,bloqueo,rotación,vóley playa,superliga,cev
+pizarra táctica,entrenamiento,sesiones,rotación,recepción,demo,análisis,repaso

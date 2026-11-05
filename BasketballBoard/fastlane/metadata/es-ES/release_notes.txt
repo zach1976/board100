@@ -1,5 +1,10 @@
-Novedades
+Novedades de la versión 2.1.2
 
-• El editor de línea de tiempo ahora se desplaza: todas las filas de jugadores y trazos quedan accesibles, sin importar cuántas añadas.
-• Regreso más fluido al volver a la app.
-• Correcciones de errores y mejoras de estabilidad.
+PRO, MÁS FÁCIL DE ENCONTRAR
+«Quitar anuncios» y «Restaurar compras» están ahora en la página Mi cuenta, a un toque. La hoja de compra es un panel blanco propio, fácil de leer también en iPad.
+
+NUEVOS ICONOS E INTRODUCCIÓN
+Los iconos de los deportes y las tres pantallas de introducción del primer inicio se han redibujado.
+
+OTRAS CORRECCIONES
+Al cerrar una pizarra, el nombre del ejercicio ya no se queda sobre la lista.

@@ -1,5 +1,13 @@
-Nouveautés
+Nouveautés de la version 2.1.1
 
-• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
-• Retour plus fluide lorsque vous revenez dans l'app.
-• Corrections de bugs et améliorations de stabilité.
+DÉPLACEMENTS CORRIGÉS
+Les exercices de déplacement partent du centre du demi-terrain, plots du fond sur la ligne de fond et plots avant près des lignes de côté. Le joueur ne se retourne plus vers le fond coup droit ; seul le fond revers le fait tourner, et le dégagement au-dessus de la tête reste face au filet.
+
+PRO, PLUS FACILE À TROUVER
+« Supprimer les pubs » et « Restaurer les achats » sont désormais sur la page Moi, à portée de doigt. La fiche d'achat est un panneau blanc à part, lisible aussi sur iPad.
+
+NOUVELLES ICÔNES ET INTRODUCTION
+Les icônes des sports et les trois écrans d'introduction du premier lancement ont été redessinés.
+
+AUTRES CORRECTIONS
+Une fois le tableau fermé, le nom de l'exercice ne reste plus au-dessus de la liste.

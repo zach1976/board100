@@ -100,11 +100,16 @@ def audit(drill, sport):
                     f"({balls[0]['position'][0]:.0f}, {balls[0]['position'][1]:.0f})",
         })
     # Conditioning without the ball is meant to be without the ball.
-    # …and neither is a solo shadow drill: one player, no opponent, no ball
-    # is footwork, which is the whole point of it.
-    solo = len({p.get("team") for p in people}) < 2 and len(people) == 1
+    # …and neither is a shadow drill: if the only thing that moves is one
+    # player, that is footwork, which is the whole point of it. It used to
+    # take a board with literally nobody else on it. The badminton footwork
+    # boards keep a feeder standing on the far side — the coach has to be
+    # pointing from somewhere — and a man who never moves does not turn
+    # shadow footwork into a rally.
+    shadow = len(movers) == 1 and not any(
+        p.get("moves") for p in people if p["id"] != movers[0]["id"])
     if movers and not balls and drill.get("category") != "conditioning" \
-            and not solo:
+            and not shadow:
         out.append({
             "id": "no_ball",
             "level": "warn",

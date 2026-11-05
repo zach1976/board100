@@ -1,1 +1,1 @@
-basket,3v3,5v5,pick and roll,horns,zone,homme à homme,attaque,défense,lnb,euroleague,nba,wnba
+tableau tactique,entraînement,séances,pick and roll,systèmes,démo,analyse,revue de match

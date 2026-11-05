@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>足球球门 · 提示词</title>
+<style>
+  :root{color-scheme:dark;--bg:#0e1112;--panel:#161b1d;--line:#2a3336;--text:#e8eef0;
+    --dim:#9fb0b5;--accent:#4dd0e1;--ok:#3ddc97;--bad:#ff6b6b;
+    --body:"PingFang SC","Hiragino Sans GB",sans-serif;--mono:"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;
+    line-height:1.7;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px 90px}
+  header.top{padding:44px 0 22px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px}
+  h1{font-weight:800;font-size:clamp(24px,5vw,34px);line-height:1.15;margin:0 0 10px}
+  .lede{color:var(--dim);margin:0;max-width:66ch}
+  h2{font-weight:800;font-size:19px;margin:38px 0 6px}
+  .sub{color:var(--dim);margin:0 0 14px;max-width:70ch}
+  .why{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:14.5px}
+  .p{position:relative;background:#0b1416;border:1px solid var(--line);border-radius:12px;
+    padding:50px 18px 18px;margin-top:12px}
+  .p pre{margin:0;white-space:pre-wrap;word-break:break-word;
+    font-family:var(--mono);font-size:12.8px;line-height:1.62;color:#dfe9ec}
+  .copy{position:absolute;top:11px;right:11px;background:#17272b;border:1px solid var(--line);
+    color:var(--dim);border-radius:8px;padding:7px 13px;font:600 12px/1 var(--mono);cursor:pointer}
+  .copy:hover{color:var(--text);border-color:#35494f}
+  .copy.done{background:var(--ok);border-color:var(--ok);color:#06231a}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+  code{font-family:var(--mono);font-size:12.5px;color:#cfe3e8}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+  .steps li{counter-increment:s;position:relative;padding:10px 0 10px 40px;border-bottom:1px solid var(--line)}
+  .steps li:before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;
+    border-radius:50%;background:var(--panel);border:1px solid var(--line);color:var(--accent);
+    font:600 12px/24px var(--mono);text-align:center}
+  footer{color:#5b6d72;font-size:12.5px;margin-top:44px;padding-top:18px;border-top:1px solid var(--line)}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">tactics board · 足球 · 球门素材</p>
+  <h1>一张俯视球门，两端通用</h1>
+  <p class="lede">板子是从正上方偏前一点往下看的——人站着、场地平铺。球门在这个视角里是一个
+  贴在门线外的浅盒子：门口那条横梁离看的人最近，网往后收。现在是画笔用线和网格画的，
+  换成一张真正的素材，和球、锥筒、人物一个质感。</p>
+</header>
+
+<div class="why">
+  <b>一张图就够。</b>上端球门门口朝下，下端球门门口朝上——同一张图上下翻转即可，所以提示词里
+  把门口固定在图的<b>底边</b>。背景必须透明：它要压在草皮和割草条纹上面。
+</div>
+
+<h2>方案 A — 正俯视，带一点体积（推荐）</h2>
+<p class="sub">和板上其它东西同一视角：从正上方看，靠近看的人那一侧（门口）的横梁更粗，
+网往后越来越密越来越暗，影子往后甩。板上的门只有 24 × 8 点大，所以结构要简单、对比要够，
+细节靠网眼的疏密而不是靠装饰。</p>
+<div class="p"><button class="copy">复制</button><pre>goal_soccer.png
+1536 x 1024
+A single association football goal seen from directly above, drawn as a clean game asset on a fully transparent background. The goal is a shallow rectangular box about three times as wide as it is deep, centred, spanning about 92% of the image width. Along the bottom edge of the box runs the goal mouth: a thick round white crossbar with a round white post at each end. Along the top edge runs a thinner white back bar, and thin white side bars join front to back. The whole box is filled with fine white netting in a regular diamond mesh that sags slightly between the bars, drawn denser and dimmer toward the back bar so the box reads as having depth. The frame tubes are bright white with a soft grey shaded side on the left. A short soft drop shadow falls from the whole box upward, away from the goal mouth. Crisp edges, flat even lighting, no ground, no grass, no pitch lines, no ball, no people, no text, no watermark, transparent PNG.</pre></div>
+
+<h2>方案 B — 稍微抬高的四分之三视角（两张）</h2>
+<p class="sub">更有立体感，但两端不能共用一张：远端那个门我们看进门口，近端那个门我们看到的是网的背面。
+两张的尺寸、风格、光线必须一致。缺点是和板上其它纯俯视的东西视角不一致，装上去再看合不合。</p>
+<div class="p"><button class="copy">复制</button><pre>goal_soccer_far.png
+1536 x 1024
+A single association football goal seen from slightly above and in front, looking into the goal mouth, drawn as a clean game asset on a fully transparent background. The white crossbar runs across the lower part of the image and is the nearest, thickest element, with a round white post at each end standing on the baseline; the net box recedes upward and slightly inward behind it to a thinner white back bar, with white side bars and visible side netting. The net is a fine regular diamond mesh, sagging gently, denser and dimmer toward the back. Bright white round tubes with a soft grey shaded side on the left. A short soft drop shadow falls behind the goal, upward in the image. The goal is centred and spans about 92% of the image width. Crisp edges, flat even lighting, no ground, no grass, no pitch lines, no ball, no people, no text, no watermark, transparent PNG.</pre></div>
+<div class="p"><button class="copy">复制</button><pre>goal_soccer_near.png
+1536 x 1024
+The same association football goal as a matching pair, now seen from slightly above and behind, so the viewer looks at the back of the net: the thin white back bar runs across the lower part of the image and is the nearest element, the net box recedes upward to the thick white crossbar and two round white posts at the far edge, and the goal mouth opens away from the viewer. The net is a fine regular diamond mesh, sagging gently, seen through from behind, denser near the viewer. Bright white round tubes with a soft grey shaded side on the left, identical thickness, colour and lighting to the front view. A short soft drop shadow falls under the near edge, downward in the image. Centred, spanning about 92% of the image width, fully transparent background. Crisp edges, flat even lighting, no ground, no grass, no pitch lines, no ball, no people, no text, no watermark, transparent PNG.</pre></div>
+
+<h2>拿到图以后</h2>
+<ol class="steps">
+  <li>文件名按第一行，<b>PNG、透明背景</b>。生成器给的多半是 1536 × 1024 带大片透明边，不用自己裁——我导入时按透明边界裁。</li>
+  <li>放到 <code>tactics_board/assets/icon/</code>，和 <code>ball_soccer.png</code> 并排。</li>
+  <li>告诉我一声。我把它接进 <code>SoccerCourtPainter</code>（替掉现在 <code>drawGoal</code> 画的那只），
+    加进 <code>sport_assets.json</code> 让它只随足球包打包，然后重渲校正页。</li>
+</ol>
+
+<table>
+  <tr><th>为什么门口在底边</th><td>上端球门直接用，下端球门上下翻转。方案 A 是正俯视，翻过来没有破绽。</td></tr>
+  <tr><th>为什么不要地面和影子以外的东西</th><td>草皮、条纹、门线都是画笔画的；图里再有就会和板上的对不齐。只留一道短影，是为了它压在草上时有落地感。</td></tr>
+  <tr><th>为什么强调「密而暗」</th><td>板上的门只有 24 点宽。远处看不出网眼，看得出的是前亮后暗这一个梯度——这就是立体感的全部来源。</td></tr>
+  <tr><th>曲棍球 / 手球 / 水球</th><td>同一套提示词，把 "association football goal" 换成对应项目、三比一的比例改成各自的（曲棍球 3.66 × 1.2，手球 3 × 2，水球 3 × 0.9），文件名换成 <code>goal_fieldHockey.png</code> 之类。先把足球这张做对再说。</td></tr>
+</table>
+
+<footer>
+  /Users/zhenyusong/projects/board100/tools/goal_prompts_soccer.html<br>
+  现状：球门由 <code>court_painter_base.dart · drawGoal()</code> 用线和网格画，四个有门的运动共用。
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.parentNode.querySelector('pre').innerText;
+    navigator.clipboard.writeText(text).then(function () {
+      b.textContent = '已复制';
+      b.classList.add('done');
+    });
+  });
+});
+</script>
+</body></html>

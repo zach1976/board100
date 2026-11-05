@@ -1,0 +1,3 @@
+• Biểu tượng môn thể thao mới và màn giới thiệu vẽ lại
+• Có đủ mọi bài tập và tính năng, được hỗ trợ bằng quảng cáo
+• Sửa lỗi nhỏ: tên bài tập không còn nằm đè lên danh sách sau khi đóng bảng

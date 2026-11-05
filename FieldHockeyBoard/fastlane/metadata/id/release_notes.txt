@@ -1,24 +1,10 @@
-Yang Baru di 2.0
+Yang baru di versi 2.2.2
 
-36 LATIHAN HOKI, SUDAH TERSEDIA
-Setiap latihan adalah papan yang bisa Anda telusuri per ketukan: apa yang dilatih, bagaimana menatanya, dan satu kalimat yang perlu diucapkan saat berjalan. Pemanasan, membangun serangan, masuk lingkaran, penyelesaian, pressing, penalti sudut, kiper, dan fisik.
+PRO LEBIH MUDAH DITEMUKAN
+"Hapus Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, cukup satu ketukan. Lembar pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
 
-RENCANAKAN SATU SESI PENUH
-Rangkai latihan menjadi rencana latihan, jalankan dari pinggir lapangan satu per satu, dan catatannya tersimpan sendiri.
+IKON OLAHRAGA DAN PENGANTAR BARU
+Ikon olahraga dan tiga layar pengantar saat pertama dibuka digambar ulang.
 
-SKUAD DAN KEHADIRAN
-Simpan pemain beserta fotonya, tandai siapa yang datang, dan lihat satu musim sekaligus.
-
-BAGIKAN PAPAN SEBAGAI TAUTAN
-Kirim satu pola ke tim — mereka membukanya di browser, tanpa aplikasi.
-
-PEMAIN DIGAMBAR ULANG
-Menghadap ke arah tujuannya, memegang stik, pria dan wanita, dengan atau tanpa bola.
-
-JUGA
-- Lari bergaris putus, giringan bergelombang, umpan berupa garis utuh
-- Putar elemen apa pun, dan ketik teks langsung di papan
-- Sebuah papan adalah kumpulan halaman yang bisa dibalik
-- iPad dan Mac: papan memakai seluruh layar
-- Ekspor satu pola sebagai video, bukan hanya gambar
-- Pembelian sekali opsional menghilangkan iklan
+PERBAIKAN LAIN
+Setelah papan ditutup, nama latihan tidak lagi tertinggal di atas daftar.

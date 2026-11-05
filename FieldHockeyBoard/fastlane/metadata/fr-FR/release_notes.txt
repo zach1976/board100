@@ -1,24 +1,10 @@
-Nouveautés de la version 2.0
+Nouveautés de la version 2.2.2
 
-36 EXERCICES DE HOCKEY, INTÉGRÉS
-Chaque exercice est un tableau que vous parcourez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Échauffement, relance, entrée dans le cercle, finition, pressing, corner de pénalité, gardien, physique.
+PRO, PLUS FACILE À TROUVER
+« Supprimer les pubs » et « Restaurer les achats » sont désormais sur la page Moi, à portée de doigt. La fiche d'achat est un panneau blanc à part, lisible aussi sur iPad.
 
-PLANIFIEZ TOUTE LA SÉANCE
-Enchaînez les exercices dans un plan d'entraînement, déroulez-le depuis la touche un par un, et gardez la trace de ce que vous avez réellement fait.
+NOUVELLES ICÔNES ET INTRODUCTION
+Les icônes des sports et les trois écrans d'introduction du premier lancement ont été redessinés.
 
-VOTRE EFFECTIF, VOS PRÉSENCES
-Gardez vos joueurs avec leur photo, cochez les présents, et voyez la saison d'un coup d'œil.
-
-PARTAGEZ UN TABLEAU PAR LIEN
-Envoyez une combinaison à l'équipe : elle s'ouvre dans un navigateur, sans application.
-
-DES JOUEURS REDESSINÉS
-Ils regardent là où ils vont, crosse en main, hommes et femmes, avec ou sans la balle.
-
-AUSSI
-- La course est une flèche pointillée, la conduite ondule, la passe est un trait plein
-- Faites pivoter n'importe quel élément et écrivez du texte directement sur le tableau
-- Un tableau est un ensemble de pages que l'on feuillette
-- iPad et Mac : le tableau occupe tout l'écran
-- Exportez une combinaison en vidéo, pas seulement en image
-- Un achat unique facultatif supprime la publicité
+AUTRES CORRECTIONS
+Une fois le tableau fermé, le nom de l'exercice ne reste plus au-dessus de la liste.

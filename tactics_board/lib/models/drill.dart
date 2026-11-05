@@ -115,6 +115,19 @@ class Drill {
 
   String localizedName(String locale) => _pick(name, locale);
 
+  /// The name as a title: the family heading set off from the variant by a
+  /// middle dot. The generated name is the two run together, which read as
+  /// one broken phrase — "Set piece the scrum", "Rally control half-long
+  /// pushes". The raw [localizedName] stays what search and saved boards use.
+  String displayName(String locale) {
+    final full = localizedName(locale);
+    if (familyName == null) return full;
+    final head = _pick(familyName!, locale);
+    if (head.isEmpty || !full.startsWith('$head ')) return full;
+    final rest = full.substring(head.length).trim();
+    return rest.isEmpty ? full : '$head · $rest';
+  }
+
   /// The family heading, or the drill's own name when it stands alone.
   String localizedFamilyName(String locale) =>
       familyName == null ? localizedName(locale) : _pick(familyName!, locale);
@@ -141,6 +154,10 @@ enum DrillVocabulary {
 
   /// Baseball, which shares almost none of the vocabulary.
   diamond,
+
+  /// Rugby: an invasion sport, but it scores a try, not a shot — the
+  /// shared "Finishing" label read 射门 (shot on goal) in Chinese.
+  oval,
 }
 
 /// How much the drill asks of the players — the second axis a coach filters
@@ -207,6 +224,7 @@ enum DrillCategory {
         DrillCategory.possession,   // the rally
         DrillCategory.setpiece,     // the serve
         DrillCategory.ssg,          // match play
+        DrillCategory.finishing,    // the put-away, not a shot on goal
       },
       DrillVocabulary.diamond: {
         DrillCategory.possession,   // fielding
@@ -214,6 +232,9 @@ enum DrillCategory {
         DrillCategory.finishing,    // scoring
         DrillCategory.setpiece,     // holding the runner
         DrillCategory.ssg,          // scrimmage
+      },
+      DrillVocabulary.oval: {
+        DrillCategory.finishing,    // scoring the try
       },
     };
     if (overrides[vocabulary]?.contains(this) ?? false) {

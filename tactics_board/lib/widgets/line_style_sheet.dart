@@ -8,9 +8,7 @@ import '../ui/tokens.dart';
 import '../models/drawing_stroke.dart';
 import '../painters/drawing_painter.dart';
 import '../state/tactics_state.dart';
-import '../ui_constants.dart';
 
-const _kStrokeWidths = [2.0, 3.0, 5.0, 7.0];
 
 /// Terminators, in the order they appear across each row of the grid.
 const _kArrows = [
@@ -49,11 +47,18 @@ class _LineStyleSheet extends StatefulWidget {
 }
 
 class _LineStyleSheetState extends State<_LineStyleSheet> {
-  late LineShape _shape = widget.state.lineShape;
-  late StrokeStyle _dash = widget.state.strokeStyle;
-  late ArrowStyle _arrow = widget.state.arrowStyle;
-  late Color _color = widget.state.strokeColor;
-  late double _width = widget.state.strokeWidth;
+  // Opened on a picked-out line, the sheet starts from that line's style,
+  // not the pen's.
+  late LineShape _shape =
+      widget.state.selectedStroke?.shape ?? widget.state.lineShape;
+  late StrokeStyle _dash =
+      widget.state.selectedStroke?.style ?? widget.state.strokeStyle;
+  late ArrowStyle _arrow =
+      widget.state.selectedStroke?.arrow ?? widget.state.arrowStyle;
+  /// Read only: the grid draws its previews in the pen's colour. Which
+  /// colour, and how thick, is chosen on the bar itself.
+  late final Color _color =
+      widget.state.selectedStroke?.color ?? widget.state.strokeColor;
 
   /// Push the current selection to the board immediately. Called on every tap
   /// so a choice takes effect without a separate "confirm" press — a selected
@@ -62,9 +67,14 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
     widget.state
       ..setLineShape(_shape)
       ..setStrokeStyle(_dash)
-      ..setArrowStyle(_arrow)
-      ..setStrokeColor(_color)
-      ..setStrokeWidth(_width);
+      ..setArrowStyle(_arrow);
+    // With a line picked out, this sheet restyles that line as well —
+    // its shape included, see updateStroke.
+    final sel = widget.state.selectedStroke;
+    if (sel != null) {
+      widget.state.updateStroke(sel.id,
+          style: _dash, arrow: _arrow, shape: _shape);
+    }
   }
 
   void _apply() {
@@ -86,11 +96,11 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
               height: 4,
               margin: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
-                  color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+                  color: T.border, borderRadius: BorderRadius.circular(2)),
             ),
             Text('line_style_title'.tr(),
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: 17,
                     fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
@@ -106,57 +116,6 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
                         _grid(shape, dash),
                       const SizedBox(height: 14),
                     ],
-                    _sectionLabel('line_color'.tr()),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 10,
-                      children: [
-                        for (final c in kStrokeColors)
-                          _Swatch(
-                            selected: _color == c,
-                            onTap: () {
-                              setState(() => _color = c);
-                              _applyLive();
-                            },
-                            child: Container(
-                              width: 24,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                  color: c, shape: BoxShape.circle),
-                            ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    _sectionLabel('line_width'.tr()),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 10,
-                      children: [
-                        for (final w in _kStrokeWidths)
-                          _Swatch(
-                            selected: _width == w,
-                            onTap: () {
-                              setState(() => _width = w);
-                              _applyLive();
-                            },
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: Center(
-                                child: Container(
-                                  width: w * 2.4,
-                                  height: w * 2.4,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle),
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 18),
                   ],
                 ),
               ),
@@ -174,8 +133,8 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
                   ),
                   onPressed: _apply,
                   child: Text('confirm'.tr(),
-                      style: const TextStyle(
-                          color: Colors.white,
+                      style: TextStyle(
+                          color: T.onAccent,
                           fontWeight: FontWeight.bold,
                           fontSize: 15)),
                 ),
@@ -191,7 +150,7 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
         padding: const EdgeInsets.only(bottom: 8),
         child: Text(text,
             style: const TextStyle(
-                color: Colors.white70,
+                color: T.textDim,
                 fontSize: 13,
                 fontWeight: FontWeight.w600)),
       );
@@ -235,33 +194,6 @@ class _LineStyleSheetState extends State<_LineStyleSheet> {
   }
 }
 
-class _Swatch extends StatelessWidget {
-  final bool selected;
-  final VoidCallback onTap;
-  final Widget child;
-  const _Swatch(
-      {required this.selected, required this.onTap, required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(6),
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: selected ? const Color(0xFFFFD600) : Colors.transparent,
-            width: 2,
-          ),
-        ),
-        child: child,
-      ),
-    );
-  }
-}
-
 class _StyleCell extends StatelessWidget {
   final double width;
   final LineShape shape;
@@ -283,18 +215,36 @@ class _StyleCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // A light pen (white, yellow) previews on a dark ground, the way it
+    // will sit on a court; a dark one on the card's own tint.
+    final dark = color.computeLuminance() > 0.5;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: width,
         height: 44,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.08),
+          color: dark ? T.text : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
+          // The chosen cell: a ring the ground cannot swallow — white on a
+          // dark cell, where a 2pt blue hairline on near-black was the
+          // selection nobody could find (reported off an iPad, 2026-10-16)
+          // — with the accent round the outside of it either way.
           border: Border.all(
-            color: selected ? const Color(0xFFFFD600) : Colors.transparent,
-            width: 2,
+            color: selected
+                ? (dark ? Colors.white : T.selectedStroke)
+                : Colors.transparent,
+            width: selected ? 2.5 : 2,
           ),
+          boxShadow: selected
+              ? [
+                  BoxShadow(
+                    color: T.selectedStroke,
+                    blurRadius: 0,
+                    spreadRadius: 2,
+                  ),
+                ]
+              : null,
         ),
         child: CustomPaint(
           painter: LineStylePreviewPainter(shape: shape, dash: dash, arrow: arrow, color: color),

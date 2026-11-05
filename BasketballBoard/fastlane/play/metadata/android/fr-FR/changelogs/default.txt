@@ -1,0 +1,11 @@
+Nouveautés de la version 2.1.0
+
+• Jour de match : périodes, composition, chrono, remplacements ; minutes en PDF (le chrono demande Pro)
+• Cahier de jeu le jour du match
+• Terrains NBA, NCAA et lycée à côté de la FIBA
+• 99 exercices au lieu de 58 : systèmes, pick-and-roll espagnol, presses, zones, transition
+• Séances prêtes : six plans
+• Notes sur le tableau, qui changent à chaque étape
+• Mise en page tablette, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections

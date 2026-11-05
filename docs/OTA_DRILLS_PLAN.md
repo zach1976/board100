@@ -60,17 +60,20 @@ bundle 是 1，服务器是 1，客户端永远判「不比我新」。机制齐
   （`xcrun simctl get_app_container <udid> com.zach.soccerBoard data` 找到目录。）
 - 真机上的 2.0.1 同样验证一次（手机已装好，UDID `00008150-00026C30213A401C`）。
 
-## 3. 阶段 B — 客户端加固（要进下一个 build；是否并入 2.0.1 由用户决定，执行者不要自己决定）
+## 3. 阶段 B — 客户端加固（**三条都做完了，2026-09-30**；要进下一个 build）
 
-按价值排序，每条都小：
-1. **数量不再来自 bundle 的 `index.json`**：`bundledCounts()` 改成「有缓存包就数缓存包」，否则读 index。
-   否则 OTA 加了 drill，hub 的运动卡片数字还是旧的。
-2. **`minClient`**：包里加 `"minClient": "2.0.1"`（生成器写，来自 `pack_version` 旁边的配置），
-   客户端版本低于它就不落盘。今天不需要（新字段都向后兼容），是给将来「新包需要新画法」留的闸。
-   老客户端不认识这个键，照旧——所以要**先**有这一版客户端，将来才用得上。
-3. **ETag / If-None-Match**：控制器按文件 md5 出 `ETag`，客户端存起来带回去，304 就不下载。
-   现在每次冷启动 15 个运动各拉一次（gz 后 ~140KB 一个），hub 一次 2MB。可选。
-4. 服务端不改 API 形状；只加响应头。改了服务端要能部署——部署方式同 §4。
+1. ✅ **数量不再来自 bundle 的 `index.json`**：`bundledCounts()` 改成「有缓存包就数缓存包」，
+   否则读 index。（`drill_library_service.dart`）
+2. ✅ **`minClient`**：包里的 `minClient` 由 `tools/drills/min_client.txt` 写入（现为 `2.0.0`），
+   客户端版本低于它就不落盘。老客户端不认识这个键，照旧。
+3. ✅ **ETag / If-None-Match**：控制器按文件 md5 出 `ETag` 并认 `If-None-Match`，304 直接返回；
+   同时补了 `Vary: Accept-Encoding`（一个 URL 同时供 gzip 和明文）。客户端把 tag 写在
+   `Documents/drills/<sport>.etag`，**只在包还在时**才带上去——tag 没了包还在、或包没了 tag 还在，
+   都会让下一次启动要么白下要么永远不下。
+4. 服务端只加了响应头，API 形状没动。
+
+**没做的**：`DrillPackController.php` 的改动**还没部署**（部署方式见 §4），
+所以线上暂时仍是无 ETag 的老控制器——客户端带 `If-None-Match` 对老控制器无害，照旧 200 下载。
 
 ## 4. 把文件放到服务器上（已解决，留作记录）
 

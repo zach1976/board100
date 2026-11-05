@@ -1,0 +1,9 @@
+Novedades de la versión 2.3.0
+
+• Día de partido: periodos, once inicial, reloj, cambios, tarjetas y tanda de penaltis; minutos en PDF (el reloj requiere Pro)
+• Libro de jugadas desde el día de partido
+• Sesiones listas: seis planes montados con los 137 ejercicios
+• Notas en la pizarra que cambian con cada paso
+• Diseño para tablet con barra lateral, teclado y lápiz
+• Alemán y neerlandés: 14 idiomas
+• Otros arreglos y más etiquetas traducidas

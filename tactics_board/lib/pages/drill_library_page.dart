@@ -13,6 +13,7 @@ import '../services/purchase_service.dart';
 import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/adaptive.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import '../widgets/drill_thumbnail.dart';
@@ -109,6 +110,36 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
   bool _starred = false;
   Map<String, DrillMark> _marks = const {};
 
+  /// The selected chip in each filter row. Opened from a home-page category,
+  /// the chosen one ("Set pieces") sat past the right edge of its row, so the
+  /// list was filtered by something the coach could not see; it is scrolled
+  /// into view once the chips are laid out.
+  final GlobalKey _activeCategory = GlobalKey();
+  final GlobalKey _activeLevel = GlobalKey();
+  bool _revealed = false;
+
+  /// List and detail side by side — a tablet with room for both. Set by the
+  /// layout on every build; read by [_openDetail] to decide between showing
+  /// the drill in the right-hand pane and pushing its page.
+  bool _split = false;
+
+  /// The drill in the right-hand pane, when there is one.
+  Drill? _selected;
+
+  void _revealActive() {
+    if (_revealed) return;
+    _revealed = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      for (final k in [_activeCategory, _activeLevel]) {
+        final c = k.currentContext;
+        if (c != null && c.mounted) {
+          Scrollable.ensureVisible(c,
+              alignment: 0.5, duration: const Duration(milliseconds: 250));
+        }
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -160,6 +191,15 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     widget.state.loadFromJson(Map<String, dynamic>.from(drill.board));
     widget.state.currentTacticName = null;
     widget.state.currentTacticMeta = null;
+    // Its own words come with it, so the board can print the step it is
+    // standing on under the court.
+    widget.state
+        .openedDrill(DrillNote.parse(drill.localizedNote(_locale)).beats,
+            beatsFor: (l) => DrillNote.parse(drill.localizedNote(l)).beats,
+            name: drill.displayName(_locale),
+            nameFor: drill.displayName,
+            id: drill.id,
+            frame: drill.frame);
     // A drill is never saved — it is a starting shape the coach edits — so
     // without this the thing they most recently had on the board is exactly
     // the thing the home page cannot offer them again.
@@ -168,7 +208,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
       RecentBoard(
         kind: RecentBoardKind.drill,
         id: drill.id,
-        label: drill.localizedName(_locale),
+        label: drill.displayName(_locale),
         openedAt: DateTime.now(),
       ),
     );
@@ -180,7 +220,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     // back from the board should return them to the list they were browsing.
     if (widget.onLoaded == null) Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(drill.localizedName(_locale))),
+      SnackBar(content: Text(drill.displayName(_locale))),
     );
     widget.onLoaded?.call();
   }
@@ -189,6 +229,12 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
   /// and the note laid out section by section. The card can only ever show a
   /// headline, and a coach deciding what to run on Tuesday needs the shape.
   Future<void> _openDetail(Drill drill) async {
+    // On a wide tablet the drill opens beside the list, which stays where
+    // it was — the way Mail or Notes keeps its list on an iPad.
+    if (_split) {
+      setState(() => _selected = drill);
+      return;
+    }
     final unlocked = _unlocked(drill);
     await DrillDetailPage.push(
       context,
@@ -211,6 +257,36 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
     );
   }
 
+  /// A row of filter chips. A phone scrolls it sideways, as it always has.
+  /// A tablet wraps it: a scroller cut mid-chip at a 1000pt edge ("Set p…")
+  /// gave no sign there was more, and a full-width list has the room to
+  /// show every chip. The split view's list is a phone's width, where six
+  /// rows of wrapped chips would push the drills off the screen, so there
+  /// it scrolls — fading out at the edge, which says that it does.
+  Widget _chipRow({required List<Widget> children}) {
+    if (isTabletLayout(context) && !_split) {
+      return Wrap(
+        spacing: 6,
+        runSpacing: 6,
+        // The phone row's own 6pt spacers are the Wrap's spacing here.
+        children: [for (final w in children) if (w is! SizedBox) w],
+      );
+    }
+    final row = SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(children: children),
+    );
+    if (!_split) return row;
+    return ShaderMask(
+      shaderCallback: (r) => const LinearGradient(
+        colors: [Colors.white, Colors.white, Colors.transparent],
+        stops: [0, 0.88, 1],
+      ).createShader(r),
+      blendMode: BlendMode.dstIn,
+      child: row,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -223,8 +299,15 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
       // scrolled clear of the indicator.
       body: SafeArea(
         bottom: false,
-        child: Padding(
-      padding: const EdgeInsets.fromLTRB(T.screenX, T.s4, T.screenX, 0),
+        child: LayoutBuilder(builder: (context, box) {
+          _split = isTabletLayout(context) && box.maxWidth >= kSplitMinWidth;
+          // A tablet too narrow to split still keeps the rows to a readable
+          // column rather than 1000pt lines with the board icon at the far
+          // edge, 600pt from the name it belongs to.
+          final inset = _split ? 0.0 : tabletInset(context, box.maxWidth);
+          final list = Padding(
+      padding: EdgeInsets.fromLTRB(
+          T.screenX + inset, T.s4, T.screenX + inset, 0),
       child: FutureBuilder<List<Drill>>(
         future: _drills,
         builder: (context, snap) {
@@ -269,6 +352,16 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
             } else {
               groups[at].add(d);
             }
+          }
+          // The pane is never empty when there is something to show: the
+          // first drill in the list stands in until the coach picks one.
+          if (_split && _selected == null && groups.isNotEmpty) {
+            final first = groups.first.first;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted && _selected == null) {
+                setState(() => _selected = first);
+              }
+            });
           }
           final categories = <DrillCategory>{for (final d in all) d.category}.toList()
             ..sort((a, b) => a.usageRank.compareTo(b.usageRank));
@@ -362,15 +455,15 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         '${all.where((d) => d.free).length}',
                         '${all.length}',
                       ]),
-                      style: const TextStyle(
-                          color: kAccent, fontSize: 12, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          color: T.accentText, fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
                 const SizedBox(height: 12),
 
                 if (snap.connectionState != ConnectionState.done)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 40),
                     child: Center(
                       child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
@@ -395,18 +488,18 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     height: 38,
                     child: TextField(
                       onChanged: (v) => setState(() => _query = v),
-                      style: const TextStyle(color: Colors.white, fontSize: 13.5),
+                      style: const TextStyle(color: T.text, fontSize: 13.5),
                       cursorColor: kAccent,
                       decoration: InputDecoration(
                         hintText: 'drills_search'.tr(),
-                        hintStyle: const TextStyle(color: Colors.white30, fontSize: 13.5),
-                        prefixIcon: const Icon(Icons.search_rounded, color: Colors.white38, size: 18),
+                        hintStyle: const TextStyle(color: T.textOff, fontSize: 13.5),
+                        prefixIcon: const Icon(Icons.search_rounded, color: T.textOff, size: 18),
                         prefixIconConstraints:
                             const BoxConstraints(minWidth: 34, minHeight: 34),
                         isDense: true,
                         contentPadding: const EdgeInsets.symmetric(vertical: 10),
                         filled: true,
-                        fillColor: Colors.white.withValues(alpha: 0.06),
+                        fillColor: T.surfaceHi,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(9),
                           borderSide: BorderSide.none,
@@ -415,9 +508,11 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
+                  Builder(builder: (_) {
+                    _revealActive();
+                    return const SizedBox.shrink();
+                  }),
+                  _chipRow(
                       children: [
                         // Starred is always offered: it is how a coach picks
                         // twenty drills out of six hundred, and hiding it
@@ -455,23 +550,24 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         for (final c in categories) ...[
                           const SizedBox(width: 6),
                           _CategoryChip(
-                            label: c.labelKeyFor(widget.state.sportType.drillVocabulary).tr(),
+                            key: _filter == c ? _activeCategory : null,
+                            label: DrillLibraryService.instance.label(context, c.labelKeyFor(widget.state.sportType.drillVocabulary)),
                             count: countForCategory(c),
                             selected: _filter == c,
                             onTap: () => setState(() => _filter = c),
                           ),
                         ],
                       ],
-                    ),
                   ),
                   const SizedBox(height: 6),
                   // The second axis: how much the drill asks of the players.
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
+                  _chipRow(
                       children: [
+                        // "All levels", not a second bare "All": two rows
+                        // of chips both led by "All" did not say which was
+                        // the category and which the level.
                         _CategoryChip(
-                          label: 'drill_cat_all'.tr(),
+                          label: 'drills_all_levels'.tr(),
                           count: countForLevel(null),
                           selected: _level == null,
                           onTap: () => setState(() => _level = null),
@@ -479,14 +575,14 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         for (final l in DrillLevel.values) ...[
                           const SizedBox(width: 6),
                           _CategoryChip(
-                            label: l.labelKey.tr(),
+                            key: _level == l ? _activeLevel : null,
+                            label: DrillLibraryService.instance.label(context, l.labelKey),
                             count: countForLevel(l),
                             selected: _level == l,
                             onTap: () => setState(() => _level = l),
                           ),
                         ],
                       ],
-                    ),
                   ),
                   const SizedBox(height: 10),
                   if (_showMine)
@@ -516,7 +612,7 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                             const SizedBox(height: 10),
                             Text('drills_no_match'.tr(args: [_query.trim()]),
                                 style: const TextStyle(
-                                    color: Colors.white38, fontSize: 13)),
+                                    color: T.textOff, fontSize: 13)),
                           ],
                         ),
                       ),
@@ -531,6 +627,8 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
                         separatorBuilder: (_, _) => const SizedBox(height: 8),
                         itemBuilder: (context, i) => _DrillRow(
                         sport: widget.state.sportType,
+                          selected: _split &&
+                              groups[i].any((d) => d.id == _selected?.id),
                           variants: groups[i],
                           locale: _locale,
                           isLocked: (d) => !_unlocked(d),
@@ -544,7 +642,35 @@ class _DrillLibraryPageState extends State<DrillLibraryPage> {
           );
         },
       ),
-        ),
+        );
+          if (!_split) return list;
+          final sel = _selected;
+          return Row(
+            children: [
+              SizedBox(
+                width: (box.maxWidth * 0.42).clamp(380.0, 520.0),
+                child: list,
+              ),
+              const VerticalDivider(width: 1, thickness: 1, color: T.border),
+              Expanded(
+                child: sel == null
+                    ? const SizedBox.shrink()
+                    : DrillDetailPage(
+                        key: ValueKey(sel.id),
+                        drill: sel,
+                        sportType: widget.state.sportType,
+                        locale: _locale,
+                        embedded: true,
+                        onLoad: _unlocked(sel) ? () => _load(sel) : null,
+                        onUpgrade: () {
+                          Navigator.of(context).maybePop();
+                          widget.onUpgrade?.call();
+                        },
+                      ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }
@@ -559,7 +685,8 @@ class _CategoryChip extends StatelessWidget {
   final VoidCallback onTap;
   final int? count;
   const _CategoryChip(
-      {required this.label,
+      {super.key,
+      required this.label,
       required this.selected,
       required this.onTap,
       this.count});
@@ -630,20 +757,36 @@ class _UsageTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = switch (usage) {
-      3 => T.accent,
+      3 => T.accentText,
       2 => T.textDim,
       _ => T.textOff,
     };
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: color.withValues(alpha: 0.6)),
+    // The repeat glyph the detail page puts beside the same word, and a
+    // tooltip that says what it measures: on its own "Regular" beside a
+    // drill's name read as a difficulty level.
+    return Tooltip(
+      message: 'drill_usage_hint'.tr(),
+      triggerMode: TooltipTriggerMode.longPress,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: color.withValues(alpha: 0.6)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.repeat_rounded, size: 11, color: color),
+            const SizedBox(width: 3),
+            Flexible(
+              child: Text(DrillLibraryService.instance.label(context, 'drill_usage_$usage'),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: T.meta.copyWith(color: color, height: 1.2)),
+            ),
+          ],
+        ),
       ),
-      child: Text('drill_usage_$usage'.tr(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: T.meta.copyWith(color: color, height: 1.2)),
     );
   }
 }
@@ -651,6 +794,8 @@ class _UsageTag extends StatelessWidget {
 class _DrillRow extends StatelessWidget {
   final List<Drill> variants;
   final SportType sport;
+  /// The row whose drill is open in the split view's right-hand pane.
+  final bool selected;
   final String locale;
   final bool Function(Drill) isLocked;
   final void Function(Drill) onLoad;
@@ -658,6 +803,7 @@ class _DrillRow extends StatelessWidget {
   const _DrillRow({
     required this.variants,
     required this.sport,
+    this.selected = false,
     required this.locale,
     required this.isLocked,
     required this.onLoad,
@@ -697,7 +843,11 @@ class _DrillRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Expanded(
+                    // Flexible, so the tag follows the name: as Expanded beside
+                    // a Flexible tag the two split the free width in half,
+                    // the name wrapped at half the row and the tag floated
+                    // mid-row (x≈700 on an iPad).
+                    Flexible(
                       child: Text(
                         grouped
                             ? first.localizedFamilyName(locale)
@@ -716,7 +866,12 @@ class _DrillRow extends StatelessWidget {
                     // row below is already full on the narrowest phone.
                     // Flexible, so a long word ("Bình thường") gives way
                     // to the name rather than pushing past the edge.
-                    Flexible(child: _UsageTag(usage: first.usage)),
+                    // Capped rather than Flexible, so a long word ("Bình
+                    // thường") still gives way instead of pushing past the
+                    // edge.
+                    ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 120),
+                        child: _UsageTag(usage: first.usage)),
                   ],
                 ),
                 // Why run it. The library's whole claim is that the
@@ -757,7 +912,7 @@ class _DrillRow extends StatelessWidget {
                         label: _span((d) => d.players)),
                     MetaItem(
                         icon: Icons.bar_chart_rounded,
-                        label: first.level.labelKey.tr()),
+                        label: DrillLibraryService.instance.label(context, first.level.labelKey)),
                   ],
                 ),
                 if (grouped) ...[
@@ -817,7 +972,15 @@ class _DrillRow extends StatelessWidget {
     return GestureDetector(
       onTap: () => onOpen(first),
       behavior: HitTestBehavior.opaque,
-      child: row,
+      child: selected
+          ? DecoratedBox(
+              decoration: BoxDecoration(
+                  color: T.accentFill, borderRadius: T.brMd),
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: T.s8),
+                  child: row),
+            )
+          : row,
     );
   }
 
@@ -884,15 +1047,15 @@ class _VariantChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: locked ? 0.03 : 0.08),
+          color: locked ? T.surfaceHi : T.accentFill,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: locked ? Colors.white12 : kAccent.withValues(alpha: 0.55)),
+          border: Border.all(color: locked ? T.border : kAccent.withValues(alpha: 0.55)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(locked ? Icons.lock_outline : Icons.add_rounded,
-                size: 14, color: locked ? Colors.white38 : kAccent),
+                size: 14, color: locked ? T.textDisabled : T.accentText),
             const SizedBox(width: 5),
             // Flexible, not bare: a Wrap gives each chip the full row width,
             // so a long variant name — "the Australian formation", or its
@@ -902,7 +1065,7 @@ class _VariantChip extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: locked ? Colors.white38 : Colors.white,
+                      color: locked ? T.textDisabled : T.text,
                       fontSize: 12.5,
                       fontWeight: FontWeight.w600)),
             ),
@@ -928,9 +1091,9 @@ class _MineRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.05),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(11),
-          border: Border.all(color: Colors.white12),
+          border: Border.all(color: T.border),
         ),
         child: Row(
           children: [
@@ -942,7 +1105,7 @@ class _MineRow extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: T.text,
                           fontSize: 15,
                           fontWeight: FontWeight.w600)),
                   if (meta.folder.isNotEmpty) ...[
@@ -951,7 +1114,7 @@ class _MineRow extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            color: Colors.white54, fontSize: 12)),
+                            color: T.textOff, fontSize: 12)),
                   ],
                 ],
               ),
@@ -959,7 +1122,7 @@ class _MineRow extends StatelessWidget {
             const SizedBox(width: 8),
             // Same as the drill rows: this opens the board, it does not
             // add the board to anything.
-            const Icon(Icons.dashboard_outlined, color: kAccent, size: 26),
+            Icon(Icons.dashboard_outlined, color: kAccent, size: 26),
           ],
         ),
       ),

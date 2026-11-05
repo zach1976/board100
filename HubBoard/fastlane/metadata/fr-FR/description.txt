@@ -1,31 +1,56 @@
-Votre clipboard, devenu un vrai cerveau de coach.
+Votre bloc-notes, transformé en cerveau de coach.
 
-Tableau Tactique — 7 sports dans une seule app. Une toile professionnelle pour coachs, joueurs et analystes.
+Tableau Tactique offre aux entraîneurs, joueurs et analystes une toile professionnelle pour dessiner les actions, poser les formations et animer les déplacements — quinze sports dans une app, chacun sur son propre terrain.
 
 DESSINEZ. JOUEZ. PARTAGEZ.
 
-- Glissez les joueurs sur un terrain en couleurs précis
+- Glissez les joueurs sur un terrain précis en couleurs, au choix parmi quinze sports
 - Flèches, lignes, zones — couleurs et styles à votre goût
 - Touchez Play et les joueurs bougent étape par étape
-- Sauvegardez sans limite, exportez en image HD ou PDF
+- Écrivez une note à chaque étape : elle change au fil de l'action
+- Sauvegardez sans limite ; exportez en PNG, PDF ou vidéo
+
+854 EXERCICES, DÉJÀ RÉDIGÉS
+
+Chaque exercice est un tableau que vous déroulez temps par temps : ce qu'il travaille, comment l'installer et la phrase à dire pendant qu'il tourne. Toros et coups de pied arrêtés au football, pick-and-roll au basket, réception dans les six rotations au volley, petits corners au hockey, contre-attaques au handball, touches et mêlées au rugby, défense du bunt au baseball, 6 contre 5 au water-polo, schémas de double au tennis, badminton, pickleball et beach tennis, troisième balle au tennis de table, le regu au sepak takraw, passe-attaque au footvolley. Recherche et filtres par catégorie, niveau et effectif.
+
+- Six séances prêtes, composées des exercices de la bibliothèque : choisissez-en une en créant un plan et modifiez-la ensuite
+- Enchaînez exercices et tableaux perso en un plan, menez la séance depuis le bord du terrain et gardez l'historique de chaque séance
+- Gardez votre effectif avec photos et cochez qui est venu
+- Partagez un tableau par lien : vos joueurs l'ouvrent dans un navigateur, sans installer d'app
+
+QUINZE SPORTS, UNE APP
+
+Football · Basket (terrains FIBA, NBA, NCAA et lycée) · Volley (salle et beach) · Hockey sur gazon (extérieur, salle et Hockey5s) · Handball · Rugby · Baseball · Water-polo · Tennis · Badminton · Tennis de table · Pickleball · Sepak takraw · Beach tennis · Footvolley
+Chaque sport apporte son terrain, ses marqueurs, ses formations et sa bibliothèque d'exercices. Changez de sport depuis l'écran d'accueil.
 
 FORMATIONS, PRÊTES À L'EMPLOI
 
-Football (5v5 / 7v7 / 11v11) · Basket (3v3 / 5v5) · Volley (6v6) · Tennis · Badminton · Tennis de table · Pickleball
-Formations simple et double incluses.
+4-4-2 · 4-3-3 · Horns · 5-Out · 5-1 · 6-2 · Défenses 6-0 et 5-1 · Touches · Formation en I · Stacking · Simple et double pour chaque sport de raquette
+Un tap pour charger, ajustez ensuite.
+
+JOUR DE MATCH
+
+Pour football, basket, volley (par set), hockey, handball, water-polo et rugby : réglez les périodes et votre équipe de départ, lancez le chrono et touchez deux joueurs pour les remplacer. Le banc est trié par minutes jouées et « Suggérer » équilibre le temps de jeu ; cartons et exclusions là où le sport en a. Après le match, les minutes et remplacements de chaque joueur s'exportent en PDF. La préparation est gratuite ; le chrono demande Pro.
 
 CONÇU POUR LE BORD DU TERRAIN
 
 - Fonctionne hors-ligne — pas de Wi-Fi sur le terrain ? Pas de souci.
+- iPad avec barre latérale, raccourcis clavier et Apple Pencil : le Pencil dessine, le doigt déplace les joueurs ; en portrait ou en paysage
+- Connexion facultative avec Apple ou Google : tableaux, plans et historique synchronisés entre vos appareils
 - Thème sombre — repose les yeux le soir
 - Annuler/refaire jusqu'à 50 étapes — testez sans peur
 - AirPlay vers TV — le vestiaire devient salle de stratégie
-- Gratuit, sans achat intégré
 
-11 LANGUES
-Français · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu
+GRATUIT ET PRO
 
-Du foot du dimanche à l'équipe nationale — si vous l'enseignez, vous le dessinez.
+Téléchargement gratuit, sans compte. Pro retire les pubs et débloque toute la bibliothèque d'exercices : un achat unique (Lifetime) ou un abonnement annuel.
+
+14 LANGUES
+Français · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Tiếng Việt · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Chaque nom d'exercice et chaque consigne d'entraîneur sont traduits aussi.
+
+Du club du dimanche à l'équipe nationale — si vous l'enseignez, vous le dessinez.
 
 Conditions d’utilisation (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Politique de confidentialité: https://tacticsboard.100for1.com/privacy

@@ -1,1 +1,1 @@
-basket,3v3,5v5,pick roll,horns,zona,man to man,serangan,papan,pelatih,lapangan,formasi
+papan taktik,rencana latihan,jadwal,pick and roll,pola serangan,demo,analisis,evaluasi laga

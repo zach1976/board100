@@ -1,0 +1,115 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>浅色配色系统 V3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+body{margin:0;background:#F3F0E8;color:#16212E;font-family:Inter,-apple-system,"PingFang SC",sans-serif;padding:44px 16px 60px}
+.wrap{max-width:1500px;margin:0 auto}.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5F6B7A;font-weight:600}
+h1{font-size:30px;letter-spacing:-.02em;margin:8px 0 10px}.lede{color:#5F6B7A;font-size:14.5px;line-height:1.65;max-width:820px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px}
+@media (max-width:1280px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.grid{grid-template-columns:1fr}}
+.card{background:#FFFFFF;border:1px solid #D8E0E8;border-radius:18px;padding:18px;box-shadow:0 1px 2px rgba(22,33,46,.04),0 6px 20px rgba(22,33,46,.05);display:flex;flex-direction:column;gap:13px;min-height:330px}
+header{display:flex;align-items:center;gap:10px}.no{font-size:11.5px;font-weight:600;color:#607083}
+header h3{margin:0;font-size:17px}.en{font-size:11.5px;color:#607083}
+.sws{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.sw i{display:block;height:44px;border-radius:10px;box-shadow:inset 0 0 0 1px #D8E0E8}
+.sw b{display:block;font-size:9.5px;font-weight:600;margin-top:6px;color:#5F6B7A}.sw code{font-size:9.5px;color:#607083}
+.demo{background:#EEF3F8;border-radius:12px;padding:9px;display:flex;align-items:center;gap:8px}
+.btn{font-weight:600;font-size:13px;border-radius:9px;padding:8px 12px}.txt{margin-left:auto;font-weight:600;font-size:13px}
+.sem{display:flex;flex-direction:column;gap:4px;font-size:11px;color:#5F6B7A}.sem i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.card p{margin:auto 0 0;font-size:12.5px;line-height:1.6;color:#5F6B7A}
+</style></head><body><div class="wrap">
+<div class="kicker">Tactics Board · Design System V3.0</div><h1>浅色配色系统 V3.0</h1>
+<p class="lede">五个色块是批准的品牌色，原样展示。示例按钮用核准的文字色；右侧「全部训练」是 accentText——主色同色相加深到在白、应用底、浮层三种底色上都达到 4.5:1 的文字专用色。副色只做色块，要写字或画细线时用下方的 2nd text / stroke 变体。</p>
+<div class="grid"><article class="card">
+<header><span class="no">01</span><div><h3>排球</h3><code class="en">volleyball</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#2D6CDF"></i><b>Primary</b><code>#2D6CDF</code></div><div class="sw"><i style="background:#7DB7FF"></i><b>Secondary</b><code>#7DB7FF</code></div></div>
+<div class="demo"><span class="btn" style="background:#2D6CDF;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#2463D5">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#2463D5"></i>accentText #2463D5</span><span><i style="background:#3970B3"></i>2nd text #3970B3</span></div>
+<p>国际赛事 Taraflex 场地的竞技蓝，配同系浅蓝。</p></article><article class="card">
+<header><span class="no">02</span><div><h3>足球</h3><code class="en">soccer</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#257D42"></i><b>Primary</b><code>#257D42</code></div><div class="sw"><i style="background:#8BCF67"></i><b>Secondary</b><code>#8BCF67</code></div></div>
+<div class="demo"><span class="btn" style="background:#257D42;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#20793F">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#20793F"></i>accentText #20793F</span><span><i style="background:#3D7D05"></i>2nd text #3D7D05</span></div>
+<p>加深的职业草皮绿，与羽毛球的青绿拉开。</p></article><article class="card">
+<header><span class="no">03</span><div><h3>篮球</h3><code class="en">basketball</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#F28B2D"></i><b>Primary</b><code>#F28B2D</code></div><div class="sw"><i style="background:#FFB566"></i><b>Secondary</b><code>#FFB566</code></div></div>
+<div class="demo"><span class="btn" style="background:#F28B2D;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#A75903">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#A75903"></i>accentText #A75903</span><span><i style="background:#9F6003"></i>2nd text #9F6003</span></div>
+<p>篮球橙配木地板的暖杏色，室内球馆的暖调。</p></article><article class="card">
+<header><span class="no">04</span><div><h3>曲棍球</h3><code class="en">fieldHockey</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#087EB5"></i><b>Primary</b><code>#087EB5</code></div><div class="sw"><i style="background:#E3C86C"></i><b>Secondary</b><code>#E3C86C</code></div></div>
+<div class="demo"><span class="btn" style="background:#087EB5;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#046FA1">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#046FA1"></i>accentText #046FA1</span><span><i style="background:#836B06"></i>2nd text #836B06</span></div>
+<p>偏青的中蓝人造草，配比赛用球黄；与乒乓球的靛蓝分开。</p></article><article class="card">
+<header><span class="no">05</span><div><h3>网球</h3><code class="en">tennis</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#C7D93B"></i><b>Primary</b><code>#C7D93B</code></div><div class="sw"><i style="background:#6E95DD"></i><b>Secondary</b><code>#6E95DD</code></div></div>
+<div class="demo"><span class="btn" style="background:#C7D93B;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#6A7404">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#6A7404"></i>accentText #6A7404</span><span><i style="background:#496EB3"></i>2nd text #496EB3</span></div>
+<p>网球的荧光黄绿配硬地蓝，球与场。</p></article><article class="card">
+<header><span class="no">06</span><div><h3>橄榄球</h3><code class="en">rugby</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#B98056"></i><b>Primary</b><code>#B98056</code></div><div class="sw"><i style="background:#6FA570"></i><b>Secondary</b><code>#6FA570</code></div></div>
+<div class="demo"><span class="btn" style="background:#B98056;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#955F35">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#955F35"></i>accentText #955F35</span><span><i style="background:#467A48"></i>2nd text #467A48</span></div>
+<p>球皮革的棕褐配草场绿，对抗运动的厚重。</p></article><article class="card">
+<header><span class="no">07</span><div><h3>羽毛球</h3><code class="en">badminton</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#087E78"></i><b>Primary</b><code>#087E78</code></div><div class="sw"><i style="background:#D8B688"></i><b>Secondary</b><code>#D8B688</code></div></div>
+<div class="demo"><span class="btn" style="background:#087E78;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#077671">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#077671"></i>accentText #077671</span><span><i style="background:#88693D"></i>2nd text #88693D</span></div>
+<p>冷调青绿的场地垫，配软木球托的茶色。</p></article><article class="card">
+<header><span class="no">08</span><div><h3>乒乓球</h3><code class="en">tableTennis</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#4354A3"></i><b>Primary</b><code>#4354A3</code></div><div class="sw"><i style="background:#E15C56"></i><b>Secondary</b><code>#E15C56</code></div></div>
+<div class="demo"><span class="btn" style="background:#4354A3;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#4354A3">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#4354A3"></i>accentText #4354A3</span><span><i style="background:#C3413E"></i>2nd text #C3413E</span></div>
+<p>偏靛的深蓝球台，配赛场红地板。</p></article><article class="card">
+<header><span class="no">09</span><div><h3>匹克球</h3><code class="en">pickleball</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#26C2BF"></i><b>Primary</b><code>#26C2BF</code></div><div class="sw"><i style="background:#D7C96E"></i><b>Secondary</b><code>#D7C96E</code></div></div>
+<div class="demo"><span class="btn" style="background:#26C2BF;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#017B79">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#017B79"></i>accentText #017B79</span><span><i style="background:#7C6F00"></i>2nd text #7C6F00</span></div>
+<p>球场蓝绿交界的青绿，配洞洞球黄。</p></article><article class="card">
+<header><span class="no">10</span><div><h3>棒球</h3><code class="en">baseball</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#C83A48"></i><b>Primary</b><code>#C83A48</code></div><div class="sw"><i style="background:#C98E57"></i><b>Secondary</b><code>#C98E57</code></div></div>
+<div class="demo"><span class="btn" style="background:#C83A48;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#C03141">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#C03141"></i>accentText #C03141</span><span><i style="background:#996229"></i>2nd text #996229</span></div>
+<p>加深的缝线红，白字可读；配内野红土。</p></article><article class="card">
+<header><span class="no">11</span><div><h3>手球</h3><code class="en">handball</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#6B82DE"></i><b>Primary</b><code>#6B82DE</code></div><div class="sw"><i style="background:#E59B55"></i><b>Secondary</b><code>#E59B55</code></div></div>
+<div class="demo"><span class="btn" style="background:#6B82DE;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#5266BF">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#5266BF"></i>accentText #5266BF</span><span><i style="background:#A35E07"></i>2nd text #A35E07</span></div>
+<p>室内场地的钴蓝，配六米球门区橙。</p></article><article class="card">
+<header><span class="no">12</span><div><h3>水球</h3><code class="en">waterPolo</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#59C3E8"></i><b>Primary</b><code>#59C3E8</code></div><div class="sw"><i style="background:#5E8FC8"></i><b>Secondary</b><code>#5E8FC8</code></div></div>
+<div class="demo"><span class="btn" style="background:#59C3E8;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#097897">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#097897"></i>accentText #097897</span><span><i style="background:#4171A8"></i>2nd text #4171A8</span></div>
+<p>明亮的泳池水色，配深水区蓝。</p></article><article class="card">
+<header><span class="no">13</span><div><h3>藤球</h3><code class="en">sepakTakraw</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#D7B250"></i><b>Primary</b><code>#D7B250</code></div><div class="sw"><i style="background:#67A56C"></i><b>Secondary</b><code>#67A56C</code></div></div>
+<div class="demo"><span class="btn" style="background:#D7B250;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#896B04">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#896B04"></i>accentText #896B04</span><span><i style="background:#3E7B45"></i>2nd text #3E7B45</span></div>
+<p>藤编球的金色，配东南亚场馆绿。</p></article><article class="card">
+<header><span class="no">14</span><div><h3>沙滩网球</h3><code class="en">beachTennis</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#E1C79B"></i><b>Primary</b><code>#E1C79B</code></div><div class="sw"><i style="background:#CFA087"></i><b>Secondary</b><code>#CFA087</code></div></div>
+<div class="demo"><span class="btn" style="background:#E1C79B;color:#16212E">打开战术板</span>
+<span class="txt" style="color:#836B42">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#836B42"></i>accentText #836B42</span><span><i style="background:#91654E"></i>2nd text #91654E</span></div>
+<p>赛场细沙配珊瑚，最柔和的一套。</p></article><article class="card">
+<header><span class="no">15</span><div><h3>足排球</h3><code class="en">footvolley</code></div></header>
+<div class="sws"><div class="sw"><i style="background:#F6F4EE"></i><b>Background</b><code>#F6F4EE</code></div><div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><code>#FFFFFF</code></div><div class="sw"><i style="background:#EEF3F8"></i><b>Elevated</b><code>#EEF3F8</code></div><div class="sw"><i style="background:#A64E29"></i><b>Primary</b><code>#A64E29</code></div><div class="sw"><i style="background:#39B9C8"></i><b>Secondary</b><code>#39B9C8</code></div></div>
+<div class="demo"><span class="btn" style="background:#A64E29;color:#FFFFFF">打开战术板</span>
+<span class="txt" style="color:#A64E29">全部训练 →</span></div>
+<div class="sem"><span><i style="background:#A64E29"></i>accentText #A64E29</span><span><i style="background:#047985"></i>2nd text #047985</span></div>
+<p>海滩赛场的陶土色，配海水青；与网球的黄绿分开。</p></article></div></div></body></html>

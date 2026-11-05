@@ -1,5 +1,10 @@
-Có gì mới
+Có gì mới trong phiên bản 2.1.1
 
-• Trình chỉnh sửa dòng thời gian giờ có thể cuộn — mọi hàng cầu thủ và nét vẽ luôn trong tầm với, dù bạn thêm bao nhiêu.
-• Quay lại ứng dụng mượt mà hơn.
-• Sửa lỗi và cải thiện độ ổn định.
+DỄ TÌM PRO HƠN
+"Xóa quảng cáo" và "Khôi phục giao dịch" nay nằm ở trang Của tôi, chỉ một chạm. Trang mua là một bảng trắng riêng, dễ đọc cả trên iPad.
+
+BIỂU TƯỢNG MÔN VÀ MÀN GIỚI THIỆU MỚI
+Biểu tượng các môn và ba màn giới thiệu khi mở lần đầu đều được vẽ lại.
+
+SỬA LỖI KHÁC
+Sau khi đóng bảng, tên bài tập không còn nằm đè lên danh sách.

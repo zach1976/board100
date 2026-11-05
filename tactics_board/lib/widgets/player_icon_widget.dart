@@ -25,7 +25,75 @@ import 'tactics_canvas.dart' show chainEndAt, turnVector;
 /// tools/drills/engine.py's SPACING_APART is this number: the generator
 /// spaces boards by the size they are drawn at, so the two must move
 /// together.
-const double kPlayerIconSize = 36.0;
+///
+/// That is the size on a phone. A tablet board is two and a half times
+/// the phone's, and at a fixed 36 its players came out a third of the size
+/// they are on the phone relative to the pitch they stand on — dots on a
+/// 13" screen. So the cell is [kPlayerIconBase] times [kFigureScale], and
+/// everything sized off the figure (its hit box, the ball at its feet, the
+/// fan-out, its badge, the arrowheads) follows the one factor.
+double get kPlayerIconSize => kPlayerIconBase * kFigureScale;
+
+/// The figure's cell on a phone board: 36pt. See [kPlayerIconSize].
+const double kPlayerIconBase = 36.0;
+
+/// How much bigger than on a phone the board draws everything that sits
+/// ON it — figures, arrows, waypoints — set from the board's on-screen size
+/// by [boardFigureScaleFor] (and divided by a view zoom, which magnifies
+/// the board itself). 1.0 on every phone board.
+double gBoardFigureScale = 1.0;
+
+/// The board's own figure size: 1.0, or the generator's tight figure for a
+/// scrum, a wall, a lineout (the board JSON's "figureScale", see
+/// tools/drills/engine.py TIGHT_FIGURE_SCALE). Set by TacticsState.
+double gTightFigureScale = 1.0;
+
+/// The one factor every figure-derived size is multiplied by.
+double get kFigureScale => gBoardFigureScale * gTightFigureScale;
+
+/// The view's zoom onto a drill's half or close-up (TacticsState.frameZoom;
+/// 1.0 unzoomed). The transform magnifies everything on the canvas, so the
+/// few details a figure draws at a fixed size — its outline, its drop
+/// shadow, the shadows on its number — are drawn this much smaller to stay
+/// their size on the screen. At a lineout's 5x they were a white blob round
+/// every man and every number printed twice.
+double gViewZoom = 1.0;
+
+/// The figure growth for a board drawn [board] big on screen.
+///
+/// Exactly 1 up to a 500pt short side — every phone, upright or sideways,
+/// so a phone board is pixel for pixel what it was — then in proportion to
+/// the board, capped at 1.6: a 13" iPad's 58pt figure is about the share of
+/// the pitch the phone's was at 26pt, room the generator's spacing (made
+/// for the phone) still clears with to spare.
+///
+/// Upright, on a court whose players stand behind its baselines, the figure
+/// is also never bigger for its court than on the 402x730 board the drills
+/// are written on (tools/drills/engine.py figure_clear): a far server
+/// stands half a figure past the far baseline in fractions of the court, so
+/// on a shorter court — the phone's own board, under its toolbars — his
+/// feet were on the line and his head off the top of the board. Turned
+/// sideways the figure stands across the court and has the room.
+double boardFigureScaleFor(Size board,
+    {SportType? sport, bool sideways = false}) {
+  if (board.isEmpty) return 1.0;
+  final grown = (board.shortestSide / 500).clamp(1.0, 1.6).toDouble();
+  if (sport == null || sideways || !kBehindBaselineSports.contains(sport)) {
+    return grown;
+  }
+  final court = sport.fieldRect(board).height /
+      sport.fieldRect(const Size(402, 730)).height;
+  return min(grown, court);
+}
+
+/// The sports whose drills stand servers and receivers behind a baseline
+/// (tools/check_baselines.py), so whose figure keeps its court's share.
+const kBehindBaselineSports = {
+  SportType.tennis,
+  SportType.pickleball,
+  SportType.beachTennis,
+  SportType.volleyball,
+};
 
 /// How much of its 44pt cell a ball actually fills.
 ///
@@ -38,15 +106,40 @@ const double kPlayerIconSize = 36.0;
 /// edit bar if a drill wants the ball emphasised.
 const double kBallDrawFactor = 0.58;
 
+/// The same fraction, per sport, because the balls are not the same size.
+///
+/// 0.58 was measured against a football, and a football is 22cm across a
+/// 45cm pair of shoulders — half a person wide, which is what it looks like
+/// from above. A hockey ball is 7.3cm. Drawn at the football's fraction it
+/// came out the size of a player's head, which is the one thing a board
+/// showing a drag flick must not do: the eye reads the biggest round thing
+/// as the ball, and here it was reading a head.
+///
+/// Not scaled to life — at true scale a hockey ball would be 0.19 of the
+/// cell and vanish — but far enough down that it is plainly the smaller
+/// object. The others keep the football's figure until each is looked at.
+double ballDrawFactor(SportType sport) => switch (sport) {
+      SportType.fieldHockey => 0.40,
+      // A 40mm ball at a player's hip, drawn at the football's fraction,
+      // was as big as the player's head (audit 2026-10-11 m15). Smaller
+      // than the hockey ball, as it is in life, and still plainly a ball.
+      SportType.tableTennis => 0.34,
+      _ => kBallDrawFactor,
+    };
+
 /// The figure a brand-new player of this sport gets: holding, if the sport
 /// has something to hold. A coach who wants an empty-handed feeder turns it
 /// off on that one player.
+///
+/// The swimmer holds nothing; every other body — plain, or barefoot on
+/// sand — is what an empty-handed player is drawn as, and the implement
+/// figure what a holding one is.
 PlayerFigure newPlayerFigure(SportType sport) =>
-    sport.playerBody != PlayerFigure.plain
+    sport.playerBody == PlayerFigure.water
         ? sport.playerBody
         : (sport.implementHeldByDefault
-            ? (sport.playerImplement ?? PlayerFigure.plain)
-            : PlayerFigure.plain);
+            ? (sport.playerImplement ?? sport.playerBody)
+            : sport.playerBody);
 
 /// Where the shirt number sits on a token.
 ///
@@ -392,11 +485,12 @@ class TopDownPlayerPainter extends CustomPainter {
     // A referee or a coach holds nothing and wears no kit the sport
     // dictates: the plain figure, whatever the sport's players are drawn as.
     if (player.isMarker) return PlayerFigure.plain;
-    if (sport.playerBody != PlayerFigure.plain) return sport.playerBody;
+    final body = sport.playerBody;
+    if (body == PlayerFigure.water) return body;
     final held = sport.playerImplement;
-    if (held == null) return PlayerFigure.plain;
+    if (held == null) return body;
     final holds = player.holdsImplement ?? sport.implementHeldByDefault;
-    return holds ? held : PlayerFigure.plain;
+    return holds ? held : body;
   }
 
   /// The figure's silhouette in [c], stamped eight ways round itself at
@@ -452,12 +546,13 @@ class TopDownPlayerPainter extends CustomPainter {
     // came with was a soft grey smear under the boots, and stamping the
     // outline from a silhouette that included it painted that smear white.
     // The shadow belongs to the painter, the same one the drawn token cast.
+    final unzoom = 1 / gViewZoom;
     canvas.drawImageRect(
       art,
       src,
-      dst.shift(const Offset(1.5, 2)),
+      dst.shift(Offset(1.5 * unzoom, 2 * unzoom)),
       _silhouettePaint(Colors.black, 0.32)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3),
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3 * unzoom),
     );
 
     // The stroke the drawn shape used to carry. A token is ringed in the
@@ -471,7 +566,7 @@ class TopDownPlayerPainter extends CustomPainter {
     // what you see: 2.5pt of it read as a glow round the player rather than
     // an edge on them.
     if (borderWidth > 0) {
-      final r = min(borderWidth, 2.2) * 0.52;
+      final r = min(borderWidth, 2.2) * 0.52 * unzoom;
       _stamp(canvas, art, src, dst, borderColor, r);
       // And white inside it, always. A player's arrow colour is often their
       // kit colour as well — the away side was ringed coral on coral, which
@@ -597,6 +692,122 @@ double playerFacing(PlayerIcon p) =>
 /// This replaced "face the way you came": a runner who had reached the
 /// touchline stood staring at it for the rest of the drill, and the man
 /// who had just laid the ball off turned his back on the whole pattern.
+
+/// Fold a heading so it obeys the net, for a token drawn at [at].
+///
+/// The rule behind [boardHeading] is "face your next action", and on a
+/// court that is wrong in a way a player would notice at once: the next
+/// action after reaching the net is the recovery to base, so the man was
+/// drawn having spun round to face his own back line. You lunge to the net
+/// facing it and you push back off that lunge still facing it. The net
+/// stays in front of you.
+///
+/// Badminton has one exception, and it is one corner of the court: the
+/// BACKHAND rear. That is the corner you cannot reach facing forwards —
+/// you turn, travel back with your back to the net, hit, and turn again.
+/// The forehand rear is a scissor jump taken chest-on, and the two front
+/// corners are lunges you push straight back out of, so all three of them
+/// keep the net in front of you. For a right-hander the backhand rear is
+/// the left corner of his own half, and the other way round for the man
+/// across the net. The sideways half of the heading is kept either way;
+/// only the towards/away half is folded.
+/// Racket sports whose players stay square to the net whatever they do:
+/// they shuffle sideways, step in and step back, and never turn away.
+bool squareToNet(SportType sport) =>
+    sport == SportType.tableTennis ||
+    sport == SportType.tennis ||
+    sport == SportType.pickleball ||
+    sport == SportType.beachTennis;
+
+double faceAcrossNet(double h, PlayerIcon p, SportType sport, Offset at,
+    Size court, {Offset? ball, Offset? ballFrom}) {
+  if (!sport.hasNet) return h;
+  // A racket sport's rule, not every net sport's. In volleyball, sepak
+  // takraw and footvolley the ball is played BETWEEN team-mates on the same
+  // side before it ever crosses: a pepper pair face each other, a setter
+  // turns his back on the net to back-set, a passer turns to the man he is
+  // passing to. Folding them to the net drew both halves of a two-man
+  // warm-up facing the same way, the one thing a coach would notice first.
+  //
+  // What they do instead is never turn their backs on the BALL. A volleyball
+  // player has no stroke that is played behind him: he moves to the ball and
+  // squares up to it, and "face the way you ran" — the fallback when the
+  // next action resolves to himself — had a passer stepping back for a deep
+  // serve drawn with his back to the server. So the heading is kept unless
+  // it points away from the ball, and then it is the ball.
+  if (sport == SportType.volleyball ||
+      sport == SportType.sepakTakraw ||
+      sport == SportType.footvolley) {
+    // No ball on the board at all — a court-sprint, a jump series, any of
+    // the conditioning boards. A volleyball player runs those square to the
+    // net: he shuffles and he sprints, he does not turn to face the cone he
+    // is running at. Without a ball to watch he keeps his stance.
+    if (ball == null) return playerFacing(p);
+    var toBall = ball - at;
+    // A ball he is playing is on him and points nowhere — half a token is
+    // close enough to be his — so he faces where it came FROM: the server,
+    // the hitter, the partner who passed it. That is the stance a passer
+    // takes, and it is what stops a man who stepped back for a deep serve
+    // being drawn with his back to the man who served it.
+    if (toBall.distance < kPlayerIconSize * 0.5) {
+      if (ballFrom == null) return h;
+      toBall = ballFrom - at;
+      if (toBall.distance < kPlayerIconSize * 0.5) return h;
+      return atan2(toBall.dx, -toBall.dy);
+    }
+    final facing = Offset(sin(h), -cos(h));
+    final away = facing.dx * toBall.dx + facing.dy * toBall.dy;
+    return away >= 0 ? h : atan2(toBall.dx, -toBall.dy);
+  }
+  final wantUp = p.team == PlayerTeam.home;
+  // Table tennis is played square to the table. A player shuffles sideways,
+  // steps in and steps back, and never turns his shoulder or his back to
+  // it — the ghost of a multiball player was drawn in profile because his
+  // stored stance was 90 degrees, and the fold below only flips the
+  // forward half of a heading, never the sideways half.
+  //
+  // Tennis, pickleball and beach tennis the same way: after the stroke the
+  // player recovers with a side-shuffle, square to the net — drawn along
+  // his travel he stood in profile, or angled off towards the sideline.
+  if (squareToNet(sport)) return wantUp ? 0.0 : pi;
+  var faceNet = true;
+  if (sport == SportType.badminton && court.height > 0 && court.width > 0) {
+    // 0.82, not 0.80: the rear corners of the footwork boards sit at 0.89
+    // of the canvas and a round-the-head clear is taken from 0.80 — the
+    // one shot whose entire point is NOT turning your back — and the old
+    // line ran a thousandth under it.
+    final deep = wantUp
+        ? at.dy / court.height > 0.82
+        : at.dy / court.height < 0.18;
+    final backhand =
+        wantUp ? at.dx / court.width < 0.5 : at.dx / court.width > 0.5;
+    // And only on the way IN. Turning your back on the net is what you do
+    // retreating into the backhand corner; coming out of it you are
+    // already facing forwards again, and standing in it waiting to start
+    // you never turned at all. Measured against where the token began the
+    // board: a feeder whose ready position is that corner was drawn
+    // turned away before anything had happened, and a clear rally — both
+    // players living in a rear corner and stepping out of it between
+    // shots — had one of them spin round on every recovery.
+    final wentBack = wantUp
+        ? at.dy > p.position.dy + 0.5
+        : at.dy < p.position.dy - 0.5;
+    faceNet = !(deep && backhand && wentBack);
+    // Square to it, not angled towards it. A badminton player stands
+    // facing the net because he has to cover both sides of himself, and
+    // the lunge to a front corner does not turn him — he reaches, and he
+    // pushes back out of it the way he came. Keeping the sideways half of
+    // the travel direction had him swivel 45 degrees to go to the corner
+    // and swivel back, which is a step nobody takes.
+    return faceNet == wantUp ? 0.0 : pi;
+  }
+  final u = sin(h);
+  var v = cos(h); // positive is up the board, towards the far side
+  final up = faceNet == wantUp;
+  if (up ? v < 0 : v > 0) v = -v;
+  return atan2(u, v);
+}
+
 double? boardHeading(List<PlayerIcon> all, PlayerIcon p, int step) {
   // How close a ball sits to the feet of the player holding it: the
   // generator places it 24pt away, and a pass into space beside a man is
@@ -738,6 +949,19 @@ class PlayerIconWidget extends StatelessWidget {
   final Function(ScaleStartDetails)? onScaleStart;
   final Function(ScaleUpdateDetails)? onScaleUpdate;
   final Function(ScaleEndDetails)? onScaleEnd;
+  /// Hang the name badge over the head instead of under the feet.
+  ///
+  /// The badge hangs 30pt below the middle, which is the head of anyone
+  /// standing a stride nearer the viewer — a marker behind an attacker put
+  /// his "X1" on the attacker's hair, and with the nearer figure painted
+  /// last the badge came out cut in half. The board sets this when the spot
+  /// below is taken; the badge then sits on its owner's head, still touching
+  /// him, so whose it is stays plain.
+  final bool labelAbove;
+
+  /// A right-click (trackpad, mouse) — and on a tablet a long press — asks
+  /// for the element's menu, at this point on the screen.
+  final void Function(Offset globalPosition)? onContextMenu;
 
   const PlayerIconWidget({
     super.key,
@@ -745,12 +969,28 @@ class PlayerIconWidget extends StatelessWidget {
     this.isSelected = false,
     this.sport = SportType.soccer,
     this.heading,
+    this.labelAbove = false,
     this.onTap,
     this.onLongPress,
     this.onScaleStart,
     this.onScaleUpdate,
     this.onScaleEnd,
+    this.onContextMenu,
   });
+
+  /// The long press opens the menu only on a tablet and only where nothing
+  /// else has claimed it; a phone's board is unchanged.
+  GestureLongPressStartCallback? _menuOnHold(BuildContext context) {
+    final menu = onContextMenu;
+    if (menu == null || onLongPress != null) return null;
+    if (MediaQuery.sizeOf(context).shortestSide < 600) return null;
+    return (d) => menu(d.globalPosition);
+  }
+
+  /// A pointer that can hover gets told this is something to pick up.
+  Widget _hoverable(Widget child) => onTap == null && onScaleStart == null
+      ? child
+      : MouseRegion(cursor: SystemMouseCursors.grab, child: child);
 
   @override
   Widget build(BuildContext context) {
@@ -760,19 +1000,37 @@ class PlayerIconWidget extends StatelessWidget {
     // circle" MarkerPainter still draws is right where it belongs — as the
     // tool's own icon in the palette.
     if (isTextElement(player)) {
-      return GestureDetector(
-        onTap: onTap,
-        onLongPress: onLongPress,
-        onScaleStart: onScaleStart,
-        onScaleUpdate: onScaleUpdate,
-        onScaleEnd: onScaleEnd,
-        child: TextElementChip(player: player, isSelected: isSelected),
+      // The gestures sit INSIDE the turn. Every box above a Transform keeps
+      // the untransformed rectangle for its hit test, so a detector wrapped
+      // around a turned chip answered only where the two rectangles
+      // overlapped. Inside it, the detector's own frame is the chip's, and
+      // the whole of it answers at any angle.
+      return turnedForText(
+        player,
+        extraQuarters: BoardOrientation.counterTurns(context),
+        _hoverable(GestureDetector(
+          onTap: onTap,
+          onLongPress: onLongPress,
+          onLongPressStart: _menuOnHold(context),
+          onSecondaryTapUp: onContextMenu == null
+              ? null
+              : (d) => onContextMenu!(d.globalPosition),
+          onScaleStart: onScaleStart,
+          onScaleUpdate: onScaleUpdate,
+          onScaleEnd: onScaleEnd,
+          child: TextElementChip(
+              player: player, isSelected: isSelected, turned: false),
+        )),
       );
     }
     final size = kPlayerIconSize * player.scale;
-    return GestureDetector(
+    return _hoverable(GestureDetector(
       onTap: onTap,
       onLongPress: onLongPress,
+      onLongPressStart: _menuOnHold(context),
+      onSecondaryTapUp: onContextMenu == null
+          ? null
+          : (d) => onContextMenu!(d.globalPosition),
       onScaleStart: onScaleStart,
       onScaleUpdate: onScaleUpdate,
       onScaleEnd: onScaleEnd,
@@ -788,6 +1046,7 @@ class PlayerIconWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         alignment: Alignment.center,
         children: [
+          _ContactShadow(player: player, size: size),
           AnimatedScale(
             duration: const Duration(milliseconds: 140),
             curve: Curves.easeOutCubic,
@@ -819,8 +1078,8 @@ class PlayerIconWidget extends StatelessWidget {
                                   sport: sport)
                               : Center(
                                   child: FractionallySizedBox(
-                                    widthFactor: kBallDrawFactor,
-                                    heightFactor: kBallDrawFactor,
+                                    widthFactor: ballDrawFactor(sport),
+                                    heightFactor: ballDrawFactor(sport),
                                     child: _BallWidget(
                                         player: player,
                                         isSelected: isSelected),
@@ -851,17 +1110,27 @@ class PlayerIconWidget extends StatelessWidget {
               // drawn 1.57 boxes tall, so a badge placed by the box lands on
               // the player's shins.
               offset: turnVector(
-                  Offset(0, kPlayerIconSize * 0.5 * player.scale +
-                      11.7 * player.scale),
+                  Offset(
+                      0,
+                      labelAbove
+                          // Above the hair: the figure's ink reaches 24pt
+                          // over the middle, the badge is 13 tall.
+                          ? -(kPlayerIconSize * 0.5 + 14 * kFigureScale) *
+                              player.scale
+                          : kPlayerIconSize * 0.5 * player.scale +
+                              11.7 * player.scale * kFigureScale),
                   BoardOrientation.counterTurns(context)),
               child: RotatedBox(
               // Upright on screen like the body above it.
               quarterTurns: BoardOrientation.counterTurns(context),
               child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+              // A pill, not a tag: rounded to its own height, a little
+              // wider (volleyball's editor mock, 2026-10-17).
+              padding: EdgeInsets.symmetric(
+                  horizontal: 7 * kFigureScale, vertical: 2 * kFigureScale),
               decoration: BoxDecoration(
-                color: player.color.withValues(alpha: 0.9),
-                borderRadius: BorderRadius.circular(4),
+                color: player.color.withValues(alpha: 0.92),
+                borderRadius: BorderRadius.circular(12 * kFigureScale),
                 boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 2)],
               ),
               child: Text(
@@ -869,7 +1138,7 @@ class PlayerIconWidget extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
-                  fontSize: 12 * player.scale,
+                  fontSize: 12 * player.scale * kFigureScale,
                   height: 1.2,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -879,7 +1148,7 @@ class PlayerIconWidget extends StatelessWidget {
             ),
         ],
       ),
-    );
+    ));
   }
 }
 
@@ -926,12 +1195,18 @@ class _PlayerShape extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w800,
-                fontSize: 15 * player.scale,
+                fontSize: 15 * player.scale * kFigureScale,
                 height: 1,
-                shadows: const [
-                  Shadow(color: Colors.black, offset: Offset(0.8, 0.8), blurRadius: 1.5),
-                  Shadow(color: Colors.black, offset: Offset(-0.8, -0.8), blurRadius: 1.5),
-                  Shadow(color: Colors.black87, blurRadius: 3),
+                shadows: [
+                  Shadow(
+                      color: Colors.black,
+                      offset: Offset(0.8 / gViewZoom, 0.8 / gViewZoom),
+                      blurRadius: 1.5 / gViewZoom),
+                  Shadow(
+                      color: Colors.black,
+                      offset: Offset(-0.8 / gViewZoom, -0.8 / gViewZoom),
+                      blurRadius: 1.5 / gViewZoom),
+                  Shadow(color: Colors.black87, blurRadius: 3 / gViewZoom),
                 ],
               ),
             ),
@@ -1015,7 +1290,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
     // the old soft halo alone was not enough to tell home from away apart at a
     // glance, so the team colour is painted as an actual ring (with a thin
     // white outline for contrast against any pitch colour).
-    final ringWidth = (3.0 * p.scale).clamp(2.5, 5.0).toDouble();
+    final ringWidth = (3.0 * p.scale * kFigureScale).clamp(2.5, 5.0 * kFigureScale).toDouble();
     final body = Stack(
       children: [
         Container(
@@ -1098,7 +1373,7 @@ class PhotoPlayerShapeState extends State<PhotoPlayerShape> {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 10 * p.scale,
+                  fontSize: 10 * p.scale * kFigureScale,
                   height: 1,
                   shadows: const [
                     Shadow(color: Colors.black87, blurRadius: 2),
@@ -1364,6 +1639,88 @@ const kUprightMarkers = <MarkerShape>{
 /// hides it exactly as a player standing over one does in life. The rest have
 /// a height, and a figure that stands 47pt tall buries anything shorter than
 /// that directly behind it — see markerClearOffsets.
+/// The patch of ground a token is standing on.
+///
+/// Everything on the board was drawn flat, each piece a sticker with a white
+/// outline and nothing under it — a cut-out lying on the turf rather than a
+/// figure standing on it. This is one soft ellipse at the token's own
+/// contact point: the shoes for a person, the resting point for a ball or a
+/// cone. Flat equipment (a base, a marker disc, a throw-down ring) is
+/// already ON the ground and gets none.
+///
+/// It turns with the board, like the name badge above it: the figures stay
+/// upright on screen whichever way the pitch is pointed, so "under" is under
+/// on the screen and not in board coordinates.
+class _ContactShadow extends StatelessWidget {
+  final PlayerIcon player;
+  final double size;
+  const _ContactShadow({required this.player, required this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    if (isTextElement(player)) return const SizedBox.shrink();
+    // A ball is not a marker, so "not a marker" alone counted it as a
+    // person and dropped its shadow to where a figure's shoes are — 25pt
+    // down, 15pt clear of the ball, which then hung in the air above it.
+    final person =
+        !player.isBall && (!player.isMarker || player.isPersonMarker);
+    if (player.isMarker && !person &&
+        !kStandingMarkers.contains(player.markerShape)) {
+      return const SizedBox.shrink();
+    }
+    // A figure is drawn 1.4 boxes tall and its shoes sit 0.70 of a box below
+    // the middle — measured off the art, not guessed; see tool/ink_probe.dart.
+    //
+    // Everything else is fitted to its own box by [markerArtScale], so where
+    // its foot lands is half that. A flat 0.33 for all of them put a cone's
+    // shadow BEHIND the cone: the art reaches 0.31 of a box below the middle
+    // and the shadow's whole half-height is 0.03, so the only thing that
+    // showed was a sliver, and the cone stood in mid-air. The shadow now
+    // starts where the object's own base ends.
+    // Centred ON the contact edge, not under it: the object hides the top
+    // half and the bottom half shows as the rim of ground it stands on. Put
+    // wholly below the edge, even by a few points, the same ellipse reads as
+    // the shadow of something held above it. The 0.03 is the transparent
+    // padding the ball and cone bitmaps carry under their ink (measured:
+    // both end 9.2–9.5pt below the middle, not the 10.4–11.2 their draw
+    // factors say).
+    final draw = (player.isBall
+            ? ballDrawFactor(player.sportType ?? SportType.soccer)
+            : markerArtScale(player.markerShape))
+        .clamp(0.4, 1.2);
+    final drop = person ? size * 0.70 : size * (draw / 2 - 0.03);
+    final w = person ? size * 0.66 : size * draw * 1.1;
+    return Transform.translate(
+      // A hair to the right as well as down: the figures are lit from the
+      // upper left, and a shadow directly underneath reads as a sticker
+      // with a smudge rather than a body with a light on it.
+      offset: turnVector(Offset(w * (person ? 0.10 : 0.16), drop),
+          BoardOrientation.counterTurns(context)),
+      child: RotatedBox(
+        quarterTurns: BoardOrientation.counterTurns(context),
+        // A round gradient squashed, not a gradient in a flat box: a
+        // RadialGradient takes its radius from the box's SHORTER side, so
+        // painted straight into an ellipse 22pt by 6 it came out as a 6pt
+        // dot beside the boots.
+        child: Transform.scale(
+          scaleY: 0.30,
+          child: Container(
+            width: w,
+            height: w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(colors: [
+                Colors.black.withValues(alpha: 0.42),
+                Colors.black.withValues(alpha: 0.0),
+              ], stops: const [0.45, 1.0]),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 const kStandingMarkers = <MarkerShape>{
   MarkerShape.cone,
   MarkerShape.pole,
@@ -1518,7 +1875,7 @@ class _MarkerWidget extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 12 * player.scale,
+                fontSize: 12 * player.scale * kFigureScale,
                 height: 1,
                 shadows: const [Shadow(color: Colors.black87, blurRadius: 2)],
               ),
@@ -1539,14 +1896,60 @@ class _MarkerWidget extends StatelessWidget {
 bool isTextElement(PlayerIcon p) =>
     p.markerShape == MarkerShape.text && p.photoId == null;
 
-/// How wide a text element is allowed to get before it wraps. Wide enough
-/// for a short coaching phrase, narrow enough that three of them on a pitch
-/// do not overlap each other by default.
-const double kTextElementMaxWidth = 150.0;
+/// How wide a text element is allowed to get before it wraps, and how many
+/// lines it is allowed to wrap into.
+///
+/// 150 and three lines for a short coaching phrase — wide enough to read,
+/// narrow enough that three of them on a pitch do not overlap each other by
+/// default. A drill's own step runs longer than that (median 31 characters
+/// across the library, the ninetieth percentile 71, the longest 259), and at
+/// 150 it came out as a column nine lines deep.
+///
+/// So a long one is given the width instead of the height: most of the
+/// board's short side, and two lines. It is the caption under a picture, and
+/// a caption that climbs three or four lines up into the court is covering
+/// the thing it describes. What will not fit is an ellipsis away — tapping
+/// the element opens the whole of it to read and to edit.
+///
+/// Length is measured as it reads, not in characters: a Chinese or Japanese
+/// character is as wide as two Latin ones, so a 30-character Chinese step
+/// was given the short label's 150 points and cut to "5 名 …" (audit
+/// 2026-10-11 M2). And a drill's own step note always gets the caption's
+/// width and three lines: it is a sentence, not a label, and the third line
+/// is what kept the 90th-percentile step whole.
+double textElementMaxWidth(BuildContext context, String label,
+    {bool note = false}) {
+  if (!note && textReadLength(label) <= 40) return 150.0;
+  return (MediaQuery.sizeOf(context).shortestSide * 0.8).clamp(280.0, 520.0);
+}
 
-/// As much as three wrapped lines of the chip hold. The other elements cap
-/// at 12 because they are a name under a token; this one IS the sentence.
-const int kTextElementMaxChars = 40;
+int textElementMaxLines(String label, {bool note = false}) =>
+    note || textReadLength(label) <= 40 ? 3 : 2;
+
+/// The id the drill's step note is placed under (TacticsState.kDrillNoteId).
+const String kDrillNoteElementId = 'drill_note';
+
+/// How long [s] reads, in Latin-character widths: CJK ideographs, kana,
+/// Hangul and full-width forms count two.
+int textReadLength(String s) {
+  var n = 0;
+  for (final r in s.runes) {
+    final wide = (r >= 0x1100 && r <= 0x115F) ||
+        (r >= 0x2E80 && r <= 0xA4CF) ||
+        (r >= 0xAC00 && r <= 0xD7A3) ||
+        (r >= 0xF900 && r <= 0xFAFF) ||
+        (r >= 0xFE30 && r <= 0xFE4F) ||
+        (r >= 0xFF00 && r <= 0xFF60) ||
+        (r >= 0xFFE0 && r <= 0xFFE6);
+    n += wide ? 2 : 1;
+  }
+  return n;
+}
+
+/// What the longest step in the drill library needs, with room to edit it.
+/// The other elements cap at 12 because they are a name under a token; this
+/// one IS the sentence.
+const int kTextElementMaxChars = 260;
 
 /// The words, on a chip sized to them.
 /// The platform face for a text element's [PlayerIcon.font], primary and
@@ -1568,42 +1971,179 @@ List<String> textFontFamily(String? font) {
   };
 }
 
-class TextElementChip extends StatelessWidget {
-  final PlayerIcon player;
-  final bool isSelected;
-  const TextElementChip(
-      {super.key, required this.player, this.isSelected = false});
+/// What a face is called on a picker. A type specimen, not a word to
+/// translate: these are Latin faces and the name is set in the face itself,
+/// which is what tells them apart — four "Aa" at 14pt did not.
+String textFontName(String? font) => switch (font) {
+      'serif' => 'Serif',
+      'mono' => 'Mono',
+      'hand' => 'Hand',
+      _ => 'Sans',
+    };
+
+/// One face on a picker: a big "Aa" over its name, both set in the face.
+/// The tune panel and the add-text dialog show the same four.
+class TextFontChip extends StatelessWidget {
+  /// One of [kTextFonts]; the empty string is the app's own face.
+  final String font;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const TextFontChip(
+      {super.key,
+      required this.font,
+      required this.selected,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    final scale = player.scale;
+    final faces = textFontFamily(font);
+    final family = faces.isEmpty ? null : faces.first;
+    final fallback = faces.length > 1 ? faces.sublist(1) : null;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(right: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(
+            color: selected ? T.accent : Colors.white24,
+            width: selected ? 2 : 1,
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Aa',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                height: 1.1,
+                fontWeight: FontWeight.w600,
+                fontFamily: family,
+                fontFamilyFallback: fallback,
+              ),
+            ),
+            Text(
+              textFontName(font),
+              style: TextStyle(
+                color: selected ? T.accent : Colors.white54,
+                fontSize: 9,
+                height: 1.1,
+                fontFamily: family,
+                fontFamilyFallback: fallback,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A text element turned the way its rotation says, as a whole, text and
+/// all: it IS the text, and a label along a touchline reads along the
+/// touchline. Every other token turns its picture and keeps its label
+/// upright.
+///
+/// A quarter turn is turned by ROTATING THE BOX, not by transforming the
+/// paint inside it. Transform.rotate leaves the layout size alone: a chip
+/// lying on its side still measured 280 across and 45 down while it painted
+/// 45 across and 280 down, so the half-size it is pulled back by to sit on
+/// its point was the half-size of the wrong rectangle. RotatedBox turns the
+/// box with it. A free angle (a marker turned 15 degrees at a time) still
+/// transforms — there is no box for it — and sits a little off its point;
+/// its hit area is right regardless, because the gestures live inside the
+/// turn (see PlayerIconWidget).
+///
+/// [extraQuarters] is the board's counter-turn ([BoardOrientation.counterTurns]).
+/// Words are for the reader, so a text element keeps its own rotation
+/// relative to the SCREEN: when landscape turns the whole board a quarter,
+/// the chip turns back the way the figures do, and "Press high" or the
+/// step note no longer reads down the side of an iPad.
+Widget turnedForText(PlayerIcon player, Widget child,
+    {int extraQuarters = 0}) {
+  final angle = player.rotation + extraQuarters * (pi / 2);
+  final quarters = angle / (pi / 2);
+  final nearest = quarters.roundToDouble();
+  final squared = (quarters - nearest).abs() < 0.01;
+  return squared
+      ? RotatedBox(quarterTurns: (nearest.toInt() % 4 + 4) % 4, child: child)
+      : Transform.rotate(angle: angle, child: child);
+}
+
+/// A drag delta reported inside a turned text element, put back into the
+/// board's frame.
+///
+/// The gesture detector lives inside the turn (see [turnedForText]), which
+/// is what makes the whole chip answer a tap at any angle — and it means a
+/// drag's delta arrives in the CHIP's frame, not the board's. A note lying
+/// on its side was moving at a right angle to the finger; the board turned
+/// too, sideways, made that read as backwards.
+Offset untwistForText(PlayerIcon player, Offset local,
+    {int extraQuarters = 0}) {
+  final a = player.rotation + extraQuarters * (pi / 2);
+  if (a == 0) return local;
+  return Offset(local.dx * cos(a) - local.dy * sin(a),
+      local.dx * sin(a) + local.dy * cos(a));
+}
+
+class TextElementChip extends StatelessWidget {
+  final PlayerIcon player;
+  final bool isSelected;
+
+  /// False when the caller turns the chip itself, so that it can put its
+  /// gesture detector inside the turn. See [turnedForText].
+  final bool turned;
+  const TextElementChip(
+      {super.key,
+      required this.player,
+      this.isSelected = false,
+      this.turned = true});
+
+  @override
+  Widget build(BuildContext context) {
+    // With the board's figures (gBoardFigureScale): on an iPad the people
+    // and their labels are half as big again, and a sentence under the
+    // court set in a phone's 13pt read as the one thing nobody had
+    // enlarged. The width it may wrap in stays the screen's (see
+    // textElementMaxWidth) — placeDrillNote measures it at that width.
+    // Never smaller: an upright volleyball board shrinks its figures to
+    // keep the far server on it, and words have no server to keep.
+    final scale = player.scale * max(1.0, gBoardFigureScale);
     // An empty one would be an invisible thing you cannot tap again, so it
     // keeps the tool's own glyph until something is typed into it.
     final empty = player.label.trim().isEmpty;
     final faces = textFontFamily(player.font);
-    // Turned as a whole, text and all: it IS the text, and a label along a
-    // touchline reads along the touchline. Every other token turns its
-    // picture and keeps its label upright.
-    return Transform.rotate(
-      angle: player.rotation,
-      child: ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: kTextElementMaxWidth * scale),
+    final body = ConstrainedBox(
+      constraints: BoxConstraints(
+          maxWidth: textElementMaxWidth(context, player.label,
+                  note: player.id == kDrillNoteElementId) *
+              player.scale),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: 8 * scale, vertical: 4.5 * scale),
         decoration: BoxDecoration(
           color: player.color.withValues(alpha: 0.94),
           borderRadius: BorderRadius.circular(6 * scale),
+          // Fixed-point details, un-magnified by a view zoom (gViewZoom).
           border: isSelected
-              ? Border.all(color: T.accent, width: 2)
-              : Border.all(color: Colors.white24, width: 1),
-          boxShadow: const [
-            BoxShadow(color: Colors.black45, blurRadius: 4, offset: Offset(1, 1)),
+              ? Border.all(color: T.accent, width: 2 / gViewZoom)
+              : Border.all(color: Colors.white24, width: 1 / gViewZoom),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black45,
+                blurRadius: 4 / gViewZoom,
+                offset: Offset(1 / gViewZoom, 1 / gViewZoom)),
           ],
         ),
         child: Text(
           empty ? 'T' : player.label,
-          maxLines: 3,
+          maxLines: textElementMaxLines(player.label,
+              note: player.id == kDrillNoteElementId),
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -1613,12 +2153,15 @@ class TextElementChip extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontFamily: faces.isEmpty ? null : faces.first,
             fontFamilyFallback: faces.length > 1 ? faces.sublist(1) : null,
-            shadows: const [Shadow(color: Colors.black54, blurRadius: 2)],
+            shadows: [Shadow(color: Colors.black54, blurRadius: 2 / gViewZoom)],
           ),
         ),
       ),
-      ),
     );
+    return turned
+        ? turnedForText(player, body,
+            extraQuarters: BoardOrientation.counterTurns(context))
+        : body;
   }
 }
 
@@ -1644,11 +2187,15 @@ class MarkerPainter extends CustomPainter {
       canvas.drawCircle(Offset(cx, cy), r + 5, glow);
     }
 
-    // Shadow
-    final shadow = Paint()
-      ..color = Colors.black.withValues(alpha: 0.32)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
-    canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
+    // Shadow. Not for a zone: that one is paint on the floor, not a thing
+    // standing on it, and a drop shadow under it was half of why it read
+    // as a little tile somebody had put down.
+    if (shape != MarkerShape.zone) {
+      final shadow = Paint()
+        ..color = Colors.black.withValues(alpha: 0.32)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
+      canvas.drawCircle(Offset(cx + 1, cy + 2), r, shadow);
+    }
 
     final fill = Paint()..color = color;
     final border = Paint()
@@ -1703,12 +2250,33 @@ class MarkerPainter extends CustomPainter {
         )..layout();
         tp.paint(canvas, Offset(cx - tp.width / 2, cy - tp.height / 2));
       case MarkerShape.zone:
-        // Dashed rectangle zone
-        final rect = Rect.fromCenter(center: Offset(cx, cy), width: r * 2, height: r * 1.6);
-        final zoneFill = Paint()..color = color.withValues(alpha: 0.3);
-        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneFill);
-        final zoneBorder = Paint()..color = color..style = PaintingStyle.stroke..strokeWidth = 2;
-        canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(4)), zoneBorder);
+        // An area of the floor the shot has to land in. The old one was a
+        // solid amber box with a hard 2pt outline and a drop shadow: an
+        // object on the court, which is what it looked like. Shading is a
+        // wash with a soft edge — a pale bloom under a tint of the marker
+        // colour, and a dashed line round it so the boundary is still
+        // readable without drawing a frame.
+        final rect = Rect.fromCenter(
+            center: Offset(cx, cy), width: r * 2.4, height: r * 2.0);
+        final rr = RRect.fromRectAndRadius(rect, const Radius.circular(3));
+        canvas.drawRRect(
+            rr, Paint()..color = Colors.white.withValues(alpha: 0.14));
+        canvas.drawRRect(
+            rr, Paint()..color = color.withValues(alpha: 0.20));
+        final edge = Paint()
+          ..color = color.withValues(alpha: 0.72)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.6;
+        for (final m in (Path()..addRRect(rr)).computeMetrics()) {
+          var at = 0.0;
+          var on = true;
+          while (at < m.length) {
+            final end = (at + (on ? 5.0 : 4.0)).clamp(0.0, m.length);
+            if (on) canvas.drawPath(m.extractPath(at, end), edge);
+            at = end;
+            on = !on;
+          }
+        }
       case MarkerShape.referee:
         // Referee whistle icon — circle with "R"
         canvas.drawCircle(Offset(cx, cy), r, Paint()..color = Colors.black87);
@@ -1909,7 +2477,7 @@ class _BallWidgetState extends State<_BallWidget>
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 11 * widget.player.scale,
+                fontSize: 11 * widget.player.scale * kFigureScale,
                 height: 1,
                 shadows: const [Shadow(color: Colors.black87, blurRadius: 3)],
               ),

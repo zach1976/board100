@@ -1,0 +1,8 @@
+Neu in 2.1.0
+
+• Fertige Einheiten: sechs Trainingspläne aus den 42 Übungen
+• Notizen auf dem Board, die mit jedem Schritt wechseln
+• Ein grünes Feld mit weißem Netzband, wie es die offizielle Palette vorsieht
+• Tablet-Layout mit Seitenleiste, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Kleinere Korrekturen und mehr übersetzte Beschriftungen

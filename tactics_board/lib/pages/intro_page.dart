@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/sport_type.dart';
+import '../services/ad_service.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../widgets/sport_glyph.dart';
 
@@ -84,8 +86,17 @@ class _IntroPageState extends State<IntroPage> {
   int _at = 0;
 
   @override
+  void initState() {
+    super.initState();
+    // The first thing a new install sees is this page; the app-open ad's
+    // cold-start window lands right on top of it. Not here.
+    AdService.instance.pushAdSuppression();
+  }
+
+  @override
   void dispose() {
     _pages.dispose();
+    AdService.instance.popAdSuppression();
     super.dispose();
   }
 
@@ -123,7 +134,10 @@ class _IntroPageState extends State<IntroPage> {
         n: 3,
         icon: Icons.event_note_outlined,
         title: 'intro_plan_t'.tr(),
-        body: 'intro_plan_b'.tr(),
+        // "Run it from your phone" is not what an iPad is; the tablet's
+        // copy says tablet.
+        body: (isTabletLayout(context) ? 'intro_plan_b_tablet' : 'intro_plan_b')
+            .tr(),
         // Only the last panel carries them: it is the one making a claim
         // about a whole session rather than about one board.
         pillars: const [
@@ -134,6 +148,10 @@ class _IntroPageState extends State<IntroPage> {
       ),
     ];
     final last = _at == panels.length - 1;
+    // On a tablet on its side the art is a portrait panel down the right
+    // (see _PanelView), so the dots and the button centre under the words
+    // on the left rather than across the picture.
+    final artW = _sideArtWidth(context) ?? 0;
     return Scaffold(
       backgroundColor: T.bg0,
       body: Stack(
@@ -165,19 +183,36 @@ class _IntroPageState extends State<IntroPage> {
                     child: GestureDetector(
                       behavior: HitTestBehavior.opaque,
                       onTap: _finish,
-                      child: Padding(
+                      // 44pt tall at least: as a bare line of text it was a
+                      // 33pt target, the smallest thing on the screen.
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                            minHeight: T.tap, minWidth: T.tap),
+                        child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: T.s12, vertical: T.s8),
-                        child: Text('intro_skip'.tr(),
+                        child: Center(
+                          widthFactor: 1,
+                          heightFactor: 1,
+                          child: Text('intro_skip'.tr(),
                             style: const TextStyle(
-                                color: T.textDim,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                      color: Color(0x99000000), blurRadius: 6)
+                                ],
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600)),
+                        ),
+                      ),
                       ),
                     ),
                   ),
                 ),
                 const Spacer(),
+                Padding(
+                  padding: EdgeInsets.only(right: artW),
+                  child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -191,9 +226,11 @@ class _IntroPageState extends State<IntroPage> {
                           // for a flat surface, and over a photograph of
                           // grass the two unvisited dots disappear — leaving
                           // one dash that reads as a bug, not as "1 of 3".
-                          color: i == _at
-                              ? T.accent
-                              : const Color(0x66FFFFFF),
+                          color: artW > 0
+                              ? (i == _at ? T.accent : T.textDisabled)
+                              : (i == _at
+                                  ? Colors.white
+                                  : const Color(0x66FFFFFF)),
                           borderRadius: BorderRadius.circular(3),
                         ),
                       ),
@@ -204,7 +241,8 @@ class _IntroPageState extends State<IntroPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
                       T.screenX, T.s20, T.screenX, T.s20),
-                  child: _BigCta(
+                  // A tablet's button is a button, not a 1336pt bar.
+                  child: tabletColumn(context, maxWidth: 480, _BigCta(
                     label: last ? 'intro_start'.tr() : 'intro_next'.tr(),
                     onTap: last
                         ? _finish
@@ -212,7 +250,9 @@ class _IntroPageState extends State<IntroPage> {
                               duration: const Duration(milliseconds: 260),
                               curve: Curves.easeOutCubic,
                             ),
-                  ),
+                  )),
+                ),
+                  ]),
                 ),
               ],
             ),
@@ -246,6 +286,103 @@ class _PanelView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final artW = _sideArtWidth(context);
+    // Over the photograph (and its scrim) the words are white; beside it on
+    // a tablet's light page they are ink.
+    final onPhoto = artW == null;
+    final words = Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Which of the sixteen apps this is. Small, spaced and dim:
+                // it is a label on the page, not a line of the pitch.
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (sport != null) ...[
+                      SportGlyph(sport: sport!, size: 14),
+                      const SizedBox(width: 7),
+                    ],
+                    Flexible(
+                      child: Text(
+                        sport == null
+                            ? 'app_title'.tr()
+                            : 'home_board_title'.tr(args: [sport!.displayName]),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: onPhoto
+                                ? const Color(0xB3FFFFFF)
+                                : T.textOff,
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 2.2),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: T.s20),
+                _StrokeTitle(raw: panel.title, onPhoto: onPhoto),
+                const SizedBox(height: T.s16),
+                Text(
+                  panel.body,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: onPhoto ? const Color(0xE6FFFFFF) : T.textDim,
+                      fontSize: 15.5,
+                      height: 1.6),
+                ),
+                if (panel.pillars.isNotEmpty) ...[
+                  const SizedBox(height: T.s32),
+                  _Pillars(items: panel.pillars, onPhoto: onPhoto),
+                ],
+              ],
+            );
+    if (artW != null) {
+      // A tablet on its side. The art is a 9:19.5 portrait picture, and
+      // covering a 4:3 landscape screen with it kept only its bottom third —
+      // the board and the magnets, right behind the headline. Here it keeps
+      // its own shape down the right, whole, and the words have the left.
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          ColoredBox(color: T.bg0),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: 0,
+            width: artW,
+            child: _Backdrop(n: panel.n, icon: panel.icon),
+          ),
+          // The picture's left edge fades into the page rather than ending
+          // on a hard line.
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: artW - 120,
+            width: 120,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [T.bg0, T.bg0.withAlpha(0)],
+                ),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              // Clear of the dots and the button at the foot.
+              padding: EdgeInsets.fromLTRB(T.s32, 52, artW + T.s32, 120),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: words,
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -276,54 +413,22 @@ class _PanelView extends StatelessWidget {
             // third: the art below it is composed with the top 40% empty, so
             // words that drift lower start landing on the board.
             padding: const EdgeInsets.fromLTRB(T.s32, 52, T.s32, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Which of the sixteen apps this is. Small, spaced and dim:
-                // it is a label on the page, not a line of the pitch.
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (sport != null) ...[
-                      SportGlyph(sport: sport!, size: 14),
-                      const SizedBox(width: 7),
-                    ],
-                    Flexible(
-                      child: Text(
-                        sport == null
-                            ? 'app_title'.tr()
-                            : 'home_board_title'.tr(args: [sport!.displayName]),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            color: T.textOff,
-                            fontSize: 11.5,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 2.2),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: T.s20),
-                _StrokeTitle(raw: panel.title),
-                const SizedBox(height: T.s16),
-                Text(
-                  panel.body,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: T.textDim, fontSize: 15.5, height: 1.6),
-                ),
-                if (panel.pillars.isNotEmpty) ...[
-                  const SizedBox(height: T.s32),
-                  _Pillars(items: panel.pillars),
-                ],
-              ],
-            ),
+            // An upright tablet keeps the words to a readable column.
+            child: tabletColumn(context, maxWidth: 560, words),
           ),
         ),
       ],
     );
   }
+}
+
+/// How wide the art stands down the right of a tablet on its side — its
+/// own 9:19.5 shape at the screen's full height — or null everywhere else,
+/// where it covers the screen as it always has.
+double? _sideArtWidth(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  if (!isTabletLayout(context) || size.width <= size.height) return null;
+  return size.height * (9 / 19.5);
 }
 
 /// The photograph, or the gradient that stands in for one.
@@ -362,12 +467,12 @@ class _NoArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [T.bg0, T.bg1, T.bg0],
-          stops: [0.0, 0.55, 1.0],
+          stops: const [0.0, 0.55, 1.0],
         ),
       ),
       child: Align(
@@ -377,7 +482,7 @@ class _NoArt extends StatelessWidget {
         child: Container(
           width: 108,
           height: 108,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: T.accentFill, shape: BoxShape.circle),
           child: Icon(icon, size: 44, color: T.accent),
         ),
@@ -395,7 +500,8 @@ class _NoArt extends StatelessWidget {
 /// still reads correctly instead of guessing.
 class _StrokeTitle extends StatelessWidget {
   final String raw;
-  const _StrokeTitle({required this.raw});
+  final bool onPhoto;
+  const _StrokeTitle({required this.raw, this.onPhoto = false});
 
   static const _style = TextStyle(
     color: T.text,
@@ -413,7 +519,11 @@ class _StrokeTitle extends StatelessWidget {
     // default face while every other line on the page uses the theme's, and
     // in a locale whose glyphs only exist in the fallback family it renders
     // as empty boxes.
-    final style = DefaultTextStyle.of(context).style.merge(_style);
+    final base = DefaultTextStyle.of(context).style.merge(_style);
+    // On the scrim the whole title is white, the marked run included: a
+    // dark brand (the hub's slate, rugby's brown) would otherwise vanish
+    // into it. The stroke beneath still carries the brand.
+    final style = onPhoto ? base.copyWith(color: Colors.white) : base;
     return LayoutBuilder(
       builder: (context, c) {
         final tp = TextPainter(
@@ -421,7 +531,8 @@ class _StrokeTitle extends StatelessWidget {
             TextSpan(text: m.text.substring(0, m.start), style: style),
             TextSpan(
                 text: m.text.substring(m.start, m.end),
-                style: style.copyWith(color: T.accent)),
+                style: style.copyWith(
+                    color: onPhoto ? Colors.white : T.accentText)),
             TextSpan(text: m.text.substring(m.end), style: style),
           ]),
           textAlign: TextAlign.center,
@@ -499,7 +610,8 @@ class _Marked {
 
 class _Pillars extends StatelessWidget {
   final List<(IconData, String)> items;
-  const _Pillars({required this.items});
+  final bool onPhoto;
+  const _Pillars({required this.items, this.onPhoto = false});
 
   @override
   Widget build(BuildContext context) {
@@ -514,7 +626,7 @@ class _Pillars extends StatelessWidget {
                 Container(
                   width: 44,
                   height: 44,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       color: T.accentFill, shape: BoxShape.circle),
                   child: Icon(items[i].$1, size: 21, color: T.accent),
                 ),
@@ -524,8 +636,10 @@ class _Pillars extends StatelessWidget {
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      color: T.text, fontSize: 12.5, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: onPhoto ? Colors.white : T.text,
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -550,7 +664,7 @@ class _BigCta extends StatelessWidget {
     return Semantics(
       button: true,
       child: Material(
-        color: T.accent,
+        color: T.buttonFill,
         borderRadius: BorderRadius.circular(30),
         child: InkWell(
           onTap: onTap,
@@ -565,15 +679,15 @@ class _BigCta extends StatelessWidget {
                     label,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                        color: Color(0xFF04231F),
+                    style: TextStyle(
+                        color: T.onAccent,
                         fontSize: 17,
                         fontWeight: FontWeight.w700),
                   ),
                 ),
                 const SizedBox(width: T.s12),
-                const Icon(Icons.arrow_forward,
-                    size: 20, color: Color(0xFF04231F)),
+                Icon(Icons.arrow_forward,
+                    size: 20, color: T.onAccent),
               ],
             ),
           ),

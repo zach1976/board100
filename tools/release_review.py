@@ -22,7 +22,7 @@ LOCALE_NAMES = {
     'en-US': 'English (US)', 'en-GB': 'English (UK)', 'zh-Hans': '简体中文',
     'zh-Hant': '繁體中文', 'ja': '日本語', 'ko': '한국어', 'es-ES': 'Español',
     'fr-FR': 'Français', 'id': 'Bahasa Indonesia', 'ms': 'Bahasa Melayu',
-    'th': 'ไทย', 'vi': 'Tiếng Việt',
+    'th': 'ไทย', 'vi': 'Tiếng Việt', 'de-DE': 'Deutsch', 'nl-NL': 'Nederlands',
 }
 PLAY_NAMES = dict(LOCALE_NAMES, **{'zh-CN': '简体中文', 'zh-TW': '繁體中文',
                                    'ja-JP': '日本語', 'ko-KR': '한국어'})
@@ -113,8 +113,13 @@ def main() -> None:
     play = {}
     if play_root.is_dir():
         for d in sorted(p for p in play_root.iterdir() if p.is_dir()):
-            logs = sorted((d / 'changelogs').glob('*.txt'),
-                          key=lambda p: int(p.stem)) if (d / 'changelogs').is_dir() else []
+            # Sorted by versionCode, with fastlane's `default.txt` — the
+            # fallback used for any code without its own file — last. It has
+            # no number, and int() on it used to abort the whole page.
+            logs = sorted(
+                (d / 'changelogs').glob('*.txt'),
+                key=lambda p: (1, 0) if not p.stem.isdigit() else (0, int(p.stem)),
+            ) if (d / 'changelogs').is_dir() else []
             play[d.name] = {
                 'title': read(d / 'title.txt'),
                 'short': read(d / 'short_description.txt'),
@@ -359,7 +364,31 @@ def main() -> None:
         f'<td>{esc(", ".join(e["data_protections"]))}</td></tr>' for e in privacy)
 
     out = REPO / 'tools' / f'release_review_{key}.html'
+    # The text that goes into App Review Information. It lives in the app's
+    # own docs/ as REVIEW_NOTES_<version>.md, with a Chinese preamble for
+    # whoever submits; what Apple sees is the English block between the
+    # greeting and the sign-off, and that is what is shown here — the same
+    # slice release_app.py uploads, so the page cannot flatter it.
+    # Named by the version alone: pubspec says "2.2.0+1" and the file is
+    # REVIEW_NOTES_2.2.0.md, the same name release_app.py reads.
+    notes_md = (app_dir / 'docs' /
+                f'REVIEW_NOTES_{version.split("+")[0]}.md')
+    if notes_md.exists():
+        text = notes_md.read_text(encoding='utf-8')
+        i = text.find('Dear App Review team')
+        j = text.find('Thank you for reviewing')
+        body = (text[i:j + len('Thank you for reviewing.')] if i >= 0 and j > i
+                else text)
+        notes_html = (f'<p class="sub">{len(body)} 字符 · '
+                      f'<span class="mono">{app["dir"]}/docs/{notes_md.name}</span></p>'
+                      f'<pre class="notes">{esc(body)}</pre>')
+    else:
+        notes_html = ('<p class="none">没有 '
+                      f'{app["dir"]}/docs/REVIEW_NOTES_{version}.md — '
+                      '送审脚本会拒绝执行</p>')
+
     out.write_text(PAGE.format(
+        notes=notes_html,
         title=f"{app.get('name_en', key)} {version}",
         app=esc(app.get('name_en', key)), bundle=esc(app['bundle']),
         version=esc(version), n_ios=sum(len(v['shots']) for v in ios.values()),
@@ -492,6 +521,9 @@ macOS 另有一层风险：2026-07 Apple 曾以 <b>4.3(a) 垃圾应用</b>拒绝
 <h2>内购商品</h2>
 <p class="sub">商店记录里也要填的东西：去广告的两个商品 id。</p>
 <table><tr><th>Product ID</th><th>说明</th></tr>{iap_rows}</table>
+
+<h2>审核备注 — 写进 App Review Information 的原文</h2>
+{notes}
 
 <h2>法务链接</h2>
 <table>{link_rows}</table>

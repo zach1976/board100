@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -14,6 +16,7 @@ import '../services/purchase_service.dart';
 import '../services/recent_boards_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import 'drill_library_page.dart';
 import 'recent_page.dart';
@@ -25,6 +28,7 @@ import 'drill_detail_page.dart';
 import 'drill_primer_page.dart';
 import 'home_page.dart';
 import 'intro_page.dart';
+import 'match_day_page.dart';
 import 'sport_selection_page.dart';
 import 'practice_plan_page.dart';
 
@@ -252,6 +256,9 @@ class _SportHomePageState extends State<SportHomePage> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
+    // A toast the board raised (the drill's name, "saved") belongs to the
+    // board: the app-wide messenger would otherwise keep it over the list.
+    if (mounted) ScaffoldMessenger.of(context).removeCurrentSnackBar();
     // Walking back to the home page is not a decision to throw the edit
     // away — see TacticsState.autosave. Awaited, so "my boards" is re-read
     // after the file is on disk and not before it.
@@ -297,12 +304,21 @@ class _SportHomePageState extends State<SportHomePage> {
               state.loadFromJson(Map<String, dynamic>.from(drill.board));
               state.currentTacticName = null;
               state.currentTacticMeta = null;
+              // See drill_library_page: the board prints its own steps.
+              state.openedDrill(
+                  DrillNote.parse(drill.localizedNote(_locale)).beats,
+                  beatsFor: (l) =>
+                      DrillNote.parse(drill.localizedNote(l)).beats,
+                  name: drill.displayName(_locale),
+                  nameFor: drill.displayName,
+                  id: drill.id,
+                  frame: drill.frame);
               RecentBoardsService.instance.record(
                 state.sportType,
                 RecentBoard(
                   kind: RecentBoardKind.drill,
                   id: drill.id,
-                  label: drill.localizedName(_locale),
+                  label: drill.displayName(_locale),
                   openedAt: DateTime.now(),
                 ),
               );
@@ -337,8 +353,14 @@ class _SportHomePageState extends State<SportHomePage> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TacticsState>();
+    // The language is switched from this page's menu: the drill note on the
+    // board follows it, as the Recent row's name does.
+    final tag = _locale;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) state.localizeDrill(tag);
+    });
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       // The count is this app's own library — right in the hub and in each of
@@ -379,6 +401,14 @@ class _SportHomePageState extends State<SportHomePage> {
                   builder: (_) => PracticePlanPage(state: state),
                 ));
               },
+              onMatchDay: state.sportType.hasMatchDay
+                  ? () {
+                      Navigator.of(context).push(MaterialPageRoute<void>(
+                        builder: (_) =>
+                            MatchDayPage(sport: state.sportType),
+                      ));
+                    }
+                  : null,
             ),
             const SizedBox(height: T.s24),
             // Back to what was open. Every route onto the board already
@@ -620,8 +650,16 @@ class _SportHomePageState extends State<SportHomePage> {
   /// buttons — but the scrim is drawn anyway, because a gradient that is
   /// only needed when the picture is wrong costs nothing when it is right.
   Widget _hero(SportType sport) {
-    final top = MediaQuery.paddingOf(context).top;
-    final content = Padding(
+    // The inset itself (viewPadding), not only what is left of it after
+    // whatever stands between the window and this page has taken its
+    // share: a route or a scroll view that consumes the top padding left
+    // the title under the Dynamic Island (reported 2026-10-16).
+    final mq = MediaQuery.of(context);
+    final top = math.max(mq.padding.top, mq.viewPadding.top);
+    // In the same centred column as the page below it, so on a window wider
+    // than [_kMaxColumn] the title starts where the cards start rather than
+    // 150pt to their left. Only the photograph bleeds.
+    final content = _column(Padding(
       // The bottom is not a margin: it is the band the photograph fades out
       // over, so the page begins under a gradient rather than at an edge.
       // Nothing is drawn in it — the scrim below reaches T.bg0 across it.
@@ -642,21 +680,26 @@ class _SportHomePageState extends State<SportHomePage> {
             children: [
               SportGlyph(sport: sport, size: 26),
               const SizedBox(width: T.s8),
+              // Shrunk to fit rather than cut: "Table Tennis Bo…" and
+              // "Sepak Takraw B…" lost the one word that says what the app is.
               Expanded(
-                child: Text(
+                child: FittedBox(
+                 fit: BoxFit.scaleDown,
+                 alignment: Alignment.centerLeft,
+                 child: Text(
                   // The app's own name, not the sport's: this is the home
                   // page of 足球战术板 / Soccer Board, which is what the
                   // store calls it and what the icon on the phone says.
                   'home_board_title'.tr(args: [sport.displayName]),
                   maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: T.text,
+                      color: _hasArt ? Colors.white : T.text,
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                       shadows: _hasArt ? const [
                         Shadow(color: Colors.black87, blurRadius: 8),
                       ] : null),
+                 ),
                 ),
               ),
               const SizedBox(width: T.s8),
@@ -671,10 +714,9 @@ class _SportHomePageState extends State<SportHomePage> {
               if (!isSingleSportApp) const SizedBox(width: T.s4),
               _HomeMenu(
                 onLanguage: () => LanguagePicker.show(context),
-                onContact: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const ContactPage())),
-                onLogin: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const LoginPage())),
+                onContact: () =>
+                    pushFormSheet<void>(context, const ContactPage()),
+                onLogin: () => pushFormSheet<void>(context, const LoginPage()),
               ),
             ],
           ),
@@ -692,7 +734,7 @@ class _SportHomePageState extends State<SportHomePage> {
           ),
         ],
       ),
-    );
+    ));
 
     if (!_hasArt) return content;
 
@@ -715,17 +757,17 @@ class _SportHomePageState extends State<SportHomePage> {
         // last centimetre.
         Positioned.fill(
           child: DecoratedBox(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0x73000000),
-                  Color(0x1F000000),
-                  Color(0xB3071D1F),
+                  const Color(0x73000000),
+                  const Color(0x1F000000),
+                  T.bg0.withAlpha(0xB3),
                   T.bg0,
                 ],
-                stops: [0, .38, .80, 1],
+                stops: const [0, .38, .80, 1],
               ),
             ),
           ),
@@ -768,7 +810,7 @@ class _SportHomePageState extends State<SportHomePage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
               child: Text(action,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: T.accent,
                       fontSize: 13,
                       fontWeight: FontWeight.w600)),
@@ -831,11 +873,15 @@ class _BoardCard extends StatefulWidget {
   final VoidCallback onOpen;
   final VoidCallback onNew;
   final VoidCallback onPlan;
+
+  /// The match-day sheet, for the sports that have one (SportType.hasMatchDay).
+  final VoidCallback? onMatchDay;
   const _BoardCard(
       {required this.state,
       required this.onOpen,
       required this.onNew,
-      required this.onPlan});
+      required this.onPlan,
+      this.onMatchDay});
 
   @override
   State<_BoardCard> createState() => _BoardCardState();
@@ -909,11 +955,22 @@ class _BoardCardState extends State<_BoardCard> {
     // With nothing drawn yet the card does not offer to open a board; making
     // one becomes its main action. See hasWorkingBoard.
     final hasBoard = hasWorkingBoard(state);
+    final sideways =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    final previewBoard = SizedBox(
+      width: kBoardRefWidth,
+      height: kBoardRefHeight,
+      child: ChangeNotifierProvider<TacticsState>.value(
+        value: _preview,
+        child: IgnorePointer(
+            child: TacticsCanvas(preview: true, boardTurns: sideways ? 1 : 0)),
+      ),
+    );
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: hasBoard ? onOpen : onNew,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             color: T.surface, borderRadius: T.brLg),
         clipBehavior: Clip.antiAlias,
         // The board is portrait and the card is wide, so the thumbnail keeps
@@ -929,19 +986,21 @@ class _BoardCardState extends State<_BoardCard> {
               // Drawn at the real board size and scaled as one picture, so
               // the players are the size they are on the board rather than
               // three times it — see kBoardRefWidth.
+              //
+              // Turned sideways — a tablet, a Mac window, a phone on its
+              // side — the board page draws the board landscape, so a
+              // portrait thumbnail here was a picture of a board the coach
+              // would not recognise when he opened it. The preview takes the
+              // same quarter turn, and the card gives it width instead of
+              // height.
               child: SizedBox(
-                height: 190,
+                height: sideways ? null : 190,
+                width: sideways ? 260 : null,
                 child: FittedBox(
                   fit: BoxFit.contain,
-                  child: SizedBox(
-                    width: kBoardRefWidth,
-                    height: kBoardRefHeight,
-                    child: ChangeNotifierProvider<TacticsState>.value(
-                      value: _preview,
-                      child: const IgnorePointer(
-                          child: TacticsCanvas(preview: true)),
-                    ),
-                  ),
+                  child: sideways
+                      ? RotatedBox(quarterTurns: 1, child: previewBoard)
+                      : previewBoard,
                 ),
               ),
             ),
@@ -997,6 +1056,15 @@ class _BoardCardState extends State<_BoardCard> {
                     quiet: true,
                     onTap: onPlan,
                   ),
+                  if (widget.onMatchDay != null) ...[
+                    const SizedBox(height: T.s8),
+                    TacticalButton(
+                      label: 'matchday_title'.tr(),
+                      icon: Icons.swap_horiz_rounded,
+                      quiet: true,
+                      onTap: widget.onMatchDay,
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -1067,7 +1135,7 @@ class _RecentRow extends StatelessWidget {
             onTap: () => onTap(recent),
             child: Container(
               padding: const EdgeInsets.all(T.s12),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brSm),
               child: Row(
                 children: [
@@ -1084,7 +1152,12 @@ class _RecentRow extends StatelessWidget {
                   const SizedBox(width: T.s12),
                   Expanded(
                     child: Text(
-                      recent.label,
+                      // The drill's name in the language the app is in
+                      // now, not the one it was opened in: the stored label
+                      // is only for a drill the library no longer has.
+                      drill != null
+                          ? drill.displayName(_localeTag(context))
+                          : recent.label,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
@@ -1165,7 +1238,7 @@ class _TodayRow extends StatelessWidget {
             onTap: () => onTap(d),
             child: Container(
               clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: T.surfaceHi, borderRadius: T.brMd),
               child: Stack(
                 fit: StackFit.expand,
@@ -1217,11 +1290,11 @@ class _TodayRow extends StatelessWidget {
                     const SizedBox(height: T.s8),
                   ],
                   Text(
-                    d.localizedName(locale),
+                    d.displayName(locale),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: T.text,
+                        color: path != null ? Colors.white : T.text,
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         height: 1.25,
@@ -1230,18 +1303,38 @@ class _TodayRow extends StatelessWidget {
                             : null),
                   ),
                   const SizedBox(height: 6),
+                  // As many whole lines as the room left under the title.
+                  // A fixed count did not know a title had wrapped onto a
+                  // second line, and the last line of the purpose was cut
+                  // through the middle of its letters and ran into the
+                  // minutes underneath.
                   Expanded(
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        _firstLine(d.localizedNote(locale)),
-                        maxLines: path != null ? 3 : 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: path != null ? Colors.white70 : T.textDim,
-                            fontSize: 12.5,
-                            height: 1.35),
-                      ),
+                    child: LayoutBuilder(
+                      builder: (context, box) {
+                        final line = 12.5 *
+                            1.35 *
+                            MediaQuery.textScalerOf(context).scale(1);
+                        final fit = (box.maxHeight / line).floor();
+                        final lines =
+                            math.min(fit, path != null ? 3 : 2);
+                        if (lines < 1) return const SizedBox.shrink();
+                        return ClipRect(
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              _firstLine(d.localizedNote(locale)),
+                              maxLines: lines,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: path != null
+                                      ? Colors.white70
+                                      : T.textDim,
+                                  fontSize: 12.5,
+                                  height: 1.35),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Row(
@@ -1298,7 +1391,7 @@ class _CategoryGrid extends StatelessWidget {
             _CategoryTile(
               category: c,
               sport: sport,
-              label: c.labelKeyFor(sport.drillVocabulary).tr(),
+              label: DrillLibraryService.instance.label(context, c.labelKeyFor(sport.drillVocabulary)),
               // How much is behind the door, before opening it.
               count: counts[c]!,
               onTap: () => onTap(c),
@@ -1418,7 +1511,7 @@ class _BoardRow extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             horizontal: T.s12, vertical: T.s12),
         decoration:
-            const BoxDecoration(color: T.surfaceHi, borderRadius: T.brMd),
+            BoxDecoration(color: T.surfaceHi, borderRadius: T.brMd),
         child: Row(
           children: [
             Icon(isDrill ? Icons.menu_book_outlined : Icons.dashboard_outlined,
@@ -1466,10 +1559,10 @@ class _LearnBlock extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(T.s16),
             decoration:
-                const BoxDecoration(color: T.surface, borderRadius: T.brMd),
+                BoxDecoration(color: T.surface, borderRadius: T.brMd),
             child: Row(
               children: [
-                const Icon(Icons.school_outlined, size: 20, color: T.accent),
+                Icon(Icons.school_outlined, size: 20, color: T.accent),
                 const SizedBox(width: T.s12),
                 Expanded(
                   child: Column(
@@ -1502,10 +1595,10 @@ class _LearnBlock extends StatelessWidget {
                   onTap: () => onLevel(l),
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: T.s12),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: T.surfaceHi, borderRadius: T.brMd),
                     alignment: Alignment.center,
-                    child: Text(l.labelKey.tr(),
+                    child: Text(DrillLibraryService.instance.label(context, l.labelKey),
                         style: const TextStyle(
                             color: T.text,
                             fontSize: 13.5,
@@ -1597,4 +1690,12 @@ class _HomeMenu extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The app's language as the drill library keys it ('zh-CN', 'en').
+String _localeTag(BuildContext context) {
+  final l = context.locale;
+  return l.countryCode == null
+      ? l.languageCode
+      : '${l.languageCode}-${l.countryCode}';
 }

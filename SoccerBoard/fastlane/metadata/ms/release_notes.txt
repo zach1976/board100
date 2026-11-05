@@ -1,24 +1,10 @@
-Apa yang Baharu dalam 2.0.1
+Apa yang baharu dalam versi 2.3.1
 
-Semua dalam keluaran ini tentang apa yang sebenarnya dilukis oleh papan latihan.
+PRO LEBIH MUDAH DICARI
+"Buang Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, hanya satu ketikan. Helaian pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
 
-BEZAKAN LARIAN, GELECEK DAN HANTARAN
-Tiga tindakan, tiga garis: larian bergaris putus, gelecek beralun, hantaran ialah anak panah penuh. Dahulu pemain yang membawa bola mendapat dua anak panah yang hampir serupa bersebelahan.
+IKON SUKAN DAN PENGENALAN BAHARU
+Ikon sukan dan tiga skrin pengenalan semasa pertama kali dibuka dilukis semula.
 
-SETIAP ANAK PANAH ADA PERMULAAN
-Pergerakan pendek hanya mengekalkan destinasi dan kehilangan tempat mula, jadi satu perempat anak panah dalam pustaka kelihatan muncul entah dari mana.
-
-SEORANG PEMAIN, DILUKIS SEKALI
-Selepas langkah pertama, pemain yang telah bergerak dilukis dua kali — selangkah jaraknya, menghadap dua arah berbeza.
-
-TENDANGAN SAMPAI KE GOL
-Tendangan berhenti awal, pada penjaga gol; dan penjaga gol itu sendiri berdiri di dalam jaringnya. Kedua-duanya dibaiki.
-
-JUGA
-- Kon kekal di tempatnya apabila ada larian melintas
-- Anak panah hantaran tiba bersama bola, bukan mendahuluinya
-- Pemain menghadap apa yang bakal dilakukan — penjaga gol memerhati penyerang, bukan golnya sendiri
-- Larian ulang-alik dilakukan dengan tangan kosong
-- Label teks berputar bersama papan dan boleh memilih empat jenis fon
-- Bar sunting hanya menunjukkan apa yang boleh diubah: peralatan tiada larian dan tiada warna
-- Pengadil dan jurulatih dilukis sebagai orang, dan berpusing seperti orang
+PEMBETULAN LAIN
+Selepas papan ditutup, nama latihan tidak lagi tertinggal di atas senarai.

@@ -1,0 +1,11 @@
+Nieuw in 2.1.0
+
+• Wedstrijddag: periodes, opstelling, klok, wissels; minuten als pdf (klok vereist Pro)
+• Playbook, doorbladeren op de wedstrijddag
+• NBA-, NCAA- en highschoolvelden naast FIBA
+• 99 oefeningen, was 58: set plays, Spain pick-and-roll, presses, zones, omschakelen
+• Kant-en-klare trainingen: zes trainingsplannen
+• Notities op het bord, die met elke stap veranderen
+• Tabletweergave met zijbalk, toetsenbord en stylus
+• Duits en Nederlands: 14 talen
+• Kleine verbeteringen

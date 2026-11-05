@@ -1,1 +1,1 @@
-ping pong,topspin,backspin,loop,smash,push,saque,ittf,wtt,liga nacional,olímpico,pala
+pizarra táctica,entrenamiento,sesiones,saque,desplazamientos,demo,análisis,repaso

@@ -17,6 +17,11 @@ class TacticMeta {
   /// Free-form key points a coach wants to call out when running the board.
   final String coachingPoints;
 
+  /// In the match-day playbook: the handful of set-piece boards a coach
+  /// flips through on the touchline. Boards saved before the flag existed
+  /// have no key and read back as false.
+  final bool playbook;
+
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -25,6 +30,7 @@ class TacticMeta {
     this.folder = '',
     this.description = '',
     this.coachingPoints = '',
+    this.playbook = false,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -36,6 +42,7 @@ class TacticMeta {
         'folder': folder,
         'description': description,
         'coachingPoints': coachingPoints,
+        'playbook': playbook,
         'createdAt': createdAt.toIso8601String(),
         'updatedAt': updatedAt.toIso8601String(),
       };
@@ -54,6 +61,7 @@ class TacticMeta {
       folder: (json['folder'] as String?) ?? '',
       description: (json['description'] as String?) ?? '',
       coachingPoints: (json['coachingPoints'] as String?) ?? '',
+      playbook: json['playbook'] == true,
       createdAt: created,
       updatedAt: parse('updatedAt', created),
     );
@@ -70,6 +78,7 @@ class TacticMeta {
     String? folder,
     String? description,
     String? coachingPoints,
+    bool? playbook,
     DateTime? updatedAt,
   }) =>
       TacticMeta(
@@ -77,6 +86,7 @@ class TacticMeta {
         folder: folder ?? this.folder,
         description: description ?? this.description,
         coachingPoints: coachingPoints ?? this.coachingPoints,
+        playbook: playbook ?? this.playbook,
         createdAt: createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
       );

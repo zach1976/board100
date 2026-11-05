@@ -266,7 +266,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
       children: [
         Row(
           children: [
-            const Icon(Icons.face_outlined, color: T.accent, size: 20),
+            Icon(Icons.face_outlined, color: T.accent, size: 20),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -294,7 +294,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
             padding: const EdgeInsets.only(top: 4),
             child: Text(
               'photo_dedup_msg'.tr(args: ['$_droppedDuplicates']),
-              style: const TextStyle(color: T.accent, fontSize: 12),
+              style: TextStyle(color: T.accentText, fontSize: 12),
             ),
           ),
         const SizedBox(height: 12),
@@ -322,10 +322,10 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                       child: Container(
                         width: 22, height: 22,
                         decoration: const BoxDecoration(
-                          color: Colors.redAccent,
+                          color: T.danger,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.close_rounded, color: T.text, size: 14),
+                        child: const Icon(Icons.close_rounded, color: Colors.white, size: 14),
                       ),
                     ),
                   ),
@@ -343,7 +343,7 @@ class _PhotoImportSheetState extends State<PhotoImportSheet> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.08),
+                    color: T.surfaceHi,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -390,7 +390,7 @@ class _Loading extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(
+          SizedBox(
             width: 32, height: 32,
             child: CircularProgressIndicator(strokeWidth: 3, color: T.accent),
           ),

@@ -1,1 +1,1 @@
-football,basket,volley,tennis,badminton,pickleball,baseball,handball,rugby,hockey,club
+tableau multisport,entraînement,séances,basket,football,démo,analyse,revue de match

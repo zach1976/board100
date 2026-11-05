@@ -5,7 +5,7 @@ A regu is a tekong who serves from the back circle and two inside players who
 receive, feed and attack — so almost every drill is those three roles doing
 their part of the same three touches.
 """
-from .engine import Drill, M, P, suffixed
+from .engine import Drill, M, P, Spot, suffixed
 
 # The service circle's centre is 2.45 m from the back line of a 13.4 m
 # court, which is y = 0.8172 — not 0.86. Drawn 0.57 m behind it, the tekong
@@ -19,6 +19,13 @@ QUARTER_L, QUARTER_R = (0.075, 0.555), (0.925, 0.555)
 LEFT_INSIDE, RIGHT_INSIDE = (0.28, 0.64), (0.72, 0.64)
 FEED_POINT = (0.50, 0.58)
 NET = 0.5
+# The far side's circle and quarter circles. The far team faces DOWN the
+# board, so its left is the screen's right: its left inside player stands in
+# the right-hand quarter circle.
+AWAY_TEKONG = (0.50, 1 - 0.8172)
+AWAY_QUARTER_L, AWAY_QUARTER_R = (0.925, 0.445), (0.075, 0.445)
+# Labels: the near side is T (tekong), L, R; the far side wears the same
+# roles in lower case — t, l, r — so a sentence never reads "L plays it to L".
 
 
 def mirror(pt):
@@ -108,6 +115,9 @@ FEED_NOTE = {
 
 
 def feed_family() -> list[Drill]:
+    """The feed is the second touch: the serve comes over (tossed to the far
+    tekong by his inside player, struck from his circle), R receives it up
+    to F, and F sets it onto the square where S arrives to strike."""
     # The receiver is a back-court player, never the inside player who is
     # about to feed — the two used to share a coordinate exactly.
     specs = [("receiving_the_serve", "receiving the serve", TEKONG, FEED_POINT),
@@ -119,12 +129,14 @@ def feed_family() -> list[Drill]:
             id=f"st_feed_{key}", category="possession", minutes=10, rel=True,
             free=(key != "the_quick_feed"),
             name=suffixed(FEED_NAME, label), note=FEED_NOTE,
-            home=[P(*receiver, "R", moves=[(receiver[0], receiver[1] - 0.06, 0)]),
-                  P(*LEFT_INSIDE, "F", moves=[target + (1,)]),
-                  P(*RIGHT_INSIDE, "S", moves=[(target[0] + 0.10, 0.54, 2)])],
-            away=[P(0.50, 0.14, "T", moves=[(0.50, 0.22, 0)])],
+            home=[P(*receiver, "R", moves=[(receiver[0], receiver[1] - 0.04, 0)]),
+                  P(*LEFT_INSIDE, "F", moves=[(0.46, 0.62, 1)]),
+                  P(*RIGHT_INSIDE, "S", moves=[(0.66, 0.60, 2), target + (3,)])],
+            away=[P(*AWAY_TEKONG, "t"), P(*AWAY_QUARTER_L, "l")],
             markers=[M(*target, "square", "")],
-            ball=(0.50, 0.14),
+            ball=AWAY_QUARTER_L,
+            # toss, serve, receive, feed
+            ball_to=[("a0", 0), (0, 1), (1, 2), (2, 3)],
         ))
     return out
 
@@ -186,7 +198,12 @@ def spike_family() -> list[Drill]:
         ("scissor", "the scissor kick", (0.62, 0.72), (0.60, 0.535),
          (0.56, 0.60), (0.70, 0.22), (0.56, 0.455)),
         # The sunback: back to the net, struck over the shoulder.
-        ("sunback", "the sunback spike", (0.36, 0.70), (0.44, 0.545),
+        ("sunback", {"en": "the sunback", "en-GB": "the sunback",
+                     "zh-CN": "背向倒挂", "zh-TW": "背向倒掛", "ja-JP": "サンバック",
+                     "ko-KR": "선백", "es-ES": "de espaldas", "fr-FR": "dos au filet",
+                     "id-ID": "sunback", "ms-MY": "membelakang",
+                     "th-TH": "ลูกฟาดหลังหัน", "vi-VN": "đá lộn người"},
+         (0.36, 0.70), (0.44, 0.545),
          (0.46, 0.62), (0.50, 0.16), (0.46, 0.455)),
     ]
     out = []
@@ -237,23 +254,27 @@ ATTACK_NOTE = {
 
 
 def attack_family() -> list[Drill]:
-    specs = [("straight", "straight", (0.72, 0.22)),
-             ("cross-court", "cross-court", (0.24, 0.26)),
-             ("the feint", "the feint", (0.62, 0.42))]
+    """F sets, S strikes past the block into the zone. The block jumps where
+    the attack is NOT going, which is the read the drill trains."""
+    # (key, label, landing zone, where the block jumps)
+    specs = [("straight", "straight", (0.72, 0.22), (0.50, 0.455)),
+             ("cross-court", "cross-court", (0.24, 0.26), (0.66, 0.455)),
+             ("the feint", "the feint", (0.62, 0.40), (0.62, 0.455))]
     out = []
-    for key, label, land in specs:
+    for key, label, land, block in specs:
         out.append(Drill(
             id=f"st_attack_{key.replace('-', '_').replace(' ', '_')}",
             category="attacking", minutes=10, rel=True,
             free=(key == "straight"),
             name=suffixed(ATTACK_NAME, label), note=ATTACK_NOTE,
-            home=[P(*RIGHT_INSIDE, "S", moves=[(0.62, 0.54, 1)]),
-                  P(*LEFT_INSIDE, "F", moves=[FEED_POINT + (0,)]),
-                  P(*TEKONG, "T", moves=[(0.50, 0.76, 1)])],
-            away=[P(0.62, 0.46, "B"),
-                  P(land[0], land[1] - 0.05, "D", moves=[(land[0], land[1], 2)])],
+            home=[P(*RIGHT_INSIDE, "S", moves=[(0.62, 0.54, 0)]),
+                  P(*LEFT_INSIDE, "F", moves=[(0.44, 0.60, 1)]),
+                  P(*TEKONG, "T", moves=[(0.56, 0.70, 1)])],
+            away=[P(0.56, 0.47, "B", moves=[block + (1,)]),
+                  P(0.50, 0.20, "D", moves=[(0.50 + (land[0] - 0.50) * 0.4,
+                                             0.22, 1)])],
             markers=[M(*land, "zone", "")],
-            ball=0,
+            ball=1, ball_to=[(0, 0), (Spot(*land), 1)],
         ))
     return out
 
@@ -285,21 +306,26 @@ DEF_NOTE = {
 
 
 def defence_family() -> list[Drill]:
-    specs = [("at the net", "at the net", (0.68, 0.56)),
-             ("behind the block", "behind the block", (0.40, 0.72)),
-             ("covering the block", "covering the block", (0.30, 0.60))]
+    """Their F sets, their S spikes; B blocks and D digs the ball the block
+    lets through — at the spot the drill is named for — up to T."""
+    # (key, label, D's start, where D digs it)
+    specs = [("at the net", "at the net", (0.74, 0.62), (0.72, 0.57)),
+             ("behind the block", "behind the block", (0.46, 0.78), (0.58, 0.68)),
+             ("covering the block", "covering the block", (0.28, 0.68), (0.36, 0.62))]
     out = []
-    for key, label, spot in specs:
+    for key, start, dig in [(s[0], s[2], s[3]) for s in specs]:
         out.append(Drill(
             id=f"st_defence_{key.replace(' ', '_')}", category="defending",
             minutes=10, rel=True, free=(key != "covering the block"),
-            name=suffixed(DEF_NAME, label), note=DEF_NOTE,
+            name=suffixed(DEF_NAME, key), note=DEF_NOTE,
             home=[P(0.58, 0.53, "B", moves=[(0.58, 0.515, 1)]),
-                  P(*spot, "D", moves=[(spot[0] - 0.04, spot[1] + 0.04, 1)]),
-                  P(*TEKONG, "T", moves=[(0.46, 0.80, 1)])],
-            away=[P(0.60, 0.36, "S", moves=[(0.60, 0.46, 1)]),
-                  P(0.36, 0.30, "F", moves=[(0.44, 0.40, 0)])],
-            ball=1,
+                  P(*start, "D", moves=[dig + (1,)]),
+                  P(*TEKONG, "T", moves=[(0.50, 0.66, 2)])],
+            away=[P(0.62, 0.38, "S", moves=[(0.60, 0.455, 0)]),
+                  P(0.36, 0.34, "F", moves=[(0.42, 0.40, 1)])],
+            ball=(0.36, 0.34),
+            # set, spike, dig
+            ball_to=[("a0", 0), (1, 1), (2, 2)],
         ))
     return out
 
@@ -324,16 +350,26 @@ SERVE_NOTE = {
              "contre : vise la surface faible du receveur, pas le milieu.",
     "id-ID": "Servis tekong adalah satu-satunya serangan yang tak diblok.",
     "ms-MY": "Servis tekong ialah satu-satunya serangan yang tidak diblok.",
-    "th-TH": "ลูกเสิร์ฟของเทกงคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
+    "th-TH": "ลูกเสิร์ฟของตัวเสิร์ฟคือการบุกอย่างเดียวที่ไม่มีใครบล็อก",
     "vi-VN": "Cú giao của tekong là đòn tấn công duy nhất không ai chắn.",
 }
 
 
 def serve_family() -> list[Drill]:
-    specs = [("deep", "deep", (0.50, 0.06)), ("at the seam", "at the seam", (0.36, 0.28)),
+    """L tosses, the tekong serves from his circle into the zone."""
+    specs = [("deep", "deep", (0.50, 0.06)), ("at the seam", "at the seam", (0.40, 0.26)),
              ("short", "short", (0.62, 0.42))]
     out = []
     for key, label, land in specs:
+        if key == "at the seam":
+            # The seam is BETWEEN two receivers: they stand 2.5 m apart
+            # with the zone in the gap, and the serve splits them.
+            away = [P(land[0] - 0.20, land[1] - 0.02, "D",
+                      moves=[(land[0] - 0.04, land[1], 1)]),
+                    P(land[0] + 0.20, land[1] - 0.02, "E",
+                      moves=[(land[0] + 0.16, land[1], 1)])]
+        else:
+            away = [P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 1)])]
         out.append(Drill(
             id=f"st_serve_{key.replace(' ', '_')}", category="setpiece",
             minutes=8, rel=True, free=(key == "deep"),
@@ -341,12 +377,12 @@ def serve_family() -> list[Drill]:
             # The inside players start in the quarter circles at the net —
             # that is where the rules put them for the serve; mid-court is
             # where they drop to once it is away.
-            home=[P(*TEKONG, "T", moves=[(0.50, 0.775, 1)]),
-                  P(*QUARTER_L, "L", moves=[(0.32, 0.61, 0)]),
-                  P(*QUARTER_R, "R", moves=[(0.68, 0.61, 0)])],
-            away=[P(land[0], land[1] - 0.06, "D", moves=[(land[0], land[1], 1)])],
+            home=[P(*TEKONG, "T"),
+                  P(*QUARTER_L, "L", moves=[(0.32, 0.61, 1)]),
+                  P(*QUARTER_R, "R", moves=[(0.68, 0.61, 1)])],
+            away=away,
             markers=[M(*TEKONG, "circle", ""), M(*land, "zone", "")],
-            ball=0,
+            ball=1, ball_to=[(0, 0), ("a0", 1)],
         ))
     return out
 
@@ -376,25 +412,86 @@ GAME_NOTE = {
 }
 
 
+GAME_2V2_NOTE = {
+    "en": "Two players, three touches: whoever does not take the first touch sets, and the one who received it attacks. Nobody can stand and watch.",
+    "en-GB": "Two players, three touches: whoever does not take the first touch sets, and the one who received it attacks. Nobody can stand and watch.",
+    "zh-CN": "两个人、三次触球：没接第一下的人传，接第一下的人攻。谁也不能站着看。",
+    "zh-TW": "兩個人、三次觸球：沒接第一下的人傳，接第一下的人攻。誰也不能站著看。",
+    "ja-JP": "2人で3タッチ。1本目を取らなかった方が上げ、受けた方が攻める。立って見ている暇は誰にもない。",
+    "ko-KR": "두 명, 세 번의 터치: 첫 터치를 받지 않은 사람이 올리고, 받은 사람이 공격한다. 서서 보는 사람은 없다.",
+    "es-ES": "Dos jugadores, tres toques: el que no recibe pasa y el que recibió ataca. Nadie puede quedarse mirando.",
+    "fr-FR": "Deux joueurs, trois touches : celui qui ne reçoit pas passe, celui qui a reçu attaque. Personne ne peut rester à regarder.",
+    "id-ID": "Dua pemain, tiga sentuhan: yang tidak menerima sentuhan pertama mengumpan, yang menerima menyerang. Tak ada yang boleh diam menonton.",
+    "ms-MY": "Dua pemain, tiga sentuhan: yang tidak menerima sentuhan pertama mengumpan, yang menerima menyerang. Tiada siapa boleh berdiri melihat.",
+    "th-TH": "สองคน สามสัมผัส คนที่ไม่ได้รับลูกแรกเป็นคนชง คนที่รับลูกแรกเป็นคนฟาด ไม่มีใครยืนดูเฉยได้",
+    "vi-VN": "Hai người, ba chạm: ai không đỡ chạm đầu thì chuyền, người đã đỡ thì tấn công. Không ai được đứng nhìn.",
+}
+GAME_3V3_NOTE = {
+    "en": "Three touches, three players, one rally. The serve is the tekong's, the first touch is the receiver's, and the feed has to arrive where the striker takes off — play it out and keep score.",
+    "en-GB": "Three touches, three players, one rally. The serve is the tekong's, the first touch is the receiver's, and the feed has to arrive where the striker takes off — play it out and keep score.",
+    "zh-CN": "三次触球、三个人、一个回合。发球归发球手，一传归接球人，二传必须送到攻手起跳的位置——打完整一分并计分。",
+    "zh-TW": "三次觸球、三個人、一個回合。發球歸發球手，一傳歸接球人，二傳必須送到攻手起跳的位置——打完整一分並計分。",
+    "ja-JP": "3タッチ、3人、1本のラリー。サーブはテコン、1本目はレシーバー、トスはアタッカーの踏み切り位置へ。最後までプレーして得点を数える。",
+    "ko-KR": "세 번의 터치, 세 명, 한 랠리. 서브는 테콩, 첫 터치는 리시버, 토스는 공격수가 도약하는 자리로 — 끝까지 플레이하고 점수를 센다.",
+    "es-ES": "Tres toques, tres jugadores, un punto. El saque es del tekong, el primer toque del receptor y el pase tiene que llegar donde salta el rematador: jugadlo entero y contad.",
+    "fr-FR": "Trois touches, trois joueurs, un échange. Le service est au tekong, la première touche au receveur, et la passe doit arriver là où l'attaquant décolle : jouez le point et comptez.",
+    "id-ID": "Tiga sentuhan, tiga pemain, satu reli. Servis milik tekong, sentuhan pertama milik penerima, dan umpan harus tiba di titik tolakan penyerang — mainkan sampai habis dan hitung skornya.",
+    "ms-MY": "Tiga sentuhan, tiga pemain, satu rali. Servis milik tekong, sentuhan pertama milik penerima, dan umpanan mesti tiba di titik lonjakan penyerang — main sampai habis dan kira mata.",
+    "th-TH": "สามสัมผัส สามคน หนึ่งการโต้ ลูกเสิร์ฟเป็นของตัวเสิร์ฟ ลูกแรกเป็นของคนรับ และลูกชงต้องไปถึงจุดที่ตัวฟาดกระโดด เล่นให้จบแต้มและนับคะแนน",
+    "vi-VN": "Ba chạm, ba người, một pha bóng. Giao cầu là của tekong, chạm đầu là của người đỡ, đường chuyền phải tới đúng chỗ người tấn công bật nhảy — đánh hết điểm và tính điểm.",
+}
+GAME_REGU_NOTE = {
+    "en": "A full regu, block and all. The attack now has to beat a block, so the feed decides the point: set it tight to the net and the blocker wins; set it a metre off and the striker gets a look past him.",
+    "en-GB": "A full regu, block and all. The attack now has to beat a block, so the feed decides the point: set it tight to the net and the blocker wins; set it a metre off and the striker gets a look past him.",
+    "zh-CN": "完整的三人制，带拦网。进攻要过拦网，所以二传决定这一分：传得贴网，拦网人赢；离网一米，攻手才看得到拦网人身后的空当。",
+    "zh-TW": "完整的三人制，帶攔網。進攻要過攔網，所以二傳決定這一分：傳得貼網，攔網人贏；離網一公尺，攻手才看得到攔網人身後的空檔。",
+    "ja-JP": "ブロックありのフルレグ。攻撃はブロックを破らなければならないので、トスが1点を決める。ネットに近すぎればブロッカーの勝ち、1m離せばアタッカーにブロックの外が見える。",
+    "ko-KR": "블로킹까지 있는 완전한 레구. 공격이 블록을 넘어야 하므로 토스가 포인트를 정한다: 네트에 붙이면 블로커가 이기고, 1m 떨어뜨리면 공격수가 블록 너머를 본다.",
+    "es-ES": "Un regu completo, con bloqueo. El ataque tiene que superar un bloqueo, así que el pase decide el punto: pegado a la red gana el bloqueador; a un metro, el rematador ve el hueco.",
+    "fr-FR": "Un regu complet, avec contre. L'attaque doit passer un contre, donc la passe décide du point : collée au filet, le contreur gagne ; à un mètre, l'attaquant voit au-delà de lui.",
+    "id-ID": "Regu lengkap, dengan blok. Serangan harus melewati blok, jadi umpan menentukan poin: terlalu dekat net, pemblok menang; satu meter dari net, penyerang bisa melihat celah di sampingnya.",
+    "ms-MY": "Regu penuh, dengan sekatan. Serangan mesti melepasi sekatan, jadi umpanan menentukan mata: terlalu rapat ke jaring, penyekat menang; satu meter dari jaring, penyerang nampak ruang di sebelahnya.",
+    "th-TH": "เล่นเต็มทีมสามคนพร้อมบล็อก การบุกต้องผ่านบล็อก ลูกชงจึงตัดสินแต้ม ชงชิดเน็ตคนบล็อกชนะ ชงห่างเน็ตหนึ่งเมตรตัวฟาดจะเห็นช่องข้างบล็อก",
+    "vi-VN": "Đội hình đủ ba người, có chắn. Tấn công phải vượt hàng chắn nên đường chuyền quyết định điểm: chuyền sát lưới thì người chắn thắng; cách lưới một mét thì người đá thấy khoảng trống.",
+}
+
+
 def game_family() -> list[Drill]:
-    specs = [("2v2", "2v2", [(0.34, 0.68), (0.66, 0.68)]),
-             ("3v3", "3v3", [LEFT_INSIDE, RIGHT_INSIDE, TEKONG]),
-             # No block means there is no blocker at the net — the point of
-             # the constraint. It used to be the 3v3 board unchanged.
-             ("no_block", "with no block",
-              [(0.30, 0.72), (0.70, 0.72), TEKONG])]
+    """Every game opens the legal way: the inside player in his quarter
+    circle tosses, the server strikes from the circle, and the far side
+    receives from mid-court and sets."""
     out = []
-    for key, label, spots in specs:
+    # 2v2 (the doubles event): one serves from the circle, the partner tosses.
+    out.append(Drill(
+        id="st_game_2v2", category="ssg", minutes=15, rel=True, free=True,
+        name=suffixed(GAME_NAME, "2v2"), note=GAME_2V2_NOTE,
+        home=[P(*TEKONG, "1"),
+              P(*QUARTER_L, "2", moves=[(0.36, 0.64, 1)])],
+        away=[P(0.34, 0.30, "A", moves=[(0.32, 0.26, 1), (0.40, 0.44, 3)]),
+              P(0.66, 0.30, "B", moves=[(0.52, 0.42, 2)])],
+        # serve, receive, set, and the kill into the server's court
+        ball=1, ball_to=[(0, 0), ("a0", 1), ("a1", 2), ("a0", 3),
+                         (Spot(0.66, 0.76), 4)],
+    ))
+    for key, label, note in [("3v3", "3v3", GAME_3V3_NOTE),
+                             ("no_block", "with no block", GAME_NOTE)]:
         out.append(Drill(
             id=f"st_game_{key}", category="ssg", minutes=15, rel=True,
-            free=(key in ("2v2", "3v3")),
-            name=suffixed(GAME_NAME, label), note=GAME_NOTE,
-            home=[P(x, y, str(i + 1), moves=[(x, y - 0.04, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            away=[P(*mirror((x, y)), chr(65 + i), moves=[(x, 1 - y + 0.04, 0)])
-                  for i, (x, y) in enumerate(spots)],
-            markers=([M(0.5, NET, "cone", "")] if key == "no_block" else []),
-            ball=0,
+            free=(key == "3v3"),
+            name=suffixed(GAME_NAME, label), note=note,
+            home=[P(*QUARTER_L, "1", moves=[(0.30, 0.64, 1)]),
+                  P(*QUARTER_R, "2", moves=[(0.70, 0.64, 1)]),
+                  P(*TEKONG, "3")],
+            away=[P(0.70, 0.30, "A", moves=[(0.54, 0.42, 2)]),
+                  P(0.30, 0.30, "B", moves=[(0.28, 0.26, 1), (0.40, 0.44, 3)]),
+                  P(*AWAY_TEKONG, "C")],
+            # No block: cones on both sidelines a metre off the net mark the
+            # line nobody may cross to block.
+            markers=([M(0.0, 0.5 + 1 / 13.4, "cone", ""), M(1.0, 0.5 + 1 / 13.4, "cone", ""),
+                      M(0.0, 0.5 - 1 / 13.4, "cone", ""), M(1.0, 0.5 - 1 / 13.4, "cone", "")]
+                     if key == "no_block" else []),
+            ball=0, ball_to=[(2, 0), ("a1", 1), ("a0", 2), ("a1", 3),
+                             (Spot(0.16, 0.86), 4)],
         ))
     return out
 
@@ -445,22 +542,26 @@ def gaps_family() -> list[Drill]:
                   P(0.72, 0.66, "C", moves=[(0.62, 0.62, 2)])],
             away=[P(0.54, 0.455, "S", moves=[(0.50, 0.475, 1)]),
                   P(0.26, 0.34, "F", moves=[(0.34, 0.40, 0)])],
-            markers=[M(0.68, 0.72, "zone", "")],
-                        # fed to their striker; the kill meets the block
+            # Where the block has to send it: back down on THEIR side.
+            markers=[M(0.40, 0.40, "zone", "")],
+            # fed to their striker; the kill meets the block; the block
+            # drops it into their court
             ball=(0.28, 0.36),
-            ball_to=[("a0", 0), (0, 1)],
+            ball_to=[("a0", 0), (0, 1), (Spot(0.40, 0.40), 2)],
         ),
         Drill(
             id="st_receive_header", category="possession", minutes=10, rel=True,
             level="foundation",
             name=suffixed(RECEIVE2_NAME, "with the head"), note=HEAD_NOTE,
+            # The far tekong serves from HIS circle, tossed by his inside
+            # player; R heads it up to F. (The server used to stand in the
+            # receivers' own circle, so the serve never crossed the net.)
             home=[P(0.34, 0.68, "R", moves=[(0.40, 0.62, 1)]),
-                  P(0.62, 0.62, "F", moves=[(0.54, 0.58, 2)])],
-            away=[P(0.50, 0.8172, "T", moves=[(0.50, 0.775, 0)])],
-            markers=[M(0.50, 0.8172, "circle", ""), M(0.54, 0.58, "zone", "")],
-            ball=(0.50, 0.80),
-            # …and the feeder sets it up for the strike
-            ball_moves=[(0.40, 0.62, 1), (0.54, 0.58, 2), (0.46, 0.50, 3)],
+                  P(0.62, 0.66, "F", moves=[(0.54, 0.58, 2)])],
+            away=[P(*AWAY_TEKONG, "t"), P(*AWAY_QUARTER_L, "l")],
+            markers=[M(*AWAY_TEKONG, "circle", ""), M(0.40, 0.62, "zone", "")],
+            ball=AWAY_QUARTER_L,
+            ball_to=[("a0", 0), (0, 1), (1, 2)],
         ),
     ]
 
@@ -476,7 +577,7 @@ TEKONG_NAME = {
     "zh-TW": "發球手發球", "ja-JP": "テコンのサーブ", "ko-KR": "테콩 서브",
     "es-ES": "Saque del tekong", "fr-FR": "Service du tekong",
     "id-ID": "Servis tekong", "ms-MY": "Servis tekong",
-    "th-TH": "ลูกเสิร์ฟเตะกง", "vi-VN": "Giao cầu tekong",
+    "th-TH": "ลูกเสิร์ฟของตัวเสิร์ฟ", "vi-VN": "Giao cầu tekong",
 }
 TEKONG_NOTE = {
     "en": "The toss is the serve. The inside player throws it to the same "
@@ -493,33 +594,36 @@ TEKONG_NOTE = {
              "même point, le pied du tekong fait le reste.",
     "id-ID": "Lambungan adalah servisnya — pelambung selalu ke titik yang sama.",
     "ms-MY": "Lambungan ialah servisnya — pelambung sentiasa ke titik sama.",
-    "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่เท้าเตะกง",
+    "th-TH": "การโยนคือการเสิร์ฟ คนโยนต้องโยนจุดเดิมทุกครั้ง ที่เหลือเป็นหน้าที่ของเท้าตัวเสิร์ฟ",
     "vi-VN": "Cú tung chính là cú giao — người tung phải tung đúng một điểm.",
 }
 
 
 def tekong_family() -> list[Drill]:
-    """The serve from the server's side: the toss-kick partnership."""
+    """The serve from the server's side: the toss-kick partnership. The
+    inside player in his quarter circle tosses to the tekong, the tekong
+    strikes it from the circle, and the far side returns it."""
     # The tosser must have a foot in his quarter circle when he throws; he
-    # used to stand beside the tekong, four metres outside it.
-    specs = [("high_toss", "off the high toss", QUARTER_L),
-             ("low_drive", "driven low", QUARTER_R)]
+    # used to stand beside the tekong, four metres outside it. Named by the
+    # side he stands on: the near team faces up, so its left is screen-left.
+    specs = [("high_toss", "off the high toss", QUARTER_L, "L", QUARTER_R, "R"),
+             ("low_drive", "driven low", QUARTER_R, "R", QUARTER_L, "L")]
     out = []
-    for key, label, thrower in specs:
+    for key, label, thrower, tlab, other, olab in specs:
+        drop = lambda q: (0.5 + (q[0] - 0.5) * 0.55, 0.63)
         out.append(Drill(
             id=f"st_tekong_{key}", category="setpiece", minutes=10, rel=True,
             free=(key == "high_toss"),
             name=suffixed(TEKONG_NAME, label), note=TEKONG_NOTE,
-            home=[P(*TEKONG, "T", moves=[(0.50, 0.775, 1)]),
-                  P(*thrower, "L",
-                    moves=[(thrower[0] + (0.5 - thrower[0]) * 0.25, 0.60, 0),
-                           (0.5 + (thrower[0] - 0.5) * 0.55, 0.63, 2)]),
-                  P(*(QUARTER_R if thrower is QUARTER_L else QUARTER_L), "R",
-                    moves=[(0.5 + (0.5 - thrower[0]) * 0.55, 0.63, 2)])],
+            home=[P(*TEKONG, "T", moves=[(0.50, 0.78, 2)]),
+                  P(*thrower, tlab, moves=[drop(thrower) + (1,)]),
+                  P(*other, olab, moves=[drop(other) + (1,)])],
             away=[P(0.50, 0.24, "D", moves=[(0.44, 0.16 if key == "high_toss"
                                              else 0.30, 1)])],
             markers=[M(*TEKONG, "circle", "")],
             ball=1,
+            # toss, serve, the return to the inside player who threw it
+            ball_to=[(0, 0), ("a0", 1), (1, 2)],
         ))
     return out
 
@@ -552,6 +656,8 @@ RECEIVE2_NOTE = {
 
 
 def receive2_family() -> list[Drill]:
+    # 1 receives where the drill says — on the left or the right, not in
+    # front of his own tekong — and plays it up to 2 on the square.
     specs = [("left", "on the left", 0.26), ("right", "on the right", 0.74)]
     out = []
     for key, label, x in specs:
@@ -559,16 +665,15 @@ def receive2_family() -> list[Drill]:
             id=f"st_receive_{key}", category="possession", minutes=10, rel=True,
             free=(key == "left"),
             name=suffixed(RECEIVE2_NAME, label), note=RECEIVE2_NOTE,
-            home=[P(x, 0.76, "1", moves=[(x, 0.70, 0),
-                                         (FEED_POINT[0], FEED_POINT[1] + 0.14, 1)]),
-                  P(1 - x, 0.60, "2", moves=[FEED_POINT + (1,)]),
+            home=[P(x, 0.76, "1", moves=[(x, 0.70, 0)]),
+                  P(1 - x, 0.62, "2", moves=[FEED_POINT + (1,)]),
                   P(*TEKONG, "T", moves=[(0.50, 0.78, 1)])],
-            away=[P(0.50, 0.14, "T", moves=[(0.50, 0.20, 0)])],
+            away=[P(*AWAY_TEKONG, "t")],
             markers=[M(*FEED_POINT, "square", "")],
-            ball=(0.50, 0.14),
-            # the serve comes over, the first touch goes up to the feed
-            # point — the square — where the feeder takes it
-            ball_to=[("a0", 0), (0, 1), (FEED_POINT, 2)],
+            ball=AWAY_TEKONG,
+            # the serve comes over to 1, the first touch goes up to the
+            # square, where 2 takes it
+            ball_to=[(0, 0), (1, 1)],
         ))
     return out
 
@@ -603,21 +708,35 @@ COVER_NOTE = {
 
 def cover_family() -> list[Drill]:
     return [Drill(
+        # The one attack drill where the spike meets the block on purpose:
+        # F sets, S hits into B, the block drops it on our side and T, who
+        # was crouched under the spiker, plays the rebound up.
         id="st_cover_spike", category="defending", minutes=10, rel=True,
         free=True,
         name=suffixed(COVER_NAME, "behind your own attack"), note=COVER_NOTE,
-        home=[P(*RIGHT_INSIDE, "S", moves=[(0.62, 0.54, 1)]),
-              P(*LEFT_INSIDE, "F", moves=[(0.52, 0.66, 1)]),
-              P(*TEKONG, "T", moves=[(0.62, 0.74, 1)])],
-        away=[P(0.62, 0.46, "B", moves=[(0.62, 0.455, 1)])],
-        ball=0,
+        home=[P(*RIGHT_INSIDE, "S", moves=[(0.62, 0.54, 0)]),
+              P(*LEFT_INSIDE, "F", moves=[(0.52, 0.62, 1)]),
+              P(*TEKONG, "T", moves=[(0.66, 0.66, 0)])],
+        away=[P(0.62, 0.47, "B", moves=[(0.62, 0.455, 1)])],
+        ball=1, ball_to=[(0, 0), ("a0", 1), (2, 2)],
     ), Drill(
+        # The far side receives deep: the serve goes to the back half, not
+        # at an inside player hugging the net.
         id="st_game_regu", category="ssg", minutes=20, rel=True, free=True,
-        name=suffixed(GAME_NAME, "full regu"), note=GAME_NOTE,
-        home=[P(0.12, 0.54, "L"), P(0.88, 0.54, "R"),
-              P(*TEKONG, "T", moves=[(0.50, 0.80, 0)])],
-        away=[P(0.12, 0.46, "L"), P(0.88, 0.46, "R"),
-              P(0.50, 0.14, "T", moves=[(0.50, 0.20, 0)])],
-        ball=2,
+        name=suffixed(GAME_NAME, {
+            "en": "full regu", "en-GB": "full regu", "zh-CN": "三人制整队对抗",
+            "zh-TW": "三人制整隊對抗", "ja-JP": "レグ戦", "ko-KR": "레구 경기",
+            "es-ES": "regu completo", "fr-FR": "regu complet",
+            "id-ID": "regu penuh", "ms-MY": "regu penuh",
+            "th-TH": "เรกูเต็มทีม", "vi-VN": "regu đầy đủ"}), note=GAME_REGU_NOTE,
+        home=[P(*QUARTER_L, "L", moves=[(0.28, 0.62, 1)]),
+              P(*QUARTER_R, "R", moves=[(0.72, 0.62, 1)]),
+              P(*TEKONG, "T")],
+        away=[P(0.72, 0.30, "l", moves=[(0.54, 0.42, 2)]),
+              P(0.28, 0.28, "r", moves=[(0.26, 0.24, 1), (0.40, 0.44, 3)]),
+              P(*AWAY_TEKONG, "t")],
+        ball=0, ball_to=[(2, 0), ("a1", 1), ("a0", 2), ("a1", 3),
+                         (Spot(0.66, 0.76), 4)],
     )]
+
 

@@ -1,0 +1,11 @@
+Neu in 2.1.0
+
+• Spieltag: Abschnitte, Aufstellung, Uhr, Wechsel; Minuten als PDF (Uhr braucht Pro)
+• Spielbuch, am Spieltag durchblättern
+• NBA-, NCAA- und Highschool-Felder neben FIBA
+• 99 Übungen statt 58: Set Plays, Spain Pick-and-Roll, Presse, Zonen, Umschalten
+• Fertige Einheiten: sechs Trainingspläne
+• Notizen auf dem Board, die mit jedem Schritt wechseln
+• Tablet-Layout mit Seitenleiste, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Kleinere Korrekturen

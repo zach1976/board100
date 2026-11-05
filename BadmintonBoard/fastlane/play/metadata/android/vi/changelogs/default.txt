@@ -1,0 +1,8 @@
+Có gì mới trong 2.1.0
+
+• Buổi tập có sẵn: sáu giáo án ghép từ 42 bài tập
+• Ghi chú trên bảng, đổi theo mỗi bước
+• Sân xanh lá với dải lưới trắng, theo bảng màu chính thức
+• Giao diện máy tính bảng với thanh bên, bàn phím và bút cảm ứng
+• Tiếng Đức và tiếng Hà Lan: 14 ngôn ngữ
+• Sửa lỗi nhỏ và dịch thêm nhiều nhãn

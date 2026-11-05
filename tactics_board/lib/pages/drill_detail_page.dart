@@ -1,6 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../services/drill_library_service.dart';
 import 'package:provider/provider.dart';
 
 import '../models/drill.dart';
@@ -41,6 +42,11 @@ class DrillDetailPage extends StatefulWidget {
   /// Shown instead of the load button when the drill is behind Pro.
   final VoidCallback? onUpgrade;
 
+  /// Shown as the right-hand pane of the library's split view on a tablet
+  /// rather than as a page of its own: no back arrow, since there is
+  /// nothing to go back to — the list is beside it.
+  final bool embedded;
+
   const DrillDetailPage({
     super.key,
     required this.drill,
@@ -48,6 +54,7 @@ class DrillDetailPage extends StatefulWidget {
     required this.locale,
     this.onLoad,
     this.onUpgrade,
+    this.embedded = false,
   });
 
   static Future<void> push(
@@ -193,6 +200,24 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
       body: SafeArea(
         child: Column(
           children: [
+            if (widget.embedded)
+              SizedBox(
+                height: 52,
+                child: Row(
+                  children: [
+                    const Spacer(),
+                    TacticalIconButton(
+                      icon: _mark.starred
+                          ? Icons.star_rounded
+                          : Icons.star_border_rounded,
+                      onTap: _toggleStar,
+                      color: _mark.starred ? T.warningIcon : null,
+                    ),
+                    const SizedBox(width: T.s8),
+                  ],
+                ),
+              )
+            else
             TacticalNavBar(
               actions: [
                 TacticalIconButton(
@@ -200,7 +225,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       ? Icons.star_rounded
                       : Icons.star_border_rounded,
                   onTap: _toggleStar,
-                  color: _mark.starred ? T.warning : null,
+                  color: _mark.starred ? T.warningIcon : null,
                 ),
               ],
             ),
@@ -284,7 +309,16 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                             children: [
                               // Enough for the board to be worth looking at,
                               // and no more: the words are the page.
-                              SizedBox(width: (c.maxWidth * 0.36).clamp(320.0, 520.0),
+                              // An upright tablet gives the board half: at
+                              // 0.36 of 1032pt it was a narrow strip with
+                              // an empty column under it.
+                              SizedBox(
+                                  width: (c.maxWidth *
+                                          (MediaQuery.orientationOf(context) ==
+                                                  Orientation.portrait
+                                              ? 0.5
+                                              : 0.36))
+                                      .clamp(320.0, 520.0),
                                   child: board),
                               const SizedBox(width: T.s24),
                               Expanded(child: reading),
@@ -344,7 +378,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(d.localizedName(widget.locale), style: T.display),
+              Text(d.displayName(widget.locale), style: T.display),
               const SizedBox(height: T.s12),
               Wrap(
                 spacing: T.s16,
@@ -358,14 +392,13 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
                       icon: Icons.groups_outlined, label: '${d.players}'),
                   MetaItem(
                       icon: Icons.local_fire_department_outlined,
-                      label: d.category
-                          .labelKeyFor(widget.sportType.drillVocabulary)
-                          .tr()),
+                      label: DrillLibraryService.instance.label(context, d.category
+                          .labelKeyFor(widget.sportType.drillVocabulary))),
                   MetaItem(
                       icon: Icons.bar_chart_rounded,
-                      label: d.level.labelKey.tr()),
+                      label: DrillLibraryService.instance.label(context, d.level.labelKey)),
                   MetaItem(
-                      icon: Icons.repeat_rounded, label: d.usageKey.tr()),
+                      icon: Icons.repeat_rounded, label: DrillLibraryService.instance.label(context, d.usageKey)),
                 ],
               ),
             ],
@@ -379,9 +412,9 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     return Container(
       padding: const EdgeInsets.all(T.s12),
       decoration: BoxDecoration(
-        color: T.warning.withValues(alpha: 0.09),
+        color: T.warningBackground,
         borderRadius: T.brMd,
-        border: Border.all(color: T.warning.withValues(alpha: 0.22)),
+        border: Border.all(color: T.warningBorder),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -389,7 +422,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
           const Padding(
             padding: EdgeInsets.only(top: 2),
             child:
-                Icon(Icons.warning_amber_rounded, size: 16, color: T.warning),
+                Icon(Icons.warning_amber_rounded, size: 16, color: T.warningIcon),
           ),
           const SizedBox(width: T.s8),
           Expanded(
@@ -397,8 +430,8 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('drills_common_mistake'.tr(),
-                    style: TextStyle(
-                        color: T.warning.withValues(alpha: 0.9),
+                    style: const TextStyle(
+                        color: T.warning,
                         fontSize: 10.5,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.8)),
@@ -427,7 +460,7 @@ class _DrillDetailPageState extends State<DrillDetailPage> {
     final locked = widget.onLoad == null;
     return Container(
       padding: const EdgeInsets.fromLTRB(T.screenX, T.s12, T.screenX, T.s12),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.bg1,
         border: Border(top: BorderSide(color: T.border)),
       ),
@@ -501,38 +534,52 @@ class _BoardCard extends StatelessWidget {
               // players on a shrunken pitch — three of them covering the
               // centre circle. Scaling the finished board instead makes the
               // preview exactly the board, smaller.
-              child: Center(
-                child: SizedBox(
-                  // Taller than it was: with the card gone this is the
-                  // hero of the page, and the pitch gets the width the
-                  // screen can give it.
-                  height: MediaQuery.of(context).size.height * 0.42,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    // A drill that lives in one half is shown at that half:
-                    // the other half is empty grass, and drawing it halved
-                    // the size of everything that mattered. The crop is a
-                    // view — the board underneath is the full pitch.
-                    child: ClipRect(
-                      child: Align(
-                        alignment: frame == 'bottom'
-                            ? Alignment.bottomCenter
-                            : Alignment.topCenter,
-                        // 0.60 of the canvas: the generator marks a drill
-                        // "top"/"bottom" only when everything in it sits a
-                        // token inside this share (engine.FRAME_VIEW).
-                        heightFactor: frame == null ? 1.0 : 0.60,
-                        child: const SizedBox(
-                          width: kBoardRefWidth,
-                          height: kBoardRefHeight,
-                          child: IgnorePointer(
-                              child: TacticsCanvas(preview: true)),
-                        ),
-                      ),
+              child: Builder(builder: (context) {
+                // Turned sideways the board page draws the board landscape
+                // (see TacticsBoardHomePage), so a portrait picture here is a
+                // picture of a board the coach will not recognise when he
+                // presses "Put on the board".
+                final sideways =
+                    MediaQuery.orientationOf(context) == Orientation.landscape;
+                // A drill that lives in one half is shown at that half: the
+                // other half is empty grass, and drawing it halved the size
+                // of everything that mattered. The crop is a view — the board
+                // underneath is the full pitch. It is taken upright and then
+                // turned, so "top" is still the end being attacked.
+                final board = ClipRect(
+                  child: Align(
+                    alignment: frame == 'bottom'
+                        ? Alignment.bottomCenter
+                        : Alignment.topCenter,
+                    // 0.60 of the canvas: the generator marks a drill
+                    // "top"/"bottom" only when everything in it sits a token
+                    // inside this share (engine.FRAME_VIEW).
+                    heightFactor: frame == null ? 1.0 : 0.60,
+                    child: SizedBox(
+                      width: kBoardRefWidth,
+                      height: kBoardRefHeight,
+                      child: IgnorePointer(
+                          child: TacticsCanvas(
+                              preview: true, boardTurns: sideways ? 1 : 0)),
                     ),
                   ),
-                ),
-              ),
+                );
+                return Center(
+                  // Bounded both ways rather than fixed in height: turned
+                  // sideways the picture is wide and short, and a fixed
+                  // height made it wider than the column it sits in.
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height * 0.42),
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: sideways
+                          ? RotatedBox(quarterTurns: 1, child: board)
+                          : board,
+                    ),
+                  ),
+                );
+              }),
             ),
             if (steps > 0) ...[
               const SizedBox(height: T.s4),
@@ -783,7 +830,7 @@ class _BeatRow extends StatelessWidget {
               ),
               child: Text('${index + 1}',
                   style: TextStyle(
-                      color: current ? const Color(0xFF04231F) : T.textDim,
+                      color: current ? T.onAccent : T.textDim,
                       fontSize: 11,
                       fontWeight: FontWeight.w700)),
             ),
@@ -856,7 +903,7 @@ class _MyNote extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Icon(empty ? Icons.edit_note : Icons.sticky_note_2_outlined,
-                size: 16, color: empty ? T.textOff : T.accent),
+                size: 16, color: empty ? T.textOff : T.accentText),
             const SizedBox(width: T.s8),
             Expanded(
               child: Column(
@@ -864,7 +911,7 @@ class _MyNote extends StatelessWidget {
                 children: [
                   Text('drill_note_title'.tr(),
                       style: TextStyle(
-                          color: empty ? T.textOff : T.accent,
+                          color: empty ? T.textOff : T.accentText,
                           fontSize: 10.5,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.8)),

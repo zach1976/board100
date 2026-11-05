@@ -1,5 +1,10 @@
-Apa Yang Baharu
+Apa yang baharu dalam versi 2.1.1
 
-• Penyunting garis masa kini boleh ditatal — setiap baris pemain dan lakaran kekal boleh dicapai, tidak kira berapa banyak yang ditambah.
-• Kembali ke apl terasa lebih lancar.
-• Pembaikan pepijat dan penambahbaikan kestabilan.
+PRO LEBIH MUDAH DICARI
+"Buang Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, hanya satu ketikan. Helaian pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
+
+IKON SUKAN DAN PENGENALAN BAHARU
+Ikon sukan dan tiga skrin pengenalan semasa pertama kali dibuka dilukis semula.
+
+PEMBETULAN LAIN
+Selepas papan ditutup, nama latihan tidak lagi tertinggal di atas senarai.

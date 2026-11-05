@@ -65,9 +65,10 @@ void main() {
         const TextSelection(baseOffset: 0, extentOffset: 7),
         reason: 'selected, so the first keystroke replaces it');
 
-    // And Apply works on the first tap, which is the whole point.
+    // And Create works on the first tap, which is the whole point. (The
+    // button said "Apply" until 2026-10-11; it names something new.)
     final apply = tester.widget<TextButton>(
-        find.widgetWithText(TextButton, 'Apply'));
+        find.widgetWithText(TextButton, 'Create'));
     expect(apply.onPressed, isNotNull);
 
     await tester.tap(find.text('Cancel'));

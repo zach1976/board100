@@ -1,1 +1,1 @@
-soccer tactics, soccer formations, soccer set piece, soccer training plays,soccer drills
+tactics board,training plan,schedule,formation,set pieces,demo,analysis,match review

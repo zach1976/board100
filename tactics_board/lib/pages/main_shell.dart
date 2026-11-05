@@ -8,7 +8,9 @@ import '../services/auth_service.dart';
 import '../services/drill_library_service.dart';
 import '../services/drill_notes_service.dart';
 import '../services/practice_service.dart';
+import '../services/purchase_service.dart';
 import '../state/tactics_state.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
 import 'drill_library_page.dart';
@@ -95,6 +97,9 @@ class _MainShellState extends State<MainShell> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const TacticsBoardHomePage()),
     );
+    // A toast the board raised (the drill's name, "saved") belongs to the
+    // board: the app-wide messenger would otherwise keep it over the list.
+    if (mounted) ScaffoldMessenger.of(context).removeCurrentSnackBar();
     await state.autosave();
     // Whatever happened on the board — a drill loaded, a board saved — is
     // news to the home tab's lists.
@@ -107,7 +112,7 @@ class _MainShellState extends State<MainShell> {
     // Hold the empty background rather than flashing the tabs for one frame
     // while the preference is read.
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       return IntroPage(
@@ -116,9 +121,7 @@ class _MainShellState extends State<MainShell> {
         onDone: () => setState(() => _intro = false),
       );
     }
-    return Scaffold(
-      backgroundColor: T.bg0,
-      body: IndexedStack(
+    final tabs = IndexedStack(
         index: _tab,
         children: [
           // The intro is gated here, above the Scaffold; the page must not
@@ -131,20 +134,39 @@ class _MainShellState extends State<MainShell> {
           DrillLibraryPage(state: state, onLoaded: _openBoard),
           _MinePage(onOpenBoard: _openBoard),
         ],
-      ),
+      );
+    void onTab(int i) {
+      // The board is an action, not a destination — see the note above.
+      if (i == 1) {
+        _boardTab();
+        return;
+      }
+      setState(() {
+        _tab = i > 1 ? i - 1 : i;
+        if (_tab == 0) _homeRevision++;
+      });
+    }
+
+    // An iPad keeps its sections in a rail down the side, the way iPadOS
+    // apps do: a phone's bottom bar spread four items over 1376pt, 344pt
+    // apart, with 22pt icons and labels too small for the distance.
+    if (isTabletLayout(context)) {
+      return Scaffold(
+        backgroundColor: T.bg0,
+        body: Row(
+          children: [
+            _SideRail(current: _tab, onTap: onTab),
+            Expanded(child: tabs),
+          ],
+        ),
+      );
+    }
+    return Scaffold(
+      backgroundColor: T.bg0,
+      body: tabs,
       bottomNavigationBar: _TabBar(
         current: _tab,
-        onTap: (i) {
-          // The board is an action, not a destination — see the note above.
-          if (i == 1) {
-            _boardTab();
-            return;
-          }
-          setState(() {
-            _tab = i > 1 ? i - 1 : i;
-            if (_tab == 0) _homeRevision++;
-          });
-        },
+        onTap: onTab,
       ),
     );
   }
@@ -172,14 +194,14 @@ class AccountAvatar extends StatelessWidget {
   /// a generated avatar is the same object it has always been, in a
   /// different colour, and its contrast is settled by construction rather
   /// than by which hue the hash happened to pick.
-  static const palette = <Color>[
-    T.accent,
+  static List<Color> get palette => <Color>[
+    T.accentText,
     T.home,
     T.success,
     T.warning,
     T.routeAlt,
     T.away,
-    T.lime,
+    T.info,
   ];
 
   /// Which of them this name gets. The same coach is the same colour on
@@ -188,7 +210,7 @@ class AccountAvatar extends StatelessWidget {
   /// not promise to keep between runs or platforms.
   static Color colorFor(String? name) {
     final key = (name ?? '').trim();
-    if (key.isEmpty) return T.accent;
+    if (key.isEmpty) return T.accentText;
     var h = 0;
     for (final r in key.runes) {
       // Masked to 29 bits: the same arithmetic on the web's 53-bit ints and
@@ -278,9 +300,9 @@ class _TabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.surface,
-        border: Border(top: BorderSide(color: T.border)),
+        border: const Border(top: BorderSide(color: T.border)),
       ),
       child: SafeArea(
         top: false,
@@ -292,9 +314,51 @@ class _TabBar extends StatelessWidget {
                 Expanded(
                   child: _TabButton(
                     icon: _items[i].$1,
-                    label: _items[i].$2.tr(),
+                    label: _items[i].$2.tr(context: context),
                     selected: i == _selected,
                     onTap: () => onTap(i),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The tablet's form of [_TabBar]: the same four items, down the leading
+/// edge, as an iPadOS sidebar does.
+class _SideRail extends StatelessWidget {
+  final int current;
+  final void Function(int) onTap;
+  const _SideRail({required this.current, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = current == 0 ? 0 : current + 1;
+    return DecoratedBox(
+      key: const ValueKey('shell-side-rail'),
+      decoration: BoxDecoration(
+        color: T.surface,
+        border: const Border(right: BorderSide(color: T.border)),
+      ),
+      child: SafeArea(
+        right: false,
+        child: SizedBox(
+          width: 92,
+          child: Column(
+            children: [
+              const SizedBox(height: T.s24),
+              for (var i = 0; i < _TabBar._items.length; i++)
+                SizedBox(
+                  height: 76,
+                  child: _TabButton(
+                    icon: _TabBar._items[i].$1,
+                    label: _TabBar._items[i].$2.tr(context: context),
+                    selected: i == selected,
+                    onTap: () => onTap(i),
+                    large: true,
                   ),
                 ),
             ],
@@ -310,23 +374,26 @@ class _TabButton extends StatelessWidget {
   final String label;
   final bool selected;
   final VoidCallback onTap;
+  /// The rail's size: a bigger glyph and label for a tablet.
+  final bool large;
   const _TabButton(
       {required this.icon,
       required this.label,
       required this.selected,
-      required this.onTap});
+      required this.onTap,
+      this.large = false});
 
   @override
   Widget build(BuildContext context) {
-    final color = selected ? T.accent : T.textOff;
+    final color = selected ? T.accentText : T.textOff;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 22, color: color),
-          const SizedBox(height: 3),
+          Icon(icon, size: large ? 26 : 22, color: color),
+          SizedBox(height: large ? 5 : 3),
           // One line, shrinking rather than wrapping: "Ejercicios" under a
           // quarter of a 320pt screen has 80pt to live in.
           Text(label,
@@ -334,7 +401,7 @@ class _TabButton extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   color: color,
-                  fontSize: 11,
+                  fontSize: large ? 12.5 : 11,
                   fontWeight: selected ? FontWeight.w600 : FontWeight.w400)),
         ],
       ),
@@ -396,6 +463,12 @@ class _MinePageState extends State<_MinePage> {
     if (mounted) _refresh();
   }
 
+  /// A form — sign in, contact — which a tablet shows as a form sheet.
+  Future<void> _pushForm(Widget page) async {
+    await pushFormSheet<void>(context, page);
+    if (mounted) _refresh();
+  }
+
   Future<void> _openLibrary({bool mine = false, bool starred = false}) async {
     final state = context.read<TacticsState>();
     await DrillLibraryPage.push(
@@ -414,8 +487,12 @@ class _MinePageState extends State<_MinePage> {
     final auth = AuthService.instance;
     return SafeArea(
       bottom: false,
-      child: ListView(
-        padding: const EdgeInsets.fromLTRB(T.screenX, T.s16, T.screenX, T.s32),
+      // A tablet keeps the page to a readable column, centred; the list still
+      // scrolls from anywhere on the screen.
+      child: LayoutBuilder(builder: (context, c) {
+        final x = T.screenX + tabletInset(context, c.maxWidth);
+        return ListView(
+        padding: EdgeInsets.fromLTRB(x, T.s16, x, T.s32),
         children: [
           Text('tab_mine'.tr(),
               style: const TextStyle(
@@ -429,7 +506,7 @@ class _MinePageState extends State<_MinePage> {
             name: auth.isLoggedIn ? (auth.userName ?? 'menu_login'.tr()) : null,
             email: auth.userEmail,
             photo: auth.userPhoto,
-            onTap: () => _push(const LoginPage()).then((_) {
+            onTap: () => _pushForm(const LoginPage()).then((_) {
               if (mounted) setState(() {});
             }),
           ),
@@ -454,6 +531,37 @@ class _MinePageState extends State<_MinePage> {
             ],
           ),
           const SizedBox(height: T.s24),
+
+          // The purchases have a row of their own here, where a settings
+          // page is expected to have one. They used to be reachable only
+          // from a board's ⋯ menu and a locked drill, and App Review went
+          // looking on this page and sent four releases back under 2.1(b)
+          // "cannot locate the In-App Purchases" (2026-10-17 to 10-25).
+          if (PurchaseService.instance.isStoreEnabled) ...[
+            _SectionLabel('pro_title'.tr()),
+            _Card(children: [
+              if (!PurchaseService.instance.hasPro)
+                _Row(
+                  icon: Icons.workspace_premium_outlined,
+                  label: 'menu_remove_ads'.tr(),
+                  onTap: () => showPaywallSheet(context),
+                ),
+              _Row(
+                icon: Icons.restore_rounded,
+                label: 'pro_restore'.tr(),
+                onTap: () async {
+                  final pro = await PurchaseService.instance.restore();
+                  if (!context.mounted) return;
+                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          (pro ? 'pro_thanks' : 'pro_restore_none').tr())));
+                },
+                last: true,
+              ),
+            ]),
+            const SizedBox(height: T.s24),
+          ],
 
           _SectionLabel('mine_content'.tr()),
           _Card(children: [
@@ -492,7 +600,7 @@ class _MinePageState extends State<_MinePage> {
             _Row(
               icon: Icons.mail_outline_rounded,
               label: 'menu_contact'.tr(),
-              onTap: () => _push(const ContactPage()),
+              onTap: () => _pushForm(const ContactPage()),
               last: true,
             ),
           ]),
@@ -508,7 +616,8 @@ class _MinePageState extends State<_MinePage> {
             ),
           ),
         ],
-      ),
+      );
+      }),
     );
   }
 }
@@ -545,10 +654,13 @@ class _AccountCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: T.brLg,
           border: Border.all(color: T.border),
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF16302A), T.surface],
+            // From the app's own chrome, not a fixed teal: on a re-hued
+            // single-sport app (the footvolley sand, say) the hard-coded
+            // teal corner was the one piece of the hub left on the page.
+            colors: [T.surfaceHi, T.surface],
           ),
         ),
         child: Row(
@@ -600,8 +712,8 @@ class _Stat extends StatelessWidget {
       child: Column(
         children: [
           Text(value,
-              style: const TextStyle(
-                  color: T.accent,
+              style: TextStyle(
+                  color: T.accentText,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   fontFeatures: [FontFeature.tabularFigures()])),
@@ -681,7 +793,11 @@ class _Row extends StatelessWidget {
           children: [
             Icon(icon, size: 19, color: T.textDim),
             const SizedBox(width: T.s12),
+            // The label takes the row and the value sits at its far end, by
+            // the chevron. Expanded + Flexible split the free width in half,
+            // which left "None yet" floating mid-row — at x≈700 on an iPad.
             Expanded(
+              flex: 3,
               child: Text(label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -689,10 +805,12 @@ class _Row extends StatelessWidget {
             ),
             if (trailing != null) ...[
               const SizedBox(width: T.s8),
-              Flexible(
+              Expanded(
+                flex: 2,
                 child: Text(trailing!,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.end,
                     style: const TextStyle(color: T.textOff, fontSize: 13)),
               ),
             ],

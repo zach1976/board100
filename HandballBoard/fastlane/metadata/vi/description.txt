@@ -1,29 +1,49 @@
-Phá vạch 6 mét.
+Xé toang vạch 6 mét.
 
-Bảng Chiến Thuật Bóng Ném — Lập hệ thống tấn công, phòng ngự 6-0 và 5-1, và phản công — trên sân chuẩn.
+Bảng chiến thuật Bóng ném giúp huấn luyện viên lên hệ thống tấn công, phòng ngự 6-0 và 5-1 và phản công nhanh trên sân chuẩn với khu cầu môn màu cam.
 
 VẼ. PHÁT. CHIA SẺ.
 
-- Kéo cầu thủ vào sân chuẩn tỉ lệ, đầy màu
+- Kéo cầu thủ vào sân bóng ném chuẩn tỉ lệ, đầy màu, với khu cầu môn màu cam
 - Mũi tên, đường, khu vực — màu sắc và độ dày tùy ý
 - Chạm Play, cầu thủ tự di chuyển từng bước
-- Lưu không giới hạn, xuất ảnh HD hoặc PDF
+- Ghi chú cho từng bước — chữ đổi theo khi pha bóng chạy
+- Lưu không giới hạn, xuất PNG, PDF hoặc video
+
+42 BÀI TẬP, ĐÃ VIẾT SẴN
+
+Mỗi bài tập là một bảng đi được từng nhịp: rèn cái gì, bố trí ra sao, và câu cần hô khi bài đang chạy. Chuyền hình sao, luân chuyển qua trụ, tấn công từ màn chắn của trụ, phản công đợt một và đợt hai, cú xoay của trụ, phòng ngự 3-2-1 và 6-0, lùi về phòng ngự, phát bóng giữa sân, đấu 5v5, thủ môn một đối một, thể lực. Tìm và lọc theo nhóm, trình độ và số người.
+
+- Sáu buổi tập có sẵn, ghép từ các bài trong thư viện — chọn một buổi khi tạo giáo án rồi chỉnh tiếp
+- Nối bài tập và bảng của riêng bạn thành giáo án, chạy cả buổi ngay bên sân và lưu lịch sử từng buổi
+- Lưu đội hình kèm ảnh và đánh dấu ai có mặt
+- Chia sẻ bảng bằng đường link — cầu thủ mở bằng trình duyệt, không cần cài app
 
 ĐỘI HÌNH, SẴN SÀNG
 
-Phòng ngự 6-0 · 5-1 · 3-2-1 · Hệ thống tấn công · Phản công
-Một chạm để tải, chỉnh tự do.
+Phòng ngự 6-0 · Phòng ngự 5-1 · 3-2-1 · Hệ thống tấn công · Phản công nhanh
+Một chạm để tải, chỉnh mọi vị trí.
+
+NGÀY THI ĐẤU
+
+Đặt số hiệp và đội hình xuất phát, chạy đồng hồ, rồi chạm hai cầu thủ để thay người. Ghế dự bị xếp theo số phút đã chơi, và "Gợi ý" cân bằng thời gian thi đấu. Thẻ vàng, phạt hai phút và thẻ đỏ đều được ghi lại. Sau trận, số phút và thay người của từng cầu thủ xuất ra PDF. Thiết lập miễn phí; đồng hồ cần Pro.
 
 DÀNH CHO BÊN ĐƯỜNG BIÊN
 
 - Hoạt động offline — sân không Wi-Fi? Không sao.
+- iPad có thanh bên, phím tắt bàn phím và Apple Pencil — bút để vẽ, ngón tay để kéo cầu thủ; dọc hay ngang đều được
+- Đăng nhập bằng Apple hoặc Google (tùy chọn) để đồng bộ bảng, giáo án và lịch sử buổi tập giữa các thiết bị
 - Giao diện tối — dịu mắt khi tập tối
 - Hoàn tác/làm lại 50 bước — thử thoải mái
 - AirPlay lên TV — phòng thay đồ thành phòng tác chiến
-- Miễn phí, không cần tài khoản
 
-11 NGÔN NGỮ
-Tiếng Việt · English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu
+MIỄN PHÍ VÀ PRO
+
+Tải miễn phí, không cần tài khoản. Pro bỏ quảng cáo và mở toàn bộ thư viện bài tập — mua một lần (Lifetime), dùng mãi mãi.
+
+14 NGÔN NGỮ
+Tiếng Việt · English (US) · English (UK) · 简体中文 · 繁體中文 · 日本語 · 한국어 · Français · Español · ไทย · Bahasa Indonesia · Bahasa Melayu · Deutsch · Nederlands
+Mọi tên bài tập và lời giảng cũng được dịch.
 
 Từ giải làng đến đội tuyển — dạy được là vẽ được.
 

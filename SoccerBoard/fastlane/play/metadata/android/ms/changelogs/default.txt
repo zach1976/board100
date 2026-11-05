@@ -1,0 +1,9 @@
+Apa Yang Baharu dalam 2.3.0
+
+• Hari perlawanan: tempoh, susunan, jam, penggantian, kad dan penentuan penalti; minit dieksport sebagai PDF (jam memerlukan Pro)
+• Buku taktik, diselak dari hari perlawanan
+• Sesi sedia ada: enam pelan daripada 137 latihan
+• Nota pada papan yang bertukar pada setiap langkah
+• Susun atur tablet dengan bar sisi, papan kekunci dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Pembaikan kecil dan lebih banyak label diterjemahkan

@@ -1,1 +1,1 @@
-baseball tactics, baseball board, baseball lineup, baseball training tactics
+tactics board,training plan,schedule,lineup,defensive shift,demo,analysis,match review

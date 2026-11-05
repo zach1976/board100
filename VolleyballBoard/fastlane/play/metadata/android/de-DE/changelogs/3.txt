@@ -1,0 +1,11 @@
+Neu in 2.1.0
+
+• Alle sechs Rotationen bei Aufschlag oder Annahme, mit Überlappungsprüfung und Korrektur per Tipp
+• Regelwerke: FIVB, USAV, NFHS oder NCAA, mit Wechsellimits
+• Aufstellungsbogen als PDF; der legale Bereich beim Ziehen
+• Spieltag: Wechselbogen pro Satz (braucht Pro)
+• Spielbuch am Spieltag; Strandfeld für Zweierteams
+• 154 Übungen statt 44; sechs fertige Einheiten
+• Tablet-Layout, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Kleinere Korrekturen

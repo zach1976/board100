@@ -1,5 +1,10 @@
-What's New
+What's New in 2.1.2
 
-• The timeline editor now scrolls — every player and drawing row stays reachable, no matter how many you add.
-• Smoother return when you switch back into the app.
-• Bug fixes and stability improvements.
+PRO, EASIER TO FIND
+"Remove Ads" and "Restore Purchases" now sit on the Me page, one tap away. The purchase sheet is its own white panel, clear to read on iPad too.
+
+NEW SPORT ICONS AND INTRO
+The sport icons and the three intro screens you see on first launch are all redrawn.
+
+SMALLER FIXES
+After you close a board, the drill name no longer hangs over the list.

@@ -1,9 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../ui/sport_palettes.g.dart' show kSportColors;
+import '../ui/tokens.dart' show SportPalette;
 import 'player_icon.dart';
 import 'court_layout.dart';
 import 'drill.dart' show DrillVocabulary;
+import 'match_day.dart' show MatchCardKind;
 import 'sport_formation.dart';
 
 /// How the hub's picker shelves the fifteen sports. Fifteen equal cards were
@@ -48,6 +51,8 @@ List<SportType> sportDisplayOrderFor(Locale locale) {
   if (lang == 'th') return _orderTh;
   if (lang == 'id') return _orderId;
   if (lang == 'ms') return _orderMs;
+  if (lang == 'de') return _orderDe;
+  if (lang == 'nl') return _orderNl;
   return _orderDefault;
 }
 
@@ -139,6 +144,22 @@ const List<SportType> _orderMs = [
   SportType.rugby, SportType.beachTennis, SportType.footvolley,
 ];
 
+const List<SportType> _orderDe = [
+  SportType.soccer, SportType.handball, SportType.tennis,
+  SportType.basketball, SportType.volleyball, SportType.tableTennis,
+  SportType.fieldHockey, SportType.badminton, SportType.waterPolo,
+  SportType.pickleball, SportType.beachTennis, SportType.rugby,
+  SportType.baseball, SportType.footvolley, SportType.sepakTakraw,
+];
+
+const List<SportType> _orderNl = [
+  SportType.soccer, SportType.fieldHockey, SportType.tennis,
+  SportType.volleyball, SportType.basketball, SportType.handball,
+  SportType.waterPolo, SportType.baseball, SportType.tableTennis,
+  SportType.badminton, SportType.pickleball, SportType.rugby,
+  SportType.beachTennis, SportType.footvolley, SportType.sepakTakraw,
+];
+
 const List<SportType> _orderDefault = [
   SportType.soccer, SportType.basketball, SportType.tennis,
   SportType.volleyball, SportType.badminton, SportType.tableTennis,
@@ -217,7 +238,8 @@ extension SportTypeExtension on SportType {
   }
 
   /// Apple numeric ID of the corresponding ScoreSyncer scoring app.
-  /// Empty string means the app is not yet on the App Store.
+  /// Empty string means the app is not yet on the App Store. All fifteen
+  /// are live as of 2026-10-20 (checked against the public lookup API).
   String get scorerAppleId {
     switch (this) {
       case SportType.badminton:    return '6747377276';
@@ -226,15 +248,15 @@ extension SportTypeExtension on SportType {
       case SportType.basketball:   return '6761400751';
       case SportType.volleyball:   return '6761400656';
       case SportType.pickleball:   return '6744628482';
-      case SportType.soccer:       return ''; // not yet on App Store
-      case SportType.fieldHockey:  return ''; // not yet on App Store
-      case SportType.rugby:        return ''; // not yet on App Store
-      case SportType.baseball:     return ''; // not yet on App Store
-      case SportType.handball:     return ''; // not yet on App Store
-      case SportType.waterPolo:    return ''; // not yet on App Store
-      case SportType.sepakTakraw:  return ''; // not yet on App Store
-      case SportType.beachTennis:  return ''; // not yet on App Store
-      case SportType.footvolley:   return ''; // not yet on App Store
+      case SportType.soccer:       return '6761400537';
+      case SportType.fieldHockey:  return '6763750556';
+      case SportType.rugby:        return '6763750560';
+      case SportType.baseball:     return '6763750754';
+      case SportType.handball:     return '6763750892';
+      case SportType.waterPolo:    return '6763750564';
+      case SportType.sepakTakraw:  return '6763750187';
+      case SportType.beachTennis:  return '6763750311';
+      case SportType.footvolley:   return '6763750249';
     }
   }
 
@@ -259,15 +281,28 @@ extension SportTypeExtension on SportType {
     }
   }
 
+  /// The sport's own colour — the one its icon is painted in and its card
+  /// on the hub's picker is tinted with.
+  /// The sport's primary accent, from the family colour system
+  /// (tools/design/sport_palettes.py).
+  Color get accent => kSportColors[this]!.primaryAccent;
+
+
+  /// The app's chrome — page, sheet, card — in this sport's colour family:
+  /// the teal ladder re-hued to [accent]. A single-sport build sets
+  /// [T.palette] from this before the first frame; the hub never does, and
+  /// keeps [SportPalette.hub].
+  SportPalette get chrome => SportPalette.fromColors(kSportColors[this]!);
+
   /// Court background color, used for external display padding.
   Color get courtColor {
     switch (this) {
-      case SportType.badminton:   return const Color(0xFF1B5E20);
-      case SportType.tableTennis: return const Color(0xFF1565C0);
-      case SportType.tennis:      return const Color(0xFF1565C0);
+      case SportType.badminton:   return const Color(0xFF2E7D4F); // BWF mat green
+      case SportType.tableTennis: return const Color(0xFF1D4F91); // ITTF table blue
+      case SportType.tennis:      return const Color(0xFF2A65A5); // hard-court blue
       case SportType.basketball:  return const Color(0xFFB5651D);
       case SportType.volleyball:  return const Color(0xFFF57F17);
-      case SportType.pickleball:  return const Color(0xFF2E7D32);
+      case SportType.pickleball:  return const Color(0xFF1769B4); // blue hard court
       case SportType.soccer:      return const Color(0xFF2D8A2D);
       case SportType.fieldHockey: return const Color(0xFF1976D2); // blue astroturf
       case SportType.rugby:       return const Color(0xFF2E7D32); // rugby grass
@@ -297,15 +332,15 @@ extension SportTypeExtension on SportType {
           CourtSurface(swatch: Color(0xFF4C5157), color: Color(0xFF4C5157)), // Slate grey
         ];
       case SportType.badminton:
-        return _surfaces(const [0xFF1B5E20, 0xFF1565C0, 0xFFB5762E, 0xFF4C5157]);
+        return _surfaces(const [0xFF2E7D4F, 0xFF1565C0, 0xFFB5762E, 0xFF4C5157]);
       case SportType.tableTennis:
-        return _surfaces(const [0xFF1565C0, 0xFF0D3A6B, 0xFF1B5E20, 0xFF4C5157]);
+        return _surfaces(const [0xFF1D4F91, 0xFF0D3A6B, 0xFF1B5E20, 0xFF4C5157]);
       case SportType.tennis:
-        return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFB5651D, 0xFF4C5157]);
+        return _surfaces(const [0xFF2A65A5, 0xFF2E7D32, 0xFFB5651D, 0xFF4C5157]);
       case SportType.volleyball:
         return _surfaces(const [0xFFF57F17, 0xFF1565C0, 0xFF1B5E20, 0xFF4C5157]);
       case SportType.pickleball:
-        return _surfaces(const [0xFF2E7D32, 0xFF1565C0, 0xFF5E35B1, 0xFF4C5157]);
+        return _surfaces(const [0xFF1769B4, 0xFF2E7D32, 0xFF5E35B1, 0xFF4C5157]);
       case SportType.fieldHockey:
         return _surfaces(const [0xFF1976D2, 0xFF2E7D32, 0xFF00897B, 0xFF4C5157]);
       case SportType.rugby:
@@ -319,9 +354,11 @@ extension SportTypeExtension on SportType {
       case SportType.sepakTakraw:
         return _surfaces(const [0xFF1565C0, 0xFF2E7D32, 0xFFC44E3B, 0xFF4C5157]);
       case SportType.beachTennis:
-        return _surfaces(const [0xFFEAC478, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+        // Sand only: dry, golden, wet, and the plain grey. A blue option
+        // was offered for a sport that is never played on anything but sand.
+        return _surfaces(const [0xFFEAC478, 0xFFD4A85C, 0xFFB08A55, 0xFF4C5157]);
       case SportType.footvolley:
-        return _surfaces(const [0xFFE5B880, 0xFFD4A85C, 0xFF1565C0, 0xFF4C5157]);
+        return _surfaces(const [0xFFE5B880, 0xFFD4A85C, 0xFFB08A55, 0xFF4C5157]);
       case SportType.soccer:
         return const []; // soccer uses its own turf palette
     }
@@ -341,7 +378,6 @@ extension SportTypeExtension on SportType {
       case SportType.baseball:
         return const [CourtLayout.full, CourtLayout.blank]; // no symmetric half
       case SportType.waterPolo:
-      case SportType.fieldHockey:
         // Wide goal-end courts: also offer the half rotated to face left/right,
         // which fills a portrait screen better than the upright half.
         return const [
@@ -350,6 +386,37 @@ extension SportTypeExtension on SportType {
           CourtLayout.halfLeft,
           CourtLayout.halfRight,
           CourtLayout.blank,
+        ];
+      case SportType.fieldHockey:
+        // As water polo, plus the two other pitches hockey is played on:
+        // indoor (zaalhockey / Hallenhockey) and the Hockey5s court.
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.halfLeft,
+          CourtLayout.halfRight,
+          CourtLayout.blank,
+          CourtLayout.indoor,
+          CourtLayout.hockey5s,
+        ];
+      case SportType.basketball:
+        // The FIBA court, plus the three others the game is played on in
+        // the US: NBA, NCAA (men's) and high school (NFHS).
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.blank,
+          CourtLayout.nba,
+          CourtLayout.ncaa,
+          CourtLayout.highSchool,
+        ];
+      case SportType.volleyball:
+        // The indoor court, plus the beach: 16 m × 8 m of sand for pairs.
+        return const [
+          CourtLayout.full,
+          CourtLayout.half,
+          CourtLayout.blank,
+          CourtLayout.beach,
         ];
       default:
         // Goal sports → one goal end; net sports → one side of the net.
@@ -428,8 +495,14 @@ extension SportTypeExtension on SportType {
   ///
   /// One sport is not played in boots. The app was putting a footballer in
   /// white boots and socks in a swimming pool.
-  PlayerFigure get playerBody =>
-      this == SportType.waterPolo ? PlayerFigure.water : PlayerFigure.plain;
+  ///
+  /// And two are played barefoot on sand: beach tennis and footvolley drew
+  /// their players in socks and boots (audit 2026-10-11 m9).
+  PlayerFigure get playerBody => switch (this) {
+        SportType.waterPolo => PlayerFigure.water,
+        SportType.beachTennis || SportType.footvolley => PlayerFigure.barefoot,
+        _ => PlayerFigure.plain,
+      };
 
   /// What a player of this sport holds, when they are holding it — null for
   /// the sports where nobody carries anything.
@@ -444,8 +517,10 @@ extension SportTypeExtension on SportType {
         return PlayerFigure.racket;
       case SportType.tableTennis:
       case SportType.pickleball:
-      case SportType.beachTennis:
         return PlayerFigure.paddle;
+      // The same paddle, held by the barefoot body (see playerBody).
+      case SportType.beachTennis:
+        return PlayerFigure.barefootPaddle;
       case SportType.fieldHockey:
         return PlayerFigure.stick;
       case SportType.baseball:
@@ -470,6 +545,25 @@ extension SportTypeExtension on SportType {
   /// gloves, so there the default is empty hands and the coach marks the
   /// batter.
   bool get implementHeldByDefault => this != SportType.baseball;
+
+  /// Whether a player of this sport can travel with the ball — dribble it,
+  /// tuck it, swim with it, hold it in a glove.
+  ///
+  /// It decides how a moving holder's route is drawn: the squiggle a coach
+  /// uses for a carry, or the plain dash of a run. On a badminton court the
+  /// shuttle is struck, never carried, so a player walking to meet it was
+  /// drawn dribbling it across the floor. Same list as CARRY_SPORTS in
+  /// tools/drills/engine.py, which decides whether the ball goes with him
+  /// at all.
+  bool get canCarryBall => const {
+        SportType.soccer,
+        SportType.basketball,
+        SportType.handball,
+        SportType.rugby,
+        SportType.waterPolo,
+        SportType.fieldHockey,
+        SportType.baseball,
+      }.contains(this);
 
   SportGroup get group {
     switch (this) {
@@ -500,6 +594,81 @@ extension SportTypeExtension on SportType {
   /// True for racquet/net sports that have singles/doubles variants
   bool get hasDoubles => formations.any((f) => f.nameKey == 'formation_doubles');
 
+  /// Whether the sport's home page offers the match-day substitution sheet.
+  ///
+  /// Field hockey first: it is what every hockey app from the Netherlands
+  /// and Belgium ships, and a coach there expects it. The sheet itself is
+  /// sport-agnostic — turn another sport on here and it gets its own
+  /// defaults from [matchDayDefaults].
+  bool get hasMatchDay =>
+      this == SportType.fieldHockey ||
+      this == SportType.volleyball ||
+      this == SportType.soccer ||
+      this == SportType.basketball ||
+      this == SportType.handball ||
+      this == SportType.waterPolo ||
+      this == SportType.rugby;
+
+  /// Whether the match-day sheet counts sets instead of running a clock:
+  /// volleyball, where what a coach tracks is the score of the set, the
+  /// substitutions against the set's limit and the timeouts.
+  bool get matchDayCountsSets => this == SportType.volleyball;
+
+  /// Whether a drawn match of this sport goes to a shoot-out the sheet can
+  /// record. Hockey's and soccer's; only hockey has the sheet on now.
+  bool get hasShootOut =>
+      this == SportType.fieldHockey || this == SportType.soccer;
+
+  /// The cards this sport's referee shows, and how long each keeps the
+  /// player off: null is a booking (soccer's yellow) or, for a red card,
+  /// the rest of the match. Hockey: green two minutes, yellow five or ten,
+  /// red off. Handball: yellow, the two-minute suspension, red.
+  List<({MatchCardKind kind, int? seconds})> get matchDayCards {
+    switch (this) {
+      case SportType.fieldHockey:
+        return const [
+          (kind: MatchCardKind.green, seconds: 120),
+          (kind: MatchCardKind.yellow, seconds: 300),
+          (kind: MatchCardKind.yellow, seconds: 600),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      case SportType.soccer:
+        return const [
+          (kind: MatchCardKind.yellow, seconds: null),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      case SportType.handball:
+        return const [
+          (kind: MatchCardKind.yellow, seconds: null),
+          (kind: MatchCardKind.suspension, seconds: 120),
+          (kind: MatchCardKind.red, seconds: null),
+        ];
+      default:
+        return const [];
+    }
+  }
+
+  /// How a match of this sport is played, for the match-day sheet: periods,
+  /// minutes per period, players on the pitch at once.
+  ({int periods, int minutes, int onPitch}) get matchDayDefaults {
+    switch (this) {
+      case SportType.fieldHockey:
+        return (periods: 4, minutes: 15, onPitch: 11);
+      case SportType.soccer:
+        return (periods: 2, minutes: 45, onPitch: 11);
+      case SportType.basketball:
+        return (periods: 4, minutes: 10, onPitch: 5);
+      case SportType.handball:
+        return (periods: 2, minutes: 30, onPitch: 7);
+      case SportType.waterPolo:
+        return (periods: 4, minutes: 8, onPitch: 7);
+      case SportType.rugby:
+        return (periods: 2, minutes: 40, onPitch: 15);
+      default:
+        return (periods: 2, minutes: 30, onPitch: 6);
+    }
+  }
+
   /// Which set of words this sport's coach uses for drill categories.
   /// See DrillVocabulary in models/drill.dart.
   DrillVocabulary get drillVocabulary {
@@ -515,10 +684,11 @@ extension SportTypeExtension on SportType {
         return DrillVocabulary.net;
       case SportType.baseball:
         return DrillVocabulary.diamond;
+      case SportType.rugby:
+        return DrillVocabulary.oval;
       case SportType.basketball:
       case SportType.soccer:
       case SportType.fieldHockey:
-      case SportType.rugby:
       case SportType.handball:
       case SportType.waterPolo:
         return DrillVocabulary.pitch;
@@ -541,17 +711,20 @@ extension SportTypeExtension on SportType {
       case SportType.soccer:      aspect = 68 / 105;    scaleW = 0.90; scaleH = 0.90; break;
       case SportType.basketball:  aspect = 15 / 28;     scaleW = 0.90; scaleH = 0.90; break;
       case SportType.badminton:   aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
-      case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.88; scaleH = 0.88; break;
-      case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.85; scaleH = 0.85; break;
-      case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
+      // Pickleball, tennis, volleyball and beach tennis: room for a man
+      // with his feet behind the far baseline (boards from the old
+      // courts: TacticsState.kCourtRedraws).
+      case SportType.pickleball:  aspect = 6.1 / 13.41; scaleW = 0.82; scaleH = 0.82; break;
+      case SportType.tennis:      aspect = 10.97 / 23.77; scaleW = 0.84; scaleH = 0.84; break;
+      case SportType.volleyball:  aspect = 9 / 18;      scaleW = 0.84; scaleH = 0.84; break;
       case SportType.tableTennis: aspect = 1.525 / 2.74; scaleW = 0.65; scaleH = 0.55; break;
       case SportType.fieldHockey: aspect = 55 / 91.4;   scaleW = 0.90; scaleH = 0.90; break;
       case SportType.rugby:       aspect = 70 / 144;    scaleW = 0.92; scaleH = 0.92; break;
       case SportType.baseball:    aspect = 1.0;         scaleW = 0.95; scaleH = 0.95; break;
       case SportType.handball:    aspect = 20 / 40;     scaleW = 0.90; scaleH = 0.90; break;
-      case SportType.waterPolo:   aspect = 20 / 30;     scaleW = 0.88; scaleH = 0.88; break;
+      case SportType.waterPolo:   aspect = 20 / 25;     scaleW = 0.88; scaleH = 0.88; break;
       case SportType.sepakTakraw: aspect = 6.1 / 13.4;  scaleW = 0.88; scaleH = 0.88; break;
-      case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.85; scaleH = 0.85; break;
+      case SportType.beachTennis: aspect = 8 / 16;      scaleW = 0.84; scaleH = 0.84; break;
       case SportType.footvolley:  aspect = 9 / 18;      scaleW = 0.85; scaleH = 0.85; break;
     }
     double cw, ch;
@@ -563,6 +736,66 @@ extension SportTypeExtension on SportType {
       ch = cw / aspect;
     }
     return Rect.fromLTWH((w - cw) / 2, (h - ch) / 2, cw, ch);
+  }
+
+  /// The formations for the pitch on screen. Field hockey's indoor pitch
+  /// and Hockey5s court are other pitches with other numbers (5 + GK, 4 +
+  /// GK), drawn inside the same box as the full pitch but narrower
+  /// (FieldHockeyCourtPainter.indoorWidthShare / hockey5sWidthShare), so
+  /// their x's are pulled in to stay on it. Every other layout is a view of
+  /// the full pitch and offers [formations].
+  List<SportFormation> formationsOn(CourtLayout layout) {
+    if (this == SportType.volleyball && layout == CourtLayout.beach) {
+      // Beach volleyball is pairs: side by side to receive, or one up at
+      // the net to block with the other behind to dig.
+      return const [
+        SportFormation(
+          nameKey: 'formation_beach_side',
+          homePositions: [Offset(0.3, 0.8), Offset(0.7, 0.8)],
+          awayPositions: [Offset(0.7, 0.2), Offset(0.3, 0.2)],
+        ),
+        SportFormation(
+          nameKey: 'formation_beach_block',
+          homePositions: [Offset(0.5, 0.58), Offset(0.5, 0.85)],
+          awayPositions: [Offset(0.5, 0.42), Offset(0.5, 0.15)],
+        ),
+      ];
+    }
+    if (this != SportType.fieldHockey) return formations;
+    switch (layout) {
+      case CourtLayout.indoor:
+        return const [
+        // GK + 2-1-2: two backs, a centre, two up front.
+        SportFormation(
+          nameKey: 'formation_indoor_212',
+          homePositions: [Offset(0.5, 0.94), Offset(0.3338, 0.78), Offset(0.6662, 0.78), Offset(0.5, 0.66), Offset(0.3338, 0.56), Offset(0.6662, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.6662, 0.22), Offset(0.3338, 0.22), Offset(0.5, 0.34), Offset(0.6662, 0.44), Offset(0.3338, 0.44)],
+        ),
+        // GK + 1-2-2: one back, two wide, two up front.
+        SportFormation(
+          nameKey: 'formation_indoor_122',
+          homePositions: [Offset(0.5, 0.94), Offset(0.5, 0.8), Offset(0.2923, 0.68), Offset(0.7077, 0.68), Offset(0.3754, 0.56), Offset(0.6246, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.5, 0.2), Offset(0.7077, 0.32), Offset(0.2923, 0.32), Offset(0.6246, 0.44), Offset(0.3754, 0.44)],
+        ),
+        ];
+      case CourtLayout.hockey5s:
+        return const [
+        // GK + 2-2: the box.
+        SportFormation(
+          nameKey: 'formation_5s_22',
+          homePositions: [Offset(0.5, 0.94), Offset(0.2828, 0.76), Offset(0.7172, 0.76), Offset(0.2828, 0.58), Offset(0.7172, 0.58)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.7172, 0.24), Offset(0.2828, 0.24), Offset(0.7172, 0.42), Offset(0.2828, 0.42)],
+        ),
+        // GK + 1-2-1: the diamond.
+        SportFormation(
+          nameKey: 'formation_5s_121',
+          homePositions: [Offset(0.5, 0.94), Offset(0.5, 0.8), Offset(0.2236, 0.68), Offset(0.7764, 0.68), Offset(0.5, 0.56)],
+          awayPositions: [Offset(0.5, 0.06), Offset(0.5, 0.2), Offset(0.7764, 0.32), Offset(0.2236, 0.32), Offset(0.5, 0.44)],
+        ),
+        ];
+      default:
+        return formations;
+    }
   }
 
   List<SportFormation> get formations {
@@ -600,14 +833,20 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            homePositions: [Offset(0.5, 0.78)],
-            awayPositions: [Offset(0.5, 0.22)],
+            // Behind the baselines, ready to serve and return; 0.78 was
+            // 1.2 m behind the service line, in no-man's-land. A person is
+            // drawn centred on his point, so the far man stands 0.05 past
+            // his line (tools/drills/tennis.py FAR_BACK): on it, his feet
+            // were in the court.
+            homePositions: [Offset(0.5, 1.04)],
+            awayPositions: [Offset(0.5, -0.05)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
-            // Server at baseline right, partner at net left
-            homePositions: [Offset(0.7, 0.78), Offset(0.3, 0.60)],
-            awayPositions: [Offset(0.3, 0.22), Offset(0.7, 0.40)],
+            // Server at the baseline right, partner at net left;
+            // receiver at his baseline, partner at his net.
+            homePositions: [Offset(0.7, 1.04), Offset(0.3, 0.60)],
+            awayPositions: [Offset(0.3, -0.05), Offset(0.7, 0.40)],
           ),
         ];
 
@@ -768,13 +1007,22 @@ extension SportTypeExtension on SportType {
         return const [
           SportFormation(
             nameKey: 'formation_singles',
-            homePositions: [Offset(0.5, 0.75)],
-            awayPositions: [Offset(0.5, 0.25)],
+            // Singles: ready to serve and return, the FEET behind the
+            // baselines. A person is drawn centred on his point, half a
+            // figure (~0.043 of the court) above and below it, so the far
+            // man stands 0.05 past his line (tools/drills/pickleball.py
+            // FAR_BACK); on the line his feet were in the court.
+            homePositions: [Offset(0.5, 1.03)],
+            awayPositions: [Offset(0.5, -0.05)],
           ),
           SportFormation(
             nameKey: 'formation_doubles',
-            homePositions: [Offset(0.33, 0.72), Offset(0.67, 0.72)],
-            awayPositions: [Offset(0.33, 0.28), Offset(0.67, 0.28)],
+            // Doubles: all four just behind their kitchen lines (0.66 /
+            // 0.34) — 0.72 / 0.28 was in the transition zone — with the
+            // whole drawn figure clear of the kitchen (pickleball.py KH /
+            // KA): at 0.68 the near pair's heads were over it.
+            homePositions: [Offset(0.33, 0.71), Offset(0.67, 0.71)],
+            awayPositions: [Offset(0.33, 0.29), Offset(0.67, 0.29)],
           ),
         ];
 
@@ -878,6 +1126,52 @@ extension SportTypeExtension on SportType {
               Offset(0.5, 0.48), // FWD (away side of halfway)
             ],
           ),
+          // 9v9 (youth, U11-U12): keeper plus three lines
+          SportFormation(
+            nameKey: 'formation_9v9_332',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.2, 0.71), Offset(0.5, 0.70), Offset(0.8, 0.71), // DEF
+              Offset(0.18, 0.60), Offset(0.5, 0.59), Offset(0.82, 0.60), // MID
+              Offset(0.36, 0.52), Offset(0.64, 0.52), // FWD (home side of halfway)
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.8, 0.29), Offset(0.5, 0.30), Offset(0.2, 0.29),
+              Offset(0.82, 0.40), Offset(0.5, 0.41), Offset(0.18, 0.40),
+              Offset(0.64, 0.48), Offset(0.36, 0.48), // FWD (away side of halfway)
+            ],
+          ),
+          SportFormation(
+            nameKey: 'formation_9v9_323',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.2, 0.71), Offset(0.5, 0.70), Offset(0.8, 0.71), // DEF
+              Offset(0.36, 0.61), Offset(0.64, 0.61), // MID
+              Offset(0.15, 0.52), Offset(0.5, 0.51), Offset(0.85, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.8, 0.29), Offset(0.5, 0.30), Offset(0.2, 0.29),
+              Offset(0.64, 0.39), Offset(0.36, 0.39),
+              Offset(0.85, 0.48), Offset(0.5, 0.49), Offset(0.15, 0.48),
+            ],
+          ),
+          SportFormation(
+            nameKey: 'formation_9v9_233',
+            homePositions: [
+              Offset(0.5, 0.80),  // GK
+              Offset(0.3, 0.71), Offset(0.7, 0.71), // DEF
+              Offset(0.28, 0.60), Offset(0.5, 0.59), Offset(0.72, 0.60), // MID
+              Offset(0.15, 0.52), Offset(0.5, 0.51), Offset(0.85, 0.52), // FWD
+            ],
+            awayPositions: [
+              Offset(0.5, 0.20),
+              Offset(0.7, 0.29), Offset(0.3, 0.29),
+              Offset(0.72, 0.40), Offset(0.5, 0.41), Offset(0.28, 0.40),
+              Offset(0.85, 0.48), Offset(0.5, 0.49), Offset(0.15, 0.48),
+            ],
+          ),
         ];
 
       case SportType.fieldHockey:
@@ -902,19 +1196,26 @@ extension SportTypeExtension on SportType {
           // 11v11: 3-3-3-1 (modern balanced)
           SportFormation(
             nameKey: 'formation_3331',
+            // Four lines in a half, evenly: on a 577pt board a line has to
+            // clear the one in front by 0.09 of the height or the figures
+            // overlap, and this used to crowd the last two to 0.04 — the
+            // midfield standing inside the forwards. The two strikers are
+            // also off the centre column, because at 0.46 and 0.54 they are
+            // a stride from the OTHER team's midfield line and a board that
+            // close needs the width to tell them apart.
             homePositions: [
-              Offset(0.5, 0.82),  // GK
-              Offset(0.22, 0.72), Offset(0.5, 0.71), Offset(0.78, 0.72), // DEF
-              Offset(0.22, 0.62), Offset(0.5, 0.61), Offset(0.78, 0.62), // HALVES
-              Offset(0.22, 0.55), Offset(0.5, 0.54), Offset(0.78, 0.55), // MID
-              Offset(0.5, 0.50), // FWD
+              Offset(0.5, 0.86),  // GK
+              Offset(0.22, 0.76), Offset(0.5, 0.76), Offset(0.78, 0.76), // DEF
+              Offset(0.22, 0.66), Offset(0.5, 0.66), Offset(0.78, 0.66), // HALVES
+              Offset(0.22, 0.56), Offset(0.5, 0.56), Offset(0.78, 0.56), // MID
+              Offset(0.38, 0.46), // FWD
             ],
             awayPositions: [
-              Offset(0.5, 0.18),
-              Offset(0.78, 0.28), Offset(0.5, 0.29), Offset(0.22, 0.28),
-              Offset(0.78, 0.38), Offset(0.5, 0.39), Offset(0.22, 0.38),
-              Offset(0.78, 0.45), Offset(0.5, 0.46), Offset(0.22, 0.45),
-              Offset(0.5, 0.50),
+              Offset(0.5, 0.14),
+              Offset(0.78, 0.24), Offset(0.5, 0.24), Offset(0.22, 0.24),
+              Offset(0.78, 0.34), Offset(0.5, 0.34), Offset(0.22, 0.34),
+              Offset(0.78, 0.44), Offset(0.5, 0.44), Offset(0.22, 0.44),
+              Offset(0.62, 0.54),
             ],
           ),
           // 11v11: 5-3-2 (traditional defensive)
@@ -970,7 +1271,7 @@ extension SportTypeExtension on SportType {
               Offset(0.18, 0.80), // 13 outside center
               Offset(0.07, 0.78), // 11 left wing
               Offset(0.93, 0.78), // 14 right wing
-              Offset(0.50, 0.90), // 15 full-back
+              Offset(0.50, 0.82), // 15 full-back, in front of his try line
             ],
             awayPositions: [
               Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
@@ -982,7 +1283,7 @@ extension SportTypeExtension on SportType {
               Offset(0.82, 0.20),
               Offset(0.93, 0.22),
               Offset(0.07, 0.22),
-              Offset(0.50, 0.10),
+              Offset(0.50, 0.18),
             ],
           ),
           // 13v13 Rugby League
@@ -993,26 +1294,26 @@ extension SportTypeExtension on SportType {
               Offset(0.40, 0.66), Offset(0.50, 0.66), Offset(0.60, 0.66),
               Offset(0.42, 0.71), Offset(0.58, 0.71),
               Offset(0.50, 0.74),
-              // Backs (7)
-              Offset(0.50, 0.79), // halfback
-              Offset(0.42, 0.82), // five-eighth
-              Offset(0.30, 0.84), // center L
-              Offset(0.70, 0.84), // center R
-              Offset(0.10, 0.85), // wing L
-              Offset(0.90, 0.85), // wing R
-              Offset(0.50, 0.92), // fullback
+              // Backs (7) — all in front of the try line (y 0.847)
+              Offset(0.50, 0.77), // halfback
+              Offset(0.40, 0.78), // five-eighth
+              Offset(0.28, 0.79), // center L
+              Offset(0.70, 0.79), // center R
+              Offset(0.10, 0.78), // wing L
+              Offset(0.90, 0.78), // wing R
+              Offset(0.50, 0.82), // fullback
             ],
             awayPositions: [
               Offset(0.60, 0.34), Offset(0.50, 0.34), Offset(0.40, 0.34),
               Offset(0.58, 0.29), Offset(0.42, 0.29),
               Offset(0.50, 0.26),
-              Offset(0.50, 0.21),
-              Offset(0.58, 0.18),
-              Offset(0.70, 0.16),
-              Offset(0.30, 0.16),
-              Offset(0.90, 0.15),
-              Offset(0.10, 0.15),
-              Offset(0.50, 0.08),
+              Offset(0.50, 0.23),
+              Offset(0.60, 0.22),
+              Offset(0.72, 0.21),
+              Offset(0.30, 0.21),
+              Offset(0.90, 0.22),
+              Offset(0.10, 0.22),
+              Offset(0.50, 0.18),
             ],
           ),
           // 7s — Rugby Sevens
@@ -1020,15 +1321,17 @@ extension SportTypeExtension on SportType {
             nameKey: 'formation_7v7',
             homePositions: [
               Offset(0.42, 0.65), Offset(0.50, 0.65), Offset(0.58, 0.65), // forwards
-              Offset(0.50, 0.74),                                         // scrum-half
-              Offset(0.32, 0.80),                                         // fly-half
-              Offset(0.10, 0.85), Offset(0.90, 0.85),                     // wings
+              Offset(0.50, 0.71),                                         // scrum-half
+              Offset(0.36, 0.74),                                         // fly-half
+              Offset(0.22, 0.77),                                         // centre
+              Offset(0.08, 0.79),                                         // wing
             ],
             awayPositions: [
               Offset(0.58, 0.35), Offset(0.50, 0.35), Offset(0.42, 0.35),
-              Offset(0.50, 0.26),
-              Offset(0.68, 0.20),
-              Offset(0.90, 0.15), Offset(0.10, 0.15),
+              Offset(0.50, 0.29),
+              Offset(0.64, 0.26),
+              Offset(0.78, 0.23),
+              Offset(0.92, 0.21),
             ],
           ),
         ];
@@ -1160,59 +1463,110 @@ extension SportTypeExtension on SportType {
         ];
 
       case SportType.waterPolo:
-        // Pool 20m × 30m portrait. Goal y=0/1, 2m=0.067, 5m=0.167, 6m=0.20.
+        // Pool 20m × 25m portrait (World Aquatics 2025 field of play).
+        // Goal y=0/1, 2m=0.08, 5m=0.20, 6m=0.24, halfway 0.50. Moved from
+        // the old 30 m pool line for line (goal, 2 m, 5 m, 6 m, halfway).
         return const [
           // 7v7 — each team spread in its own half (own goal end), meeting
           // near the halfway line. Home defends the bottom goal, away the top.
           SportFormation(
             nameKey: 'formation_7v7',
             homePositions: [
-              Offset(0.50, 0.96), // GK
-              Offset(0.50, 0.56), // hole set (CF) — most advanced, near centre
-              Offset(0.10, 0.66), // LW
-              Offset(0.90, 0.66), // RW
-              Offset(0.30, 0.64), // L flat/driver
-              Offset(0.70, 0.64), // R flat/driver
-              Offset(0.50, 0.74), // point
+              Offset(0.50, 0.952), // GK
+              Offset(0.50, 0.552), // hole set (CF) — most advanced, near centre
+              Offset(0.10, 0.639), // LW
+              Offset(0.90, 0.639), // RW
+              Offset(0.30, 0.621), // L flat/driver
+              Offset(0.70, 0.621), // R flat/driver
+              Offset(0.50, 0.708), // point
             ],
             awayPositions: [
-              Offset(0.50, 0.04), // GK
-              Offset(0.50, 0.44), // hole set (CF)
-              Offset(0.90, 0.34), // LW
-              Offset(0.10, 0.34), // RW
-              Offset(0.70, 0.36), // L flat/driver
-              Offset(0.30, 0.36), // R flat/driver
-              Offset(0.50, 0.26), // point
+              Offset(0.50, 0.048), // GK
+              Offset(0.50, 0.448), // hole set (CF)
+              Offset(0.90, 0.361), // LW
+              Offset(0.10, 0.361), // RW
+              Offset(0.70, 0.379), // L flat/driver
+              Offset(0.30, 0.379), // R flat/driver
+              Offset(0.50, 0.292), // point
             ],
           ),
-          // Power play 6v5 (man-up attack)
+          // Power play 6 on 5, 4-2: six field attackers + GK against five
+          // field defenders + GK (it was 5 on 4, with a defender standing
+          // outside the attack). Two on the posts at 2.5 m, four out at
+          // 4.5-6 m; the man-down has two on the posts and a zone of three,
+          // all goal-side. Same spots as the wp_manup_four_two drill.
           SportFormation(
             nameKey: 'formation_6v5',
             homePositions: [
-              Offset(0.50, 0.97),
-              Offset(0.20, 0.10), Offset(0.50, 0.08), Offset(0.80, 0.10),
-              Offset(0.30, 0.20), Offset(0.70, 0.20),
+              Offset(0.50, 0.964),
+              Offset(0.14, 0.184), Offset(0.37, 0.251),
+              Offset(0.63, 0.251), Offset(0.86, 0.184),
+              Offset(0.36, 0.10), Offset(0.64, 0.10),
             ],
             awayPositions: [
-              Offset(0.50, 0.03),
-              Offset(0.30, 0.16), Offset(0.50, 0.14), Offset(0.70, 0.16),
-              Offset(0.50, 0.24),
+              Offset(0.50, 0.044),
+              Offset(0.425, 0.064), Offset(0.575, 0.064),
+              Offset(0.23, 0.176), Offset(0.50, 0.184), Offset(0.77, 0.176),
+            ],
+          ),
+          // Power play 6 on 5, 3-3: three on the 2 m, three out.
+          SportFormation(
+            nameKey: 'formation_6v5_33',
+            homePositions: [
+              Offset(0.50, 0.964),
+              Offset(0.20, 0.251), Offset(0.50, 0.286), Offset(0.80, 0.251),
+              Offset(0.30, 0.10), Offset(0.50, 0.156), Offset(0.70, 0.10),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.044),
+              Offset(0.365, 0.064), Offset(0.635, 0.064),
+              Offset(0.32, 0.192), Offset(0.58, 0.212), Offset(0.70, 0.184),
+            ],
+          ),
+          // Power play 6 on 5, umbrella: the point at 9 m, three across the
+          // 5 m, two on the posts.
+          SportFormation(
+            nameKey: 'formation_6v5_umbrella',
+            homePositions: [
+              Offset(0.50, 0.964),
+              Offset(0.50, 0.333), Offset(0.16, 0.20), Offset(0.50, 0.224),
+              Offset(0.84, 0.20), Offset(0.35, 0.10), Offset(0.65, 0.10),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.044),
+              Offset(0.42, 0.064), Offset(0.58, 0.064),
+              Offset(0.27, 0.156), Offset(0.50, 0.136), Offset(0.73, 0.156),
+            ],
+          ),
+          // Even strength 3-3: three on the 2 m (posts and the hole set),
+          // three out at 6-7 m, every defender goal-side of his man.
+          SportFormation(
+            nameKey: 'formation_wp_33',
+            homePositions: [
+              Offset(0.50, 0.964),
+              Offset(0.22, 0.257), Offset(0.50, 0.283), Offset(0.78, 0.257),
+              Offset(0.28, 0.108), Offset(0.42, 0.108), Offset(0.72, 0.108),
+            ],
+            awayPositions: [
+              Offset(0.50, 0.044),
+              Offset(0.29, 0.204), Offset(0.57, 0.24), Offset(0.71, 0.204),
+              Offset(0.21, 0.072), Offset(0.35, 0.072), Offset(0.79, 0.072),
             ],
           ),
           // 5+1 (training / shorter sides) — each team in its own half.
           SportFormation(
             nameKey: 'formation_5v5',
             homePositions: [
-              Offset(0.50, 0.96), // GK
-              Offset(0.50, 0.60), // hole
-              Offset(0.24, 0.70), Offset(0.76, 0.70),
-              Offset(0.50, 0.80),
+              Offset(0.50, 0.952), // GK
+              Offset(0.50, 0.587), // hole
+              Offset(0.24, 0.673), Offset(0.76, 0.673),
+              Offset(0.50, 0.76),
             ],
             awayPositions: [
-              Offset(0.50, 0.04),
-              Offset(0.50, 0.40),
-              Offset(0.76, 0.30), Offset(0.24, 0.30),
-              Offset(0.50, 0.20),
+              Offset(0.50, 0.048),
+              Offset(0.50, 0.413),
+              Offset(0.76, 0.327), Offset(0.24, 0.327),
+              Offset(0.50, 0.24),
             ],
           ),
         ];

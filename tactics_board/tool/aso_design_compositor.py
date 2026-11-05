@@ -19,7 +19,21 @@ import argparse
 import json
 import math
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import sys
+
+# Thai (and any script with combining marks) needs a shaping engine: without
+# libraqm, FreeType alone draws every tone mark over a dotted circle, which
+# is what every Thai store shot carried until 2026-10-14. The conda Pillow
+# has no raqm; a PyPI wheel does. It lives, git-ignored, in build/pilenv:
+#     python3 -m pip install --target build/pilenv pillow
+_PILENV = Path(__file__).resolve().parents[2] / "build" / "pilenv"
+if _PILENV.is_dir() and str(_PILENV) not in sys.path:
+    sys.path.insert(0, str(_PILENV))
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, features
+
+if not features.check("raqm"):
+    sys.exit("✗ Pillow without libraqm: Thai tone marks would render as dotted "
+             "circles. Run: python3 -m pip install --target build/pilenv pillow")
 
 REPO = Path(__file__).resolve().parent.parent
 RAW = REPO / "fastlane" / "screenshots"
@@ -76,7 +90,7 @@ BODY_FONT = {
     "ko":       (GOTHIC, 2),   # Medium
     "th":       (THON, 0),
 }
-LATIN_LOCALES = {"en-US", "es-ES", "fr-FR", "id", "ms", "vi"}
+LATIN_LOCALES = {"en-US", "es-ES", "fr-FR", "id", "ms", "vi", "de-DE", "nl-NL"}
 
 def _font(table, locale, size):
     path, idx = table.get(locale, table["default"])
@@ -318,6 +332,12 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     phone_bot = int(H * bottom_frac)
     phone_h = phone_bot - phone_top
     bezel = max(24, round(24 * W / 1290))
+    # A tablet is not a big phone: an iPad Pro's black border is ~4.4% of
+    # the screen's short side and its screen corners only ~1.75% — the
+    # phone's radii, scaled to this canvas, cut the app's corner buttons off.
+    tablet = max(sw, sh) / min(sw, sh) < 1.5
+    if tablet:
+        bezel = round(phone_h * 0.044 / 1.088)
     screen_h = phone_h - 2 * bezel
     screen_w = int(screen_h * aspect)
     phone_w = screen_w + 2 * bezel
@@ -332,7 +352,8 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     k = W / 1290
     sd.rounded_rectangle([px - 6 * k, py + 14 * k, px + phone_w + 6 * k,
                           py + phone_h + 24 * k],
-                         radius=round(120 * k), fill=(0, 0, 0, 150))
+                         radius=round(120 * k) if not tablet else bezel + round(screen_h * 0.0175),
+                         fill=(0, 0, 0, 150))
     sh_layer = sh_layer.filter(ImageFilter.GaussianBlur(28))
     layer.alpha_composite(sh_layer)
 
@@ -340,33 +361,45 @@ def phone(screenshot_path, top_frac=0.255, bottom_frac=0.95):
     frame = vgrad(phone_w, phone_h, [
         (0.0, (94, 100, 110)), (0.5, (52, 57, 66)), (1.0, (78, 84, 94))
     ]).convert("RGBA")
-    fmask = rounded_mask((phone_w, phone_h), round(118 * k))
+    scr_r = round(screen_h * 0.0175) if tablet else round(96 * k)
+    fmask = rounded_mask((phone_w, phone_h), bezel + scr_r if tablet else round(118 * k))
     layer.paste(frame, (px, py), fmask)
 
     # inner black gap then screen
-    gap = max(6, round(6 * k))
+    gap = max(6, round(6 * k)) if not tablet else max(4, round(phone_h * 0.004))
     inner = Image.new("RGBA", (phone_w - 2*gap, phone_h - 2*gap), (8, 8, 10, 255))
-    layer.paste(inner, (px+gap, py+gap), rounded_mask(inner.size, round(112 * k)))
+    layer.paste(inner, (px+gap, py+gap), rounded_mask(
+        inner.size, bezel + scr_r - gap if tablet else round(112 * k)))
 
     # screen
     scr = shot.resize((screen_w, screen_h), Image.LANCZOS)
-    smask = rounded_mask((screen_w, screen_h), round(96 * k))
+    smask = rounded_mask((screen_w, screen_h), scr_r)
     layer.paste(scr, (px+bezel, py+bezel), smask)
 
-    # dynamic island pill near top center of screen
-    di = ImageDraw.Draw(layer)
-    di_w, di_h = int(screen_w * 0.30), round(38 * k)
-    di_x = px + bezel + (screen_w - di_w)//2
-    di_y = py + bezel + round(26 * k)
-    di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
+    # dynamic island pill near top center of screen — a phone's. A tablet
+    # shot (4:3, either way up) gets the frame without it: an iPad has no
+    # island, and the pill sat over the home page's title.
+    if shot.height > shot.width * 1.5:
+        di = ImageDraw.Draw(layer)
+        di_w, di_h = int(screen_w * 0.30), round(38 * k)
+        di_x = px + bezel + (screen_w - di_w)//2
+        di_y = py + bezel + round(26 * k)
+        di.rounded_rectangle([di_x, di_y, di_x+di_w, di_y+di_h], radius=di_h//2, fill=(8,8,10,255))
 
-    # side buttons
+    # side buttons — a phone's; an iPad held sideways shows none on its
+    # long edges, only the top button and volume on the top edge.
     bd = ImageDraw.Draw(layer)
     bcol = (40, 44, 52, 255)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.20), px+2, py+int(phone_h*0.255)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.30), px+2, py+int(phone_h*0.40)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px-3, py+int(phone_h*0.41), px+2, py+int(phone_h*0.51)], radius=3, fill=bcol)
-    bd.rounded_rectangle([px+phone_w-2, py+int(phone_h*0.27), px+phone_w+3, py+int(phone_h*0.40)], radius=3, fill=bcol)
+    if tablet:
+        bd.rounded_rectangle([px+int(phone_w*0.06), py-3, px+int(phone_w*0.10), py+2], radius=3, fill=bcol)
+        bd.rounded_rectangle([px+phone_w-int(phone_w*0.16), py-3, px+phone_w-int(phone_w*0.12), py+2], radius=3, fill=bcol)
+        bd.rounded_rectangle([px+phone_w-int(phone_w*0.11), py-3, px+phone_w-int(phone_w*0.07), py+2], radius=3, fill=bcol)
+    for b in ([] if tablet else [
+            [px-3, py+int(phone_h*0.20), px+2, py+int(phone_h*0.255)],
+            [px-3, py+int(phone_h*0.30), px+2, py+int(phone_h*0.40)],
+            [px-3, py+int(phone_h*0.41), px+2, py+int(phone_h*0.51)],
+            [px+phone_w-2, py+int(phone_h*0.27), px+phone_w+3, py+int(phone_h*0.40)]]):
+        bd.rounded_rectangle(b, radius=3, fill=bcol)
 
     # reflection under phone
     refl = layer.crop((px, py+phone_h-int(phone_h*0.18), px+phone_w, py+phone_h)).transpose(Image.FLIP_TOP_BOTTOM)
@@ -495,6 +528,9 @@ def load_captions():
 FLAGSHIP_SPORTS = ["soccer", "basketball", "volleyball", "tennis", "badminton", "handball"]
 
 
+STORE_ORDER = [5, 2, 3, 1, 4]
+
+
 def render_sport_locale(captions, sport, locale, outbase):
     """Render one sport+locale's whole set. Returns count rendered.
 
@@ -520,11 +556,23 @@ def render_sport_locale(captions, sport, locale, outbase):
         # flagship pulls each shot from a different sport for a multi-sport feel
         src_sport = FLAGSHIP_SPORTS[i] if flagship else sport
         src = V2RAW / src_sport / locale / f"s{i+1}.png"
+        # The hub shoots its own first screen — the sport picker it opens
+        # on. Borrowing a flagship's put another app's name ("Soccer
+        # Board") at the top of the Tactics Board listing.
+        if flagship:
+            own = V2RAW / sport / locale / f"s{i+1}.png"
+            if own.exists():
+                src, src_sport = own, sport
         if not src.exists():
             print(f"⚠️  missing raw {src}")
             continue
         white, green, sub = shots[i]
-        out = out_dir / f"{i+1:02d}_{sport}_s{i+1}.png"
+        # The listing's order is not the shooting order: the store shows
+        # shot 5 first, then 2, 3, 1, 4 (set by hand on field hockey's
+        # listing 2026-10-20, then made the rule for every app). Upload
+        # steps sort by file name, so the prefix is the store position.
+        pos = STORE_ORDER.index(i + 1) + 1 if i + 1 in STORE_ORDER else i + 1
+        out = out_dir / f"{pos:02d}_{sport}_s{i+1}.png"
         compose(src, out, src_sport, locale, "TACTICS BOARD", white, green, sub,
                 slot=i + 1)
         n += 1

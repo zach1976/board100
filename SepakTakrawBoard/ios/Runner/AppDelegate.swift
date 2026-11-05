@@ -23,6 +23,55 @@ import ImageIO
     if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "FaceDetectionPlugin") {
       setupFaceDetectionChannel(with: registrar)
     }
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "IslandSidePlugin") {
+      setupIslandSideChannel(with: registrar)
+    }
+  }
+
+  // MARK: - Which long edge the Dynamic Island is on
+
+  // Turned sideways, iOS reports the same safe-area inset on BOTH long
+  // edges, so Flutter cannot tell which one the island (or notch) is on.
+  // The interface orientation can: landscapeRight puts the top of the
+  // phone, and the island, on the left. A half turn from one landscape to
+  // the other changes neither the size nor the insets, so Flutter would
+  // never ask again — the side is pushed on every rotation as well.
+  private var islandChannel: FlutterMethodChannel?
+
+  private func islandSide() -> String {
+    let scene = UIApplication.shared.connectedScenes
+      .compactMap { $0 as? UIWindowScene }.first
+    switch scene?.interfaceOrientation {
+    case .landscapeRight: return "left"
+    case .landscapeLeft: return "right"
+    default: return "none"
+    }
+  }
+
+  private func setupIslandSideChannel(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(
+      name: "com.zach.tacticsboard/islandSide",
+      binaryMessenger: registrar.messenger()
+    )
+    islandChannel = channel
+    channel.setMethodCallHandler { [weak self] (call, result) in
+      if call.method == "get" {
+        result(self?.islandSide() ?? "none")
+      } else {
+        result(FlutterMethodNotImplemented)
+      }
+    }
+    UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+    NotificationCenter.default.addObserver(
+      forName: UIDevice.orientationDidChangeNotification,
+      object: nil, queue: .main
+    ) { [weak self] _ in
+      // The interface turns after the device does; ask once it has.
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        guard let self = self else { return }
+        self.islandChannel?.invokeMethod("changed", arguments: self.islandSide())
+      }
+    }
   }
 
   private func setupShareChannel(with registrar: FlutterPluginRegistrar) {

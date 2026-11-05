@@ -1,5 +1,13 @@
-Yang Baru
+Yang baru di versi 2.1.1
 
-• Editor lini masa kini bisa digulir — setiap baris pemain dan coretan tetap terjangkau, berapa pun jumlahnya.
-• Kembali ke aplikasi terasa lebih mulus.
-• Perbaikan bug dan peningkatan stabilitas.
+FOOTWORK DIPERBAIKI
+Latihan footwork kini dimulai dari tengah setengah lapangan, cone belakang di garis belakang dan cone depan di dekat garis samping. Pemain tak lagi berbalik ke belakang forehand; hanya sudut belakang backhand yang membuatnya berbalik, dan pukulan round-the-head tetap menghadap net.
+
+PRO LEBIH MUDAH DITEMUKAN
+"Hapus Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, cukup satu ketukan. Lembar pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
+
+IKON OLAHRAGA DAN PENGANTAR BARU
+Ikon olahraga dan tiga layar pengantar saat pertama dibuka digambar ulang.
+
+PERBAIKAN LAIN
+Setelah papan ditutup, nama latihan tidak lagi tertinggal di atas daftar.

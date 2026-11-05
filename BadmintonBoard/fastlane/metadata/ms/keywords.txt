@@ -1,1 +1,1 @@
-badminton,beregu,perseorangan,smash,lob,dropshot,jaring,depan belakang,gelanggang,jurulatih
+papan taktik,pelan latihan,jadual,putaran,posisi beregu,demo,analisis,ulasan perlawanan

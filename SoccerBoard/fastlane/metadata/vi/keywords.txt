@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,đội hình,huấn luyện,sơ đồ,phạt góc,đá phạt,sút phạt,đội bóng,kế hoạch tập
+bảng chiến thuật,giáo án,lịch tập,đội hình,tình huống cố định,minh họa,phân tích,xem lại trận

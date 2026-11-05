@@ -1,1 +1,1 @@
-ping pong,topspin,backspin,boucle,smash,poussette,service,ittf,wtt,pro a,olympique,raquette
+tableau tactique,entraînement,séances,service,déplacements,démo,analyse,revue de match

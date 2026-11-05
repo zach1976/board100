@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 import '../config_constants.dart';
 import '../models/practice_session.dart';
@@ -9,9 +10,9 @@ import '../models/player_photo.dart';
 import '../services/photo_library_service.dart';
 import '../services/practice_history_service.dart';
 
-const _kBg = T.bg1;
-const _kCard = T.surface;
-const _kAccent = T.accent;
+Color get _kBg => T.bg1;
+Color get _kCard => T.surface;
+Color get _kAccent => T.accent;
 
 class PracticeHistoryPage extends StatefulWidget {
   final SportType sport;
@@ -126,14 +127,16 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: _kAccent))
+          ? Center(child: CircularProgressIndicator(color: _kAccent))
           : _sessions.isEmpty
               ? TacticalEmptyState(
                   image: packageAsset('assets/icon/empty_history.png'),
                   title: 'practice_history_empty'.tr(),
                   message: 'practice_history_empty_hint'.tr(),
                 )
-              : Column(
+              // A readable column on a tablet, not stats and rows spread
+              // over 1376pt.
+              : tabletColumn(context, Column(
                   children: [
                     Container(
                       margin: const EdgeInsets.all(12),
@@ -193,7 +196,7 @@ class _PracticeHistoryPageState extends State<PracticeHistoryPage> {
                       ),
                     ),
                   ],
-                ),
+                )),
     );
   }
 }
@@ -208,8 +211,8 @@ class _StatCell extends StatelessWidget {
     return Column(
       children: [
         Text(value,
-            style: const TextStyle(
-                color: _kAccent,
+            style: TextStyle(
+                color: T.accentText,
                 fontSize: 22,
                 fontWeight: FontWeight.bold)),
         const SizedBox(height: 2),
@@ -255,7 +258,7 @@ class _AttendanceStrip extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.how_to_reg_outlined, color: _kAccent, size: 18),
+              Icon(Icons.how_to_reg_outlined, color: _kAccent, size: 18),
               const SizedBox(width: 6),
               Text('attendance_season_title'.tr(),
                   style: const TextStyle(
@@ -298,7 +301,7 @@ class _AttendanceRow extends StatelessWidget {
     final color = ratio < 0.5
         ? T.away
         : ratio < 0.75
-            ? const Color(0xFFFFB020)
+            ? T.warningIcon
             : _kAccent;
     final name = member.playerName?.trim().isNotEmpty == true
         ? member.playerName!

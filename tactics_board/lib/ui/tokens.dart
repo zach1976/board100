@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'sport_palettes.g.dart';
+
 /// The design system, in one file.
 ///
 /// Before this existed the app carried 380 hardcoded colours across 202
@@ -14,63 +16,109 @@ class T {
   const T._();
 
   // ── Surfaces ────────────────────────────────────────────────────────────
-  // Four steps, deepest first. Background0 is the page behind everything;
-  // Surface is a sheet; SurfaceHi is a row or card sitting on a sheet.
-  static const bg0 = Color(0xFF071D1F);
-  static const bg1 = Color(0xFF0B272A);
-  static const surface = Color(0xFF103338);
-  static const surfaceHi = Color(0xFF153D42);
+  // Light, V4.3 (2026-10-15). The ladder, lightest page first: bg0 is the
+  // warm off-white page behind everything; bg1 a bar or nav strip; surface
+  // a white card or sheet; surfaceHi a row or selected tile on a card, one
+  // step of cool tint down from white. Shared by all sixteen apps — only
+  // the accents change per sport. [palette] is set once, in main(), before
+  // the first frame, which is why the accent tokens are getters and why
+  // nothing below may write `const Foo(color: T.accent)`.
+  static SportPalette _p = SportPalette.hub;
+  static SportPalette get palette => _p;
+  static set palette(SportPalette p) => _p = p;
 
-  /// A sheet sits a step above the page but below an elevated surface, so it
-  /// does not read as a card the page is wearing. §25.
-  static const sheet = Color(0xFF0D292C);
+  static const bg0 = LightTokens.appBackground;
+  static const bg1 = LightTokens.secondarySurface;
+  static const surface = LightTokens.surface;
+  static const surfaceHi = LightTokens.elevatedSurface;
+
+  /// A sheet is a white card rising from the page. §25.
+  static const sheet = LightTokens.surface;
 
   /// The tinted ground a coach's note sits on — barely a surface at all. §11.
-  static const tint = Color(0xFF0B292A);
+  static const tint = LightTokens.secondarySurface;
 
-  /// The one border. Low-contrast on purpose: contrast between surfaces does
-  /// most of the separating, and a line is only added where that is not
-  /// enough.
-  static const border = Color(0x2EB4CDD2); // rgba(180,205,210,.18)
-  static const borderStrong = Color(0x52B4CDD2); // for a focused control only
+  /// The page canvas behind a scrolling list, one step warmer than [bg0].
+  static const canvas = LightTokens.pageBackground;
+
+  /// Decorative dividers and card edges: low contrast on purpose. An input
+  /// boundary or anything that must be found takes [borderStrong] (≥ 3:1).
+  static const border = LightTokens.decorativeBorder;
+  static const borderStrong = LightTokens.inputBorder;
 
   // ── Text ────────────────────────────────────────────────────────────────
-  static const text = Color(0xFFF4F7F5);
-  static const textDim = Color(0xFFA9BAB8);
-  static const textOff = Color(0xFF718A88);
-  static const textDisabled = Color(0xFF506765);
+  static const text = LightTokens.textPrimary;
+  static const textDim = LightTokens.textSecondary;
+  static const textOff = LightTokens.textTertiary;
+  /// Disabled: never carries information a coach has to read.
+  static const textDisabled = Color(0xFF8A97A6);
+  static const disabledFill = LightTokens.disabledSurface;
 
   // ── Accent ──────────────────────────────────────────────────────────────
-  /// The primary interactive colour. Selection, primary actions, focus.
-  static const accent = Color(0xFF20C7C3);
+  // One brand per app: the sport's primary (the hub its slate). Fills and
+  // identity use [accent]; anything a coach reads in the brand colour uses
+  // [accentText], and a selection outline [selectedStroke] — both derived
+  // to read on every light ground (V4.3 audit).
 
-  /// Pressed / currently-running. One step brighter, never a glow.
-  static const accentActive = Color(0xFF2DD4CF);
+  /// The brand colour: filled surfaces, identity, large graphics.
+  static Color get accent => _p.accent;
 
-  /// Foreground on a filled accent button. Dark enough to read at 17pt
-  /// semibold without going to pure black, which is harsh on teal.
-  static const onAccent = Color(0xFF062526);
+  /// Brand-coloured text: links, selected nav labels, active chips.
+  static Color get accentText => _p.accentText;
 
-  /// Accent as a tinted fill behind an active control. Used instead of a
-  /// solid accent block, which reads as a button even when it is a state.
-  static const accentFill = Color(0x1F20C7C3); // rgba(32,199,195,.12)
-  static const accentFillHi = Color(0x3320C7C3); // ~20%, pressed
+  /// A selected card, tab or tool's outline.
+  static Color get selectedStroke => _p.selectedStroke;
 
-  /// Playback only: play, and the running animation. Never navigation.
-  static const lime = Color(0xFFA8F05A);
+  /// Pressed / currently-running. One step darker, never a glow.
+  static Color get accentActive =>
+      Color.lerp(_p.accent, const Color(0xFF000000), 0.10)!;
 
-  /// Foreground on [lime]. Lime is bright enough that white text on it is
-  /// unreadable and pure black is harsh, so the play glyph gets a very dark
-  /// green instead. Two screens had this value written out by hand.
-  static const onLime = Color(0xFF16240A);
-  static const limeFill = Color(0x24A8F05A);
+  /// The filled button: the brand, or a sibling of it tuned so its label
+  /// reads at 5:1.
+  static Color get buttonFill => _p.buttonFill;
+
+  /// Foreground on [buttonFill] / [accent]: dark ink or white, whichever
+  /// the audit measured.
+  static Color get onAccent => _p.onAccent;
+
+  /// The brand as a soft tinted ground behind a selected row or a branded
+  /// panel; [accentText] reads on it.
+  static Color get accentFill => _p.soft;
+  static Color get accentFillHi => _p.accent.withValues(alpha: 0.20);
+
+  /// The sport's secondary accent: decorative only. Text in it takes
+  /// [accent2Text], a thin stroke [accent2Stroke].
+  static Color get accent2 => _p.secondary;
+  static Color get accent2Text => _p.secondaryText;
+  static Color get accent2Stroke => _p.secondaryStroke;
+
+  /// The tool a coach is currently IN — Move, Draw, Select. A dark neutral
+  /// pill: a mode is a state, and the brand is kept for actions.
+  static const toolOn = LightTokens.textSecondary;
+  static const onToolOn = Color(0xFFFFFFFF);
+
+  /// Playback: play, and the running animation. The app's button fill.
+  static Color get lime => _p.buttonFill;
+  static Color get onLime => _p.onAccent;
+  static Color get limeFill => _p.soft;
 
   // ── Semantic ────────────────────────────────────────────────────────────
+  // The state of the app, the same in every sport. Never a brand colour.
+  // Team colours belong to the board, not the chrome: unchanged.
   static const home = Color(0xFF4D8FE8);
   static const away = Color(0xFFE86452);
-  static const success = Color(0xFF4DBA78);
-  static const warning = Color(0xFFE9A94B);
-  static const danger = Color(0xFFE26B62);
+  static const success = LightTokens.success;
+  static const danger = LightTokens.error;
+  static const info = LightTokens.information;
+  static const focus = LightTokens.focus;
+
+  /// Warning is four tokens: the amber icon always sits beside
+  /// [warningText] (the only one that is read), on [warningBackground]
+  /// inside [warningBorder].
+  static const warning = LightTokens.warningText;
+  static const warningIcon = LightTokens.warningIcon;
+  static const warningBackground = LightTokens.warningBackground;
+  static const warningBorder = LightTokens.warningBorder;
 
   /// Movement on the board, by what the movement IS — not by whose turn it
   /// is to be colourful. §09.
@@ -130,6 +178,11 @@ class T {
   /// Sheet, top corners only.
   static const rSheet = 24.0;
 
+  /// The board itself, which is a card laid on the page rather than the page.
+  /// Larger than a card's [rLg] on purpose: it is the biggest thing on the
+  /// screen, and at 16 the corner reads as a mistake rather than a shape.
+  static const rBoard = 22.0;
+
   /// Dialog. §24.
   static const rDialog = 18.0;
 
@@ -150,10 +203,10 @@ class T {
   /// One shadow for floating chrome, one for a sheet. Not a shadow on
   /// everything: most separation comes from the surface step.
   static const List<BoxShadow> shadowFloat = [
-    BoxShadow(color: Color(0x59000000), blurRadius: 18, offset: Offset(0, 6)),
+    BoxShadow(color: Color(0x1F16212E), blurRadius: 18, offset: Offset(0, 6)),
   ];
   static const List<BoxShadow> shadowSheet = [
-    BoxShadow(color: Color(0x73000000), blurRadius: 32, offset: Offset(0, -8)),
+    BoxShadow(color: Color(0x2616212E), blurRadius: 32, offset: Offset(0, -8)),
   ];
 
   // ── Type ────────────────────────────────────────────────────────────────
@@ -207,4 +260,44 @@ class T {
   /// An all-caps eyebrow above a group.
   static const label = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w600, color: textDim, letterSpacing: 0.6);
+}
+
+/// One app's colours as the tokens read them (V4.3).
+class SportPalette {
+  const SportPalette({
+    required this.accent,
+    required this.onAccent,
+    required this.buttonFill,
+    required this.accentText,
+    required this.selectedStroke,
+    required this.secondary,
+    required this.secondaryText,
+    required this.secondaryStroke,
+    required this.soft,
+  });
+
+  final Color accent;
+  final Color onAccent;
+  final Color buttonFill;
+  final Color accentText;
+  final Color selectedStroke;
+  final Color secondary;
+  final Color secondaryText;
+  final Color secondaryStroke;
+  final Color soft;
+
+  factory SportPalette.fromColors(SportColorPalette c) => SportPalette(
+        accent: c.primaryAccent,
+        onAccent: c.primaryButtonForeground,
+        buttonFill: c.primaryButtonFill,
+        accentText: c.accentText,
+        selectedStroke: c.selectedStroke,
+        secondary: c.secondaryAccent,
+        secondaryText: c.secondaryAccentText,
+        secondaryStroke: c.secondaryAccentStroke,
+        soft: c.accentSoftBackground,
+      );
+
+  /// The hub's own brand (the `null` row of the table).
+  static final hub = SportPalette.fromColors(kSportColors[null]!);
 }

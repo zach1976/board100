@@ -1,0 +1,7 @@
+A big update:
+• Drill library with animated, step-by-step boards, plus six ready practice sessions
+• Practice plans you run from the touchline
+• The board redrawn, with notes on the board that change with each step
+• Tablet layout with side bar, keyboard and stylus
+• New sport icons and intro; German and Dutch (14 languages)
+• Every drill and feature included, supported by ads

@@ -18,6 +18,16 @@ class DrillNote {
 
   bool get isEmpty => sections.isEmpty;
 
+  /// The sequence's beats, in order, or empty when the note has no numbered
+  /// sequence. One place, because the detail page and the board both print
+  /// the beat the stepper is standing on.
+  List<String> get beats =>
+      sections
+          .where((s) => s.kind == DrillSectionKind.sequence)
+          .map((s) => s.beats)
+          .firstOrNull ??
+      const <String>[];
+
   /// The section a paragraph-style note has when there are no labels at all:
   /// an older drill, or a sport whose family predates the composed note.
   static DrillNote parse(String note) {

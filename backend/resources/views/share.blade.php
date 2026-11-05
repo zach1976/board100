@@ -1,15 +1,42 @@
+@php
+  // The single-sport apps on the App Store, by the sport name the app sends
+  // (SportType.name). A receiver who liked the play gets the right app, not
+  // the project site; Safari shows its banner for the same id. Ids are the
+  // App Store Connect app ids (tools/asc_dashboard.py lists them).
+  $apps = [
+    'soccer'      => ['6761409085', 'Soccer Board'],
+    'basketball'  => ['6761409275', 'Basketball Board'],
+    'volleyball'  => ['6761409137', 'Volleyball Board'],
+    'badminton'   => ['6761408995', 'Badminton Board'],
+    'tennis'      => ['6761409239', 'Tennis Board'],
+    'tableTennis' => ['6761408930', 'Table Tennis Board'],
+    'pickleball'  => ['6761409193', 'Pickleball Board'],
+    'fieldHockey' => ['6763574203', 'Field Hockey Board'],
+    'rugby'       => ['6763574953', 'Rugby Board'],
+    'baseball'    => ['6763575410', 'Baseball Board'],
+    'handball'    => ['6763575477', 'Handball Board'],
+    'waterPolo'   => ['6763575857', 'Water Polo Board'],
+    'sepakTakraw' => ['6763575936', 'Sepak Takraw Board'],
+    'beachTennis' => ['6763576493', 'Beach Tennis Board'],
+    'footvolley'  => ['6763576836', 'Footvolley Board'],
+  ];
+  $app = $apps[$play->sport_type] ?? ['6761408675', 'Tactics Board'];
+  $sportName = trim(preg_replace('/(?<!^)[A-Z]/', ' $0', str_replace('_', ' ', $play->sport_type)));
+  $sportName = ucfirst(strtolower($sportName));
+@endphp
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ $play->title ?: 'A play' }} — Tactics Board</title>
-<meta name="description" content="A play shared from Tactics Board.">
+<meta name="description" content="A {{ strtolower($sportName) }} play shared from {{ $app[1] }}.">
+<meta name="apple-itunes-app" content="app-id={{ $app[0] }}">
 
 {{-- Most of these links are opened from a chat app, so the preview card is
      the first thing the receiver sees — it has to look like the play. --}}
 <meta property="og:title" content="{{ $play->title ?: 'A play' }}">
-<meta property="og:description" content="Shared from Tactics Board">
+<meta property="og:description" content="{{ $sportName }} play, step by step — shared from {{ $app[1] }}">
 <meta property="og:type" content="{{ $play->media_kind === 'mp4' ? 'video.other' : 'article' }}">
 @if ($play->mediaUrl())
   <meta property="og:image" content="{{ $play->media_kind === 'png' ? $play->mediaUrl() : '' }}">
@@ -75,7 +102,7 @@
 <header>
   <span class="mark">T</span>
   <b>Tactics Board</b>
-  <span>{{ str_replace('_', ' ', $play->sport_type) }}</span>
+  <span>{{ $sportName }}</span>
 </header>
 
 <main>
@@ -102,11 +129,9 @@
     @endif
   </div>
 
-  {{-- Per-sport App Store links need the numeric app ids, which live in App
-       Store Connect and not in this repo; the project site routes to the
-       right one. --}}
   <div class="cta">
-    <a class="primary" href="/">Draw your own plays</a>
+    <a class="primary" href="https://apps.apple.com/app/id{{ $app[0] }}">Get {{ $app[1] }} on the App Store</a>
+    <a class="ghost" href="/">Draw your own plays</a>
   </div>
 </main>
 

@@ -1,0 +1,9 @@
+Neu in 2.3.0
+
+• Spieltag: Abschnitte, Aufstellung, Uhr, Wechsel, Karten und Elfmeterschießen; Minuten als PDF (Uhr braucht Pro)
+• Spielbuch, am Spieltag durchblättern
+• Fertige Einheiten: sechs Trainingspläne aus den 137 Übungen
+• Notizen auf dem Board, die mit jedem Schritt wechseln
+• Tablet-Layout mit Seitenleiste, Tastatur und Stift
+• Deutsch und Niederländisch: 14 Sprachen
+• Kleinere Korrekturen und mehr übersetzte Beschriftungen

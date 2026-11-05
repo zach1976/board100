@@ -26,7 +26,9 @@ import '../services/drill_library_service.dart';
 import '../state/tactics_state.dart';
 import '../ui/tokens.dart';
 import '../widgets/language_picker.dart';
+import '../models/court_layout.dart';
 import '../widgets/sport_glyph.dart';
+import '../widgets/toolbar.dart' as board show courtPainterFor;
 import 'intro_page.dart';
 import 'sport_home_page.dart';
 
@@ -59,6 +61,40 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
   /// its own. A coach who has just read what the app is should not be told
   /// again the moment they choose a sport.
   bool? _intro;
+
+  /// The grid's scroll, so a rotation can keep the coach where they were.
+  ///
+  /// The offset is in points, and turning an iPad changes how many points
+  /// each row of cards is: the same 600pt that was the third row upright is
+  /// the middle of the net sports on its side, so the header and Continue
+  /// went off the top. Held as a share of the scroll instead, and put back
+  /// after the new layout.
+  final _scroll = ScrollController();
+  Orientation? _orientation;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final o = MediaQuery.orientationOf(context);
+    final was = _orientation;
+    _orientation = o;
+    if (was == null || was == o || !_scroll.hasClients) return;
+    final pos = _scroll.position;
+    final share =
+        pos.maxScrollExtent <= 0 ? 0.0 : pos.pixels / pos.maxScrollExtent;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scroll.hasClients) return;
+      final p = _scroll.position;
+      _scroll.jumpTo((share * p.maxScrollExtent)
+          .clamp(p.minScrollExtent, p.maxScrollExtent));
+    });
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -134,7 +170,7 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
   @override
   Widget build(BuildContext context) {
     if (_intro == null) {
-      return const Scaffold(backgroundColor: T.bg0, body: SizedBox.shrink());
+      return Scaffold(backgroundColor: T.bg0, body: const SizedBox.shrink());
     }
     if (_intro == true) {
       // The count is every sport's library together, the hub's own; the
@@ -151,14 +187,30 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
     final isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     final crossCount = isLandscape ? 4 : isTablet ? 3 : 2;
+    // A tablet on its side shelves each group in as many columns as leave
+    // no card on its own: five team sports in four columns put Handball
+    // alone on a row beside 1000pt of nothing. Four or five, whichever
+    // leaves the last row fullest (ties keep four).
+    int columnsFor(int n) {
+      if (!(isLandscape && isTablet)) return crossCount;
+      int gap(int c) => (c - n % c) % c;
+      return gap(5) < gap(4) ? 5 : 4;
+    }
     final topPad = MediaQuery.of(context).padding.top;
-    final sideX = isLandscape ? 12.0 : isTablet ? 24.0 : T.screenX;
+    // 12pt was a phone-on-its-side margin; on an iPad it put the cards
+    // against the glass.
+    final sideX = isLandscape
+        ? (isTablet ? 24.0 : 12.0)
+        : isTablet
+            ? 24.0
+            : T.screenX;
     final order = sportDisplayOrderFor(context.locale);
     final recent = _recent;
 
     return Scaffold(
       backgroundColor: T.bg0,
       body: CustomScrollView(
+        controller: _scroll,
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
@@ -178,7 +230,7 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
                   Container(
                     width: 36,
                     height: 36,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: T.surfaceHi, shape: BoxShape.circle),
                     child: IconButton(
                       icon: const Icon(Icons.language_rounded,
@@ -215,7 +267,8 @@ class _SportSelectionPageState extends State<SportSelectionPage> {
               padding: EdgeInsets.symmetric(horizontal: sideX),
               sliver: SliverGrid(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: crossCount,
+                  crossAxisCount: columnsFor(
+                      order.where((s) => s.group == group).length),
                   crossAxisSpacing: T.s12,
                   mainAxisSpacing: T.s12,
                   childAspectRatio: isLandscape ? 1.3 : 1.05,
@@ -253,7 +306,7 @@ CustomPainter courtPainterFor(SportType sport) {
     case SportType.basketball:   return const BasketballCourtPainter();
     case SportType.volleyball:   return const VolleyballCourtPainter();
     case SportType.pickleball:   return const PickleballCourtPainter();
-    case SportType.soccer:       return const SoccerCourtPainter();
+    case SportType.soccer:       return SoccerCourtPainter();
     case SportType.fieldHockey:  return const FieldHockeyCourtPainter();
     case SportType.rugby:        return const RugbyCourtPainter();
     case SportType.baseball:     return const BaseballCourtPainter();
@@ -266,25 +319,7 @@ CustomPainter courtPainterFor(SportType sport) {
 }
 
 /// Accent colour for each sport card.
-Color sportAccentFor(SportType sport) {
-  switch (sport) {
-    case SportType.badminton:    return const Color(0xFF43A047);
-    case SportType.tableTennis:  return const Color(0xFF1E88E5);
-    case SportType.tennis:       return const Color(0xFF5C6BC0);
-    case SportType.basketball:   return const Color(0xFFE65100);
-    case SportType.volleyball:   return const Color(0xFFFFA000);
-    case SportType.pickleball:   return const Color(0xFF00897B);
-    case SportType.soccer:       return const Color(0xFF66BB6A);
-    case SportType.fieldHockey:  return const Color(0xFF42A5F5);
-    case SportType.rugby:        return const Color(0xFF8D6E63);
-    case SportType.baseball:     return const Color(0xFFD32F2F);
-    case SportType.handball:     return const Color(0xFF1976D2);
-    case SportType.waterPolo:    return const Color(0xFF0288D1);
-    case SportType.sepakTakraw:  return const Color(0xFFD4A017);
-    case SportType.beachTennis:  return const Color(0xFFE6B058);
-    case SportType.footvolley:   return const Color(0xFFFBC02D);
-  }
-}
+Color sportAccentFor(SportType sport) => sport.accent;
 
 /// The court, upright, in a rounded frame — the one picture that tells the
 /// sports apart at a glance.
@@ -294,8 +329,15 @@ class _Court extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paint = CustomPaint(
-        painter: courtPainterFor(sport), child: const SizedBox.expand());
+    // In the colour the board itself is drawn in. Each painter's own default
+    // is not always its sport's first surface: the pickleball court was blue
+    // here and on the Continue card, and green the moment it was opened.
+    final color =
+        context.select<TacticsState, Color>((s) => s.courtColor(sport));
+    final painter = sport.courtSurfaces.isEmpty || sport == SportType.soccer
+        ? courtPainterFor(sport)
+        : board.courtPainterFor(sport, CourtLayout.full, color);
+    final paint = CustomPaint(painter: painter, child: const SizedBox.expand());
     return ClipRRect(
       borderRadius: T.brSm,
       child: sport.isLandscapeCourt
@@ -350,7 +392,7 @@ class _ContinueCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text('hub_continue'.tr().toUpperCase(),
-                          style: T.label.copyWith(color: T.accent)),
+                          style: T.label.copyWith(color: T.accentText)),
                       const SizedBox(height: T.s4),
                       Row(children: [
                         SportGlyph(sport: sport, size: 20),
@@ -365,9 +407,8 @@ class _ContinueCard extends StatelessWidget {
                       const SizedBox(height: T.s4),
                       Text(
                         boards == null
-                            ? 'hub_drills_n'.tr(args: ['$drills'])
-                            : '${'hub_drills_n'.tr(args: ['$drills'])} · '
-                                '${'hub_boards_n'.tr(args: ['$boards'])}',
+                            ? _drillsN(drills)
+                            : '${_drillsN(drills)} · ${_boardsN(boards!)}',
                         style: T.meta,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -422,17 +463,20 @@ class _SportCard extends StatelessWidget {
                 Row(children: [
                   SportGlyph(sport: sport, size: 18),
                   const SizedBox(width: T.s8),
+                  // Two lines before it gives up: "Hockey sobre césped" on a
+                  // 375pt Slide Over card lost the one word that says which
+                  // hockey.
                   Expanded(
                     child: Text(sport.displayName,
                         style: T.body.copyWith(fontWeight: FontWeight.w700),
-                        maxLines: 1,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis),
                   ),
                 ]),
                 if (drills != null)
                   Padding(
                     padding: const EdgeInsets.only(left: 26, top: 2),
-                    child: Text('hub_drills_n'.tr(args: ['$drills']),
+                    child: Text(_drillsN(drills!),
                         style: T.caption,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis),
@@ -445,3 +489,10 @@ class _SportCard extends StatelessWidget {
     );
   }
 }
+
+/// "1 board", not "1 boards": the counts on the picker's cards, singular
+/// when there is one.
+String _drillsN(int n) =>
+    n == 1 ? 'hub_drills_one'.tr() : 'hub_drills_n'.tr(args: ['$n']);
+String _boardsN(int n) =>
+    n == 1 ? 'hub_boards_one'.tr() : 'hub_boards_n'.tr(args: ['$n']);

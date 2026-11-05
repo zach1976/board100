@@ -1,12 +1,741 @@
+import 'dart:convert' show latin1;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/rendering.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import '../models/match_day.dart';
+import '../models/volleyball_rotation.dart';
 import '../state/tactics_state.dart';
 
+/// The words on a lineup sheet, already in the coach's language. The
+/// service takes them ready-made so it needs no localisation context.
+class LineupSheetStrings {
+  final String heading;
+  final String team;
+  final String rotation;
+  final String system;
+  final String phase;
+  final String servingOrder;
+  final String libero;
+  final String rules;
+  final String subs;
+  final String net;
+  const LineupSheetStrings({
+    required this.heading,
+    required this.team,
+    required this.rotation,
+    required this.system,
+    required this.phase,
+    required this.servingOrder,
+    required this.libero,
+    required this.rules,
+    required this.subs,
+    required this.net,
+  });
+}
+
+/// The words on a match-day sheet, already in the coach's language.
+class MatchSheetStrings {
+  final String heading;
+  final String playingTime;
+  final String substitutions;
+  final String noSubs;
+  final String player;
+  final String minutes;
+  final String time;
+  final String period;
+  final String off;
+  final String on;
+  final String starter;
+
+  // Cards, the shoot-out and the per-set sheet came later; English stands
+  // in where a caller has not said otherwise.
+  final String cards;
+  final String card;
+  final String cardGreen;
+  final String cardYellow;
+  final String cardRed;
+  final String cardSuspension;
+  final String shootOut;
+  final String goal;
+  final String miss;
+  final String us;
+  final String them;
+  final String sets;
+  final String set;
+  final String score;
+  final String subsIn;
+  final String subsOut;
+  final String libero;
+  final String lineup;
+  final String timeouts;
+  final String keeper;
+
+  const MatchSheetStrings({
+    required this.heading,
+    required this.playingTime,
+    required this.substitutions,
+    required this.noSubs,
+    required this.player,
+    required this.minutes,
+    required this.time,
+    required this.period,
+    required this.off,
+    required this.on,
+    required this.starter,
+    this.cards = 'Cards',
+    this.card = 'Card',
+    this.cardGreen = 'Green',
+    this.cardYellow = 'Yellow',
+    this.cardRed = 'Red',
+    this.cardSuspension = '2 min',
+    this.shootOut = 'Shoot-out',
+    this.goal = 'Goal',
+    this.miss = 'Miss',
+    this.us = 'Us',
+    this.them = 'Them',
+    this.sets = 'Sets',
+    this.set = 'Set',
+    this.score = 'Score',
+    this.subsIn = 'In',
+    this.subsOut = 'Out',
+    this.libero = 'Libero',
+    this.lineup = 'Lineup',
+    this.timeouts = 'Timeouts',
+    this.keeper = 'GK',
+  });
+
+  String cardName(MatchCardKind kind) {
+    switch (kind) {
+      case MatchCardKind.green:
+        return cardGreen;
+      case MatchCardKind.yellow:
+        return cardYellow;
+      case MatchCardKind.red:
+        return cardRed;
+      case MatchCardKind.suspension:
+        return cardSuspension;
+    }
+  }
+}
+
 class PdfExportService {
+  static const _roman = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+
+  /// A piece of text for the page. Helvetica — the pdf package's built-in
+  /// font — stops at Latin-1 and throws on anything else, and the apps
+  /// bundle no other font; so a word it cannot set is drawn by Flutter
+  /// with the platform's own fonts and placed as a small picture.
+  static Future<pw.Widget> _text(
+    String text, {
+    double size = 11,
+    bool bold = false,
+    PdfColor color = PdfColors.black,
+  }) async {
+    var latin = true;
+    try {
+      latin1.encode(text);
+    } catch (_) {
+      latin = false;
+    }
+    if (latin) {
+      return pw.Text(text,
+          style: pw.TextStyle(
+              fontSize: size,
+              fontWeight: bold ? pw.FontWeight.bold : pw.FontWeight.normal,
+              color: color));
+    }
+    const k = 4.0;
+    final tp = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: TextStyle(
+          fontSize: size * k,
+          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+          color: Color(color.toInt()),
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    final rec = ui.PictureRecorder();
+    tp.paint(Canvas(rec), Offset.zero);
+    final img = await rec
+        .endRecording()
+        .toImage(tp.width.ceil().clamp(1, 1 << 14), tp.height.ceil().clamp(1, 1 << 14));
+    final bytes = await img.toByteData(format: ui.ImageByteFormat.png);
+    if (bytes == null) return pw.SizedBox(width: tp.width / k, height: tp.height / k);
+    return pw.Image(pw.MemoryImage(bytes.buffer.asUint8List()),
+        width: tp.width / k, height: tp.height / k);
+  }
+
+  /// The paper lineup sheet, as one A4 page: the team and rotation, the
+  /// six zones as a 2×3 grid (4 3 2 over 5 6 1, the net at the top) with
+  /// the player in each, the serving order I–VI, the libero and the rule
+  /// set. [labels] names each role's player on the board.
+  static Future<Uint8List> buildLineupSheet(
+    RotationSetup setup, {
+    required Map<String, String> labels,
+    required LineupSheetStrings words,
+    String? title,
+  }) async {
+    final roles = setup.zoneRoles;
+    String labelOf(String role) =>
+        labels[role] ?? VolleyballRotation.displayLabel(role);
+    final dateStr = DateTime.now().toIso8601String().split('T').first;
+
+    final heading = await _text(words.heading, size: 18, bold: true);
+    final titleW = title == null || title.trim().isEmpty
+        ? null
+        : await _text(title.trim(), size: 14, bold: true);
+    final teamW = await _text(words.team, size: 11, color: PdfColors.grey700);
+    final setupW = await _text(
+        '${words.rotation}  ·  ${words.system}  ·  ${words.phase}',
+        size: 11);
+    final netW = await _text(words.net, size: 9, bold: true, color: PdfColors.grey700);
+    final cells = <int, pw.Widget>{};
+    for (final z in roles.keys) {
+      final role = roles[z]!;
+      final label = labelOf(role);
+      // The role itself, small, where it adds something: "MB1" tells the
+      // two middles apart, "S" under "S" says nothing.
+      final sub = role;
+      cells[z] = pw.Column(mainAxisAlignment: pw.MainAxisAlignment.center, children: [
+        await _text(label, size: 22, bold: true),
+        if (sub != label) ...[
+          pw.SizedBox(height: 2),
+          await _text(sub, size: 9, color: PdfColors.grey700),
+        ],
+      ]);
+    }
+    final orderHead = await _text(words.servingOrder, size: 12, bold: true);
+    final orderRows = <pw.Widget>[];
+    for (var z = 1; z <= 6; z++) {
+      final role = setup.roleInZone(z);
+      final serving = setup.phase == RotationPhase.serve && z == 1;
+      orderRows.add(pw.Row(children: [
+        pw.SizedBox(
+            width: 28,
+            child: await _text(_roman[z - 1], size: 11, bold: true)),
+        pw.SizedBox(width: 56, child: await _text(labelOf(role), size: 11, bold: serving)),
+        if (role != labelOf(role))
+          await _text(role, size: 9, color: PdfColors.grey700),
+        if (serving) pw.SizedBox(width: 6),
+        if (serving)
+          pw.Container(
+              width: 6,
+              height: 6,
+              decoration: const pw.BoxDecoration(
+                  color: PdfColors.amber700, shape: pw.BoxShape.circle)),
+      ]));
+      orderRows.add(pw.SizedBox(height: 4));
+    }
+    final replaced = setup.liberoReplaces;
+    // Latin-1 throughout, so an English sheet stays real text: the
+    // middle the libero is in for follows in brackets.
+    final liberoW = await _text(
+        '${words.libero}:  ${setup.libero ? labelOf(VolleyballRotation.liberoRole) : '-'}'
+        '${replaced == null ? '' : '  (${labelOf(replaced)})'}',
+        size: 11);
+    final rulesW = await _text(
+        '${words.rules}:  ${setup.rules.label}  ·  ${words.subs}',
+        size: 11);
+    final dateW = pw.Text(dateStr,
+        style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey600));
+
+    pw.Widget cell(int z) => pw.Container(
+          width: 110,
+          height: 80,
+          decoration: pw.BoxDecoration(
+            color: roles[z] == VolleyballRotation.liberoRole
+                ? PdfColor.fromInt(TacticsState.kLiberoColor.toARGB32())
+                    .shade(0.25)
+                : null,
+            border: pw.Border.all(color: PdfColors.grey800, width: 0.8),
+          ),
+          child: pw.Stack(children: [
+            pw.Positioned(
+                left: 4,
+                top: 3,
+                child: pw.Text('$z',
+                    style: const pw.TextStyle(
+                        fontSize: 9, color: PdfColors.grey600))),
+            pw.Center(child: cells[z]),
+          ]),
+        );
+
+    final doc = pw.Document();
+    doc.addPage(
+      pw.Page(
+        pageFormat: PdfPageFormat.a4,
+        margin: const pw.EdgeInsets.all(32),
+        build: (context) => pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
+          children: [
+            pw.Row(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: pw.CrossAxisAlignment.end,
+              children: [heading, dateW],
+            ),
+            pw.SizedBox(height: 10),
+            ?titleW,
+            if (titleW != null) pw.SizedBox(height: 2),
+            teamW,
+            pw.SizedBox(height: 6),
+            setupW,
+            pw.SizedBox(height: 18),
+            pw.Row(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                pw.Column(
+                  crossAxisAlignment: pw.CrossAxisAlignment.center,
+                  children: [
+                    pw.Container(
+                      width: 330,
+                      padding: const pw.EdgeInsets.only(bottom: 3),
+                      alignment: pw.Alignment.center,
+                      decoration: const pw.BoxDecoration(
+                          border: pw.Border(
+                              bottom: pw.BorderSide(
+                                  color: PdfColors.grey800, width: 3))),
+                      child: netW,
+                    ),
+                    pw.Row(children: [cell(4), cell(3), cell(2)]),
+                    pw.Row(children: [cell(5), cell(6), cell(1)]),
+                  ],
+                ),
+                pw.SizedBox(width: 24),
+                pw.Expanded(
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      orderHead,
+                      pw.SizedBox(height: 8),
+                      ...orderRows,
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            pw.SizedBox(height: 18),
+            liberoW,
+            pw.SizedBox(height: 6),
+            rulesW,
+          ],
+        ),
+      ),
+    );
+    return doc.save();
+  }
+
+  static String _mmss(int sec) {
+    final m = (sec ~/ 60).toString().padLeft(2, '0');
+    final s = (sec % 60).toString().padLeft(2, '0');
+    return '$m:$s';
+  }
+
+  /// The match-day sheet: every player's minutes, most first, with the
+  /// starters marked, and the substitution log under it. Runs onto a
+  /// second page for a long roster.
+  static Future<Uint8List> buildMatchSheet(
+    MatchDay match, {
+    required MatchSheetStrings words,
+  }) async {
+    if (match.countsSets) return _buildSetSheet(match, words: words);
+    final dateStr = match.startedAt.toIso8601String().split('T').first;
+    final times = match.playingTime(match.clock());
+    final order = [...match.players]
+      ..sort((a, b) => (times[b.id] ?? 0).compareTo(times[a.id] ?? 0));
+    final starters = match.starters.toSet();
+
+    final heading = await _text(words.heading, size: 18, bold: true);
+    final titleW = match.name.trim().isEmpty
+        ? null
+        : await _text(match.name.trim(), size: 14, bold: true);
+    final setupW = await _text(
+        '${match.periods} × ${match.periodSeconds ~/ 60} min  ·  ${match.onPitch} v ${match.onPitch}',
+        size: 11,
+        color: PdfColors.grey700);
+    final timeHead = await _text(words.playingTime, size: 12, bold: true);
+    final playerCol = await _text(words.player, size: 9, color: PdfColors.grey700);
+    final minutesCol = await _text(words.minutes, size: 9, color: PdfColors.grey700);
+    final rows = <pw.Widget>[];
+    for (final p in order) {
+      final secs = times[p.id] ?? 0;
+      rows.add(pw.Container(
+        padding: const pw.EdgeInsets.symmetric(vertical: 3),
+        decoration: const pw.BoxDecoration(
+            border: pw.Border(
+                bottom: pw.BorderSide(color: PdfColors.grey300, width: 0.5))),
+        child: pw.Row(children: [
+          pw.Expanded(child: await _text(p.label, size: 11)),
+          if (p.isKeeper)
+            pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 12),
+                child: await _text(words.keeper,
+                    size: 8, color: PdfColors.grey600)),
+          if (starters.contains(p.id))
+            pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 12),
+                child: await _text(words.starter,
+                    size: 8, color: PdfColors.grey600)),
+          pw.SizedBox(
+              width: 56,
+              child: pw.Align(
+                  alignment: pw.Alignment.centerRight,
+                  child: pw.Text(_mmss(secs),
+                      style: pw.TextStyle(
+                          fontSize: 11, fontWeight: pw.FontWeight.bold)))),
+        ]),
+      ));
+    }
+    final subsHead = await _text(words.substitutions, size: 12, bold: true);
+    final subRows = <pw.Widget>[];
+    if (match.subs.isEmpty) {
+      subRows.add(await _text(words.noSubs, size: 10, color: PdfColors.grey600));
+    } else {
+      subRows.add(pw.Row(children: [
+        pw.SizedBox(width: 48, child: await _text(words.time, size: 9, color: PdfColors.grey700)),
+        pw.SizedBox(width: 40, child: await _text(words.period, size: 9, color: PdfColors.grey700)),
+        pw.Expanded(child: await _text(words.off, size: 9, color: PdfColors.grey700)),
+        pw.Expanded(child: await _text(words.on, size: 9, color: PdfColors.grey700)),
+      ]));
+      subRows.add(pw.SizedBox(height: 3));
+      for (final sub in match.subs) {
+        subRows.add(pw.Padding(
+          padding: const pw.EdgeInsets.symmetric(vertical: 2),
+          child: pw.Row(children: [
+            pw.SizedBox(
+                width: 48,
+                child: pw.Text(_mmss(sub.clock),
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.SizedBox(
+                width: 40,
+                child: pw.Text('${sub.period}',
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.Expanded(
+                child: await _text(match.player(sub.outId)?.label ?? sub.outId,
+                    size: 10)),
+            pw.Expanded(
+                child: await _text(match.player(sub.inId)?.label ?? sub.inId,
+                    size: 10, bold: true)),
+          ]),
+        ));
+      }
+    }
+    final dateW = pw.Text(dateStr,
+        style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey600));
+
+    // Cards, when any were shown; the shoot-out, when one was played.
+    final cardRows = <pw.Widget>[];
+    if (match.cards.isNotEmpty) {
+      cardRows.add(await _text(words.cards, size: 12, bold: true));
+      cardRows.add(pw.SizedBox(height: 6));
+      for (final c in match.cards) {
+        final mins = c.seconds == null ? '' : '  ·  ${c.seconds! ~/ 60} min';
+        cardRows.add(pw.Padding(
+          padding: const pw.EdgeInsets.symmetric(vertical: 2),
+          child: pw.Row(children: [
+            pw.SizedBox(
+                width: 48,
+                child: pw.Text(_mmss(c.clock),
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.SizedBox(
+                width: 40,
+                child: pw.Text('${c.period}',
+                    style: const pw.TextStyle(fontSize: 10))),
+            pw.Expanded(
+                child: await _text(
+                    match.player(c.playerId)?.label ?? c.playerId,
+                    size: 10)),
+            pw.Expanded(
+                child: await _text('${words.cardName(c.kind)}$mins',
+                    size: 10, bold: true)),
+          ]),
+        ));
+      }
+      cardRows.add(pw.SizedBox(height: 18));
+    }
+    final shootRows = <pw.Widget>[];
+    if (match.shootOut.isNotEmpty) {
+      final sc = match.shootOutScore;
+      shootRows.add(await _text(
+          '${words.shootOut}  ${sc.us} - ${sc.them}',
+          size: 12,
+          bold: true));
+      shootRows.add(pw.SizedBox(height: 6));
+      var n = 0;
+      for (final a in match.shootOut) {
+        n++;
+        final who = a.playerId != null
+            ? (match.player(a.playerId!)?.label ?? a.playerId!)
+            : (a.taker ?? '');
+        shootRows.add(pw.Padding(
+          padding: const pw.EdgeInsets.symmetric(vertical: 2),
+          child: pw.Row(children: [
+            pw.SizedBox(
+                width: 28,
+                child: pw.Text('$n', style: const pw.TextStyle(fontSize: 10))),
+            pw.SizedBox(
+                width: 60,
+                child: await _text(a.us ? words.us : words.them, size: 10)),
+            pw.Expanded(child: await _text(who, size: 10)),
+            pw.SizedBox(
+                width: 56,
+                child: await _text(a.scored ? words.goal : words.miss,
+                    size: 10, bold: a.scored)),
+          ]),
+        ));
+      }
+      shootRows.add(pw.SizedBox(height: 18));
+    }
+
+    final doc = pw.Document();
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        margin: const pw.EdgeInsets.all(32),
+        build: (context) => [
+          pw.Row(
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: pw.CrossAxisAlignment.end,
+            children: [heading, dateW],
+          ),
+          pw.SizedBox(height: 10),
+          ?titleW,
+          if (titleW != null) pw.SizedBox(height: 2),
+          setupW,
+          pw.SizedBox(height: 18),
+          timeHead,
+          pw.SizedBox(height: 6),
+          pw.Row(children: [
+            pw.Expanded(child: playerCol),
+            pw.SizedBox(
+                width: 56,
+                child: pw.Align(
+                    alignment: pw.Alignment.centerRight, child: minutesCol)),
+          ]),
+          pw.SizedBox(height: 2),
+          ...rows,
+          pw.SizedBox(height: 18),
+          subsHead,
+          pw.SizedBox(height: 6),
+          ...subRows,
+          pw.SizedBox(height: 18),
+          ...cardRows,
+          ...shootRows,
+        ],
+      ),
+    );
+    return doc.save();
+  }
+
+  /// The sheet of a match counted per set (volleyball): the set scores,
+  /// every player's sets and substitutions, and the log set by set.
+  static Future<Uint8List> _buildSetSheet(
+    MatchDay match, {
+    required MatchSheetStrings words,
+  }) async {
+    final dateStr = match.startedAt.toIso8601String().split('T').first;
+    final played = match.setsPlayed();
+    final counts = match.subCounts();
+    final order = [...match.players]
+      ..sort((a, b) => (played[b.id] ?? 0).compareTo(played[a.id] ?? 0));
+    final starters = match.starters.toSet();
+
+    final heading = await _text(words.heading, size: 18, bold: true);
+    final titleW = match.name.trim().isEmpty
+        ? null
+        : await _text(match.name.trim(), size: 14, bold: true);
+    final scores = match.setScores.map((s) => '${s.us}-${s.them}').join(', ');
+    final setupW = await _text(
+        '${match.rules.toUpperCase()}  ·  ${words.sets} ${match.setsWonUs}-${match.setsWonThem}'
+        '${scores.isEmpty ? '' : '  ·  $scores'}',
+        size: 11,
+        color: PdfColors.grey700);
+
+    final setsHead = await _text(words.sets, size: 12, bold: true);
+    final setRows = <pw.Widget>[];
+    for (var i = 0; i < match.setScores.length; i++) {
+      final s = match.setScores[i];
+      setRows.add(pw.Padding(
+        padding: const pw.EdgeInsets.symmetric(vertical: 2),
+        child: pw.Row(children: [
+          pw.SizedBox(
+              width: 60,
+              child: await _text('${words.set} ${i + 1}', size: 10)),
+          pw.SizedBox(
+              width: 70,
+              child: pw.Text('${s.us} - ${s.them}',
+                  style: pw.TextStyle(
+                      fontSize: 10, fontWeight: pw.FontWeight.bold))),
+          pw.Expanded(
+              child: await _text(
+                  '${words.substitutions} ${s.subs}/${match.subLimit}  ·  '
+                  '${words.timeouts} ${s.timeoutsUs}/${MatchDay.timeoutsPerSet}',
+                  size: 10,
+                  color: PdfColors.grey700)),
+        ]),
+      ));
+    }
+
+    final playersHead = await _text(words.player, size: 12, bold: true);
+    final playerCol = await _text(words.player, size: 9, color: PdfColors.grey700);
+    final setsCol = await _text(words.sets, size: 9, color: PdfColors.grey700);
+    final inCol = await _text(words.subsIn, size: 9, color: PdfColors.grey700);
+    final outCol = await _text(words.subsOut, size: 9, color: PdfColors.grey700);
+    pw.Widget num(int n, {bool bold = false}) => pw.SizedBox(
+        width: 44,
+        child: pw.Align(
+            alignment: pw.Alignment.centerRight,
+            child: pw.Text('$n',
+                style: pw.TextStyle(
+                    fontSize: 11,
+                    fontWeight:
+                        bold ? pw.FontWeight.bold : pw.FontWeight.normal))));
+    final rows = <pw.Widget>[];
+    for (final p in order) {
+      final c = counts[p.id] ?? (inn: 0, out: 0);
+      rows.add(pw.Container(
+        padding: const pw.EdgeInsets.symmetric(vertical: 3),
+        decoration: const pw.BoxDecoration(
+            border: pw.Border(
+                bottom: pw.BorderSide(color: PdfColors.grey300, width: 0.5))),
+        child: pw.Row(children: [
+          pw.Expanded(child: await _text(p.label, size: 11)),
+          if (match.isLibero(p.id))
+            pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 12),
+                child: await _text(words.libero,
+                    size: 8, color: PdfColors.grey600)),
+          if (starters.contains(p.id))
+            pw.Padding(
+                padding: const pw.EdgeInsets.only(right: 12),
+                child: await _text(words.starter,
+                    size: 8, color: PdfColors.grey600)),
+          num(played[p.id] ?? 0, bold: true),
+          num(c.inn),
+          num(c.out),
+        ]),
+      ));
+    }
+
+    final subsHead = await _text(words.substitutions, size: 12, bold: true);
+    final subRows = <pw.Widget>[];
+    if (match.subs.isEmpty) {
+      subRows.add(await _text(words.noSubs, size: 10, color: PdfColors.grey600));
+    } else {
+      for (final sub in match.subs) {
+        final kind = sub.kind == SubstitutionKind.libero
+            ? words.libero
+            : sub.kind == SubstitutionKind.lineup
+                ? words.lineup
+                : '';
+        subRows.add(pw.Padding(
+          padding: const pw.EdgeInsets.symmetric(vertical: 2),
+          child: pw.Row(children: [
+            pw.SizedBox(
+                width: 60,
+                child: await _text('${words.set} ${sub.period}', size: 10)),
+            pw.Expanded(
+                child: await _text(match.player(sub.outId)?.label ?? sub.outId,
+                    size: 10)),
+            pw.Expanded(
+                child: await _text(match.player(sub.inId)?.label ?? sub.inId,
+                    size: 10, bold: true)),
+            pw.SizedBox(
+                width: 56,
+                child: await _text(kind, size: 9, color: PdfColors.grey600)),
+          ]),
+        ));
+      }
+    }
+    final dateW = pw.Text(dateStr,
+        style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey600));
+
+    final doc = pw.Document();
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        margin: const pw.EdgeInsets.all(32),
+        build: (context) => [
+          pw.Row(
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: pw.CrossAxisAlignment.end,
+            children: [heading, dateW],
+          ),
+          pw.SizedBox(height: 10),
+          ?titleW,
+          if (titleW != null) pw.SizedBox(height: 2),
+          setupW,
+          pw.SizedBox(height: 18),
+          if (setRows.isNotEmpty) ...[
+            setsHead,
+            pw.SizedBox(height: 6),
+            ...setRows,
+            pw.SizedBox(height: 18),
+          ],
+          playersHead,
+          pw.SizedBox(height: 6),
+          pw.Row(children: [
+            pw.Expanded(child: playerCol),
+            pw.SizedBox(
+                width: 44,
+                child: pw.Align(
+                    alignment: pw.Alignment.centerRight, child: setsCol)),
+            pw.SizedBox(
+                width: 44,
+                child: pw.Align(
+                    alignment: pw.Alignment.centerRight, child: inCol)),
+            pw.SizedBox(
+                width: 44,
+                child: pw.Align(
+                    alignment: pw.Alignment.centerRight, child: outCol)),
+          ]),
+          pw.SizedBox(height: 2),
+          ...rows,
+          pw.SizedBox(height: 18),
+          subsHead,
+          pw.SizedBox(height: 6),
+          ...subRows,
+        ],
+      ),
+    );
+    return doc.save();
+  }
+
+  /// Share the match-day sheet; see [buildMatchSheet].
+  static Future<bool> exportMatchSheet(
+    MatchDay match, {
+    required MatchSheetStrings words,
+    String? filename,
+  }) async {
+    final bytes = await buildMatchSheet(match, words: words);
+    return Printing.sharePdf(
+      bytes: bytes,
+      filename:
+          filename ?? 'match_${DateTime.now().millisecondsSinceEpoch}.pdf',
+    );
+  }
+
+  /// Share the lineup sheet for [setup]; see [buildLineupSheet].
+  static Future<bool> exportLineupSheet(
+    RotationSetup setup, {
+    required Map<String, String> labels,
+    required LineupSheetStrings words,
+    String? title,
+    String? filename,
+  }) async {
+    final bytes = await buildLineupSheet(setup,
+        labels: labels, words: words, title: title);
+    return Printing.sharePdf(
+      bytes: bytes,
+      filename:
+          filename ?? 'lineup_${DateTime.now().millisecondsSinceEpoch}.pdf',
+    );
+  }
+
   static Future<Uint8List?> _captureBoard({double pixelRatio = 2.0}) async {
     final boundary =
         boardRepaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;

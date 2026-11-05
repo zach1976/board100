@@ -2,6 +2,7 @@
 from .rules_common import (BUILDUP_RULES, DUEL_RULES, GAME_RULES, GK_RULES,
                            PATTERN_RULES, QUEUE_RULES, RALLY_RULES,
                            SCORE_GOAL_HOCKEY, SETPIECE_RULES)
+from .field_hockey import INDOOR_RULES
 
 
 def _t(en, zh, zht):
@@ -26,6 +27,17 @@ FLOW = {
     "fh_defend_tackle": DUEL_RULES,
     "fh_counter_attack": PATTERN_RULES,
     "fh_gk_": GK_RULES,
+    "fh_pcd_": SETPIECE_RULES,
+    "fh_cpress_": PATTERN_RULES,
+    "fh_trigger_": BUILDUP_RULES,
+    "fh_aerial_": BUILDUP_RULES,
+    "fh_overload_": PATTERN_RULES,
+    "fh_in_board_pass": DUEL_RULES,
+    "fh_in_build_": BUILDUP_RULES,
+    "fh_in_box_press": BUILDUP_RULES,
+    "fh_in_corner": SETPIECE_RULES,
+    "fh_in_gk": GK_RULES,
+    "fh_in_game_": GAME_RULES,
 }
 
 GEAR = {
@@ -52,6 +64,9 @@ GEAR = {
 }
 
 
+# The indoor drills play by the indoor rules: no hitting, the ball raised
+# only for a shot, the side-boards in play. First match wins, so before "fh_".
 RULES = {
+    "fh_in_": INDOOR_RULES,
     "fh_": SCORE_GOAL_HOCKEY,
 }

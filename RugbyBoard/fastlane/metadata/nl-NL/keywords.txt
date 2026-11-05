@@ -1,0 +1,1 @@
+tactiekbord,trainingsplan,schema,scrum,opstelling,demo,analyse,wedstrijd

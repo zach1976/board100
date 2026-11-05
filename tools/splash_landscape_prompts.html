@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>横屏启动图 · 提示词</title>
+<style>
+  :root{color-scheme:dark;--bg:#0e1112;--panel:#161b1d;--line:#2a3336;--text:#e8eef0;
+    --dim:#9fb0b5;--accent:#4dd0e1;--ok:#3ddc97;
+    --body:"PingFang SC","Hiragino Sans GB",sans-serif;--mono:"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;
+    line-height:1.7;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px 90px}
+  header.top{padding:44px 0 22px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px}
+  h1{font-weight:800;font-size:clamp(24px,5vw,34px);line-height:1.15;margin:0 0 10px}
+  .lede{color:var(--dim);margin:0;max-width:66ch}
+  h2{font-weight:800;font-size:19px;margin:38px 0 6px}
+  .sub{color:var(--dim);margin:0 0 14px;max-width:70ch}
+  .why{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:14.5px}
+  .p{position:relative;background:#0b1416;border:1px solid var(--line);border-radius:12px;
+    padding:50px 18px 18px;margin-top:12px}
+  .p pre{margin:0;white-space:pre-wrap;word-break:break-word;
+    font-family:var(--mono);font-size:12.8px;line-height:1.62;color:#dfe9ec}
+  .copy{position:absolute;top:11px;right:11px;background:#17272b;border:1px solid var(--line);
+    color:var(--dim);border-radius:8px;padding:7px 13px;font:600 12px/1 var(--mono);cursor:pointer}
+  .copy:hover{color:var(--text);border-color:#35494f}
+  .copy.done{background:var(--ok);border-color:var(--ok);color:#06231a}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+  code{font-family:var(--mono);font-size:12.5px;color:#cfe3e8}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+  .steps li{counter-increment:s;position:relative;padding:10px 0 10px 40px;border-bottom:1px solid var(--line)}
+  .steps li:before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;
+    border-radius:50%;background:var(--panel);border:1px solid var(--line);color:var(--accent);
+    font:600 12px/24px var(--mono);text-align:center}
+  footer{color:#5b6d72;font-size:12.5px;margin-top:44px;padding-top:18px;border-top:1px solid var(--line)}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">tactics board · 足球 · 横屏启动图</p>
+  <h1>横过来也要看见球</h1>
+  <p class="lede">启动图是 iOS 原生的 LaunchScreen，一张竖图按「填满」铺到屏幕上。横屏时屏幕只露出图的
+  中间 39%–61%，而球在 62% 的位置——整个被裁掉。现在已经先用竖图中段裁了一条横带顶着（能看见球，
+  但分辨率只有 853 宽，Pro Max 上软）。这页是让它变成真正的横屏图。</p>
+</header>
+
+<div class="why">
+  <b>这张图会在三种地方出现</b>：横屏手机（原尺寸）、iPad 横屏（原尺寸）、iPad 竖屏（两侧各裁掉三分之一，只留中间）。
+  所以<b>球必须在正中央</b>，左右两侧只放可以被裁掉的东西（看台、灯光、草地）。
+</div>
+
+<h2>足球</h2>
+<p class="sub">和竖版同一个场景、同一套光，只是重新取景：从正面低机位看过去，球在画面正中偏下，
+战术线从球上方划过，看台和灯光拉到两侧去。</p>
+<div class="p"><button class="copy">复制</button><pre>splash_logo_landscape.png
+1844 x 853
+A cinematic wide photograph of a football at night in a floodlit stadium, the same scene as a portrait splash image reframed for landscape. The ball sits exactly at the horizontal centre of the frame, slightly below the vertical middle, on dark green turf with a white pitch line passing behind it, lit by cool stadium floodlights from the upper left. A single glowing green light trail arcs over and around the ball, with faint dashed green tactical arrows and circles drawn in the dark air above it like a coach's board. Floodlight towers and the dim stands fill the far left and far right of the frame and can be cropped away; nothing important is in the outer third on either side. Deep teal-black sky, shallow depth of field, fine grain, no people, no text, no logos, no watermark, no borders. Horizontal 2.16:1 composition.</pre></div>
+
+<h2>竖版：补全那只球门</h2>
+<p class="sub">竖版启动图右下方的球门只画了一半——远端那根门柱和一截横梁，近端什么都没有，像一扇断掉的门。
+让 ChatGPT 在<b>原图上改</b>，不要重新生成：把现在的 <code>SoccerBoard/assets/icon/splash_logo.png</code>
+拖进对话，再贴下面这段。其它一切不动，球、光轨、看台、灯都保留。</p>
+<div class="p"><button class="copy">复制</button><pre>splash_logo.png
+853 x 1844
+Edit this image and change only the football goal in the lower right background, behind and to the right of the ball. Make it a complete goal: two round white posts, a crossbar joining them, and a net hanging between, standing on the goal line of the dark green pitch, lit dimly by the same cool stadium floodlights and softly out of focus like the rest of the background. Keep it the same size and in the same place; it may be partly cut off by the right edge of the frame but the near post must be visible. Change nothing else: the ball, the glowing green light trail, the dashed tactical arrows and circles, the floodlights, the stands, the grass and the pitch line all stay exactly as they are. No text, no logos, no watermark, no borders. Same portrait 853 x 1844 PNG.</pre></div>
+
+<h2>拿到图以后</h2>
+<ol class="steps">
+  <li>文件名按第一行，PNG。</li>
+  <li>横版放到 <code>SoccerBoard/assets/icon/splash_logo_landscape.png</code>（已到位，2026-10-02）；补好球门的竖版直接覆盖 <code>splash_logo.png</code>。</li>
+  <li>竖版换了要跑 <code>cd SoccerBoard &amp;&amp; dart run flutter_native_splash:create</code> 再跑 <code>python3 tools/splash_landscape.py soccer</code>（前者会把横版条目冲掉，后者补回来）。重编足球即可。</li>
+</ol>
+
+<table>
+  <tr><th>为什么 1844 × 853</th><td>和竖版等像素、长宽对调，正好是横屏手机的比例（2.16:1），iPad 用同一张裁两侧。</td></tr>
+  <tr><th>为什么球要在正中</th><td>iPad 竖屏会把这张横图按高度填满、裁掉左右各约三分之一。球不在中间就又看不见了。</td></tr>
+  <tr><th>其它十五个运动</th><td>同一段提示词，把 "football" 换成对应的球、"stadium" 换成对应的场馆，和各自的竖版对齐。先把足球做对。</td></tr>
+</table>
+
+<footer>
+  /Users/zhenyusong/projects/board100/tools/splash_landscape_prompts.html<br>
+  机制：tools/splash_landscape.py · LaunchImage.imageset 按 size class 选图（compact height / regular width）
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.parentNode.querySelector('pre').innerText;
+    navigator.clipboard.writeText(text).then(function () {
+      b.textContent = '已复制';
+      b.classList.add('done');
+    });
+  });
+});
+</script>
+</body></html>

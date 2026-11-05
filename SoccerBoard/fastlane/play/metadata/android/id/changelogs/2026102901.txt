@@ -1,0 +1,3 @@
+• Ikon olahraga baru dan pengantar yang digambar ulang
+• Semua latihan dan fitur termasuk, didukung iklan
+• Perbaikan kecil: nama latihan tidak lagi tertinggal di atas daftar setelah papan ditutup

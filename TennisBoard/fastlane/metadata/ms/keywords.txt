@@ -1,1 +1,1 @@
-tenis,beregu,perseorangan,servis,return,voli,baseline,deuce,gelanggang,jurulatih,taktik
+papan taktik,pelan latihan,jadual,servis,posisi beregu,demo,analisis,ulasan perlawanan

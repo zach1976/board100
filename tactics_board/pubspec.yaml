@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 2.0.0+1
+version: 2.2.0+1
 
 environment:
   sdk: ^3.11.0
@@ -52,6 +52,7 @@ dependencies:
   shared_preferences: ^2.3.2
   url_launcher: ^6.3.0
   flutter_quick_video_encoder: ^1.7.2
+  package_info_plus: ^10.2.2
 
 
 dev_dependencies:
@@ -140,6 +141,21 @@ flutter:
     - assets/icon/marker_mannequin.png
     - assets/icon/marker_pole.png
     - assets/icon/marker_disc.png
+    - assets/icon/sport_soccer.png
+    - assets/icon/sport_basketball.png
+    - assets/icon/sport_volleyball.png
+    - assets/icon/sport_fieldHockey.png
+    - assets/icon/sport_badminton.png
+    - assets/icon/sport_tennis.png
+    - assets/icon/sport_tableTennis.png
+    - assets/icon/sport_pickleball.png
+    - assets/icon/sport_baseball.png
+    - assets/icon/sport_handball.png
+    - assets/icon/sport_rugby.png
+    - assets/icon/sport_waterPolo.png
+    - assets/icon/sport_sepakTakraw.png
+    - assets/icon/sport_beachTennis.png
+    - assets/icon/sport_footvolley.png
     - assets/icon/marker_ring.png
     - assets/icon/marker_rebounder.png
     - assets/icon/marker_bench.png

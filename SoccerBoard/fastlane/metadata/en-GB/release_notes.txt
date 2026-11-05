@@ -1,24 +1,22 @@
-What's New in 2.0.1
+What's New in 2.3.0
 
-Everything in this release is about what the drill boards actually draw.
+MATCH DAY
+Set the periods and your starting line-up, mark the keeper, run the clock, and tap two players to swap them. The clock stops itself at the end of a period, with a +1 min for added time. The bench sorts by minutes played, and Suggest evens out playing time without touching the keeper. Yellow and red cards are kept against each player, and a shoot-out panel records every kick. After the match, every player's minutes and substitutions export as a PDF, and finished matches sync with your account. The clock needs Pro; the set-up is free.
 
-TELL A RUN FROM A DRIBBLE FROM A PASS
-Three actions, three lines: a run is dashed, a dribble waves, a pass is a solid arrow. A player carrying the ball used to get two near-identical arrows side by side.
+PLAYBOOK
+Mark your own boards "In playbook" and flip through them from match day, swiping from one to the next and pressing play.
 
-EVERY ARROW STARTS SOMEWHERE
-A short run kept its destination and lost where it came from, so a quarter of the arrows in the library appeared out of thin air.
+READY SESSIONS
+Six ready sessions, built from the library's 137 drills: foundation, attacking, defending, set pieces, match week and pre-season. Pick one when you create a practice plan and edit from there.
 
-ONE PLAYER, DRAWN ONCE
-Past the first step, a player who had moved was drawn twice — a stride apart, facing two different ways.
+NOTES ON THE BOARD
+Write text straight onto the board. A drill's step note sits on the board and changes with each step. Pick a colour or thickness while a line is selected to restyle it.
 
-SHOTS THAT REACH THE GOAL
-A shot used to stop short, on the keeper; the keeper himself stood inside his own net. Both fixed.
+MADE FOR iPAD
+A side bar instead of tabs, the drill library and plans beside their details, and panels that open next to their button. A keyboard works (Space plays, the arrows step, Cmd+Z undoes), and Apple Pencil draws while your fingers move players.
 
-ALSO
-- Cones stay where they were put when a run goes past them
-- The pass arrow arrives with the ball instead of ahead of it
-- Players face what they are about to do — a keeper watches the attacker, not his own goal
-- A shuttle run is run empty-handed
-- Text labels turn with the board and can be set in four faces
-- The edit bar offers only what an element can change: equipment has no run and no colour
-- The referee and the coach are drawn as people, and turn like people
+GERMAN AND DUTCH
+The app now speaks German and Dutch: every screen, every drill name and every coaching note. That makes 14 languages.
+
+SMALLER FIXES
+The Pro screen is now titled "All drills, no ads". Back from a board returns to the practice plan you were running. Turned sideways, the side bar moves away from the Dynamic Island. Many labels that were still in English are now translated.

@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,11 @@ void main() {
   testWidgets('shown on a first run, skipped for good', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues({});
+    // The intro brackets itself with AdService, which asks PurchaseService
+    // whether Pro is owned; on the default test platform that opens an
+    // Android billing connection that fails asynchronously. StoreKit does not
+    // connect until asked — see overflow_test.dart.
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     ConfigConstants.fixedSportType = SportType.soccer;
     addTearDown(() => ConfigConstants.fixedSportType = null);
     await EasyLocalization.ensureInitialized();
@@ -92,5 +98,6 @@ void main() {
 
     // ── and it is remembered, so the next launch goes straight through ──
     expect(await IntroPage.shouldShow(), isFalse);
+    debugDefaultTargetPlatformOverride = null;
   });
 }

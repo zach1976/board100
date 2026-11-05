@@ -19,3 +19,11 @@ flutter:
     - assets/icon/ball_footvolley.png
     - assets/icon/marker_antenna.png
     - assets/icon/marker_net.png
+    - assets/icon/player_top_female_barefoot_base.png
+    - assets/icon/player_top_female_barefoot_kit.png
+    - assets/icon/player_top_female_barefoot_turn_base.png
+    - assets/icon/player_top_female_barefoot_turn_kit.png
+    - assets/icon/player_top_male_barefoot_base.png
+    - assets/icon/player_top_male_barefoot_kit.png
+    - assets/icon/player_top_male_barefoot_turn_base.png
+    - assets/icon/player_top_male_barefoot_turn_kit.png

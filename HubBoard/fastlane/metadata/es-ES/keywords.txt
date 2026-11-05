@@ -1,1 +1,1 @@
-fútbol,baloncesto,voleibol,tenis,bádminton,béisbol,rugby,hockey,entrenador,equipo,club
+pizarra multideporte,entrenamiento,sesiones,baloncesto,fútbol,demo,análisis,repaso

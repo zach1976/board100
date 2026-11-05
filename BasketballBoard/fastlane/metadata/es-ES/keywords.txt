@@ -1,1 +1,1 @@
-3v3,5v5,bloqueo continuación,horns,zona,hombre a hombre,ataque,defensa,acb,euroliga,nba,nbl
+pizarra táctica,entrenamiento,sesiones,bloqueo y continuación,jugadas,demo,análisis,repaso

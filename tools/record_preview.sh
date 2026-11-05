@@ -8,8 +8,17 @@
 # marks; the film is cut to them, so the build, the install, the springboard
 # and the splash never appear.
 #
-# Output: build/preview/<key>.mp4 — H.264, 30fps, the device's own
-# resolution, which is what App Store Connect wants for that size class.
+# Output: build/preview/<key>.mp4 at the device's own resolution for looking
+# at, and build/preview/<key>_av.mp4 at 886x1920 for uploading.
+#
+# Those are two different things and the difference is not cosmetic. A
+# SCREENSHOT for the 6.9" class is 1320x2868; an App PREVIEW has its own,
+# much shorter list of accepted sizes, and 886x1920 is the one whose shape
+# matches. Uploading the 1320x2868 film gets it through the API, sits in
+# PREPARE_FOR_SUBMISSION looking fine, and then comes back ASSET_FAILED from
+# the transcoder with no explanation — because 1320x2868 is 3.8M luma
+# samples a frame, which needs H.264 level 5.0, and the preview pipeline
+# will not take it. Level 4.2 tops out at 2.2M.
 # mp4 rather than the mov simctl records: App Store Connect takes either,
 # but a browser will not play a file whose type says quicktime, and the
 # release review page embeds this film.
@@ -49,7 +58,7 @@ echo "  recorder up at $REC_START"
 
 set +e
 # IAP=1 so the saved ad-removal flag is actually read — see drive_app.sh.
-WALK=preview_video DRIVE_DEFINES="--dart-define=IAP=1" \
+WALK=preview_video DRIVE_DEFINES="--dart-define=IAP=1 --dart-define=SPORT=$KEY" \
   "$REPO/tools/drive_app.sh" "$KEY" "$UDID" >"$LOG" 2>&1
 DRIVE_RC=$?
 set -e
@@ -84,6 +93,13 @@ ffmpeg -loglevel error -y -ss "$SS" -i "$RAW" -t "$DUR" \
   -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 \
   -r 30 -c:v libx264 -preset slow -crf 20 -pix_fmt yuv420p \
   -c:a aac -b:a 128k -shortest -movflags +faststart "$FINAL"
+
+# The upload copy: Apple's own preview size, and a level that fits it.
+ffmpeg -loglevel error -y -i "$FINAL" \
+  -vf "scale=886:1920:force_original_aspect_ratio=decrease,pad=886:1920:(ow-iw)/2:(oh-ih)/2:black" \
+  -c:v libx264 -profile:v high -level 4.2 -preset slow -crf 20 -pix_fmt yuv420p -r 30 \
+  -c:a aac -b:a 128k -ac 2 -ar 44100 -movflags +faststart "$OUT/${KEY}_av.mp4"
+echo "✅ $OUT/${KEY}_av.mp4 (886x1920, the one release_app.py uploads)"
 
 read -r W H FPS SECS < <(ffprobe -v error -select_streams v:0 \
   -show_entries stream=width,height,r_frame_rate -show_entries format=duration \

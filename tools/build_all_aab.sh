@@ -25,18 +25,24 @@ mkdir -p "$OUT"
 KEYS=("$@")
 [ ${#KEYS[@]} -eq 0 ] && { echo "Usage: build_all_aab.sh <key> [key ...]"; exit 1; }
 
-VERSION=$(grep -E '^version:' tactics_board/pubspec.yaml | sed 's/version: //; s/+.*//')
-
 for KEY in "${KEYS[@]}"; do
   ROW=$(awk -F'\t' -v k="$KEY" '$1 == k && $1 !~ /^#/ {print; exit}' "$TABLE")
   [ -n "$ROW" ] || { echo "❌ unknown app '$KEY'"; exit 1; }
   IFS=$'\t' read -r _ DIR BUNDLE NAME_EN _ _ _ _ <<< "$ROW"
 
-  DEFINES=""
+  # Each app's own version, like build_all_ipa.sh reads it. This used to come
+  # from the core's pubspec, which is a library and does not move with the
+  # apps: it still said 2.0.0 while every shell had gone to 2.2.0, so the
+  # bundles would have been named — and the settings page would have shown —
+  # a version nothing was shipping.
+  VERSION=$(awk -F'[:+]' '/^version:/{gsub(/ /,"",$2); print $2; exit}' "$DIR/pubspec.yaml")
+
+  # The settings page shows the version the build actually is; see kAppVersion.
+  DEFINES="--dart-define=APP_VERSION=$VERSION"
   # The hub is a shell like the others (HubBoard/); it alone opts into its
   # own AdMob app with HUB_ADS (see lib/services/ad_service.dart).
   if [ "$KEY" = "tactics_board" ]; then
-    DEFINES="--dart-define=HUB_ADS=1"
+    DEFINES="$DEFINES --dart-define=HUB_ADS=1"
   fi
   [ -d "$DIR" ] || { echo "❌ $DIR missing — run tools/gen_sport_shell.sh $KEY"; exit 1; }
 

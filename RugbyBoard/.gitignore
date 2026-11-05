@@ -14,3 +14,7 @@ macos/Podfile.lock
 android/.gradle/
 android/local.properties
 android/key.properties
+
+# tools/drive_app.sh writes UI-inspection shots into whichever app it drives.
+# A shell's store screenshots live in fastlane/screenshots/, not here.
+screenshots/

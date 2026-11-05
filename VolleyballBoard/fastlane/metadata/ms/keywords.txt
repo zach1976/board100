@@ -1,1 +1,1 @@
-bola tampar,6v6,4-2,5-1,6-2,setter,libero,rotasi,servis,rejaman,sekat,jurulatih
+papan taktik,pelan latihan,jadual,putaran,terima servis,demo,analisis,ulasan perlawanan

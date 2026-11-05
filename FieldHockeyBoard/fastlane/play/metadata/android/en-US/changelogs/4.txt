@@ -1,0 +1,12 @@
+What's new in 2.2.0
+
+• Match day: periods, line-up, clock, substitutions; green, yellow and red cards with timed suspensions; shoot-out; PDF export (clock needs Pro)
+• Playbook from match day
+• Ready sessions: six practice plans
+• Indoor pitch and Hockey5s court beside the outdoor one
+• 65 drills, up from 36
+• Notes on the board, changing with each step
+• Field hockey blue backgrounds
+• Tablet layout, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes

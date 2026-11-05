@@ -1,0 +1,2434 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>未发布 app 审计</title><style>body{background:#f6f7f9;color:#1d2128;font:14.5px/1.6 -apple-system,"PingFang SC",sans-serif;margin:0}
+main{max-width:1100px;margin:0 auto;padding:24px 16px}table{border-collapse:collapse;margin:8px 0;font-size:13px;display:block;overflow-x:auto}
+th,td{border:1px solid #dde1e6;padding:4px 8px;vertical-align:top;text-align:left}th{background:#eef1f4}
+details{background:#fff;border:1px solid #e3e6eb;border-radius:10px;padding:10px 14px;margin:12px 0}summary{cursor:pointer}
+code{background:#eef1f4;padding:1px 4px;border-radius:4px;font-size:12.5px}.dim{color:#6b7380}
+@media (prefers-color-scheme:dark){body{background:#121417;color:#e6e8eb}details{background:#1b1e23;border-color:#2c3138}th{background:#22262c}th,td{border-color:#2c3138}code{background:#22262c}}</style></head><body><main><h1>未发 2.x 的 10 个 app · 严格审计</h1><p class="dim">2026-10-11 · 易用性 · 合理性 · 运动规则 · 317 个训练全部按渲染图逐步核对</p>
+<h2>结论：10 个 app 一个都不能按现状发 2.x</h2>
+<table>
+<tr><th>范围</th><th>违规级</th><th>严重</th><th>小问题</th></tr>
+<tr><td>网球</td><td>10</td><td>9</td><td>5</td></tr>
+<tr><td>匹克球</td><td>5</td><td>7</td><td>6</td></tr>
+<tr><td>沙滩网球</td><td>4</td><td>9</td><td>6</td></tr>
+<tr><td>乒乓球</td><td>6</td><td>5</td><td>6</td></tr>
+<tr><td>藤球</td><td>4</td><td>8</td><td>5</td></tr>
+<tr><td>沙滩足排</td><td>2</td><td>4</td><td>6</td></tr>
+<tr><td>橄榄球</td><td>9</td><td>13</td><td>6</td></tr>
+<tr><td>手球</td><td>6</td><td>8</td><td>6</td></tr>
+<tr><td>水球</td><td>9</td><td>17</td><td>11</td></tr>
+<tr><td>易用性（跨运动）</td><td>2</td><td>7</td><td>15</td></tr>
+</table>
+<h3>先修的通病（一处改动修一大片）</h3>
+<ol>
+<li><b>训练说明夹英文句子，所有运动都有，含已上架和刚送审的排球。</b>「器材 / 组织 / 后续」几行只填了中英文，日韩泰西法印马越 8 种语言显示英文。排球 44 个里 31 个、足球 137 个里 117 个。可走在线训练包修，不用发版。</li>
+<li><b>训练在点题那一拍前结束。</b>题目里那一板没画，对手最后一步走到目标区上。网球、匹克球、沙滩网球、乒乓球、藤球、沙滩足排都有。</li>
+<li><b>射门 / 得分的球不进门。</b>手球射门停在门前 1.6 米或落在门柱外；水球约 25 个射门停在门前 1.7 到 2 米、和守门员叠在一起；橄榄球从不达阵，球自己飞 40 多米进得分区。</li>
+<li><b>对拉的球指向接球人的旧位置。</b>斜线对拉画成中路直线（网球 4 个、匹克球 2 个）。</li>
+<li><b>发球员站进场内。</b>网球、沙滩足排、藤球的发球都有从界内或发球圈外发出的。</li>
+<li><b>训练缩略图一律画成足球草坪。</b>所有运动的训练卡片都这样，已上架的也是。</li>
+<li><b>合集版切换运动会覆盖已存的板子</b>（代码已核实：切换时没清当前板子名）。</li>
+</ol>
+<h3>单项最严重</h3>
+<ul>
+<li>橄榄球 20 个训练的传球是向前传（已在渲染图核实）。</li>
+<li>手球有场上球员站进 6 米区；7 米罚球的人跨过 7 米线才出手。</li>
+<li>水球点球从 6 米线游进一段再投；以多打少预设只有 5 打 4；球门线和 2 米线颜色画反（已核实）。</li>
+<li>乒乓球双打发球左半区到左半区，同一人连击两次；体能训练把人和标志桶画在球台上。</li>
+<li>藤球两个「主攻发球」训练里发球的不是主攻手。</li>
+<li>沙滩网球规则写成「落地两次失分」，实际一次落地就失分。</li>
+<li>中文把网前类运动和橄榄球的 Finishing 译成「射门」；泰文把橄榄球「达阵」写成「沙子」。</li>
+</ul>
+<p class="dim">每条发现都由子代理在渲染图或模拟器截图上核实过；我另外抽查了橄榄球传球、手球射门、水球射门三张图和切换运动的代码，均属实。下面是 5 份原始报告全文。原文与证据图在 docs/audit_2026-10-11/ 与 scratchpad。</p>
+<details><summary><h2 style="display:inline">易用性（合集版 + 9 个运动）</h2></summary><h1>Usability audit: HubBoard + 9 single-sport apps (tableTennis, tennis, pickleball, rugby, handball, waterPolo, sepakTakraw, beachTennis, footvolley)</h1>
+<p>Screenshots are in this folder (<code>NN_*.png</code> full size, <code>*_s.jpg</code> downscaled, <code>*_crop.png</code> zooms). Device: iPhone 17 Pro sim 7D49F0A5, HubBoard debug build from branch soccer-2.2.0. I also built FootvolleyBoard once to check how a single-sport app's colours look.</p>
+<h2>(a) Verdict</h2>
+<p><strong>Not ready to ship as-is.</strong>
+- <strong>The hub can lose a coach's saved board.</strong> Switching sport keeps the previous board's name. Opening and leaving a board in another sport then writes an empty board over the saved one. I reproduced this.
+- <strong>Chinese has a wrong sport term.</strong> The "Finishing" category shows as 射门 ("shot on goal") in every net sport and in rugby.
+- <strong>Drill thumbnails are wrong for most sports.</strong> Every thumbnail is drawn on a green soccer pitch with a centre circle: the table-tennis table, the pool and the sand courts included.
+- <strong>Several layout problems:</strong> the step note gets clipped at the bottom of the board; the draw panel hides players; each sport's own equipment is buried behind soccer gear.</p>
+<p>Core flows work in every sport and nothing crashed: library, search, filters, drill detail, stepping, playback, Add, draw, timeline, save, plan.</p>
+<h2>(b) Findings</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>App / sport</th>
+<th>Screen</th>
+<th>What's wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>BLOCKER</td>
+<td>Hub, all sports</td>
+<td>Sport switch → home → board</td>
+<td><code>setSportType</code> clears the players but keeps <code>currentTacticName</code>, <code>currentTacticMeta</code> and <code>drillBeats</code>. It also never saves the old sport's working board or restores the new one. Result: Rugby's home card said "TT a" (the table-tennis board) above an empty pitch. Opening and leaving it created a ghost "TT a" under Rugby. Back in Table Tennis, "Open the board" showed an empty table named "TT a", and leaving it <strong>overwrote the saved TT board with an empty one</strong> (data loss).</td>
+<td>40_rugby_home, 41_rugby_open, 42_rugby_home_after, 47_tt_open3, 48_tt_saved_board_after; <code>state/tactics_state.dart:514-531</code>, <code>pages/sport_selection_page.dart:122-124</code>, <code>autosave()</code> ~l.232</td>
+<td>In <code>_open</code>: <code>await state.autosave()</code> before switching. <code>setSportType</code> should null <code>currentTacticName</code>/<code>Meta</code>, clear <code>drillBeats</code>/<code>drillSetup</code>, then <code>restoreWorkingBoard()</code> for the new sport.</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>BLOCKER</td>
+<td>All net sports (TT, tennis, pickleball, beach tennis, footvolley, sepak) + rugby, zh-CN / zh-TW</td>
+<td>Home "按类别找", library chips</td>
+<td><code>drill_cat_finishing</code> = 射门 / 射門 ("shot on goal") in sports with no goal. Net sports only override possession/setpiece/ssg, not finishing. Rugby (tries) uses the soccer word too.</td>
+<td>121_zh_tt_home2; <code>models/drill.dart:204-222</code>; zh-CN.json <code>drill_cat_finishing</code></td>
+<td>Add <code>finishing</code> to the net overrides as <code>drill_cat_finishing_net</code> (EN "Put-away", zh 得分球/终结). Add a rugby term (达阵). Check every locale.</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>MAJOR</td>
+<td>All 9</td>
+<td>Library list, home "Recent"</td>
+<td>Thumbnails always paint soccer turf with a centre circle (<code>T.turf</code>, <code>drawCircle</code>): table tennis looks like a pitch, water polo is a grass field, beach courts are green, rugby gets a centre circle. Some thumbnails are blank apart from the circle (tennis "Rally").</td>
+<td>11_tt_thumbs_crop, 61_hb_lib, 71_wp_lib, 81_tennis_lib, 91_bt_lib, 95_fv_lib; <code>widgets/drill_thumbnail.dart:353-380</code></td>
+<td>Use the sport's surface colour and its own simple markings (net line for net sports, no circle). Fall back to the start positions when a drill has no arrows.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>MAJOR</td>
+<td>Rugby, handball, beach tennis, pickleball, sepak, water polo (worse in zh)</td>
+<td>Board (drill loaded)</td>
+<td>The step-note text element sits at the bottom edge. Its second line is cut off by the board frame or transport bar (and hidden under the drill-name snackbar for 4 s). In Chinese it is truncated with "…" ("5 名 ...").</td>
+<td>55_rugby_note_crop, 64_hb_note_crop, 93_bt_board, 117_zh_wp_board</td>
+<td>Clamp the note inside the visible board rect, prefer the top band, allow 3 lines without ellipsis, and keep it clear of goals.</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>MAJOR</td>
+<td>All (seen in TT)</td>
+<td>Board → Draw</td>
+<td>The draw options panel (Line/Eraser/colours) covers the bottom ~20% of the board. TT player "1" and the ball disappear, so you can't draw from the player you're annotating.</td>
+<td>15_tt_board2 vs 20_tt_draw_mode</td>
+<td>Dock the options into the transport-bar slot, or shrink or lift the board while drawing.</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>MAJOR</td>
+<td>TT, tennis, pickleball, beach tennis, footvolley, sepak, water polo, rugby</td>
+<td>Add sheet → More</td>
+<td>Each sport's own equipment is appended after 24 shared items (<code>order 24+</code>). TT Net/Paddle are items 19-20 of a horizontal strip; WP "Water goal"/"Lane rope" are last and their labels are truncated. Meanwhile soccer goal, mini goal, corner flag, a bag of soccer balls, ladder and hurdle are offered in a pool and on a TT table.</td>
+<td>19_tt_more_end, 76_wp_more_b, 119_zh_wp_more, 57_rugby_row_crop; <code>widgets/toolbar.dart:1933-1975</code></td>
+<td>Put <code>sportType.markers</code> right after the inline row (order 4…). Hide goal/miniGoal/cornerFlag for net sports and water polo. Use a sport-specific ball bag.</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>MAJOR</td>
+<td>Water polo (also any formation with unequal sides)</td>
+<td>Add sheet → Players</td>
+<td>The count chip label is built from <code>homeCount</code> only. The 6v5 power-play formation appears as <strong>"6v6"</strong>, and because it's the only formation for that count its name is never shown.</td>
+<td>74_wp_6v6; <code>toolbar.dart:4200-4213</code>, <code>sport_type.dart</code> WP <code>formation_6v5</code></td>
+<td>Label as <code>${home}v${away}</code> or show the formation name ("Power play 6v5").</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>MAJOR</td>
+<td>All</td>
+<td>Practice Plan → Edit Plan → Add Tactic</td>
+<td>The picker lists only saved boards. None of the sport's 28-42 library drills can be added from inside the plan editor; you have to leave and use "Add to plan" on each drill. Wording also mixes "Drills" (header), "add a tactic" and "Add Tactic", and the picker's first row repeats "Add Tactic" (= save the current board).</td>
+<td>32_tt_plan_created, 33_tt_addtactic; <code>pages/practice_plan_page.dart:486-530</code></td>
+<td>Add a "From drill library" entry that opens the library in pick mode. Use one noun (drill/board).</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>MAJOR</td>
+<td>All (hub + single apps)</td>
+<td>Home "What to run today" cards</td>
+<td>When the title wraps to two lines, the description's 2nd line is cut mid-glyph and runs into "10 min".</td>
+<td>10_tt_card_crop, 60_hb_home, 70_wp_home, 131_fvapp_home; <code>pages/sport_home_page.dart:1236-1262</code></td>
+<td>Drop the description to 1 line when the title wraps, or clip it (ClipRect plus a maxLines computed from the space left).</td>
+</tr>
+<tr>
+<td>m1</td>
+<td>MINOR</td>
+<td>Hub: TT, beach tennis, sepak</td>
+<td>Sport home header</td>
+<td>The 24pt title truncates: "Table Tennis Bo…", "Beach Tennis Bo…", "Sepak Takraw B…".</td>
+<td>10_tt_home, 98_st_home</td>
+<td>Scale down (FittedBox) or allow 2 lines.</td>
+</tr>
+<tr>
+<td>m2</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Library opened from a home category</td>
+<td>The selected category chip is scrolled off-screen, so you can't see which filter is active (two rows of "All" chips with no row labels).</td>
+<td>51_rugby_setpieces, 59_chips_crop</td>
+<td><code>Scrollable.ensureVisible</code> on the active chip; label the level row.</td>
+</tr>
+<tr>
+<td>m3</td>
+<td>MINOR</td>
+<td>Hub</td>
+<td>Picker "Continue" card</td>
+<td>"35 drills · 1 boards".</td>
+<td>37_picker; <code>hub_boards_n</code></td>
+<td>Plural forms.</td>
+</tr>
+<tr>
+<td>m4</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Home "Recent", board text</td>
+<td>After a language switch, Recent rows and the drill note already on the board stay in the old language ("Dink cross-court" under zh).</td>
+<td>110_zh_pb_home, 115_zh_wp_lib</td>
+<td>Store the drill id and resolve the label at render time.</td>
+</tr>
+<tr>
+<td>m5</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Save board / New plan / New board</td>
+<td>Saving a board loaded from a drill doesn't prefill the drill's name. The confirm button in the create dialogs says "Apply" rather than Create/Save.</td>
+<td>25_tt_savepage, 31_tt_newplan, cur (Name this board)</td>
+<td>Prefill; rename the button.</td>
+</tr>
+<tr>
+<td>m6</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Timeline</td>
+<td>The ball's row has an empty grey dot and no label. The drawn line's row shows "ALL" in a middle cell.</td>
+<td>22_tt_timeline</td>
+<td>Label it "Ball".</td>
+</tr>
+<tr>
+<td>m7</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Drill detail/board title</td>
+<td>Family and variant are joined by plain concatenation: "Set piece the scrum", "Warm-up on every surface", "Rally control half-long pushes".</td>
+<td>52_rugby_scrum, 10_tt_home</td>
+<td>Use a separator ("Set piece · the scrum") or authored titles.</td>
+</tr>
+<tr>
+<td>m8</td>
+<td>MINOR</td>
+<td>Handball, rugby, WP vs net sports</td>
+<td>Add → Players</td>
+<td>Handball shows formation "7v7" under count "7v7" (duplicate). Chip styles are inconsistent: net sports get illustrated chips ("Regu (3v3)"), team sports get bare "15v15 / 7v7".</td>
+<td>66_hb_7v7, 54_rugby_add, 99_st_add</td>
+<td>Name formations ("6-0 base"); one chip style.</td>
+</tr>
+<tr>
+<td>m9</td>
+<td>MINOR</td>
+<td>Beach tennis, footvolley</td>
+<td>Board figures</td>
+<td>Barefoot sand sports are drawn in socks and boots.</td>
+<td>93_bt_board, 96_fv_board; <code>sport_type.dart:460</code> <code>playerBody</code></td>
+<td>Add a barefoot body for the sand sports.</td>
+</tr>
+<tr>
+<td>m10</td>
+<td>MINOR</td>
+<td>Pickleball</td>
+<td>Picker/Continue vs board</td>
+<td>Picker and Continue thumbnails show a blue court; the board and home default is green (<code>courtSurfaces</code> lead with 0xFF2E7D32).</td>
+<td>45_picker_bottom, 113_zh_picker vs 100_pb_home</td>
+<td>Use the same default in both places.</td>
+</tr>
+<tr>
+<td>m11</td>
+<td>MINOR</td>
+<td>Footvolley app (all shells), hub</td>
+<td>Intro, picker shelf</td>
+<td>Intro says "Put players on the pitch" in a footvolley app. The hub shelf "Pitch sports" holds the basketball and handball courts.</td>
+<td>130_fvapp_launch, 01_launch</td>
+<td>Sport-neutral wording ("on the court/field").</td>
+</tr>
+<tr>
+<td>m12</td>
+<td>MINOR</td>
+<td>Rugby, handball, WP</td>
+<td>Drill detail setup line</td>
+<td>Auto text "red: D, D, D, D, D, D, D, D" is unreadable.</td>
+<td>52_rugby_scrum</td>
+<td>Collapse to "8 defenders (D)".</td>
+</tr>
+<tr>
+<td>m13</td>
+<td>MINOR</td>
+<td>Single-sport apps (footvolley checked)</td>
+<td>Me tab</td>
+<td>The re-hued chrome is readable (worked out from the code: dim text 5.5-8:1 on surfaces, teal accent ≥5.3:1). But the Login card keeps a hard-coded teal gradient on brown chrome, and <code>textOff</code> is 3.0-4.5:1 on surfaceHi everywhere (an older issue, also in the hub).</td>
+<td>132_fvapp_me, 131_fvapp_home</td>
+<td>Derive the gradient from the palette; lift <code>textOff</code> slightly.</td>
+</tr>
+<tr>
+<td>m14</td>
+<td>MINOR</td>
+<td>All</td>
+<td>Library card badge</td>
+<td>"Regular" (usage frequency) has no explanation and reads like a level.</td>
+<td>11_tt_lib</td>
+<td>Icon plus tooltip, or rename ("Used often").</td>
+</tr>
+<tr>
+<td>m15</td>
+<td>MINOR</td>
+<td>TT</td>
+<td>Board</td>
+<td>The TT ball is drawn as big as a player's head, at hip height.</td>
+<td>13_tt_ball_crop</td>
+<td>Scale the ball per sport.</td>
+</tr>
+</tbody>
+</table>
+<h2>(c) Per-sport counts (findings observed in that sport; shared ones counted in each)</h2>
+<table>
+<thead>
+<tr>
+<th>Sport</th>
+<th>Blocker</th>
+<th>Major</th>
+<th>Minor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hub (picker/shell)</td>
+<td>1 (B1)</td>
+<td>2 (M6, M7)</td>
+<td>4 (m1, m3, m10, m11)</td>
+</tr>
+<tr>
+<td>Table tennis</td>
+<td>2 (B1 data loss, B2)</td>
+<td>6 (M1, M3, M4, M6, M7, + M2 n/a)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Tennis</td>
+<td>1 (B2)</td>
+<td>4 (M1, M4, M6, M7)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Pickleball</td>
+<td>1 (B2)</td>
+<td>5 (M1, M2, M4, M6, M7)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Rugby</td>
+<td>2 (B1 ghost board, B2)</td>
+<td>5 (M1, M2, M4, M6, M7)</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Handball</td>
+<td>0</td>
+<td>4 (M1, M2, M6, M7)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Water polo</td>
+<td>0</td>
+<td>6 (M1, M2, M4, M5, M6, M7)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Sepak takraw</td>
+<td>1 (B2)</td>
+<td>5 (M1, M2, M4, M6, M7)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Beach tennis</td>
+<td>1 (B2)</td>
+<td>5 (M1, M2, M4, M6, M7)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Footvolley</td>
+<td>1 (B2)</td>
+<td>4 (M1, M4, M6, M7)</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h2>(d) Not tested / limits</h2>
+<ul>
+<li><strong>Landscape:</strong> <code>simctl</code> can't rotate and idb has no rotate command. Not tested.</li>
+<li><strong>iPad and macOS:</strong> not run.</li>
+<li><strong>Device-level language:</strong> I switched language with the app's own picker (zh-CN for pickleball, water polo, table tennis) instead of AppleLanguages. The device language was never changed; the app language is back to English (US).</li>
+<li><strong>Not exercised:</strong> Share/PDF export, presentation mode, login/sync, photo import, My Teams, practice <em>run</em>, the full drill catalogue.</li>
+<li><strong>Ads:</strong> no test app-open ad appeared during the session.</li>
+<li><strong>Hub first-run intro:</strong> the hub already had data, so I didn't see its intro. I saw the footvolley app's intro on a fresh install.</li>
+<li><strong>Single-sport shells:</strong> only FootvolleyBoard was built and opened. The other shells share the core, so code-level findings apply to them, but I didn't open each one.</li>
+<li><strong>Performance:</strong> no jank or crash seen. A 4-beat drill plays in about 3.5 s.</li>
+<li><strong>Test data left on the simulator</strong> (hub, com.zach.tacticsBoard): TT board "TT a" (emptied by B1), a ghost rugby board "TT a", TT plan "Tuesday". FootvolleyBoard (com.zach.footvolleyBoard) is now installed.</li>
+</ul></details><details><summary><h2 style="display:inline">网球 · 匹克球 · 沙滩网球</h2></summary><h1>Strict audit: tennis, pickleball, beach tennis (drills, boards, courts, text)</h1>
+<p>I checked every finding below against the rendered PNGs in <code>tools/board_png/&lt;sport&gt;/</code> (PNG step N is the board after N phases). JSON coordinates were converted to court metres with the painters' own geometry. The court lines in the renders match: tennis 23.77×10.97 m, service line 6.40 m, singles 8.23 m; pickleball 13.41×6.10 m, NVZ 2.13 m; beach tennis 16×8 m. Contact sheets are in <code>scratchpad/audit/sheets/&lt;sport&gt;/</code> and crops are in <code>p*.png</code> / <code>c*.png</code>.</p>
+<h2>(a) Verdict per sport</h2>
+<p><strong>Tennis (38 drills): not releasable as is.</strong> The court painter is correct. The drill library breaks tennis rules on the board in about 15 drills:
+- The four rally drills ("cross-court FH/BH", "down the line", "figure of eight") all hit the ball centre to centre. A player shuffles to a corner only after the ball has gone.
+- Three serve drills walk the server 1.4 m inside the baseline before the serve.
+- <code>tn_defend_block_return</code> serves into the wrong box. <code>tn_return_plus_one</code>'s first ball also goes into the wrong box, if it is a serve; if not, the drill has the server and returner the wrong way round.
+- Three plus-one target zones sit in the doubles alley, which is out in a 1v1 drill.
+- In <code>tn_net_drop_volley</code> the feeder ends up standing on the net.
+- In serve-and-volley and the poach drill, the return is struck from an empty spot.</p>
+<p>Almost every attacking or finishing drill also stops before the shot it is named after. The feeder then walks onto the target zone instead. The "Equipment" line is in English in 8 locales.</p>
+<p><strong>Pickleball (35 drills): not releasable as is.</strong> The court painter is correct (NVZ 2.13 m). The previously flagged <code>pb_defend_counter</code> crossing is fixed, and no player crosses the net any more. But several drills contradict the rules the app teaches:
+- "Dink cross-court" and "pull wide" are drawn straight.
+- The third-shot family opens with a "serve" that lands in the receivers' kitchen, with the receiving team already at the line.
+- The third-shot game opens with a straight serve.
+- <code>pb_serve_return_and_in</code> labels both players "R", serves from the baseline, and brings the server in instead of the returner.
+- The two-bounce drill parks the serving partner at the kitchen.
+- Speed-up and put-away drills never draw the attacking shot, and they put the defender inside his own kitchen on the target.
+- The <code>marker_paddle</code> label reads "ラバー" (ja) and "ไม้ปิงปอง" (th), i.e. table-tennis words.</p>
+<p><strong>Beach tennis (28 drills): not releasable as is.</strong> The court is the right size, but the net is drawn as a faint dashed white line that reads as a centre line. The previously flagged <code>bt_lob_recover</code> crossing is fixed, and there are no crossings. But:
+- The game rules text says "a second bounce loses it" (zh: 落地两次). In beach tennis any bounce loses the point.
+- "King of the court" is drawn as 4v4 with all 8 players on the sand.
+- In <code>bt_lob_over</code> the target zone is in the drilling team's own half, and the lob is never drawn.
+- "Defending the drop/lob" show the drilled player hitting the drop/lob.
+- 5 drills give two players the same label (P/P, R/R).
+- "Smash jump" is translated as "jump serve" in 6 locales.
+- The return-block receiver sprints to the net to take a serve.</p>
+<p>The diagonal-rally and serve placements are otherwise sound (beach tennis serves may go anywhere).</p>
+<h2>(b) Findings (sorted by severity)</h2>
+<h3>BLOCKER</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>tennis</td>
+<td>tn_rally_crosscourt_fh, tn_rally_crosscourt_bh, tn_rally_down_the_line, tn_rally_figure_eight</td>
+<td>1–2</td>
+<td>The ball always goes centre mark to centre mark (x=5.49 m both ends). The player moves to the corner AFTER the shot, so the ball lands where nobody stands. All four drills draw the same straight line, so the names are contradicted.</td>
+<td><code>tn_rally_crosscourt_fh-1.png</code>, <code>-2.png</code>; <code>p1.png</code> (all four: vertical line down the T)</td>
+<td><code>tools/drills/tennis.py rally_family</code>: start 1 at <code>frm</code> and 2 at <code>to</code> (the corners), hit corner to corner, then recover to the middle.</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>tennis</td>
+<td>tn_serve_second, tn_serve_and_volley, tn_doubles_poach</td>
+<td>1→2</td>
+<td>Step 1 "S moves into position to hit" walks S from 1 m behind the baseline to 1.4 m INSIDE it (y 22.34), carrying the ball. The serve in step 2 is struck from inside the court.</td>
+<td><code>tn_serve_second-1/2.png</code>, <code>tn_serve_and_volley-1/2.png</code>, <code>tn_doubles_poach-1/2.png</code>: S stands well inside the baseline when the arrow leaves</td>
+<td>Drop the step-1 walk-in. Serve from (x, 1+BEHIND) and let S follow in after contact.</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>tennis</td>
+<td>tn_defend_block_return</td>
+<td>1</td>
+<td>The serve from 2 (just right of 2's centre mark = deuce) travels straight to 1 on the home ad side (x 3.07). A deuce serve must land in the receiver's deuce box (canvas right).</td>
+<td><code>p5.png</code> panel "block_return s1"</td>
+<td>Put 1 at the home deuce side (x ≈ 7.9) or move 2 to the ad half.</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>tennis</td>
+<td>tn_return_plus_one</td>
+<td>1</td>
+<td>1 opens from the ad corner (x 3.07, behind the baseline) and the ball goes straight up the same side to 2 (x 3.73), i.e. into the deuce box. If it is a serve it is in the wrong box. If it isn't, the drilled player is serving rather than returning, which contradicts the name and "Ten serves…" text.</td>
+<td><code>p2.png</code> "return_plus_one s1"</td>
+<td>Make 2 serve diagonally to 1, then 1 returns and plays the +1.</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>tennis</td>
+<td>tn_serve_plus_one, tn_return_plus_one, tn_inside_out</td>
+<td>all</td>
+<td>The shaded target zone sits in the doubles alley (x 1.10 m / 9.87 m; singles lines at 1.37 / 9.60). A 1v1 drill's target is out.</td>
+<td><code>tn_serve_plus_one-0.png</code> (zone left of singles line), <code>p2.png</code> "return_plus_one s3" / "inside_out s3"</td>
+<td>Move the targets to x ≈ 1.8 / 9.2 (inside the singles line).</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>tennis</td>
+<td>tn_net_drop_volley</td>
+<td>3</td>
+<td>2 runs to the net (y=11.88, net=11.885). The figure stands on the net with its feet on 1's side and overlaps 1.</td>
+<td>crop <code>c2.png</code> of <code>tn_net_drop_volley-3.png</code></td>
+<td>Stop 2 at ≥1.5 m from the net (e.g. y 10.3), level with the zone.</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>tennis</td>
+<td>tn_serve_deuce_wide, tn_serve_ad_wide (also _body)</td>
+<td>1</td>
+<td>The serve arrow goes to the receiver standing in the middle behind the baseline. It crosses the service line ~2.6 m from the "wide" zone, and all deuce variants draw the same path (likewise all ad variants). Only the zone moves.</td>
+<td><code>tn_serve_deuce_wide-1.png</code>: arrow crosses the service line near the T, zone is at the sideline</td>
+<td>Route the serve leg through the zone (bounce), then to R, who moves out wide to meet it.</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>tennis</td>
+<td>tn_serve_and_volley, tn_doubles_poach</td>
+<td>3</td>
+<td>The return starts from the empty serve zone at the service line. R is 2–3 m away (the known "ball starts on empty court" class).</td>
+<td><code>tn_serve_and_volley</code> sheet step 3; <code>tn_doubles_poach</code> sheet step 3</td>
+<td>Move R onto the serve's landing line at step 2, and start the return from R.</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>tennis</td>
+<td>tn_defend_slice, tn_defend_lob</td>
+<td>1</td>
+<td>In a 1v1 drill, the attack ball is played into the doubles alley (1 runs to x 0.77 / 10.20 m; singles line 1.37 / 9.60). The rally ball is out.</td>
+<td><code>p5.png</code> "defend_slice s1", "defend_lob s1"</td>
+<td>Clamp to the singles corners (x ≈ 1.8 / 9.2).</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>pickleball</td>
+<td>pb_dink_cross, pb_dink_pull</td>
+<td>1–2</td>
+<td>Same bug as B1: the ball goes straight 1→2 (x 4.27 both). 2 slides wide only after the ball arrives, so "cross-court" and "pulling wide" are never drawn.</td>
+<td><code>p8.png</code> "dink_cross s1/s2"; <code>p9.png</code> "dink_pull s2"</td>
+<td>Start 2 diagonally (cross) or have the dink land wide where 2 moves to.</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>pickleball</td>
+<td>pb_serve_return_and_in</td>
+<td>all</td>
+<td>Both players are labelled <strong>R</strong>, so the text reads "Step 1: R plays it to R". The server stands on the baseline line (13.01 m, 0.4 m inside). The board then brings the SERVER into the kitchen while the returner backs off, the opposite of the drill and its coaching point ("the return… buy the time you need to walk in behind it").</td>
+<td><code>pb_serve_return_and_in</code> sheet, steps 0–3</td>
+<td>Label the server S. Put S behind the baseline. Make the returner R advance to the kitchen after the return while S stays back (two-bounce rule).</td>
+</tr>
+<tr>
+<td>B12</td>
+<td>pickleball</td>
+<td>pb_third_drop, pb_third_drive (pb_third_fifth similar)</td>
+<td>1</td>
+<td>The point opens with 1 hitting from the centre line into A, who is already standing at the kitchen line. The ball lands inside the opponents' NVZ (y 5.06; kitchen 4.58–6.71). As a serve that is a fault, and the receiving team cannot be at the line for a serve. The third shot (drop/drive) itself is never drawn, and A walks onto the drop target in step 2.</td>
+<td><code>pb_third_drop</code> sheet step 1–3</td>
+<td>Open with S serving diagonally from behind the baseline to a returner at the baseline (partner at the kitchen). Return deep, then draw the third shot into the zone.</td>
+</tr>
+<tr>
+<td>B13</td>
+<td>pickleball</td>
+<td>pb_game_third_shot</td>
+<td>1</td>
+<td>The serve goes straight down the left side (x 1.83 → 1.83), not diagonally, and both receivers stand on their baseline.</td>
+<td><code>p8.png</code> "game_third_shot s1"</td>
+<td>Diagonal serve from behind the right baseline. Returner back, partner at the kitchen.</td>
+</tr>
+<tr>
+<td>B14</td>
+<td>all three</td>
+<td><code>assets/drills/{tennis,pickleball,beachTennis}.json</code> note "Equipment" line</td>
+<td>—</td>
+<td>The Equipment sentence is untranslated English in ja, ko, th, es, fr, id, ms, vi: tennis 34 of 38 drills, pickleball 40 of 41 Equipment lines, beach tennis 26. Example: 【用具】the shaded zone is where the shot has to land — count only the ones that do。 (zh-CN/zh-TW are translated.)</td>
+<td>grep of the JSON; examples in every serve/zone drill</td>
+<td>Add those strings to the translation table in <code>tools/drills/narrate.py</code> / vocab and regenerate.</td>
+</tr>
+<tr>
+<td>B15</td>
+<td>beachTennis</td>
+<td>bt_game_half_court, bt_game_king_of_the_court, bt_game_full_doubles (Rules line, all locales; zh 「落地两次失分」)</td>
+<td>—</td>
+<td>"out, into the net, or a <strong>second bounce</strong> loses it". In beach tennis the ball may not bounce at all, so any bounce loses the point.</td>
+<td>note text; <code>tools/drills/beach_tennis.py:112</code> even says the old wording was removed, but <code>rules_common</code> still emits it</td>
+<td>Beach-tennis-specific rule: "any ball that touches the sand on your side loses the point".</td>
+</tr>
+<tr>
+<td>B16</td>
+<td>beachTennis</td>
+<td>bt_game_king_of_the_court</td>
+<td>0–1</td>
+<td>Drawn and described as "4 v 4" with 8 players. The waiting pairs 3/4 and C/D stand INSIDE the court at the baseline corners. King of the court is 2v2 with challengers queuing off court.</td>
+<td><code>p12.png</code> "king_of_the_court s1"</td>
+<td>Draw 2v2 on court, queue the challengers outside the baseline/side, and change Setup to "2 v 2 + waiting pairs".</td>
+</tr>
+<tr>
+<td>B17</td>
+<td>beachTennis</td>
+<td>bt_lob_over</td>
+<td>0–2</td>
+<td>The target zone is in the drilling team's OWN half (5.28, 14.40, behind 2). The lob is never drawn: 1 drives to A at the net, A drives back, then A and B retreat as if they had been lobbed.</td>
+<td><code>p13.png</code> "lob_over s1/s2"</td>
+<td>Have 1 lob over A/B to a zone near the far baseline, with A/B turning to chase it.</td>
+</tr>
+</tbody>
+</table>
+<h3>MAJOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>tennis</td>
+<td>tn_serve_plus_one, tn_return_plus_one, tn_inside_out, tn_approach, tn_net_first_volley, tn_net_second_volley, tn_net_overhead, tn_net_drop_volley</td>
+<td>last</td>
+<td>The shot the drill is named for (+1 ball, volley, overhead, drop volley) is never drawn. The ball ends with 1. In the last step the opponent/feeder walks onto the target zone, so it reads as "hit it to him". In tn_serve_plus_one s3 the ball is left floating where 1 used to be.</td>
+<td><code>tn_serve_plus_one-3.png</code>; <code>p4.png</code> (net family s3); <code>p2.png</code></td>
+<td>Add the final ball leg into the zone. Keep the opponent off the target (or have him start the recovery).</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>tennis</td>
+<td>tn_attack_drop_shot</td>
+<td>1–4</td>
+<td>2 sprints to the service line in step 1, before the drop is hit. After the drop, 1 moves BACK to the service line, contradicting the coaching point "follow it in". Step 2 text "1 plays it to the net" reads as a netted ball.</td>
+<td><code>tn_attack_drop_shot</code> sheet</td>
+<td>Keep 2 deep until the drop, move 1 forward after it, and reword to "plays a drop shot short over the net".</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>tennis</td>
+<td>tn_serve_second</td>
+<td>3–4</td>
+<td>"R plays it to the spot" appears twice. The ball goes from the bounce 1.5 m to R, then R's return ends on empty court 3 m in front of S. Holders are all null.</td>
+<td><code>tn_serve_second</code> sheet steps 3–4</td>
+<td>One return leg from R to S.</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>tennis</td>
+<td>tn_game_first_to_seven, tn_game_doubles_set, tn_game_half_court, tn_game_approach_only; doubles family (tn_doubles_one_up_one_back, _both_back)</td>
+<td>0–1</td>
+<td>The rules say "Serve changes every two points", but the point starts with 1 standing 1–1.4 m inside the baseline (approach_only: 4.7 m inside). All four doubles drills show the same opponent shape (A back, B up) whatever the name. <code>tn_game_doubles_set</code> is called a "set" but plays games to 11.</td>
+<td><code>p6.png</code>, <code>p3.png</code></td>
+<td>Start the server behind the baseline. Vary the opponents to match each formation. Rename "set" to "game to 11".</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>tennis</td>
+<td>tnfit_spider</td>
+<td>0</td>
+<td>The text puts the cones on the service-line corners, the T and the baseline corners. The board has them 2.1 m in front of the service line (y 16.16 vs 18.29) and 0.7 m inside the baseline.</td>
+<td><code>p7.png</code> "spider s0"</td>
+<td>Cones at y 18.29 (service line) and 23.77 (baseline).</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>tennis</td>
+<td>rally family (4 drills)</td>
+<td>0</td>
+<td>The two "target" cones sit under the players' feet at the centre marks. The text says they mark targets the rally is aimed at.</td>
+<td><code>p1.png</code> (cone only visible at the figure's feet)</td>
+<td>Put the cones at the cross-court / line targets.</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>tennis</td>
+<td>tn_approach</td>
+<td>3</td>
+<td>The approach target zone is 1.9 m from the net (approaches go deep), and 2 runs onto it.</td>
+<td><code>p2.png</code> "approach s3"</td>
+<td>Zone deep in a corner (≈ 2 m from the baseline).</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>tennis</td>
+<td>tn_defend_slice / tn_defend_lob / tn_defend_block_return text</td>
+<td>—</td>
+<td>"Ball path: 2 → deep court" and the Sequence leave out 1's defensive shot, which the board does draw (step 2). In tn_defend_lob, 2 runs into the alley in step 1 instead of being at the net to be lobbed.</td>
+<td>dump + <code>p5.png</code></td>
+<td>Narrate 1's shot. Keep 2 at the net for the lob drill.</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>tennis</td>
+<td><code>lib/models/sport_type.dart</code> tennis formations (~l.647)</td>
+<td>—</td>
+<td>The "Singles" preset puts both players at 0.78/0.22 of the court, about 1.2 m behind the service line (no-man's-land). "Doubles" is commented "Server at baseline right", but the server is at 0.78, 5.2 m inside the baseline.</td>
+<td>computed with <code>fieldRect</code></td>
+<td>Use y ≈ 1.03 / −0.03 for the server and singles players.</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>pickleball</td>
+<td>pb_two_bounce_rule</td>
+<td>0–3</td>
+<td>In the drill that teaches the two-bounce rule, the serving partner P starts at the kitchen line (it should be the server's partner staying back). The return lands in an empty zone 1.4 m from S.</td>
+<td><code>pb_two_bounce_rule</code> sheet</td>
+<td>Put P beside S at the baseline. Have S at the return's landing point in step 2.</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>pickleball</td>
+<td>pb_serve_deep_backhand, pb_serve_deep_forehand</td>
+<td>1</td>
+<td>The "deep" serve is drawn landing at R, 2.2 m inside the baseline, short of the deep zone. Both variants draw the identical path (only the zone moves).</td>
+<td><code>p9.png</code></td>
+<td>Serve to the zone, with R standing at/behind the baseline to meet it.</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>pickleball</td>
+<td>pb_speedup_shoulder, pb_speedup_hip, pb_speedup_ernie, pb_putaway_overhead, pb_putaway_roll_volley, pb_putaway_atp</td>
+<td>3</td>
+<td>The speed-up/put-away is never drawn. Defender A walks onto the target zone, and for the speed-ups that zone is inside A's own kitchen (y 4.83–5.36 vs line 4.58), so a volleyed reply there is a kitchen fault.</td>
+<td><code>p9.png</code> "speedup_shoulder s3", "ernie s3"; <code>p10.png</code></td>
+<td>Draw 1's attacking ball into the zone and keep A behind his line.</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>pickleball</td>
+<td>pb_putaway_atp</td>
+<td>2–3</td>
+<td>"Around the post" needs the hitter outside the sideline. 1 moves back to mid-court (3.66, 9.66), and A runs to the post instead.</td>
+<td><code>p10.png</code> "putaway_atp s3"</td>
+<td>Move 1 wide outside the sideline for the ATP, with the ball going around the post into the zone.</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>pickleball</td>
+<td>pb_attack_lob</td>
+<td>3</td>
+<td>After the offensive lob, both 1 and 2 walk into the kitchen to 0.3 m from the net (1's body overlaps the net). This contradicts the drill's own coaching point.</td>
+<td>crop <code>c3.png</code> of <code>pb_attack_lob-3.png</code></td>
+<td>Keep both at the kitchen line or show them retreating to transition.</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>pickleball</td>
+<td>pb_game_full_doubles, pb_game_dink_only</td>
+<td>0–1</td>
+<td>Games start with all four at the kitchen line and a straight 1→A ball (full doubles has no serve). In step 1 everyone steps 0.5 m INSIDE the kitchen.</td>
+<td><code>p8.png</code></td>
+<td>Full doubles: diagonal serve from behind the baseline. Dink game: feet stay behind the line.</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>pickleball, beachTennis</td>
+<td><code>assets/translations/ja-JP.json</code> / <code>th-TH.json</code> <code>marker_paddle</code></td>
+<td>—</td>
+<td>Paddle is "ラバー" (table-tennis rubber) in ja and "ไม้ปิงปอง" (ping-pong bat) in th, yet this marker is offered in the pickleball and beach tennis Add sheets.</td>
+<td>translation dump</td>
+<td>ja "パドル", th "ไม้พาย/แพดเดิล" (or sport-specific keys).</td>
+</tr>
+<tr>
+<td>M17</td>
+<td>beachTennis</td>
+<td>bt_return_block, bt_return_attacking, bt_serve_flat, bt_serve_sliced, bt_serve_jump</td>
+<td>all</td>
+<td>Duplicate labels: both teams have a "P", and both receivers are "R". The Setup text reads "red: R, R".</td>
+<td>dump; <code>p12.png</code></td>
+<td>Unique labels (S/P vs R/Q, or R1/R2).</td>
+</tr>
+<tr>
+<td>M18</td>
+<td>beachTennis</td>
+<td>bt_return_block</td>
+<td>2</td>
+<td>The receiver sprints 4.5 m to the net and receives the serve standing 0.3 m from it (head over the net line). The return itself is not drawn, and the coaching point says "block it deep".</td>
+<td>crop <code>c4.png</code> of <code>bt_return_block-2.png</code></td>
+<td>R meets the serve ~2–3 m from the net, and the return is drawn to the deep zone.</td>
+</tr>
+<tr>
+<td>M19</td>
+<td>beachTennis</td>
+<td>bt_defence_the_drop, bt_defence_the_lob</td>
+<td>1–2</td>
+<td>The names are inverted: A's ball is a flat drive and the DRILLED player 1 hits the drop / the lob. The shared coaching point "Block it back short…" contradicts "1 plays it deep" in the lob drill.</td>
+<td><code>p13.png</code></td>
+<td>Have A drop/lob and 1 defend it. Give each drill its own coaching point.</td>
+</tr>
+<tr>
+<td>M20</td>
+<td>beachTennis</td>
+<td>bt_attack_approach, bt_attack_the_drop, bt_attack_cross_court, bt_smash_straight/cross_court/jump</td>
+<td>2–3</td>
+<td>The drilled shot (approach/drop/smash) is never drawn. A then walks onto the target zone. The smashes are fed with a flat drive at chest height, not a lob.</td>
+<td><code>p14.png</code></td>
+<td>Feed a lob for the smashes, draw the drilled shot into the zone, and keep A off it.</td>
+</tr>
+<tr>
+<td>M21</td>
+<td>beachTennis</td>
+<td>bt_game_full_doubles, bt_game_half_court</td>
+<td>0–1</td>
+<td>The point (rules: "serve changes every two points") starts with the server 5 m inside the court. Half-court text says the cones sit "on the ends of the centre line", but a beach tennis court has no centre line. The zh text also says "swap partners" for a 1v1 game.</td>
+<td><code>p13.png</code></td>
+<td>Serve from behind the baseline. Write "cones on the baselines mark the middle".</td>
+</tr>
+<tr>
+<td>M22</td>
+<td>beachTennis</td>
+<td>bt_smash_jump name (zh-CN, zh-TW, ja, ko, th, vi)</td>
+<td>—</td>
+<td>"Smash jump" is translated as "jump serve": 扣杀 跳发 / スマッシュ ジャンプサーブ / 스매시 점프 서브 / สแมช กระโดดเสิร์ฟ / Đập bóng nhảy phát bóng.</td>
+<td>JSON name</td>
+<td>"跳起扣杀 / ジャンプスマッシュ / 점프 스매시 / กระโดดสแมช / Đập bóng bật nhảy".</td>
+</tr>
+<tr>
+<td>M23</td>
+<td>beachTennis</td>
+<td><code>lib/painters/beach_tennis_court_painter.dart</code></td>
+<td>—</td>
+<td>The net is a thin dashed white line with 0.25 m tabs. It reads as a centre line, not the 1.70 m net, and is inconsistent with the yellow mesh net in tennis and pickleball. The net-crossing reviews depend on seeing it.</td>
+<td>every BT PNG</td>
+<td>Use the shared <code>drawNetMesh</code> + net band like the tennis painter.</td>
+</tr>
+<tr>
+<td>M24</td>
+<td>beachTennis</td>
+<td>bt_game_king_of_the_court note (8 locales)</td>
+<td>—</td>
+<td>The "How it continues" line is English in ja, ko, th, es, fr, id, ms, vi ("The winners of each point stay on the king's side…").</td>
+<td>grep</td>
+<td>Translate.</td>
+</tr>
+</tbody>
+</table>
+<h3>MINOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>What</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m1</td>
+<td>tennis</td>
+<td><code>tennis_court_painter.dart</code></td>
+<td>Net posts are drawn on the doubles sideline (ITF: 0.914 m outside). The centre mark is 0.2 m long (ITF: 0.10 m).</td>
+<td>Cosmetic.</td>
+</tr>
+<tr>
+<td>m2</td>
+<td>tennis</td>
+<td>tn_warm_baseline_feed</td>
+<td>A "baseline" feed with both players 1.4 m inside the baseline.</td>
+<td>Move them behind the line.</td>
+</tr>
+<tr>
+<td>m3</td>
+<td>tennis</td>
+<td>tn_game_half_court</td>
+<td>The cones sit 1.6 m inside the service lines, not at the "ends of the centre line", and do not extend to the baselines.</td>
+<td>Cones on the centre marks at both baselines.</td>
+</tr>
+<tr>
+<td>m4</td>
+<td>tennis</td>
+<td>serve family (step 2)</td>
+<td>After returning, R walks diagonally toward the alley/zone.</td>
+<td>Recover to the middle.</td>
+</tr>
+<tr>
+<td>m5</td>
+<td>all</td>
+<td>facings</td>
+<td>Several players stand side-on, looking at a partner instead of the net at step 0: e.g. tn_doubles_one_up_one_back "2", tn_defend_slice "1", pb_attack_lob "2" (crop <code>c5.png</code>), pb speed-up "2", bt serve "P", bt smash "2".</td>
+<td>Face the net/ball.</td>
+</tr>
+<tr>
+<td>m6</td>
+<td>pickleball</td>
+<td><code>sport_type.dart</code> pickleball formations</td>
+<td>Doubles sits 0.8 m behind the kitchen line and singles 1.2 m behind it (transition zone).</td>
+<td>0.68/0.32 for kitchen, ~1.03 for baseline.</td>
+</tr>
+<tr>
+<td>m7</td>
+<td>pickleball</td>
+<td>pb_speedup_ernie s3</td>
+<td>After 1 jumps to the post, the ball is left lying on court at its old spot.</td>
+<td>Draw the Ernie volley.</td>
+</tr>
+<tr>
+<td>m8</td>
+<td>pickleball</td>
+<td>pb_defend_counter s2</td>
+<td>1 and 2 nearly overlap (0.6 m).</td>
+<td>Space them out.</td>
+</tr>
+<tr>
+<td>m9</td>
+<td>pickleball</td>
+<td>serve drills</td>
+<td>No mention of the underhand / below-the-waist serve rule in any serve note.</td>
+<td>Add it to the coaching text.</td>
+</tr>
+<tr>
+<td>m10</td>
+<td>pickleball</td>
+<td>pbfit_kitchen_shuffle</td>
+<td>Text says "cones at both sidelines", but they are 1.1 m inside.</td>
+<td>Align the text or the cones.</td>
+</tr>
+<tr>
+<td>m11</td>
+<td>beachTennis</td>
+<td><code>beach_tennis_court_painter.dart</code></td>
+<td>"Serve-target dots" at the baseline centres are not an ITF marking. The singles court (4.5 m) is not offered. A blue surface option exists for a sand sport.</td>
+<td>Remove the dots and consider the singles lines.</td>
+</tr>
+<tr>
+<td>m12</td>
+<td>beachTennis</td>
+<td>btfit_sand_lateral</td>
+<td>Text says the cones are "4 m apart"; they are 2.4 m apart on the board.</td>
+<td>Fix the text.</td>
+</tr>
+<tr>
+<td>m13</td>
+<td>beachTennis</td>
+<td>btfit_sand_sprints</td>
+<td>"Jog back outside the court", but the player jogs back inside it.</td>
+<td>Route the return outside.</td>
+</tr>
+<tr>
+<td>m14</td>
+<td>beachTennis</td>
+<td>bt_serve_flat (zh 平抽对抗), bt_serve_sliced (zh 劈吊)</td>
+<td>Odd terminology.</td>
+<td>平击发球 / 切削发球.</td>
+</tr>
+<tr>
+<td>m15</td>
+<td>all</td>
+<td><code>translations/ja-JP.json</code>, <code>th-TH.json</code> <code>learn_ball_2</code></td>
+<td>The tutorial string is untranslated English (global, not sport-specific).</td>
+<td>Translate.</td>
+</tr>
+</tbody>
+</table>
+<h2>(c) Counts per severity</h2>
+<table>
+<thead>
+<tr>
+<th>Sport</th>
+<th>BLOCKER</th>
+<th>MAJOR</th>
+<th>MINOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tennis</td>
+<td>10 (B1–B9, B14)</td>
+<td>9 (M1–M9)</td>
+<td>5 (m1–m5)</td>
+</tr>
+<tr>
+<td>Pickleball</td>
+<td>5 (B10–B14)</td>
+<td>7 (M10–M16)</td>
+<td>6 (m5–m10)</td>
+</tr>
+<tr>
+<td>Beach tennis</td>
+<td>4 (B14–B17)</td>
+<td>9 (M16–M24)</td>
+<td>6 (m5, m11–m15)</td>
+</tr>
+</tbody>
+</table>
+<p>B14 (untranslated Equipment line), M16 (paddle label), m5 (facings) and m15 (<code>learn_ball_2</code>) are shared and counted under each sport they affect.</p>
+<p>Three root causes account for most findings, so they can be fixed once in the generators:
+1. <strong>Rally leg drawn before the move.</strong> The receiver's move is scheduled after the ball lands, so the ball goes to his previous spot (B1, B10). This is in the rally/dink generators.
+2. <strong>Drills stop one ball early.</strong> Feed → reply is drawn, the named shot never is, and the opponent's last move lands on the zone (M1, M12, M20, B12).
+3. <strong>"S moves into position to hit"</strong> walks a serving player inside the baseline (B2).</p>
+<h2>(d) Not verified, and why</h2>
+<ul>
+<li><strong>Underhand serve, contact below the waist, the paddle arc (pickleball); the beach tennis serve toss rule; foot faults.</strong> These are stroke mechanics that a top-down board cannot show. I only checked whether the text mentions them (it doesn't, m9).</li>
+<li><strong>Facing.</strong> I judged it only from sprite pose at the PNG resolution. I did not run <code>tools/facing_audit.py</code> against these drills, so subtle back-to-ball cases at small angles may be missed.</li>
+<li><strong>Beach tennis rules.</strong> These are from my knowledge of the ITF Beach Tennis rules (16×8 m doubles, 4.5 m singles, net 1.70 m, no bounce, serve anywhere in the opponents' court, no lets on serve). I did not fetch the current ITF rulebook. I did not audit scoring details in the "How it continues" lines (e.g. "serve alternates every two points") beyond the bounce rule.</li>
+<li><strong>Translations.</strong> I did not judge the quality of es, fr, id, ms or vi beyond detecting English left in them. CJK/Thai terminology was spot-checked on drill names and the sport markers only, not every note sentence.</li>
+<li><strong>iPad / landscape layouts and the half-court layout.</strong> I did not check them; the renders are 402×730 full-court only.</li>
+</ul></details><details><summary><h2 style="display:inline">乒乓球 · 藤球 · 沙滩足排</h2></summary><h1>Strict audit: table tennis, sepak takraw, footvolley (drill pack as of 2026-10-11)</h1>
+<p>PNG paths are relative to <code>tools/board_png/</code>. Sn means step n, which is <code>&lt;id&gt;-n.png</code>. Metres are court coordinates with y measured from the top (far) end line.
+- Table tennis: table 1.525 × 2.74, net at y = 1.37. On the phone canvas the visible area runs from about y = −0.76 to y = 3.50.
+- Sepak takraw: court 6.1 × 13.4, net at y = 6.7. Service-circle centres are at y = 2.45 and y = 10.95, radius 0.30.
+- Footvolley: court 9 × 18, net at y = 9.</p>
+<h2>(a) Verdict per sport</h2>
+<p><strong>Table tennis (35 drills): not ready.</strong>
+- The court painter is correct (ITTF 2.74 × 1.525 table, centre line, net).
+- The doubles game breaks two of the sport's rules. The serve goes from the server's left half to the receiver's left half, while the note says right half to right half. The receiver then returns the ball to the server again, so there is no alternation. Two of the four players are also half off the canvas.
+- All three fitness drills draw the player and cones on top of the table, even though the text says the cones go "on the floor behind the table".
+- Cones also sit on the playing surface in the footwork, short-game and half-table drills.
+- In the lob and deep-chop defence drills, the defender walks off the bottom of the board.
+- Most feed and rally drills stop one stroke too early. The loop, flick, smash and third-ball attack are never drawn. After the last contact the ball is left lying on the floor while the player walks away.
+- Multiball and the footwork drills (Falkenberg is labelled advanced) are filed as warm-ups, so their notes read "raise the heart rate… opens the training".</p>
+<p><strong>Sepak takraw (32 drills): not ready.</strong>
+- The court painter is correct: 13.4 × 6.1, service circle r = 0.30 centred 2.45 m from the back line, quarter circles r = 0.90.
+- The serve law is broken in 9 drills:
+  - In both "Tekong serve" drills the inside player kicks the ball over the net and the tekong never touches it.
+  - In <code>st_receive_header</code> the red tekong serves from the blue half's own service circle, so the serve never crosses the net.
+  - The 2v2, 3v3 and no-block games start with an inside player kicking from about 2 m off the net.
+  - In the three feed drills the tekong serves from 0.5 m outside the circle.
+- The attack, defence and feed families never show the skill they are named after:
+  - Attacks: the striker starts with the ball in hand, kicks it into the blocker, and the blocker returns it.
+  - Defence: the ball path ends at the blocker and the defender never plays.
+  - Feed drills: the feed is never drawn.
+- Left/right labels are mirrored in places, and both teams use the same labels, so the text reads "L plays it to L".</p>
+<p><strong>Footvolley (30 drills): not ready.</strong>
+- The court (18 × 9, net at 9 m) is fine.
+- Six drills serve from inside the court:
+  - In <code>fv_receive_chest</code> and <code>fv_receive_thigh</code> the server walks 1.8 m in and kicks from 2.5 m inside the baseline.
+  - All four game drills open with a kick from 3.5–7 m inside the court.
+- In every serve drill the ball goes to a receiver's standing spot, not to the shaded target zone. The receiver then walks onto the zone after the ball has arrived.
+- The combination, finishing and control families never perform their named action:
+  - Combination drills: the first touch is kicked straight over the net to the blocker.
+  - Finishing drills: the back player shoots from 1.8 m off the net through the blocker, and the designated finisher never touches the ball.
+- Chest, shoulder and header touches are drawn with the ball at the feet.
+- Facing between teammates is correct in the drills I zoomed into.
+- No player crosses the net in any of the three sports.</p>
+<h2>(b) Findings, sorted by severity</h2>
+<h3>BLOCKER</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>Problem</th>
+<th>Evidence (seen on the PNG)</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>All 3 (and every other sport except zh)</td>
+<td><code>tools/drills/notes_tableTennis.py</code>, <code>notes_sepakTakraw.py</code>, <code>notes_footvolley.py</code> (<code>_t()</code> only fills en/en-GB/zh-CN/zh-TW); the fitness setup strings are the same</td>
+<td>n/a</td>
+<td><strong>English sentences inside ja/ko/th/es/fr/id/ms/vi notes</strong>, e.g. ja: <code>【用具】the shaded zone is the part of the table the ball has to land on…</code>. The Equipment, Setup and "How it continues" lines are untranslated in <strong>33/35 TT, 25/32 ST and 22/30 FV drills</strong>, for each of the 8 locales.</td>
+<td><code>tableTennis.json</code> and the others, field <code>note["ja-JP"]</code></td>
+<td>Add the 8 missing locales to every <code>_t()</code> and GEAR/SETUP/FLOW string, then regenerate. Add a generator check that fails when a non-en locale contains <code>\b(the\|and\|has)\b</code>.</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>TT</td>
+<td><code>tt_game_doubles</code></td>
+<td>S0–S2</td>
+<td><strong>Illegal doubles serve and no alternation.</strong> Server 1 is at x = 0.34 (his left/backhand half) and serves to A at x = 1.19 (A's left half). ITTF 2.2.2 and the note itself say right half to right half. In S2, A plays back to <strong>1</strong> again; under ITTF 2.8.3 the next ball must be 2's.</td>
+<td><code>tableTennis/tt_game_doubles-1.png</code> (1 is on screen-left, the arrow goes to A on screen-right). <code>-2.png</code>: the arrow from A ends at 1.</td>
+<td>Put 1 at x ≈ 1.19 and A at x ≈ 0.34. In S2 send the ball A → <strong>2</strong>, with 1 stepping out.</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>TT</td>
+<td><code>tt_game_doubles</code></td>
+<td>S0, S2</td>
+<td><strong>Players off the canvas.</strong> B (y = −0.71) and 2 (y = 3.45) are cut off in S0, and A (−0.66) and 1 (3.40) in S2.</td>
+<td><code>tt_game_doubles-0.png</code>: B's head is above the top edge and 2's feet below the bottom edge.</td>
+<td>Keep partners within y ∈ [−0.55, 3.30] and stagger them sideways instead of deep.</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>TT</td>
+<td><code>ttfit_side_step</code>, <code>ttfit_in_and_out</code>, <code>ttfit_figure_eight</code></td>
+<td>all</td>
+<td><strong>Player and cones drawn on the table surface</strong> (y 2.08–2.69; the table ends at 2.74). The text says "cones on the floor behind the table … the feet stay behind the cones, never under the table".</td>
+<td><code>tableTennis/ttfit_*-0.png</code>: the cones and runner sit inside the blue table.</td>
+<td>Shift the whole layout behind the end line (y ≈ 2.95–3.35, which is already <code>offSurface</code>).</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>TT</td>
+<td><code>tt_footwork_two_one</code>, <code>tt_footwork_falkenberg</code>; <code>tt_short_touch/flick/banana/long_push</code>; <code>tt_game_half_table</code></td>
+<td>all</td>
+<td><strong>Cones standing on the playing surface.</strong> Footwork cones are at (0.67, 1.70), (1.19, 2.52) etc., but are meant to mark "spots the player has to get to". The short-game cone is at (0.61, 1.70), 0.33 m from the net, meant as the "spot the player steps in to". In the half-table drill the cones sit on the centre line.</td>
+<td><code>tt_footwork_falkenberg-0.png</code> (3 cones on the table), <code>tt_short_touch-0.png</code>, <code>tt_game_half_table-0.png</code></td>
+<td>Footwork: put the cones on the floor behind the end line at the player's stations. Short game: drop the cone, or put a floor cone at y ≈ 2.85. Half table: shade the half in play with a zone instead of cones.</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>TT</td>
+<td><code>tt_defence_lob</code></td>
+<td>S1–S3</td>
+<td><strong>The defender leaves the board.</strong> 1 goes to y = 3.84 / 3.67 m, and the visible limit is about 3.35 m.</td>
+<td><code>tt_defence_lob-1.png</code> and <code>-3.png</code>: there is no "1" at the bottom; in S2 the ball arrow runs off the bottom edge.</td>
+<td>Clamp to ≤ 3.30 m, or use a frame that shows more floor behind the table.</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>TT</td>
+<td><code>tt_defence_deep_chop</code></td>
+<td>S1–S2</td>
+<td>Same as B6 (y = 3.62 / 3.56).</td>
+<td><code>tt_defence_deep_chop-1.png</code>, <code>-2.png</code>: 1 is cut off at the bottom edge.</td>
+<td>Same as B6.</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>ST</td>
+<td><code>st_tekong_high_toss</code>, <code>st_tekong_low_drive</code></td>
+<td>S1</td>
+<td><strong>The tekong never serves.</strong> L (inside player) kicks the ball over the net to D, and the ball path is <code>L → D → T</code>. ISTAF: the inside player throws and the tekong kicks the serve. The drill's own note says "the inside player throws it…".</td>
+<td><code>sepakTakraw/st_tekong_high_toss-1.png</code>: the arrow runs from L at the left quarter circle to D, while T stands idle in the circle.</td>
+<td>S1: L tosses to T (short arc, own side). S2: T serves to D. S3: D returns.</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>ST</td>
+<td><code>st_receive_header</code></td>
+<td>S0–S4</td>
+<td><strong>The server is in the receivers' half.</strong> The red T (team 1) stands in the <strong>blue</strong> service circle (3.05, 10.95) and serves to R and F on the same side; the serve never crosses the net.</td>
+<td><code>st_receive_header-0.png</code>: red T is at the bottom circle and R/F are between T and the net.</td>
+<td>Move T to the red circle (3.05, 2.45); R and F receive on the blue side.</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>ST</td>
+<td><code>st_game_2v2</code>, <code>st_game_3v3</code>, <code>st_game_no_block</code></td>
+<td>S1</td>
+<td><strong>Serve not from the service circle.</strong> The rally opens with 1 kicking from y = 8.6 / 8.1 / 9.2 (1.4–2.5 m off the net). In 3v3 and no-block, the tekong 3 stands idle in the circle. The 2v2 doubles event also serves from the circle.</td>
+<td><code>st_game_3v3-1.png</code>: the arrow starts at 1 (inside left) and 3 is in the circle.</td>
+<td>Give the ball to 3 (2v2: player 1 in the circle), place the inside players in the quarter circles, and serve from the circle.</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>ST</td>
+<td><code>st_feed_receiving_the_serve</code>, <code>st_feed_the_high_feed</code>, <code>st_feed_the_quick_feed</code></td>
+<td>S1</td>
+<td><strong>The tekong serves from outside the circle.</strong> The red T moves to (3.05, 2.95), 0.50 m from the centre (the circle radius is 0.30).</td>
+<td><code>st_feed_the_high_feed-1.png</code>: T stands below the top circle, not in it.</td>
+<td>Stop at y ≈ 2.68, as in <code>st_receive_left</code>.</td>
+</tr>
+<tr>
+<td>B12</td>
+<td>FV</td>
+<td><code>fv_receive_chest</code>, <code>fv_receive_thigh</code></td>
+<td>S1–S2</td>
+<td><strong>Serve from inside the court.</strong> S moves from y = −0.45 to 1.80, and the ball is kicked from (4.50, 2.50), 2.5 m inside the baseline.</td>
+<td><code>footvolley/fv_receive_chest-1.png</code>: S and the ball are clearly inside the top baseline. In <code>-2.png</code> the serve arrow starts there.</td>
+<td>S stays behind the baseline (y ≤ −0.4) and serves from there.</td>
+</tr>
+<tr>
+<td>B13</td>
+<td>FV</td>
+<td><code>fv_game_1v1</code>, <code>fv_game_2v2</code>, <code>fv_game_3v3</code>, <code>fv_game_4v4</code></td>
+<td>S1</td>
+<td><strong>The opening serve is kicked from mid-court</strong> (1 at y = 12.4 / 12.4 / 11.2 / 11.0, i.e. 6–7 m inside the baseline at 18).</td>
+<td><code>fv_game_2v2-1.png</code>, <code>fv_game_4v4-1.png</code>: the arrow starts at 1, close to the net.</td>
+<td>The server starts at y ≈ 18.7 behind the baseline, with the partner(s) in receive positions.</td>
+</tr>
+</tbody>
+</table>
+<h3>MAJOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill</th>
+<th>Step</th>
+<th>Problem</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>All 3 (cross-sport)</td>
+<td><code>tools/drills/narrate.py:501</code> (<code>DIR["up"]["en"] = "up the board"</code>)</td>
+<td>various</td>
+<td><strong>English text says "moves up the board" while the far-side player moves <em>down</em> the screen.</strong> <code>_facing()</code> turns "up" into "toward the opponents" (zh 向前 is right), but English prints the literal "up the board". There are 17 TT, 31 ST and 27 FV clauses like this, e.g. <code>tt_warm_forehand</code> S1 "1, 2 move up the board" (2 moves down), <code>st_serve_deep</code> S2 "T, D move up the board", <code>fv_game_2v2</code> S1 "A, B move up the board".</td>
+<td><code>tt_warm_forehand-1.png</code>: 2's ghost is above the figure, so 2 moved down.</td>
+<td>Set en/en-GB <code>"up"</code> to <code>"forward"</code> / <code>"towards the net"</code>; <code>"down"</code> already reads "back".</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>TT</td>
+<td><code>tt_multiball</code>, <code>tt_footwork_two_one</code>, <code>tt_footwork_falkenberg</code>, <code>tt_footwork_side_to_side</code>, <code>tt_short_touch</code>, <code>tt_kill_wide_forehand</code>, <code>tt_serve_third_ball</code>, <code>tt_game_serve_receive</code></td>
+<td>last 1–2 steps</td>
+<td><strong>The ball is left lying where it was received</strong> while the worker shuffles away. The worker's return stroke is never drawn.</td>
+<td><code>tt_multiball-3.png</code> and <code>-4.png</code> (ball on the floor at 1's old spot); <code>tt_footwork_falkenberg-3/4.png</code>; <code>tt_serve_third_ball-4.png</code>; <code>tt_short_touch-3.png</code> (ball on the table edge)</td>
+<td>Add the return leg (1 → zone or feeder) on the step 1 moves, or drop the ball after the last contact.</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>TT</td>
+<td><code>tt_loop_*</code> (4), <code>tt_kill_*</code> (3), <code>tt_short_*</code> (4), <code>tt_serve_third_ball</code>, <code>tt_multiball</code></td>
+<td>all</td>
+<td><strong>The trained stroke is never drawn.</strong> The loop, smash, flick, touch and third-ball attack never appear, and the zone is never hit. Loop drills open with 1 hitting from his own hand (a serve) without saying so. Multiball feeds 1 ball in 4 steps and never uses the second zone.</td>
+<td><code>tt_loop_vs_backspin-1/2.png</code>: 1 → 2 → 1, then the drill ends. <code>tt_multiball-2.png</code>: one feed only.</td>
+<td>Extend each ball path by one leg, e.g. <code>2 (backspin) → 1 loops → zone</code>. For multiball, alternate C → 1 left, C → 1 right.</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>TT</td>
+<td><code>tt_loop_from_backhand</code></td>
+<td>S2</td>
+<td><strong>"Loop from the backhand corner", but 1 moves to the centre</strong> (0.78) to take the ball.</td>
+<td><code>tt_loop_from_backhand-2.png</code>: the ball and 1 are at the middle of the end line.</td>
+<td>Put the ball at about (0.34, 3.0), with 1 pivoting in the backhand corner.</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>TT</td>
+<td><code>tt_multiball</code>, <code>tt_footwork_two_one</code>, <code>tt_footwork_falkenberg</code> (advanced), <code>tt_footwork_side_to_side</code></td>
+<td>text</td>
+<td><strong>Wrong category (warmup).</strong> The notes read "Raise the heart rate… Used every session — it opens the training", which is wrong for multiball and Falkenberg.</td>
+<td><code>note.en</code> Purpose/Frequency</td>
+<td>Give them a footwork/possession category and its purpose text.</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>TT</td>
+<td><code>ttfit_figure_eight</code></td>
+<td>all</td>
+<td><strong>Named "Repeat sprints"</strong>, with "sprint flat out" over 0.4 m, but the setup describes a figure-eight footwork pattern.</td>
+<td><code>ttfit_figure_eight-1.png</code></td>
+<td>Rename it "Figure-eight footwork" and say "move" instead of "sprint".</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>ST</td>
+<td><code>st_attack_straight</code>, <code>st_attack_cross_court</code>, <code>st_attack_the_feint</code>, <code>st_cover_spike</code></td>
+<td>S0–S3</td>
+<td><strong>No set, and the attack goes into the block.</strong> S starts with the ball in hand, kicks it to B at the net (S1), B returns it to S (S2), and D then walks onto the zone. F never touches the ball, the ball never reaches the target zone, and three touches never happen.</td>
+<td><code>st_attack_straight-1.png</code> (arrow from S to B at the net), <code>-2.png</code> (ball back at S), <code>-3.png</code> (D steps onto the empty zone)</td>
+<td>Path F → S (set) → zone. Keep the blocked-ball variant only for <code>st_cover_spike</code>, and have F or T play the rebound.</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>ST</td>
+<td><code>st_defence_at_the_net</code>, <code>st_defence_behind_the_block</code>, <code>st_defence_covering_the_block</code></td>
+<td>S1–S2</td>
+<td><strong>The defender never defends.</strong> The path is <code>D → S → B</code>: blue D gives a free ball, S spikes it first-time into B, and red F (named "feeder") never sets. The three drills differ only in D's starting spot.</td>
+<td><code>st_defence_behind_the_block-2.png</code>: the ball ends at B and D walks back.</td>
+<td>Path F (set) → S spikes past or off the block → D digs at the landing spot.</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>ST</td>
+<td><code>st_feed_receiving_the_serve</code>, <code>st_feed_the_high_feed</code>, <code>st_feed_the_quick_feed</code></td>
+<td>S2–S3</td>
+<td><strong>The feed is never drawn.</strong> The path is <code>T → R</code> only. F walks onto the square the text calls "the spot the feed has to be set to for the striker".</td>
+<td><code>st_feed_the_high_feed-2/3.png</code>: F stands on the yellow square and the ball stays at R.</td>
+<td>Add R → F, then F → square, with S arriving at the square.</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>ST</td>
+<td><code>st_receive_left</code>, <code>st_receive_right</code></td>
+<td>S2–S3</td>
+<td><strong>Name vs board.</strong> "Receive on the left/right", but 1 moves to the centre (3.05) to receive, directly in front of his own tekong. The text "1 plays it deep" is also wrong: the ball goes up to 2 on the square.</td>
+<td><code>st_receive_left-2.png</code> (T, 1 and 2 in a column), <code>-3.png</code> (ball to 2)</td>
+<td>Keep 1 at x ≈ 1.6 / 4.5 and aim the serve there. Change the text to "1 plays it up to 2".</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>ST</td>
+<td><code>st_serve_at_the_seam</code></td>
+<td>S0–S2</td>
+<td><strong>One receiver means there is no seam.</strong> D stands on the zone and the serve goes straight to him.</td>
+<td><code>st_serve_at_the_seam-1.png</code></td>
+<td>Put 2 receivers 2–3 m apart with the zone between them.</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>ST</td>
+<td><code>st_game_regu</code>, <code>st_tekong_low_drive</code>, <code>st_receive_left/right</code>, <code>fv_serve_*</code></td>
+<td>S0–S2</td>
+<td><strong>Ambiguous or mirrored labels.</strong> Both teams use L/R/T, so S2 reads "L plays it to L". The red L stands on red's <em>right</em> (screen-left, team facing down). In <code>st_tekong_low_drive</code> the blue "L" stands on blue's right (x = 5.64). Receive drills have two "T"s with "Setup: 3 v 1" for 4 people. Footvolley lists "red: R, R".</td>
+<td><code>st_game_regu-2.png</code>, <code>st_tekong_low_drive-0.png</code></td>
+<td>Use distinct labels per team (1/2/3 vs A/B/C, or L1/L2), and swap L/R for the side facing down.</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>ST</td>
+<td><code>st_game_regu</code></td>
+<td>S1–S2</td>
+<td><strong>The serve is aimed at an opponent standing 0.13 m from the net</strong> in the quarter circle. The receiving inside players also hug the net.</td>
+<td><code>st_game_regu-1.png</code>: the arrow from T ends at red L on the net.</td>
+<td>Receivers deep or mid-court; serve to the back half.</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>ST</td>
+<td><code>st_block_at_the_net</code></td>
+<td>S0–S3</td>
+<td><strong>The target zone is on the blocker's own court</strong> (4.15, 9.65), "where the ball has to land". The coaching point says a block that drops on your own side is the mistake.</td>
+<td><code>st_block_at_the_net-0.png</code>: the zone is beside C on the blue half.</td>
+<td>Move the zone to the red half, or relabel it as C's cover spot.</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>FV</td>
+<td><code>fv_serve_long_and_fast</code>, <code>fv_serve_in_the_corner</code>, <code>fv_serve_at_the_seam</code></td>
+<td>S1–S2</td>
+<td><strong>The serve misses its own target.</strong> The ball goes to R's standing spot (2.79, 5.37), not the zone (deep/corner/seam). R walks onto the zone in S2, <em>after</em> the ball.</td>
+<td><code>fv_serve_long_and_fast-1.png</code> (ball at R, zone empty), <code>-2.png</code> (R moves to the zone)</td>
+<td>Ball [0] goes to the zone, and the nearest R moves there at phase 0.</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>FV</td>
+<td><code>fv_combo_quick</code>, <code>fv_combo_back</code>, <code>fv_combo_second_ball</code></td>
+<td>S1–S2</td>
+<td><strong>No combination.</strong> 1's first touch goes over the net to blocker B, and B plays it back. The square ("where the set has to be placed") is occupied by 1.</td>
+<td><code>fv_combo_quick-1.png</code>: the arrow runs from 1 to B at the net.</td>
+<td>1 receives, then 1 → square (set), then 2 attacks (or 1 attacks on the second ball).</td>
+</tr>
+<tr>
+<td>M17</td>
+<td>FV</td>
+<td><code>fv_finish_the_bicycle_kick</code>, <code>fv_finish_the_header</code>, <code>fv_finish_the_drop</code></td>
+<td>S1–S3</td>
+<td><strong>The finisher never finishes.</strong> 1 shoots from (3.93, 10.80), 1.8 m off the net, through B to D, and D returns to 1. Player 2 only walks to the net.</td>
+<td><code>fv_finish_the_bicycle_kick-1.png</code> (arrow passes through B), <code>fv_finish_the_header-2.png</code></td>
+<td>1 sets to 2 at the net; 2 finishes into the zone.</td>
+</tr>
+<tr>
+<td>M18</td>
+<td>FV</td>
+<td><code>fv_control_chest_control</code>, <code>fv_control_the_shoulder_pass</code>, <code>fv_control_the_high_feed</code>, <code>fv_receive_chest</code>, <code>fv_receive_thigh</code></td>
+<td>S2</td>
+<td><strong>The second touch, the point of the drill, is missing.</strong> The note says the control must reach the square; the path ends F → 1.</td>
+<td><code>fv_control_chest_control-2.png</code>: 2 stands on the square and the ball stays at 1.</td>
+<td>Add 1 → square (2).</td>
+</tr>
+<tr>
+<td>M19</td>
+<td>FV + ST</td>
+<td><code>fv_receive_chest</code>, <code>fv_control_chest_control</code>, <code>fv_control_the_shoulder_pass</code>, <code>fv_finish_the_header</code>, <code>st_receive_header</code></td>
+<td>contact step</td>
+<td><strong>Ball drawn at the feet for a chest, shoulder or head touch.</strong> This is the "ball in the upper zone" rule already enforced for volleyball (<code>_kChestAnchor</code>).</td>
+<td><code>fv_control_chest_control-2.png</code> zoomed: the ball is on the sand at 1's feet.</td>
+<td>Give the ball-holder anchor a chest/head tier for these touches in FV and ST.</td>
+</tr>
+</tbody>
+</table>
+<h3>MINOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>Problem</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m1</td>
+<td>TT</td>
+<td><code>tt_footwork_side_to_side</code></td>
+<td>text</td>
+<td>The Equipment line describes cones, but there are none. Step 2 does not mention 1 moving right.</td>
+<td><code>tt_footwork_side_to_side-2.png</code></td>
+<td>Drop the line and narrate the move.</td>
+</tr>
+<tr>
+<td>m2</td>
+<td>TT</td>
+<td><code>tt_multiball</code></td>
+<td>text</td>
+<td>"Setup: 1 v 1" for a coach and a worker.</td>
+<td>note</td>
+<td>Use "coach C + 1".</td>
+</tr>
+<tr>
+<td>m3</td>
+<td>TT</td>
+<td><code>tt_game_*</code> Rules line (<code>rules_common.POINT_RULES</code>)</td>
+<td>text</td>
+<td>"A ball landing inside the lines… a ball on the line is in" is court wording, not table tennis.</td>
+<td>note</td>
+<td>"Lands on the table (edges count)…"</td>
+</tr>
+<tr>
+<td>m4</td>
+<td>TT</td>
+<td><code>table_tennis_court_painter.dart:91-92</code></td>
+<td>n/a</td>
+<td>Net posts are drawn 0.04 m outside the sideline; ITTF says 15.25 cm.</td>
+<td>code</td>
+<td>Use −0.1525 and 1.6775.</td>
+</tr>
+<tr>
+<td>m5</td>
+<td>TT</td>
+<td><code>tt_defence_chop_block</code> zh</td>
+<td>text</td>
+<td>"减力挡" is the soft/dead block. A chop block is 侧切挡/切挡.</td>
+<td>name</td>
+<td>Rename.</td>
+</tr>
+<tr>
+<td>m6</td>
+<td>TT</td>
+<td><code>tt_footwork_two_one</code></td>
+<td>name</td>
+<td>The id is two-one footwork, but the name is "in and out", which duplicates <code>ttfit_in_and_out</code>.</td>
+<td>names</td>
+<td>Rename to "2-1 footwork" or rename the id.</td>
+</tr>
+<tr>
+<td>m7</td>
+<td>ST</td>
+<td><code>st_game_2v2</code>, <code>st_game_3v3</code>, <code>st_game_regu</code></td>
+<td>text</td>
+<td>The coaching point "Three touches, three players… Take the block away" is copied from the no-block game onto the 2v2 and full-block games.</td>
+<td>note</td>
+<td>Write a coaching point for each game.</td>
+</tr>
+<tr>
+<td>m8</td>
+<td>ST</td>
+<td><code>stfit_ankle_hops</code></td>
+<td>S1–S4</td>
+<td>The board moves the player 0.54 m forward and back, while the text says the hops land between the cones and drifting forward is the error. The text also mentions "hurdles" that aren't there.</td>
+<td><code>stfit_ankle_hops-1.png</code></td>
+<td>Hop in place; remove the hurdle wording.</td>
+</tr>
+<tr>
+<td>m9</td>
+<td>ST</td>
+<td><code>st_game_no_block</code></td>
+<td>all</td>
+<td>A single cone at the centre of the net is supposed to "mark the line".</td>
+<td><code>st_game_no_block-0.png</code></td>
+<td>Use a line or zone 1 m off the net.</td>
+</tr>
+<tr>
+<td>m10</td>
+<td>ST</td>
+<td><code>st_warm_juggling</code></td>
+<td>S1–S2</td>
+<td>The ball lands about 0.5 m from the receiver, between the two players.</td>
+<td><code>st_warm_juggling-1.png</code></td>
+<td>Snap the ball to the receiver.</td>
+</tr>
+<tr>
+<td>m11</td>
+<td>ST</td>
+<td>th-TH / ms-MY names</td>
+<td>text</td>
+<td>Thai "เตะกง" for tekong (Thai coaches say ตัวเสิร์ฟ / ตัวชง / ตัวฟาด). ms "Rejaman sunback" is half English. zh/zh-TW <code>formation_regu</code> is "Regu (3v3)" untranslated (三人制).</td>
+<td>names, translations</td>
+<td>Ask a native reviewer.</td>
+</tr>
+<tr>
+<td>m12</td>
+<td>FV</td>
+<td><code>fv_serve_long_and_fast</code></td>
+<td>text</td>
+<td>The coaching point "Height is the weapon here, not power" contradicts "long and fast".</td>
+<td>note</td>
+<td>Write a pace/depth coaching point.</td>
+</tr>
+<tr>
+<td>m13</td>
+<td>FV</td>
+<td><code>fv_serve_in_the_corner</code> zh</td>
+<td>text</td>
+<td>"角旗区" means corner-flag area; footvolley has no flags.</td>
+<td>name</td>
+<td>Use "发球 打底角".</td>
+</tr>
+<tr>
+<td>m14</td>
+<td>FV</td>
+<td><code>fvfit_sand_sprints</code></td>
+<td>S0–S2</td>
+<td>The "baseline" cone is 1.4 m inside the baseline, and the jog back runs diagonally inside the court, though the text says outside.</td>
+<td><code>fvfit_sand_sprints-2.png</code></td>
+<td>Put the cone on the baseline and route the jog outside the sideline.</td>
+</tr>
+<tr>
+<td>m15</td>
+<td>FV</td>
+<td><code>fvfit_sand_lateral</code></td>
+<td>text</td>
+<td>The text says "cones 4 m apart"; on the board they are 2.5–2.7 m apart.</td>
+<td>dump</td>
+<td>Fix the number or the cones.</td>
+</tr>
+<tr>
+<td>m16</td>
+<td>FV</td>
+<td><code>footvolley_court_painter.dart:85-87,159</code></td>
+<td>n/a</td>
+<td>It draws a "centre service mark" dot on each baseline; there is no such marking in footvolley.</td>
+<td>code</td>
+<td>Remove.</td>
+</tr>
+<tr>
+<td>m17</td>
+<td>FV</td>
+<td><code>fv_attack_the_shark_attack</code> S2–S3, <code>fv_combo_quick</code> S2, <code>fv_defence_the_block</code> S2</td>
+<td>n/a</td>
+<td>The attacker and blocker figures overlap across the net line. Nobody crosses, but it reads like contact over the net.</td>
+<td>zoom of <code>fv_attack_the_shark_attack-2/3.png</code></td>
+<td>Keep about 0.6 m each side of the net.</td>
+</tr>
+<tr>
+<td>m18</td>
+<td>Cross</td>
+<td><code>translations/ms-MY.json</code> <code>formation_doubles</code></td>
+<td>n/a</td>
+<td>"Bergu" is a typo for <strong>"Beregu"</strong>. It appears in every sport.</td>
+<td>json</td>
+<td>Fix the string.</td>
+</tr>
+</tbody>
+</table>
+<h2>(c) Counts</h2>
+<table>
+<thead>
+<tr>
+<th>Sport</th>
+<th>BLOCKER</th>
+<th>MAJOR</th>
+<th>MINOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Table tennis</td>
+<td>6 (B2–B7)</td>
+<td>5 (M2–M6)</td>
+<td>6 (m1–m6)</td>
+</tr>
+<tr>
+<td>Sepak takraw</td>
+<td>4 (B8–B11)</td>
+<td>8 (M7–M14)</td>
+<td>5 (m7–m11)</td>
+</tr>
+<tr>
+<td>Footvolley</td>
+<td>2 (B12–B13)</td>
+<td>4 (M15–M18)</td>
+<td>6 (m12–m17)</td>
+</tr>
+<tr>
+<td>Cross-sport</td>
+<td>1 (B1, localisation)</td>
+<td>2 (M1 narration, M19 ball height for FV+ST)</td>
+<td>1 (m18)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>13</strong></td>
+<td><strong>19</strong></td>
+<td><strong>18</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>(d) What I could not verify, and why</h2>
+<ul>
+<li><strong>Rendered PNGs checked.</strong> I opened contact sheets for 20/35 TT, 19/32 ST and 11/30 FV drills, plus full-resolution zooms where it mattered. The remaining drills come from the same family generator as a drill I viewed (identical JSON apart from the target point). I reported them from the JSON plus the viewed sibling, and named them in the family rows (M3, M7–M9, M15–M18).</li>
+<li><strong>Table tennis serve mechanics.</strong> The board has no height or bounce, so it cannot show an open-palm toss of at least 16 cm, the ball bouncing on the server's own half first, or net height.</li>
+<li><strong>Sepak takraw serve toss.</strong> The rules I know require the inside player to throw to the tekong. Most ST serve drills instead start with the ball in the tekong's hand, which conflicts with <code>st_tekong_high_toss</code>'s own note. I could not confirm whether a current ISTAF or regional variant allows a self-toss, so I did not rate it.</li>
+<li><strong>Antennas.</strong> I did not confirm whether ISTAF nets carry antennas (the <code>antenna</code> marker is offered for sepak takraw).</li>
+<li><strong>Footvolley.</strong> I took 18 × 9 m as standard; federations differ, and some Brazilian events use 16 × 8. Net height is not modelled.</li>
+<li><strong>Facing.</strong> I verified facing only on zoomed chest/shoulder/receive drills (correct there). At contact-sheet scale I could not reliably judge front versus back on every figure.</li>
+<li><strong>Landscape layout.</strong> Not checked. Every PNG is portrait.</li>
+</ul></details><details><summary><h2 style="display:inline">橄榄球 · 手球</h2></summary><h1>Audit: rugby (40 drills) and handball (42 drills), read-only</h1>
+<p>Every step PNG in <code>tools/board_png/rugby|handball/</code> was viewed as a contact sheet, and each finding below was zoomed and checked on the render. Ball geometry was also measured from the drill JSON (scripts and sheets are in this folder: <code>scripts/</code>, <code>sheets/</code>, <code>rugby_dump.txt</code>, <code>handball_dump.txt</code>). PNG paths are relative to <code>tools/board_png/</code>. Unless a note says otherwise, attack goes up the board. "dy" means metres toward the attacked try line or goal.</p>
+<h2>(a) Verdicts</h2>
+<p><strong>Rugby: not shippable.</strong> The pitch painter is correct to Law 1 (70 m wide, 100 m between try lines, 22 m in-goals, solid 22s, dashed 10 m lines, 5 m and 15 m lines, 5.6 m posts). The drills are broken in ways a rugby coach will see in seconds.
+- <strong>Forward passes.</strong> Almost every open-play pass is drawn going forward. The engine lands the ball where the receiver ends the step, after a run of 11.5 m, so the arrow points forward by 2–18 m. This hits 20 drills.
+- <strong>No try is ever scored.</strong> Eight attacking patterns end with the ball flying alone 40–46 m into the in-goal, narrated as "kicks at the posts". The three finishing drills end with the ball short of the line.
+- <strong>Set pieces break Laws 18–20.</strong> The lineouts are a scatter of both teams with no two lines. The kick-off lands short of the 10 m line. The scrum ends with a 20 m forward pass into the opposing pack. Kick chasers start offside.
+- <strong>Labels don't match the boards.</strong> The pod shapes, the loop, the breakdowns, the kick-chase and the scramble do not show what their names say.
+- <strong>Text is wrong in several places.</strong> Thai calls a try "ทราย" (sand) in all 37 rules lines. zh-CN/zh-TW call the cut-out "越位传球" (offside pass) and the maul defence "防守短角球" (defending a short corner). Two to three note lines per drill are left in English in eight locales.</p>
+<p><strong>Handball: closer, but not shippable.</strong> The court is right to IHF Rule 1 (40×20 m, 6 m area from 3 m posts, dashed 9 m, 1 m 7 m line, 15 cm 4 m line), except that the 9 m arcs spill past the sidelines. Most attack and defence boards are coherent and keep field players out of the goal area. The blockers are:
+- <strong>Shots.</strong> Shot targets are placed outside the posts, and no shot crosses the goal line. Shots end 1.2–2.4 m out, usually at the keeper's feet.
+- <strong>Restarts break the rules.</strong> On the 7 m throw the taker steps over the 7 m line. On the 9 m free throw the pivot is inside the 9 m line. On the throw-off two attackers are in the opponents' half.
+- <strong>Goal area.</strong> Field players stand inside the goal area in three drills.
+- <strong>Ball goes to the opponent.</strong> Four drills pass the ball to an opponent (or, in the outlet drill, to an empty spot) as if it were a teammate.
+- <strong>Wrong shapes and labels.</strong> The 3-2-1 and 4-2 are drawn wrong, and "man to man", "through the pivot", "late runner" and "third wave" don't show their idea.</p>
+<h2>(b) Findings, sorted by severity</h2>
+<h3>BLOCKER</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>rugby</td>
+<td>rg_handling_grid, <em>threes, _wide; rg_phase</em><em> (×3); rg_move_</em> (×5); rg_game_5v5/7v7/8v8; rg_finish_pick_and_go, _wide_finish</td>
+<td>every pass step (1–5)</td>
+<td><strong>Forward passes on the board.</strong> The ball lands at the receiver's end-of-step position after an 11.5 m run. Measured dy for passes: handling +2.4 to +11.5 m; phase step 1 +4.5 m and step 2 +12.5 to +12.9 m; moves step 1 ≈+5.5 m and step 2 +16 to +18 m (miss pass 12→15 +18.2 m, cut-out 12→14 +18.3 m); games +1.9 to +2.7 m; finishing +3.5 m. Law 11: a throw forward is an infringement.</td>
+<td>rg_handling_grid-1.png (arrow 1→2 slopes up the pitch); rg_move_miss_pass-2.png (12→15 arrow climbs ~4 m per 10 m wide); rg_game_5v5-1.png; rg_phase_one_three_three_one-2.png</td>
+<td>In engine.py's pass placement for rugby, the catch point must not be ahead of the release point (receiver depth ≥ passer depth + 0.5–1 m). Either the receiver holds depth during the pass step and runs on after the catch, or the line runs in one step and passes in the next. Add an audit rule: in rugby, any pass segment with dy &gt; 0 fails.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>rugby</td>
+<td>rg_phase_one_three_three_one, _two_four_two, _left_to_right, rg_move_miss_pass, _switch, _loop, _cut_out, _dummy_runner (<code>rugby.py:718-729</code> → <code>engine.finish_with</code>)</td>
+<td>last step (3)</td>
+<td>The ball flies on its own 40–46 m from the last carrier to (42, 17.7 m), i.e. 4.3 m into the in-goal, with nobody there. The notes call it "N kicks at the posts". No try is grounded; open play does not end with a kick at goal; and it is a 40 m forward "ball path".</td>
+<td>rg_move_miss_pass-3.png, rg_phase_one_three_three_one-3.png (lone ball beside the posts)</td>
+<td>In <code>finish_with</code> for rugby, make the last carrier run the ball over (carrier set, ball travels with him) and ground it in the in-goal. Narrate "N scores the try".</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>rugby</td>
+<td>rg_phase_<em> (×3), rg_move_</em> (×5), rg_defence_blitz</td>
+<td>step 2 (blitz 1–2)</td>
+<td>The lines pass through each other. Attackers end step 2 behind the defenders, i.e. the defence was run through without contact. The blitz defenders run from 60.5 m to 88.7 m, straight through the attack (attackers at 74.9 m), and end behind it.</td>
+<td>rg_move_miss_pass-2.png (D figures behind 10/12/13); rg_defence_blitz-2.png (all D below the A line)</td>
+<td>Stop each run at the contact or gain line. Blitz defenders should stop about 1 m short of their opposite man.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>rugby</td>
+<td>rg_set_scrum</td>
+<td>3 (and 1)</td>
+<td>The 9 passes the ball 20 m forward over his own pack and into the opposition back row. The ball is never fed into the tunnel: 9 holds it behind his own No. 8 from step 0.</td>
+<td>rg_set_scrum-3.png (arrow from 9 up past blue 3/7 to beside red D)</td>
+<td>Feed at the tunnel (mid-line, 9 on his side), hook back to the No. 8's feet, 9 picks up and passes backwards or sideways to 10.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>rugby</td>
+<td>rg_set_lineout_five, rg_set_lineout_seven, rg_maul_drive, rg_maul_defend</td>
+<td>0–2</td>
+<td><strong>No lineout.</strong> Both teams' players are interleaved over 0–25 m from touch and spread 20 m along the field. Jumpers stand inside the 5 m line. The throw is caught 1.3–1.9 m from touch (rule: it must travel 5 m). In the maul drills the opposition stands 17 m away on the 22, so there is no maul to drive or defend. Laws 18 and 17.</td>
+<td>rg_set_lineout_five-1.png and rg_set_lineout_seven-1.png (red and blue jumbled, 5/7 on the touchline); rg_maul_drive-2.png</td>
+<td>Two single-file lines 0.5 m either side of the line of touch, players between the 5 m and 15 m lines, receiver at 5–15 m, thrower outside touch, defenders 1 m across. Maul: bind on the catcher, ball transferred to the back.</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>rugby</td>
+<td>rg_set_kick_off</td>
+<td>0–2</td>
+<td>The ball is placed about 6.5 m behind halfway and off-centre, not at the centre of the halfway line. It lands only about 3.6 m past halfway, short of the 10 m line. The note says the zone is "past the ten-metre line". Law 12.</td>
+<td>rg_set_kick_off-1.png and -2.png (ball and 10 on the 10 m dash; shaded zone between halfway and the 10 m line)</td>
+<td>Ball at (35, 72 m). Landing zone at least 10 m past halfway (e.g. 82–90 m), with receivers there.</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>rugby</td>
+<td>rg_kick_box, rg_kick_cross_field, rg_kick_territory, rg_kick_grubber, rg_kick_high_ball</td>
+<td>0–1</td>
+<td>Chasers start in front of the kicker and run on to the landing ball. That is offside in general play under Law 10.</td>
+<td>rg_kick_box-0.png (both Cs above the 9 and the ball); rg_kick_territory-0.png</td>
+<td>Start the chasers level with or behind the kicker.</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>rugby</td>
+<td>rg_kick_exit</td>
+<td>1–3</td>
+<td>The ball never has a holder. "9 kicks to D, D throws to D, D throws to 15": three loose legs. The final 41 m kick starts 7 m from the nearest player (10) and lands on the opposition 15, the opposite of its own coaching point ("never down the throat of the back three").</td>
+<td>rg_kick_exit-1..3.png</td>
+<td>Two pick-and-drive phases with real carriers, 9 passes to 10, 10 kicks to touch or space away from 15.</td>
+</tr>
+<tr>
+<td>R9</td>
+<td>rugby</td>
+<td>rg_maul_drive, rg_maul_defend</td>
+<td>2</td>
+<td>The 4→8 pass lands about 5 m from 8. The receiver is not at the landing point.</td>
+<td>rg_maul_drive-2.png (ball between 2 and 7, 8 off to the right)</td>
+<td>Land the ball on 8.</td>
+</tr>
+<tr>
+<td>H1</td>
+<td>handball</td>
+<td>hb_shot_jump_nine, _wing_angle, _pivot_turn, hb_set_seven_metre, hb_attack_one_v_one, hb_gk_angles (2 zones), hb_gk_one_v_one; plus every <code>finish_with((0.50,0.04))</code> shot (<code>handball.py:288-291</code>, <code>:797</code>)</td>
+<td>last step</td>
+<td><strong>Targets outside the goal, and no shot reaches the goal.</strong> Targets sit at x = 6.0 / 7.2 / 7.6 / 8.0 / 12.0 / 12.4 m, while the posts are at 8.5–11.5 m. The shaded square is drawn beside the goal frame and 1.2 m inside the goal area. Every other shot ends at (10, 1.6 m), at the keeper's feet. No ball crosses the goal line (Rule 9.1).</td>
+<td>hb_attack_one_v_one-0.png (square right of the goal); hb_gk_angles-0.png (two squares outside both posts); hb_shot_wing_angle-2.png; hb_circulation_wide-5.png (ball ends at the GK)</td>
+<td>Targets inside the mouth, e.g. x 8.8–11.2 m on the goal line (y = 0 to −0.3 m). Plain shots should end in a corner beside the keeper, not on him.</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>handball</td>
+<td>hb_set_seven_metre, hb_gk_seven_metre</td>
+<td>1</td>
+<td>The taker steps from 7.0 m to 6.4 m before releasing, crossing the 7 m line (Rule 14.6).</td>
+<td>hb_set_seven_metre-1.png (ghost on the 7 m mark, S moved toward goal)</td>
+<td>No move before the throw: release from 7.0 m.</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>handball</td>
+<td>hb_set_nine_metre</td>
+<td>0–2</td>
+<td>The pivot stands between the 6 m and 9 m lines when the free throw is taken. Attackers must be outside the 9 m line (Rule 13.7).</td>
+<td>hb_set_nine_metre-0.png and -1.png (PIV among the D, inside the dashes)</td>
+<td>PIV outside 9 m until the ball is thrown.</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>handball</td>
+<td>hb_set_throw_off</td>
+<td>0–2</td>
+<td>At the throw-off, 2 (at 17.6 m) and PIV (at 8.3 m) are in the opponents' half (Rule 10.3).</td>
+<td>hb_set_throw_off-0.png</td>
+<td>Every attacker in his own half (y &gt; 20 m) at the throw.</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>handball</td>
+<td>hb_break_third_wave; hbfit_court_shuttle; hbfit_break_repeats</td>
+<td>third_wave 0–1; shuttle 0, 2, 4, 6; repeats 2</td>
+<td>Field players stand inside the goal area. Player 5 is 5.6 m from his own goal. The shuttle starts and returns 4 m from goal, although its note says "on his own nine-metre line". The repeat-sprint jog ends 4.8 m from goal.</td>
+<td>hb_break_third_wave-0.png (5 inside the 6 m arc next to his GK); hbfit_court_shuttle-0.png (player inside the arc)</td>
+<td>Move 5 to about 9 m. Shuttle start on the 9 m line (31 m). Repeat-sprint return to the wing cone.</td>
+</tr>
+<tr>
+<td>H6</td>
+<td>handball</td>
+<td>hb_defence_man_to_man; hb_defence_return; hb_game_transition; hb_gk_outlet (<code>handball.py:790</code> OVER_HALFWAY)</td>
+<td>1–2</td>
+<td>The ball goes to an opponent, or to nobody, as if it were a pass. Man to man: CB → M (a defender) → CB. Defence return: 2 → D, then D dribbles toward his own goal and ends 6.7 m from it. Transition: 2's pass lands on D. Outlet: the keeper never touches the ball. 1 (an opponent of the GK) passes to 2, and 2 throws into empty court at halfway.</td>
+<td>hb_defence_man_to_man-1.png and -2.png; hb_defence_return-2.png; hb_gk_outlet-1.png and -2.png</td>
+<td>Show turnovers as an interception, then a carry toward the other goal. Outlet: start with the ball in the GK's hands after a save, GK throws to a wing breaking away from his goal.</td>
+</tr>
+</tbody>
+</table>
+<h3>MAJOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R10</td>
+<td>rugby</td>
+<td>rg_phase_one_three_three_one, rg_phase_two_four_two</td>
+<td>0</td>
+<td>The pod shapes are swapped. "1-3-3-1" is drawn 4+4; "2-4-2" is drawn 1-3-3-1.</td>
+<td>rg_phase_one_three_three_one-0.png, rg_phase_two_four_two-0.png</td>
+<td>Draw the shape the name says.</td>
+</tr>
+<tr>
+<td>R11</td>
+<td>rugby</td>
+<td>rg_move_loop</td>
+<td>1–3</td>
+<td>10 never loops round 12. The ball goes 12→13 and 10 just runs straight.</td>
+<td>rg_move_loop-2.png</td>
+<td>10 passes to 12, runs behind 12 and takes the return pass outside him.</td>
+</tr>
+<tr>
+<td>R12</td>
+<td>rugby</td>
+<td>rg_breakdown_quick_ball, _jackal, _counter_ruck</td>
+<td>1–2</td>
+<td>No tackle, no ruck, no ball on the ground. The ball is passed 1→2→1, and 1 and D overlap. The jackal (a defender over the ball) and the counter-ruck are not shown. The notes say "the carrier goes to ground".</td>
+<td>rg_breakdown_jackal-2.png, rg_breakdown_counter_ruck-2.png</td>
+<td>Carrier down with the ball placed back, support over the ball, jackal on his feet over it, counter-ruck drive, 9 passes away.</td>
+</tr>
+<tr>
+<td>R13</td>
+<td>rugby</td>
+<td>rg_finish_pick_and_go, _wide_finish, _kick_chase</td>
+<td>1–2</td>
+<td><strong>No try.</strong> 1 runs into the in-goal without the ball and 2 holds it short of the line. "Kick chase" has no kick, and "pick and go" has no pick-up. "In the corner" has its shaded zone under the posts, and its coaching point says "score under the posts". At step 1, 1 "carries" without moving. The shaded "in-goal" zone straddles the try line.</td>
+<td>rg_finish_wide_finish-2.png, rg_finish_kick_chase-2.png</td>
+<td>The carrier grounds the ball in the zone. Put the zone wholly in the in-goal, in the corner for the corner drill, and show a kick in the kick-chase drill.</td>
+</tr>
+<tr>
+<td>R14</td>
+<td>rugby</td>
+<td>rg_defence_drift, _blitz, _scramble</td>
+<td>0–2</td>
+<td>The ball has no holder at step 0 and appears at step 1. "A throws to A" can't be followed. "Scrambling back" moves the defenders sideways and toward the attack, not back. Attackers and defenders interleave at step 2.</td>
+<td>rg_defence_drift-2.png, rg_defence_scramble-2.png</td>
+<td>Ball held by a numbered attacker; letter attackers A–E; scramble defenders turn and run toward their own try line.</td>
+</tr>
+<tr>
+<td>R15</td>
+<td>rugby</td>
+<td>overlaps (the auto-audit's 13)</td>
+<td>—</td>
+<td>Figures drawn on top of each other: phase ×3 step 1 (attack and defence lines collide), moves step 2, drift step 2, breakdowns, tackle step 2, kick-off step 2, high ball step 2.</td>
+<td>rg_phase_one_three_three_one-1.png ("D1D2 3D4")</td>
+<td>Keep at least 1.5 m between figures. Defence stops at the gain line.</td>
+</tr>
+<tr>
+<td>R16</td>
+<td>rugby</td>
+<td>notes, all drills</td>
+<td>—</td>
+<td>Wrong terms. "throws" for a pass everywhere; "set pieces decide a large share of <strong>goals</strong>"; the game notes say "After a <strong>goal</strong> the team that conceded restarts from its own end line"; rg_defence_tackle says "A rep ends on a <strong>shot</strong>"; "Setup: 1 players". Purpose lines that don't fit the drill: the kicking drills say "create and use an overload"; rg_kick_at_goal says "Turn a chance into a try"; rg_kick_high_ball says "Deny space as a unit".</td>
+<td><code>rugby_notes.txt</code></td>
+<td>Rugby vocabulary: pass, try, restart kick. One purpose line per family.</td>
+</tr>
+<tr>
+<td>R17</td>
+<td>rugby</td>
+<td>rg_handling_grid, _threes; rg_defence_tackle; rgfit_up_downs; rgfit_repeat_sprints</td>
+<td>0</td>
+<td>Notes contradict the board. Handling "grid": the four cones are in one line. Threes: "cones 5 m apart", board 24 m. Tackle: "cones 5 m apart", board 28 m. Up-downs: "20 m ahead", board 40 m, and the player moves 8.6 m per "on the spot" up-down. Repeat sprints: "40 m", board about 60 m.</td>
+<td>rg_handling_threes-0.png; rgfit_up_downs-1.png; rgfit_repeat_sprints-1.png</td>
+<td>Make the geometry match the text.</td>
+</tr>
+<tr>
+<td>R18</td>
+<td>rugby</td>
+<td><code>tools/drills/rules_common.py:367</code> (th-TH)</td>
+<td>—</td>
+<td>Thai rules line: "ทรายคือการกดบอลลงพื้น…" means "<strong>sand</strong> is pressing the ball down…". It appears in 37 rugby notes.</td>
+<td>JSON th-TH notes</td>
+<td>Use "ทรัย" (try).</td>
+</tr>
+<tr>
+<td>R19</td>
+<td>rugby</td>
+<td><code>tools/drills/vocab.py:699</code>, <code>:822</code> (zh-CN/zh-TW)</td>
+<td>—</td>
+<td>Cut-out is "越位传球" (= offside pass). "defending it" is "防守短角球" (= defending a short corner), so the maul drill name reads "冒尔推进 防守短角球".</td>
+<td>drill names</td>
+<td>"跳传长传" or "长距离跳传"; "防守冒尔".</td>
+</tr>
+<tr>
+<td>R20</td>
+<td>rugby</td>
+<td>notes ja/ko/th/es/fr/id/ms/vi</td>
+<td>—</td>
+<td>Untranslated English. Equipment line in 18 drills, How-it-continues in 17, Setup in 3, in each of eight locales (114 lines in ja/ko/th alone).</td>
+<td>e.g. rg_handling_grid ja-JP "【用具】the four cones mark the grid…"</td>
+<td>Translate, or drop the line when no translation exists.</td>
+</tr>
+<tr>
+<td>R21</td>
+<td>rugby</td>
+<td><code>sport_type.dart:1013-1081</code> formations</td>
+<td>—</td>
+<td>Full-backs are placed inside the in-goal: 15v15 15 at 0.90 and 0.10, which is 7.6 m behind the try line; 13v13 fullback at 0.92 and 0.08. Wings sit on the try line: 13v13 and 7s at 0.85 and 0.15 (try line is 0.847/0.153).</td>
+<td>computed from the code; not rendered (see d)</td>
+<td>Full-back about 0.80, wings about 0.78.</td>
+</tr>
+<tr>
+<td>R22</td>
+<td>rugby</td>
+<td><code>rugby_court_painter.dart:_paintHalf</code></td>
+<td>—</td>
+<td>The half layout draws the 5 m and 15 m dashes only inside the in-goal (y 0→22 m) and leaves them out of the field of play. The 10 m line is missing.</td>
+<td>code; no half-layout rugby PNG (see d)</td>
+<td>Dashes from the try line to halfway; dashed line at 62 m.</td>
+</tr>
+<tr>
+<td>H7</td>
+<td>handball</td>
+<td>hb_defence_three_two_one, hb_defence_four_two</td>
+<td>0–3</td>
+<td>Shapes are wrong. The "2" defenders are stacked directly in front of the outside defenders near the sidelines (x 3.4 and 16.6 m), leaving LB and RB free. A real 3-2-1 or 4-2 puts the half-backs at about 9 m opposite the backs (x ≈ 6 and 14 m).</td>
+<td>hb_defence_three_two_one-0.png, hb_defence_four_two-0.png</td>
+<td>Half-backs at (6, 8.5) and (14, 8.5); 3-2-1 point at (10, 10.5).</td>
+</tr>
+<tr>
+<td>H8</td>
+<td>handball</td>
+<td>all set-defence boards (6-0, 5-1, circulation, attack, set pieces)</td>
+<td>0</td>
+<td>The six defenders stand in a straight line at 6.8 m instead of along the 6 m arc. The outside defenders are about 3.6 m off the line, on the 9 m dashes.</td>
+<td>hb_set_nine_metre-0.png, hb_defence_six_zero-0.png</td>
+<td>Place defenders on the arc at r ≈ 6.5 m.</td>
+</tr>
+<tr>
+<td>H9</td>
+<td>handball</td>
+<td>hb_circulation_with_pivot, hb_circulation_second_wave, hb_break_third_wave, hb_defence_man_to_man</td>
+<td>—</td>
+<td>Mislabelled. The pivot never gets the ball. The late runner (6) never receives it. The third wave (5) arrives after the shot. "Man to man" is drawn, and coached, as 5+1.</td>
+<td>hb_circulation_with_pivot-2..5.png; hb_break_third_wave-4.png</td>
+<td>Route the ball through the named player, or rename.</td>
+</tr>
+<tr>
+<td>H10</td>
+<td>handball</td>
+<td><code>handball_court_painter.dart:_drawCrescent</code> (9 m, full and half layouts)</td>
+<td>—</td>
+<td>The 9 m arcs (radius 9 from the posts) run past both sidelines, so dashes are drawn outside the court in every handball PNG.</td>
+<td>hb_set_nine_metre-0.png and hbfit_jump_series-1.png (dashes left of the left sideline)</td>
+<td>Clip the arcs to the court rectangle.</td>
+</tr>
+<tr>
+<td>H11</td>
+<td>handball</td>
+<td>hbfit_jump_series</td>
+<td>1, 3</td>
+<td>The player jumps away from the goal, toward halfway. The "run-up behind the 9 m line" zone is on the line, against the note ("goal area in front of him").</td>
+<td>hbfit_jump_series-1.png</td>
+<td>Run-up at about 11 m, take-off zone at 9–10 m, moving toward goal.</td>
+</tr>
+<tr>
+<td>H12</td>
+<td>handball</td>
+<td>hbfit_court_shuttle, hbfit_break_repeats</td>
+<td>—</td>
+<td>The shuttle turns are about 2 m past each 9 m line, though the note says the lines are the turns. The repeat-sprint cones are 28.8 m apart; the note says "a full court apart (40 m)".</td>
+<td>hbfit_court_shuttle-1.png; hbfit_break_repeats-1.png</td>
+<td>Put the turns on 31 / 20 / 9 m. Put the cones on the goal lines.</td>
+</tr>
+<tr>
+<td>H13</td>
+<td>handball</td>
+<td>hb_game_3v3/4v4/5v5/6v6, hb_defence_man_to_man, hb_set_nine_metre</td>
+<td>1–3</td>
+<td>Overlaps: attacker and defender pairs drawn on the same spot (D/1, D/2, D/3, D/5 columns); CB and M; 2 and D. Position labels such as "CB" are pushed off their figures.</td>
+<td>hb_game_6v6-2.png, hb_game_5v5-2.png</td>
+<td>Keep at least 1.2 m between figures.</td>
+</tr>
+<tr>
+<td>H14</td>
+<td>handball</td>
+<td>notes ja/ko/th/es/fr/id/ms/vi</td>
+<td>—</td>
+<td>Untranslated English: Equipment line in 13 drills, Continuation in 3, Setup in 3, per locale.</td>
+<td>e.g. hb_shot_* ja-JP 【用具】</td>
+<td>Translate.</td>
+</tr>
+</tbody>
+</table>
+<h3>MINOR</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sport</th>
+<th>Drill / file</th>
+<th>What is wrong</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R23</td>
+<td>rugby</td>
+<td>rg_kick_box</td>
+<td>The note describes 2 steps; the board has 1.</td>
+<td>Regenerate the narration from the phases.</td>
+</tr>
+<tr>
+<td>R24</td>
+<td>rugby</td>
+<td><code>rugby_court_painter.dart</code></td>
+<td>No 5 m dashes parallel to the try lines and no halfway centre mark (Law 1 plan). In-goal is drawn at 22 m, the maximum allowed.</td>
+<td>Add both markings.</td>
+</tr>
+<tr>
+<td>R25</td>
+<td>rugby</td>
+<td>names (en)</td>
+<td>Machine-joined names: "Maul defending it", "Breakdown the jackal", "Set piece the scrum", "The high ball the contest and the counter", "Exit from your own 22 two phases and the kick".</td>
+<td>Use natural titles ("Defending the maul", …).</td>
+</tr>
+<tr>
+<td>R26</td>
+<td>rugby</td>
+<td>rg_kick_cross_field, rg_kick_grubber</td>
+<td>The 9 kicks. Cross-field kicks and grubbers are normally 10/12 skills.</td>
+<td>Relabel the kicker 10.</td>
+</tr>
+<tr>
+<td>R27</td>
+<td>rugby</td>
+<td>rg_game_5v5/7v7/8v8</td>
+<td>Small-sided games are drawn on the full 70 m pitch, with the two teams in flat lines about 2 m apart.</td>
+<td>Shade a reduced area.</td>
+</tr>
+<tr>
+<td>R28</td>
+<td>rugby</td>
+<td><code>sport_type.dart:1073</code> sevens</td>
+<td>7s formation has two wings and no centre.</td>
+<td>3 forwards, 9, 10, 12/13, wing.</td>
+</tr>
+<tr>
+<td>H15</td>
+<td>handball</td>
+<td>hb_defence_block</td>
+<td>The shot goes through the gap between the two blockers to the keeper; the block is not shown.</td>
+<td>Ball meets the blockers' hands.</td>
+</tr>
+<tr>
+<td>H16</td>
+<td>handball</td>
+<td><code>handball_court_painter.dart</code></td>
+<td>Substitution lines missing (IHF Rule 1:9: 15 cm marks 4.5 m from halfway).</td>
+<td>Add them.</td>
+</tr>
+<tr>
+<td>H17</td>
+<td>handball</td>
+<td>hb_warm_star_passing</td>
+<td>Passes go 1→2→3→4→5, a circle, not a star. 3 and 4 stand on the halfway line.</td>
+<td>Pass across (1→3→5→2→4).</td>
+</tr>
+<tr>
+<td>H18</td>
+<td>handball</td>
+<td>hb_set_throw_off, hb_set_sideline</td>
+<td>The coaching point says "A free throw…".</td>
+<td>Say throw-off or throw-in.</td>
+</tr>
+<tr>
+<td>H19</td>
+<td>handball</td>
+<td>hb_break_first/second/third_wave</td>
+<td>The coaching point is about leaving "on the save", but no save or GK outlet is shown; the ball starts with 1.</td>
+<td>Start with the GK throwing out.</td>
+</tr>
+<tr>
+<td>H20</td>
+<td>handball</td>
+<td>translations zh-CN <code>formation_attack_60</code></td>
+<td>"6-0防守阵" drops "attack vs".</td>
+<td>"进攻对6-0".</td>
+</tr>
+</tbody>
+</table>
+<h2>(c) Counts</h2>
+<table>
+<thead>
+<tr>
+<th>Sport</th>
+<th>BLOCKER</th>
+<th>MAJOR</th>
+<th>MINOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rugby</td>
+<td>9</td>
+<td>13</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Handball</td>
+<td>6</td>
+<td>8</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h2>(d) Not verified, or verified only partly</h2>
+<ul>
+<li><strong>Rugby formations (R21) and the rugby half-court layout (R22).</strong> No PNG renders them (<code>board_png</code> holds drills only, and every rugby drill renders full-pitch). Both findings come from coordinate arithmetic on the code; they are not confirmed on a board.</li>
+<li><strong>Handball 3-step, 3-second and passive-play rules.</strong> Boards have no time or step count. Nothing shown visibly breaks them, but they cannot be checked.</li>
+<li><strong>Rugby offside at rucks and mauls (Laws 15–17).</strong> No drill draws a real ruck or maul (see R12, R5), so there is no hindmost foot to measure against. The open-play defensive lines do stay on their side until they run through the attack (R3).</li>
+<li><strong>Rugby scrum binding</strong> is checked only as shape: 3-4-1 per side, which is correct. Engagement distance can't be judged at figure scale. The scrum's front rows are drawn about 2.5 m apart and never engaged.</li>
+<li><strong>es/fr/id/ms/vi wording</strong> was checked only for untranslated English, not for terminology quality. CJK and Thai were spot-checked for terms, which found R18 and R19.</li>
+<li><strong>Rugby and handball strings in <code>assets/translations/*.json</code>.</strong> Only sport, formation and marker keys were checked, and they are fine apart from H20.</li>
+</ul></details><details><summary><h2 style="display:inline">水球</h2></summary><h1>Water polo audit (WaterPoloBoard 2.x), read-only</h1>
+<p>PNG paths are relative to <code>tools/board_png/waterPolo/</code>. Step <code>-0</code> is the opening board and <code>-N</code> is the board after beat N. Positions in metres are measured from the attacked goal line, with the figure's feet as the anchor. Every finding below was checked on the PNG; JSON was used only to measure distances.</p>
+<h2>(a) Verdict</h2>
+<p><strong>Not ready for a 2.x release.</strong></p>
+<p>The pool uses the current 6 m line set (6 m line plus a 5 m penalty mark, as in the 2019+ FINA / World Aquatics rules). But it paints the goal line and the 2 m line in each other's colours.</p>
+<p>The drills share three structural faults that show up on many boards:</p>
+<ol>
+<li><strong>Shots never reach the goal.</strong> Every shot ends 1–2 m out in the water. The keeper has already moved onto the exact target, so the ball is usually hidden behind him. In the gap shots and the centre-forward finishes, the shooter swims after the ball and ends up standing on the keeper.</li>
+<li><strong>Defences are wrong.</strong> In the "pressing" and "fronting the centre" drills, all five perimeter defenders move behind their attackers on the pool side. In "fronting the centre", the hole defender sits beside the keeper instead of in front of the centre forward. Every defence drill ends with the centre forward scoring unopposed.</li>
+<li><strong>Set pieces break the rules.</strong> The penalty taker stands on the 6 m line and swims forward before throwing. The goalkeeper outlet drill never gives the keeper the ball. The 6-on-5 formation preset has one player too few on each side.</li>
+</ol>
+<p>On top of this:
+- 21 notes in ja/ko/th contain whole English sentences.
+- 8 vi-VN coaching texts have no diacritics.
+- Setup counts contradict drill names (e.g. "Counter-attack 2v1 — Setup: 2 v 2").
+- Several drills don't show the skill in their name: catch-and-shoot, drive-and-kick, backhand/sweep, drawing the exclusion.</p>
+<p>The 2 m offside rule itself is respected: no attacker without the ball has feet inside 2 m on any step.</p>
+<h2>(b) Findings, sorted by severity</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Drill / file</th>
+<th>Step</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>BLOCKER</td>
+<td>All drills that end in a shot: wp_manup_<em> (3), wp_defence_press/drop/front_the_centre, wp_game_3v3/4v4/6v6, wp_counter_</em> (3), wp_set_free_throw, wp_set_penalty, wp_centre_entry/backhand/sweep, wp_shot_* (4), wp_gk_angles/two_metre/penalty</td>
+<td>last</td>
+<td>The shot ball ends about 1.7–2.0 m in front of the goal line, never between the posts behind the line. In most of these drills the ball is fully hidden behind the GK figure, so the board shows no goal at all.</td>
+<td>wp_counter_3v2-3, wp_game_6v6-3, wp_set_penalty-2, wp_shot_skip-2, wp_shot_lob-2: ball not visible, only the GK. wp_manup_four_two-4: ball sitting ~1.5 m out in the water by the GK.</td>
+<td>Put the finish target past the goal line (y &lt; 0, inside the 3 m mouth) and away from the keeper. In <code>water_polo.py</code>, <code>finish_with(..., (0.50, 0.04))</code> and every <code>(target[0], 0.03)</code> should become a corner point in the mouth.</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>BLOCKER</td>
+<td>wp_shot_skip/power_point/lob/catch_and_shoot, wp_centre_entry/backhand/sweep</td>
+<td>last</td>
+<td>The shooter swims after his own shot to the target spot, and the GK moves onto that same spot. Shooter, keeper and target zone end up stacked in the goal mouth (CF–GK 0.45 m).</td>
+<td>wp_shot_lob-2: no. 1 has swum ~9 m across into the zone under the GK. wp_centre_entry-3, wp_centre_backhand-3: CF standing on the GK.</td>
+<td>Drop the shooter's last move (<code>(target[0], target[1]+0.05, 1)</code> in gaps_family; <code>target+0.03</code> in centre_family). Move the GK toward the near post, not onto the shot target.</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>BLOCKER</td>
+<td>wp_defence_press, wp_defence_front_the_centre</td>
+<td>1–3</td>
+<td>All five perimeter defenders end up directly behind their attackers on the pool side (0.45–0.6 m). That leaves every attacker a free swim to goal: the opposite of a press, and five overlaps.</td>
+<td>wp_defence_press-1/2/3: each D drawn under its numbered attacker (pairs 1/D, 2/D, 3/D, 4/D, 5/D).</td>
+<td>In <code>defence_family</code>, <code>moves=[(x, y + push, 0)]</code> with a positive push moves defenders away from goal while attackers move in. Defenders should finish goal-side or on the hip, e.g. <code>y_att - 0.015</code>.</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>BLOCKER</td>
+<td>wp_defence_front_the_centre</td>
+<td>0–3</td>
+<td>The hole defender H sits goal-side next to the GK (2.4 m) the whole time. Fronting means H is on the ball side of the CF. The press and drop drills do show H in front, so the two are swapped. The CF then receives the entry pass and scores.</td>
+<td>wp_defence_front_the_centre-0: H left of GK at the goal; CF unmarked at 3.5 m.</td>
+<td>Swap the <code>hole_y</code> sign in <code>defence_family</code> so the fronting drill puts H at CF.y + 0.035, and the others put H behind. Have H deny the entry, i.e. no completed pass to the CF.</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>BLOCKER</td>
+<td>wp_set_penalty, wp_gk_penalty</td>
+<td>0–2</td>
+<td>The penalty taker stands on the yellow 6 m line (5 m mark hidden under his body) and swims 0.6 m forward ("carries the ball on the move") before shooting. Rule: the penalty is thrown from the 5 m line in one uninterrupted motion, with no advance.</td>
+<td>wp_set_penalty-0/1: feet on the 6 m line, blue advance arrow. The note says "Step 1: the player carries the ball on the move".</td>
+<td>Put the taker on the 5 m mark and remove the forward move. The shot goes on beat 1. Change the sequence text to match.</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>BLOCKER</td>
+<td>wp_gk_outlet</td>
+<td>0–1</td>
+<td>A goalkeeper outlet drill in which the GK never touches the ball. Field player 1 starts with it and dribbles to halfway; no outlet pass is drawn.</td>
+<td>wp_gk_outlet-0/1: ball beside no. 1; GK empty-handed, steps 2 m out.</td>
+<td>Start with <code>ball</code> on the GK and add <code>ball_to=[(0,1)]</code> from the GK to the breaking wing.</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>BLOCKER</td>
+<td><code>tactics_board/lib/models/sport_type.dart:1245</code> formation_6v5</td>
+<td>n/a</td>
+<td>The 6-on-5 preset has home = GK + 5 field and away = GK + 4 field. Under the same file's convention (<code>formation_7v7</code> = 7 including GK), that is 5-on-4. A man-up is 6 field + GK against 5 field + GK. One away field defender also sits at 7.2 m, outside the attackers.</td>
+<td>Code: 6 home offsets and 5 away offsets. Not rendered as a PNG.</td>
+<td>Add one attacker (2 posts at 2 m plus 4 at 5–6 m for a 4-2) and one defender. Move the defenders goal-side.</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>BLOCKER</td>
+<td><code>water_polo_court_painter.dart:80-86, 164-168</code></td>
+<td>every board</td>
+<td>Goal lines are painted red and the 2 m line white. Current markings are the other way round: goal line and halfway white, 2 m red, 6 m yellow, 5 m penalty mark (red in BUCS/WA-derived rules).</td>
+<td>Every PNG: red line at the goal, white line 2 m out.</td>
+<td>Swap the paints: goal line <code>whiteLine</code>, 2 m <code>redLine</code>, in both the full and half painters.</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>BLOCKER</td>
+<td>ja-JP, ko-KR, th-TH notes for 21 drills: centre ×4, defence ×4, shot ×4, gk ×4, set_penalty, set_swim_off, wpfit ×3</td>
+<td>text</td>
+<td>Whole English sentences inside the localized note. Example (ja, wp_shot_skip): "【用具】the two cones mark the two-metre line either side of the goal; the shaded zone is…". wpfit_lunges has its setup, equipment and how-it-continues lines all in English.</td>
+<td><code>waterPolo.json</code> note fields.</td>
+<td>Translate the gear/flow strings, which only have en/zh entries in <code>water_polo.py</code>, <code>fitness_all.py</code> and the narrate templates.</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>MAJOR</td>
+<td>vi-VN coaching point/mistake: wp_shot_<em> (4), wp_gk_</em> (4)</td>
+<td>text</td>
+<td>Vietnamese with no diacritics, e.g. "Nang hong len khoi mat nuoc…", "Chim xuong dung luc…".</td>
+<td><code>SHOOT_NOTE</code>/<code>WP_GK_NOTE</code> "vi-VN" in <code>water_polo.py</code>.</td>
+<td>Rewrite with diacritics.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>MAJOR</td>
+<td>All multi-player drills</td>
+<td>Setup text</td>
+<td>The Setup count includes the GK on one side only, so it contradicts the drill name: Counter-attack 2v1 says "2 v 2", 3v2 "3 v 3", 4v3 "4 v 4"; Six on five says "6 v 6"; Game 3v3 "3 v 4", 4v4 "4 v 5", 6v6 "6 v 7"; Defence "6 v 7".</td>
+<td>Note "Setup:" lines.</td>
+<td>Count field players (with "+ GK"), matching the water polo convention used in the names.</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>MAJOR</td>
+<td>wp_manup_four_two, wp_manup_umbrella, wp_manup_three_three</td>
+<td>1–3</td>
+<td>The ball circulates along the 2 m line through the defensive wall and across the goal mouth: four_two 1→2→3→4 post to post past the GK; umbrella 1→2 a ~15 m pass straight across the crease. It is three passes then a shot from the top, while the coaching point says "Two passes, then shoot".</td>
+<td>wp_manup_umbrella-1: pass line runs across the goal mouth through 5 D and the GK. wp_manup_four_two-2: ball in front of the GK.</td>
+<td>Circulate through the top/flat players (e.g. top → flat → post or cross-cage). Make it 2 passes plus a shot, as the note says.</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>MAJOR</td>
+<td>wp_manup_four_two (step 2), wp_manup_three_three (step 2–4)</td>
+<td>2</td>
+<td>Receivers hidden at the moment they receive. In four_two, attacker 3 is completely covered by a D (0.06 m). In three_three, centre attacker 2 stands on the GK and his badge reads "2K". All three shapes use the same flat row of five defenders at ~2.5 m, whether the attack is 4-2, 3-3 or umbrella.</td>
+<td>wp_manup_four_two-2 (no. 3 not visible), wp_manup_three_three-2.</td>
+<td>Offset defenders to the goal side of each receiver. Set the man-down shape per formation, e.g. 4-2: two on the posts, three floating in a zone.</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>MAJOR</td>
+<td>wp_counter_2v1/3v2/4v3</td>
+<td>0–3</td>
+<td>Not a counter. The defenders are already set at 6 m before the break starts and stay still on beat 1. Everyone then finishes in one flat row at ~4.4 m (attackers and defenders side by side). The ball is a ~13 m cross-pool pass to the far wing, and the shot goes from the extreme wing into the GK. The Purpose line says "Break a set defence".</td>
+<td>wp_counter_4v3-0/2/3 (full-pool sheet).</td>
+<td>Start the defenders trailing (level with or behind the attackers). Finish with the trailer or the 2 m player. Use counter-specific Purpose text.</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>MAJOR</td>
+<td>wp_defence_press/drop/front_the_centre</td>
+<td>2–3</td>
+<td>Every defence drill ends with the entry to the CF completed and the CF scoring unopposed. H never reacts and there is no help/drop. The board teaches the defence failing.</td>
+<td>wp_defence_drop-3, wp_defence_press-3: CF shot into the GK with H beside him.</td>
+<td>End on the defensive answer (H denies, or the weak side drops and steals). Remove these drills from <code>FINISH_AT_GOAL</code>.</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>MAJOR</td>
+<td>wp_defence_five_on_six</td>
+<td>0–2</td>
+<td>The attack is lined up as an even 6v6 (5-man arc plus a CF), not a power-play shape (4-2 / 3-3). At step 2 the CF is half-hidden behind a D (0.81 m).</td>
+<td>wp_defence_five_on_six-0/2.</td>
+<td>Reuse the four_two / three_three attack spots for the six attackers. Separate the CF from the D.</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>MAJOR</td>
+<td>wp_perimeter_drive_and_kick</td>
+<td>1–3</td>
+<td>No drive-and-kick. No. 2 receives, swims in, passes to the CF, then swims back out; no kick-out to an open perimeter player happens. The sequence text is word-for-word the same as wp_perimeter_with_centre.</td>
+<td>wp_perimeter_drive_and_kick-2/3.</td>
+<td>Driver no. 2 draws the defender; the ball is kicked to the open flat or wing (e.g. no. 1 or no. 4).</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>MAJOR</td>
+<td>wp_perimeter_circulation / with_centre / drive_and_kick</td>
+<td>1–3</td>
+<td>The point's defender ends directly behind no. 1, overlapping him (0.14–0.30 m). In with_centre and drive_and_kick the CF has no defender at all (5 D for 6 attackers).</td>
+<td>wp_perimeter_with_centre-1/2/3: the D under no. 1 hides his body.</td>
+<td>Keep D1 goal-side of no. 1. Add a hole defender (H) on the CF, as the defence family does.</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>MAJOR</td>
+<td>wp_shot_catch_and_shoot</td>
+<td>0–2</td>
+<td>No catch. No. 1 starts holding the ball and dribbles; no. 2 never passes. The same "player 2 just moves 1 m" pattern appears in all wp_shot_* drills.</td>
+<td>wp_shot_catch_and_shoot-0/1.</td>
+<td>Start the ball with no. 2, then pass to no. 1, then shoot on the catch (<code>ball_to=[(0,0),(target,1)]</code>).</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>MAJOR</td>
+<td>wp_centre_backhand, wp_centre_sweep, wp_centre_draw_foul</td>
+<td>2–3</td>
+<td>Backhand/sweep: the CF swims across the goal mouth with the ball and throws from under 1 m at the zone; the named technique can't be read from the board. Draw_foul: no foul or exclusion is shown (the D doesn't go to re-entry, there is no whistle), and the last step only moves the GK.</td>
+<td>wp_centre_backhand-2/3, wp_centre_draw_foul-2/3.</td>
+<td>Keep the CF at ~2.5 m and draw the shot from there. For draw_foul, send the excluded D to the re-entry corner and finish 6v5.</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>MAJOR</td>
+<td>wp_set_swim_off</td>
+<td>0–2</td>
+<td>Three home players against one away player, no keepers. Away "A" starts 2.6 m from his goal line while home starts on theirs, a ~1.7 m head start. A reaches the ball first (ball under A at step 1), yet the text says "1 wins the ball off A".</td>
+<td>wp_set_swim_off (full-pool sheet).</td>
+<td>One sprinter per side starting level on the goal lines (rest of each team on its goal line), ball at halfway, and a winner who is actually first.</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>MAJOR</td>
+<td>wp_game_3v3/4v4/6v6</td>
+<td>0–3</td>
+<td>The teams stand in rings. Nobody plays at 2 m, players stack in vertical columns (labels overlap), and the final shot comes from ~11–12 m straight at the GK.</td>
+<td>wp_game_6v6 full sheet: columns F/6/E/5. wp_game_3v3-3: 1 stacked on A.</td>
+<td>Use realistic shapes (arc plus a CF at 2–3 m) and shoot from ≤ 7 m.</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>MAJOR</td>
+<td>wp_set_penalty, wp_set_swim_off, wp_set_free_throw</td>
+<td>text</td>
+<td>The shared coaching point "Play the free throw immediately — the advantage only exists while the defence is still turning around" sits on the penalty and the swim-off, which have no free throw and no defence.</td>
+<td>Note "Coaching point" lines.</td>
+<td>Write a separate point for each restart.</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>MAJOR</td>
+<td>All drills with cones (centre, defence, shot, gk)</td>
+<td>0</td>
+<td>The Equipment text says "two cones mark the two-metre line either side of the goal". The board has one cone at the 2 m line centre, usually hidden behind the GK, and one at the 5 m mark.</td>
+<td>wp_gk_angles-2 (both cones visible, in line with the goal centre); wp_shot_lob-0 (only the 5 m cone visible).</td>
+<td>Place the cones at the 2 m line next to the posts, or change the text.</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>MAJOR</td>
+<td>wpfit_lunges</td>
+<td>text</td>
+<td>A deep-water drill told to "take off and land on both feet". The id says lunges and the name says "Jump series".</td>
+<td>Note sequence. Board: one player bobbing 1 m.</td>
+<td>Use "explode out of the water to the hips, sink back into eggbeater". Align the id and name.</td>
+</tr>
+<tr>
+<td>M17</td>
+<td>MAJOR</td>
+<td>wp_gk_two_metre</td>
+<td>0–2</td>
+<td>The shooter starts touching the GK; ball and GK badge overlap. There is no defender, and the final shot is from ~0.5 m.</td>
+<td>wp_gk_two_metre-0/1/2.</td>
+<td>Shooter at ~2.5–3 m with a D on his back; shot from there.</td>
+</tr>
+<tr>
+<td>m1</td>
+<td>MINOR</td>
+<td>painter / fieldRect</td>
+<td>n/a</td>
+<td>The pool is drawn 30 × 20 m. World Aquatics Competition Regulations 2025 set 25 m between goal lines for men and women. 30 m was only the old maximum.</td>
+<td><code>water_polo_court_painter.dart:43-45</code>; <code>sport_type.dart:600</code>.</td>
+<td>Consider 25 × 20; drills are proportional, so re-check positions afterwards.</td>
+</tr>
+<tr>
+<td>m2</td>
+<td>MINOR</td>
+<td>painter</td>
+<td>n/a</td>
+<td>No re-entry area in the corner, so exclusion and man-up drills can't show where the excluded player waits. The 5 m mark is a yellow dot; current markings make it a red 5 m mark.</td>
+<td>Every PNG.</td>
+<td>Draw the re-entry box at the goal-line corner and a red 5 m tick on the side.</td>
+</tr>
+<tr>
+<td>m3</td>
+<td>MINOR</td>
+<td>painter / figure art</td>
+<td>all</td>
+<td>Figures are upright and anchored at the feet, so their bodies extend ~2 m toward goal. Posts and the CF look inside 2 m (the 2 m line runs through their chests) even though their feet are outside. GK badges land on the 2 m line and overlap the CF.</td>
+<td>wp_manup_four_two-0, wp_centre_backhand-0.</td>
+<td>Shrink the figures or anchor them at the body centre in water polo, and offset the GK badge.</td>
+</tr>
+<tr>
+<td>m4</td>
+<td>MINOR</td>
+<td>wp_set_penalty, wp_gk_penalty, wp_gk_two_metre</td>
+<td>0</td>
+<td>The single shooter has no label (renamed "the player").</td>
+<td>PNGs: blue figure with no number.</td>
+<td>Keep the "1" / "S" label.</td>
+</tr>
+<tr>
+<td>m5</td>
+<td>MINOR</td>
+<td>wp_warm_eggbeater; wp_warm_swim_catch</td>
+<td>0–3</td>
+<td>Eggbeater: no. 3 and no. 4 never touch the ball. Swim_catch step 3: "2 plays the ball into space" is a ~1 m nudge to nobody.</td>
+<td>wp_warm_eggbeater-2; wp_warm_swim_catch-3.</td>
+<td>Pass round all four; drop the last beat or add a receiver.</td>
+</tr>
+<tr>
+<td>m6</td>
+<td>MINOR</td>
+<td>wpfit_sprint_lengths</td>
+<td>1–2</td>
+<td>The text says goal line to goal line with a hand on the line. The swimmer goes from ~1 m to ~2.5 m short of the far line.</td>
+<td>wpfit_sprint_lengths sheet.</td>
+<td>Run from line to line.</td>
+</tr>
+<tr>
+<td>m7</td>
+<td>MINOR</td>
+<td>fr-FR shot_<em> / gk_</em> notes</td>
+<td>text</td>
+<td>Missing apostrophes: "l eau", "l angle", "jusqu à".</td>
+<td><code>SHOOT_NOTE</code>/<code>WP_GK_NOTE</code> fr-FR.</td>
+<td>Fix the typography.</td>
+</tr>
+<tr>
+<td>m8</td>
+<td>MINOR</td>
+<td>zh-CN/zh-TW family name</td>
+<td>text</td>
+<td>"死球恢复" for Restart is not water polo usage.</td>
+<td><code>SET_NAME</code>.</td>
+<td>Use "定位球" / "重新开球".</td>
+</tr>
+<tr>
+<td>m9</td>
+<td>MINOR</td>
+<td>all drills</td>
+<td>text</td>
+<td>The same "Rules:" boilerplate (goal, ball out, 30 s) appears in every drill. No drill cites the rule it actually trains: the 2 m rule, the 20 s exclusion, the penalty procedure, or the swim-off start.</td>
+<td>Note "Rules:" lines.</td>
+<td>Write rule lines per family.</td>
+</tr>
+<tr>
+<td>m10</td>
+<td>MINOR</td>
+<td>wp_set_free_throw</td>
+<td>0</td>
+<td>Labels run 1, CF, 3 (there is no 2).</td>
+<td>wp_set_free_throw-0.</td>
+<td>Relabel as 1, 2, CF.</td>
+</tr>
+<tr>
+<td>m11</td>
+<td>MINOR</td>
+<td><code>sport_type.dart</code> formations</td>
+<td>n/a</td>
+<td>No 4-2, 3-3 or umbrella man-up presets and no hole-set 3-3 even-strength preset, though the drills use them.</td>
+<td>Code.</td>
+<td>Add them as formations.</td>
+</tr>
+</tbody>
+</table>
+<p>Overlaps from the automatic audit, checked on the PNGs:
+- Real overlaps: perimeter D under no. 1 (M9), four_two no. 3 under D (M4), three_three no. 2 on GK (M4), CF on GK in the centre drills (B2), the press/front defenders (B3), five_on_six CF/D (M7), and swim_off no. 1 on A (M12).
+- Counter 3v2/4v3 (0.74–0.87 m) and free throw no. 3/D (0.88 m) are touching but readable, so they are not counted separately.</p>
+<h2>(c) Counts</h2>
+<ul>
+<li>BLOCKER: 9 (B1–B9)</li>
+<li>MAJOR: 17 (M1–M17)</li>
+<li>MINOR: 11 (m1–m11)</li>
+</ul>
+<h2>(d) Not verified, and why</h2>
+<ul>
+<li><strong>Possession clock.</strong> The notes say 30 s. That is correct for the FINA 2019 rules; I could not confirm whether the current World Aquatics edition changed it, because I only had search snippets, not the rulebook text.</li>
+<li><strong>Exact current marking colours.</strong> The 5 m mark's colour and whether a 5 m line exists across the pool are disputed between sources. WA Appendix 4 was not available to me, so B8 rests on the BUCS/WA-derived listing: white goal and halfway lines, red 2 m, yellow 6 m.</li>
+<li><strong>Umbrella shape.</strong> Coaches use several umbrella variants, so I did not flag the shape itself, only its passing (M3).</li>
+<li><strong>Goal height (0.9 m) and the GK two-hands rule.</strong> The board is top-down, so height can't be checked. No text claims field players may use two hands, so nothing is wrong there.</li>
+<li><strong>Formation presets (B7, m11).</strong> These are not in the rendered PNGs; the findings come from the code.</li>
+<li><strong>Runtime offsets.</strong> The PNGs came from the app's own painter an hour before the audit. I did not run the app on a device to check for any further runtime offset.</li>
+</ul></details></main></body></html>

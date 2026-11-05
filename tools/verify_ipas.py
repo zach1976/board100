@@ -30,6 +30,8 @@ import zipfile
 from pathlib import Path
 
 IPA_DIR = Path(__file__).resolve().parent.parent / "build" / "ipa_all"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from home_name import home_name  # noqa: E402
 
 # Expected identity per app, read from tools/sports.tsv — the one table the
 # shells, the build scripts and this check all share. It used to be a copy of
@@ -44,9 +46,11 @@ def _load_table() -> dict:
         if len(cols) < 8:
             continue
         key, _dir, bundle, name_en, _zh, _ja, admob_ios, _admob_android = cols
-        # What the IPA carries is the home-screen name — the sport, without
-        # the word Board; see gen_sport_shell.sh. The hub keeps its full name.
-        home = name_en if key == "tactics_board" else name_en.removesuffix(" Board")
+        # What the IPA carries is the home-screen name: the full name when it
+        # fits under an icon, the sport alone when it does not — the same
+        # call gen_sport_shell.sh makes, through tools/home_name.py. The hub
+        # keeps its full name.
+        home = name_en if key == "tactics_board" else home_name(name_en)
         apps[bundle.split(".")[-1]] = {"bundle": bundle, "name": home,
                                        "admob": None if admob_ios == "-" else admob_ios}
     return apps

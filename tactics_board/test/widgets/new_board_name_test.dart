@@ -101,7 +101,7 @@ void main() {
     }
     await tester.enterText(find.byType(TextField), 'Tuesday shape');
     await tester.pump();
-    await tester.tap(find.text('Apply'));
+    await tester.tap(find.text('Create'));
     for (var i = 0; i < 10; i++) {
       await tester.pump(const Duration(milliseconds: 100));
     }

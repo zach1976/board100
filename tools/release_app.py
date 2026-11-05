@@ -101,6 +101,10 @@ LOCALE_MAP = {
     "en-US": "en-US", "en-GB": "en-GB", "es-ES": "es-ES", "fr-FR": "fr-FR",
     "id": "id", "ja": "ja", "ko": "ko", "ms": "ms", "th": "th", "vi": "vi",
     "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant",
+    # Added 2026-10-13 for field hockey's and soccer's biggest markets; the
+    # app's UI speaks both since the same evening. A folder that exists is
+    # created on ASC by step_text; apps without one skip it.
+    "de-DE": "de-DE", "nl-NL": "nl-NL",
 }
 
 _tok = {"t": None, "exp": 0}
@@ -132,6 +136,12 @@ def call(method, path, payload=None, **params):
         if r.status_code != 401 or attempt == 2:
             break
         _tok["exp"] = 0
+    # Deleting something that is already gone is the state we wanted. ASC
+    # lists assets a moment behind itself, so a set read and then cleared can
+    # name a screenshot that no longer exists, and a 404 there used to abort
+    # a whole upload between its "delete the old" and "send the new" halves.
+    if method == "DELETE" and r.status_code == 404:
+        return {}
     if r.status_code >= 400:
         detail = ""
         try:
@@ -223,11 +233,18 @@ def step_text():
     info_locked = info_state in ("WAITING_FOR_REVIEW", "IN_REVIEW")
     print(f"appInfo {info['id']} ({info_state})"
           + ("  ← 已锁，名称沿用现值" if info_locked else ""))
-    ilocs = {d["attributes"]["locale"]: d["id"] for d in
-             get(f"/appInfos/{info['id']}/appInfoLocalizations")["data"]}
-    vlocs = {d["attributes"]["locale"]: d["id"] for d in
-             get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
-                 limit=40)["data"]}
+    iraw = get(f"/appInfos/{info['id']}/appInfoLocalizations")["data"]
+    ilocs = {d["attributes"]["locale"]: d["id"] for d in iraw}
+    vraw = get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
+               limit=40)["data"]
+    vlocs = {d["attributes"]["locale"]: d["id"] for d in vraw}
+    # A locale that is new to the listing (de-DE, nl-NL) starts with nothing,
+    # but review wants a privacy URL on the app side and a support URL on the
+    # version side for every language. Borrow them from en-US.
+    en_info = next((d["attributes"] for d in iraw
+                    if d["attributes"]["locale"] == "en-US"), {})
+    en_ver = next((d["attributes"] for d in vraw
+                   if d["attributes"]["locale"] == "en-US"), {})
     # Has this platform ever been on sale?
     hist = get(f"/apps/{aid}/appStoreVersions",
                **{"filter[platform]": PLATFORM, "limit": 20})["data"]
@@ -238,6 +255,14 @@ def step_text():
         print(f"   {PLATFORM} 从未上架 → 首次发布，不填 whatsNew")
 
     for folder, locale in LOCALE_MAP.items():
+        # Only the locales this app actually has text for. The map is the
+        # fleet's full list and not every app ships every one — field hockey
+        # has no en-GB — and running it blind created an EMPTY en-GB
+        # localization on the version: no description, no keywords, no
+        # What's New, which review rejects. A locale the app does not
+        # translate should simply not exist on the listing.
+        if not os.path.isdir(os.path.join(str(metadata_dir(KEY)), folder)):
+            continue
         name, sub = read(folder, "name"), read(folder, "subtitle")
         # appInfo is shared by both platforms and locks while either one is in
         # review. The names are already the new ones, put there by the iOS
@@ -247,6 +272,37 @@ def step_text():
             patch(f"/appInfoLocalizations/{ilocs[locale]}",
                   {"data": {"type": "appInfoLocalizations",
                             "id": ilocs[locale], "attributes": attrs}})
+        elif locale not in ilocs and name:
+            # A new store language: the app-level record (name, subtitle,
+            # privacy URL) has to exist before the version's text means
+            # anything. It cannot be added while the appInfo is locked.
+            if info_locked:
+                # The version's text, keywords and screenshots do not need
+                # the name: the listing shows the app's primary-language
+                # name in this store until the next version adds it.
+                # Skipping the whole language left the German and Dutch
+                # stores without a word of their own (basketball 2.1.0,
+                # locked by Mac 2.0.2 in review, 2026-10-17).
+                print(f"  ! {locale}: appInfo 已锁，名称暂用主语言，版本文案照推")
+        if locale not in ilocs and name and not info_locked:
+            attrs = {"locale": locale, "name": name}
+            if sub:
+                attrs["subtitle"] = sub
+            for k in ("privacyPolicyUrl", "privacyChoicesUrl"):
+                if en_info.get(k):
+                    attrs[k] = en_info[k]
+            made = post("/appInfoLocalizations", {
+                "data": {"type": "appInfoLocalizations", "attributes": attrs,
+                         "relationships": {"appInfo": {
+                             "data": {"type": "appInfos", "id": info["id"]}}}}})
+            ilocs[locale] = made["data"]["id"]
+            print(f"  + {locale} appInfo: {name}")
+            # Apple creates the version's localization along with it, so a
+            # POST below would 409 ("de-DE already exists"). Re-read, and
+            # give that empty record the en-US support URL like a new one.
+            vraw = get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
+                       limit=40)["data"]
+            vlocs = {d["attributes"]["locale"]: d["id"] for d in vraw}
         fields = [("description", read(folder, "description")),
                   ("keywords", read(folder, "keywords")),
                   ("promotionalText", read(folder, "promotional_text"))]
@@ -258,6 +314,9 @@ def step_text():
         body = {k: v for k, v in fields if v}
         if locale not in vlocs:
             body["locale"] = locale
+            for k in ("supportUrl", "marketingUrl"):
+                if en_ver.get(k):
+                    body[k] = en_ver[k]
             made = post("/appStoreVersionLocalizations", {
                 "data": {"type": "appStoreVersionLocalizations",
                          "attributes": body,
@@ -266,6 +325,10 @@ def step_text():
             vlocs[locale] = made["data"]["id"]
             print(f"  + {locale}")
         else:
+            have = {d["attributes"]["locale"]: d["attributes"] for d in vraw}
+            for k in ("supportUrl", "marketingUrl"):
+                if en_ver.get(k) and not have.get(locale, {}).get(k):
+                    body[k] = en_ver[k]
             patch(f"/appStoreVersionLocalizations/{vlocs[locale]}",
                   {"data": {"type": "appStoreVersionLocalizations",
                             "id": vlocs[locale], "attributes": body}})
@@ -391,9 +454,13 @@ def step_ipad():
 def step_preview():
     """The App Preview film, en-US only.
 
-    A locale with no preview falls back to the primary one, so eleven copies
-    of the same silent film would buy nothing. Apple transcodes it after
-    upload; the version can be submitted while that is still running.
+    PREVIEW_LOCALES picks which; the default is en-US alone, because a
+    locale with no preview of its own falls back to the primary one.
+    That default is right for a FIRST upload and wrong for a replacement:
+    2.0.0 put the film in all twelve, and a locale that already has one does
+    not fall back, so a new film has to be pushed to every locale that holds
+    an old one. Apple transcodes after upload; the version can be submitted
+    while that is still running.
     """
     aid = app_id()
     vid, _ = find_version(aid)
@@ -401,18 +468,78 @@ def step_preview():
     # then fails it with MOV_RESAVE_STEREO — a preview must carry stereo
     # audio, even when there is nothing to hear. tools/record_preview.sh
     # records silent, so a muted stereo track is muxed on afterwards.
-    mp4 = os.path.join(REPO, "build", "preview", "soccer_av.mp4")
+    mp4 = os.path.join(REPO, "build", "preview", f"{KEY}_av.mp4")
     if not os.path.exists(mp4):
-        raise SystemExit("✗ 没有 build/preview/soccer_av.mp4（需要带静音立体声音轨）")
+        raise SystemExit(f"✗ 没有 build/preview/{KEY}_av.mp4（需要带静音立体声音轨）")
     vlocs = {d["attributes"]["locale"]: d["id"] for d in
              get(f"/appStoreVersions/{vid}/appStoreVersionLocalizations",
                  limit=40)["data"]}
+    frame = _preview_frame()
     only = os.environ.get("PREVIEW_LOCALES", "en-US").split(",")
     targets = [(lc, vlocs[lc]) for lc in only if lc in vlocs]
     if not targets:
         raise SystemExit(f"✗ 这些语言不存在: {only}")
+    made = []
     for lc, lid in targets:
-        _one_preview(lc, lid, mp4)
+        made.append((lc, _one_preview(lc, lid, mp4)))
+    if frame:
+        _set_preview_frames(made, frame)
+
+
+def _set_preview_frames(made, frame):
+    """Set the poster frame once Apple has finished transcoding.
+
+    Not inline with the upload: a preview that is still being processed
+    answers "Asset Not in Complete state! can't update Image!" with a 409,
+    and that used to abort the run after the first locale. The frame is a
+    label on a finished asset, so it waits for one.
+    """
+    import time
+    pending = list(made)
+    for attempt in range(40):
+        still = []
+        for lc, pid in pending:
+            st = get(f"/appPreviews/{pid}")["data"]["attributes"]
+            if st["assetDeliveryState"]["state"] != "COMPLETE":
+                still.append((lc, pid))
+                continue
+            patch(f"/appPreviews/{pid}", {
+                "data": {"type": "appPreviews", "id": pid,
+                         "attributes": {"previewFrameTimeCode": frame}}})
+            print(f"   {lc}: 预览帧 {frame}")
+        pending = still
+        if not pending:
+            print(f"✅ 预览帧 {frame} 已写入 {len(made)} 个语言")
+            return
+        time.sleep(15)
+    print(f"⚠️  还有 {len(pending)} 个语言在转码，预览帧没设上："
+          f"{[lc for lc, _ in pending]} — 重跑 preview 这一步即可")
+
+
+def _preview_frame():
+    """The frame the store shows before the film is played.
+
+    From tools/preview_frames.tsv, because leaving it to ASC's default put a
+    picture of an empty pitch on the soccer listing: the film opens by
+    BUILDING a board, so its first seconds are the emptiest it ever looks.
+    PREVIEW_FRAME overrides for a one-off.
+    """
+    env = os.environ.get("PREVIEW_FRAME")
+    if env:
+        return env
+    table = os.path.join(REPO, "tools", "preview_frames.tsv")
+    if os.path.exists(table):
+        for line in open(table, encoding="utf-8"):
+            if line.startswith("#") or not line.strip():
+                continue
+            # Columns are padded with tabs to line the file up, so take the
+            # first non-empty one after the key rather than cols[1].
+            cols = [c.strip() for c in line.split("\t")]
+            if cols and cols[0] == KEY:
+                rest = [c for c in cols[1:] if c]
+                if rest:
+                    return rest[0]
+    return None
 
 
 def _one_preview(lc, lid, mp4):
@@ -447,6 +574,7 @@ def _one_preview(lc, lid, mp4):
                  "attributes": {"uploaded": True,
                                 "sourceFileChecksum": hashlib.md5(blob).hexdigest()}}})
     print(f"✅ {lc}: 预览视频 {len(blob)/1048576:.1f} MB 已上传，Apple 转码中")
+    return pv["id"]
 
 
 def step_build():
@@ -536,8 +664,15 @@ def step_submit():
     aid = app_id()
     vid, state = find_version(aid)
     print(f"{VERSION} {state}")
-    subs = get(f"/apps/{aid}/reviewSubmissions",
-               **{"filter[state]": "READY_FOR_REVIEW", "limit": 5})["data"]
+    # Only this platform's. Badminton and pickleball still carry MAC_OS
+    # drafts left over from the July 4.3 cleanup — READY_FOR_REVIEW, never
+    # submitted, and the API will not delete them. Taking the first open
+    # submission handed an iOS version to a Mac submission, which Apple
+    # answers with "Supported platforms are not compatible".
+    subs = [x for x in get(f"/apps/{aid}/reviewSubmissions",
+                           **{"filter[state]": "READY_FOR_REVIEW",
+                              "limit": 20})["data"]
+            if x["attributes"].get("platform") == PLATFORM]
     sub = subs[0] if subs else post("/reviewSubmissions", {
         "data": {"type": "reviewSubmissions",
                  "attributes": {"platform": PLATFORM},
@@ -546,12 +681,107 @@ def step_submit():
     items = get(f"/reviewSubmissions/{sub['id']}/items")["data"]
     if not any((i.get("relationships", {}).get("appStoreVersion", {}).get("data") or {}).get("id") == vid
                for i in items):
-        post("/reviewSubmissionItems", {
-            "data": {"type": "reviewSubmissionItems",
-                     "relationships": {
-                         "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
-                         "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
-        print("  + item")
+        try:
+            post("/reviewSubmissionItems", {
+                "data": {"type": "reviewSubmissionItems",
+                         "relationships": {
+                             "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                             "appStoreVersion": {"data": {"type": "appStoreVersions", "id": vid}}}}})
+            print("  + item")
+        except SystemExit as e:
+            # Items list with empty relationships, so the version an earlier
+            # run put on is only known by Apple refusing the duplicate.
+            if "already" not in str(e).lower():
+                raise
+            print("  = item already on the submission")
+    # A first auto-renewable subscription only reaches the store when it is
+    # reviewed WITH a version. Left READY_TO_SUBMIT it never does — the
+    # yearly plans sat that way for months and the store showed only
+    # Lifetime. The new review-submission model carries the subscription's
+    # pending version as an item of the same submission (that is what the
+    # subscription page's "Add for Review" does); /subscriptionSubmissions
+    # is the older route and answers "no pending version" for a version that
+    # was once withdrawn. Try the item first, then the old route, and never
+    # send the app alone when the user asked for both.
+    held = [i for i in items
+            if (i.get("relationships", {}).get("subscriptionVersion", {}).get("data") or {}).get("id")]
+    pending = []
+    for g in get(f"/apps/{aid}/subscriptionGroups")["data"]:
+        for sb in get(f"/subscriptionGroups/{g['id']}/subscriptions")["data"]:
+            if sb["attributes"].get("state") == "READY_TO_SUBMIT":
+                vers = get(f"/subscriptions/{sb['id']}/versions")["data"]
+                pending.append((sb, vers[-1]["id"] if vers else None))
+    for sb, sv in pending:
+        pid = sb["attributes"].get("productId")
+        if any(i["relationships"]["subscriptionVersion"]["data"]["id"] == sv for i in held):
+            print(f"  = subscription {pid} already on the submission")
+            continue
+        ok = False
+        for rel, typ, ident in (("subscriptionVersion", "subscriptionVersions", sv),
+                                ("subscription", "subscriptions", sb["id"])):
+            if not ident:
+                continue
+            try:
+                post("/reviewSubmissionItems", {
+                    "data": {"type": "reviewSubmissionItems", "relationships": {
+                        "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                        rel: {"data": {"type": typ, "id": ident}}}}})
+                print(f"  + subscription {pid} (as {rel})")
+                ok = True
+                break
+            except SystemExit as e:
+                # Items come back with empty relationships, so a subscription
+                # put on the submission by an earlier run is only known by
+                # Apple refusing the duplicate.
+                if "already" in str(e).lower():
+                    print(f"  = subscription {pid} already on the submission")
+                    ok = True
+                    break
+                print(f"  ! {rel}: {str(e)[:200]}")
+        if not ok:
+            try:
+                post("/subscriptionSubmissions", {
+                    "data": {"type": "subscriptionSubmissions", "relationships": {
+                        "subscription": {"data": {"type": "subscriptions", "id": sb["id"]}}}}})
+                print(f"  + subscription {pid} (subscriptionSubmissions)")
+                ok = True
+            except SystemExit as e:
+                print(f"  ! subscriptionSubmissions: {str(e)[:200]}")
+        if not ok:
+            raise SystemExit(f"✗ 年订阅 {pid} 挂不上审核单，版本未送出（审核单保留为草稿）")
+    # "An auto-renewable subscription must be submitted with its subscription
+    # group": the group's display name is reviewed as a subscriptionGroupVersion
+    # on the same submission. A version Apple once REJECTED cannot be put on
+    # again, so a fresh one is created and carries the current name.
+    groups = {sb["relationships"]["group"]["data"]["id"] if sb.get("relationships", {}).get("group", {}).get("data") else None
+              for sb, _ in pending}
+    if pending and None in groups:
+        groups = {g["id"] for g in get(f"/apps/{aid}/subscriptionGroups")["data"]}
+    for gid in groups:
+        gvs = get(f"/subscriptionGroups/{gid}/versions")["data"]
+        gv = gvs[-1]["id"] if gvs else None
+        for attempt in ("current", "fresh"):
+            if attempt == "fresh":
+                gv = post("/subscriptionGroupVersions", {
+                    "data": {"type": "subscriptionGroupVersions", "relationships": {
+                        "subscriptionGroup": {"data": {"type": "subscriptionGroups", "id": gid}}}}})["data"]["id"]
+                print(f"  + new subscription group version {gv}")
+            if not gv:
+                continue
+            try:
+                post("/reviewSubmissionItems", {
+                    "data": {"type": "reviewSubmissionItems", "relationships": {
+                        "reviewSubmission": {"data": {"type": "reviewSubmissions", "id": sub["id"]}},
+                        "subscriptionGroupVersion": {"data": {"type": "subscriptionGroupVersions", "id": gv}}}}})
+                print(f"  + subscription group {gid} (version {gv})")
+                break
+            except SystemExit as e:
+                if "already" in str(e).lower():
+                    print(f"  = subscription group {gid} already on the submission")
+                    break
+                print(f"  ! group version ({attempt}): {str(e)[:160]}")
+                if attempt == "fresh":
+                    raise SystemExit("✗ 订阅组挂不上审核单，版本未送出（审核单保留为草稿）")
     patch(f"/reviewSubmissions/{sub['id']}",
           {"data": {"type": "reviewSubmissions", "id": sub["id"],
                     "attributes": {"submitted": True}}})

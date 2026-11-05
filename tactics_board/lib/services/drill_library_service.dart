@@ -1,12 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/widgets.dart' show BuildContext;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:http/http.dart' as http;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../config_constants.dart';
 import '../models/drill.dart';
+import '../models/session_template.dart';
 import '../models/sport_type.dart';
 import '../pages/main_shell.dart' show kAppVersion;
 
@@ -85,6 +90,8 @@ class DrillLibraryService {
         // No library for this sport yet.
       }
     }
+    _adoptStrings(json);
+    _adoptTemplates(sport, json);
     final drills = json == null
         ? const <Drill>[]
         : (json['drills'] as List)
@@ -100,6 +107,14 @@ class DrillLibraryService {
   Future<File> _cacheFile(SportType sport) async {
     final dir = await getApplicationDocumentsDirectory();
     return File('${dir.path}/drills/${sport.name}.json');
+  }
+
+  /// The tag the server gave the copy in [_cacheFile], beside it so the two
+  /// are lost together: a tag without its pack would tell the server we
+  /// already have what we no longer have.
+  Future<File> _etagFile(SportType sport) async {
+    final dir = await getApplicationDocumentsDirectory();
+    return File('${dir.path}/drills/${sport.name}.etag');
   }
 
   Future<Map<String, dynamic>?> _readCached(SportType sport) async {
@@ -126,12 +141,18 @@ class DrillLibraryService {
     // guard every test run would knock on production.
     if (Platform.environment['FLUTTER_TEST'] == 'true') return;
     try {
-      // A generous timeout on purpose: nothing waits on this, and the
-      // soccer pack is large — an 8s limit made it undownloadable on the
-      // very connections where an update matters.
+      // The tag of the copy already on disk, so an unchanged pack costs a
+      // few hundred bytes instead of a download. Every sport a coach opens
+      // asks once per launch, and the hub can open fifteen — that was 2MB
+      // of pack the phone already had. Only sent when the pack it names is
+      // still there to be kept.
+      final tag = await _knownEtag(sport);
       final resp = await http
-          .get(Uri.parse('$_remoteBase/${sport.name}'))
+          .get(Uri.parse('$_remoteBase/${sport.name}'),
+              headers: tag == null ? null : {'If-None-Match': tag})
           .timeout(const Duration(seconds: 45));
+      // 304: what is on disk is what the server would have sent.
+      if (resp.statusCode == 304) return;
       if (resp.statusCode != 200) return;
       final json = jsonDecode(resp.body) as Map<String, dynamic>;
       final version = (json['version'] as num?)?.toInt() ?? 0;
@@ -142,17 +163,120 @@ class DrillLibraryService {
       // app, which is always something that works, instead of a board with
       // a piece missing. Packs that name nothing are for everyone.
       final min = json['minClient'] as String?;
-      if (min != null && _olderThan(kAppVersion, min)) return;
+      if (min != null && olderThan(await _clientVersion(), min)) return;
       // Parse before persisting: a half-served or wrong-shaped payload must
       // never become the cache the next launch trusts.
-      (json['drills'] as List)
+      final parsed = (json['drills'] as List)
           .map((d) => Drill.fromJson(d as Map<String, dynamic>))
           .toList();
       final f = await _cacheFile(sport);
       await f.create(recursive: true);
       await f.writeAsString(resp.body);
+      // The tag is written after the pack, never before: a tag for a pack
+      // that failed to land would stop the next launch asking for it.
+      final etag = resp.headers['etag'];
+      final tagFile = await _etagFile(sport);
+      if (etag == null) {
+        if (await tagFile.exists()) await tagFile.delete();
+      } else {
+        await tagFile.writeAsString(etag);
+      }
+      // In use from the next open in this session, not the next launch: a
+      // coach who opens the library twice should not need a restart to see
+      // a correction that has already arrived. The counts follow.
+      _cache[sport] = parsed;
+      _counts = null;
+      _adoptStrings(json);
+      _adoptTemplates(sport, json);
     } catch (_) {
       // Offline, slow, or a bad payload — the bundled library is the product.
+    }
+  }
+
+  /// Words a pack brings for the labels the library shows around its
+  /// drills — category and level chips, usage tags — keyed by the same
+  /// translation key the app uses, then by locale ("zh-CN", "en").
+  ///
+  /// The labels used to live only in the app's translation files, so the
+  /// day "Finishing" turned out to read 射门 (shot on goal) for table
+  /// tennis, correcting one word of a drill library needed an app release.
+  /// A pack can now carry the corrected word and it wins over the app's.
+  final Map<String, Map<String, String>> _strings = {};
+
+  /// The ready sessions a pack brings (its `plans`), by sport. Read with
+  /// the drills, so a pack that arrives over the air brings its sessions
+  /// along; a pack without any leaves the list empty, never stale.
+  final Map<SportType, List<SessionTemplate>> _templates = {};
+
+  /// The ready sessions for [sport], once [forSport] has answered.
+  List<SessionTemplate> templatesFor(SportType sport) =>
+      _templates[sport] ?? const [];
+
+  void _adoptTemplates(SportType sport, Map<String, dynamic>? pack) {
+    final raw = pack?['plans'];
+    _templates[sport] = raw is List
+        ? raw.map(SessionTemplate.fromJson).whereType<SessionTemplate>().toList()
+        : const [];
+  }
+
+  void _adoptStrings(Map<String, dynamic>? pack) {
+    final raw = pack?['strings'];
+    if (raw is! Map) return;
+    raw.forEach((key, byLocale) {
+      if (key is String && byLocale is Map) {
+        _strings[key] = {
+          for (final e in byLocale.entries)
+            if (e.key is String && e.value is String)
+              e.key as String: e.value as String,
+        };
+      }
+    });
+  }
+
+  /// [key] in the current language: the pack's word when it brought one,
+  /// otherwise the app's own translation.
+  String label(BuildContext context, String key) {
+    final byLocale = _strings[key];
+    if (byLocale != null) {
+      final tag = context.locale.toLanguageTag();
+      final hit = byLocale[tag] ??
+          (context.locale.languageCode == 'en' ? byLocale['en'] : null) ??
+          byLocale[context.locale.languageCode];
+      if (hit != null && hit.isNotEmpty) return hit;
+    }
+    return key.tr();
+  }
+
+  @visibleForTesting
+  void debugAdoptStrings(Map<String, dynamic> pack) => _adoptStrings(pack);
+
+  /// The release this build is, for the [olderThan] gate.
+  ///
+  /// The build passes it in (APP_VERSION); a build that did not — an Xcode
+  /// archive, `flutter run` — used to compare as version nothing, and
+  /// nothing is older than every pack, so it refused all of them. The
+  /// platform knows the version the bundle was stamped with; ask it.
+  String? _resolvedVersion;
+  Future<String> _clientVersion() async {
+    if (kAppVersion.isNotEmpty) return kAppVersion;
+    if (_resolvedVersion != null) return _resolvedVersion!;
+    try {
+      return _resolvedVersion = (await PackageInfo.fromPlatform()).version;
+    } catch (_) {
+      return _resolvedVersion = '';
+    }
+  }
+
+  /// The tag of the cached pack, or null when there is no pack to keep.
+  Future<String?> _knownEtag(SportType sport) async {
+    try {
+      if (!await (await _cacheFile(sport)).exists()) return null;
+      final f = await _etagFile(sport);
+      if (!await f.exists()) return null;
+      final tag = (await f.readAsString()).trim();
+      return tag.isEmpty ? null : tag;
+    } catch (_) {
+      return null;
     }
   }
 
@@ -168,7 +292,13 @@ class DrillLibraryService {
 /// asked to withhold a pack, and withholding one because a version string
 /// was a shape this code did not expect would break updates for everybody
 /// on the strength of a typo.
-bool _olderThan(String have, String want) {
+@visibleForTesting
+bool olderThan(String have, String want) {
+  // A version this build cannot name is not "older": see above. The empty
+  // string used to read as 0.0.0 and refused every pack.
+  if (have.trim().isEmpty || int.tryParse(have.split('.').first) == null) {
+    return false;
+  }
   final mine = have.split('.');
   final theirs = want.split('.');
   for (var i = 0; i < theirs.length; i++) {

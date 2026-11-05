@@ -74,6 +74,17 @@ class RugbyCourtPainter extends CourtPainterBase {
       _drawDashedVertical(canvas, o(dx, 0).dx, tryY1, tryY2, p);
     }
 
+    // ── 5m lines (dashed, 5m in front of each try line) ─────────────────────
+    // Law 1: dashes parallel to the try line, from the 5m line to the 15m
+    // line at each side and across the posts, but not at the 15m lines.
+    for (final y in [inGoal + 5.0, fieldH - inGoal - 5.0]) {
+      _drawFiveMetreLine(canvas, o, y, fieldW, p);
+    }
+
+    // ── Halfway centre mark (0.5m dash across the line at its middle) ───────
+    canvas.drawLine(o(fieldW / 2, fieldH / 2 - 1.0),
+        o(fieldW / 2, fieldH / 2 + 1.0), p);
+
     // ── Goal posts (H-shaped) on each try line ──────────────────────────────
     const postWidth = 5.6;          // distance between posts
     const crossbarHeight = 3.0;     // crossbar height (3m above ground)
@@ -140,12 +151,22 @@ class RugbyCourtPainter extends CourtPainterBase {
     // 22m line (solid).
     canvas.drawLine(o(0, inGoal + 22), o(fieldW, inGoal + 22), p);
 
-    // 5m & 15m lines (dashed, parallel to touchlines) within the in-goal area.
-    final tryY1 = o(0, 0).dy;
-    final tryY2 = o(0, inGoal).dy;
+    // 10m line (dashed, 10m short of halfway, which is the bottom edge).
+    _drawDashedHorizontal(canvas, o(0, fieldH - 10).dy, left, left + cw, p);
+
+    // 5m & 15m lines (dashed, parallel to touchlines) in the field of play:
+    // from the try line to halfway, as on the full field.
+    final tryY1 = o(0, inGoal).dy;
+    final tryY2 = o(0, fieldH).dy;
     for (final dx in [5.0, 15.0, fieldW - 15.0, fieldW - 5.0]) {
       _drawDashedVertical(canvas, o(dx, 0).dx, tryY1, tryY2, p);
     }
+
+    // 5m line (dashed, 5m in front of the try line).
+    _drawFiveMetreLine(canvas, o, inGoal + 5.0, fieldW, p);
+
+    // Centre mark on the halfway line (the bottom edge).
+    canvas.drawLine(o(fieldW / 2, fieldH - 1.0), o(fieldW / 2, fieldH), p);
 
     // Goal posts (H-shaped) on the try line.
     const postWidth = 5.6;
@@ -185,6 +206,19 @@ class RugbyCourtPainter extends CourtPainterBase {
           stripe,
         );
       }
+    }
+  }
+
+  /// The dashed 5m line parallel to a try line: dash segments from the 5m
+  /// line to the 15m line at each side, and between the 15m lines, leaving
+  /// a gap where they cross the 15m lines.
+  void _drawFiveMetreLine(Canvas canvas, Offset Function(double, double) o,
+      double y, double fieldW, Paint p) {
+    final yy = o(0, y).dy;
+    for (final seg in [
+      [5.0, 14.0], [16.0, fieldW - 16.0], [fieldW - 14.0, fieldW - 5.0]
+    ]) {
+      _drawDashedHorizontal(canvas, yy, o(seg[0], 0).dx, o(seg[1], 0).dx, p);
     }
   }
 

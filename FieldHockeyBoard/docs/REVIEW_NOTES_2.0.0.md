@@ -1,77 +1,90 @@
 # Review Notes — Field Hockey Board 2.0.0 (build 1)
 
 > 提交执行：从 "Dear App Review team" 到 "Thank you..." 写入 App Review
-> Information。
+> Information。本 app 线上版本是 **1.1.25**，所以本次是 1.1.25 → 2.0.0 的
+> 功能更新，Notes 必须覆盖 2.0 的训练库／训练计划，而不只是 2.2 的重绘。
 >
-> **背景**：iOS 线上版本是 **1.1.25 READY_FOR_SALE**（2026-07 的包），没有
-> 待处理的拒绝。本次是从 1.1.25 的常规功能更新，Notes 不写拒因。
+> **送审前必须确认**（zachs_app_base.md 6.4）：账号当前没有其他 app 在审，
+> 距上一个过审 ≥1 周。16 个 app 一次只送一个。
 >
-> **macOS 不在本次范围**：2026-07 全部 16 个 macOS 版本被 4.3(a) 拒绝后
-> macOS 一直停着，本次只发 iOS。
->
-> **本文件不含真机声明**：2.0.0 (1) 在 iOS 模拟器和开发机上逐步验证过，
-> 没有在真机上跑 34 项清单。写做过的，不写没做的。
+> **真机 QA 未做**：下面「What was tested」写的是模拟器和 Mac，没有真机声明。
+> 跑完 `DEVICE_QA` 清单后再把机型和日期补进去——写做过的，不写没做的。
 
 ---
 
 Dear App Review team,
 
-Field Hockey Board 2.0.0 is a feature release over 1.1.25. Everything below
-is in the build and can be reached from the app's own navigation. There are
-no new permissions and no new data collection.
+Field Hockey Board 2.0.0 is a feature release over 1.1.25. There are no new permissions
+and no new network endpoints. Everything below is in the build and can be
+reached from the app's own navigation.
 
-## Drill library (new in 2.0)
+## Drill library (new since 1.1.25)
 
-1. 36 built-in field hockey drills. Each one is an animated board carrying
-   its setup, the ball path and the coaching point. Drills tab → any card →
-   "Put on the board" → press play.
-2. Search, plus filters by category (warm-up, building up, circle entry,
-   finishing, pressing, set pieces, small-sided, goalkeeping, conditioning),
-   by level, and by squad size.
-3. Every drill is written for field hockey: the stick, the shooting circle,
-   the penalty corner, the self-pass. The coaching language is the sport's.
+1. 36 built-in drills. Each one is an animated board carrying its setup,
+   the ball path and the coaching point. Drills tab → any card → "Put on the
+   board" → press play.
+2. Search, plus filters by category, by level and by squad size. A drill can
+   be starred, and put on the board and edited like the coach's own.
+3. Drill content updates over the air when the library changes; the app ships
+   a complete copy and works with no network at all.
 
-## Session planning
+## Practice plans and squad (new since 1.1.25)
 
-4. Practice plans: drills and saved boards strung into a session, run one
-   item at a time from the sideline, with a record of what was run.
-5. A squad page with player photos and per-session attendance.
+4. Drills and saved boards can be strung into a practice plan and run from
+   the touchline one item at a time, with a record of what was actually run.
+5. A squad page keeps players with their photos and marks attendance per
+   session.
 
-## The board itself
+## The board, redrawn (new in 2.0.0)
 
-6. Redrawn player figures that face where they are going, stick in hand;
-   equipment drawn from above so it stays upright when the board is rotated.
-7. A run is a dashed arrow, a carry waves, a pass is a solid line — three
-   actions drawn three ways.
-8. Any element can be rotated, and text can be typed straight onto the
-   pitch and set in one of four typefaces.
-9. A board is a set of pages a coach can flick between.
-10. A board can be shared as a web link that opens in any browser, with no
-    app and no account on the other end.
+6. The board is drawn as a card on the sport's own dark ground, with rounded
+   corners and a soft shadow. Players, equipment and the ball cast contact
+   shadows, the playing surface carries its own texture, and nets are drawn
+   as mesh.
+7. The controls were rebuilt: tools in one bottom capsule and playback in
+   another, larger corner buttons that keep clear of the Dynamic Island, and
+   zoom and fullscreen moved into the bar. On iPad in landscape the controls
+   sit under the board so the court takes the full width.
+8. A player holding the ball has it in front of them on the side they face,
+   and the draw order follows depth, so a player with their back to the
+   viewer is drawn over the ball.
+9. Run, dribble and pass are three different lines, drawn beneath the
+   figures, starting and ending at the feet, with arrowheads that stop short
+   of the player they point at.
+10. Every drill in the library was re-spaced so that no two figures overlap
+    at any step.
+11. A landscape launch screen was added.
 
-## Monetisation
+## Also since 1.1.25
 
-11. The app is free with banner and interstitial ads. One optional
-    non-consumable in-app purchase removes them permanently. Nothing else
-    is gated: every drill, plan and board is available without paying.
+12. A saved board can be shared as a web link; the recipient opens it in a
+    browser and needs no app.
+13. A move can be exported as a video as well as a still image, and a player
+    can be copied with their run onto the next page.
+
+## Store compliance
+
+14. The description carries the standard EULA link and the privacy policy
+    link in every localization.
+15. The app does not present App Tracking Transparency. Ads are
+    non-personalized, the bundle ships a privacy manifest declaring
+    `NSPrivacyTracking = false`, and the App Privacy label declares no
+    tracking. These three agree.
+
+## How to see it
+
+Open the app → Drills → any card → "Put on the board" → press play, or use
+the step arrows under the board. Turn the device sideways for the landscape
+layout. No account is required; Sign in with Apple and Google are optional
+and only back up a coach's own boards.
 
 ## What was tested
 
-Run on the iOS Simulator and on macOS on an Apple silicon Mac: the home
-page, the drill library, loading a drill onto the board, stepping and
-playing every beat of it, the practice plan, the squad page, the board's
-own drawing tools, and the share link. The full automated suite — 531
-tests — passes, and all 36 field hockey boards were re-rendered through the
-app's own painters and reviewed one by one.
-
-## Demo path (about 45 seconds)
-
-Open the app → the home page lists drills to run today → Drills → pick any
-card → "Put on the board" → press play and watch the routine run → tap a
-player to bring up the edit bar → back → "Practice Plan" → add the drill →
-run it.
-
-No account is required. Sign in with Apple and Google are optional and only
-back up a coach's own boards.
+Run on the iOS Simulator (iPhone and iPad, iOS 26/27) and on macOS on an
+Apple silicon Mac: the home page, the drill library, loading a drill onto the
+board, stepping and playing every beat of it, the practice plan, the squad
+page, and the board's own drawing tools. The full automated suite — 575
+tests — passes, and all 674 drill boards in the library were re-rendered
+through the app's own painters and reviewed.
 
 Thank you for reviewing.

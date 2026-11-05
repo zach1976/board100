@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tactics_board/models/player_icon.dart';
 import 'package:tactics_board/models/sport_type.dart';
@@ -86,11 +87,23 @@ void main() {
         for (final raw in (board['players'] as List)) {
           final p = icon(raw as Map<String, dynamic>);
           if (!p.isBall) continue;
+          final tiny =
+              8.0 * ((board['canvasWidth'] as num?)?.toDouble() ?? 1000) / 1000;
           var prev = p.position;
-          for (final m in p.moves) {
+          var held = p.holder;
+          for (var k = 0; k < p.moves.length; k++) {
+            final m = p.moves[k];
             final step = (m - prev).distance;
-            // 生成器对人用的就是这条线：画布单位 8，约 3 个屏幕点。
-            if (step < 8) dead.add('$sport/${d["id"]} ${step.toStringAsFixed(1)}');
+            final now = k < p.moveHolders.length ? p.moveHolders[k] : null;
+            // 生成器对人用的就是这条线：1000 宽的画布里 8 个单位，约 3 个
+            // 屏幕点。板子现在按自己声明的画布存（见 engine.py 的
+            // to_display_frame），所以这条线也按那块画布换算。
+            // 唯一的例外是断球：球没动，但换了人拿——那一拍是真的，
+            // 画笔对这么短的球路本来就不画线，所以也不会有空悬的箭头。
+            if (step < tiny && (now == null || now == held)) {
+              dead.add('$sport/${d["id"]} ${step.toStringAsFixed(1)}');
+            }
+            if (now != null) held = now;
             prev = m;
           }
         }
@@ -104,13 +117,17 @@ void main() {
     // ——field_hockey_court_painter.dart 就是这么画的。
     // 场地在画布里的位置，跟 tools/drills/engine.py 的 court_rect 一样：
     // 手机上的板是 402x730，曲棍球场占宽度的 0.90，居中放置。
-    const aspect = 55.0 / 91.4, displayW = 402.0, displayH = 730.0;
-    const cw = displayW * 0.90;
-    const ch = cw / aspect;
-    const w = cw / displayW * 1000.0, h = ch / displayH * 1500.0;
-    const left = (displayW - cw) / 2 / displayW * 1000.0;
-    const top = (displayH - ch) / 2 / displayH * 1500.0;
-    const postL = left + 0.467 * w, postR = left + 0.533 * w;
+    // 板子按自己声明的画布存，场地就是那块画布的场地，不用再换算。
+    final shownIn = Size(
+      ((drillsOf('fieldHockey').first['board'] as Map)['canvasWidth'] as num)
+          .toDouble(),
+      ((drillsOf('fieldHockey').first['board'] as Map)['canvasHeight'] as num)
+          .toDouble(),
+    );
+    final field = SportType.fieldHockey.fieldRect(shownIn);
+    final w = field.width, h = field.height;
+    final left = field.left, top = field.top;
+    final postL = left + 0.467 * w, postR = left + 0.533 * w;
     final wide = <String>[];
     var shots = 0;
     for (final d in drillsOf('fieldHockey')) {
@@ -126,7 +143,12 @@ void main() {
         // 只看落在底线附近的那一脚：中途的传球不是射门。
         if (end.dy > top + h * 0.085) continue;
         shots++;
-        if (end.dx < postL || end.dx > postR) {
+        // 室内场（board 的 courtLayout = indoor）：3 米球门、22 米宽的场地，
+        // 画在同一个框里但更窄——门柱在框宽的 0.4436 和 0.5564 处。
+        final indoor = board['courtLayout'] == 'indoor';
+        final l = indoor ? left + 0.4436 * w : postL;
+        final r = indoor ? left + 0.5564 * w : postR;
+        if (end.dx < l || end.dx > r) {
           wide.add('${d["id"]} x=${end.dx.toStringAsFixed(0)}');
         }
       }

@@ -1,0 +1,954 @@
+{
+ "1v1 defending in the channel": {
+  "de-DE": "1v1-Verteidigen im Korridor",
+  "nl-NL": "1v1 verdedigen in de corridor"
+ },
+ "1v1 duels": {
+  "de-DE": "1v1-Duelle",
+  "nl-NL": "1v1-duels"
+ },
+ "1v1 with the keeper": {
+  "de-DE": "1v1 gegen den Torwart",
+  "nl-NL": "1v1 tegen de keeper"
+ },
+ "2v2 recovery": {
+  "de-DE": "2v2-Rückwärtsbewegung",
+  "nl-NL": "2v2 terugverdedigen"
+ },
+ "3v2 counter": {
+  "de-DE": "3v2-Konter",
+  "nl-NL": "3v2-counter"
+ },
+ "4v4, four goals": {
+  "de-DE": "4v4 auf vier Tore",
+  "nl-NL": "4v4 op vier doeltjes"
+ },
+ "5v5, two touches": {
+  "de-DE": "5v5 mit zwei Kontakten",
+  "nl-NL": "5v5 met twee keer raken"
+ },
+ "6v6 transition game": {
+  "de-DE": "6v6-Umschaltspiel",
+  "nl-NL": "6v6-omschakelspel"
+ },
+ "7v4 possession": {
+  "de-DE": "7v4 Ballbesitz",
+  "nl-NL": "7v4 balbezit"
+ },
+ "A pass between the two defenders counts double. It only exists for a moment after they step.": {
+  "de-DE": "Ein Pass zwischen den beiden Verteidigern hindurch zählt doppelt. Die Lücke gibt es nur einen Moment lang, nachdem sie herausrücken.",
+  "nl-NL": "Een pass tussen de twee verdedigers door telt dubbel. Die ruimte bestaat maar heel even nadat ze uitstappen."
+ },
+ "A works both gates, then jogs back to the start for the next serve; after six serves A and B swap — the server receives, the receiver serves.": {
+  "de-DE": "A spielt durch beide Hütchentore und trabt dann zum Start zurück für das nächste Zuspiel; nach sechs Zuspielen tauschen A und B — der Zuspieler nimmt an, der Annehmende spielt zu.",
+  "nl-NL": "A werkt beide poortjes af en jogt dan terug naar de start voor de volgende aangespeelde bal; na zes ballen wisselen A en B — de aangever ontvangt, de ontvanger speelt aan."
+ },
+ "Admiring the shot instead of following it — the rebound is gone before anyone moves.": {
+  "de-DE": "Dem Schuss hinterherschauen statt nachzusetzen — der Abpraller ist weg, bevor sich jemand bewegt.",
+  "nl-NL": "Je schot bewonderen in plaats van het te volgen — de rebound is weg voordat iemand beweegt."
+ },
+ "Agility ladder": {
+  "de-DE": "Koordinationsleiter",
+  "nl-NL": "Loopladder"
+ },
+ "Arrive on the beep, not before it — running early is wasted, and the ten seconds of jogging are part of the drill, not a break from it.": {
+  "de-DE": "Komm mit dem Piepton an, nicht davor — zu früh laufen ist verschwendet, und die zehn Sekunden Traben gehören zur Übung, sie sind keine Pause.",
+  "nl-NL": "Kom aan op de piep, niet ervoor — te vroeg lopen is verspild, en de tien seconden joggen horen bij de oefening, het is geen pauze."
+ },
+ "Attack at speed, change direction once. Two feints give the defender time to recover his balance.": {
+  "de-DE": "Mit Tempo angreifen, einmal die Richtung wechseln. Zwei Finten geben dem Verteidiger Zeit, sein Gleichgewicht wiederzufinden.",
+  "nl-NL": "Val aan op snelheid en verander één keer van richting. Twee schijnbewegingen geven de verdediger tijd om zijn evenwicht te herstellen."
+ },
+ "Attack the ball moving, from outside the crowd inwards. A runner who is already standing there has been marked since the whistle.": {
+  "de-DE": "Geh in der Bewegung zum Ball, von außerhalb des Pulks nach innen. Wer schon dort steht, ist seit dem Pfiff gedeckt.",
+  "nl-NL": "Ga in beweging naar de bal, van buiten de kluwen naar binnen. Een loper die daar al staat, wordt sinds het fluitsignaal gedekt."
+ },
+ "Attack the ball, don't wait for it. Whoever is moving when they meet it wins the header.": {
+  "de-DE": "Geh zum Ball, warte nicht auf ihn. Wer in Bewegung ist, wenn er ihn trifft, gewinnt das Kopfballduell.",
+  "nl-NL": "Ga naar de bal toe, wacht er niet op. Wie in beweging is als hij de bal raakt, wint het kopduel."
+ },
+ "Attack the far post from behind the defender's shoulder — arriving late beats standing early.": {
+  "de-DE": "Greif den langen Pfosten aus dem Rücken des Verteidigers an — spät ankommen schlägt früh dastehen.",
+  "nl-NL": "Val de tweede paal aan vanuit de rug van de verdediger — laat aankomen wint van vroeg stilstaan."
+ },
+ "Attacking throw-in": {
+  "de-DE": "Einwurf im Angriff",
+  "nl-NL": "Aanvallende inworp"
+ },
+ "Back four: shift and cover": {
+  "de-DE": "Viererkette: verschieben und absichern",
+  "nl-NL": "Viermansverdediging: schuiven en dekken"
+ },
+ "Back to the pivot, then out. Playing backwards to go forwards is the fastest route on a packed side.": {
+  "de-DE": "Zurück auf den Sechser, dann raus. Rückwärts spielen, um nach vorn zu kommen, ist auf einer zugestellten Seite der schnellste Weg.",
+  "nl-NL": "Terug op de controleur, dan eruit. Achteruit spelen om vooruit te komen is de snelste weg aan een volgepakte kant."
+ },
+ "Ball-watching on the edge of the six-yard box — the runner you cannot see is the one who scores.": {
+  "de-DE": "Am Fünfmeterraum nur auf den Ball schauen — der Läufer, den du nicht siehst, ist der, der trifft.",
+  "nl-NL": "Balkijken aan de rand van het doelgebied — de loper die je niet ziet, is degene die scoort."
+ },
+ "Body over the ball, side foot, low into the corner. Power is not the problem — placement is.": {
+  "de-DE": "Körper über den Ball, Innenseite, flach ins Eck. Die Wucht ist nicht das Problem — die Platzierung ist es.",
+  "nl-NL": "Lichaam over de bal, binnenkant voet, laag in de hoek. Kracht is het probleem niet — plaatsing wel."
+ },
+ "Born in Dutch Total Football and made famous by Barcelona's tiki-taka — possession as the identity of a team.": {
+  "de-DE": "Entstanden im niederländischen Totaal Voetbal und berühmt geworden durch Barcelonas Tiki-Taka — Ballbesitz als Identität einer Mannschaft.",
+  "nl-NL": "Ontstaan in het Nederlandse totaalvoetbal en beroemd gemaakt door het tiki-taka van Barcelona — balbezit als identiteit van een ploeg."
+ },
+ "Both balls keep moving; if they meet on one player or one goes out, stop, put both back at their starting corners and go again. One minute, then reverse the direction.": {
+  "de-DE": "Beide Bälle bleiben in Bewegung; treffen sie bei einem Spieler zusammen oder geht einer ins Aus, stopp, beide zurück an ihre Startecken und neu. Eine Minute, dann Richtung wechseln.",
+  "nl-NL": "Beide ballen blijven rollen; komen ze bij één speler samen of gaat er een uit, stop dan, leg beide terug op hun starthoek en begin opnieuw. Eén minuut, dan de richting omdraaien."
+ },
+ "Both players improvising — a wall pass where neither knows who runs is a turnover with extra steps.": {
+  "de-DE": "Beide Spieler improvisieren — ein Doppelpass, bei dem keiner weiß, wer läuft, ist ein Ballverlust mit Umweg.",
+  "nl-NL": "Beide spelers improviseren — een een-tweetje waarbij niemand weet wie loopt, is balverlies met extra stappen."
+ },
+ "Build match fitness with the ball, so technique holds when the legs are tired — which is when the game is decided.": {
+  "de-DE": "Spielfitness mit Ball aufbauen, damit die Technik hält, wenn die Beine müde sind — denn dann wird das Spiel entschieden.",
+  "nl-NL": "Wedstrijdfitheid opbouwen met bal, zodat de techniek overeind blijft als de benen moe zijn — want dan wordt de wedstrijd beslist."
+ },
+ "Building from the keeper": {
+  "de-DE": "Spielaufbau über den Torwart",
+  "nl-NL": "Opbouwen vanaf de keeper"
+ },
+ "Carry until a defender commits, then release. Passing early turns 3v2 back into 3v3.": {
+  "de-DE": "Führ den Ball, bis sich ein Verteidiger festlegt, dann abspielen. Wer zu früh passt, macht aus dem 3v2 wieder ein 3v3.",
+  "nl-NL": "Dribbel door tot een verdediger kiest, speel dan af. Te vroeg passen maakt van 3v2 weer 3v3."
+ },
+ "Carry until a defender commits, then release. The extra man only exists while they are still deciding.": {
+  "de-DE": "Führ den Ball, bis sich ein Verteidiger festlegt, dann abspielen. Den freien Mann gibt es nur, solange sie noch überlegen.",
+  "nl-NL": "Dribbel door tot een verdediger kiest, speel dan af. De vrije man bestaat alleen zolang zij nog twijfelen."
+ },
+ "Celebrating the win of the ball — the two seconds after a turnover are the whole drill.": {
+  "de-DE": "Die Balleroberung feiern — die zwei Sekunden nach dem Ballgewinn sind die ganze Übung.",
+  "nl-NL": "De balverovering vieren — de twee seconden na de balwinst zijn de hele oefening."
+ },
+ "Centre-backs split wide of the box first. If they stay close, the keeper has no angle to play.": {
+  "de-DE": "Die Innenverteidiger fächern zuerst neben dem Strafraum auf. Bleiben sie eng, hat der Torwart keinen Winkel zum Anspiel.",
+  "nl-NL": "De centrale verdedigers waaieren eerst breed naast het strafschopgebied uit. Blijven ze dichtbij, dan heeft de keeper geen hoek om in te spelen."
+ },
+ "Check your shoulder before the ball comes. If the defender is tight, the turn is away from him, not through him.": {
+  "de-DE": "Schulterblick, bevor der Ball kommt. Steht der Verteidiger eng, drehst du von ihm weg, nicht durch ihn hindurch.",
+  "nl-NL": "Kijk over je schouder voordat de bal komt. Staat de verdediger kort, dan draai je van hem weg, niet door hem heen."
+ },
+ "Conditioning with the ball": {
+  "de-DE": "Kondition mit Ball",
+  "nl-NL": "Conditie met bal"
+ },
+ "Corner": {
+  "de-DE": "Ecke",
+  "nl-NL": "Corner"
+ },
+ "Corner: near post": {
+  "de-DE": "Ecke: kurzer Pfosten",
+  "nl-NL": "Corner: eerste paal"
+ },
+ "Corner: short routine": {
+  "de-DE": "Ecke: kurz ausgeführt",
+  "nl-NL": "Corner: kort genomen"
+ },
+ "Counter": {
+  "de-DE": "Konter",
+  "nl-NL": "Counter"
+ },
+ "Counter-press on loss": {
+  "de-DE": "Gegenpressing nach Ballverlust",
+  "nl-NL": "Tegendruk na balverlies"
+ },
+ "Crossing": {
+  "de-DE": "Flanken",
+  "nl-NL": "Voorzetten"
+ },
+ "Crossing to the crowd instead of the space — the runner attacks where defenders are not.": {
+  "de-DE": "In den Pulk flanken statt in den Raum — der Läufer greift dort an, wo keine Verteidiger sind.",
+  "nl-NL": "Voorzetten in de kluwen in plaats van in de ruimte — de loper valt aan waar geen verdedigers staan."
+ },
+ "Cutback finish": {
+  "de-DE": "Abschluss nach Rückpass",
+  "nl-NL": "Afronden na een cutback"
+ },
+ "Decide early: shot across the keeper, or take him out of it with one touch wide.": {
+  "de-DE": "Früh entscheiden: Schuss ins lange Eck oder mit einem Kontakt zur Seite am Torwart vorbei.",
+  "nl-NL": "Kies vroeg: schieten in de verre hoek, of de keeper uitspelen met één aanname opzij."
+ },
+ "Decide the route before the ball is placed. A goal kick that gets discussed on the six-yard box is already a turnover.": {
+  "de-DE": "Entscheide den Weg, bevor der Ball liegt. Ein Abstoß, über den am Fünfmeterraum noch diskutiert wird, ist schon ein Ballverlust.",
+  "nl-NL": "Kies de route voordat de bal ligt. Een doeltrap waarover in het doelgebied nog overlegd wordt, is al balverlies."
+ },
+ "Defending a corner": {
+  "de-DE": "Ecke verteidigen",
+  "nl-NL": "Een corner verdedigen"
+ },
+ "Defending the cross": {
+  "de-DE": "Flanken verteidigen",
+  "nl-NL": "De voorzet verdedigen"
+ },
+ "Defending the throw-in": {
+  "de-DE": "Einwurf verteidigen",
+  "nl-NL": "De inworp verdedigen"
+ },
+ "Defensive shape": {
+  "de-DE": "Defensivordnung",
+  "nl-NL": "Verdedigende organisatie"
+ },
+ "Diving in on the first feint — the defender who bites decides the duel for the attacker.": {
+  "de-DE": "Bei der ersten Finte reingehen — der Verteidiger, der anbeißt, entscheidet das Duell für den Angreifer.",
+  "nl-NL": "Bij de eerste schijnbeweging erin duiken — de verdediger die hapt, beslist het duel voor de aanvaller."
+ },
+ "Draw them across, then switch in one pass, not three. Three passes is enough time for them to slide back.": {
+  "de-DE": "Zieh sie herüber, dann verlagere mit einem Pass, nicht mit drei. Drei Pässe sind genug Zeit, um zurückzuschieben.",
+  "nl-NL": "Trek ze naar één kant en wissel dan met één pass, niet met drie. Drie passes is genoeg tijd voor hen om terug te schuiven."
+ },
+ "Draw them to one side first. A switch into a compact block just gives the ball away.": {
+  "de-DE": "Zieh sie erst auf eine Seite. Eine Verlagerung gegen einen kompakten Block verschenkt nur den Ball.",
+  "nl-NL": "Trek ze eerst naar één kant. Wisselen naar een compact blok geeft de bal alleen maar weg."
+ },
+ "Dribble slalom": {
+  "de-DE": "Dribbel-Slalom",
+  "nl-NL": "Dribbelslalom"
+ },
+ "Every pass into the feet the receiver is turning away from. Speed of ball beats speed of player.": {
+  "de-DE": "Jeder Pass in den Fuß, der vom Gegner wegdreht. Ballgeschwindigkeit schlägt Laufgeschwindigkeit.",
+  "nl-NL": "Elke pass in de voet die van de tegenstander wegdraait. Snelheid van de bal wint van snelheid van de speler."
+ },
+ "Every trip out is a sprint and every trip back is the turn that matters: plant, drop the hips, and be facing the centre before the first step back.": {
+  "de-DE": "Jeder Weg hin ist ein Sprint, und jeder Weg zurück beginnt mit der Wende, auf die es ankommt: Fuß setzen, Hüfte runter und zur Mitte schauen, bevor der erste Schritt zurück kommt.",
+  "nl-NL": "Elke keer heen is een sprint en elke keer terug begint met de draai die ertoe doet: voet neerzetten, heupen laag en naar het midden kijken vóór de eerste stap terug."
+ },
+ "Everyone chases the ball and the width dies — the game a coach stops first.": {
+  "de-DE": "Alle jagen dem Ball nach und die Breite stirbt — das Spiel, das ein Trainer als Erstes unterbricht.",
+  "nl-NL": "Iedereen jaagt op de bal en de breedte verdwijnt — het spel dat een trainer als eerste stillegt."
+ },
+ "Everyone joins the attack, so the counter starts 3v2 and nobody is even close enough to foul.": {
+  "de-DE": "Alle gehen mit nach vorn, also startet der Konter als 3v2 und keiner ist nah genug, um auch nur zu foulen.",
+  "nl-NL": "Iedereen gaat mee naar voren, dus de counter begint als 3v2 en niemand staat dichtbij genoeg om zelfs maar een overtreding te maken."
+ },
+ "Everyone knows the routine before the whistle. Deciding at the ball tells the defence as much as it tells your own players.": {
+  "de-DE": "Jeder kennt die Variante vor dem Pfiff. Wer erst am Ball entscheidet, verrät sie der Abwehr genauso wie den eigenen Spielern.",
+  "nl-NL": "Iedereen kent de variant vóór het fluitsignaal. Pas bij de bal beslissen vertelt de verdediging net zoveel als je eigen spelers."
+ },
+ "Everyone knows the routine except the one who sells it — the dummy jogs and the trick is naked.": {
+  "de-DE": "Jeder kennt die Variante, nur der nicht, der sie verkaufen muss — der Täuschungsläufer trabt und der Trick liegt offen.",
+  "nl-NL": "Iedereen kent de variant behalve degene die hem moet verkopen — de schijnloper jogt en de truc ligt bloot."
+ },
+ "Far-post cross": {
+  "de-DE": "Flanke an den langen Pfosten",
+  "nl-NL": "Voorzet op de tweede paal"
+ },
+ "Feet set before the ball arrives. Half a step late and the strike goes over every time.": {
+  "de-DE": "Füße stehen, bevor der Ball ankommt. Einen halben Schritt zu spät, und der Schuss geht jedes Mal drüber.",
+  "nl-NL": "Voeten staan voordat de bal aankomt. Een halve stap te laat en het schot gaat elke keer over."
+ },
+ "Finishing pattern": {
+  "de-DE": "Abschlussmuster",
+  "nl-NL": "Afwerkpatroon"
+ },
+ "First defender delays, second covers the inside. Never both at the ball.": {
+  "de-DE": "Der erste Verteidiger verzögert, der zweite sichert innen ab. Nie beide am Ball.",
+  "nl-NL": "De eerste verdediger vertraagt, de tweede dekt de binnenkant. Nooit allebei op de bal."
+ },
+ "First touch": {
+  "de-DE": "Ballannahme",
+  "nl-NL": "Eerste aanname"
+ },
+ "First-time finishing": {
+  "de-DE": "Direktabschluss",
+  "nl-NL": "Direct afronden"
+ },
+ "First-touch gates": {
+  "de-DE": "Ballannahme durch Tore",
+  "nl-NL": "Aanname door poortjes"
+ },
+ "Fitness without the ball: sprinting, changing direction and repeating it tired — the running a match asks for, and the last ten minutes are decided by who still has it.": {
+  "de-DE": "Fitness ohne Ball: sprinten, Richtung wechseln und das müde wiederholen — die Laufarbeit, die ein Spiel verlangt; die letzten zehn Minuten entscheidet, wer sie noch hat.",
+  "nl-NL": "Fitheid zonder bal: sprinten, van richting veranderen en dat herhalen terwijl je moe bent — het loopwerk dat een wedstrijd vraagt, en de laatste tien minuten worden beslist door wie het nog heeft."
+ },
+ "Five seconds. Closest player to the ball goes, the rest cut the forward pass — nobody runs home yet.": {
+  "de-DE": "Fünf Sekunden. Der Spieler, der dem Ball am nächsten ist, geht drauf, der Rest schneidet den Pass nach vorn ab — noch läuft keiner zurück.",
+  "nl-NL": "Vijf seconden. De speler die het dichtst bij de bal is, gaat erop, de rest snijdt de pass vooruit af — nog niemand loopt terug."
+ },
+ "Follow every shot in. Half a yard from the keeper's parry is the easiest goal in football, and nobody is standing there.": {
+  "de-DE": "Geh jedem Schuss nach. Einen halben Meter neben der Torwartparade liegt das leichteste Tor im Fußball, und keiner steht da.",
+  "nl-NL": "Volg elk schot. Een halve meter van de redding van de keeper ligt het makkelijkste doelpunt in het voetbal, en niemand staat er."
+ },
+ "Free kick": {
+  "de-DE": "Freistoß",
+  "nl-NL": "Vrije trap"
+ },
+ "Free kick: edge of the box": {
+  "de-DE": "Freistoß: Strafraumgrenze",
+  "nl-NL": "Vrije trap: rand van de zestien"
+ },
+ "Goal kick": {
+  "de-DE": "Abstoß",
+  "nl-NL": "Doeltrap"
+ },
+ "Going through the motions cold — the warm-up sets the standard the session keeps.": {
+  "de-DE": "Kalt und lustlos durchlaufen — das Aufwärmen setzt den Maßstab, den das Training hält.",
+  "nl-NL": "Koud en plichtmatig meedoen — de warming-up zet de standaard die de training vasthoudt."
+ },
+ "Half-space run": {
+  "de-DE": "Lauf in den Halbraum",
+  "nl-NL": "Loopactie in de halfruimte"
+ },
+ "Heading": {
+  "de-DE": "Kopfball",
+  "nl-NL": "Koppen"
+ },
+ "Holding the offside line": {
+  "de-DE": "Abseitslinie halten",
+  "nl-NL": "De buitenspellijn vasthouden"
+ },
+ "Hurdle hops": {
+  "de-DE": "Hürdensprünge",
+  "nl-NL": "Hordesprongen"
+ },
+ "Improvising a rehearsed moment — the whole value of a set piece is that it was decided beforehand.": {
+  "de-DE": "Einen einstudierten Moment improvisieren — der ganze Wert einer Standardsituation ist, dass sie vorher entschieden wurde.",
+  "nl-NL": "Een ingestudeerd moment improviseren — de hele waarde van een spelhervatting is dat die vooraf is beslist."
+ },
+ "Improvising the one moment that was rehearsed, and handing the ball straight back.": {
+  "de-DE": "Genau den einen Moment improvisieren, der einstudiert war, und den Ball direkt zurückgeben.",
+  "nl-NL": "Juist het ene moment improviseren dat was ingestudeerd, en de bal meteen teruggeven."
+ },
+ "Interval laps": {
+  "de-DE": "Intervallrunden",
+  "nl-NL": "Intervalrondes"
+ },
+ "Kick-off routine": {
+  "de-DE": "Anstoß-Variante",
+  "nl-NL": "Aftrapvariant"
+ },
+ "Killing the ball dead under your feet — a perfect touch into your own shadow is still a lost tempo.": {
+  "de-DE": "Den Ball unter der Sohle tot machen — ein perfekter Kontakt in den eigenen Schatten kostet trotzdem Tempo.",
+  "nl-NL": "De bal doodleggen onder je voeten — een perfecte aanname in je eigen schaduw kost nog steeds tempo."
+ },
+ "Land soft and leave fast — the less time the feet spend on the ground between hurdles, the more the drill gives you.": {
+  "de-DE": "Weich landen und schnell weg — je kürzer die Füße zwischen den Hürden am Boden sind, desto mehr bringt dir die Übung.",
+  "nl-NL": "Zacht landen en snel weg — hoe korter je voeten tussen de horden op de grond staan, hoe meer de oefening je oplevert."
+ },
+ "Leaning back over the ball — a shot hit that way clears the bar every time.": {
+  "de-DE": "Beim Schuss nach hinten lehnen — so getroffen geht der Ball jedes Mal über die Latte.",
+  "nl-NL": "Achterover leunen over de bal — zo geraakt gaat het schot elke keer over de lat."
+ },
+ "Light and fast on the balls of the feet, arms driving, eyes up — the ladder is over in three seconds and the sprint after it is what it was for.": {
+  "de-DE": "Leicht und schnell auf den Fußballen, Arme arbeiten mit, Blick hoch — die Leiter ist nach drei Sekunden vorbei, und der Sprint danach ist das eigentliche Ziel.",
+  "nl-NL": "Licht en snel op de voorvoeten, armen mee, blik omhoog — de ladder is na drie seconden voorbij en de sprint erna is waar het om ging."
+ },
+ "Long switch, first time": {
+  "de-DE": "Lange Verlagerung direkt",
+  "nl-NL": "Lange wissel, direct"
+ },
+ "Look up once before you cross, then hit the space you saw — not the shirt, which has already moved.": {
+  "de-DE": "Vor der Flanke einmal hochschauen, dann in den Raum spielen, den du gesehen hast — nicht aufs Trikot, das sich schon bewegt hat.",
+  "nl-NL": "Kijk één keer op voor je voorzet en speel dan in de ruimte die je zag — niet op het shirt, dat is al verplaatst."
+ },
+ "Move as the ball travels, not when it arrives. The distance between your lines matters more than where the lines are.": {
+  "de-DE": "Bewegen, während der Ball unterwegs ist, nicht wenn er ankommt. Der Abstand zwischen den Linien zählt mehr als die Position der Linien.",
+  "nl-NL": "Verplaats je terwijl de bal onderweg is, niet als hij aankomt. De afstand tussen je linies telt meer dan waar de linies staan."
+ },
+ "Move the ball before the presser arrives, not after. The pass through the middle is worth two on the outside.": {
+  "de-DE": "Den Ball weiterspielen, bevor der Presser da ist, nicht danach. Der Pass durch die Mitte ist zwei auf außen wert.",
+  "nl-NL": "Speel de bal door voordat de drukzetter er is, niet erna. De pass door het midden is er twee aan de buitenkant waard."
+ },
+ "One defender a step late — he plays the whole line onside and nobody else's timing mattered.": {
+  "de-DE": "Ein Verteidiger einen Schritt zu spät — er stellt die ganze Reihe aufs Abseits ein, und das Timing aller anderen war umsonst.",
+  "nl-NL": "Eén verdediger een stap te laat — hij zet de hele lijn onside en de timing van de rest deed er niet meer toe."
+ },
+ "One more player than they press with. Find the free man before the ball reaches you, or he stops being free.": {
+  "de-DE": "Einer mehr, als sie zum Pressen haben. Finde den freien Mann, bevor der Ball bei dir ist, sonst ist er nicht mehr frei.",
+  "nl-NL": "Eén speler meer dan zij druk zetten. Vind de vrije man voordat de bal bij je is, anders is hij niet meer vrij."
+ },
+ "One player checks in to drag his marker, another goes long. The throw is to the space, not the crowd.": {
+  "de-DE": "Ein Spieler kommt entgegen, um seinen Gegenspieler mitzuziehen, ein anderer geht lang. Der Einwurf geht in den Raum, nicht in den Pulk.",
+  "nl-NL": "Eén speler komt kort om zijn tegenstander mee te trekken, een ander gaat diep. De inworp gaat naar de ruimte, niet naar de kluwen."
+ },
+ "Overlap and cross": {
+  "de-DE": "Hinterlaufen und flanken",
+  "nl-NL": "Overlappen en voorzetten"
+ },
+ "Overload one side until they commit, then the isolated winger is 1v1 with the whole flank.": {
+  "de-DE": "Überlade eine Seite, bis sie sich festlegen, dann steht der isolierte Flügelspieler 1v1 mit dem ganzen Flügel.",
+  "nl-NL": "Overbelast één kant tot ze kiezen, dan staat de geïsoleerde vleugelspeler 1v1 met de hele flank voor zich."
+ },
+ "Overload possession": {
+  "de-DE": "Ballbesitz in Überzahl",
+  "nl-NL": "Balbezit in overtal"
+ },
+ "Overload to isolate": {
+  "de-DE": "Überladen, um zu isolieren",
+  "nl-NL": "Overbelasten om te isoleren"
+ },
+ "Pass and follow: after your pass, run to the position you passed to and join the back of that line, so the shape rotates by itself; two minutes one way, then reverse the direction.": {
+  "de-DE": "Pass und nachgehen: Nach deinem Pass läufst du zu der Position, die du angespielt hast, und stellst dich dort hinten an, so rotiert die Form von selbst; zwei Minuten in eine Richtung, dann umdrehen.",
+  "nl-NL": "Passen en volgen: na je pass loop je naar de positie waar je naartoe speelde en sluit je daar achteraan, zo draait de vorm vanzelf door; twee minuten de ene kant op, dan de richting omdraaien."
+ },
+ "Passing pattern": {
+  "de-DE": "Passmuster",
+  "nl-NL": "Passpatroon"
+ },
+ "Passing to a marked man because he is close — pressure is beaten forward, not sideways.": {
+  "de-DE": "Einen gedeckten Mann anspielen, weil er nah ist — Druck löst man nach vorn, nicht quer.",
+  "nl-NL": "Een gedekte man aanspelen omdat hij dichtbij staat — druk los je vooruit op, niet zijwaarts."
+ },
+ "Passing to feet when the pass into space was on — the safe ball keeps possession and goes nowhere.": {
+  "de-DE": "In den Fuß spielen, obwohl der Pass in den Raum möglich war — der sichere Ball hält den Besitz und führt nirgendwohin.",
+  "nl-NL": "In de voet spelen terwijl de pass in de ruimte er was — de veilige bal houdt balbezit en gaat nergens heen."
+ },
+ "Penalties under fatigue": {
+  "de-DE": "Elfmeter unter Ermüdung",
+  "nl-NL": "Strafschoppen met vermoeidheid"
+ },
+ "Pivot switch": {
+  "de-DE": "Verlagerung über den Sechser",
+  "nl-NL": "Wissel via de controleur"
+ },
+ "Placing when power was on, blasting when placement was — the finish reads the keeper, not the coach.": {
+  "de-DE": "Platzieren, wo Wucht gefragt war, und draufhauen, wo Platzierung gefragt war — der Abschluss liest den Torwart, nicht den Trainer.",
+  "nl-NL": "Plaatsen als kracht de keuze was, knallen als plaatsing de keuze was — de afronding leest de keeper, niet de trainer."
+ },
+ "Playing out under pressure": {
+  "de-DE": "Herausspielen unter Druck",
+  "nl-NL": "Opbouwen onder druk"
+ },
+ "Playing the game and forgetting the constraint — the rule is the lesson, not an obstacle.": {
+  "de-DE": "Einfach spielen und die Vorgabe vergessen — die Regel ist die Lektion, kein Hindernis.",
+  "nl-NL": "Gewoon spelen en de beperking vergeten — de regel is de les, geen obstakel."
+ },
+ "Press from": {
+  "de-DE": "Pressing aus dem",
+  "nl-NL": "Druk zetten vanuit"
+ },
+ "Pressing from outside in, which opens the switch the trap was built to stop.": {
+  "de-DE": "Von außen nach innen pressen, was genau die Verlagerung öffnet, die die Falle verhindern sollte.",
+  "nl-NL": "Van buiten naar binnen druk zetten, waardoor precies de wissel opengaat die de val moest voorkomen."
+ },
+ "Pressing trap: the touchline": {
+  "de-DE": "Pressingfalle: die Seitenlinie",
+  "nl-NL": "Pressingval: de zijlijn"
+ },
+ "Reaching with a leg instead of moving the feet — the tackle you lunge for is the one you miss.": {
+  "de-DE": "Mit dem Bein hinlangen statt die Füße zu bewegen — das Tackling, in das du dich wirfst, ist das, das du verlierst.",
+  "nl-NL": "Met een been reiken in plaats van je voeten te verplaatsen — de tackle waarvoor je uitvalt, is de tackle die je mist."
+ },
+ "Receive across your body so the first touch already faces the next gate.": {
+  "de-DE": "Nimm den Ball offen mit dem hinteren Fuß an, damit der erste Kontakt schon zum nächsten Tor zeigt.",
+  "nl-NL": "Neem de bal aan over je lichaam heen, zodat je eerste aanname al naar het volgende poortje wijst."
+ },
+ "Receive, turn, shoot": {
+  "de-DE": "Annehmen, drehen, schießen",
+  "nl-NL": "Aannemen, draaien, schieten"
+ },
+ "Rest defence": {
+  "de-DE": "Restverteidigung",
+  "nl-NL": "Restverdediging"
+ },
+ "Rondo": {
+  "de-DE": "Rondo",
+  "nl-NL": "Rondo"
+ },
+ "Rondo 4v2": {
+  "de-DE": "Rondo 4v2",
+  "nl-NL": "Rondo 4v2"
+ },
+ "Rondo 5v2 — split pass": {
+  "de-DE": "Rondo 5v2 — Pass durch die Schnittstelle",
+  "nl-NL": "Rondo 5v2 — pass door de lijn"
+ },
+ "Rotation square": {
+  "de-DE": "Rotationsquadrat",
+  "nl-NL": "Rotatievierkant"
+ },
+ "Run past the defender before you pass, not after — the wall player returns it into space, not to feet.": {
+  "de-DE": "Lauf am Verteidiger vorbei, bevor du passt, nicht danach — der Wandspieler legt in den Raum ab, nicht in den Fuß.",
+  "nl-NL": "Loop langs de verdediger voordat je passt, niet erna — de kaatser legt terug in de ruimte, niet in de voet."
+ },
+ "Running the shape without scanning — patterns teach the pass, the head-check finds it in a game.": {
+  "de-DE": "Die Form ablaufen ohne Schulterblick — Muster lehren den Pass, der Schulterblick findet ihn im Spiel.",
+  "nl-NL": "Het patroon aflopen zonder rond te kijken — patronen leren de pass, de blik over de schouder vindt hem in de wedstrijd."
+ },
+ "Saving with the feet planted — a keeper set too early is a wall with a hole in each corner.": {
+  "de-DE": "Mit festen Füßen parieren — ein Torwart, der zu früh steht, ist eine Wand mit einem Loch in jeder Ecke.",
+  "nl-NL": "Redden met de voeten vast aan de grond — een keeper die te vroeg stilstaat, is een muur met een gat in elke hoek."
+ },
+ "Score within 10 seconds of winning it back. The first pass after the turnover decides the attack.": {
+  "de-DE": "Innerhalb von 10 Sekunden nach der Balleroberung abschließen. Der erste Pass nach dem Ballgewinn entscheidet den Angriff.",
+  "nl-NL": "Scoor binnen 10 seconden na de balverovering. De eerste pass na de omschakeling beslist de aanval."
+ },
+ "Second ball in the box": {
+  "de-DE": "Zweiter Ball im Strafraum",
+  "nl-NL": "Tweede bal in de zestien"
+ },
+ "Set before the strike, not during it. A keeper still moving when the ball is hit is diving from a standing start.": {
+  "de-DE": "Steh, bevor geschossen wird, nicht währenddessen. Ein Torwart, der beim Schuss noch in Bewegung ist, springt aus dem Stand.",
+  "nl-NL": "Sta stil vóór het schot, niet tijdens. Een keeper die nog beweegt als de bal geraakt wordt, duikt vanuit stilstand."
+ },
+ "Set the ball across your body first, then hit through the middle of it. On target from 25 yards beats perfect over the bar.": {
+  "de-DE": "Leg dir den Ball zuerst vor den Körper, dann triff ihn voll in der Mitte. Aufs Tor aus 25 Metern schlägt perfekt über die Latte.",
+  "nl-NL": "Leg de bal eerst voor je lichaam, raak hem dan vol in het midden. Op doel vanaf 25 meter wint van perfect over de lat."
+ },
+ "Set, back, spread. The lay-off is one touch or the pattern stalls.": {
+  "de-DE": "Ablegen, zurück, verteilen. Die Ablage ist ein Kontakt, sonst stockt das Muster.",
+  "nl-NL": "Kaatsen, terug, spreiden. De kaatsbal is één keer raken, anders valt het patroon stil."
+ },
+ "Shoot across the keeper, low and early. The pattern only exists to arrive with your feet already set.": {
+  "de-DE": "Schieß ins lange Eck, flach und früh. Das Muster gibt es nur, damit du mit gesetzten Füßen ankommst.",
+  "nl-NL": "Schiet in de verre hoek, laag en vroeg. Het patroon bestaat alleen om aan te komen met je voeten al goed."
+ },
+ "Shooting from distance": {
+  "de-DE": "Distanzschüsse",
+  "nl-NL": "Schieten van afstand"
+ },
+ "Shooting off the wrong foot to save a step — the pattern exists to give you the right one.": {
+  "de-DE": "Mit dem falschen Fuß schießen, um einen Schritt zu sparen — das Muster ist dafür da, dir den richtigen zu geben.",
+  "nl-NL": "Met de verkeerde voet schieten om een stap te sparen — het patroon is er juist om je de goede te geven."
+ },
+ "Show him down the line, never inside. Approach fast, arrive slow, and stay on your toes.": {
+  "de-DE": "Lenk ihn die Linie entlang, nie nach innen. Schnell anlaufen, langsam ankommen und auf den Fußballen bleiben.",
+  "nl-NL": "Dwing hem langs de lijn, nooit naar binnen. Snel aanlopen, rustig aankomen en op je voorvoeten blijven."
+ },
+ "Show him down the line, then squeeze. The touchline is the extra defender — press from outside in and you open the switch you were trying to stop.": {
+  "de-DE": "Lenk ihn die Linie entlang, dann zumachen. Die Seitenlinie ist der zusätzliche Verteidiger — wer von außen nach innen presst, öffnet die Verlagerung, die er verhindern wollte.",
+  "nl-NL": "Dwing hem langs de lijn en knijp dan af. De zijlijn is de extra verdediger — zet je druk van buiten naar binnen, dan open je de wissel die je wilde voorkomen."
+ },
+ "Shuttle 5-10-15": {
+  "de-DE": "Pendellauf 5-10-15",
+  "nl-NL": "Pendelrun 5-10-15"
+ },
+ "Side volley from the cutback": {
+  "de-DE": "Seitfallzieher nach Rückpass",
+  "nl-NL": "Volley na een cutback"
+ },
+ "Six passes then switch. The far side is only free while the ball travels — move it before they shift.": {
+  "de-DE": "Sechs Pässe, dann verlagern. Die ferne Seite ist nur frei, solange der Ball unterwegs ist — spiel ihn, bevor sie verschieben.",
+  "nl-NL": "Zes passes, dan wisselen. De verre kant is alleen vrij zolang de bal onderweg is — speel hem voordat zij schuiven."
+ },
+ "Slowing the touch to survive the running — tired technique is the technique you will have in minute 88.": {
+  "de-DE": "Die Kontakte verlangsamen, um das Laufen zu überstehen — müde Technik ist die Technik, die du in der 88. Minute hast.",
+  "nl-NL": "De aanname vertragen om het lopen te overleven — vermoeide techniek is de techniek die je in minuut 88 hebt."
+ },
+ "Small numbers mean nobody hides. Every player is one pass from the ball, so every player is in the game.": {
+  "de-DE": "Wenige Spieler heißt: Keiner kann sich verstecken. Jeder ist einen Pass vom Ball entfernt, also ist jeder im Spiel.",
+  "nl-NL": "Weinig spelers betekent dat niemand zich kan verstoppen. Iedereen is één pass van de bal, dus iedereen doet mee."
+ },
+ "Small touches through the cones, then head up and one long touch into space.": {
+  "de-DE": "Kleine Kontakte durch die Hütchen, dann Kopf hoch und ein langer Kontakt in den Raum.",
+  "nl-NL": "Kleine tikjes door de pionnen, dan hoofd omhoog en één lange tik in de ruimte."
+ },
+ "Small-sided game": {
+  "de-DE": "Spielform",
+  "nl-NL": "Partijvorm"
+ },
+ "Sprint and stop": {
+  "de-DE": "Sprinten und stoppen",
+  "nl-NL": "Sprinten en stoppen"
+ },
+ "Sprint the length first, then place it. Pick the corner before you walk up and do not change your mind.": {
+  "de-DE": "Sprinte zuerst über die ganze Länge, dann platzieren. Wähl die Ecke, bevor du anläufst, und änder deine Meinung nicht.",
+  "nl-NL": "Sprint eerst de hele lengte, plaats hem dan. Kies je hoek voordat je aanloopt en verander niet van gedachten."
+ },
+ "Sprint, shuffle, shuffle, backpedal: keep the hips low and face forward the whole way — never turn to look where you are going.": {
+  "de-DE": "Sprint, Sidestep, Sidestep, rückwärts: Hüfte die ganze Zeit tief und Blick nach vorn — dreh dich nie um, um zu sehen, wohin du läufst.",
+  "nl-NL": "Sprint, zijwaarts, zijwaarts, achteruit: houd je heupen laag en kijk de hele tijd naar voren — draai je nooit om om te zien waar je heen loopt."
+ },
+ "Standing still after the pass — the circle collapses into a polygon of statues.": {
+  "de-DE": "Nach dem Pass stehen bleiben — der Kreis erstarrt zu einem Vieleck aus Statuen.",
+  "nl-NL": "Stilstaan na de pass — de cirkel verstart tot een veelhoek van standbeelden."
+ },
+ "Star run": {
+  "de-DE": "Sternlauf",
+  "nl-NL": "Sterloop"
+ },
+ "Step out on the ball going backwards, not on a shout. The line is only as high as its deepest defender.": {
+  "de-DE": "Rück auf den Ball heraus, der nach hinten gespielt wird, nicht auf Zuruf. Die Linie steht nur so hoch wie ihr tiefster Verteidiger.",
+  "nl-NL": "Stap uit op de bal die terug wordt gespeeld, niet op een roep. De lijn staat maar zo hoog als haar diepste verdediger."
+ },
+ "Switch the play": {
+  "de-DE": "Das Spiel verlagern",
+  "nl-NL": "Van kant wisselen"
+ },
+ "Switching play": {
+  "de-DE": "Spielverlagerung",
+  "nl-NL": "Spel verleggen"
+ },
+ "Switching through three short passes — by the third the far side has shifted with you.": {
+  "de-DE": "Über drei kurze Pässe verlagern — beim dritten hat die ferne Seite schon mit dir verschoben.",
+  "nl-NL": "Wisselen via drie korte passes — bij de derde is de verre kant al met je meegeschoven."
+ },
+ "T-run": {
+  "de-DE": "T-Lauf",
+  "nl-NL": "T-loop"
+ },
+ "Take the place of the player you passed to. Talk before the pass, not after it.": {
+  "de-DE": "Nimm den Platz des Spielers ein, den du angespielt hast. Sprich vor dem Pass, nicht danach.",
+  "nl-NL": "Neem de plaats in van de speler naar wie je passte. Praat vóór de pass, niet erna."
+ },
+ "Take the short options away first. The throw you can head is the one you want them to make.": {
+  "de-DE": "Nimm zuerst die kurzen Optionen weg. Den Einwurf, den du köpfen kannst, sollen sie machen.",
+  "nl-NL": "Haal eerst de korte opties weg. De inworp die je kunt wegkoppen, is de inworp die je ze wilt laten nemen."
+ },
+ "Taking one touch too many — the counter dies in the time a defender needs to turn.": {
+  "de-DE": "Einen Kontakt zu viel — der Konter stirbt in der Zeit, die ein Verteidiger zum Umdrehen braucht.",
+  "nl-NL": "Eén keer te veel raken — de counter sterft in de tijd die een verdediger nodig heeft om te draaien."
+ },
+ "The extra player has to be findable. Stand where a pass can reach you, not where you'd like the ball to be.": {
+  "de-DE": "Der Überzahlspieler muss anspielbar sein. Stell dich dorthin, wo ein Pass dich erreicht, nicht dorthin, wo du den Ball gern hättest.",
+  "nl-NL": "De extra speler moet vindbaar zijn. Ga staan waar een pass je kan bereiken, niet waar je de bal graag zou willen hebben."
+ },
+ "The far full-back tucks in as the ball travels. The line moves as one — a gap is one player being late.": {
+  "de-DE": "Der ballferne Außenverteidiger rückt ein, während der Ball unterwegs ist. Die Kette verschiebt als Einheit — eine Lücke heißt, einer ist zu spät.",
+  "nl-NL": "De verre back schuift naar binnen terwijl de bal onderweg is. De linie beweegt als één geheel — een gat betekent dat één speler te laat is."
+ },
+ "The first defender attacks the ball, the second covers the cutback. Defend the space in front of the goal, not the man behind you.": {
+  "de-DE": "Der erste Verteidiger geht auf den Ball, der zweite sichert den Rückpass ab. Verteidige den Raum vor dem Tor, nicht den Mann hinter dir.",
+  "nl-NL": "De eerste verdediger gaat naar de bal, de tweede dekt de teruggelegde bal af. Verdedig de ruimte voor het doel, niet de man achter je."
+ },
+ "The first man sprints and the rest watch — a press of one is just a tired forward.": {
+  "de-DE": "Der Erste sprintet, die anderen schauen zu — Pressing allein ist nur ein müder Stürmer.",
+  "nl-NL": "De eerste sprint en de rest kijkt toe — druk zetten in je eentje is gewoon een vermoeide spits."
+ },
+ "The first touch is a pass to yourself. Put it where the second touch is already free.": {
+  "de-DE": "Die Ballannahme ist ein Pass an dich selbst. Leg dir den Ball dorthin, wo der zweite Kontakt schon frei ist.",
+  "nl-NL": "De eerste aanname is een pass aan jezelf. Leg hem waar de tweede balaanraking al vrij is."
+ },
+ "The five seconds after the turnover decide it. Win it back or get behind the ball — standing still does neither.": {
+  "de-DE": "Die fünf Sekunden nach dem Ballverlust entscheiden. Hol ihn zurück oder komm hinter den Ball — Stehenbleiben bringt keins von beidem.",
+  "nl-NL": "De vijf seconden na balverlies beslissen het. Verover hem terug of kom achter de bal — stilstaan doet geen van beide."
+ },
+ "The hard minutes should feel like the last ten of a match, the easy ones like walking to a throw-in; if the easy ones are not easy, the hard ones were not hard.": {
+  "de-DE": "Die harten Minuten sollen sich wie die letzten zehn eines Spiels anfühlen, die leichten wie der Weg zu einem Einwurf; sind die leichten nicht leicht, waren die harten nicht hart.",
+  "nl-NL": "De zware minuten moeten voelen als de laatste tien van een wedstrijd, de lichte als wandelen naar een inworp; zijn de lichte niet licht, dan waren de zware niet zwaar."
+ },
+ "The keeper waits for movement and the movement waits for the keeper.": {
+  "de-DE": "Der Torwart wartet auf die Bewegung, und die Bewegung wartet auf den Torwart.",
+  "nl-NL": "De keeper wacht op de beweging en de beweging wacht op de keeper."
+ },
+ "The last repetition is the one the match is decided in. Technique holds or it doesn't — that is the whole test.": {
+  "de-DE": "In der letzten Wiederholung wird das Spiel entschieden. Die Technik hält oder sie hält nicht — das ist der ganze Test.",
+  "nl-NL": "In de laatste herhaling wordt de wedstrijd beslist. De techniek houdt stand of niet — dat is de hele test."
+ },
+ "The line defends the ball instead of the space behind it.": {
+  "de-DE": "Die Kette verteidigt den Ball statt den Raum dahinter.",
+  "nl-NL": "De linie verdedigt de bal in plaats van de ruimte erachter."
+ },
+ "The receiver's first touch decides the switch — take it away from the pressure, then hit it.": {
+  "de-DE": "Die Ballannahme des Empfängers entscheidet die Spielverlagerung — nimm ihn weg vom Druck mit, dann spiel ihn.",
+  "nl-NL": "De eerste aanname van de ontvanger beslist of je het spel kunt verleggen — neem hem mee weg van de druk en speel hem dan."
+ },
+ "The runner starts before the second pass, not after. If he waits, the space is already gone.": {
+  "de-DE": "Der Läufer startet vor dem zweiten Pass, nicht danach. Wenn er wartet, ist der Raum schon weg.",
+  "nl-NL": "De loper vertrekt vóór de tweede pass, niet erna. Als hij wacht, is de ruimte al weg."
+ },
+ "The shape decides who presses first. Whoever goes, the two beside him close the passes either side — one presser alone is just a gap.": {
+  "de-DE": "Die Formation entscheidet, wer zuerst presst. Wer auch immer geht, die beiden neben ihm schließen die Passwege zu beiden Seiten — ein Presser allein ist nur eine Lücke.",
+  "nl-NL": "De formatie bepaalt wie als eerste druk zet. Wie er ook gaat, de twee naast hem sluiten de passlijnen aan weerszijden af — één speler die alleen druk zet, is gewoon een gat."
+ },
+ "The spare man hides behind a defender — an overload you cannot pass to is arithmetic, not football.": {
+  "de-DE": "Der freie Mann versteckt sich hinter einem Verteidiger — eine Überzahl, die man nicht anspielen kann, ist Rechnen, kein Fußball.",
+  "nl-NL": "De vrije man verstopt zich achter een verdediger — een overtal waar je niet naartoe kunt passen is rekenen, geen voetbal."
+ },
+ "The stop is the exercise: three short steps, knees bent, weight back, feet still inside the zone. A stop that skids past the cones is a hamstring waiting to happen.": {
+  "de-DE": "Das Abstoppen ist die Übung: drei kurze Schritte, Knie gebeugt, Gewicht nach hinten, Füße noch in der Zone. Wer über die Hütchen hinausrutscht, wartet nur auf die Zerrung im hinteren Oberschenkel.",
+  "nl-NL": "Het afremmen is de oefening: drie korte passen, knieën gebogen, gewicht naar achteren, voeten nog binnen de zone. Wie voorbij de pionnen doorglijdt, vraagt om een hamstringblessure."
+ },
+ "The trigger is a pass backwards or a bad first touch. First man closes the ball, the rest close the passing lanes.": {
+  "de-DE": "Auslöser ist ein Rückpass oder eine schlechte Ballannahme. Der Erste läuft den Ball an, die anderen schließen die Passwege.",
+  "nl-NL": "Het signaal is een terugspeelbal of een slechte eerste aanname. De eerste sluit de bal af, de rest sluit de passlijnen af."
+ },
+ "The whole side drifts to the ball and nobody picks up the man peeling off behind them.": {
+  "de-DE": "Die ganze Seite schiebt zum Ball, und keiner nimmt den Mann auf, der sich hinter ihnen absetzt.",
+  "nl-NL": "De hele kant schuift naar de bal en niemand pakt de man op die zich achter hen losmaakt."
+ },
+ "The winger holds the full-back wide; the run goes inside him, behind the centre-back.": {
+  "de-DE": "Der Flügelspieler hält den Außenverteidiger breit; der Lauf geht innen an ihm vorbei, hinter den Innenverteidiger.",
+  "nl-NL": "De buitenspeler houdt de back breed; de loopactie gaat binnendoor langs hem, achter de centrale verdediger."
+ },
+ "The winger holds until the full-back is past him — the defender can't watch both.": {
+  "de-DE": "Der Flügelspieler wartet, bis der Außenverteidiger an ihm vorbei ist — der Verteidiger kann nicht beide im Auge behalten.",
+  "nl-NL": "De buitenspeler wacht tot de back hem voorbij is — de verdediger kan niet op allebei letten."
+ },
+ "Third-man run": {
+  "de-DE": "Lauf des dritten Mannes",
+  "nl-NL": "Derde-mansloopactie"
+ },
+ "Three players, two touches each, one runner beyond the ball. If nobody runs past it, it is passing practice, not football.": {
+  "de-DE": "Drei Spieler, je zwei Kontakte, ein Läufer hinter den Ball. Wenn keiner am Ball vorbeiläuft, ist es Passtraining, kein Fußball.",
+  "nl-NL": "Drie spelers, twee balcontacten elk, één loper voorbij de bal. Als niemand erlangs loopt, is het passen oefenen, geen voetbal."
+ },
+ "Three runners: near post, penalty spot, edge of the box. The cutback goes behind the first.": {
+  "de-DE": "Drei Läufer: kurzer Pfosten, Elfmeterpunkt, Strafraumgrenze. Der Rückpass geht hinter den ersten.",
+  "nl-NL": "Drie lopers: eerste paal, penaltystip, rand van het strafschopgebied. De teruggelegde bal gaat achter de eerste langs."
+ },
+ "Three stay while the rest attack, and they stand where the counter would come, not where the ball is. Their job starts the second it is lost.": {
+  "de-DE": "Drei bleiben hinten, während die anderen angreifen, und sie stehen dort, wo der Konter käme, nicht wo der Ball ist. Ihre Arbeit beginnt in der Sekunde des Ballverlusts.",
+  "nl-NL": "Drie blijven achter terwijl de rest aanvalt, en ze staan waar de counter zou komen, niet waar de bal is. Hun werk begint op het moment dat de bal verloren gaat."
+ },
+ "Three-zone possession": {
+  "de-DE": "Ballbesitz in drei Zonen",
+  "nl-NL": "Balbezit in drie zones"
+ },
+ "Touch the line with the hand, not the foot, and push off the outside leg on every turn — the turn is where the seconds go.": {
+  "de-DE": "Berühr die Linie mit der Hand, nicht mit dem Fuß, und drück dich bei jeder Wende mit dem Außenbein ab — in der Wende gehen die Sekunden verloren.",
+  "nl-NL": "Tik de lijn aan met je hand, niet met je voet, en zet bij elke draai af met je buitenste been — bij het draaien gaan de seconden verloren."
+ },
+ "Two balls moving at once. Look up between touches — you can't react to what you haven't seen.": {
+  "de-DE": "Zwei Bälle gleichzeitig unterwegs. Schau zwischen den Kontakten hoch — du kannst nicht auf etwas reagieren, das du nicht gesehen hast.",
+  "nl-NL": "Twee ballen tegelijk in beweging. Kijk op tussen je balcontacten — je kunt niet reageren op wat je niet gezien hebt."
+ },
+ "Two decoys pull the markers back, the near-post runner attacks the ball in front of them.": {
+  "de-DE": "Zwei Lockläufer ziehen die Gegenspieler nach hinten, der Läufer zum kurzen Pfosten attackiert den Ball vor ihnen.",
+  "nl-NL": "Twee lokkers trekken de mandekkers naar achteren, de loper naar de eerste paal gaat vóór hen op de bal af."
+ },
+ "Two goals each forces a switch: attack the one they left open, not the one in front of you.": {
+  "de-DE": "Je zwei Tore erzwingen die Spielverlagerung: Greif das an, das sie offen gelassen haben, nicht das vor dir.",
+  "nl-NL": "Twee doelen per ploeg dwingen je om te verplaatsen: val het doel aan dat ze open hebben gelaten, niet het doel voor je."
+ },
+ "Two on the posts, one attacks the near-post ball, the rest mark space and start moving as the ball is struck.": {
+  "de-DE": "Zwei an den Pfosten, einer attackiert den Ball am kurzen Pfosten, die anderen decken Räume und laufen los, sobald der Ball getreten wird.",
+  "nl-NL": "Twee op de palen, één gaat naar de bal op de eerste paal, de rest dekt ruimte en komt in beweging zodra de bal getrapt wordt."
+ },
+ "Two out drags one marker. The cross now comes from a better angle with one defender fewer in the box.": {
+  "de-DE": "Zwei kommen kurz und ziehen einen Gegenspieler mit. Die Flanke kommt jetzt aus einem besseren Winkel, mit einem Verteidiger weniger im Strafraum.",
+  "nl-NL": "Twee komen kort en trekken één mandekker mee. De voorzet komt nu uit een betere hoek, met één verdediger minder in het strafschopgebied."
+ },
+ "Two over the ball. The runner across the wall is the shot; the strike is the decoy as often as not.": {
+  "de-DE": "Zwei am Ball. Der Läufer quer vor der Mauer ist der Schuss; der Schütze ist genauso oft der Lockvogel.",
+  "nl-NL": "Twee achter de bal. De loper langs de muur is het schot; de trapper is net zo vaak de afleiding."
+ },
+ "Two passes decided before the whistle: long into the corner and press, or keep it and settle. Deciding at the ball gives it straight back.": {
+  "de-DE": "Zwei Pässe vor dem Pfiff festgelegt: lang in die Ecke und pressen, oder halten und beruhigen. Wer erst am Ball entscheidet, gibt ihn direkt wieder her.",
+  "nl-NL": "Twee passes besloten vóór het fluitsignaal: lang in de hoek en druk zetten, of houden en rust brengen. Wie pas aan de bal beslist, geeft hem meteen weer weg."
+ },
+ "Two touches forces the scan before you receive. Nobody solves it with skill; they solve it by looking earlier.": {
+  "de-DE": "Zwei Kontakte erzwingen den Schulterblick vor der Annahme. Keiner löst das mit Technik; man löst es, indem man früher schaut.",
+  "nl-NL": "Twee balcontacten dwingen je om te scannen voordat je ontvangt. Niemand lost het op met techniek; je lost het op door eerder te kijken."
+ },
+ "Two touches. The pass that breaks the line is the one through the middle — look for it before playing round.": {
+  "de-DE": "Zwei Kontakte. Der linienbrechende Pass ist der durch die Mitte — such ihn, bevor du außen herum spielst.",
+  "nl-NL": "Twee balcontacten. De pass die de linie doorbreekt is die door het midden — zoek hem voordat je eromheen speelt."
+ },
+ "Two-ball awareness": {
+  "de-DE": "Wahrnehmung mit zwei Bällen",
+  "nl-NL": "Overzicht met twee ballen"
+ },
+ "Waiting for the perfect ball — the run made late is a run defended easily.": {
+  "de-DE": "Auf den perfekten Ball warten — ein später Lauf ist leicht zu verteidigen.",
+  "nl-NL": "Wachten op de perfecte bal — een te late loopactie is makkelijk te verdedigen."
+ },
+ "Wall pass on the wing": {
+  "de-DE": "Doppelpass auf dem Flügel",
+  "nl-NL": "Een-tweetje op de flank"
+ },
+ "Watching the flight instead of the marker — you lose your man at the moment of the kick.": {
+  "de-DE": "Den Flug beobachten statt den Gegenspieler — im Moment der Ausführung verlierst du deinen Mann.",
+  "nl-NL": "Naar de baan van de bal kijken in plaats van naar je tegenstander — op het moment van de trap ben je je man kwijt."
+ },
+ "When a defender wins the ball or knocks it out of the ring, they swap with the player who lost it — the loser goes in to defend, the winner comes out to pass, and play carries on without a stop.": {
+  "de-DE": "Gewinnt ein Verteidiger den Ball oder spielt ihn aus dem Kreis, tauscht er mit dem Spieler, der ihn verloren hat — wer verliert, geht rein zum Verteidigen, wer gewinnt, geht raus zum Passen, und es geht ohne Pause weiter.",
+  "nl-NL": "Verovert een verdediger de bal of speelt hij hem uit de cirkel, dan wisselt hij met de speler die hem verloor — wie verliest gaat erin om te verdedigen, wie wint gaat eruit om te passen, en het spel gaat zonder onderbreking door."
+ },
+ "When the ball leaves the grid the coach serves a new one to the team that did not put it out, and play carries on; six minutes, then the defenders swap with two of the players who have been keeping it.": {
+  "de-DE": "Verlässt der Ball das Feld, spielt der Trainer einen neuen zu dem Team, das ihn nicht ins Aus gebracht hat, und es geht weiter; nach sechs Minuten tauschen die Verteidiger mit zwei der Spieler, die den Ball gehalten haben.",
+  "nl-NL": "Gaat de bal uit het vak, dan speelt de trainer een nieuwe in bij de ploeg die hem er niet uit speelde, en het spel gaat door; na zes minuten wisselen de verdedigers met twee van de spelers die de bal hielden."
+ },
+ "Y-pattern passing": {
+  "de-DE": "Y-Passform",
+  "nl-NL": "Y-passvorm"
+ },
+ "Yo-yo intermittent runs": {
+  "de-DE": "Yo-Yo-Intervallläufe",
+  "nl-NL": "Yo-yo-intervallopen"
+ },
+ "You can only score by playing through the middle zone, never around it.": {
+  "de-DE": "Ein Tor zählt nur, wenn ihr durch die mittlere Zone spielt, nie außen herum.",
+  "nl-NL": "Je kunt alleen scoren door via de middelste zone te spelen, nooit eromheen."
+ },
+ "attacking": {
+  "de-DE": "offensiv",
+  "nl-NL": "aanvallend"
+ },
+ "box to box": {
+  "de-DE": "von Strafraum zu Strafraum",
+  "nl-NL": "box-to-box"
+ },
+ "central": {
+  "de-DE": "zentral",
+  "nl-NL": "centraal"
+ },
+ "crosses": {
+  "de-DE": "Flanken",
+  "nl-NL": "voorzetten"
+ },
+ "defensive": {
+  "de-DE": "defensiv",
+  "nl-NL": "verdedigend"
+ },
+ "diamond": {
+  "de-DE": "Raute",
+  "nl-NL": "ruit"
+ },
+ "direct": {
+  "de-DE": "direkt",
+  "nl-NL": "rechtstreeks"
+ },
+ "distribution": {
+  "de-DE": "Spieleröffnung",
+  "nl-NL": "uitverdedigen"
+ },
+ "far post": {
+  "de-DE": "langer Pfosten",
+  "nl-NL": "tweede paal"
+ },
+ "final third": {
+  "de-DE": "letztes Drittel",
+  "nl-NL": "laatste derde"
+ },
+ "half-space": {
+  "de-DE": "Halbraum",
+  "nl-NL": "halfruimte"
+ },
+ "handling": {
+  "de-DE": "Fangen",
+  "nl-NL": "vangen"
+ },
+ "hexagon": {
+  "de-DE": "Sechseck",
+  "nl-NL": "zeshoek"
+ },
+ "high block": {
+  "de-DE": "hoher Block",
+  "nl-NL": "hoog blok"
+ },
+ "in traffic": {
+  "de-DE": "unter Gegnerdruck",
+  "nl-NL": "in de drukte"
+ },
+ "layoff": {
+  "de-DE": "Ablage",
+  "nl-NL": "met aflegger"
+ },
+ "left halfspace": {
+  "de-DE": "linker Halbraum",
+  "nl-NL": "linkerhalfruimte"
+ },
+ "left · far post": {
+  "de-DE": "links · langer Pfosten",
+  "nl-NL": "links · tweede paal"
+ },
+ "left · near post": {
+  "de-DE": "links · kurzer Pfosten",
+  "nl-NL": "links · eerste paal"
+ },
+ "long": {
+  "de-DE": "lang",
+  "nl-NL": "lang"
+ },
+ "low block": {
+  "de-DE": "tiefer Block",
+  "nl-NL": "laag blok"
+ },
+ "mid block": {
+  "de-DE": "mittlerer Block",
+  "nl-NL": "middenblok"
+ },
+ "middle third": {
+  "de-DE": "Mitteldrittel",
+  "nl-NL": "middelste derde"
+ },
+ "open body": {
+  "de-DE": "offene Stellung",
+  "nl-NL": "open lichaamshouding"
+ },
+ "overlap left": {
+  "de-DE": "Hinterlaufen links",
+  "nl-NL": "overlap links"
+ },
+ "overlap right": {
+  "de-DE": "Hinterlaufen rechts",
+  "nl-NL": "overlap rechts"
+ },
+ "own third": {
+  "de-DE": "eigenes Drittel",
+  "nl-NL": "eigen derde"
+ },
+ "pentagon": {
+  "de-DE": "Fünfeck",
+  "nl-NL": "vijfhoek"
+ },
+ "pressed from behind": {
+  "de-DE": "Druck von hinten",
+  "nl-NL": "met druk in de rug"
+ },
+ "pressed side on": {
+  "de-DE": "Druck von der Seite",
+  "nl-NL": "met druk van opzij"
+ },
+ "pull back": {
+  "de-DE": "Rückpass",
+  "nl-NL": "teruggelegde bal"
+ },
+ "repeat sprints": {
+  "de-DE": "wiederholte Sprints",
+  "nl-NL": "herhaalde sprints"
+ },
+ "right halfspace": {
+  "de-DE": "rechter Halbraum",
+  "nl-NL": "rechterhalfruimte"
+ },
+ "right · far post": {
+  "de-DE": "rechts · langer Pfosten",
+  "nl-NL": "rechts · tweede paal"
+ },
+ "right · near post": {
+  "de-DE": "rechts · kurzer Pfosten",
+  "nl-NL": "rechts · eerste paal"
+ },
+ "runner across": {
+  "de-DE": "Läufer quer vor der Mauer",
+  "nl-NL": "loper langs de muur"
+ },
+ "second ball": {
+  "de-DE": "zweiter Ball",
+  "nl-NL": "tweede bal"
+ },
+ "set position": {
+  "de-DE": "Grundposition",
+  "nl-NL": "basishouding"
+ },
+ "shuttle to finish": {
+  "de-DE": "Pendellauf bis zum Abschluss",
+  "nl-NL": "pendelsprint naar afronding"
+ },
+ "sweeping behind the line": {
+  "de-DE": "Ausputzen hinter der Kette",
+  "nl-NL": "ruimte achter de linie opruimen"
+ },
+ "to the full-back": {
+  "de-DE": "zum Außenverteidiger",
+  "nl-NL": "naar de back"
+ },
+ "triangle": {
+  "de-DE": "Dreieck",
+  "nl-NL": "driehoek"
+ },
+ "underlap": {
+  "de-DE": "Unterlaufen",
+  "nl-NL": "binnendoor overlappen"
+ },
+ "wall pass left": {
+  "de-DE": "Doppelpass links",
+  "nl-NL": "een-tweetje links"
+ },
+ "wall pass right": {
+  "de-DE": "Doppelpass rechts",
+  "nl-NL": "een-tweetje rechts"
+ },
+ "wide left": {
+  "de-DE": "breit links",
+  "nl-NL": "breed links"
+ },
+ "wide right": {
+  "de-DE": "breit rechts",
+  "nl-NL": "breed rechts"
+ }
+}

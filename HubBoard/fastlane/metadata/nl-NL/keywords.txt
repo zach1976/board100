@@ -1,0 +1,1 @@
+multisport tactiekbord,trainingsplan,schema,basketbal,voetbal,demo,analyse,wedstrijd

@@ -1,1 +1,1 @@
-simple,double,service,retour,volée,fond de court,deuce,roland garros,wimbledon,terre battue,raquette
+tableau tactique,entraînement,séances,service,placement en double,démo,analyse,revue de match

@@ -37,6 +37,17 @@ RONDO_RULES = {
 }
 
 
+# A shot that goes in, in the authoring frame.
+#
+# The goal mouth is a metre past the goal line, and the goal line is where
+# court_rect puts it — y=176 of the 1500 these coordinates are written in, not
+# y=0. The shots were authored at y=60 back when the pitch filled the canvas;
+# once it was fitted to its own aspect and centred, that was ten metres BEHIND
+# the goal, and every finishing drill ended with the ball in the car park.
+# Written as a number, not a call, so it reads next to the x it travels with.
+GOAL_Y = 165
+
+
 def soccer_drills() -> list[Drill]:
     return [
         # ── warm-up ──────────────────────────────────────────────────────────
@@ -234,7 +245,7 @@ def soccer_drills() -> list[Drill]:
             # Released into the overlap once he is past, then crossed to the
             # 9 arriving at the far post — never to the space between two
             # players with nobody's name on it.
-            ball_to=[(1, 1), (3, 2), ((500, 60), 3)],
+            ball_to=[(1, 1), (3, 2), ((500, GOAL_Y), 3)],
             free=True,
         ),
         Drill(
@@ -266,7 +277,7 @@ def soccer_drills() -> list[Drill]:
             # 6 into the 10's feet, set back first time, and the third ball
             # played into the 8 running beyond — two players is a wall pass,
             # not a third-man run — and the 8 finishes it
-            ball_to=[(1, 0), (0, 1), (2, 2), ((500, 60), 3)],
+            ball_to=[(1, 0), (0, 1), (2, 2), ((500, GOAL_Y), 3)],
             free=True,
         ),
         Drill(
@@ -341,7 +352,7 @@ def soccer_drills() -> list[Drill]:
                   P(500, 195, "GK", role="GK")],
             ball=0,
             # carried to the byline, cut back to the 10 arriving on the spot
-            ball_to=[(0, 0), (2, 1), ((500, 60), 2)],   # …and the 10 finishes
+            ball_to=[(0, 0), (2, 1), ((500, GOAL_Y), 2)],   # …and the 10 finishes
             free=True,
         ),
         Drill(
@@ -369,7 +380,7 @@ def soccer_drills() -> list[Drill]:
             ball=0,
             # carried at the keeper the whole way, finished past him
             ball_follow=0,
-            ball_to=[((460, 60), 2)],
+            ball_to=[((460, GOAL_Y), 2)],
             free=True,
         ),
 
@@ -411,7 +422,7 @@ def soccer_drills() -> list[Drill]:
             # The pass into the 6 IS the trigger, so it has to be drawn:
             # the ball used to sit on top of him from the first frame.
             ball=(340, 420),
-            ball_to=[("a0", 0), (2, 2), ((480, 60), 3)],
+            ball_to=[("a0", 0), (2, 2), ((480, GOAL_Y), 3)],
             free=True,
         ),
         Drill(
@@ -453,7 +464,7 @@ def soccer_drills() -> list[Drill]:
             # their 9 carries at the recovering pair, releases the 10, who
             # shoots
             ball=(320, 745),
-            ball_to=[("a0", 0), ("a1", 1), ((480, 60), 2)],
+            ball_to=[("a0", 0), ("a1", 1), ((480, GOAL_Y), 2)],
             free=True,
         ),
 
@@ -536,7 +547,7 @@ def soccer_drills() -> list[Drill]:
             ball=0, ball_spot=(500, 412),   # on the spot, between the two over it
             # rolled square into the 8's run, struck second beat through the
             # gap at the end of the wall
-            ball_to=[(2, 0), ((500, 60), 1)],
+            ball_to=[(2, 0), ((500, GOAL_Y), 1)],
         ),
 
         # ── small-sided games ────────────────────────────────────────────────
@@ -869,7 +880,7 @@ def soccer_drills() -> list[Drill]:
             # given to the wall, returned into the 7's run — and crossed to
             # the goal: the wall pass is a way past the man, and past him is
             # where it ends
-            ball_to=[(1, 0), (0, 1), ((480, 60), 2)],
+            ball_to=[(1, 0), (0, 1), ((480, GOAL_Y), 2)],
         ),
         Drill(
             id="counter_3v2", category="attacking", minutes=12,
@@ -906,7 +917,7 @@ def soccer_drills() -> list[Drill]:
             ball=0,
             # 9 carries both beats — until A commits — then releases the 7
             # arriving on the far side, away from the recovering pair
-            ball_to=[(0, 0), (0, 1), (2, 2), ((500, 60), 3)],
+            ball_to=[(0, 0), (0, 1), (2, 2), ((500, GOAL_Y), 3)],
         ),
         Drill(
             id="halfspace_run", category="attacking", minutes=12,
@@ -940,7 +951,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # into the half-space run, carried on, finished
-            ball_to=[(2, 0), (2, 1), ((500, 60), 2)],
+            ball_to=[(2, 0), (2, 1), ((500, GOAL_Y), 2)],
         ),
 
         # ── finishing ────────────────────────────────────────────────────────
@@ -971,7 +982,7 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(430, 260, 1)])],
             ball=0,
             # laid into the 9's arrival, struck first time
-            ball_to=[(1, 0), ((500, 60), 1)],
+            ball_to=[(1, 0), ((500, GOAL_Y), 1)],
         ),
         Drill(
             id="finish_turn_shoot", category="finishing", minutes=10,
@@ -1006,7 +1017,7 @@ def soccer_drills() -> list[Drill]:
             ball=0,
             # into the 9's feet as he checks away, taken across the
             # defender on the turn, then struck from the D
-            ball_to=[(1, 0), (1, 1), ((470, 60), 2)],
+            ball_to=[(1, 0), (1, 1), ((470, GOAL_Y), 2)],
         ),
 
         # ── defending ────────────────────────────────────────────────────────
@@ -1264,10 +1275,12 @@ def soccer_drills() -> list[Drill]:
                   "ms-MY": "Dua bola bergerak serentak. Angkat kepala antara sentuhan.",
                   "th-TH": "สองลูกเคลื่อนพร้อมกัน เงยหน้าระหว่างการแตะ",
                   "vi-VN": "Hai bóng cùng lúc. Ngẩng đầu giữa các chạm."},
-            # A board can draw one ball, so it follows one of the two: it
-            # goes round the square a beat at a time while each receiver
-            # opens his body to take it. Two legs on the same beat drew one
-            # diagonal line and called it two passes.
+            # Both balls, because the drill is named for having two and a
+            # board that drew one made a liar of its own note ("两个球同时
+            # 转不停" over a picture of a single ball). They go the same way
+            # round the square, two stations apart, which is how the drill is
+            # actually run: nobody ever holds both, and the pair sits on
+            # opposite sides of the square all the way round.
             home=[
                 P(330, 600, "A", moves=[(370, 650, 3)]),
                 P(670, 600, "B", moves=[(640, 650, 0)]),
@@ -1276,9 +1289,11 @@ def soccer_drills() -> list[Drill]:
             ],
             markers=[M(300, 550), M(700, 550), M(700, 950), M(300, 950)],
             ball=0,
-            # round the square, one pass a beat — the second ball goes the
-            # other way at the same time
+            # round the square, one pass a beat
             ball_to=[(1, 0), (2, 1), (3, 2), (0, 3)],
+            # and the other one, starting from the far corner
+            ball2=2,
+            ball2_to=[(3, 0), (0, 1), (1, 2), (2, 3)],
         ),
         Drill(
             id="possession_overload_4v2_plus", category="possession", minutes=12,
@@ -1386,7 +1401,7 @@ def soccer_drills() -> list[Drill]:
             ],
             ball=0,
             # 11 carries the line with his run, then the far-post cross meets the 7
-            ball_to=[(0, 0), (2, 1), ((520, 60), 2)],   # …and the 7 volleys it in
+            ball_to=[(0, 0), (2, 1), ((520, GOAL_Y), 2)],   # …and the 7 volleys it in
         ),
         Drill(
             id="finish_volley_side", category="finishing", minutes=10,
@@ -1415,7 +1430,7 @@ def soccer_drills() -> list[Drill]:
             away=[P(500, 200, "GK", role="GK", moves=[(560, 250, 1)])],
             ball=0,
             # chipped to the 9's arrival and volleyed
-            ball_to=[(1, 0), ((500, 60), 1)],
+            ball_to=[(1, 0), ((500, GOAL_Y), 1)],
         ),
         Drill(
             id="defend_1v1_channel", category="defending", minutes=10,
@@ -1621,7 +1636,7 @@ def soccer_drills() -> list[Drill]:
             markers=[M(500, 940)],
             # out to the cone and back, then the walk-up and the strike
             ball=(500, 216),
-            ball_to=[((460, 90), 2)],
+            ball_to=[((460, GOAL_Y), 2)],
         ),
     ]
 

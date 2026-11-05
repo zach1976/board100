@@ -1,5 +1,16 @@
-Nouveautés
+Nouveautés de la version 2.1.0
 
-• L'éditeur de chronologie défile désormais : chaque ligne de joueur et de tracé reste accessible, quel que soit le nombre ajouté.
-• Retour plus fluide lorsque vous revenez dans l'app.
-• Corrections de bugs et améliorations de stabilité.
+SÉANCES PRÊTES
+Six séances prêtes, composées des 40 exercices de la bibliothèque : base, attaque, défense, coups de pied arrêtés, semaine de match et présaison. Choisissez-en une en créant un plan d'entraînement et modifiez-la ensuite.
+
+NOTES SUR LE TABLEAU
+Écrivez du texte directement sur le tableau. La note d'étape d'un exercice s'affiche sur le tableau et change à chaque étape. Choisissez une couleur ou une épaisseur avec une ligne sélectionnée pour la restyler.
+
+PENSÉ POUR L'iPAD
+Une barre latérale au lieu des onglets, la bibliothèque d'exercices et les plans à côté de leur détail, et des panneaux qui s'ouvrent près de leur bouton. Le clavier fonctionne (Espace lance la lecture, les flèches avancent pas à pas, Cmd+Z annule) et l'Apple Pencil dessine pendant que les doigts déplacent les joueurs.
+
+ALLEMAND ET NÉERLANDAIS
+L'application parle désormais allemand et néerlandais : chaque écran, chaque nom d'exercice et chaque consigne d'entraîneur. Cela fait 14 langues.
+
+AUTRES CORRECTIONS
+L'écran Pro s'intitule désormais « Tous les exercices, sans pub ». Revenir d'un tableau vous ramène à la séance en cours. En paysage, la barre latérale s'écarte de la Dynamic Island. Beaucoup de libellés encore en anglais sont maintenant traduits.

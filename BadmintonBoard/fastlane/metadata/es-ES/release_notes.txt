@@ -1,5 +1,13 @@
-Novedades
+Novedades de la versión 2.1.1
 
-• El editor de línea de tiempo ahora se desplaza: todas las filas de jugadores y trazos quedan accesibles, sin importar cuántas añadas.
-• Regreso más fluido al volver a la app.
-• Correcciones de errores y mejoras de estabilidad.
+DESPLAZAMIENTOS CORREGIDOS
+Los ejercicios de desplazamiento empiezan en el centro de la media pista, con los conos de fondo sobre la línea final y los delanteros junto a las laterales. Al ir al fondo de derecha el jugador ya no se gira; solo se gira en el fondo de revés, y el golpe por encima de la cabeza sigue de cara a la red.
+
+PRO, MÁS FÁCIL DE ENCONTRAR
+«Quitar anuncios» y «Restaurar compras» están ahora en la página Mi cuenta, a un toque. La hoja de compra es un panel blanco propio, fácil de leer también en iPad.
+
+NUEVOS ICONOS E INTRODUCCIÓN
+Los iconos de los deportes y las tres pantallas de introducción del primer inicio se han redibujado.
+
+OTRAS CORRECCIONES
+Al cerrar una pizarra, el nombre del ejercicio ya no se queda sobre la lista.

@@ -1,0 +1,7 @@
+Ein großes Update:
+• Übungsbibliothek mit animierten Tafeln Schritt für Schritt, dazu sechs fertige Trainingseinheiten
+• Trainingspläne, die du am Spielfeldrand durchgehst
+• Die Tafel neu gezeichnet, mit Notizen, die sich mit jedem Schritt ändern
+• Tablet-Layout mit Seitenleiste, Tastatur und Stift
+• Neue Sportsymbole und Einführung; Deutsch und Niederländisch
+• Alle Übungen und Funktionen enthalten, finanziert durch Werbung

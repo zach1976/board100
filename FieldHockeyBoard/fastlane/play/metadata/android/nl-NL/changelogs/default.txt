@@ -1,0 +1,12 @@
+Nieuw in 2.2.0
+
+• Wedstrijddag: periodes, opstelling, klok, wissels; groene, gele en rode kaarten met tijdstraf; shoot-out; pdf-export (klok vereist Pro)
+• Playbook op de wedstrijddag
+• Kant-en-klare trainingen: zes trainingsplannen
+• Zaalveld en Hockey5s naast het buitenveld
+• 65 oefeningen, was 36
+• Notities op het bord, die met elke stap wisselen
+• Hockeyblauwe achtergronden
+• Tabletweergave, toetsenbord en stylus
+• Duits en Nederlands: 14 talen
+• Kleine verbeteringen

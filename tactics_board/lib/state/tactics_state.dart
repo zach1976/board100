@@ -1,4 +1,6 @@
 import 'dart:async';
+
+import '../services/review_service.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
@@ -17,19 +19,31 @@ import '../models/drawing_stroke.dart';
 import '../models/sport_formation.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
+import '../models/volleyball_rotation.dart';
 import '../services/ad_service.dart';
 import '../services/working_board_service.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync_service.dart';
 import '../services/practice_service.dart';
 import '../services/recent_boards_service.dart';
+import '../services/drill_library_service.dart';
+import '../models/drill_note.dart';
 import '../services/sync_service.dart';
+import '../widgets/player_icon_widget.dart'
+    show
+        boardFigureScaleFor,
+        gBoardFigureScale,
+        gTightFigureScale,
+        kFigureScale,
+        kPlayerIconBase,
+        kPlayerIconSize;
 
 class _BoardSnapshot {
   final List<PlayerIcon> players;
   final List<DrawingStroke> strokes;
+  final RotationSetup? rotation;
 
-  _BoardSnapshot({required this.players, required this.strokes});
+  _BoardSnapshot({required this.players, required this.strokes, this.rotation});
 }
 
 /// Global key used to capture the board canvas as an image for sharing.
@@ -387,6 +401,7 @@ class TacticsState extends ChangeNotifier {
   // Called as each animation step completes (to reveal lines incrementally)
   void advanceAtStep(int step) {
     _atStep = step;
+    _syncDrillNote();
     notifyListeners();
   }
 
@@ -394,7 +409,12 @@ class TacticsState extends ChangeNotifier {
   void finishAnimation() {
     _isAnimating = false;
     _atStep = _animToStep >= 0 ? _animToStep : maxMoveSteps;
+    _syncDrillNote();
     notifyListeners();
+    // A play watched to its last step is a coach getting what he came for.
+    if (!_preview && maxMoveSteps > 0 && _atStep >= maxMoveSteps) {
+      unawaited(ReviewService.instance.onPositiveMoment('playback'));
+    }
   }
 
   // Called by Stop button — also keep current positions
@@ -415,6 +435,10 @@ class TacticsState extends ChangeNotifier {
       _isAnimating = false;
       _animatedPositions = {};
       _atStep = 0;
+      // Back at the set-up, the note reads the first beat again. Without
+      // this a drag that rewound the board left it saying beat three over
+      // a board showing beat zero.
+      _syncDrillNote();
     }
   }
 
@@ -506,6 +530,22 @@ class TacticsState extends ChangeNotifier {
 
   // Sport switching
   void setSportType(SportType type) {
+    // The hub keeps one working board per sport. Switching used to clear the
+    // players but keep the NAME, so the next sport's empty board autosaved
+    // over the previous sport's saved board of that name. Park this sport's
+    // board under its own key first, forget which board it was, and bring
+    // back the new sport's own.
+    final switching = type != _sportType;
+    if (switching) saveWorkingBoard();
+    currentTacticName = null;
+    currentTacticMeta = null;
+    drillBeats = const [];
+    drillSetup = null;
+    _figureScale = 1.0;
+    gTightFigureScale = 1.0;
+    _clearViewFrame();
+    _boardPitch = null;
+    _boardOutdoor = false;
     _isAnimating = false;
     _animatedPositions = {};
     _targetStep = 0;
@@ -515,6 +555,7 @@ class TacticsState extends ChangeNotifier {
     _sportType = type;
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     _undoStack.clear();
     _redoStack.clear();
     _selectedPlayerId = null;
@@ -522,6 +563,7 @@ class TacticsState extends ChangeNotifier {
     _isAddingMove = false;
     _zoomMode = false;
     notifyListeners();
+    if (switching) unawaited(restoreWorkingBoard());
   }
 
   /// Default spawn Y position for a team, avoids court/table area
@@ -690,20 +732,48 @@ class TacticsState extends ChangeNotifier {
     _persistFieldPrefs();
   }
 
+  /// The pitch the board on screen was drawn on, when it is one of the
+  /// other pitches ([CourtLayoutPitch.isOwnPitch]: field hockey's indoor
+  /// pitch and Hockey5s court). Read from and written to the board's JSON
+  /// (`courtLayout`), so an indoor drill opens on the indoor lines and a
+  /// board drawn on them reopens on them, whatever the picker says.
+  CourtLayout? _boardPitch;
+
+  /// The board on screen was read back without a pitch — every board saved
+  /// before there were other pitches, and every outdoor drill. It is drawn
+  /// on the full pitch's lines, never on a pitch the picker last chose.
+  bool _boardOutdoor = false;
+
   /// Selected layout for [sport] (defaults to full, clamped to supported set).
   CourtLayout courtLayout(SportType sport) {
+    if (sport == _sportType) {
+      final pitch = _boardPitch;
+      if (pitch != null && sport.courtLayouts.contains(pitch)) return pitch;
+    }
     final i = _courtLayoutIndex[sport.index];
     if (i == null || i < 0 || i >= CourtLayout.values.length) return CourtLayout.full;
     final layout = CourtLayout.values[i];
-    return sport.courtLayouts.contains(layout) ? layout : CourtLayout.full;
+    if (!sport.courtLayouts.contains(layout)) return CourtLayout.full;
+    if (sport == _sportType && _boardOutdoor && layout.isOwnPitch) {
+      return CourtLayout.full;
+    }
+    return layout;
   }
 
   void setCourtLayout(SportType sport, CourtLayout layout) {
     if (courtLayout(sport) == layout) return;
     _courtLayoutIndex[sport.index] = layout.index;
+    if (sport == _sportType) {
+      _boardPitch = layout.isOwnPitch ? layout : null;
+      _boardOutdoor = false;
+    }
     notifyListeners();
     _persistFieldPrefs();
   }
+
+  /// The formations the picker offers on the pitch now on screen.
+  List<SportFormation> get formations =>
+      _sportType.formationsOn(courtLayout(_sportType));
 
   Future<void> _loadFieldPrefs() async {
     try {
@@ -772,6 +842,497 @@ class TacticsState extends ChangeNotifier {
 
   void resetZoom() {
     transformationController.value = Matrix4.identity();
+    // Back to the full court is for good: a drill's half is not put back
+    // on the next rotation once the coach has asked for the whole pitch.
+    if (_viewFrame != null || _viewWindow != null || _frameZoom != 1.0) {
+      // A note shrunk to read at the window's zoom is put back to its own
+      // size, and — if nobody has moved it — under the court again.
+      if (_viewWindow != null) {
+        final i = _players.indexWhere((p) => p.id == kDrillNoteId);
+        if (i >= 0 && _players[i].scale < 1.0) {
+          _players[i] = _players[i].copyWith(scale: 1.0);
+          if (notePlacedSideways != null) noteWanted = true;
+        }
+      }
+      _viewFrame = null;
+      _viewWindow = null;
+      _frameZoom = 1.0;
+      _frameAppliedFor = null;
+      notifyListeners();
+    }
+  }
+
+  // ── A drill's half ───────────────────────────────────────────────────────
+  //
+  // A free kick, a corner, a keeper's session: everything happens in one
+  // half and the other is empty grass. The pack says which half ("frame",
+  // tools/drills/engine.py frame_of) and the board opens zoomed to it — a
+  // view only, through the same transform the zoom button uses, so the
+  // coordinates are untouched and the zoom-reset circle is the one tap back
+  // to the full court.
+
+  /// "top", "bottom" or null.
+  String? get viewFrame => _viewFrame;
+  String? _viewFrame;
+
+  /// How much the half is magnified. The figures are drawn this much
+  /// smaller on the canvas so that on the screen they keep their size and
+  /// the court around them is what grows (see TacticsCanvas).
+  double get frameZoom => _frameZoom;
+  double _frameZoom = 1.0;
+  Size? _frameAppliedFor;
+
+  /// A drill's own close-up ("viewWindow" in the board JSON: a lineout drawn
+  /// at Law 18's spacing, which at the whole pitch's scale is one row of
+  /// figures on top of each other). Kept as fractions of the court, so it
+  /// follows the court onto any canvas the way the players do.
+  Rect? get viewWindow => _viewWindow;
+  Rect? _viewWindow;
+
+  /// The half (or the window) has not been laid out for this canvas yet.
+  bool get frameNeedsApply =>
+      (_viewFrame != null || _viewWindow != null) &&
+      _frameAppliedFor != _canvasSize;
+
+  /// The canvas rectangle the half occupies — the share of the generator's
+  /// 400x700 canvas engine.FRAME_VIEW (0.60) names, carried onto this
+  /// canvas through the court the way a drill's coordinates are.
+  Rect? viewFrameWindow() {
+    final vw = _viewWindow;
+    if (vw != null && !_canvasSize.isEmpty) {
+      final c = _sportType.fieldRect(_canvasSize);
+      if (c.isEmpty) return null;
+      return Rect.fromLTRB(
+              c.left + vw.left * c.width,
+              c.top + vw.top * c.height,
+              c.left + vw.right * c.width,
+              c.top + vw.bottom * c.height)
+          .intersect(Offset.zero & _canvasSize);
+    }
+    final f = _viewFrame;
+    if (f == null || _canvasSize.isEmpty) return null;
+    const ref = Size(400, 700);
+    const share = 0.60;
+    final from = _sportType.fieldRect(ref);
+    final to = _sportType.fieldRect(_canvasSize);
+    if (from.isEmpty || to.isEmpty) return null;
+    final sx = to.width / from.width, sy = to.height / from.height;
+    Offset map(Offset p) => Offset(
+        to.left + (p.dx - from.left) * sx, to.top + (p.dy - from.top) * sy);
+    final win = f == 'bottom'
+        ? Rect.fromPoints(map(Offset(0, ref.height * (1 - share))),
+            map(Offset(ref.width, ref.height)))
+        : Rect.fromPoints(map(Offset.zero), map(Offset(ref.width, ref.height * share)));
+    return win.intersect(Offset.zero & _canvasSize);
+  }
+
+  /// Zoom the view to the drill's half, keeping the step note in it.
+  void applyViewFrame() {
+    final win0 = viewFrameWindow();
+    if (win0 == null) return;
+    _frameAppliedFor = _canvasSize;
+    var win = win0;
+    final note = _players.where((p) => p.id == kDrillNoteId).firstOrNull;
+    // A window's note is placed inside the view at the window's zoom (see
+    // placeDrillNote), so it does not widen the window.
+    if (note != null && _viewWindow == null) {
+      // Its chip, generously: the note is the one thing on the board that
+      // must be readable at every beat.
+      win = win.expandToInclude(Rect.fromCenter(
+          center: note.position,
+          width: _noteExtent.width + 12,
+          height: _noteExtent.height + 12));
+    }
+    final w = _canvasSize.width, h = _canvasSize.height;
+    final z = _frameZoomFor(win);
+    if (z < 1.05) {
+      _frameZoom = 1.0;
+      transformationController.value = Matrix4.identity();
+      notifyListeners();
+      return;
+    }
+    // The window's middle in the middle of the screen, but never past the
+    // canvas's edge: no blank beyond the board.
+    final tx = (w / 2 - z * win.center.dx).clamp(w - z * w, 0.0);
+    final ty = (h / 2 - z * win.center.dy).clamp(h - z * h, 0.0);
+    _frameZoom = z.toDouble();
+    transformationController.value = Matrix4.identity()
+      ..translateByDouble(tx, ty, 0, 1)
+      ..scaleByDouble(_frameZoom, _frameZoom, 1, 1);
+    notifyListeners();
+  }
+
+  /// How far [win] can be magnified and still fit the canvas. Under 1.05
+  /// — a pitch on a phone, fitted by its width, whose half cannot grow
+  /// without losing its touchlines — the board is left as it is.
+  ///
+  /// A drill's own window may be magnified further than a half: it is
+  /// drawn for it (tools/drills/engine.py VIEW_ZOOM_MAX — keep the two equal).
+  double _frameZoomFor(Rect win) => math
+      .min(_canvasSize.width / win.width, _canvasSize.height / win.height)
+      .clamp(1.0, _viewWindow != null ? 8.0 : 3.0)
+      .toDouble();
+
+  /// The part of the canvas the screen shows at zoom [z] centred on [win] —
+  /// the translation [applyViewFrame] sets, read back.
+  Rect _visibleFor(Rect win, double z) {
+    final w = _canvasSize.width, h = _canvasSize.height;
+    final tx = (w / 2 - z * win.center.dx).clamp(w - z * w, 0.0);
+    final ty = (h / 2 - z * win.center.dy).clamp(h - z * h, 0.0);
+    return Rect.fromLTWH(-tx / z, -ty / z, w / z, h / z);
+  }
+
+  /// The note chip's size on the canvas, as [placeDrillNote] measured it.
+  Size _noteExtent = const Size(60, 60);
+
+  /// Drop any half the last board was zoomed to, quietly (from a load).
+  void _clearViewFrame() {
+    if (_viewFrame == null && _viewWindow == null && _frameZoom == 1.0) return;
+    _viewFrame = null;
+    _viewWindow = null;
+    _frameZoom = 1.0;
+    _frameAppliedFor = null;
+    transformationController.value = Matrix4.identity();
+  }
+
+  /// The board's own figure size: 1.0, or the generator's tight figure for
+  /// a scrum, a wall, a lineout ("figureScale" in the board JSON — see
+  /// TIGHT_FIGURE_SCALE in tools/drills/engine.py). Kept with the board.
+  double get figureScale => _figureScale;
+  double _figureScale = 1.0;
+
+  // ── Volleyball rotations ─────────────────────────────────────────────────
+
+  /// The page's volleyball rotation (system, rotation, libero, check), or
+  /// null on a board that is not a rotation board. See [applyRotation].
+  RotationSetup? get rotation => _rotation;
+  RotationSetup? _rotation;
+
+  RotationSetup? _rotationFrom(Map<String, dynamic> page) =>
+      _sportType == SportType.volleyball
+          ? RotationSetup.fromJson(page['rotation'])
+          : null;
+
+  /// A point in [team]'s frame (metres; see volleyball_rotation.dart) on
+  /// this canvas, and back.
+  Offset _rotToCanvas(Offset m, PlayerTeam team, Rect c) {
+    final away = team == PlayerTeam.away;
+    final x = away ? 9 - m.dx : m.dx;
+    final y = away ? 9 - m.dy : 9 + m.dy;
+    return Offset(c.left + x / 9 * c.width, c.top + y / 18 * c.height);
+  }
+
+  Offset _rotFromCanvas(Offset p, PlayerTeam team, Rect c) {
+    final x = (p.dx - c.left) / c.width * 9;
+    final y = (p.dy - c.top) / c.height * 18;
+    return team == PlayerTeam.away ? Offset(9 - x, 9 - y) : Offset(x, y - 9);
+  }
+
+  List<PlayerIcon> _rotationSide(PlayerTeam team) =>
+      _players.where((p) => p.team == team && !p.isMarker).toList();
+
+  /// [team]'s players by rotation role (S, OH1 ... L).
+  Map<String, PlayerIcon> _byRotationRole(PlayerTeam team) => {
+        for (final p in _rotationSide(team))
+          if (p.role != null && VolleyballRotation.allRoles.contains(p.role))
+            p.role!: p,
+      };
+
+  /// The libero's shirt: a colour of its own, as the rules require.
+  static const Color kLiberoColor = Color(0xFFFFB300);
+
+  /// Put [s]'s side in [s]'s rotation: six players tagged with their roles
+  /// at legal starting spots for it (FIVB 7.4 / 7.5), the libero in for the
+  /// back-row middle, the middle he replaced waiting beside the court.
+  ///
+  /// The side's own players are used first — those already tagged keep
+  /// their role; six untagged ones are read into zones from where they
+  /// stand — and only the roles still missing get new players. Each moved
+  /// player's runs are cleared: they were drawn from the old spot.
+  void applyRotation(RotationSetup s) {
+    if (_sportType != SportType.volleyball || _canvasSize.isEmpty) return;
+    _saveSnapshot();
+    _resetAnimationState();
+    final c = _sportType.fieldRect(_canvasSize);
+    final byRole = _byRotationRole(s.team);
+    // A 5-1 board turned into a 6-2 keeps its people: the setter is the
+    // first setter, the opposite the second — and back again.
+    void rename(String from, String to) {
+      final p = byRole.remove(from);
+      if (p != null && !byRole.containsKey(to)) byRole[to] = p;
+    }
+    if (s.system == RotationSystem.sixTwo) {
+      rename('S', 'S1');
+      rename('OPP', 'S2');
+    } else {
+      rename('S1', 'S');
+      rename('S2', 'OPP');
+    }
+    final untagged = _rotationSide(s.team)
+        .where((p) => !byRole.values.contains(p))
+        .toList();
+    if (byRole.isEmpty && untagged.length == 6) {
+      final zones = VolleyballRotation.inferZones({
+        for (final p in untagged) p: _rotFromCanvas(p.position, s.team, c),
+      });
+      for (final e in zones.entries) {
+        byRole[_lineupRoleAt(s, e.key)] = e.value;
+      }
+      untagged.clear();
+    }
+    final wanted = [
+      ...s.lineup,
+      if (s.libero) VolleyballRotation.liberoRole,
+    ];
+    var colorIdx = _players.length;
+    var n = 0;
+    for (final role in wanted) {
+      if (byRole.containsKey(role)) continue;
+      if (untagged.isNotEmpty) {
+        byRole[role] = untagged.removeAt(0);
+        continue;
+      }
+      final p = PlayerIcon(
+        id: '${DateTime.now().microsecondsSinceEpoch}_r${n++}',
+        label: VolleyballRotation.displayLabel(role),
+        team: s.team,
+        position: c.center,
+        moveColor: PlayerIcon.moveColorForIndex(colorIdx++),
+        customColor:
+            role == VolleyballRotation.liberoRole ? kLiberoColor : null,
+      );
+      _players.add(p);
+      byRole[role] = p;
+    }
+    // No libero: the one on the board leaves it.
+    if (!s.libero) {
+      final l = byRole.remove(VolleyballRotation.liberoRole);
+      if (l != null) _players.removeWhere((p) => p.id == l.id);
+    }
+
+    final base = VolleyballRotation.basePositions(s);
+    final spots = <String, Offset>{};
+    final zoneRoles = s.zoneRoles;
+    final k = kFigureScale;
+    for (final e in zoneRoles.entries) {
+      var at = _rotToCanvas(base[e.key]!, s.team, c);
+      if (s.phase == RotationPhase.serve && e.key == 1) {
+        // The server's FEET behind the end line: the figure is drawn
+        // centred on its point, its feet half a figure down the screen.
+        final half = _figureH / 2 * k;
+        at = s.team == PlayerTeam.away
+            ? Offset(at.dx, math.max(half, c.top - half - 4))
+            : Offset(at.dx,
+                math.min(_canvasSize.height - half, c.bottom + 4));
+      }
+      spots[e.value] = at;
+    }
+    // Off court: the middle the libero is in for — or the libero, when the
+    // middle is serving.
+    final bench = _rotToCanvas(VolleyballRotation.benchSpot, s.team, c);
+    final benchAt = Offset(
+        bench.dx
+            .clamp(_figureW / 2 * k, _canvasSize.width - _figureW / 2 * k)
+            .toDouble(),
+        bench.dy);
+    for (final role in byRole.keys) {
+      spots.putIfAbsent(role, () => benchAt);
+    }
+
+    for (var i = 0; i < _players.length; i++) {
+      final p = _players[i];
+      final role = byRole.entries
+          .where((e) => e.value.id == p.id)
+          .map((e) => e.key)
+          .firstOrNull;
+      if (role == null) continue;
+      _players[i] = p.copyWith(
+        role: role,
+        position: spots[role],
+        moves: <Offset>[],
+        movePhases: <int>[],
+        moveCarriers: <String?>[],
+        moveHolders: <String?>[],
+      );
+    }
+    _rotation = s;
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    notifyListeners();
+  }
+
+  /// The lineup role standing in [zone] at [s]'s rotation (no libero).
+  String _lineupRoleAt(RotationSetup s, int zone) {
+    for (var i = 0; i < 6; i++) {
+      if (VolleyballRotation.zoneFor(i, s.rotation) == zone) {
+        return s.lineup[i];
+      }
+    }
+    return s.lineup.first;
+  }
+
+  /// One rotation on (or back, [by] < 0), placing the side again.
+  void rotateBy(int by) {
+    final s = _rotation;
+    if (s == null) return;
+    applyRotation(s.rotated(by));
+  }
+
+  /// Turn the overlap check on or off. On a board with no rotation yet, a
+  /// side of exactly six drawn freehand is read into zones where it stands
+  /// (rotation 1 of a 5-1, no libero) and checked from then on; any other
+  /// board is given a rotation to check.
+  void setRotationCheck(bool on, {PlayerTeam team = PlayerTeam.home}) {
+    if (_sportType != SportType.volleyball) return;
+    final s = _rotation;
+    if (s != null) {
+      _rotation = s.copyWith(check: on);
+      notifyListeners();
+      return;
+    }
+    if (!on) return;
+    final side = _rotationSide(team);
+    if (side.length == 6 && !_canvasSize.isEmpty) {
+      _saveSnapshot();
+      final setup = RotationSetup(team: team, libero: false);
+      final c = _sportType.fieldRect(_canvasSize);
+      final zones = VolleyballRotation.inferZones({
+        for (final p in side) p.id: _rotFromCanvas(p.position, team, c),
+      });
+      for (final e in zones.entries) {
+        final i = _players.indexWhere((p) => p.id == e.value);
+        _players[i] =
+            _players[i].copyWith(role: _lineupRoleAt(setup, e.key));
+      }
+      _rotation = setup;
+      notifyListeners();
+      return;
+    }
+    applyRotation(RotationSetup(team: team));
+  }
+
+  /// Stop treating the page as a rotation board. The players stay.
+  void clearRotation() {
+    if (_rotation == null) return;
+    _saveSnapshot();
+    _rotation = null;
+    notifyListeners();
+  }
+
+  /// The overlap faults on the board at the moment of the serve — its
+  /// starting spots, so none while a beat is being shown or played — when
+  /// the page is a rotation board with the check on. Judged by the FEET
+  /// ([footward]: down the screen in the board's coordinates), as the rule
+  /// is; the server exempt when the side is serving.
+  List<RotationFault> rotationFaults({Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || !s.check || _sportType != SportType.volleyball) {
+      return const [];
+    }
+    if (_canvasSize.isEmpty || _isAnimating || _atStep > 0 || _targetStep > 0) {
+      return const [];
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    return [
+      for (final f in VolleyballRotation.faults(feet,
+          exemptZone: s.phase == RotationPhase.serve ? 1 : null))
+        RotationFault(who[f.a]!.id, who[f.b]!.id, f),
+    ];
+  }
+
+  /// Who stands in each zone of [s], and where their feet are in the
+  /// team's frame.
+  (Map<int, PlayerIcon>, Map<int, Offset>) _rotationFeet(
+      RotationSetup s, Rect c, Offset footward) {
+    final byRole = _byRotationRole(s.team);
+    final lineupRoles = <int, String>{
+      for (var z = 1; z <= 6; z++) z: _lineupRoleAt(s, z),
+    };
+    final who = <int, PlayerIcon>{};
+    s.zoneRoles.forEach((z, role) {
+      // No libero on the board: the middle plays on.
+      final p = byRole[role] ?? byRole[lineupRoles[z]!];
+      if (p != null) who[z] = p;
+    });
+    final feet = <int, Offset>{
+      for (final e in who.entries)
+        e.key: _rotFromCanvas(
+            e.value.position +
+                footward * (_figureH / 2 * kFigureScale * e.value.scale),
+            s.team,
+            c),
+    };
+    return (who, feet);
+  }
+
+  /// Move the side the least it takes to stand legally (see
+  /// [VolleyballRotation.legalize]) in one undoable step, as the "Fix
+  /// positions" button does; the server, when the side is serving, stays
+  /// where he is. False when nobody had to move.
+  bool legalizeRotation({Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || _sportType != SportType.volleyball || _canvasSize.isEmpty) {
+      return false;
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    final legal = VolleyballRotation.legalize(feet,
+        exemptZone: s.phase == RotationPhase.serve ? 1 : null);
+    final moved = [
+      for (final z in legal.keys)
+        if ((legal[z]! - feet[z]!).distance > 1e-6) z,
+    ];
+    if (moved.isEmpty) return false;
+    _saveSnapshot();
+    _resetAnimationState();
+    for (final z in moved) {
+      final p = who[z]!;
+      final idx = _players.indexWhere((q) => q.id == p.id);
+      if (idx < 0) continue;
+      _players[idx] = _players[idx].copyWith(
+          position: _rotToCanvas(legal[z]!, s.team, c) -
+              footward * (_figureH / 2 * kFigureScale * p.scale));
+    }
+    _selectedPlayerId = null;
+    _selectedWaypointIndex = null;
+    notifyListeners();
+    return true;
+  }
+
+  /// Where [id]'s feet may legally stand given where the other five are
+  /// (see [VolleyballRotation.legalRect]), in canvas coordinates, and
+  /// whether they stand there now. Null whenever [rotationFaults] would
+  /// judge nothing, when [id] holds no zone, or when he is the exempt
+  /// server.
+  (Rect, bool)? rotationLegalArea(String id,
+      {Offset footward = const Offset(0, 1)}) {
+    final s = _rotation;
+    if (s == null || !s.check || _sportType != SportType.volleyball) {
+      return null;
+    }
+    if (_canvasSize.isEmpty || _isAnimating || _atStep > 0 || _targetStep > 0) {
+      return null;
+    }
+    final c = _sportType.fieldRect(_canvasSize);
+    final (who, feet) = _rotationFeet(s, c, footward);
+    final zone =
+        who.entries.where((e) => e.value.id == id).firstOrNull?.key;
+    if (zone == null) return null;
+    final rect = VolleyballRotation.legalRect(zone, feet,
+        exemptZone: s.phase == RotationPhase.serve ? 1 : null);
+    if (rect == null) return null;
+    final p = feet[zone]!;
+    // Strict, as the rule is: level with a neighbour is a fault.
+    final inside = p.dx > rect.left &&
+        p.dx < rect.right &&
+        p.dy > rect.top &&
+        p.dy < rect.bottom;
+    return (
+      Rect.fromPoints(_rotToCanvas(rect.topLeft, s.team, c),
+          _rotToCanvas(rect.bottomRight, s.team, c)),
+      inside,
+    );
   }
 
   // Drawing mode
@@ -1130,7 +1691,10 @@ class TacticsState extends ChangeNotifier {
 
   void movePlayerEnd(String id, Offset newPosition) {
     _saveSnapshot();
-    _resetAnimationState();
+    // Moving the note is not a change to the play; see updatePlayer.
+    if (id != kDrillNoteId) _resetAnimationState();
+    // Where the coach put it is where it stays, whichever way up.
+    if (id == kDrillNoteId) notePlacedSideways = null;
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     var updated = _players[idx].copyWith(position: newPosition);
@@ -1146,8 +1710,18 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, PlayerGender? gender, bool? holdsImplement, bool clearHolds = false, String? photoId, bool clearPhotoId = false, String? font, bool clearFont = false}) {
-    _resetAnimationState();
+  void updatePlayer(String id, {String? label, Color? customColor, bool clearCustomColor = false, double? scale, PlayerTeam? team, PlayerGender? gender, bool? holdsImplement, bool clearHolds = false, String? photoId, bool clearPhotoId = false, String? font, bool clearFont = false, MarkerShape? markerShape}) {
+    // The note is not part of the play, so writing on it does not throw the
+    // board back to the set-up the way every other edit does — and the beat
+    // it is standing on is the beat the new words belong to.
+    final note = id == kDrillNoteId;
+    if (!note) _resetAnimationState();
+    if (note && label != null && drillBeats.isNotEmpty) {
+      final step = (_atStep < 1 ? 1 : _atStep).clamp(1, drillBeats.length);
+      final next = [...drillBeats];
+      next[step - 1] = label;
+      drillBeats = next;
+    }
     final idx = _players.indexWhere((p) => p.id == id);
     if (idx < 0) return;
     _saveSnapshot();
@@ -1164,9 +1738,27 @@ class TacticsState extends ChangeNotifier {
       font: font,
       clearFont: clearFont,
       clearPhotoId: clearPhotoId,
+      markerShape: markerShape,
     );
     notifyListeners();
   }
+
+  /// A tap has asked for an element's words to be edited.
+  ///
+  /// The dialog belongs to the edit bar, which is a different widget from
+  /// the board the tap landed on, so the request is left here for it to
+  /// pick up and clear. Tapping a text element that is already selected is
+  /// what sets it: the alternative — a second tap putting the selection
+  /// away again — closed the very panel the coach had just dragged into
+  /// place.
+  String? labelEditRequest;
+
+  void requestLabelEdit(String id) {
+    labelEditRequest = id;
+    notifyListeners();
+  }
+
+  void clearLabelEditRequest() => labelEditRequest = null;
 
   void removePlayer(String id) {
     _saveSnapshot();
@@ -1335,6 +1927,12 @@ class TacticsState extends ChangeNotifier {
   void selectPlayer(String? id) {
     final changed = _selectedPlayerId != id;
     _selectedPlayerId = id;
+    // A request to edit some OTHER element's words is stale the moment the
+    // selection moves off it; left behind, it would pop the dialog open
+    // the next time that element was selected.
+    if (labelEditRequest != null && labelEditRequest != id) {
+      labelEditRequest = null;
+    }
     _selectedWaypointIndex = null;
     if (id != null) _selectedStrokeId = null;
     // Leaving a player always exits the explicit add-run sub-mode, so a
@@ -1367,13 +1965,52 @@ class TacticsState extends ChangeNotifier {
     _canvasSize = size;
   }
 
+  /// Carry everything on the board to the same place on the COURT when the
+  /// canvas changes shape.
+  ///
+  /// Scaling by the canvas was right only while every canvas had roughly the
+  /// authored shape. The court is centred inside the canvas at its own fixed
+  /// aspect (see [SportType.fieldRect]), so how much of the canvas it takes
+  /// depends on the canvas: a basketball board is fitted by height on a phone
+  /// and by width in a Mac window turned sideways, where the baseline sits a
+  /// tenth of the way down instead of a twentieth. Scaling the men by the
+  /// canvas moved them with the window and left the lines where they were —
+  /// a layup finished with the ball past the end line and the shooter
+  /// standing on the rim.
   void _rescalePlayers(Size size) {
     if (_canvasSize.width > 0 && _canvasSize.height > 0 && _players.isNotEmpty) {
-      final sx = size.width / _canvasSize.width;
-      final sy = size.height / _canvasSize.height;
+      final from = _sportType.fieldRect(_canvasSize);
+      final to = _sportType.fieldRect(size);
+      if (from.width <= 0 || from.height <= 0) return;
+      final sx = to.width / from.width;
+      final sy = to.height / from.height;
+      Offset map(Offset p) => Offset(
+          to.left + (p.dx - from.left) * sx, to.top + (p.dy - from.top) * sy);
       for (final p in _players) {
-        p.position = Offset(p.position.dx * sx, p.position.dy * sy);
-        p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
+        p.position = map(p.position);
+        p.moves = p.moves.map(map).toList();
+      }
+      // The step the board is stopped on is drawn from here, not from
+      // p.position — so a board turned sideways in the middle of a drill
+      // rescaled the arrows and left the men standing at their old canvas
+      // coordinates, which on a volleyball court put three of them on the
+      // net with their arrows ending short of their feet.
+      if (_animatedPositions.isNotEmpty) {
+        _animatedPositions =
+            _animatedPositions.map((id, at) => MapEntry(id, map(at)));
+      }
+      // The drill's note is a chip of a fixed size, not a point on the
+      // court. Everything else grows with the court; the note's margin
+      // SHRINKS as the court takes the card, and at full screen it went off
+      // the edge with its last line cut off. Keep it on the card.
+      final n = _players.indexWhere((p) => p.id == kDrillNoteId);
+      if (n >= 0) {
+        const edge = 26.0;
+        final at = _players[n].position;
+        _players[n].position = Offset(
+          at.dx.clamp(edge, math.max(edge, size.width - edge)),
+          at.dy.clamp(edge, math.max(edge, size.height - edge)),
+        );
       }
     }
   }
@@ -1382,6 +2019,7 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
     _resetAnimationState();
     _players.clear();
+    _rotation = null;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     // Map formation coords against the painted field rect so players stay
@@ -1534,6 +2172,166 @@ class TacticsState extends ChangeNotifier {
   }
 
   /// Add players for one team only from a formation (doesn't clear existing players)  /// Add players for one team only from a formation (doesn't clear existing players)
+  /// The drawn person's box, which is what two figures must not share.
+  ///
+  /// The same numbers the drill generator spaces boards by — FIGURE_PT in
+  /// tools/drills/engine.py. A token's cell is [kPlayerIconSize]; the person
+  /// inked inside it is narrower and taller than the cell, so spacing by the
+  /// cell leaves heads overlapping and shoulders apart.
+  static const double _figureW = 26.0;
+  static const double _figureH = 52.0;
+
+  /// Push the just-placed figures off anybody they landed inside.
+  ///
+  /// Every full-squad preset puts people on top of each other: a 4-3-3
+  /// against a 4-3-3 lands the two centre forwards on the same point, and
+  /// 4-2-3-1 does it to its own striker and attacking midfielder — 21 points
+  /// apart where the figure is 52 tall. So a coach's very first board opened
+  /// with figures standing inside each other, the thing the drill library was
+  /// just re-spaced to stop doing.
+  ///
+  /// Who gives way is the whole problem. A plain "push both apart" sends the
+  /// away striker forward into the home half, where the home back four shoves
+  /// him on until he is standing in the home goalmouth. So the rule is the
+  /// one a coach would use:
+  ///
+  ///   * two players of the same team — the DEEPER one drops back, and the
+  ///     line in front of him keeps the ground it was drawn on. The squeeze
+  ///     travels backwards, into the space in front of the keeper, which is
+  ///     where the room is.
+  ///   * two opponents, which is what meets at the halfway line — each
+  ///     retreats into his own half.
+  ///   * shoulder to shoulder in the same row — sideways, splitting it.
+  ///
+  /// Only the ids passed in may move, so adding the away team leaves the home
+  /// team exactly where the coach put it.
+  void _spaceOutPlaced(Iterable<String> ids) {
+    final movable = ids.toSet();
+    if (movable.isEmpty) return;
+    final field = _sportType.fieldRect(_canvasSize);
+    final people = _players
+        .where((p) => !p.isMarker && !p.isBall)
+        .toList(growable: false);
+    if (people.length < 2) return;
+    // Home defends the bottom of the board, away the top — see spawnY. "Back"
+    // is toward your own goal.
+    double back(PlayerTeam t) => t == PlayerTeam.away ? -1.0 : 1.0;
+    // Generous, because giving way travels: a keeper with his heels on the
+    // line makes the man in front of him step up, and that one the next.
+    // A column of eleven resolves one collision per pass. It runs once, when
+    // a formation is dropped on the board, so the budget costs nothing.
+    for (var pass = 0; pass < 200; pass++) {
+      var moved = false;
+      final preferFront = pass >= 100;
+      for (var i = 0; i < people.length; i++) {
+        for (var j = i + 1; j < people.length; j++) {
+          final a = people[i], b = people[j];
+          final aFree = movable.contains(a.id), bFree = movable.contains(b.id);
+          if (!aFree && !bFree) continue;
+          final w = _figureW * kFigureScale * (a.scale + b.scale) / 2;
+          final h = _figureH * kFigureScale * (a.scale + b.scale) / 2;
+          final dx = b.position.dx - a.position.dx;
+          final dy = b.position.dy - a.position.dy;
+          final ox = w - dx.abs();
+          final oy = h - dy.abs();
+          if (ox <= 0 || oy <= 0) continue;
+          // A point and a half of daylight, not a hair: a pair settled to
+          // exactly the box touches again the moment a third figure leans on
+          // one of them, and the pass then spends itself oscillating.
+          final byY = oy / h <= ox / w;
+          if (!byY) {
+            final push = ox + 1.5;
+            final sign = dx >= 0 ? 1.0 : -1.0;
+            if (aFree && bFree) {
+              a.position = _clampToField(
+                  a.position - Offset(push * sign / 2, 0), field);
+              b.position = _clampToField(
+                  b.position + Offset(push * sign / 2, 0), field);
+            } else if (bFree) {
+              b.position = _clampToField(b.position + Offset(push * sign, 0), field);
+            } else {
+              a.position = _clampToField(a.position - Offset(push * sign, 0), field);
+            }
+            moved = true;
+            continue;
+          }
+          final push = oy + 1.5;
+          if (a.team != b.team) {
+            // Opponents: each retreats into his own half — and if one of
+            // them is already placed and may not be moved, the other backs
+            // off the whole way rather than half of it, which is how the
+            // away team gives ground to a home team the coach has set.
+            final share = (aFree && bFree) ? 0.5 : 1.0;
+            if (aFree) {
+              a.position = _clampToField(
+                  a.position + Offset(0, back(a.team) * push * share), field);
+            }
+            if (bFree) {
+              b.position = _clampToField(
+                  b.position + Offset(0, back(b.team) * push * share), field);
+            }
+          } else {
+            // Team-mates: the deeper one drops back and the one in front
+            // keeps his ground.
+            final aDeeper = back(a.team) > 0
+                ? a.position.dy >= b.position.dy
+                : a.position.dy <= b.position.dy;
+            final deeper = aDeeper ? a : b;
+            final front = aDeeper ? b : a;
+            // The man behind gives way — unless he cannot, because he is the
+            // keeper with his heels on the goal line. Then the man in front
+            // steps up instead; somebody has to, and there is grass that way.
+            //
+            // "Could not" means the touchline held him, and the clamp then
+            // nudges him the OTHER way — which closes the gap rather than
+            // opening it. So a move only counts if it went the way it was
+            // asked to go.
+            //
+            // Halfway through the budget the preference flips. A man caught
+            // between a keeper who cannot move and a team-mate behind him is
+            // pushed back by one and forward by the other, a point and a half
+            // each way, for ever; letting the man IN FRONT give way instead
+            // unpicks it, and the whole column slides up the pitch together.
+            var gave = false;
+            final d = back(deeper.team);
+            if (preferFront && movable.contains(front.id)) {
+              final was = front.position;
+              final to = _clampToField(was - Offset(0, d * push), field);
+              if ((to.dy - was.dy) * d < 0) {
+                front.position = to;
+                gave = true;
+              }
+            }
+            if (!gave && movable.contains(deeper.id)) {
+              final was = deeper.position;
+              final to = _clampToField(was + Offset(0, d * push), field);
+              if ((to.dy - was.dy) * d > 0) {
+                deeper.position = to;
+                gave = true;
+              }
+            }
+            if (!gave && movable.contains(front.id)) {
+              final was = front.position;
+              final to = _clampToField(was - Offset(0, d * push), field);
+              if ((to.dy - was.dy) * d < 0) {
+                front.position = to;
+                gave = true;
+              }
+            }
+            if (!gave) continue;
+          }
+          moved = true;
+        }
+      }
+      if (!moved) return;
+    }
+  }
+
+  Offset _clampToField(Offset p, Rect field) => Offset(
+        p.dx.clamp(field.left + _figureW / 2, field.right - _figureW / 2),
+        p.dy.clamp(field.top + _figureH / 2, field.bottom - _figureH / 2),
+      );
+
   void addTeamFromFormation(SportFormation formation, PlayerTeam team) {
     _saveSnapshot();
     _resetAnimationState();
@@ -1553,6 +2351,7 @@ class TacticsState extends ChangeNotifier {
     // additive behaviour below.
     if (existing.length == positions.length && PlayerRoles.supports(_sportType)) {
       _relocateTeamByRole(existing, positions, roles, toPos);
+      _spaceOutPlaced(existing.map((p) => p.id));
       _isDrawingMode = false;
       // Add (don't clear) so the "both teams" caller, which relocates home then
       // away, ends up with both selected — matching the additive path.
@@ -1580,6 +2379,7 @@ class TacticsState extends ChangeNotifier {
       addedIds.add(id);
       num++;
     }
+    _spaceOutPlaced(addedIds);
     // Auto-select the just-added team so the user can drag them as a
     // group. Append rather than replace so the "both teams" caller,
     // which invokes this twice, ends up with both teams selected — the
@@ -1684,6 +2484,14 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Drop the stroke being drawn without keeping it — a palm that touched
+  /// down before the Pencil did.
+  void cancelStroke() {
+    if (_currentStroke == null) return;
+    _currentStroke = null;
+    notifyListeners();
+  }
+
   void endStroke() {
     if (_currentStroke == null) return;
     if (_currentStroke!.points.length > 1) {
@@ -1767,19 +2575,31 @@ class TacticsState extends ChangeNotifier {
     _saveSnapshot();
   }
 
-  // Note: no `shape` parameter. Switching an existing stroke to
-  // LineShape.straight would have to discard its interior points (see
-  // _finalizeStroke), which is unrecoverable. Shape is chosen before the
-  // stroke is drawn.
-  void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow}) {
+  /// Restyle a line on the board. [shape] too: made straight, a line keeps
+  /// its two ends and drops the rest of its points (what _finalizeStroke
+  /// does to a straight line as it is drawn) — the snapshot has them, so
+  /// undo brings the curve back. Shape used to be the one thing the style
+  /// sheet could not change on a drawn line, and picking a style for the
+  /// selected line then changed nothing a coach could see (reported off
+  /// an iPad, 2026-10-16).
+  ///
+  /// [snapshot] is what undo steps back to. A slider drag calls this once per
+  /// division, so it passes false for every step after the first: otherwise
+  /// one drag of the thickness slider costs seven taps of undo.
+  void updateStroke(String id, {Color? color, double? width, StrokeStyle? style, ArrowStyle? arrow, LineShape? shape, bool snapshot = true}) {
     final idx = _strokes.indexWhere((s) => s.id == id);
     if (idx < 0) return;
-    _saveSnapshot();
-    _strokes[idx] = _strokes[idx].copyWith(
+    if (snapshot) _saveSnapshot();
+    final was = _strokes[idx];
+    _strokes[idx] = was.copyWith(
       color: color,
       width: width,
       style: style,
       arrow: arrow,
+      shape: shape,
+      points: shape == LineShape.straight && was.points.length > 2
+          ? [was.points.first, was.points.last]
+          : null,
     );
     notifyListeners();
   }
@@ -1838,6 +2658,7 @@ class TacticsState extends ChangeNotifier {
     _pageIndex = 0;
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _selectedStrokeId = null;
@@ -1857,6 +2678,7 @@ class TacticsState extends ChangeNotifier {
     _resetAnimationState();
     _players.clear();
     _strokes.clear();
+    _rotation = null;
     // And it stops being "Board 1". The same rule loading a drill follows,
     // for the same reason: leaving the board autosaves whatever has a name,
     // so a board emptied and walked away from would be written over the
@@ -1864,6 +2686,13 @@ class TacticsState extends ChangeNotifier {
     // and an undo stack that dies with the page.
     currentTacticName = null;
     currentTacticMeta = null;
+    drillBeats = const [];
+    drillSetup = null;
+    _figureScale = 1.0;
+    gTightFigureScale = 1.0;
+    _clearViewFrame();
+    _boardPitch = null;
+    _boardOutdoor = false;
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
     _isAnimating = false;
@@ -1892,17 +2721,151 @@ class TacticsState extends ChangeNotifier {
   }
 
   /// Bring a page's coordinates onto the canvas it is being shown at.
+  ///
+  /// Through the COURT, for the reason [_rescalePlayers] gives: a board
+  /// written on a 1000x1500 canvas has the baseline a twentieth of the way
+  /// down, and in a window turned sideways the court is fitted by width and
+  /// the baseline is a tenth of the way down. Scaling by the canvas put a
+  /// drill's shot past the end line the moment it was opened onto a board
+  /// that was already the window's shape.
   void _rescaleFromSaved(Map<String, dynamic> page) {
     final savedW = (page['canvasWidth'] as num?)?.toDouble() ?? _canvasSize.width;
     final savedH = (page['canvasHeight'] as num?)?.toDouble() ?? _canvasSize.height;
     if (savedW <= 0 || savedH <= 0) return;
+    _fromLegacyPool(page, Size(savedW, savedH));
+    _fromLegacyCourt(page, Size(savedW, savedH));
     if (savedW == _canvasSize.width && savedH == _canvasSize.height) return;
-    final sx = _canvasSize.width / savedW;
-    final sy = _canvasSize.height / savedH;
+    final from = _sportType.fieldRect(Size(savedW, savedH));
+    final to = _sportType.fieldRect(_canvasSize);
+    if (from.width <= 0 || from.height <= 0) return;
+    final sx = to.width / from.width;
+    final sy = to.height / from.height;
+    Offset map(Offset p) => Offset(
+        to.left + (p.dx - from.left) * sx, to.top + (p.dy - from.top) * sy);
     for (final p in _players) {
-      p.position = Offset(p.position.dx * sx, p.position.dy * sy);
-      p.moves = p.moves.map((m) => Offset(m.dx * sx, m.dy * sy)).toList();
+      p.position = map(p.position);
+      p.moves = p.moves.map(map).toList();
     }
+  }
+
+  /// The water polo pool's length between the goal lines, in metres. Every
+  /// water polo page written since it changed says so (`poolLength`); a page
+  /// without it was drawn on the old 30 m pool.
+  static const int kWaterPoloPoolLength = 25;
+
+  /// A water polo page saved on the 30 m pool, carried onto the 25 m one.
+  ///
+  /// World Aquatics' 2025 regulations put the goal lines 25 m apart, and the
+  /// pool was redrawn to match. Saved positions are canvas points against
+  /// the court the app drew, so a board from the long pool, read against the
+  /// short one, would put a centre forward on the 2 m line at 1.7 m and the
+  /// halfway line's players in the other team's half. Each point is moved
+  /// line for line instead: in metres from its goal line it stays on the
+  /// same mark — goal, 2 m, 5 m, 6 m, halfway — and between two marks keeps
+  /// its share of the gap. Across the pool (20 m both times) nothing moves.
+  void _fromLegacyPool(Map<String, dynamic> page, Size saved) {
+    if (_sportType != SportType.waterPolo) return;
+    if (page['poolLength'] != null) return;
+    final to = _sportType.fieldRect(saved);
+    // SportType.fieldRect as it was for the 30 m pool.
+    const aspect = 20 / 30;
+    double cw, ch;
+    if (saved.width / saved.height > aspect) {
+      ch = saved.height * 0.88;
+      cw = ch * aspect;
+    } else {
+      cw = saved.width * 0.88;
+      ch = cw / aspect;
+    }
+    final from = Rect.fromLTWH(
+        (saved.width - cw) / 2, (saved.height - ch) / 2, cw, ch);
+    if (from.width <= 0 || to.width <= 0) return;
+    Offset map(Offset p) {
+      final x = (p.dx - from.left) / from.width;
+      final y = legacyPoolMetres((p.dy - from.top) / from.height * 30);
+      return Offset(to.left + x * to.width,
+          to.top + y / kWaterPoloPoolLength * to.height);
+    }
+    for (final p in _players) {
+      if (p.id == kDrillNoteId) continue;
+      p.position = map(p.position);
+      p.moves = p.moves.map(map).toList();
+    }
+    _strokes = [
+      for (final s in _strokes) s.copyWith(points: s.points.map(map).toList())
+    ];
+  }
+
+  /// Courts redrawn smaller, so a man can stand with his feet behind the
+  /// far baseline and still be on the board: the key every page of that
+  /// sport written since carries, its value, and the scale of the court
+  /// before (SportType.fieldRect's; tools/drills/engine.py COURT_REDRAW).
+  /// A page without the key was drawn on the old, larger court.
+  static const Map<SportType, (String, int, double)> kCourtRedraws = {
+    SportType.pickleball: ('pbCourt', 2, 0.88),   // → 0.82
+    SportType.tennis: ('court', 2, 0.85),         // → 0.84
+    SportType.beachTennis: ('court', 2, 0.85),    // → 0.84
+    SportType.volleyball: ('court', 2, 0.85),     // → 0.84
+  };
+
+  /// A page saved on a sport's old court, carried onto the redrawn one
+  /// ([kCourtRedraws]).
+  ///
+  /// Saved positions are canvas points against the court the app drew, so
+  /// each point — players, their runs, drawn strokes — keeps its place
+  /// relative to the court lines: same fraction of the court, or the same
+  /// distance past a line in court units.
+  void _fromLegacyCourt(Map<String, dynamic> page, Size saved) {
+    final redraw = kCourtRedraws[_sportType];
+    if (redraw == null) return;
+    if (page[redraw.$1] != null) return;
+    final to = _sportType.fieldRect(saved);
+    if (to.height <= 0) return;
+    // SportType.fieldRect as it was for the old court: same aspect, the
+    // old scale.
+    final aspect = to.width / to.height;
+    final scale = redraw.$3;
+    double cw, ch;
+    if (saved.width / saved.height > aspect) {
+      ch = saved.height * scale;
+      cw = ch * aspect;
+    } else {
+      cw = saved.width * scale;
+      ch = cw / aspect;
+    }
+    final from = Rect.fromLTWH(
+        (saved.width - cw) / 2, (saved.height - ch) / 2, cw, ch);
+    if (from.width <= 0 || to.width <= 0) return;
+    Offset map(Offset p) => Offset(
+        to.left + (p.dx - from.left) / from.width * to.width,
+        to.top + (p.dy - from.top) / from.height * to.height);
+    for (final p in _players) {
+      if (p.id == kDrillNoteId) continue;
+      p.position = map(p.position);
+      p.moves = p.moves.map(map).toList();
+    }
+    _strokes = [
+      for (final s in _strokes) s.copyWith(points: s.points.map(map).toList())
+    ];
+  }
+
+  /// Metres down the old 30 m pool → metres down the 25 m pool, keeping
+  /// every line: the marks at each end stay where they are from their own
+  /// goal line, the stretch between the 6 m lines (18 m → 13 m) is shared
+  /// out evenly, and anything past a goal line keeps its distance from it.
+  @visibleForTesting
+  static double legacyPoolMetres(double y) {
+    const old = [0.0, 2.0, 5.0, 6.0, 15.0, 24.0, 25.0, 28.0, 30.0];
+    const now = [0.0, 2.0, 5.0, 6.0, 12.5, 19.0, 20.0, 23.0, 25.0];
+    if (y <= 0) return y;
+    if (y >= 30) return y - 5;
+    for (var i = 0; i < old.length - 1; i++) {
+      if (y <= old[i + 1]) {
+        return now[i] +
+            (y - old[i]) * (now[i + 1] - now[i]) / (old[i + 1] - old[i]);
+      }
+    }
+    return y - 5;
   }
 
   void _saveSnapshot() {
@@ -1914,11 +2877,13 @@ class TacticsState extends ChangeNotifier {
   _BoardSnapshot _currentSnapshot() => _BoardSnapshot(
         players: _players.map((p) => p.copyWith()).toList(),
         strokes: _strokes.map((s) => s.copyWith()).toList(),
+        rotation: _rotation,
       );
 
   void _restoreSnapshot(_BoardSnapshot snap) {
     _players = snap.players;
     _strokes = snap.strokes;
+    _rotation = snap.rotation;
   }
 
   // ── Save / Load tactics ──────────────────────────────────────────────────
@@ -1933,6 +2898,14 @@ class TacticsState extends ChangeNotifier {
         'strokes': _strokes.map((s) => s.toJson()).toList(),
         'canvasWidth': _canvasSize.width,
         'canvasHeight': _canvasSize.height,
+        if (_sportType == SportType.waterPolo)
+          'poolLength': kWaterPoloPoolLength,
+        if (kCourtRedraws[_sportType] case final r?) r.$1: r.$2,
+        // A volleyball rotation board's system / rotation / check. Per page:
+        // a routine can be rotation 1 on one page and 2 on the next. An app
+        // without rotations ignores the key and keeps the players.
+        if (_rotation != null && _sportType == SportType.volleyball)
+          'rotation': _rotation!.toJson(),
       };
 
   /// Every page in order, with the live one written back into its slot.
@@ -1949,6 +2922,7 @@ class TacticsState extends ChangeNotifier {
     _strokes = (page['strokes'] as List)
         .map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>))
         .toList();
+    _rotation = _rotationFrom(page);
     _rescaleFromSaved(page);
     _selectedPlayerId = null;
     _selectedWaypointIndex = null;
@@ -1992,6 +2966,9 @@ class TacticsState extends ChangeNotifier {
       'strokes': <dynamic>[],
       'canvasWidth': _canvasSize.width,
       'canvasHeight': _canvasSize.height,
+      if (_sportType == SportType.waterPolo)
+        'poolLength': kWaterPoloPoolLength,
+      if (kCourtRedraws[_sportType] case final r?) r.$1: r.$2,
     };
     pages.insert(_pageIndex + 1,
         copyCurrent ? jsonDecode(jsonEncode(_pageJson())) as Map<String, dynamic> : blank);
@@ -2042,11 +3019,70 @@ class TacticsState extends ChangeNotifier {
       ...pages.first,
       if (pages.length > 1) 'pages': pages,
       if (pages.length > 1) 'pageIndex': _pageIndex,
+      // The drill's own words travel with the board. Without this they last
+      // only as long as the page that opened it: the board is autosaved and
+      // read back on the next launch, and a drill restored that way came
+      // back as a shape with no caption under it.
+      if (drillBeats.isNotEmpty) 'drillBeats': drillBeats,
+      // And which drill they came from, so a board read back after a
+      // restart can still put them into a newly chosen language.
+      if (drillBeats.isNotEmpty && _drillId != null) 'drillId': _drillId,
+      // A note not placed yet (the board is laid out a frame after the
+      // drill lands) is still owed on the board read back.
+      if (drillBeats.isNotEmpty && noteWanted) 'noteWanted': true,
+      // Which way round the board was when the app put the note under the
+      // court, so a board read back still moves it when the device turns.
+      // Read back as null the note stayed put, and a restart turned every
+      // landscape iPad's note into a chip cut off at the board's left edge.
+      if (drillBeats.isNotEmpty && notePlacedSideways != null)
+        'noteSideways': notePlacedSideways,
+      // A tight drill's figure size, and the half it is zoomed to, so the
+      // board reads back the way it was left.
+      if (_figureScale != 1.0) 'figureScale': _figureScale,
+      if (_viewFrame != null) 'viewFrame': _viewFrame,
+      // Drawn on another pitch (indoor, Hockey5s): reopen on it. Apps that
+      // predate it ignore the key and draw the full pitch.
+      if (courtLayout(_sportType) case final l when l.isOwnPitch)
+        'courtLayout': l.name,
+      // In this canvas's points, beside this canvas's size, like the players.
+      if (_viewWindow != null && !_canvasSize.isEmpty)
+        'viewWindow': () {
+          final c = _sportType.fieldRect(_canvasSize);
+          final vw = _viewWindow!;
+          return [
+            c.left + vw.left * c.width,
+            c.top + vw.top * c.height,
+            c.left + vw.right * c.width,
+            c.top + vw.bottom * c.height,
+          ];
+        }(),
     };
   }
 
   void loadFromJson(Map<String, dynamic> json) {
+    _drillName = null;
+    _nameFor = null;
+    _beatsFor = null;
+    _drillId = json['drillId'] as String?;
+    final carried = json['drillBeats'];
+    drillBeats = carried is List
+        ? carried.map((b) => b.toString()).toList(growable: false)
+        : const [];
+    drillSetup = null;
+    // A board read back from disk already has whatever note it kept —
+    // unless it was written before the note was placed.
+    noteWanted = json['noteWanted'] == true && drillBeats.isNotEmpty;
     _sportType = SportType.values[json['sportType'] as int];
+    _figureScale = ((json['figureScale'] as num?)?.toDouble() ?? 1.0)
+        .clamp(0.4, 1.0)
+        .toDouble();
+    gTightFigureScale = _figureScale;
+    _clearViewFrame();
+    final frame = json['viewFrame'];
+    _viewFrame = frame == 'top' || frame == 'bottom' ? frame as String : null;
+    _viewWindow = _windowFrom(json);
+    _boardPitch = CourtLayoutPitch.fromBoard(json['courtLayout']);
+    _boardOutdoor = _boardPitch == null;
     final raw = json['pages'];
     final pages = raw is List && raw.isNotEmpty
         ? raw.map((p) => Map<String, dynamic>.from(p as Map)).toList()
@@ -2057,7 +3093,17 @@ class TacticsState extends ChangeNotifier {
     _parkedRedo.clear();
     final live = pages[_pageIndex];
     _players = (live['players'] as List).map((p) => PlayerIcon.fromJson(p as Map<String, dynamic>)).toList();
+    // Boards saved before text counter-turned with the board kept a note
+    // placed sideways at -90°, which now reads as -90° on every screen.
+    for (final p in _players) {
+      if (p.id == kDrillNoteId && (p.rotation + math.pi / 2).abs() < 0.01) {
+        p.rotation = 0;
+      }
+    }
+    final noteSide = json['noteSideways'];
+    notePlacedSideways = noteSide is bool ? noteSide : null;
     _strokes = (live['strokes'] as List).map((s) => DrawingStroke.fromJson(s as Map<String, dynamic>)).toList();
+    _rotation = _rotationFrom(live);
     _rescaleFromSaved(live);
     _otherPages
       ..clear()
@@ -2070,9 +3116,29 @@ class TacticsState extends ChangeNotifier {
     _isAnimating = false;
     _animatedPositions = {};
     _atStep = 0;
+    // A board read back opens at its set-up: its note reads that step, not
+    // whichever beat was showing when it was written.
+    _syncDrillNote();
     _undoStack.clear();
     _redoStack.clear();
     notifyListeners();
+  }
+
+  /// The board's "viewWindow" — [left, top, right, bottom] in the points of
+  /// the canvas it says it was drawn on — as fractions of that canvas's
+  /// court. Null when absent or malformed.
+  Rect? _windowFrom(Map<String, dynamic> json) {
+    final v = json['viewWindow'];
+    final cw = (json['canvasWidth'] as num?)?.toDouble() ?? 0;
+    final ch = (json['canvasHeight'] as num?)?.toDouble() ?? 0;
+    if (v is! List || v.length != 4 || v.any((e) => e is! num)) return null;
+    if (cw <= 0 || ch <= 0) return null;
+    final c = _sportType.fieldRect(Size(cw, ch));
+    if (c.isEmpty) return null;
+    final n = [for (final e in v) (e as num).toDouble()];
+    final r = Rect.fromLTRB((n[0] - c.left) / c.width, (n[1] - c.top) / c.height,
+        (n[2] - c.left) / c.width, (n[3] - c.top) / c.height);
+    return r.width > 0 && r.height > 0 ? r : null;
   }
 
   Future<Directory> get _tacticsDir async {
@@ -2086,6 +3152,477 @@ class TacticsState extends ChangeNotifier {
     final dir = Directory('${baseDir.path}/tactics/${_sportType.name}');
     if (!await dir.exists()) await dir.create(recursive: true);
     return dir;
+  }
+
+  /// What the drill that is on the board says about each of its beats, and
+  /// its set-up line — so the board can print the step it is standing on
+  /// under the court instead of making a coach leave the board to read it.
+  ///
+  /// Empty for anything that is not a drill: a saved tactic, a blank board,
+  /// a formation. [loadFromJson] clears it, so a load that does not set it
+  /// cannot inherit the last drill's words.
+  List<String> drillBeats = const [];
+  String? drillSetup;
+
+  /// The id of the text element a drill's step note is placed as.
+  ///
+  /// It is an ordinary element from the moment it lands — drag it, recolour
+  /// it, resize it, turn it, delete it — with one thing added: its words are
+  /// the beat the board is standing on, and editing them edits that beat.
+  /// The caption it replaces was chrome painted over the board and could be
+  /// none of those things.
+  static const String kDrillNoteId = 'drill_note';
+
+  /// A drill has been opened and its note has not been placed yet.
+  ///
+  /// Placing it needs the board's own size and which way round it is drawn,
+  /// and neither is known until the board has been laid out — so the page
+  /// does it on the first frame after. Once placed this goes false and
+  /// stays false: deleting the note is meant to be final.
+  bool noteWanted = false;
+
+  /// Which way round the board was drawn when the note was placed — null
+  /// once the coach has moved it (or for a board read back from disk), when
+  /// where it stands is theirs. Turning the device moves a note still where
+  /// it was put, to the new "under the court" (see [reorientDrillNote]).
+  bool? notePlacedSideways;
+
+  /// The board has turned between portrait and landscape: put an unmoved
+  /// note under the court again, which sideways is a different side of the
+  /// canvas. It keeps its colour, size and words.
+  void reorientDrillNote({required bool sideways, double maxWidth = 320}) {
+    final was = notePlacedSideways;
+    if (was == null || was == sideways || noteWanted) return;
+    if (!_players.any((p) => p.id == kDrillNoteId)) {
+      notePlacedSideways = null;
+      return;
+    }
+    noteWanted = true;
+    placeDrillNote(sideways: sideways, maxWidth: maxWidth);
+  }
+
+  /// A drill has just landed on the board: these are its beats, and it
+  /// wants its note.
+  void openedDrill(List<String> beats,
+      {List<String> Function(String locale)? beatsFor,
+      String? name,
+      String Function(String locale)? nameFor,
+      String? id,
+      String? frame}) {
+    // The half the drill lives in (Drill.frame): the board opens zoomed to
+    // it once it knows its size — see applyViewFrame.
+    if (frame == 'top' || frame == 'bottom') {
+      _viewFrame = frame;
+      _frameAppliedFor = null;
+    }
+    drillBeats = beats;
+    noteWanted = beats.isNotEmpty;
+    _beatsFor = beatsFor;
+    _beatsAsOpened = beats;
+    _drillName = name;
+    _nameFor = nameFor;
+    _drillId = id;
+    // The load before this autosaved a board with no words and no note;
+    // write it again with its beats and the note still owed (toJson).
+    saveWorkingBoard();
+  }
+
+  String Function(String locale)? _nameFor;
+
+  /// The library id of the drill on the board, kept with the board.
+  String? _drillId;
+
+  /// The name of the drill on the board, while what is on the board is still
+  /// that drill and not yet a board of the coach's own — what "Save" offers
+  /// as the name, instead of an empty field.
+  String? get openedDrillName =>
+      drillBeats.isNotEmpty && currentTacticName == null ? _drillName : null;
+  String? _drillName;
+
+  /// The drill's steps in another language, and the steps as the library
+  /// wrote them when it was opened — so a language switch can put the note
+  /// on the board into the new language, and leave alone any the coach has
+  /// rewritten. Before this the sentence under the court stayed in the
+  /// language the drill was opened in ("Dink cross-court" under zh-CN).
+  List<String> Function(String locale)? _beatsFor;
+  List<String> _beatsAsOpened = const [];
+
+  /// Put the drill's steps into [locale], when they are still the library's
+  /// own words. A board loaded from disk, a blank one, or one whose steps
+  /// the coach has edited, keeps what it has.
+  Future<void> localizeDrill(String locale) async {
+    if (drillBeats.isEmpty) return;
+    // Read back from disk: find the drill again, and take its steps as the
+    // library's own only if they still read as the library wrote them in
+    // one of its languages — anything else is the coach's.
+    if (_beatsFor == null && _drillId != null) {
+      final id = _drillId!, sport = _sportType, before = drillBeats;
+      final all = await DrillLibraryService.instance.forSport(sport);
+      final d = all.where((x) => x.id == id).firstOrNull;
+      if (d == null || _drillId != id || !identical(drillBeats, before)) {
+        return;
+      }
+      List<String> parse(String l) => DrillNote.parse(d.localizedNote(l)).beats;
+      _beatsFor = parse;
+      _nameFor = d.displayName;
+      final unedited = d.note.keys.any((l) {
+        final b = parse(l);
+        if (b.length != before.length) return false;
+        for (var i = 0; i < b.length; i++) {
+          if (b[i] != before[i]) return false;
+        }
+        return true;
+      });
+      if (unedited) _beatsAsOpened = drillBeats;
+    }
+    // The name "Save" offers follows the language too.
+    if (_nameFor != null) _drillName = _nameFor!(locale);
+    final f = _beatsFor;
+    if (f == null) return;
+    if (!identical(drillBeats, _beatsAsOpened)) return;
+    final next = f(locale);
+    if (next.length != drillBeats.length) return;
+    var same = true;
+    for (var i = 0; i < next.length; i++) {
+      if (next[i] != drillBeats[i]) same = false;
+    }
+    if (same) return;
+    drillBeats = next;
+    _beatsAsOpened = next;
+    _syncDrillNote();
+    notifyListeners();
+  }
+
+  /// Put the drill's step note on the board, under the court.
+  ///
+  /// [sideways] is the board turned a quarter, which is how a phone or a
+  /// tablet draws it in landscape: the canvas itself is laid out upright
+  /// inside a RotatedBox, so the screen's "below the court" is the canvas's
+  /// right-hand margin, and the note is turned a quarter back to read level.
+  void placeDrillNote({required bool sideways, double maxWidth = 320}) {
+    if (!noteWanted) return;
+    if (drillBeats.isEmpty || _canvasSize.isEmpty) return;
+    noteWanted = false;
+    final kept = _players.where((p) => p.id == kDrillNoteId).firstOrNull;
+    _players.removeWhere((p) => p.id == kDrillNoteId);
+    final court = _sportType.fieldRect(_canvasSize);
+    final w = _canvasSize.width, h = _canvasSize.height;
+    // Under the court by default — and over it when someone stands under
+    // it. A volleyball serve is taken from behind the end line, which is
+    // exactly that band, and the sentence printed over the server hid both.
+    // Each band is scored by how many of the board's figures, at any beat
+    // (where they start and every point they run to), would be under the
+    // note; the far band is taken only when it is strictly emptier.
+    //
+    // Sideways the canvas is drawn a quarter turn round, so the screen's
+    // "under the court" is the canvas's right-hand margin and "over" its
+    // left-hand one.
+    final under = sideways
+        ? Rect.fromLTRB(court.right, 0, w, h)
+        : Rect.fromLTRB(0, court.bottom, w, h);
+    final over = sideways
+        ? Rect.fromLTRB(0, 0, court.left, h)
+        : Rect.fromLTRB(0, 0, w, court.top);
+    int crowd(Rect band) {
+      // The note's own extent: the middle of the band, not its whole
+      // length — a figure out by the side line is clear of the words.
+      final note = sideways
+          ? Rect.fromLTRB(band.left, h * 0.1, band.right, h * 0.9)
+          : Rect.fromLTRB(w * 0.1, band.top, w * 0.9, band.bottom);
+      // A figure stands taller than its point (36 is the icon cell, see
+      // kPlayerIconSize): head above it, feet below.
+      final cell = kPlayerIconSize;
+      var n = 0;
+      for (final p in _players) {
+        if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) {
+          continue;
+        }
+        for (final at in [p.position, ...p.moves]) {
+          final box = Rect.fromCenter(
+            center: at,
+            width: cell * 1.2 * p.scale,
+            height: cell * 1.8 * p.scale,
+          );
+          if (box.overlaps(note)) n++;
+        }
+      }
+      return n;
+    }
+
+    final flip = crowd(over) < crowd(under);
+    final band = flip ? over : under;
+    // Kept on the board, whole. The band under a rugby pitch or a pool is a
+    // sliver, and a chip centred in it hung over the board's edge, its last
+    // line cut off by the frame. The chip's size is measured for the
+    // longest of the drill's steps (the note changes words at every beat),
+    // the way TextElementChip lays it out: 13pt semibold, 1.25 line height,
+    // three lines at most, 8 by 4.5 of padding and a 1pt border.
+    // Set with the board's figures, as TextElementChip draws it.
+    final k = math.max(1.0, gBoardFigureScale);
+    var chipW = 0.0, chipH = 0.0;
+    for (final b in drillBeats) {
+      final tp = TextPainter(
+        text: TextSpan(
+          text: b,
+          style: TextStyle(
+              fontSize: 13 * k, height: 1.25, fontWeight: FontWeight.w600),
+        ),
+        maxLines: 3,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+      )..layout(maxWidth: maxWidth - 18 * k);
+      chipW = math.max(chipW, tp.width + 18 * k);
+      chipH = math.max(chipH, tp.height + 11 * k);
+      tp.dispose();
+    }
+    // Sideways the chip lies on its side: its height runs across the canvas.
+    final extentX = sideways ? chipH : chipW;
+    final extentY = sideways ? chipW : chipH;
+    _noteExtent = Size(extentX, extentY);
+    const margin = 6.0;
+    double fit(double c, double extent, double size) {
+      final lo = extent / 2 + margin, hi = size - extent / 2 - margin;
+      return lo > hi ? size / 2 : c.clamp(lo, hi);
+    }
+
+    // Where in the band. Its middle, unless that still covers someone — a
+    // table-tennis receiver standing in the band over the table had the
+    // sentence across his head — or the goal, which stands in the band
+    // under a pitch (audit 2026-10-11 #16). Then the place in the band that
+    // covers least: its outer edge, its court edge, or along it to either
+    // end. The band itself is still chosen as above; the middle wins every
+    // tie, so a
+    // board with nothing in the way keeps the note exactly where it was.
+    final keepOut = <Rect>[];
+    for (final p in _players) {
+      if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) continue;
+      for (final pt in [p.position, ...p.moves]) {
+        keepOut.add(Rect.fromCenter(
+            center: pt,
+            width: kPlayerIconSize * 1.2 * p.scale,
+            height: kPlayerIconSize * 1.8 * p.scale));
+      }
+    }
+    const goalSports = {
+      SportType.soccer,
+      SportType.fieldHockey,
+      SportType.handball,
+      SportType.waterPolo,
+    };
+    if (!sideways && goalSports.contains(_sportType)) {
+      final gw = court.width * 0.16, gd = court.height * 0.035 + 6;
+      keepOut
+        ..add(Rect.fromLTRB(court.center.dx - gw / 2, court.top - gd,
+            court.center.dx + gw / 2, court.top + 2))
+        ..add(Rect.fromLTRB(court.center.dx - gw / 2, court.bottom - 2,
+            court.center.dx + gw / 2, court.bottom + gd));
+    }
+    double covers(Offset c) {
+      final r = Rect.fromCenter(center: c, width: extentX, height: extentY);
+      var a = 0.0;
+      for (final k in keepOut) {
+        final x = r.intersect(k);
+        if (!x.isEmpty && x.width > 0 && x.height > 0) a += x.width * x.height;
+      }
+      return a;
+    }
+
+    List<Offset> spots(Rect b) {
+      // Across the band (its short side) and along it (its long side).
+      final across = sideways
+          ? [b.center.dx, b.right - extentX / 2 - margin, b.left + extentX / 2 + margin]
+          : [b.center.dy, b.bottom - extentY / 2 - margin, b.top + extentY / 2 + margin];
+      // Sideways the ends of a band are where the corner circles float —
+      // back and menu at the head, zoom and fullscreen at the foot — so
+      // a note slid to an end was drawn under them (reported 2026-10-17).
+      // A circle and its margin kept clear at both ends.
+      const corner = 72.0;
+      final along = sideways
+          ? [
+              h / 2,
+              extentY / 2 + margin + corner,
+              h - extentY / 2 - margin - corner,
+            ]
+          : [w / 2, extentX / 2 + margin, w - extentX / 2 - margin];
+      return [
+        for (final l in along)
+          for (final c in across)
+            sideways
+                ? Offset(fit(c, extentX, w), fit(l, extentY, h))
+                : Offset(fit(l, extentX, w), fit(c, extentY, h)),
+      ];
+    }
+
+    var at = Offset(
+      fit(band.center.dx, extentX, w),
+      fit(band.center.dy, extentY, h),
+    );
+    var best = covers(at);
+    if (best > 0) {
+      for (final c in spots(band)) {
+        final v = covers(c);
+        if (v < best - 0.5) {
+          best = v;
+          at = c;
+        }
+      }
+      // The band under a pitch on a tablet is a few points deeper than the
+      // chip, and the goal stands in it. Rather than print the sentence
+      // over the goal, lay it just inside the end line — over the goal
+      // area's markings, if no one stands there.
+      // Which end: the one whose shooting circle has fewer people in it,
+      // not the band outside the line, which is a sliver at both ends
+      // and told the two apart by nothing. And a stride in from the line
+      // (12pt, not 4): the goal stands just outside it, and a chip on
+      // the line read as a sentence pressed onto the goal (reported off
+      // a phone, 2026-10-17).
+      if (best > 0.5 && !sideways && goalSports.contains(_sportType)) {
+        final depth = court.height * 0.22;
+        final c0 = 12.0 + extentY / 2;
+        int inEnd(Rect zone) {
+          var n = 0;
+          for (final p in _players) {
+            if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) {
+              continue;
+            }
+            for (final pt in [p.position, ...p.moves]) {
+              if (zone.contains(pt)) n++;
+            }
+          }
+          return n;
+        }
+        final topEnd = inEnd(Rect.fromLTRB(
+            court.left, court.top - depth, court.right, court.top + depth));
+        final footEnd = inEnd(Rect.fromLTRB(court.left, court.bottom - depth,
+            court.right, court.bottom + depth));
+        final atTop = topEnd < footEnd || (topEnd == footEnd && flip);
+        final inside = atTop ? court.top + c0 : court.bottom - c0;
+        final c = Offset(fit(w / 2, extentX, w), inside);
+        if (covers(c) < best - 0.5) at = c;
+      }
+    }
+    // A drill zoomed to one half (only where the zoom is worth having —
+    // see applyViewFrame) keeps its note on show. Upright: just past the
+    // half's own edge, over the empty half, where nobody stands (that is
+    // what makes it a one-half drill). Sideways the bands run the canvas's
+    // whole length: slide the note along its band into the half.
+    final win = viewFrameWindow();
+    double? noteScale;
+    if (_viewWindow != null && win != null && _frameZoomFor(win) >= 1.05) {
+      // A drill's own close-up (a lineout at Law 18's spacing). The note is
+      // drawn at 1/zoom, so on the screen it is its usual size, and laid
+      // inside what the screen shows: at its foot, or its head when the
+      // foot is where the players are.
+      final z = _frameZoomFor(win);
+      noteScale = 1 / z;
+      final vis = _visibleFor(win, z);
+      final ex = extentX / z, ey = extentY / z, m = margin / z;
+      final cands = sideways
+          ? [
+              Offset(vis.right - ex / 2 - m, vis.center.dy),
+              Offset(vis.left + ex / 2 + m, vis.center.dy),
+            ]
+          : [
+              Offset(vis.center.dx, vis.bottom - ey / 2 - m),
+              Offset(vis.center.dx, vis.top + ey / 2 + m),
+            ];
+      final cell =
+          kPlayerIconBase *
+              boardFigureScaleFor(_canvasSize,
+                  sport: _sportType, sideways: sideways) *
+              _figureScale /
+              z;
+      double hits(Offset c) {
+        final r = Rect.fromCenter(center: c, width: ex, height: ey);
+        var a = 0.0;
+        for (final p in _players) {
+          if (p.id == kDrillNoteId || p.markerShape == MarkerShape.text) {
+            continue;
+          }
+          for (final pt in [p.position, ...p.moves]) {
+            final x = r.intersect(Rect.fromCenter(
+                center: pt, width: cell * 1.2, height: cell * 1.8));
+            if (x.width > 0 && x.height > 0) a += x.width * x.height;
+          }
+        }
+        return a;
+      }
+
+      at = hits(cands[1]) < hits(cands[0]) - 0.01 ? cands[1] : cands[0];
+    } else if (win != null &&
+        _frameZoomFor(win) >= 1.05 &&
+        !Rect.fromCenter(center: at, width: extentX, height: extentY)
+            .intersect(win)
+            .size
+            .contains(Offset(extentX - 0.5, extentY - 0.5))) {
+      if (sideways) {
+        at = Offset(at.dx, fit(win.center.dy, extentY, h));
+        final lo = win.top + extentY / 2 + margin;
+        final hi = win.bottom - extentY / 2 - margin;
+        if (lo <= hi) at = Offset(at.dx, at.dy.clamp(lo, hi));
+      } else {
+        at = Offset(
+            fit(w / 2, extentX, w),
+            fit(
+                _viewFrame == 'bottom'
+                    ? win.top - extentY / 2 - margin
+                    : win.bottom + extentY / 2 + margin,
+                extentY,
+                h));
+      }
+    }
+    // Upright either way: a text element counter-turns with the board
+    // (turnedForText), so sideways it already reads level on the screen.
+    _players.add(kept != null
+        ? kept.copyWith(position: at, rotation: 0, scale: noteScale)
+        : PlayerIcon(
+            id: kDrillNoteId,
+            label: drillBeats.first,
+            team: PlayerTeam.neutral,
+            markerShape: MarkerShape.text,
+            customColor: const Color(0xFF263238),
+            position: at,
+            rotation: 0,
+            scale: noteScale ?? 1.0,
+          ));
+    notePlacedSideways = sideways;
+    _syncDrillNote();
+    // Written now, not at the next rate-limited notify: the load that put
+    // the drill here autosaved a moment ago, so this one would be skipped,
+    // and a board killed before the next edit came back without its note.
+    saveWorkingBoard();
+    // The zoom takes the note in, so it is laid out again now that the
+    // note has a place.
+    if (_viewFrame != null) {
+      applyViewFrame();
+      return;
+    }
+    notifyListeners();
+  }
+
+  /// Keep the note reading the beat the board is on. Step 0 is the set-up,
+  /// which the board is already showing, so it keeps the first beat's words
+  /// rather than going blank and leaving an empty chip behind.
+  void _syncDrillNote() {
+    if (drillBeats.isEmpty) return;
+    final i = _players.indexWhere((p) => p.id == kDrillNoteId);
+    if (i < 0) return;
+    final step = (_atStep < 1 ? 1 : _atStep);
+    if (step > drillBeats.length) return;
+    final text = drillBeats[step - 1];
+    if (_players[i].label == text) return;
+    _players[i] = _players[i].copyWith(label: text);
+  }
+
+  /// Rewrite — or empty, which is how one is deleted — the sentence under
+  /// the court for one beat. The coach's words from then on, saved with the
+  /// board like everything else on it.
+  void setDrillBeat(int step, String text) {
+    if (step < 1 || step > drillBeats.length) return;
+    final next = [...drillBeats];
+    next[step - 1] = text.trim();
+    drillBeats = next;
+    notifyListeners();
   }
 
   String? currentTacticName;
@@ -2102,7 +3639,17 @@ class TacticsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String? runningPlanName;
+  /// The plan being run while its board is open. Notifies: the board's back
+  /// button reads it through a Selector, and as a bare field a cleared name
+  /// never reached it — every Back pushed one more run page, endlessly.
+  String? _runningPlanName;
+  String? get runningPlanName => _runningPlanName;
+  set runningPlanName(String? v) {
+    if (_runningPlanName == v) return;
+    _runningPlanName = v;
+    notifyListeners();
+  }
+
   int runningItemIndex = 0;
 
   /// Persist the board as `<name>.json`.
@@ -2126,6 +3673,7 @@ class TacticsState extends ChangeNotifier {
       folder: base.folder,
       description: base.description,
       coachingPoints: base.coachingPoints,
+      playbook: base.playbook,
       // A board keeps its own birthday. Saving board A's canvas over board B
       // must not stamp A's createdAt onto B.
       createdAt: onDisk?.createdAt ?? base.createdAt,
@@ -2175,6 +3723,37 @@ class TacticsState extends ChangeNotifier {
     final raw = json['meta'];
     if (raw is! Map) return null;
     return TacticMeta.fromJson(Map<String, dynamic>.from(raw), name: name);
+  }
+
+  /// A saved board's whole file, or null when it is missing or unreadable.
+  /// For a read-only look at it (the playbook); opening it for editing is
+  /// [loadTactics], which also logs it as a board the coach opened.
+  Future<Map<String, dynamic>?> readTacticJson(String name) async {
+    final dir = await _tacticsDir;
+    final file = File('${dir.path}/$name.json');
+    if (!await file.exists()) return null;
+    try {
+      return jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Put a saved board in the match-day playbook, or take it out. Only the
+  /// flag in its metadata changes; the board on the canvas is not written.
+  Future<void> setPlaybook(String name, bool inPlaybook) async {
+    final json = await readTacticJson(name);
+    if (json == null) return;
+    final meta = (_metaFromPayload(json, name) ?? TacticMeta.initial(name))
+        .copyWith(playbook: inPlaybook, updatedAt: DateTime.now());
+    final payload = Map<String, dynamic>.from(json)..['meta'] = meta.toJson();
+    final dir = await _tacticsDir;
+    await File('${dir.path}/$name.json').writeAsString(jsonEncode(payload));
+    if (currentTacticName == name) currentTacticMeta = meta;
+    CloudSyncService.markLocalChange();
+    if (AuthService.instance.isLoggedIn) {
+      SyncService.instance.pushTactic(name, _sportType.name, payload);
+    }
   }
 
   /// Metadata for a saved board, or null when the file is missing or predates

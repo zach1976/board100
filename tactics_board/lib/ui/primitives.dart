@@ -50,25 +50,47 @@ class TacticalSheet extends StatelessWidget {
     // height and the column overflowing. Give the sheet more of the screen
     // before that happens; the content itself still scrolls inside it.
     final scale = mq.textScaler.scale(15) / 15;
-    final fraction =
-        (maxHeightFraction * (scale > 1.2 ? 1.15 : 1.0)).clamp(0.3, 0.94);
+    // And a phone turned sideways has 402pt of height to give, not 874. The
+    // fractions here were chosen against an upright screen; six tenths of a
+    // landscape one is 241pt, and a title, a hint and a row of buttons are
+    // most of that — the list they are wrapped around came out as a sliver
+    // with nothing legible in it. On a short screen a sheet takes what it
+    // needs; it still scrolls inside itself.
+    final short = mq.size.height < 500;
+    final fraction = (maxHeightFraction *
+            (scale > 1.2 ? 1.15 : 1.0) *
+            (short ? 1.5 : 1.0))
+        .clamp(0.3, 0.94);
     final maxH = mq.size.height * fraction;
+    // Inside a tablet popover (see showBoardPanel) the popover draws the
+    // surface and its corners; a sheet's grab handle means nothing there.
+    final popover = PopoverScope.of(context);
     return Container(
       constraints: BoxConstraints(maxHeight: maxH),
-      decoration: const BoxDecoration(
-        color: T.surface,
-        borderRadius: T.brSheet,
-        boxShadow: T.shadowSheet,
-      ),
+      decoration: popover
+          ? null
+          : BoxDecoration(
+              color: T.surface,
+              borderRadius: T.brSheet,
+              boxShadow: T.shadowSheet,
+            ),
+      // Not the sides: a phone turned sideways reports the island's 59pt
+      // on both edges, and the sheet — 640 wide at most, centred — is
+      // already clear of them; honouring them put 59pt of nothing inside
+      // each edge of the Add sheet (reported 2026-10-17). Upright, a
+      // full-width sheet has no side inset to honour anyway.
       child: SafeArea(
         top: false,
+        left: false,
+        right: false,
+        bottom: !popover,
         child: Padding(
           padding: padding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const _DragHandle(),
+              if (!popover) const _DragHandle(),
               // Flexible, not a bare child: the column is mainAxisSize.min,
               // so an unwrapped child is handed unbounded height and any
               // Flexible inside it takes the full intrinsic height of its
@@ -81,6 +103,17 @@ class TacticalSheet extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Marks a subtree as shown in a tablet popover rather than a bottom sheet.
+class PopoverScope extends InheritedWidget {
+  const PopoverScope({super.key, required super.child});
+
+  static bool of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<PopoverScope>() != null;
+
+  @override
+  bool updateShouldNotify(PopoverScope oldWidget) => false;
 }
 
 class _DragHandle extends StatelessWidget {
@@ -178,7 +211,7 @@ class TacticalIconButton extends StatelessWidget {
     final tint = onTap == null
         ? T.textOff
         : active
-            ? T.accent
+            ? T.accentText
             : (color ?? T.textDim);
     return Semantics(
       button: true,
@@ -192,7 +225,7 @@ class TacticalIconButton extends StatelessWidget {
           height: T.tap,
           alignment: Alignment.center,
           decoration: active
-              ? const BoxDecoration(color: T.accentFill, shape: BoxShape.circle)
+              ? BoxDecoration(color: T.accentFill, shape: BoxShape.circle)
               : null,
           child: Icon(icon, size: size, color: tint),
         ),
@@ -343,7 +376,7 @@ class TacticalChip extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (icon != null) ...[
-                  Icon(icon, size: 15, color: selected ? T.accent : T.textDim),
+                  Icon(icon, size: 15, color: selected ? T.accentText : T.textDim),
                   const SizedBox(width: 5),
                 ],
                 Text(
@@ -353,7 +386,7 @@ class TacticalChip extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.5,
                     fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-                    color: selected ? T.accent : T.textDim,
+                    color: selected ? T.accentText : T.textDim,
                   ),
                 ),
                 if (count != null) ...[
@@ -367,7 +400,7 @@ class TacticalChip extends StatelessWidget {
                       // Dimmer than the label: it is the size of the thing,
                       // not its name.
                       color: selected
-                          ? T.accent.withValues(alpha: 0.75)
+                          ? T.accentText.withValues(alpha: 0.75)
                           : T.textOff,
                     ),
                   ),
@@ -412,7 +445,7 @@ class TacticalCard extends StatelessWidget {
           decoration: selected
               ? BoxDecoration(
                   borderRadius: T.brMd,
-                  border: Border.all(color: T.accent, width: 1.5))
+                  border: Border.all(color: T.selectedStroke, width: 1.5))
               : null,
           child: child,
         ),
@@ -476,7 +509,7 @@ class TacticalSearchField extends StatelessWidget {
               borderRadius: T.brSm, borderSide: BorderSide.none),
           enabledBorder: const OutlineInputBorder(
               borderRadius: T.brSm, borderSide: BorderSide.none),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
               borderRadius: T.brSm,
               borderSide: BorderSide(color: T.accent, width: 1.5)),
         ),
@@ -747,7 +780,7 @@ class CoachNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: T.tint,
         border: Border(left: BorderSide(color: T.accent, width: 2.5)),
         borderRadius: BorderRadius.only(
@@ -801,7 +834,7 @@ class SequenceView extends StatelessWidget {
       height: 40,
       padding: const EdgeInsets.symmetric(horizontal: T.s8),
       decoration: BoxDecoration(
-        color: active ? T.accent : const Color(0xFF123B3F),
+        color: active ? T.accent : T.surfaceHi,
         borderRadius: BorderRadius.circular(T.rSm + 1),
       ),
       child: Align(
@@ -867,7 +900,7 @@ class StepStrip extends StatelessWidget {
                     duration: const Duration(milliseconds: 140),
                     height: 3,
                     decoration: BoxDecoration(
-                      color: i < index ? T.accent : const Color(0x1FFFFFFF),
+                      color: i < index ? T.accent : T.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -904,6 +937,7 @@ Future<String?> promptForName(
   String initial = '',
   Set<String> taken = const {},
   String? takenMessage,
+  String? confirmLabel,
 }) {
   final ctrl = TextEditingController(text: initial);
   // A suggested name is a suggestion: selected, so the first keystroke
@@ -952,7 +986,9 @@ Future<String?> promptForName(
               onPressed: typed.isEmpty || clash
                   ? null
                   : () => Navigator.pop(ctx, typed),
-              child: Text('confirm'.tr()),
+              // Every caller names something new — a plan, a board — so
+              // the button says so; "Apply" read as changing a setting.
+              child: Text(confirmLabel ?? 'create'.tr()),
             ),
           ],
         );

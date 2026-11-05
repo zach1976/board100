@@ -87,6 +87,12 @@ class AddToPlanSheet {
     return boardName;
   }
 
+  /// [_saveDrillAsBoard] for the plan editor, which picks a drill from the
+  /// library itself and adds the item to the plan it already has open.
+  static Future<String> saveDrillAsBoard(
+          SportType sport, Drill drill, String locale) =>
+      _saveDrillAsBoard(sport, drill, locale);
+
   /// The drill's board, written into the coach's own boards.
   ///
   /// Saved through a throwaway [TacticsState] rather than the live one: the
@@ -152,10 +158,10 @@ class _PlanPicker extends StatelessWidget {
                 children: [
                   ListTile(
                     leading:
-                        const Icon(Icons.add_circle_outline, color: T.accent),
+                        Icon(Icons.add_circle_outline, color: T.accentText),
                     title: Text('practice_new'.tr(),
-                        style: const TextStyle(
-                            color: T.accent, fontWeight: FontWeight.w600)),
+                        style: TextStyle(
+                            color: T.accentText, fontWeight: FontWeight.w600)),
                     onTap: () => Navigator.pop(context, newPlan),
                   ),
                   if (names.isNotEmpty) const TacticalDivider(),

@@ -1,1 +1,1 @@
-bola tangan,6-0,5-1,3-2-1,sayap,pivot,belakang,serangan balik,papan,pelatih,formasi
+papan taktik,rencana latihan,jadwal,formasi,serangan balik,demo,analisis,evaluasi laga

@@ -61,8 +61,9 @@ void main() {
 
   test('a soccer app carries no other sport', () {
     // The whole point of the split. Soccer lists no equipment of its own, so
-    // its package is two files and the core has nothing sport-shaped in it.
-    expect(packages[SportType.soccer]!.length, 2);
+    // its package is its drills, its ball and its two goal pictures (one per
+    // end — CourtArt), and the core has nothing sport-shaped in it.
+    expect(packages[SportType.soccer]!.length, 4);
     // assets/drills/index.json is allowed: it is the count for every sport,
     // which the hub's picker needs, and 300 bytes. A sport's own library is
     // not.

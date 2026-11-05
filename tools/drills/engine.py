@@ -11,6 +11,7 @@ it is on, so these numbers are proportions, not pixels. Author with rel=True
 and give coordinates inside the playing surface (0..1) instead — court_rect
 maps them, which is the only way to be sure nobody is standing in the margin.
 """
+import json
 import math
 import re as _re
 from dataclasses import dataclass, field
@@ -39,21 +40,42 @@ SPORT_INDEX = {
 # A table tennis table is the odd one out: it is drawn small on purpose,
 # because the players stand well back from it and the room matters.
 COURT = {
+    # Tennis, volleyball and beach tennis at 0.84 (were 0.85) for the same
+    # reason as pickleball below: room for a far-side man with his feet
+    # behind the baseline (COURT_REDRAW). Badminton stays: nobody plays a
+    # shuttle from outside the court (tools/check_baselines.py).
     "badminton":   (6.1 / 13.4,     0.88, 0.88),
     "tableTennis": (1.525 / 2.74,   0.65, 0.55),
-    "tennis":      (10.97 / 23.77,  0.85, 0.85),
+    "tennis":      (10.97 / 23.77,  0.84, 0.84),
     "basketball":  (15 / 28,        0.90, 0.90),
-    "volleyball":  (9 / 18,         0.85, 0.85),
-    "pickleball":  (6.1 / 13.41,    0.88, 0.88),
+    "volleyball":  (9 / 18,         0.84, 0.84),
+    # 0.82, not 0.88: a far-side receiver stands with his FEET behind the
+    # baseline, so the whole 52pt figure has to fit above it on the phone.
+    # Boards carry "pbCourt": 2 (see to_display_frame).
+    "pickleball":  (6.1 / 13.41,    0.82, 0.82),
     "soccer":      (68 / 105,       0.90, 0.90),
     "fieldHockey": (55 / 91.4,      0.90, 0.90),
     "rugby":       (70 / 144,       0.92, 0.92),
     "baseball":    (1.0,            0.95, 0.95),
     "handball":    (20 / 40,        0.90, 0.90),
-    "waterPolo":   (20 / 30,        0.88, 0.88),
+    "waterPolo":   (20 / 25,        0.88, 0.88),
     "sepakTakraw": (6.1 / 13.4,     0.88, 0.88),
-    "beachTennis": (8 / 16,         0.85, 0.85),
+    "beachTennis": (8 / 16,         0.84, 0.84),
     "footvolley":  (9 / 18,         0.85, 0.85),
+}
+
+# Courts redrawn at a new scale, and how a board says which one it was
+# drawn on: sport -> (board key, current version, the old scale). A board
+# carrying the key at that version is on the court COURT gives; one without
+# it was drawn at the old scale, and the app carries it across line for line
+# (TacticsState._fromLegacyCourt, the same table in kCourtRedraws). Each was
+# shrunk so a far-side man stands wholly on the board with his FEET behind
+# the baseline (tools/check_baselines.py).
+COURT_REDRAW = {
+    "pickleball":  ("pbCourt", 2, 0.88),
+    "tennis":      ("court", 2, 0.85),
+    "beachTennis": ("court", 2, 0.85),
+    "volleyball":  ("court", 2, 0.85),
 }
 
 
@@ -88,14 +110,47 @@ def court_rect(sport: str) -> tuple[float, float, float, float]:
     return (left / DISPLAY_W * CANVAS_W, top / DISPLAY_H * CANVAS_H,
             cw / DISPLAY_W * CANVAS_W, ch / DISPLAY_H * CANVAS_H)
 
+
+def figure_clear(sport: str, clear_pt: float = 3.0) -> float:
+    """Half a drawn figure plus ``clear_pt`` of air, in fractions of the
+    court's LENGTH on the phone board.
+
+    The app draws a person upright and centred on his point, FIGURE_PT
+    tall, so his feet are half a figure below it. A far-side man this far
+    past his baseline (y = -figure_clear) has his feet behind it; written
+    a hair past the line, he stood on it or in the court
+    (tools/check_baselines.py).
+    """
+    return (FIGURE_PT[1] / 2 + clear_pt) / (court_rect(sport)[3] * DISPLAY_H / CANVAS_H)
+
 TEAM_HOME, TEAM_AWAY, TEAM_NEUTRAL = 0, 1, 2
 # MarkerShape enum order in lib/models/player_icon.dart
 MARKER = {"none": 0, "circle": 1, "square": 2, "triangle": 3, "diamond": 4,
           "cone": 5, "text": 6, "zone": 7, "referee": 8, "coach": 9,
           "ladder": 10, "hurdle": 11, "arrow": 12}
 
+# The coach's kit: the slate of the coach marker, so a feeder is never
+# mistaken for the opponents' red.
+COACH_COLOR = 0xFF37474F
 MOVE_COLORS = [0xFF40C4FF, 0xFFFF6D6D, 0xFF69F0AE, 0xFFFFD740,
                0xFFEA80FC, 0xFF84FFFF, 0xFFFF9E80, 0xFFA5D6A7]
+
+
+def behind(frm, to, past: float = 0.16) -> tuple[float, float]:
+    """A point just the far side of ``to``, coming from ``frm``.
+
+    What "pass and go behind the man you passed to" draws. Authors used to
+    compute it by hand as a fraction of the way there — star passing stopped
+    its runners at 82% — which puts them BETWEEN the passer and the receiver,
+    and on a board that reads as standing in front of him, the opposite of
+    the instruction the drill is named for.
+
+    ``past`` is how far beyond, as a fraction of the run: far enough to be
+    plainly the other side of him, near enough to still be his queue.
+    """
+    fx, fy = frm
+    tx, ty = to
+    return (fx + (tx - fx) * (1.0 + past), fy + (ty - fy) * (1.0 + past))
 
 
 @dataclass
@@ -109,6 +164,16 @@ class P:
     # Why each leg is run, {phase: intent key} — see intents.WHY. The
     # board draws where; this is the coach's "so that…" for the sentence.
     why: dict = field(default_factory=dict)
+    # The coach, feeding. On a board with two figures a reader has to be
+    # told which one is training and which one is serving him the ball,
+    # and "2" in the opponents' red said nothing: a feeder is labelled C,
+    # wears slate instead of a team's colour, and carries the role.
+    coach: bool = False
+    # Faces his own way whatever the beats do: the app's faceLock. For a
+    # badminton man clearing round the head from the backhand rear corner —
+    # the one place the board would otherwise turn him to face his own
+    # baseline, and the one shot whose point is that he does not.
+    lock: bool = False
 
 
 @dataclass
@@ -118,6 +183,9 @@ class M:
     y: float
     shape: str = "cone"
     label: str = ""
+    # Drawn this many times a token's size. A zone is a token-sized wash
+    # unless it is told otherwise; a reduced playing area is far bigger.
+    scale: float = 1.0
 
 
 @dataclass
@@ -228,6 +296,18 @@ class Drill:
     # and the escorted rule will rightly treat it as a carry.
     ball_follow: object = None
     ball_to: list = field(default_factory=list)
+    # How many balls the drill is run with. Two-ball dribbling is a warm-up
+    # in half these sports and the board drew one, because the engine knew
+    # only one ball: the text said "dribble both balls down and back" over a
+    # picture of a player with one. The extras ride with the same holder and
+    # follow the same legs — the board lays them either side of his feet.
+    balls: int = 1
+    # A SECOND, independent ball: its own start and its own passes, where
+    # [balls] only repeats the first one at the same feet. Two balls going
+    # round a square of four players is a different drill from one man
+    # dribbling two, and the board has to show the difference.
+    ball2: object = None
+    ball2_to: list = field(default_factory=list)
     # Hand-written setup for the note's 组织 section — how to lay the drill
     # out on grass (shape, distances), which no census of the board can say.
     # Localised like the note; families write it once. Left None, the note
@@ -238,10 +318,26 @@ class Drill:
     # closer than the labels can be told apart. Everything else must not
     # overlap at all: see SPACING_* below for why the numbers are in points.
     tight: bool = False
+    # A close-up the board opens zoomed to: (x0, y0, x1, y1) in the drill's
+    # own coordinates (court-relative when rel=True), shipped as the board's
+    # "viewWindow". For a set piece that cannot be drawn at true spacing at
+    # the whole pitch's scale — a lineout's two files are 1 m apart. The
+    # spacing checks then measure the figures at that zoom (view_zoom).
+    view: tuple | None = None
     # foundation | development | advanced. Left None, it is derived from what
     # the drill demands (see derive_level); set it only where the rule is
     # wrong — a banana flick needs two players and years of table time.
     level: str | None = None
+    # Another pitch the drill is played on, by CourtLayout name — field
+    # hockey's "indoor" pitch. Shipped as the board's "courtLayout" so the
+    # app draws its lines; coordinates stay fractions of the sport's court
+    # box (COURT), which that pitch is drawn inside. None: the usual pitch.
+    court: str | None = None
+    # The volleyball rotation the board was drawn in — the RotationSetup as
+    # the app's toJson writes it (system, rot, phase, libero, rules…) —
+    # shipped as the board's "rotation" so the in-app rotation tool opens
+    # on that system and rule set. None: not a rotation board.
+    rotation: dict | None = None
 
     @property
     def player_count(self) -> int:
@@ -254,7 +350,7 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int,
     phases = [m[2] for m in p.moves]
     return {
         "id": f"d{idx}",
-        "label": p.label,
+        "label": (p.label or "C") if p.coach else p.label,
         "team": team,
         "sportType": None,
         "position": [p.x, p.y],
@@ -262,15 +358,16 @@ def _player(idx, p: P, team: int, sport: str, color_idx: int,
         "moves": moves,
         "movePhases": phases,
         "moveColor": MOVE_COLORS[color_idx % len(MOVE_COLORS)],
-        "customColor": None,
+        "customColor": COACH_COLOR if p.coach else None,
         "gender": 2,                      # unspecified
         "markerShape": MARKER["none"],
         "photoId": None,
-        "role": p.role,
+        "role": "coach" if p.coach else p.role,
         "attachedTo": None,
         # Omitted unless the drill says otherwise, which reads back as
         # "whatever this sport normally does".
         **({"holds": holds} if holds is not None else {}),
+        **({"faceLock": True} if p.lock else {}),
     }
 
 
@@ -290,7 +387,7 @@ def _marker(idx, m: M) -> dict:
         "team": TEAM_NEUTRAL,
         "sportType": None,
         "position": [m.x, m.y],
-        "scale": 1.0,
+        "scale": m.scale,
         "moves": [],
         "movePhases": [],
         "moveColor": MOVE_COLORS[0],
@@ -344,7 +441,10 @@ def prune_degenerate_moves(drill: Drill) -> None:
     for p in drill.home + drill.away:
         pruned, prev = [], (p.x, p.y)
         for (x, y, ph) in p.moves:
-            if abs(x - prev[0]) + abs(y - prev[1]) >= 8:
+            # Measured the way audit() measures it. Manhattan distance let a
+            # 6-across-2-down step through as 8, and the audit then failed it
+            # at 6.3 — the two rules have to be the same rule.
+            if math.hypot(x - prev[0], y - prev[1]) >= 8:
                 pruned.append((x, y, ph))
                 prev = (x, y)
         p.moves = pruned
@@ -384,12 +484,24 @@ def prune_degenerate_ball_legs(drill: Drill, sport: str) -> None:
     prev = (drill.ball if isinstance(drill.ball, tuple)
             else ball_start(drill, sport)
             if isinstance(drill.ball, int) else None)
+    # A leg that goes nowhere but changes hands is not a dead arrow, it is a
+    # turnover: a presser steps in and takes the ball off the man standing
+    # on it, and the ball hardly moves because that is what winning it looks
+    # like. Pruned as "degenerate", fh_press_half lost the beat its whole
+    # note is about — the board ended with the trap set and nobody taking
+    # it. The painter already draws a leg this short as a nudge rather than
+    # an arrow, so keeping it costs no arrow floating on the grass.
+    named = len(drill.ball_holders) == len(drill.ball_moves)
+    held = drill.ball if isinstance(drill.ball, int) else None
     keep = []
-    for (x, y, ph) in drill.ball_moves:
-        alive = prev is None or math.hypot(x - prev[0], y - prev[1]) >= 8
+    for i, (x, y, ph) in enumerate(drill.ball_moves):
+        taken = named and drill.ball_holders[i] not in (None, held)
+        alive = taken or prev is None or math.hypot(x - prev[0], y - prev[1]) >= 8
         keep.append(alive)
         if alive:
             prev = (x, y)
+            if named and drill.ball_holders[i] is not None:
+                held = drill.ball_holders[i]
     if all(keep):
         return
     # The note is written from ball_to, not from the legs, so a leg dropped
@@ -465,6 +577,41 @@ def normalise_phases(drill: Drill) -> None:
     drill.ball_moves = [(x, y, remap[ph]) for (x, y, ph) in drill.ball_moves]
 
 
+def to_display_frame(board: dict) -> dict:
+    """Restate a finished board in the frame its coordinates actually mean.
+
+    They are authored in a 1000x1500 box, but the court they are placed
+    against is the one [court_rect] works out — the court as the app DRAWS
+    it, at 402x730. Those two canvases are not the same shape, so "0.95
+    across the court" is a different fraction of the canvas in each. While
+    the app rescaled a loaded board by plain canvas fractions it did not
+    matter: the numbers lined up on the one canvas they were written for.
+    The app now carries a board by its COURT, so the canvas a board says it
+    came from has to be the canvas whose court these numbers fit — otherwise
+    every drill is stretched sideways against the lines and a corner man
+    stands in the crowd.
+
+    Nothing moves relative to anything else; the board is the same board,
+    measured in the other ruler.
+    """
+    sx, sy = DISPLAY_W / CANVAS_W, DISPLAY_H / CANVAS_H
+    for pd in board["players"]:
+        pd["position"] = [pd["position"][0] * sx, pd["position"][1] * sy]
+        pd["moves"] = [[m[0] * sx, m[1] * sy] for m in pd["moves"]]
+    board["canvasWidth"] = DISPLAY_W
+    board["canvasHeight"] = DISPLAY_H
+    # Water polo moved from a 30 m pool to 25 m; a board without this is
+    # read by the app as drawn on the old pool and carried across.
+    if board.get("sportType") == SPORT_INDEX["waterPolo"]:
+        board["poolLength"] = 25
+    # A court redrawn smaller to fit a man behind the far baseline (see
+    # COURT_REDRAW); a board without its key is read as the old court.
+    for sport, (key, version, _) in COURT_REDRAW.items():
+        if board.get("sportType") == SPORT_INDEX[sport]:
+            board[key] = version
+    return board
+
+
 def to_canvas(drill: Drill, sport: str) -> None:
     """Map a rel=True drill's court coordinates onto the canvas, in place."""
     if not drill.rel:
@@ -481,13 +628,25 @@ def to_canvas(drill: Drill, sport: str) -> None:
         drill.ball = (fx(drill.ball[0]), fy(drill.ball[1]))
     if drill.ball_spot is not None:
         drill.ball_spot = (fx(drill.ball_spot[0]), fy(drill.ball_spot[1]))
-    drill.ball_moves = [(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
+    if drill.view is not None:
+        x0, y0, x1, y1 = drill.view
+        drill.view = (fx(x0), fy(y0), fx(x1), fy(y1))
+    drill.ball_moves =[(fx(mx), fy(my), ph) for (mx, my, ph) in drill.ball_moves]
     # ball_to point targets are author coordinates too; the player references
     # need nothing, they resolve to positions that are already transformed.
     drill.ball_to = [(((Spot(fx(t.x), fy(t.y)) if isinstance(t, Spot)
                         else (fx(t[0]), fy(t[1]))) if isinstance(t, tuple)
                        else t), ph)
                      for (t, ph) in drill.ball_to]
+    # A second ball placed loose (multiball: both start in the coach's
+    # basket) is in author coordinates too. Only a tuple is touched — an
+    # index needs nothing — so every existing ball2 is unchanged.
+    if isinstance(drill.ball2, tuple):
+        drill.ball2 = (fx(drill.ball2[0]), fy(drill.ball2[1]))
+        drill.ball2_to = [(((Spot(fx(t.x), fy(t.y)) if isinstance(t, Spot)
+                             else (fx(t[0]), fy(t[1]))) if isinstance(t, tuple)
+                            else t), ph)
+                          for (t, ph) in drill.ball2_to]
     drill.rel = False
 
 
@@ -523,55 +682,49 @@ def reserve_keeper_number(drill: Drill, sport: str) -> None:
                 p.label = str(int(p.label) + 1)
 
 
-def space_out(drill: Drill, sport: str) -> None:
-    """Push overlapping people apart until their icons stop covering each other.
+def _settle(people, side, pos, outside, sport, fw, fh, mates_only) -> bool:
+    """Push figures that cover each other apart at one beat, in place.
 
-    Authoring is in court-relative units, which are not square — 0.01 across
-    is under 4pt while 0.01 down is about 6pt — so a defender written 0.05
-    "goal-side of" his man ended up standing on him at 44pt icon size. Rather
-    than re-guess 154 boards' coordinates, this restores legibility without
-    touching intent: each overlapping pair is pushed apart *along the line it
-    already sits on*, by the smallest amount that clears the icons, so who is
-    in front of whom never changes. Positions are kept inside the playing
-    surface, and audit() still runs afterwards — a board too crowded for this
-    to fix fails, as it should.
-
-    Drills that declare tight=True (a scrum, a wall, a double block) keep
-    their formation and are only opened to where the labels can be read.
+    [pos] is a list of mutable [x, y] pairs in board units, parallel to
+    [people]. A pair is covering when it is closer than the drawn figure
+    both ways at once; it is opened along whichever axis is the shorter
+    walk, so a column stays a column and a pair standing side by side only
+    gives up the few points their shoulders share.
     """
-    if sport in SPACING_UNCHECKED:
-        return
-    floor = SPACING_TIGHT if drill.tight else SPACING_APART
     left, top, w, h = court_rect(sport)
     sx = CANVAS_PT[0] / BOARD_UNITS[0]
     sy = CANVAS_PT[1] / BOARD_UNITS[1]
-    people = drill.home + drill.away
-    # A thrower at a lineout or a throw-in stands outside the touchline by
-    # the rules (that is what off_surface exempts). Clamping him to the
-    # court would delete the very thing the drill is about, so anyone who
-    # starts outside is kept outside and only held on the canvas.
-    outside = {id(p) for p in people
-               if not (left - 12 <= p.x <= left + w + 12
-                       and top - 12 <= p.y <= top + h + 12)}
+    ever = False
     for _ in range(60):
         moved = False
-        for i in range(len(people)):
-            for j in range(i + 1, len(people)):
-                a, b = people[i], people[j]
-                dx, dy = (b.x - a.x) * sx, (b.y - a.y) * sy
-                d = math.hypot(dx, dy)
-                if d >= floor:
+        for i in range(len(pos)):
+            for j in range(i + 1, len(pos)):
+                if mates_only and side[i] != side[j]:
                     continue
-                if d < 1e-6:                    # exactly stacked: split sideways
-                    dx, dy, d = 1.0, 0.0, 1.0
-                push = (floor - d) / 2 + 0.5
-                ux, uy = dx / d, dy / d
-                a.x -= ux * push / sx; a.y -= uy * push / sy
-                b.x += ux * push / sx; b.y += uy * push / sy
-                for p in (a, b):
-                    if id(p) in outside:
-                        p.x = min(max(p.x, 12), BOARD_UNITS[0] - 12)
-                        p.y = min(max(p.y, 12), BOARD_UNITS[1] - 12)
+                dx = (pos[j][0] - pos[i][0]) * sx
+                dy = (pos[j][1] - pos[i][1]) * sy
+                ax, ay = abs(dx), abs(dy)
+                if ax >= fw or ay >= fh:
+                    continue
+                if fw - ax <= fh - ay:
+                    push = (fw - ax) / 2 + 0.5
+                    u = 1.0 if dx >= 0 else -1.0
+                    pos[i][0] -= u * push / sx
+                    pos[j][0] += u * push / sx
+                else:
+                    push = (fh - ay) / 2 + 0.5
+                    u = 1.0 if dy >= 0 else -1.0
+                    pos[i][1] -= u * push / sy
+                    pos[j][1] += u * push / sy
+                for k in (i, j):
+                    # A thrower at a lineout or a throw-in stands outside the
+                    # touchline by the rules (that is what off_surface
+                    # exempts). Clamping him to the court would delete the
+                    # very thing the drill is about, so anyone who starts
+                    # outside is kept outside and only held on the canvas.
+                    if outside[k]:
+                        pos[k][0] = min(max(pos[k][0], 12), BOARD_UNITS[0] - 12)
+                        pos[k][1] = min(max(pos[k][1], 12), BOARD_UNITS[1] - 12)
                     else:
                         # Everyone is held 8 units inside the surface — but a
                         # keeper by the whole of his icon, or the spreading
@@ -581,9 +734,81 @@ def space_out(drill: Drill, sport: str) -> None:
                         # him is the one that keeps moving: the next pass
                         # round this loop pushes them apart again and only
                         # the other end of the pair takes it.
-                        edge = keeper_margin() if is_keeper(p) else 8
-                        p.x = min(max(p.x, left + 8), left + w - 8)
-                        p.y = min(max(p.y, top + edge), top + h - edge)
+                        edge = keeper_margin() if is_keeper(people[k]) else 8
+                        pos[k][0] = min(max(pos[k][0], left + 8), left + w - 8)
+                        pos[k][1] = min(max(pos[k][1], top + edge),
+                                        top + h - edge)
+                moved = ever = True
+        if not moved:
+            break
+    return ever
+
+
+def space_out(drill: Drill, sport: str) -> None:
+    """Push people apart until their drawn figures stop covering each other.
+
+    Authoring is in court-relative units, which are not square — 0.01 across
+    is under 4pt while 0.01 down is about 6pt — so a defender written 0.05
+    "goal-side of" his man ended up standing on him. Rather than re-guess
+    674 boards' coordinates, this restores legibility without touching
+    intent: each covering pair is opened by the smallest amount that clears
+    the figures, so who is in front of whom never changes. Positions are
+    kept inside the playing surface, and audit() still runs afterwards — a
+    board too crowded for this to fix fails, as it should.
+
+    The floor is the figure's own box, not a disc (see FIGURE_PT): the
+    person is drawn twice as tall as he is wide, so a column needs twice
+    the room a row does.
+
+    Every beat is settled, not only the start. The start check is for
+    everybody — two people on one point at kick-off is a board a coach
+    cannot count. Later beats are between team-mates only: opponents
+    arriving on one point is the tackle, the screen, the mark, which is the
+    content of the drill and not a drawing fault.
+
+    Drills that declare tight=True (a scrum, a wall, a double block) keep
+    their formation and are only opened to where the heads clear.
+    """
+    if sport in SPACING_UNCHECKED:
+        return
+    fw, fh = figure_box(drill)
+    left, top, w, h = court_rect(sport)
+    people = drill.home + drill.away
+    side = [0] * len(drill.home) + [1] * len(drill.away)
+    outside = [not (left - 12 <= p.x <= left + w + 12
+                    and top - 12 <= p.y <= top + h + 12) for p in people]
+    beats = sorted({ph for p in people for (_, _, ph) in p.moves})
+
+    def read(beat):
+        if beat is None:
+            return [[p.x, p.y] for p in people]
+        return [list(_pos_at(p, beat)) for p in people]
+
+    def write(beat, pos):
+        for p, (x, y) in zip(people, pos):
+            last = None
+            if beat is not None:
+                for k, (_, _, ph) in enumerate(p.moves):
+                    if ph <= beat:
+                        last = k
+            if last is None:
+                # Nothing has moved him yet, so where he starts is where he
+                # is at this beat: moving his start moves nothing that has
+                # already happened on the board.
+                p.x, p.y = x, y
+            else:
+                p.moves[last] = (x, y, p.moves[last][2])
+
+    # Opening one beat can crowd another — a man pushed sideways at the
+    # start is still there three beats later — so the beats are walked
+    # until they all hold at once.
+    for _ in range(8):
+        moved = False
+        for beat in [None] + beats:
+            pos = read(beat)
+            if _settle(people, side, pos, outside, sport, fw, fh,
+                       mates_only=beat is not None):
+                write(beat, pos)
                 moved = True
         if not moved:
             return
@@ -595,7 +820,7 @@ def _standing_at(drill: Drill, point, phase: int):
     Read at the feet distance the board draws a held ball at, with a little
     slack: a pass into space beside a defender is not a pass to him.
     """
-    best, who = FEET_PT * 1.4, None
+    best, who = FEET_PT * 1.4 * _feet_scale, None
     for pl in drill.home + drill.away:
         d = _screen_gap(_pos_at(pl, phase), point)
         if d < best:
@@ -956,11 +1181,50 @@ def frame_of(sport: str, board: dict) -> str | None:
     return None
 
 
+def _second_ball(drill: Drill, sport: str, home_ids, idx: int,
+                 carrier_id) -> dict:
+    """Resolve and emit the drill's second ball.
+
+    It goes through the very same machinery the first one does — the ball
+    fields are swapped out, resolve_ball runs again, the result is taken, and
+    the first ball's state is put back so the note still narrates it. Writing
+    a parallel resolver would mean two sets of rules for carries, holders and
+    degenerate legs, and they would drift.
+    """
+    keep = (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+            drill.ball_carriers, drill.ball_holders)
+    try:
+        drill.ball = drill.ball2
+        drill.ball_to = list(drill.ball2_to)
+        drill.ball_moves = []
+        drill.ball_follow = None
+        drill.ball_carriers = []
+        drill.ball_holders = []
+        resolve_ball(drill, sport)
+        prune_degenerate_ball_legs(drill, sport)
+        bx, by = (ball_start(drill, sport) if isinstance(drill.ball, int)
+                  else drill.ball)
+        attached = (home_ids[drill.ball] if isinstance(drill.ball, int)
+                    else None)
+        holder0 = (carrier_id(drill.ball) if isinstance(drill.ball, int)
+                   else None)
+        return _ball(idx, sport, bx, by, attached,
+                     drill.ball_moves,
+                     [carrier_id(c) for c in drill.ball_carriers],
+                     [carrier_id(c) for c in drill.ball_holders],
+                     holder0)
+    finally:
+        (drill.ball, drill.ball_to, drill.ball_moves, drill.ball_follow,
+         drill.ball_carriers, drill.ball_holders) = keep
+
+
 def build_board(drill: Drill, sport: str) -> dict:
     from .narrate import compose_note
     unlabel_lone_player(drill)
     reserve_keeper_number(drill, sport)
     to_canvas(drill, sport)
+    global _feet_scale
+    _feet_scale = 1.0 / view_zoom(drill)
     keep_keeper_inside_his_line(drill, sport)
     space_out(drill, sport)
     prune_degenerate_moves(drill)
@@ -1009,11 +1273,21 @@ def build_board(drill: Drill, sport: str) -> dict:
                 f"{len(drill.home)} home player(s) — an away player holding "
                 f"the ball is given as an (x, y) instead")
             bx, by = ball_start(drill, sport)
-            players.append(_ball(0, sport, bx, by, home_ids[drill.ball],
-                                 drill.ball_moves, carriers, holders, holder0))
+            for n in range(max(1, drill.balls)):
+                players.append(_ball(n, sport, bx, by, home_ids[drill.ball],
+                                     drill.ball_moves, carriers, holders,
+                                     holder0))
+            if drill.ball2 is not None:
+                players.append(_second_ball(drill, sport, home_ids,
+                                            len(players), carrier_id))
         else:
             players.append(_ball(0, sport, drill.ball[0], drill.ball[1], None,
                                  drill.ball_moves, carriers, holders, holder0))
+            # A loose first ball can have a second one too (multiball: both
+            # in the coach's basket). Only drills that set ball2 reach this.
+            if drill.ball2 is not None:
+                players.append(_second_ball(drill, sport, home_ids,
+                                            len(players), carrier_id))
 
     ball_xy = None
     for pd in players:
@@ -1023,7 +1297,7 @@ def build_board(drill: Drill, sport: str) -> dict:
     people = list(drill.home) + list(drill.away)
     for pd, pl in zip(players, people):
         hd = facing.get(id(pl))
-        if hd is None:
+        if hd is None or pl.lock:
             continue
         r = facing_to_rotation(hd, pd["team"])
         if r != 0.0:
@@ -1073,6 +1347,10 @@ def suffixed(base: dict, suffix) -> dict:
             raise KeyError(
                 f"drill variant {suffix!r} has no translation — add it to "
                 f"tools/drills/vocab.py") from None
+    from .narrate import fill_extra
+    base = fill_extra(dict(base), "family name", "?")
+    if parts:
+        parts = fill_extra(dict(parts), "variant", "?")
     out = {}
     for loc, text in base.items():
         variant = parts.get(loc, parts.get('en', suffix))
@@ -1382,11 +1660,66 @@ BOARD_UNITS = (1000.0, 1500.0)  # what these boards are authored in
 SPACING_APART = 36.0            # one icon: no overlap at all
 SPACING_TIGHT = 25.0            # shoulder to shoulder, labels still readable
 
+# What a player is actually DRAWN as, measured off the app's own painters by
+# tool/ink_probe.dart: about 26pt across and 52pt tall. The token is a 36pt
+# square and everything — taps, selection, the spacing above — is sized by
+# that square, but the figure stands out of the top and bottom of it by 8pt
+# each way. So a 36pt disc is generous side by side and far too small one
+# above the other: 44 boards started with a team-mate's head in someone's
+# boots and 110 got there by some beat. Two people read as two people when
+# they are the figure's long way apart along one axis, or its short way
+# apart along both — a diagonal pair needs less room than a column.
+FIGURE_PT = (26.0, 52.0)        # width, height of the drawn person
+FIGURE_TIGHT = (20.0, 34.0)     # a scrum, a wall, a lineout: heads still clear
+# …and the app draws a tight board's figures at that size: the board JSON
+# carries "figureScale", the largest uniform scale that fits the drawn
+# person inside FIGURE_TIGHT (34/52 — the height binds). Without it the
+# audit spaced these boards for a smaller man than the phone drew.
+TIGHT_FIGURE_SCALE = round(min(FIGURE_TIGHT[0] / FIGURE_PT[0],
+                               FIGURE_TIGHT[1] / FIGURE_PT[1]), 3)
+
+# How far the app may magnify a drill's own view window
+# (TacticsState._frameZoomFor — keep the two equal).
+VIEW_ZOOM_MAX = 8.0
+
+
+def view_zoom(drill: "Drill") -> float:
+    """The zoom the app opens [drill]'s view window at on the phone: the
+    window fitted to the canvas, as TacticsState.applyViewFrame does.
+    1.0 for a drill without one. Call after to_canvas."""
+    if drill.view is None:
+        return 1.0
+    x0, y0, x1, y1 = drill.view
+    z = min(BOARD_UNITS[0] / abs(x1 - x0), BOARD_UNITS[1] / abs(y1 - y0))
+    return max(1.0, min(VIEW_ZOOM_MAX, z))
+
+
+def figure_box(drill: "Drill") -> tuple:
+    """The figure the spacing checks keep apart, in board points.
+
+    FIGURE_PT, or FIGURE_TIGHT on a tight board. Under a view window the
+    app draws every figure 1/zoom the size on the canvas (it keeps its size
+    on the screen while the court grows), so the box shrinks by the zoom —
+    and it is the figure as drawn, FIGURE_PT at TIGHT_FIGURE_SCALE (17x34),
+    not FIGURE_TIGHT's wider box: at a lineout's true spacing the 3 pt of
+    label room FIGURE_TIGHT adds is what decides whether seven men a side
+    fit between the 5 m and 15 m lines.
+    """
+    if drill.view is None:
+        return FIGURE_TIGHT if drill.tight else FIGURE_PT
+    z = view_zoom(drill)
+    s = TIGHT_FIGURE_SCALE if drill.tight else 1.0
+    return (FIGURE_PT[0] * s / z, FIGURE_PT[1] * s / z)
+
 # How far the ball sits from the man carrying it, in points on the phone.
 # The player token is 36pt across and the ball is drawn at 0.58 of its own
 # 36pt cell — about 21pt — so 24pt between the two centres has their edges
 # just meeting: the ball is at his feet, not beside him on the grass.
 FEET_PT = 24.0
+# …divided by the zoom of the drill being built when it has a view window
+# (the app draws the man and his ball 1/zoom the size on the canvas). Set by
+# build_board for every drill, so it is never left over from the last one.
+_feet_scale = 1.0
 
 # Was a list of sports whose boards predated the rule. Empty since
 # 2026-09-07: space_out() applies the rule to every sport.
@@ -1452,12 +1785,19 @@ def at_the_feet_of(x: float, y: float, sport: str,
         hy = 70.0 if y + 70.0 <= top + h - 20 else -70.0
     px, py = hx * DISPLAY_W / CANVAS_W, hy * DISPLAY_H / CANVAS_H
     length = math.hypot(px, py)
-    bx = x + px / length * FEET_PT * CANVAS_W / DISPLAY_W
-    by = y + py / length * FEET_PT * CANVAS_H / DISPLAY_H
+    bx = x + px / length * FEET_PT * _feet_scale * CANVAS_W / DISPLAY_W
+    by = y + py / length * FEET_PT * _feet_scale * CANVAS_H / DISPLAY_H
     # A ball pushed ahead at the touchline must not be pushed off it. Only
     # for a moving holder: a man standing outside the field of play — the
     # thrower, the corner taker — keeps his ball out there with him.
-    if clamp:
+    #
+    # And only for a holder who is himself inside it. A table tennis player
+    # stands a long way behind the table on purpose, so the clamp hauled his
+    # ball forward onto the table and left him empty-handed — eighteen
+    # boards opened with a ball lying on the far edge belonging to nobody.
+    inside = (left + 15 <= x <= left + w - 15
+              and top + 15 <= y <= top + h - 15)
+    if clamp and inside:
         return (min(max(bx, left + 15), left + w - 15),
                 min(max(by, top + 15), top + h - 15))
     return bx, by
@@ -1501,16 +1841,28 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     people = [p for p in board["players"]
               if p["markerShape"] == 0 and p.get("sportType") is None]
 
+    fw, fh = figure_box(drill)
+
+    def covered(a, b):
+        """How far two figures are apart on a phone, or None if they clear.
+
+        The test is the drawn figure's box, not a disc: 26pt across and
+        52pt tall, so a column needs twice the room a row does.
+        """
+        dx = abs(a[0] - b[0]) * CANVAS_PT[0] / BOARD_UNITS[0]
+        dy = abs(a[1] - b[1]) * CANVAS_PT[1] / BOARD_UNITS[1]
+        return None if dx >= fw or dy >= fh else (dx, dy)
+
     if sport not in SPACING_UNCHECKED:
-        floor = SPACING_TIGHT if drill.tight else SPACING_APART
         for i in range(len(people)):
             for j in range(i + 1, len(people)):
-                d = _screen_gap(people[i]["position"], people[j]["position"])
-                assert d >= floor, (
+                gap = covered(people[i]["position"], people[j]["position"])
+                assert gap is None, (
                     f"{sport}/{drill.id}: {people[i]['label']!r} and "
-                    f"{people[j]['label']!r} are {d:.0f}pt apart on a phone — "
-                    f"{'labels collide' if drill.tight else 'icons overlap'} "
-                    f"(need {floor:.0f}pt)")
+                    f"{people[j]['label']!r} are {gap[0]:.0f}pt across and "
+                    f"{gap[1]:.0f}pt down apart on a phone — "
+                    f"{'labels collide' if drill.tight else 'figures overlap'} "
+                    f"(need {fw:.0f} or {fh:.0f})")
 
     # …and nobody may be hidden UNDER a team-mate at any beat.
     #
@@ -1521,9 +1873,9 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     # so two of them 6pt apart is one token as far as a coach can tell.
     #
     # Only team-mates. Opponents on one point is a tackle, a tag, a screen —
-    # the whole content of the drill. And 6pt rather than a full icon,
-    # because bodies at a ruck, a maul or a lineout really are touching: the
-    # tightest honest board in the library sits at 8.7pt.
+    # the whole content of the drill. Bodies at a ruck, a maul or a lineout
+    # really are touching, which is what tight=True is for: it lets those
+    # boards close up to where the heads still clear.
     if sport not in SPACING_UNCHECKED:
         beats = [ph for p in people for ph in p["movePhases"]]
         for beat in range(0, (max(beats) if beats else 0) + 1):
@@ -1537,11 +1889,12 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
                 for j in range(i + 1, len(people)):
                     if people[i]["team"] != people[j]["team"]:
                         continue
-                    d = _screen_gap(where(people[i]), where(people[j]))
-                    assert d >= 6.0, (
+                    gap = covered(where(people[i]), where(people[j]))
+                    assert gap is None, (
                         f"{sport}/{drill.id}: {people[i]['label']!r} and "
-                        f"{people[j]['label']!r} are {d:.1f}pt apart on beat "
-                        f"{beat} — one is drawn under the other")
+                        f"{people[j]['label']!r} are {gap[0]:.0f}pt across and "
+                        f"{gap[1]:.0f}pt down apart on beat {beat} — "
+                        f"one is drawn under the other")
 
     # A beat in the middle of a sequence where the ball travels and nobody
     # does. The ends are exempt on purpose: the first beat is the serve or
@@ -1580,12 +1933,19 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     balls = [p for p in board["players"] if p.get("sportType") is not None]
     for p in people + balls:
         prev = p["position"]
-        for mv in p["moves"]:
+        held = p.get("holder")
+        holders = p.get("moveHolders") or []
+        for k, mv in enumerate(p["moves"]):
             step = math.hypot(mv[0] - prev[0], mv[1] - prev[1])
-            assert step >= 8, (
+            # …unless the ball stayed put because somebody took it off the
+            # man who had it. See prune_degenerate_ball_legs.
+            now = holders[k] if k < len(holders) else None
+            assert step >= 8 or (now is not None and now != held), (
                 f"{sport}/{drill.id}/{p['label'] or 'ball'}: {step:.0f}px "
                 f"move — a dead arrow (prune_degenerate_moves should have "
                 f"eaten it)")
+            if now is not None:
+                held = now
             prev = mv
 
     if sport == "soccer":
@@ -1614,6 +1974,31 @@ def audit(sport: str, drill: Drill, board: dict) -> None:
     for loc, name in drill.name.items():
         assert not _STUTTER.search(name) and "  " not in name, (
             f"{sport}/{drill.id} [{loc}]: {name!r} reads as a stutter")
+
+    # Nobody crosses the net.
+    #
+    # It is the one rule of a net sport a board can break without looking
+    # wrong anywhere else, and six of them had: a beach-tennis man ran the
+    # length of the court to a point 44% into the other half, and five more
+    # boards put somebody a few points past the line. The usual cause is a
+    # coordinate written for the far side and then used for a near-side
+    # player, or the reverse.
+    #
+    # Two points' tolerance, because standing ON the line is standing at the
+    # net, which is where half of these drills are played.
+    if sport in NET_RALLY_SPORTS | {"volleyball"}:
+        left, top, w, h = court_rect(sport)
+        net = top + h / 2
+        for p in people:
+            pts = [p["position"], *p["moves"]]
+            sides = {q[1] > net for q in pts if abs(q[1] - net) > 2}
+            if len(sides) > 1:
+                start = pts[0][1] > net
+                over = max(abs(q[1] - net) for q in pts if (q[1] > net) != start)
+                raise AssertionError(
+                    f"{sport}/{drill.id}: {p['label']!r} crosses the net — "
+                    f"{over:.0f} of {h:.0f} units ({over / h * 100:.0f}% of "
+                    f"the court) into the other half")
 
     if drill.off_surface:
         left, top, w, h = court_rect(sport)
@@ -1672,7 +2057,10 @@ def min_client() -> str:
 def build(sport: str, library) -> dict:
     """Render one sport's library to the JSON the app ships."""
     from .mistakes import lookup
+    from .narrate import fill_extra
     drills = library()
+    for d in drills:
+        d.name = fill_extra(dict(d.name), "name", d.id)
     ids = [d.id for d in drills]
     assert len(ids) == len(set(ids)), f"duplicate drill id in {sport}"
     families = assign_families(drills, sport)
@@ -1700,6 +2088,25 @@ def build(sport: str, library) -> dict:
         # it was before narration ever ran.
         board = build_board(d, sport)
         audit(sport, d, board)
+        # Everything that reasons about the board does it in the authoring
+        # frame — the audit above, frame_of below — so the conversion comes
+        # last, after the record is built. See to_display_frame.
+        frame = frame_of(sport, board)
+        board = to_display_frame(board)
+        if d.tight:
+            board["figureScale"] = TIGHT_FIGURE_SCALE
+        if d.court is not None:
+            board["courtLayout"] = d.court
+        if d.rotation is not None:
+            board["rotation"] = dict(d.rotation)
+        if d.view is not None:
+            # In the display frame's points, like the players. A board with
+            # its own window opens on that, never on a half as well.
+            sx, sy = DISPLAY_W / CANVAS_W, DISPLAY_H / CANVAS_H
+            x0, y0, x1, y1 = d.view
+            board["viewWindow"] = [round(min(x0, x1) * sx, 3), round(min(y0, y1) * sy, 3),
+                                   round(max(x0, x1) * sx, 3), round(max(y0, y1) * sy, 3)]
+            frame = None
         records.append({
                 "id": d.id,
                 "level": derive_level(d),
@@ -1713,21 +2120,40 @@ def build(sport: str, library) -> dict:
                 "players": d.player_count,
                 "free": d.free,
                 "usage": d.usage,
-                "frame": frame_of(sport, board),
+                "frame": frame,
                 "offSurface": d.off_surface,
                 # A scrum, a maul, a lineout, a wall: the author says the
                 # bodies really are touching, and the pile-up check trusts it.
                 "tight": d.tight,
                 "name": d.name,
-                "note": d.note,
+                "note": fill_extra(dict(d.note), "note", d.id),
                 # The family's most common error — the other half of the
                 # coaching point, shown once per card like the note.
-                "mistake": lookup(
+                "mistake": fill_extra(dict(lookup(
                     sport,
                     families[d.id][1].get("en", "") if d.id in families
                     else d.name["en"],
-                    d.category),
+                    d.category)), "mistake", d.id),
                 "board": board,
         })
-    return {"sport": sport, "version": pack_version(),
+    pack = {"sport": sport, "version": pack_version(),
             "minClient": min_client(), "drills": records}
+    # Derived, not declared: the newest release any field or value in this
+    # pack needs (see compat.py). min_client.txt is only the floor.
+    # Label words the library shows (category / level / usage chips), when
+    # a correction has to reach installed apps without a release. Keyed like
+    # the app's translation files; the app prefers these over its own.
+    # Empty file, no key: the packs stay byte-identical until it is used.
+    strings = json.loads((_CONFIG_DIR / "i18n" / "app_strings.json")
+                         .read_text(encoding="utf-8"))
+    if strings:
+        pack["strings"] = strings
+    # Ready sessions built from this library (plans.py). Apps before the
+    # one that reads them ignore the key, so the floor does not move.
+    from .plans import build_plans
+    plans = build_plans(records)
+    if plans:
+        pack["plans"] = plans
+    from .compat import required_client
+    pack["minClient"] = required_client(pack, min_client())
+    return pack

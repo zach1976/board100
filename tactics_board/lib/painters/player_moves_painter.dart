@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart' show mapEquals;
 import 'package:flutter/material.dart';
 import '../models/player_icon.dart';
+import '../models/sport_type.dart';
 import '../widgets/player_icon_widget.dart';
 
 /// Which legs of this ball's route ride along with a player, and whose leg
@@ -25,7 +26,7 @@ Map<int, String> ballEscorts(PlayerIcon ball, List<PlayerIcon> players) {
   // At the receiver's feet the ball sits ~38pt from the receiver's point;
   // one and a half icons covers that with room, while the next cone is
   // hundreds of points away.
-  const near = kPlayerIconSize * 1.5;
+  final near = kPlayerIconSize * 1.5;
   final out = <int, String>{};
   if (ball.moves.isEmpty) return out;
   ball.syncPhases();
@@ -113,7 +114,7 @@ double nudgeThreshold(PlayerIcon p) =>
 
 /// How much of its 36pt box an icon actually fills.
 double iconDrawFactor(PlayerIcon p) => p.isBall
-    ? kBallDrawFactor
+    ? ballDrawFactor(p.sportType ?? SportType.soccer)
     : p.isMarker
         ? markerArtScale(p.markerShape)
         : 1.0;
@@ -201,7 +202,26 @@ Offset stepStart(PlayerIcon player, int phaseLimit) {
 /// What a line on the board is saying: a run, a carry, or the ball alone.
 enum _Line { dash, wave, solid }
 
+/// A name badge's box round the feet point, on the screen's axes.
+class _Badge {
+  final double halfWidth, above, below;
+  const _Badge(
+      {required this.halfWidth, required this.above, required this.below});
+}
+
+/// Which half of a route this painter draws.
+///
+/// A route used to be painted in one pass over the people, so that an
+/// arrowhead was never covered — and so that every shaft crossed every body
+/// in its way, a pass line running up the receiver's shirt to a head on his
+/// chest. The shafts are marks on the ground: they go UNDER the people, and
+/// a body across one hides that stretch of it, as it would. The heads are
+/// the one part that must always be seen — where the ball or the man
+/// arrives — and they go over. Two painters, one on each side of the tokens.
+enum RouteLayer { all, shafts, heads }
+
 class PlayerMovesPainter extends CustomPainter {
+  final RouteLayer layer;
   final List<PlayerIcon> players;
   final int targetStep; // 0 = all; used when not animating
   final int? completedSteps; // non-null during animation: show only this many segments
@@ -233,6 +253,18 @@ class PlayerMovesPainter extends CustomPainter {
   /// ball sits a token away from it.
   final Map<String, Offset> startShift;
 
+  /// Which way is down the SCREEN, as a unit vector in board coordinates.
+  ///
+  /// A route is stored as the token's centre, and a token is the middle of
+  /// a figure who stands 25pt taller than that and whose feet are 25pt
+  /// lower. A line drawn centre to centre set off from one man's chest and
+  /// ran into the next man's stomach. Shifted by the figure's foot offset it
+  /// runs shoe to shoe, which is where a man actually goes. The figures
+  /// stand upright whichever way the board is turned, so "down" is a screen
+  /// direction the board hands in. Zero means no shift — a caller with no
+  /// figures, or the old picture.
+  final Offset footward;
+
   /// Where a moving ball is actually drawn, this frame.
   ///
   /// The route's last point is the leg's DESTINATION. While the ball is
@@ -242,15 +274,24 @@ class PlayerMovesPainter extends CustomPainter {
   /// follows the ball and arrives when it does.
   final Map<String, Offset> livePos;
 
+  /// The sport the board is set to, which decides whether a holder on the
+  /// move is carrying the ball or merely walking while it waits for him.
+  /// Null keeps the old behaviour — a carry is a carry — for the callers
+  /// that have no board to ask.
+  final SportType? sport;
+
   const PlayerMovesPainter({
     required this.players,
+    this.layer = RouteLayer.all,
     this.livePos = const {},
+    this.sport,
     this.targetStep = 0,
     this.completedSteps,
     this.focusId,
     this.onlyFocus = false,
     this.endShift = const {},
     this.startShift = const {},
+    this.footward = Offset.zero,
   });
 
   /// The focused element, but only when it has a route to follow — selecting
@@ -304,9 +345,17 @@ class PlayerMovesPainter extends CustomPainter {
     }
   }
 
-  static const _strokeWidth = 2.8;
-  static const _arrowSize = 13.0;
-  static const _waypointRadius = 17.0; // half of 28.0 dot + shadow margin
+  // On the figures' scale (gBoardFigureScale): a tablet board's arrows
+  // grow with its players, and are exactly these on a phone.
+  static double get _strokeWidth => 2.8 * gBoardFigureScale;
+  static double get _arrowSize => 13.0 * gBoardFigureScale;
+  /// How far a line keeps from a numbered stop (the 28pt disc, its white
+  /// rim and shadow). A person's dashes at 17 ran up to the rim and read
+  /// as a line through the number, so a run keeps 21. A pass ARRIVES: its
+  /// head stops at the rim, at 17, or it pointed at the air a stride short
+  /// of the receiver. Reported off an iPad, 2026-10-16.
+  static double _stopClear(PlayerIcon p) =>
+      (p.isBall ? 17.0 : 21.0) * gBoardFigureScale;
 
   void _paintMoves(Canvas canvas, PlayerIcon player,
       {bool whole = false,
@@ -341,26 +390,52 @@ class PlayerMovesPainter extends CustomPainter {
     final int phaseLimit = whole ? 0 : (completedSteps ?? targetStep);
     final legs = stepLegs(player, phaseLimit);
     if (legs.isEmpty) return;
+    // Every point, not only the ends: a man's waypoints are where he turns,
+    // and he turns on his feet.
+    final feet = (player.isBall || player.isMarker)
+        ? Offset.zero
+        : footward * (kPlayerIconSize * 0.70 * player.scale);
     final points = [
-      stepStart(player, phaseLimit),
-      ...legs.map((e) => e.value),
+      stepStart(player, phaseLimit) + feet,
+      ...legs.map((e) => e.value + feet),
     ];
-    if (player.isBall) {
-      points[0] += startShift[player.id] ?? Offset.zero;
-      final live = livePos[player.id];
-      if (live != null) {
-        // Mid-flight: end the line where the ball is, not where it is going.
-        points[points.length - 1] = live;
-      } else {
-        points[points.length - 1] += endShift[player.id] ?? Offset.zero;
-      }
+    // The ends follow the token: a ball is drawn at its holder's foot and a
+    // crowded figure is nudged aside, and a line that ends where the token
+    // WOULD have been stops a stride short of where it is.
+    points[0] += startShift[player.id] ?? Offset.zero;
+    final live = player.isBall ? livePos[player.id] : null;
+    if (live != null) {
+      // Mid-flight: end the line where the ball is, not where it is going.
+      points[points.length - 1] = live;
+    } else {
+      points[points.length - 1] += endShift[player.id] ?? Offset.zero;
     }
     // bbox half + shadow/border margin — keep arrow clear of the icon's drop
     // shadow. Of the icon as DRAWN: a ball fills 58% of its box, so a
     // player's radius left the arrowhead a third of a token short of it and
     // the line looked like it was aimed at the grass beside the ball.
-    final iconRadius =
-        kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3;
+    //
+    // A person is not a disc either: the figure is 23.5pt across, not 36,
+    // and the routes are painted UNDER the people, so the head only has to
+    // reach the silhouette — the body hides whatever lies beyond. Backed
+    // off a whole token radius the head stopped a stride short of its
+    // runner, and whoever happened to stand in that stride was read as
+    // where the run ended.
+    //
+    // A person's line ends at the feet. How far back from them the head has
+    // to sit depends on where the line comes from: the figure stands 50pt
+    // UP from its feet and 12pt to either side, and the routes are painted
+    // under the people, so a run arriving from above has its whole last
+    // stride — head and all — behind the body, while one arriving from below
+    // meets nothing but the shoe. See [_personClear].
+    final iconRadius = player.isBall || player.isMarker
+        ? kPlayerIconSize / 2 * player.scale * iconDrawFactor(player) + 3
+        : 5.0 * player.scale * kFigureScale;
+    final person = !player.isBall && !player.isMarker && footward != Offset.zero;
+    // The badge under the feet of a player whose name is not a number: a
+    // line arriving from below, or from beside, used to put its head
+    // under it — the one place a run's arrival was sure to be hidden.
+    final badge = person ? _labelBadge(player) : null;
 
     for (int i = 0; i < points.length - 1; i++) {
       // Three kinds of line, which is the whole point of drawing them:
@@ -370,7 +445,13 @@ class PlayerMovesPainter extends CustomPainter {
       // parallel arrows a few points apart.
       final carrying = carries.contains('${player.id}#${legs[i].key}');
       if (player.isBall && carrying) continue;
-      final style = carrying
+      // The squiggle only where a ball can actually travel with a player.
+      // A shuttle is struck, never carried, so on a badminton court the
+      // man walking to meet it read as dribbling it there; his is a run
+      // like any other. The ball's own copy of the leg stays dropped
+      // either way — it rides with him, and two lines for one movement is
+      // the thing [carries] exists to prevent.
+      final style = carrying && (sport?.canCarryBall ?? true)
           ? _Line.wave
           : player.isBall
               ? _Line.solid
@@ -378,22 +459,86 @@ class PlayerMovesPainter extends CustomPainter {
       final from = points[i];
       final to = points[i + 1];
       // Offset both ends: start from source edge, end at destination edge
-      final startRadius = i == 0 ? iconRadius : _waypointRadius;
       final isLastSegment = i == points.length - 2;
-      final endRadius = isLastSegment ? iconRadius : _waypointRadius;
+      final startRadius = i == 0
+          ? (person
+              ? _personClear(to - from, player.scale * kFigureScale,
+                  badge: badge)
+              : iconRadius)
+          : _stopClear(player);
+      final endRadius = isLastSegment
+          ? (person
+              ? _personClear(from - to, player.scale * kFigureScale,
+                  badge: badge)
+              : iconRadius)
+          : _stopClear(player);
       final dist = (to - from).distance;
       // A ball that has not left yet has no line. Mid-flight the line ends
       // where the ball is, and in the first frames of a pass that is a few
       // points from where it began — which the stub arrow turned into a
       // 17pt arrow pointing wherever those few points happened to lie,
       // there for a moment and then gone.
-      if (player.isBall && isLastSegment && livePos.containsKey(player.id) &&
-          dist < nudgeThreshold(player)) {
+      //
+      // The same holds for a ball that never leaves at all: the generator
+      // keeps one leg that goes nowhere, the turnover, where a presser
+      // steps in and takes it off the man standing on it. The beat is real
+      // — the ball changes hands — but nothing travels, so there is
+      // nothing to draw a line for, and a stub beside a ball that has not
+      // moved is the dangling arrow all over again.
+      if (player.isBall && dist < nudgeThreshold(player)) continue;
+      if (dist < nudgeThreshold(player)) {
+        // A person's shift this small is a step on the spot. The stub drawn
+        // for it was an arrow from nowhere butted against his boots, with no
+        // start copy to explain it — it read as a stray mark, or as the way
+        // he faced. Say nothing; the next real run says where he goes.
+        if (person) continue;
+        // A stub is all head: it exists to say where something arrives.
+        if (layer != RouteLayer.shafts) {
+          _drawNudge(canvas, color, from, to, endRadius,
+              strong: strong, fade: tail, style: style);
+        }
         continue;
       }
-      if (dist < nudgeThreshold(player)) {
-        _drawNudge(canvas, color, from, to, endRadius,
-            strong: strong, fade: tail, style: style);
+      // A person's short run — the start copy and the end copy all but
+      // touching — leaves no gap between the two bodies for a shaft and a
+      // head. Squeezed in there the head landed on his feet pointing along
+      // the run, and a table tennis player stepping back from the table
+      // read as one who had turned his back on it. Beside the two figures
+      // instead, parallel to the run: it still says which way he went, and
+      // it sits on nobody.
+      if (person && dist < startRadius + endRadius + _arrowSize + 6) {
+        // When the start copy is mostly behind the end copy — less than a
+        // body's width across or half its height up and down, on screen —
+        // nobody can see where the arrow comes from, and it reads as a
+        // stray mark. Then the move is too small to show at all.
+        final d = to - from;
+        final right = Offset(footward.dy, -footward.dx);
+        final across = (d.dx * right.dx + d.dy * right.dy).abs();
+        final along = (d.dx * footward.dx + d.dy * footward.dy).abs();
+        final k = player.scale * kFigureScale;
+        if (across < 24.0 * k && along < 28.0 * k) continue;
+        if (layer != RouteLayer.shafts) {
+          _drawBeside(canvas, color, from, to,
+              player.scale * kFigureScale,
+              strong: strong,
+              style: style,
+              // Arriving at a numbered stop, the stub aims at it; only a
+              // leg that ends at a figure runs alongside instead.
+              aimAt: isLastSegment ? null : to,
+              aimClear: endRadius,
+              avoid: [
+                for (final o in players)
+                  if (o.id != player.id && !o.isMarker) ...[
+                    o.position,
+                    ...o.moves,
+                    // And along their lines, every ten points, twice
+                    // over: a stub laid on a pass line is camouflaged,
+                    // which is worse than one crossing a body.
+                    for (final pt in _alongLegs(o, 10.0 * kFigureScale))
+                      ...[pt, pt],
+                  ],
+              ]);
+        }
         continue;
       }
       // Two tokens far enough apart to read can still be closer than the two
@@ -403,12 +548,158 @@ class PlayerMovesPainter extends CustomPainter {
       final room = min(1.0, dist / (startRadius + endRadius + 10));
       final adjustedFrom = _offsetToward(from, to, startRadius * room);
       final adjustedTo = _offsetToward(to, from, endRadius * room);
-      _drawLine(canvas, color, adjustedFrom, adjustedTo,
-          strong: strong, fade: tail, style: style);
+      if (layer != RouteLayer.heads) {
+        _drawLine(canvas, color, adjustedFrom, adjustedTo,
+            strong: strong, fade: tail, style: style);
+      }
+      if (layer == RouteLayer.shafts) continue;
       _drawArrowHead(canvas, color, adjustedFrom, adjustedTo,
           strong: strong);
     }
 
+  }
+
+  /// How far a line has to stay back from a figure's feet so that its head
+  /// shows, given the direction it leaves the feet in ([away], board
+  /// coordinates, not necessarily unit).
+  ///
+  /// The figure is a box on the screen: 12pt either side of the feet and
+  /// 50pt up from them. The answer is where a ray from the feet leaves that
+  /// box — straight up, the whole 50; sideways, 12; straight down, nothing —
+  /// plus a few points of air. Worked in screen space via [footward],
+  /// because the box stands upright whichever way the board is turned.
+  ///
+  /// [badge] is the name badge under the feet, when there is one (see
+  /// [_labelBadge]): a second box round the same point, and the ray has to
+  /// leave both. Without it a run arriving from below ended at the feet,
+  /// which is under the badge, so its head was never seen; from beside,
+  /// the badge is wider than the body and hid the head the same way.
+  double _personClear(Offset away, double scale, {_Badge? badge}) {
+    final len = away.distance;
+    if (len < 1e-6) return 5.0 * scale;
+    final u = away / len;
+    final down = footward;
+    final right = Offset(footward.dy, -footward.dx);
+    final ux = u.dx * right.dx + u.dy * right.dy;
+    final uy = u.dx * down.dx + u.dy * down.dy;
+    final hw = 12.0 * scale, up = 50.0 * scale;
+    var t = double.infinity;
+    if (ux.abs() > 1e-6) t = hw / ux.abs();
+    if (uy < -1e-6) t = t < up / -uy ? t : up / -uy;
+    if (uy > 1e-6) t = 0;
+    if (t == double.infinity) t = hw;
+    if (badge != null) {
+      // Where the ray leaves the badge's box: both boxes hold the feet,
+      // so leaving their union is leaving whichever it leaves last.
+      var b = double.infinity;
+      if (ux.abs() > 1e-6) b = badge.halfWidth / ux.abs();
+      if (uy > 1e-6) b = min(b, badge.below / uy);
+      if (uy < -1e-6) b = min(b, badge.above / -uy);
+      if (b == double.infinity) b = badge.halfWidth;
+      t = max(t, b);
+    }
+    return t + 4.0 * scale;
+  }
+
+  /// The name badge under [p]'s feet, as the token draws it (see the label
+  /// in player_icon_widget.dart): a chip of the name at 12pt w800 with 5pt
+  /// of padding, its middle 29.7pt below the figure's middle. Measured
+  /// from the feet point the routes use, 25.2pt below the middle. Null
+  /// for a number, which is worn on the shirt.
+  _Badge? _labelBadge(PlayerIcon p) {
+    if (p.label.isEmpty || p.labelInside) return null;
+    final k = kFigureScale * p.scale;
+    final tp = TextPainter(
+      text: TextSpan(
+          text: p.label,
+          style: TextStyle(
+              fontSize: 12 * k, fontWeight: FontWeight.w800, height: 1.2)),
+      maxLines: 1,
+      textDirection: ui.TextDirection.ltr,
+    )..layout();
+    final w = tp.width, h = tp.height;
+    tp.dispose();
+    final mid = (kPlayerIconBase * 0.5 + 11.7) * k - kPlayerIconBase * 0.70 * k;
+    return _Badge(
+      halfWidth: w / 2 + 5 * k,
+      above: max(0, h / 2 + 1.5 * k - mid),
+      below: mid + h / 2 + 1.5 * k,
+    );
+  }
+
+  /// Points every [step] along [p]'s whole route, start to last stop.
+  static Iterable<Offset> _alongLegs(PlayerIcon p, double step) sync* {
+    var from = p.position;
+    for (final to in p.moves) {
+      final d = to - from;
+      final len = d.distance;
+      if (len > step) {
+        final u = d / len;
+        for (var t = step; t < len; t += step) {
+          yield from + u * t;
+        }
+      }
+      from = to;
+    }
+  }
+
+  /// A short person run drawn alongside the figures rather than between
+  /// them: the same direction and span, moved sideways (in screen space,
+  /// via [footward]) past the body's half-width, at least a readable length.
+  ///
+  /// [aimAt]: the leg ends at a numbered stop rather than a figure. Then
+  /// only the tail steps aside — out from beside the body — and the head
+  /// points at the stop, [aimClear] short of it. Drawn parallel and
+  /// offset at both ends, the stub ran up past the stop to end beside it:
+  /// an arrow from the man's shoulder to nowhere, with the stop a stride
+  /// to its left (reported off a phone, 2026-10-17).
+  void _drawBeside(Canvas canvas, Color color, Offset from, Offset to,
+      double scale,
+      {bool strong = false,
+      _Line style = _Line.dash,
+      Offset? aimAt,
+      double aimClear = 0,
+      Iterable<Offset> avoid = const []}) {
+    final delta = to - from;
+    final dist = delta.distance;
+    if (dist < 0.5) return;
+    final dir = delta / dist;
+    final right = Offset(footward.dy, -footward.dx);
+    // To the figure's right on screen, unless the run itself is sideways,
+    // in which case below the feet keeps it off both bodies.
+    final sideways = (dir.dx * right.dx + dir.dy * right.dy).abs() > 0.7;
+    var side = sideways ? footward * (8.0 * scale) : right * (18.0 * scale);
+    // Or the left, when the right has people on it: three men stepping
+    // forward in a diagonal line each had a stub to the right, across the
+    // next man and his ghost, and the three read as one thicket
+    // (reported off a phone, 2026-10-17). The side with fewer figures
+    // within a token of the stub's middle wins; the right on a tie.
+    if (!sideways && avoid.isNotEmpty) {
+      final centre = (from + to) / 2;
+      final reach = 30.0 * scale;
+      int near(Offset at) =>
+          avoid.where((o) => (o - at).distance < reach).length;
+      if (near(centre - side) < near(centre + side)) side = -side;
+    }
+    if (aimAt != null) {
+      final tail = from + side;
+      final d = aimAt - tail;
+      final len = d.distance;
+      if (len < 1e-6) return;
+      final tip = aimAt - d / len * aimClear;
+      // Shorter than a head: the stop itself, on his shoulder, says it.
+      if ((tip - tail).distance < 8.0 * scale) return;
+      _drawLine(canvas, color, tail, tip,
+          strong: strong, fade: true, style: style);
+      _drawArrowHead(canvas, color, tail, tip, strong: strong);
+      return;
+    }
+    final mid = (from + to) / 2 + side;
+    final half = max(dist / 2, 10.0 * scale);
+    final tail = mid - dir * half;
+    final tip = mid + dir * half;
+    _drawLine(canvas, color, tail, tip, strong: strong, fade: true, style: style);
+    _drawArrowHead(canvas, color, tail, tip, strong: strong);
   }
 
   /// The stub for a move the icons are too big to show — see
@@ -447,7 +738,7 @@ class PlayerMovesPainter extends CustomPainter {
     // pitch markings both.
     final outlinePaint = Paint()
       ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
-      ..strokeWidth = width + 1.6
+      ..strokeWidth = width + 1.6 * gBoardFigureScale
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -481,8 +772,8 @@ class PlayerMovesPainter extends CustomPainter {
       for (final metric in metrics) {
         double start = 0;
         bool draw = true;
-        const dashLen = 12.0;
-        const gapLen = 7.0;
+        final dashLen = 12.0 * gBoardFigureScale;
+        final gapLen = 7.0 * gBoardFigureScale;
         while (start < metric.length) {
           final seg = draw ? dashLen : gapLen;
           final end = (start + seg).clamp(0.0, metric.length);
@@ -526,18 +817,25 @@ class PlayerMovesPainter extends CustomPainter {
   void _drawArrowHead(Canvas canvas, Color color, Offset from, Offset to,
       {bool strong = false}) {
     final angle = atan2(to.dy - from.dy, to.dx - from.dx);
-    final size = strong ? _arrowSize + 2 : _arrowSize;
+    final size = strong ? _arrowSize + 2 * gBoardFigureScale : _arrowSize;
 
-    final outlinePath = _arrowPath(to, angle, size + 3);
+    // A dark rim round the head, so it reads on light turf and over a
+    // white line. It used to be a second, bigger triangle filled behind the
+    // first — grown from the same tip, so all of the extra lay along the two
+    // trailing edges and none at the point, and at board size that is a
+    // darker arrowhead peeping out from behind the real one: "the arrow is
+    // drawn twice". A stroke hugs all three edges evenly.
+    final head = _arrowPath(to, angle, size);
     canvas.drawPath(
-      outlinePath,
+      head,
       Paint()
         ..color = strong ? const Color(0x66000000) : const Color(0x47000000)
-        ..style = PaintingStyle.fill,
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = (strong ? 3.0 : 2.4) * gBoardFigureScale
+        ..strokeJoin = StrokeJoin.round,
     );
-
     canvas.drawPath(
-      _arrowPath(to, angle, size),
+      head,
       Paint()
         ..color = color
         ..style = PaintingStyle.fill,
@@ -560,6 +858,8 @@ class PlayerMovesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant PlayerMovesPainter oldDelegate) =>
+      oldDelegate.layer != layer ||
+      oldDelegate.footward != footward ||
       oldDelegate.completedSteps != completedSteps ||
       oldDelegate.targetStep != targetStep ||
       oldDelegate.players != players ||

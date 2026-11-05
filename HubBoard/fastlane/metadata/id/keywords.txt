@@ -1,1 +1,1 @@
-taktik,pelatih,formasi,papan,latihan,tim,strategi,olahraga,playbook,whiteboard
+papan taktik multi olahraga,rencana latihan,jadwal,basket,sepak bola,demo,analisis,evaluasi laga

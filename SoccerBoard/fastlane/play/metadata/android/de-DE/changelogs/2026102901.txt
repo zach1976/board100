@@ -1,0 +1,3 @@
+• Neue Sportsymbole und neu gezeichnete Einführung
+• Alle Übungen und Funktionen enthalten, finanziert durch Werbung
+• Kleinere Korrekturen: Der Übungsname bleibt nach dem Schließen einer Tafel nicht mehr über der Liste

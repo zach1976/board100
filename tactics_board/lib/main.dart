@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'ui/tokens.dart';
+import 'services/review_service.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'config_constants.dart';
@@ -43,9 +44,14 @@ void main() => mainReal();
 /// must have finished writing [ConfigConstants] before calling it.
 Future<void> mainReal() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // A single-sport app wears its sport's colour family; the hub stays teal.
+  // Set before the first frame, because T's surfaces are read, not watched.
+  final fs = fixedSport;
+  if (fs != null) T.palette = fs.chrome;
   // Before anything awaited: the app-open ad's cold-start window is measured
   // from here, not from AdService.init() further down. See AdService.
   AdService.markLaunch();
+  unawaited(ReviewService.instance.recordUseDay());
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -67,6 +73,8 @@ Future<void> mainReal() async {
         Locale('th', 'TH'),
         Locale('id', 'ID'),
         Locale('ms', 'MY'),
+        Locale('de', 'DE'),
+        Locale('nl', 'NL'),
       ],
       path: packageAsset('assets/translations'),
       startLocale: _resolveEnglishStartLocale(),
@@ -108,27 +116,28 @@ class TacticsBoardApp extends StatelessWidget {
           locale: context.locale,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-              seedColor: T.accent, // teal/emerald
-              brightness: Brightness.dark,
+              seedColor: T.accent,
+              brightness: Brightness.light,
+              surface: T.surface,
             ),
-            // §04: the page behind everything is the deep green-black, not
-            // an elevated surface. Screens that set their own background were
-            // hiding this; the ones that do not were a step too light.
+            // §04: the page behind everything is the warm off-white page,
+            // not a card. Screens that set their own background were hiding
+            // this; the ones that do not were a step too light.
             scaffoldBackgroundColor: T.bg0,
             appBarTheme: const AppBarTheme(
-              systemOverlayStyle: SystemUiOverlayStyle.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
-            sliderTheme: const SliderThemeData(
+            sliderTheme: SliderThemeData(
               thumbColor: T.accent,
               activeTrackColor: T.accent,
-              inactiveTrackColor: T.surfaceHi,
+              inactiveTrackColor: T.border,
               overlayColor: T.accentFill,
             ),
             // One shape and one type scale for all twenty-three dialogs.
             // They each used to set their own background, corner radius and
             // title style, so a confirm looked different depending on which
             // screen raised it.
-            dialogTheme: const DialogThemeData(
+            dialogTheme: DialogThemeData(
               backgroundColor: T.surface,
               surfaceTintColor: Colors.transparent,
               elevation: 16,
@@ -149,9 +158,11 @@ class TacticsBoardApp extends StatelessWidget {
               surfaceTintColor: Colors.transparent,
               elevation: 0,
             ),
-            snackBarTheme: const SnackBarThemeData(
-              backgroundColor: T.surfaceHi,
-              contentTextStyle: T.body,
+            // A snack bar is the one dark surface: it has to be seen over a
+            // light page and a bright court alike.
+            snackBarTheme: SnackBarThemeData(
+              backgroundColor: T.text,
+              contentTextStyle: T.body.copyWith(color: Colors.white),
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(borderRadius: T.brMd),
               // A floating SnackBar defaults to sitting 8pt off the bottom,

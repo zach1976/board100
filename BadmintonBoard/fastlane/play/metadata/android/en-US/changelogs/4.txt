@@ -1,0 +1,8 @@
+What's new in 2.1.0
+
+• Ready sessions: six practice plans built from the 42 drills
+• Notes on the board, changing with each step
+• A green court with white net tape, as the official palette has it
+• Tablet layout with side bar, keyboard and stylus
+• German and Dutch: 14 languages
+• Smaller fixes and more translated labels

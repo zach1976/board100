@@ -1,0 +1,9 @@
+Nieuw in 2.3.0
+
+• Wedstrijddag: speelhelften, opstelling, klok, wissels, kaarten en strafschoppen; minuten als pdf (klok vereist Pro)
+• Playbook, doorbladeren op de wedstrijddag
+• Kant-en-klare trainingen: zes plannen uit de 137 oefeningen
+• Notities op het bord, die met elke stap veranderen
+• Tabletweergave met zijbalk, toetsenbord en stylus
+• Duits en Nederlands: 14 talen
+• Kleine verbeteringen en meer vertaalde labels

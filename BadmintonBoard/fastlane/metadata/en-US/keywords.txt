@@ -1,1 +1,1 @@
-Badminton tactics, badminton board,Badminton double rotation, Badminton training tactics
+tactics board,training plan,schedule,rotation,doubles positions,demo,analysis,match review

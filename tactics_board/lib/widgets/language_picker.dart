@@ -33,6 +33,8 @@ class LanguagePicker {
     (locale: Locale('th', 'TH'), name: 'ภาษาไทย'),
     (locale: Locale('id', 'ID'), name: 'Bahasa Indonesia'),
     (locale: Locale('ms', 'MY'), name: 'Bahasa Melayu'),
+    (locale: Locale('de', 'DE'), name: 'Deutsch'),
+    (locale: Locale('nl', 'NL'), name: 'Nederlands'),
   ];
 
   static void show(BuildContext context) {
@@ -90,7 +92,7 @@ class LanguagePicker {
                                   child: Text(
                                     lang.name,
                                     style: TextStyle(
-                                      color: selected ? T.accent : T.text,
+                                      color: selected ? T.accentText : T.text,
                                       fontWeight: selected
                                           ? FontWeight.w600
                                           : FontWeight.w400,
@@ -101,8 +103,8 @@ class LanguagePicker {
                                 // Selection is a tint AND a mark, never
                                 // colour alone.
                                 if (selected)
-                                  const Icon(Icons.check_rounded,
-                                      color: T.accent, size: 20),
+                                  Icon(Icons.check_rounded,
+                                      color: T.accentText, size: 20),
                               ],
                             ),
                           ),

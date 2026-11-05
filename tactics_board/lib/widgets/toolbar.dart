@@ -1,7 +1,9 @@
+import 'dart:async' show unawaited;
 import 'dart:io';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -13,7 +15,9 @@ import '../models/player_photo.dart';
 import '../models/player_role.dart';
 import '../models/sport_formation.dart';
 import '../models/court_layout.dart';
+import '../models/sport_theme.dart';
 import '../models/sport_type.dart';
+import '../models/volleyball_rotation.dart';
 import '../painters/ball_painter.dart';
 import '../painters/badminton_court_painter.dart';
 import '../painters/baseball_court_painter.dart';
@@ -41,6 +45,7 @@ import '../services/share_link_service.dart';
 import '../services/video_export_service.dart';
 import '../state/tactics_state.dart';
 import '../ui_constants.dart';
+import '../ui/adaptive.dart';
 import '../ui/primitives.dart';
 import '../ui/tokens.dart';
 import 'element_import_flow.dart';
@@ -50,6 +55,7 @@ import 'photo_crop_editor.dart';
 import 'photo_import_sheet.dart';
 import 'player_icon_widget.dart';
 import 'timeline_editor.dart';
+import 'volleyball_rotation_widgets.dart';
 
 /// Tablet (shortestSide >= 600) gets 1.4× sizing for icons/buttons/fonts.
 /// Long-press-drag tuning shared by the add-sheet tiles. The stock 500ms hold
@@ -68,6 +74,87 @@ Offset _dropCentre(DraggableDetails details, double size) =>
 double uiScale(BuildContext context) =>
     MediaQuery.sizeOf(context).shortestSide >= 600 ? 1.4 : 1.0;
 
+/// The diameter of a round button floating on the board — back, pages, menu,
+/// zoom, fullscreen. One number, because five places were each writing the
+/// same expression and a sixth wrote a different one.
+///
+/// A phone lands on the 44pt floor whatever the arithmetic says; a tablet
+/// gets 53, which is what the corners of a 1366pt screen need to not read as
+/// phone chrome that was left where it fell.
+double chromeCircle(BuildContext context) =>
+    (38 * uiScale(context)).clamp(T.tap, 60.0).toDouble();
+
+/// The diameter of a round button inside the two docked capsules.
+///
+/// A phone keeps the 44pt floor. A tablet's capsule is the only chrome on a
+/// 1366pt screen and at 44 it read as a phone's toolbar nobody had looked at
+/// again; 56 is what the width can carry with the four tools keeping their
+/// words.
+double barButton(BuildContext context) =>
+    (T.tap * uiScale(context)).clamp(T.tap, 56.0).toDouble();
+
+/// Whether the tool capsule has room for zoom and fullscreen as well.
+///
+/// With them in, the bar holds four tools, undo, redo, the two of them and
+/// two hairlines; the tools are Flexible and shrink to fit, and on a 320pt
+/// phone that left each of them 17pt wide with a 20pt icon sticking out of
+/// both sides. The tools keep 35pt from 390pt up — the iPhone 16 and
+/// everything wider — and below that the pair goes back to floating on the
+/// board, where it costs no width. Read off the screen rather than the
+/// bar's own box, because the board has to make the same call to know
+/// whether to show the floating pair.
+bool viewButtonsInBar(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  // A phone turned sideways has no capsule at all — its tools are a rail
+  // down the right — so the pair stays on the board there, whatever the
+  // width. (Same two tests as the home page's isLandscape / isTablet.)
+  if (size.shortestSide < 600 && size.width > size.height) return false;
+  // An upright 11-inch iPad lays the playback capsule and the tool capsule
+  // in one row (tightTabletRow), which leaves the tools 390pt: four icons,
+  // undo and redo. The pair floats on the board there, as on a narrow
+  // phone, and the boards button keeps to the ⋯ menu.
+  if (tightTabletRow(context)) return false;
+  return size.width >= 390;
+}
+
+/// An upright tablet wide enough for the two capsules side by side only
+/// once the tools are icons alone: the 11-inch iPad and the 10th
+/// generation (834 and 820pt). The 13-inch (1024) holds the view pair and
+/// the boards button as well; the mini (744) and Split View stack the
+/// capsules as before. The board is bounded by its height upright — the
+/// court is twice as tall as it is wide — so the row given back is court.
+bool tightTabletRow(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  return size.shortestSide >= 600 &&
+      size.height > size.width &&
+      size.width >= 760 &&
+      size.width < 1000;
+}
+
+/// How tall the playback capsule is, so the row that holds it can be that
+/// tall too. It used to be a flat 48 — with the buttons sized to the screen
+/// the capsule outgrew its own row on a tablet.
+double playBarHeight(BuildContext context) =>
+    barButton(context) * 1.14 + 10 * uiScale(context) + 4;
+
+/// The hairline between two groups inside a capsule. The tools, the history
+/// pair and the board list are three different jobs sitting in one pill, and
+/// a gap alone did not say so.
+class BarDivider extends StatelessWidget {
+  const BarDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) => Container(
+        width: 1,
+        height: barButton(context) * 0.52,
+        // 6, not 8: with zoom and fullscreen in the bar, three of these at
+        // 8 put a 320pt phone 4.8px over. The hairline is what separates the
+        // groups; the air either side of it is not.
+        margin: const EdgeInsets.symmetric(horizontal: 6),
+        color: T.border,
+      );
+}
+
 /// Confirm dialog asking whether to add another player using a photo that
 /// is already on the board. Returns true if the user pressed "Add",
 /// false (or cancelled / dismissed) otherwise. Used by both face avatars
@@ -77,21 +164,21 @@ Future<bool> _confirmAddDuplicate(BuildContext context, int existingCount) async
     context: context,
     builder: (ctx) => AlertDialog(
       title: Text('photo_duplicate_title'.tr(),
-          style: const TextStyle(color: Colors.white)),
+          style: const TextStyle(color: T.text)),
       content: Text(
         'photo_duplicate_msg'.tr(args: ['$existingCount']),
-        style: const TextStyle(color: Colors.white70),
+        style: const TextStyle(color: T.textDim),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(false),
           child: Text('cancel'.tr(),
-              style: const TextStyle(color: Colors.white54)),
+              style: const TextStyle(color: T.textOff)),
         ),
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(true),
           child: Text('photo_add_another'.tr(),
-              style: const TextStyle(color: T.accent)),
+              style: TextStyle(color: T.accent)),
         ),
       ],
     ),
@@ -113,11 +200,18 @@ BoxConstraints sheetConstraints(BuildContext ctx) => BoxConstraints(
       maxHeight: MediaQuery.sizeOf(ctx).height * 0.92,
     );
 
+/// The docked tool capsule may run wider than [kPanelMaxWidth]: it is not a
+/// panel of options but one row of seven controls, and on a tablet its
+/// buttons are 56pt. Held to 620 the four tools lost their words on the one
+/// screen with room to spare for them.
+const double kBarMaxWidth = 820;
+
 /// Centres a full-width bar's contents on a wide screen. The bar keeps its
 /// background edge to edge; only the controls stop stretching.
-Widget centeredPanel(Widget child) => Center(
+Widget centeredPanel(Widget child, {double maxWidth = kPanelMaxWidth}) =>
+    Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: kPanelMaxWidth),
+        constraints: BoxConstraints(maxWidth: maxWidth),
         child: child,
       ),
     );
@@ -131,8 +225,260 @@ Widget scaledSheet(BuildContext ctx, Widget child) {
   );
 }
 
+/// Whether the board's panels — Add, Timeline, Boards, Share, the ⋯ menu's
+/// sheets — open as popovers by the button that opened them. A tablet: a
+/// bottom sheet there opened at the bottom centre of a 13-inch screen, far
+/// from a Share that was tapped in the top-right corner, and dimmed the
+/// board it was about. A phone keeps its bottom sheets.
+bool boardPanelsArePopovers(BuildContext context) =>
+    MediaQuery.sizeOf(context).shortestSide >= 600;
+
+/// Open a board panel: a bottom sheet on a phone ([TacticalSheet.show]), a
+/// popover anchored to [anchor]'s box (or [context]'s) on a tablet. The
+/// board stays lit and live under a popover; a tap outside or Esc closes it.
+Future<T2?> showBoardPanel<T2>(
+  BuildContext context, {
+  required WidgetBuilder builder,
+  BuildContext? anchor,
+  double maxWidth = 460,
+}) {
+  if (!boardPanelsArePopovers(context)) {
+    return TacticalSheet.show<T2>(context, builder: builder);
+  }
+  // A context as big as the page (a keyboard shortcut's) is no anchor:
+  // the panel opens in the middle of the screen instead.
+  var rect = anchorRectOf(anchor ?? context);
+  if (rect != null && rect.height > MediaQuery.sizeOf(context).height / 2) {
+    rect = null;
+  }
+  // The panel edits the board it was opened from: hand it that board's
+  // state, whichever provider the route would otherwise find.
+  TacticsState? board;
+  try {
+    board = Provider.of<TacticsState>(context, listen: false);
+  } on ProviderNotFoundException {
+    board = null;
+  }
+  return Navigator.of(context).push<T2>(BoardPopoverRoute<T2>(
+    anchor: rect,
+    builder: board == null
+        ? builder
+        : (ctx) => ChangeNotifierProvider<TacticsState>.value(
+              value: board!,
+              child: Builder(builder: builder),
+            ),
+    maxWidth: maxWidth,
+    capturedThemes:
+        InheritedTheme.capture(from: context, to: Navigator.of(context).context),
+  ));
+}
+
+/// [context]'s box on the screen, or null when it has none.
+Rect? anchorRectOf(BuildContext context) {
+  final ro = context.findRenderObject();
+  if (ro is! RenderBox || !ro.hasSize || !ro.attached) return null;
+  return ro.localToGlobal(Offset.zero) & ro.size;
+}
+
+/// A panel floating next to the control that opened it, the way iPadOS
+/// shows a popover: above the button when there is room (the board's
+/// buttons are mostly at its foot), below it otherwise, centred on it and
+/// kept on the screen. No dimming barrier — the board is what the panel is
+/// about — but a tap outside dismisses it.
+class BoardPopoverRoute<T2> extends PopupRoute<T2> {
+  final Rect? anchor;
+  final WidgetBuilder builder;
+  final double maxWidth;
+  final CapturedThemes capturedThemes;
+
+  BoardPopoverRoute({
+    required this.anchor,
+    required this.builder,
+    required this.maxWidth,
+    required this.capturedThemes,
+  });
+
+  @override
+  Color? get barrierColor => Colors.transparent;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  String? get barrierLabel => 'cancel'.tr();
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 160);
+
+  /// No barrier. A tap outside the panel closes it AND lands where it was
+  /// aimed: with a barrier the ⋯ menu beside an open Add panel took two
+  /// taps, one to close the panel and one for the menu, and the board —
+  /// which is what the panel is about — could not be touched at all. The
+  /// route watches every pointer instead (see [_onPointer]).
+  @override
+  Iterable<OverlayEntry> createOverlayEntries() =>
+      super.createOverlayEntries().skip(1).toList();
+
+  final GlobalKey _panelKey = GlobalKey();
+
+  @override
+  void install() {
+    super.install();
+    GestureBinding.instance.pointerRouter.addGlobalRoute(_onPointer);
+  }
+
+  @override
+  void dispose() {
+    GestureBinding.instance.pointerRouter.removeGlobalRoute(_onPointer);
+    super.dispose();
+  }
+
+  /// Pointers that went down outside the panel.
+  final Set<int> _outside = {};
+
+  /// Closes on the UP of a pointer that went down outside the panel. Not
+  /// on the down: a route change cancels every active pointer (Navigator
+  /// does that so a tap begun on one page cannot finish on the next), so
+  /// closing on the down cancelled the tap on the ⋯ menu and it took a
+  /// second one. By the up the menu's tap has fired — and pushed its own
+  /// route, which is why this removes itself rather than popping the top.
+  void _onPointer(PointerEvent e) {
+    if (!isActive) return;
+    if (e is PointerDownEvent) {
+      final ro = _panelKey.currentContext?.findRenderObject();
+      if (ro is RenderBox && ro.hasSize && ro.attached) {
+        final box = ro.localToGlobal(Offset.zero) & ro.size;
+        if (box.contains(e.position)) return;
+      }
+      _outside.add(e.pointer);
+      return;
+    }
+    if (e is PointerCancelEvent) {
+      _outside.remove(e.pointer);
+      return;
+    }
+    if (e is! PointerUpEvent || !_outside.remove(e.pointer)) return;
+    if (isCurrent) {
+      navigator?.pop();
+    } else {
+      navigator?.removeRoute(this);
+    }
+  }
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    final mq = MediaQuery.of(context);
+    return CustomSingleChildLayout(
+      delegate: _PopoverLayout(
+        anchor: anchor,
+        padding: mq.padding,
+        maxWidth: maxWidth,
+      ),
+      child: capturedThemes.wrap(
+        PopoverScope(
+          child: Material(
+            type: MaterialType.transparency,
+            child: DecoratedBox(
+              key: _panelKey,
+              decoration: BoxDecoration(
+                color: T.surface,
+                borderRadius: BorderRadius.circular(T.rDialog),
+                border: Border.all(color: T.border),
+                boxShadow: T.shadowFloat,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(T.rDialog),
+                child: Builder(builder: builder),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    final curved = CurvedAnimation(parent: animation, curve: Curves.easeOut);
+    return FadeTransition(
+      opacity: curved,
+      child: ScaleTransition(
+        scale: Tween<double>(begin: 0.96, end: 1).animate(curved),
+        child: child,
+      ),
+    );
+  }
+}
+
+class _PopoverLayout extends SingleChildLayoutDelegate {
+  final Rect? anchor;
+  final EdgeInsets padding;
+  final double maxWidth;
+  static const double gap = 8, edge = 12;
+
+  _PopoverLayout(
+      {required this.anchor, required this.padding, required this.maxWidth});
+
+  Rect _anchorIn(Size size) =>
+      anchor ?? Rect.fromCenter(
+          center: size.center(Offset.zero), width: 0, height: 0);
+
+  double _above(Size size) =>
+      _anchorIn(size).top - gap - padding.top - edge;
+  double _below(Size size) =>
+      size.height - _anchorIn(size).bottom - gap - padding.bottom - edge;
+
+  @override
+  BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
+    final size = constraints.biggest;
+    final h = anchor == null
+        ? size.height - padding.vertical - edge * 2
+        : math.max(_above(size), _below(size));
+    return BoxConstraints(
+      maxWidth: math.min(maxWidth, size.width - edge * 2),
+      maxHeight: math.max(120, h),
+    );
+  }
+
+  @override
+  Offset getPositionForChild(Size size, Size child) {
+    final a = _anchorIn(size);
+    final x = (a.center.dx - child.width / 2)
+        .clamp(edge, math.max(edge, size.width - child.width - edge))
+        .toDouble();
+    double y;
+    if (anchor == null) {
+      y = (size.height - child.height) / 2;
+    } else if (child.height <= _above(size) || _above(size) >= _below(size)) {
+      y = a.top - gap - child.height;
+    } else {
+      y = a.bottom + gap;
+    }
+    y = y
+        .clamp(padding.top + edge,
+            math.max(padding.top + edge, size.height - child.height - edge))
+        .toDouble();
+    return Offset(x, y);
+  }
+
+  @override
+  bool shouldRelayout(_PopoverLayout old) =>
+      old.anchor != anchor || old.padding != padding || old.maxWidth != maxWidth;
+}
+
 /// Public function to show save/load bottom sheet
 void showSaveLoadSheet(BuildContext context, TacticsState state) {
+  if (boardPanelsArePopovers(context)) {
+    // The full panel width: a row is a name and five controls, and at the
+    // tablet's 1.4x the controls alone took 300pt of a 420pt panel —
+    // "Board 1" broke over two lines. Reported off an iPad, 2026-10-16.
+    showBoardPanel<void>(context,
+        maxWidth: kPanelMaxWidth,
+        builder: (ctx) => scaledSheet(ctx, _SaveLoadSheet(state: state)));
+    return;
+  }
   showModalBottomSheet(
     context: context,
     constraints: sheetConstraints(context),
@@ -145,7 +491,7 @@ void showSaveLoadSheet(BuildContext context, TacticsState state) {
 /// Public function to show the soccer pitch appearance sheet (layout + grass
 /// colour). Only meaningful for the soccer board.
 void showFieldSettingsSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
     context,
     builder: (ctx) => scaledSheet(ctx, _FieldSettingsSheet(state: state)),
   );
@@ -338,7 +684,7 @@ class _FieldTypeTile extends StatelessWidget {
 /// Public: show the generic court appearance sheet (surface colour + layout)
 /// for non-soccer sports. Soccer keeps its richer [showFieldSettingsSheet].
 void showCourtSettingsSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -358,6 +704,18 @@ String _courtLayoutLabel(CourtLayout l) {
       return 'field_half_right'.tr();
     case CourtLayout.blank:
       return 'field_blank'.tr();
+    case CourtLayout.indoor:
+      return 'field_indoor'.tr();
+    case CourtLayout.hockey5s:
+      return 'field_hockey5s'.tr();
+    case CourtLayout.nba:
+      return 'field_nba'.tr();
+    case CourtLayout.ncaa:
+      return 'field_ncaa'.tr();
+    case CourtLayout.highSchool:
+      return 'field_high_school'.tr();
+    case CourtLayout.beach:
+      return 'field_beach'.tr();
   }
 }
 
@@ -410,7 +768,7 @@ class _CourtSettingsSheet extends StatelessWidget {
         final surfaces = sport.courtSurfaces;
         final layouts = sport.courtLayouts;
         const headerStyle = TextStyle(
-            color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600);
+            color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600);
         return SafeArea(
           // Scrollable, because the sheet is taller than a small phone once a
           // language needs two lines for a heading — it overflowed its own
@@ -428,7 +786,7 @@ class _CourtSettingsSheet extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsets.only(bottom: 14),
                     decoration: BoxDecoration(
-                      color: Colors.white24,
+                      color: T.border,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -509,7 +867,7 @@ class _CourtLayoutTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: selected ? kAccent : Colors.white24,
+                  color: selected ? T.selectedStroke : T.border,
                   width: selected ? 3 : 1,
                 ),
               ),
@@ -522,7 +880,7 @@ class _CourtLayoutTile extends StatelessWidget {
           const SizedBox(height: 6),
           Text(label,
               style: TextStyle(
-                  color: selected ? kAccent : Colors.white70, fontSize: 12)),
+                  color: selected ? T.accentText : T.textDim, fontSize: 12)),
         ],
       ),
     );
@@ -531,7 +889,10 @@ class _CourtLayoutTile extends StatelessWidget {
 
 /// Public function to share the board — prompts for PNG / PDF (/ Video) format
 Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
-  final format = await _pickShareFormat(context, showVideo: state.hasMoves);
+  final format = await _pickShareFormat(context,
+      showVideo: state.hasMoves,
+      showLineup:
+          state.sportType == SportType.volleyball && state.rotation != null);
   if (format == null || !context.mounted) return;
   // Returning from the share sheet must not trigger an app-open ad.
   AdService.instance.suppressNextAppOpen();
@@ -545,6 +906,8 @@ Future<void> shareBoardImage(BuildContext context, TacticsState state) async {
       shared = await _sharePdf(context, state);
     case 'video':
       shared = await _shareVideo(context, state);
+    case 'lineup':
+      shared = await _shareLineup(context, state);
     case 'link':
       shared = await _shareLink(context, state);
     default:
@@ -584,13 +947,13 @@ Future<bool> _shareLink(BuildContext context, TacticsState state) async {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 30, height: 30,
                 child: CircularProgressIndicator(color: kAccent, strokeWidth: 3),
               ),
               const SizedBox(height: 14),
               Text('share_link_working'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+                  style: const TextStyle(color: T.text, fontSize: 14)),
             ],
           ),
         ),
@@ -681,7 +1044,7 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('share_video_rendering'.tr(),
-                  style: const TextStyle(color: Colors.white, fontSize: 14)),
+                  style: const TextStyle(color: T.text, fontSize: 14)),
               const SizedBox(height: 16),
               SizedBox(
                 width: 200,
@@ -690,10 +1053,10 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
                   builder: (_, v, _) => Column(
                     children: [
                       LinearProgressIndicator(
-                          value: v, backgroundColor: Colors.white12, color: kAccent),
+                          value: v, backgroundColor: T.border, color: kAccent),
                       const SizedBox(height: 6),
                       Text('${(v * 100).round()}%',
-                          style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                          style: const TextStyle(color: T.textOff, fontSize: 12)),
                     ],
                   ),
                 ),
@@ -723,8 +1086,10 @@ Future<bool> _shareVideo(BuildContext context, TacticsState state) async {
   return ok;
 }
 
-Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false}) {
-  return TacticalSheet.show(
+Future<String?> _pickShareFormat(BuildContext context,
+    {bool showVideo = false, bool showLineup = false}) {
+  return showBoardPanel(
+      maxWidth: 360,
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -733,33 +1098,43 @@ Future<String?> _pickShareFormat(BuildContext context, {bool showVideo = false})
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: const Icon(Icons.image_outlined, color: T.accent),
-              title: const Text('PNG', style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.image_outlined, color: T.accent),
+              title: const Text('PNG', style: TextStyle(color: T.text)),
               onTap: () => Navigator.pop(ctx, 'png'),
             ),
             ListTile(
-              leading: const Icon(Icons.picture_as_pdf_outlined, color: Colors.amberAccent),
-              title: const Text('PDF', style: TextStyle(color: Colors.white)),
+              leading: const Icon(Icons.picture_as_pdf_outlined, color: T.warningIcon),
+              title: const Text('PDF', style: TextStyle(color: T.text)),
               onTap: () => Navigator.pop(ctx, 'pdf'),
             ),
             // Video export animates the play; only meaningful when moves exist.
             if (showVideo)
               ListTile(
-                leading: const Icon(Icons.videocam_outlined, color: Colors.lightBlueAccent),
-                title: Text('share_video'.tr(), style: const TextStyle(color: Colors.white)),
+                leading: const Icon(Icons.videocam_outlined, color: T.info),
+                title: Text('share_video'.tr(), style: const TextStyle(color: T.text)),
                 subtitle: Text('share_video_hint'.tr(),
-                    style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                    style: const TextStyle(color: T.textOff, fontSize: 12)),
                 onTap: () => Navigator.pop(ctx, 'video'),
               ),
-            const Divider(color: Colors.white12, height: 12),
+            // A volleyball rotation board can also go out as the paper
+            // lineup sheet: zones, serving order, libero, rule set.
+            if (showLineup)
+              ListTile(
+                leading: const Icon(Icons.grid_on_outlined, color: T.warningIcon),
+                title: Text('share_lineup'.tr(), style: const TextStyle(color: T.text)),
+                subtitle: Text('share_lineup_hint'.tr(),
+                    style: const TextStyle(color: T.textOff, fontSize: 12)),
+                onTap: () => Navigator.pop(ctx, 'lineup'),
+              ),
+            const Divider(color: T.border, height: 12),
             // A link opens in any browser — the receiver needs neither the app
             // nor an account, which a PNG in a group chat can't say for a play
             // that moves.
             ListTile(
-              leading: const Icon(Icons.link, color: kAccent),
-              title: Text('share_link'.tr(), style: const TextStyle(color: Colors.white)),
+              leading: Icon(Icons.link, color: kAccent),
+              title: Text('share_link'.tr(), style: const TextStyle(color: T.text)),
               subtitle: Text('share_link_hint'.tr(),
-                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                  style: const TextStyle(color: T.textOff, fontSize: 12)),
               onTap: () => Navigator.pop(ctx, 'link'),
             ),
             const SizedBox(height: 8),
@@ -854,12 +1229,54 @@ Future<bool> _sharePdf(BuildContext context, TacticsState state) async {
   }
 }
 
+/// The lineup sheet for the board's rotation, as a one-page PDF.
+Future<bool> _shareLineup(BuildContext context, TacticsState state) async {
+  final s = state.rotation;
+  if (s == null) return false;
+  try {
+    final labels = <String, String>{
+      for (final p in state.players)
+        if (p.team == s.team && p.role != null) p.role!: p.label,
+    };
+    final name = state.currentTacticName?.trim();
+    return await PdfExportService.exportLineupSheet(
+      s,
+      labels: labels,
+      title: name != null && name.isNotEmpty ? name : null,
+      words: LineupSheetStrings(
+        heading: 'share_lineup'.tr(),
+        team: s.team == PlayerTeam.away ? 'team_away'.tr() : 'team_home'.tr(),
+        rotation: 'rotation_number'.tr(namedArgs: {'n': '${s.rotation}'}),
+        system: s.system == RotationSystem.fiveOne ? '5-1' : '6-2',
+        phase: s.phase == RotationPhase.serve
+            ? 'rotation_serve'.tr()
+            : 'rotation_receive'.tr(),
+        servingOrder: 'lineup_serving_order'.tr(),
+        libero: 'rotation_libero'.tr(),
+        rules: 'rotation_rules'.tr(),
+        subs: 'rotation_subs'.tr(namedArgs: {'n': '${s.rules.substitutions}'}),
+        net: 'lineup_net'.tr(),
+      ),
+      filename: '${_friendlyFileStem(state)}_lineup.pdf',
+    );
+  } catch (e) {
+    debugPrint('Lineup sheet export error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('save_error'.tr())),
+      );
+    }
+    return false;
+  }
+}
+
 /// Public function to clear the board — offers two scopes so a coach can
 /// wipe just this play's drawings while keeping the formation, which is the
 /// single most common between-plays workflow.
 void confirmClearAll(BuildContext context, TacticsState state) {
   final hasStrokes = state.strokes.isNotEmpty;
-  TacticalSheet.show(
+  showBoardPanel(
+      maxWidth: 380,
       context,
     builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
@@ -869,17 +1286,17 @@ void confirmClearAll(BuildContext context, TacticsState state) {
           children: [
             if (hasStrokes)
               ListTile(
-                leading: const Icon(Icons.gesture_rounded, color: kAccent),
+                leading: Icon(Icons.gesture_rounded, color: kAccent),
                 title: Text('clear_lines'.tr(),
-                    style: const TextStyle(color: Colors.white)),
+                    style: const TextStyle(color: T.text)),
                 onTap: () { Navigator.pop(ctx); state.clearStrokes(); },
               ),
             ListTile(
               leading: const Icon(Icons.delete_sweep_outlined, color: kDanger),
               title: Text('clear_all'.tr(),
-                  style: const TextStyle(color: Colors.white)),
+                  style: const TextStyle(color: T.text)),
               subtitle: Text('clear_board_message'.tr(),
-                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
+                  style: const TextStyle(color: T.textOff, fontSize: 12)),
               onTap: () { Navigator.pop(ctx); state.clearAll(); },
             ),
             const SizedBox(height: 8),
@@ -891,8 +1308,9 @@ void confirmClearAll(BuildContext context, TacticsState state) {
 
 /// Public function to show the add element bottom sheet
 void showAddElementSheet(BuildContext context, TacticsState state) {
-  TacticalSheet.show(
+  showBoardPanel(
       context,
+    maxWidth: kPanelMaxWidth,
     builder: (ctx) => scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
   );
 }
@@ -944,11 +1362,15 @@ class _PrimaryToolbar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: T.s16),
       child: centeredPanel(
+        maxWidth: kBarMaxWidth,
         Container(
-          height: 60,
+          height: barButton(context) + 16,
           padding: const EdgeInsets.symmetric(horizontal: T.s8),
           decoration: BoxDecoration(
-            color: T.surface,
+            // The sport's own panel colour, not the app's teal surface: on a
+            // blue hockey pitch a teal-green pill was the one thing on the
+            // screen that belonged to a different app.
+            color: state.sportType.theme.panelColor,
             borderRadius: BorderRadius.circular(T.rLg),
             border: Border.all(color: T.border),
             boxShadow: T.shadowFloat,
@@ -958,13 +1380,48 @@ class _PrimaryToolbar extends StatelessWidget {
               Expanded(
                 child: LayoutBuilder(
                   builder: (context, box) {
-                    // Four labelled tools need about 88pt each.
-                    final wide = roomy && box.maxWidth >= 348;
+                    // Four labelled tools need about eight and a half times
+                    // a button's own width between them — measured when a
+                    // button was 46pt and the threshold 348. A phone keeps
+                    // that rule. A tablet measures its words instead: the
+                    // ratio on its 1.4x button asked for 517pt and dropped
+                    // every word on an iPad mini and in Split View, with
+                    // ~90pt per icon to spare.
+                    final tablet = uiScale(context) > 1;
+                    final words = [
+                      'mode_move'.tr(),
+                      'mode_draw'.tr(),
+                      'mode_select'.tr(),
+                      'add_label'.tr(),
+                    ];
+                    final inline = roomy &&
+                        box.maxWidth >=
+                            (tablet
+                                ? _labelledToolsWidth(context, words)
+                                : barButton(context) * 8.4);
+                    // A tablet in half Split View (678pt) has ~370pt for
+                    // the four, and French or Spanish words beside their
+                    // icons want 450-500. Rather than drop the words there,
+                    // the word goes UNDER its icon, a step smaller: the bar
+                    // is 1.4 buttons tall on a tablet, room for both, and
+                    // each tool is then only as wide as its word.
+                    final stacked = !inline &&
+                        tablet &&
+                        roomy &&
+                        box.maxWidth >=
+                            _labelledToolsWidth(context, words, stacked: true);
+                    final wide = inline || stacked;
+                    // Each tool is Flexible so the four of them share what
+                    // the row has and a long word ellipsises. At their
+                    // natural width they simply ran off the end: the label
+                    // inside is Flexible, but an unbounded parent gives it
+                    // nothing to be flexible about.
                     return Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        _Tool(
+                        Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.open_with_rounded,
                           label: 'mode_move'.tr(),
                           selected: !drawing && !selecting,
@@ -974,59 +1431,98 @@ class _PrimaryToolbar extends StatelessWidget {
                                   state.setMultiSelectMode(false);
                                   state.setDrawingMode(false);
                                 },
-                        ),
-                        _Tool(
+                        )),
+                        Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.gesture_rounded,
                           label: 'mode_draw'.tr(),
                           selected: drawing,
                           onTap: state.isAnimating
                               ? null
                               : () => state.setDrawingMode(true),
-                        ),
-                        _Tool(
+                        )),
+                        Flexible(child: _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.highlight_alt_rounded,
                           label: 'mode_select'.tr(),
                           selected: selecting,
                           onTap: state.isAnimating
                               ? null
                               : () => state.setMultiSelectMode(!selecting),
-                        ),
-                        _Tool(
+                        )),
+                        // Its own context, so a tablet's popover is
+                        // anchored to this button, not to the whole row.
+                        Flexible(child: Builder(builder: (btn) => _Tool(
                           showLabel: wide,
+                          stacked: stacked,
                           icon: Icons.add_rounded,
                           label: 'add_label'.tr(),
                           selected: false,
-                          onTap: () => _AddPlayerBtn.showAddSheet(context, state),
-                        ),
+                          onTap: () => _AddPlayerBtn.showAddSheet(btn, state),
+                        ))),
                       ],
                     );
                   },
                 ),
               ),
               // History, trailing, in its own group.
+              //
+              // Full white, like the tools: the bar's own hairlines say which
+              // group a control belongs to, so dimming no longer has to, and
+              // a dimmed undo reads as an undo you cannot press.
+              const BarDivider(),
               TacticalIconButton(
                 icon: Icons.undo_rounded,
                 onTap: state.canUndo ? state.undo : null,
+                color: T.text,
                 semanticLabel: 'undo'.tr(),
               ),
               TacticalIconButton(
                 icon: Icons.redo_rounded,
                 onTap: state.canRedo ? state.redo : null,
+                color: T.text,
                 semanticLabel: 'redo'.tr(),
               ),
+              // The view: zoom and fullscreen. They were circles floating
+              // on the board — first in the bottom corner, on the corner
+              // flag; then in the top row, against the island — and they
+              // are controls, so they belong in the bar with the others.
+              // Where the bar is wide enough: see viewButtonsInBar.
+              if (viewButtonsInBar(context)) ...[
+                const BarDivider(),
+                Selector<TacticsState, bool>(
+                  selector: (_, s) => s.zoomMode,
+                  builder: (context, on, _) => TacticalIconButton(
+                    icon: Icons.pinch,
+                    onTap: state.toggleZoomMode,
+                    active: on,
+                    color: T.text,
+                    semanticLabel: 'zoom'.tr(),
+                  ),
+                ),
+                TacticalIconButton(
+                  icon: Icons.fullscreen,
+                  onTap: state.toggleToolbar,
+                  color: T.text,
+                  semanticLabel: 'fullscreen'.tr(),
+                ),
+              ],
               // Not a floppy disk: this opens the saved boards, and nothing
               // in the app autosaves, so it is a library rather than a save.
-              // On a narrow phone it steps aside — undo and redo are used far
-              // more often, and the board list is one tap away in the menu.
-              if (mq.size.width >= 380)
-                TacticalIconButton(
+              // It is also in the ⋯ menu, which is why it is the one that
+              // steps aside: with the view buttons in the bar a phone's
+              // width holds everything else and not this.
+              if (mq.size.width >= 460 && !tightTabletRow(context)) ...[
+                const BarDivider(),
+                Builder(builder: (btn) => TacticalIconButton(
                   icon: Icons.folder_outlined,
-                  onTap: () => showSaveLoadSheet(context, state),
-                  color: T.accent,
+                  onTap: () => showSaveLoadSheet(btn, state),
+                  color: T.text,
                   semanticLabel: 'boards'.tr(),
-                ),
+                )),
+              ],
             ],
           ),
         ),
@@ -1035,8 +1531,50 @@ class _PrimaryToolbar extends StatelessWidget {
   }
 }
 
-/// One tool in the primary capsule. Active is a teal tint behind a teal
-/// icon and label — clear without being a solid block of accent.
+/// What four labelled [_Tool]s take side by side: padding, icon, gap and
+/// the word at its selected (bold) weight.
+///
+/// [stacked]: the word under its icon at [_kStackedLabelSize] instead, so a
+/// tool is as wide as the wider of the two plus its padding.
+double _labelledToolsWidth(BuildContext context, List<String> labels,
+    {bool stacked = false}) {
+  final dim = barButton(context);
+  final scaler = MediaQuery.textScalerOf(context);
+  var w = 0.0;
+  for (final l in labels) {
+    final tp = TextPainter(
+      text: TextSpan(
+          text: l,
+          // In the font the label is drawn in, not the engine's default.
+          style: DefaultTextStyle.of(context).style.copyWith(
+              fontSize: stacked ? _kStackedLabelSize : 13,
+              fontWeight: FontWeight.w700)),
+      maxLines: 1,
+      textScaler: scaler,
+      textDirection: ui.TextDirection.ltr,
+    )..layout();
+    w = math.max(
+        w,
+        stacked
+            ? 12 + math.max(tp.width, dim * 0.45)
+            : 22 + dim * 0.45 + 6 + tp.width);
+    tp.dispose();
+  }
+  // Four times the widest: the tools are Flexible, so each gets a quarter
+  // of the row, and a word longer than its quarter was ellipsised however
+  // short the other three were ("Tamb…" in Malay at 678pt).
+  return w * labels.length;
+}
+
+/// The word's size when it sits under its icon (a tablet in Split View).
+const double _kStackedLabelSize = 11.5;
+
+/// One tool in the primary capsule.
+///
+/// The mode in use is a solid blue pill with white on it; the others are
+/// white too, at the same size. They used to be dimmed, which made three of
+/// the board's four verbs read as disabled — a coach looking for Draw found
+/// something the colour of a greyed-out control.
 class _Tool extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -1044,12 +1582,16 @@ class _Tool extends StatelessWidget {
   final VoidCallback? onTap;
   final bool showLabel;
 
+  /// The word under the icon rather than beside it — see _PrimaryToolbar.
+  final bool stacked;
+
   const _Tool({
     required this.icon,
     required this.label,
     required this.selected,
     this.onTap,
     this.showLabel = true,
+    this.stacked = false,
   });
 
   @override
@@ -1057,29 +1599,52 @@ class _Tool extends StatelessWidget {
     final tint = onTap == null
         ? T.textOff
         : selected
-            ? T.accent
-            : T.textDim;
+            ? T.onToolOn
+            : T.text;
+    final dim = barButton(context);
+    final radius = BorderRadius.circular(dim * 0.42);
     return Semantics(
       button: true,
       selected: selected,
       label: label,
       child: Material(
-        color: selected ? T.accentFill : Colors.transparent,
-        borderRadius: T.brSm,
+        color: selected ? T.toolOn : Colors.transparent,
+        borderRadius: radius,
         child: InkWell(
           onTap: onTap,
-          borderRadius: T.brSm,
+          borderRadius: radius,
           child: Container(
-            height: 46,
-            constraints: const BoxConstraints(minWidth: T.tap),
-            padding: EdgeInsets.symmetric(horizontal: showLabel ? 9 : 0),
+            height: dim,
+            constraints: BoxConstraints(minWidth: dim),
+            padding: EdgeInsets.symmetric(
+                horizontal: showLabel ? (stacked ? 6 : 11) : 0),
             alignment: Alignment.center,
-            child: Row(
+            child: showLabel && stacked
+                ? Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(icon, size: dim * 0.45, color: tint),
+                      const SizedBox(height: 2),
+                      Text(
+                        label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: _kStackedLabelSize,
+                          height: 1.1,
+                          fontWeight:
+                              selected ? FontWeight.w700 : FontWeight.w500,
+                          color: tint,
+                        ),
+                      ),
+                    ],
+                  )
+                : Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(icon, size: 20, color: tint),
+                Icon(icon, size: dim * 0.45, color: tint),
                 if (showLabel) ...[
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 6),
                   Flexible(
                     child: Text(
                       label,
@@ -1088,7 +1653,7 @@ class _Tool extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight:
-                            selected ? FontWeight.w600 : FontWeight.w500,
+                            selected ? FontWeight.w700 : FontWeight.w500,
                         color: tint,
                       ),
                     ),
@@ -1152,11 +1717,11 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         existing == null ? null : await widget.state.readTacticMeta(existing);
     if (!mounted) return;
 
-    final meta = await Navigator.of(context).push<TacticMeta>(
-      MaterialPageRoute(
-        builder: (_) => SaveTacticPage(
-            state: widget.state, initial: initial, knownMetas: _metas),
-      ),
+    // A centred form sheet on a tablet; the usual page on a phone.
+    final meta = await pushFormSheet<TacticMeta>(
+      context,
+      SaveTacticPage(
+          state: widget.state, initial: initial, knownMetas: _metas),
     );
     if (meta == null || !mounted) return;
 
@@ -1167,9 +1732,9 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         context: context,
         builder: (ctx) => AlertDialog(
           backgroundColor: kSurface,
-          title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
+          title: Text('save'.tr(), style: const TextStyle(color: T.text)),
           content: Text(meta.name,
-              style: const TextStyle(color: Colors.white70)),
+              style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
@@ -1177,7 +1742,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text('confirm'.tr(),
-                  style: const TextStyle(color: T.accent)),
+                  style: TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -1193,6 +1758,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
       messenger.showSnackBar(
         SnackBar(content: Text('${'save_success'.tr()}: ${meta.name}')),
       );
+      unawaited(ReviewService.instance.onPositiveMoment('save'));
     } catch (e) {
       debugPrint('Save error: $e');
       messenger.showSnackBar(SnackBar(content: Text('Save failed: $e')));
@@ -1205,21 +1771,21 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final newName = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Rename', style: TextStyle(color: Colors.white)),
+        title: const Text('Rename', style: TextStyle(color: T.text)),
         content: TextField(
           controller: ctrl,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
           decoration: InputDecoration(
             hintText: 'tactics_name'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
+            hintStyle: const TextStyle(color: T.textDisabled),
           ),
         ),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1242,13 +1808,13 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('save'.tr(), style: const TextStyle(color: Colors.white)),
-        content: Text(name, style: const TextStyle(color: Colors.white70)),
+        title: Text('save'.tr(), style: const TextStyle(color: T.text)),
+        content: Text(name, style: const TextStyle(color: T.textDim)),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('cancel'.tr())),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -1259,6 +1825,7 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     messenger.showSnackBar(
       SnackBar(content: Text('${'save_success'.tr()}: $name')),
     );
+    unawaited(ReviewService.instance.onPositiveMoment('save'));
   }
 
   @override
@@ -1273,9 +1840,9 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
             child: Row(
               children: [
-                const Icon(Icons.save_outlined, color: T.accent, size: 20),
+                Icon(Icons.save_outlined, color: T.accent, size: 20),
                 const SizedBox(width: 8),
-                Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
+                Text('save'.tr(), style: const TextStyle(color: T.text, fontWeight: FontWeight.bold, fontSize: 17)),
               ],
             ),
           ),
@@ -1288,13 +1855,13 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
                 onTap: _openSavePage,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(color: T.buttonFill, borderRadius: BorderRadius.circular(10)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.add_rounded, color: Colors.white, size: 18),
+                      Icon(Icons.add_rounded, color: T.onAccent, size: 18),
                       const SizedBox(width: 6),
-                      Text('save'.tr(), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                      Text('save'.tr(), style: TextStyle(color: T.onAccent, fontWeight: FontWeight.bold, fontSize: 14)),
                     ],
                   ),
                 ),
@@ -1303,10 +1870,10 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
           ),
           // Saved list, grouped by folder
           if (_metas.isNotEmpty) ...[
-            const Divider(color: Colors.white12),
+            const Divider(color: T.border),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
-              child: Text('load'.tr(), style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13)),
+              child: Text('load'.tr(), style: TextStyle(color: T.textOff, fontSize: 13)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 260),
@@ -1331,16 +1898,16 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
         child: Row(
           children: [
-            const Icon(Icons.folder_outlined, color: Colors.white38, size: 16),
+            const Icon(Icons.folder_outlined, color: T.textOff, size: 16),
             const SizedBox(width: 6),
             Text(folder.isEmpty ? 'folder_default'.tr() : folder,
                 style: const TextStyle(
-                    color: Colors.white70,
+                    color: T.textDim,
                     fontSize: 12,
                     fontWeight: FontWeight.w600)),
             const SizedBox(width: 6),
             Text('$count',
-                style: const TextStyle(color: Colors.white30, fontSize: 12)),
+                style: const TextStyle(color: T.textDisabled, fontSize: 12)),
           ],
         ),
       );
@@ -1349,28 +1916,49 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
     final name = meta.name;
     return ListTile(
       dense: true,
-      leading: const Icon(Icons.description_outlined, color: Colors.white38, size: 20),
-      title: Text(name, style: const TextStyle(color: Colors.white, fontSize: 14)),
+      leading: const Icon(Icons.description_outlined, color: T.textOff, size: 20),
+      title: Text(name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(color: T.text, fontSize: 14)),
       subtitle: meta.description.isEmpty
           ? null
           : Text(meta.description,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white38, fontSize: 12)),
+              style: const TextStyle(color: T.textOff, fontSize: 12)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // In the match-day playbook or not. Only where there is a match
+          // day to take it to.
+          if (widget.state.sportType.hasMatchDay)
+            IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+              icon: Icon(
+                  meta.playbook
+                      ? Icons.bookmark_rounded
+                      : Icons.bookmark_border_rounded,
+                  color: meta.playbook ? T.accent : T.textOff,
+                  size: 20),
+              onPressed: () async {
+                await widget.state.setPlaybook(name, !meta.playbook);
+                await _loadList();
+              },
+              tooltip: (meta.playbook ? 'playbook_remove' : 'playbook_add').tr(),
+            ),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.drive_file_rename_outline, color: Colors.white54, size: 20),
+            icon: const Icon(Icons.drive_file_rename_outline, color: T.textOff, size: 20),
             onPressed: () => _renameTactic(name),
             tooltip: 'Rename',
           ),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.save_as_outlined, color: T.accent, size: 20),
+            icon: Icon(Icons.save_as_outlined, color: T.accent, size: 20),
             onPressed: () => _overwriteTactic(name),
             tooltip: 'Update',
           ),
@@ -1383,15 +1971,15 @@ class _SaveLoadSheetState extends State<_SaveLoadSheet> {
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-              child: Text('load'.tr(), style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+              decoration: BoxDecoration(color: T.buttonFill, borderRadius: BorderRadius.circular(8)),
+              child: Text('load'.tr(), style: TextStyle(color: T.onAccent, fontSize: 12, fontWeight: FontWeight.bold)),
             ),
           ),
           const SizedBox(width: 4),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
+            icon: const Icon(Icons.delete_outline_rounded, color: T.danger, size: 20),
             onPressed: () async {
               await widget.state.deleteTactics(name);
               await _loadList();
@@ -1419,7 +2007,7 @@ class _AddPlayerBtn extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12 * s, vertical: 6 * s),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.12),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -1432,10 +2020,10 @@ class _AddPlayerBtn extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.add_rounded, color: Colors.white, size: 15 * s),
+            Icon(Icons.add_rounded, color: T.text, size: 15 * s),
             SizedBox(width: 4 * s),
             Text('add_label'.tr(),
-                style: TextStyle(color: Colors.white, fontSize: 12 * s, fontWeight: FontWeight.w500)),
+                style: TextStyle(color: T.text, fontSize: 12 * s, fontWeight: FontWeight.w500)),
           ],
         ),
       ),
@@ -1447,8 +2035,9 @@ class _AddPlayerBtn extends StatelessWidget {
   }
 
   static void showAddSheet(BuildContext context, TacticsState state) {
-    TacticalSheet.show(
+    showBoardPanel(
       context,
+      maxWidth: kPanelMaxWidth,
       builder: (ctx) =>
           scaledSheet(ctx, _AddPlayerSheet(state: state, sheetCtx: ctx)),
     );
@@ -1537,37 +2126,143 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   Future<void> _addTextMarker(MarkerShape shape, Color color,
       {Offset? at}) async {
     var text = '';
+    // Face, ground and size are chosen here, where the words are typed,
+    // not found afterwards in the tune panel. The field is drawn as the
+    // chip will be — its colour, its face, white words on it — so what is
+    // typed is what lands on the board.
+    var ground = color;
+    var font = '';
+    var scale = 1.0;
     final ok = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('text_add_title'.tr(),
-            style: const TextStyle(color: Colors.white)),
-        content: TextFormField(
-          autofocus: true,
-          maxLength: kTextElementMaxChars,
-          maxLines: 2,
-          textInputAction: TextInputAction.done,
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            hintText: 'text_add_hint'.tr(),
-            hintStyle: const TextStyle(color: Colors.white30),
-            counterStyle: const TextStyle(color: Colors.white38, fontSize: 11),
-            enabledBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white30)),
-            focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: kAccent)),
-          ),
-          onChanged: (v) => text = v,
-          onFieldSubmitted: (_) => Navigator.pop(ctx, true),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: Text('cancel'.tr())),
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: Text('confirm'.tr())),
-        ],
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setLocal) {
+          final faces = textFontFamily(font);
+          return AlertDialog(
+            title: Text('text_add_title'.tr(),
+                style: const TextStyle(color: T.text)),
+            // Scrollable for the same reason the edit dialog is: a phone
+            // turned sideways leaves this box 402pt less a keyboard, and
+            // the field with three rows of choices is more than that.
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: ground.withValues(alpha: 0.94),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.white24),
+                    ),
+                    padding: const EdgeInsets.fromLTRB(10, 2, 10, 0),
+                    child: TextFormField(
+                      autofocus: true,
+                      maxLength: kTextElementMaxChars,
+                      minLines: 2,
+                      maxLines: 4,
+                      textInputAction: TextInputAction.done,
+                      // The chip's own size, clamped so the smallest is
+                      // still typeable and the largest still fits.
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: (13 * scale).clamp(13.0, 26.0),
+                        fontWeight: FontWeight.w600,
+                        fontFamily: faces.isEmpty ? null : faces.first,
+                        fontFamilyFallback:
+                            faces.length > 1 ? faces.sublist(1) : null,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: 'text_add_hint'.tr(),
+                        hintStyle: const TextStyle(color: Colors.white54),
+                        counterStyle: const TextStyle(
+                            color: Colors.white70, fontSize: 11),
+                        border: InputBorder.none,
+                      ),
+                      onChanged: (v) => text = v,
+                      onFieldSubmitted: (_) => Navigator.pop(ctx, true),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  // The same three rows the tune panel shows a text
+                  // element, in the same order.
+                  Row(
+                    children: [
+                      const Icon(Icons.palette_outlined,
+                          color: T.textOff, size: 14),
+                      const SizedBox(width: 8),
+                      for (final c in kElementColors)
+                        GestureDetector(
+                          onTap: () => setLocal(() => ground = c),
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 6),
+                            width: 22,
+                            height: 22,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: c,
+                              border: Border.all(
+                                color: ground == c ? T.selectedStroke : T.border,
+                                width: ground == c ? 2.5 : 1,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.text_fields,
+                          color: T.textOff, size: 14),
+                      const SizedBox(width: 8),
+                      for (final f in kTextFonts)
+                        TextFontChip(
+                          font: f,
+                          selected: font == f,
+                          onTap: () => setLocal(() => font = f),
+                        ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.photo_size_select_small,
+                          color: T.textOff, size: 14),
+                      Expanded(
+                        child: Slider(
+                          value: scale,
+                          min: 0.5,
+                          max: 3.0,
+                          divisions: 10,
+                          activeColor: kAccent,
+                          inactiveColor: T.border,
+                          onChanged: (v) => setLocal(() => scale = v),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 34,
+                        child: Text(
+                          '${scale.toStringAsFixed(1)}×',
+                          textAlign: TextAlign.right,
+                          style: const TextStyle(
+                              color: T.textDim, fontSize: 12),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(ctx, false),
+                  child: Text('cancel'.tr())),
+              TextButton(
+                  onPressed: () => Navigator.pop(ctx, true),
+                  child: Text('confirm'.tr())),
+            ],
+          );
+        },
       ),
     );
     if (ok != true || text.trim().isEmpty) return;
@@ -1577,7 +2272,9 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       label: text.trim(),
       team: PlayerTeam.neutral,
       markerShape: shape,
-      customColor: color,
+      customColor: ground,
+      font: font.isEmpty ? null : font,
+      scale: scale,
       position: at ?? Offset(c.width * 0.5, state.spawnY(PlayerTeam.neutral)),
     ));
   }
@@ -1666,12 +2363,17 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       Color color,
       int order, {
       String labelText = '',
+      bool own = false,
     }) {
       return _MarkerEntry(
         key: key,
         label: label,
         glyph: shapeGlyph(shape, color),
-        defaultOrder: order,
+        // The shared pieces past the four shapes make room for the sport's
+        // own, which come straight after the shapes.
+        defaultOrder: own || order < 4
+            ? order
+            : order + state.sportType.markers.length,
         onTap: () {
           if (shape == MarkerShape.text) {
             Navigator.pop(sheetCtx);
@@ -1731,16 +2433,46 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
       shapeEntry('marker_flag', 'marker_flag'.tr(), MarkerShape.cornerFlag, Colors.yellow, 23),
       // And this sport's own equipment, which no other sport's sheet shows.
       // See SportType.markers: thirty-two pieces in one list is not a list,
-      // it is a search.
+      // it is a search. Straight after the four shapes, not after the 24
+      // shared pieces: a table-tennis net was the 19th card of the strip,
+      // behind a soccer goal and a corner flag.
       for (var i = 0; i < state.sportType.markers.length; i++)
         shapeEntry(
           _markerKey(state.sportType.markers[i]),
           _markerKey(state.sportType.markers[i]).tr(),
           state.sportType.markers[i],
           Colors.white,
-          24 + i,
+          4 + i,
+          own: true,
         ),
-    ];
+    ].where((e) => !_offSport(state.sportType, e.key)).toList();
+  }
+
+  /// Shared equipment that has no place in this sport: a soccer goal, a
+  /// mini goal or a corner flag on a net court or in a pool, a net bag of
+  /// footballs anywhere but a football pitch (the art is footballs; racket
+  /// sports have their own hopper), and floor drills — ladder, hurdle —
+  /// on a table-tennis table or in the water.
+  static bool _offSport(SportType sport, String key) {
+    const goals = {SportType.soccer, SportType.fieldHockey, SportType.handball};
+    switch (key) {
+      case 'marker_goal':
+      case 'marker_minigoal':
+        return !goals.contains(sport);
+      case 'marker_flag':
+        return !{...goals, SportType.rugby}.contains(sport) ||
+            sport == SportType.handball;
+      case 'marker_ballbag':
+        return sport != SportType.soccer;
+      case 'marker_ladder':
+      case 'marker_hurdle':
+      case 'marker_rebounder':
+        return sport == SportType.tableTennis || sport == SportType.waterPolo;
+      case 'marker_mannequin':
+      case 'marker_pole':
+        return sport == SportType.tableTennis;
+    }
+    return false;
   }
 
   /// Returns the markers ordered by 3-day usage (DESC), tied items by
@@ -1837,6 +2569,19 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
   /// Generic drop adapter — converts a global drop point to a canvas-local
   /// position (clamped to bounds) and runs the placement callback if the
   /// drop landed on the board. Closes the sheet on success.
+  /// A row of tiles: scrolled sideways on a phone, wrapped on a tablet,
+  /// where the sheet is a 620pt popover and the strip cut its last tile in
+  /// half ("Triang…") with "More" out of sight.
+  Widget _strip(BuildContext context, List<Widget> children) {
+    if (MediaQuery.sizeOf(context).shortestSide >= 600) {
+      return Wrap(runSpacing: 8, children: children);
+    }
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(mainAxisSize: MainAxisSize.min, children: children),
+    );
+  }
+
   void _placeAtDropPos(Offset globalPos, void Function(Offset) place) {
     final ro = boardRepaintKey.currentContext?.findRenderObject();
     if (ro is! RenderBox || !ro.attached) return;
@@ -1901,10 +2646,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(T.panelPad, 0, T.panelPad, T.s4),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
+              // A strip that scrolls on a phone; on a tablet every tile
+              // shows, wrapping, rather than cutting the last one off.
+              // Rebuilt whenever a use is recorded, so promotion is live.
+              child: ListenableBuilder(
+                listenable: ElementUsageService.instance,
+                builder: (context, _) => _strip(context, [
                     _DraggableMarkerCard(
                       label: 'team_ball'.tr(),
                       child: ClipOval(
@@ -1961,17 +2708,11 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                     // used pieces stay visible and the rest collapse into
                     // "More". ListenableBuilder rebuilds the row whenever
                     // a new use is recorded so promotion happens live.
-                    ListenableBuilder(
-                      listenable: ElementUsageService.instance,
-                      builder: (context, _) {
-                        final sorted = _sortedMarkerEntries();
-                        final inline = sorted.take(_inlineMarkerCount).toList();
-                        return Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [for (final e in inline) _buildMarkerTile(e)],
-                        );
-                      },
-                    ),
+                    // Spread into the strip, not a row of their own, so a
+                    // tablet's wrap can break between them.
+                    for (final e
+                        in _sortedMarkerEntries().take(_inlineMarkerCount))
+                      _buildMarkerTile(e),
                     // Custom-element tiles (live) inline with the standard
                     // marker shapes so users see all available pieces in
                     // one row instead of a separate section below.
@@ -1987,7 +2728,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           width: 28, height: 28,
                           child: Icon(
                             Icons.add_photo_alternate_outlined,
-                            color: Colors.white70,
+                            color: T.textDim,
                             size: 22,
                           ),
                         ),
@@ -2011,26 +2752,24 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                       child: Builder(builder: (ctx) {
                         final s = uiScale(ctx);
                         return Container(
-                          width: 52 * s, height: 52 * s,
+                          width: 52 * s, height: _MarkerCard.heightFor(ctx),
                           decoration: BoxDecoration(
-                            color: _showMore ? Colors.white.withValues(alpha: 0.12) : Colors.white.withValues(alpha: 0.05),
+                            color: _showMore ? T.accentFill : T.surfaceHi,
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.white24),
+                            border: Border.all(color: T.border),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(_showMore ? Icons.expand_less_rounded : Icons.more_horiz, color: Colors.white54, size: 18 * s),
+                              Icon(_showMore ? Icons.expand_less_rounded : Icons.more_horiz, color: T.textOff, size: 18 * s),
                               Text(_showMore ? 'less'.tr() : 'more'.tr(),
-                                  style: const TextStyle(color: Colors.white54, fontSize: 9)),
+                                  style: const TextStyle(color: T.textOff, fontSize: 9)),
                             ],
                           ),
                         );
                       }),
                     ),
-                  ],
-                ),
-              ),
+                  ])),
             ),
             // Collapsed-by-default "More" — holds the markers that didn't
             // make the inline row. Re-sorted by usage on every open so the
@@ -2038,20 +2777,15 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
             if (_showMore)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: ListenableBuilder(
+                child: ListenableBuilder(
                     listenable: ElementUsageService.instance,
                     builder: (context, _) {
                       final rest = _sortedMarkerEntries()
                           .skip(_inlineMarkerCount)
                           .toList();
-                      return Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [for (final e in rest) _buildMarkerTile(e)],
-                      );
+                      return _strip(context,
+                          [for (final e in rest) _buildMarkerTile(e)]);
                     },
-                  ),
                 ),
               ),
             const SizedBox(height: T.s12),
@@ -2063,7 +2797,7 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: Row(
                   children: [
-                    const Icon(Icons.people_outline, color: Colors.white60, size: 18),
+                    const Icon(Icons.people_outline, color: T.textOff, size: 18),
                     const SizedBox(width: 8),
                     // Expanded instead of Text + Spacer: the label is long in
                     // several languages and had nothing to give, so the row
@@ -2073,12 +2807,12 @@ class _AddPlayerSheetState extends State<_AddPlayerSheet> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                              color: Colors.white,
+                              color: T.text,
                               fontWeight: FontWeight.w600,
                               fontSize: 14)),
                     ),
                     Icon(_showPhotos ? Icons.expand_less_rounded : Icons.expand_more_rounded,
-                        color: Colors.white54),
+                        color: T.textOff),
                   ],
                 ),
               ),
@@ -2138,10 +2872,10 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
   /// at the chosen team's spawn area. Closes the sheet when done so the
   /// user can see the result.
   /// The formation to line a squad up in: the one whose size best fits the
-  /// squad without exceeding it (9 players -> 7v7, not 11v11), falling back to
+  /// squad without exceeding it (10 players -> 9v9, not 11v11), falling back to
   /// the smallest the sport defines.
   SportFormation? _formationForSquad(int size) {
-    final all = state.sportType.formations;
+    final all = state.formations;
     if (all.isEmpty) return null;
     final fitting = all.where((f) => f.homeCount <= size).toList()
       ..sort((a, b) => b.homeCount.compareTo(a.homeCount));
@@ -2309,20 +3043,20 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: Text('photo_duplicate_title'.tr(),
-              style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: T.text)),
           content: Text(
             'photo_duplicate_msg'.tr(args: ['$existing']),
-            style: const TextStyle(color: Colors.white70),
+            style: const TextStyle(color: T.textDim),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+              child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('photo_add_another'.tr(),
-                  style: const TextStyle(color: T.accent)),
+                  style: TextStyle(color: T.accent)),
             ),
           ],
         ),
@@ -2458,26 +3192,26 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
     final box = await showDialog<List<String>>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('photo_group_name'.tr(), style: const TextStyle(color: Colors.white)),
+        title: Text('photo_group_name'.tr(), style: const TextStyle(color: T.text)),
         content: TextField(
           controller: controller,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
           decoration: InputDecoration(
             hintText: 'photo_group_name'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
-            enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white24)),
-            focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
+            hintStyle: const TextStyle(color: T.textDisabled),
+            enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: T.borderStrong)),
+            focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: T.accent)),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop([controller.text]),
-            child: Text('confirm'.tr(), style: const TextStyle(color: T.accent)),
+            child: Text('confirm'.tr(), style: TextStyle(color: T.accent)),
           ),
         ],
       ),
@@ -2497,13 +3231,13 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: const Icon(Icons.edit_outlined, color: Colors.white),
-              title: Text('photo_group_rename'.tr(), style: const TextStyle(color: Colors.white)),
+              leading: const Icon(Icons.edit_outlined, color: T.text),
+              title: Text('photo_group_rename'.tr(), style: const TextStyle(color: T.text)),
               onTap: () => Navigator.of(ctx).pop('rename'),
             ),
             ListTile(
-              leading: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent),
-              title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.redAccent)),
+              leading: const Icon(Icons.delete_outline_rounded, color: T.danger),
+              title: Text('photo_group_delete'.tr(), style: const TextStyle(color: T.danger)),
               onTap: () => Navigator.of(ctx).pop('delete'),
             ),
             const SizedBox(height: 8),
@@ -2523,16 +3257,16 @@ class _MyPhotosSectionState extends State<_MyPhotosSection> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('photo_group_delete'.tr(), style: const TextStyle(color: Colors.white)),
-          content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: Colors.white70)),
+          title: Text('photo_group_delete'.tr(), style: const TextStyle(color: T.text)),
+          content: Text('photo_group_delete_confirm'.tr(), style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+              child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+              child: Text('remove'.tr(), style: const TextStyle(color: T.danger)),
             ),
           ],
         ),
@@ -2720,12 +3454,12 @@ class _GroupTab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
           color: selected
-              ? T.accent.withValues(alpha: 0.18)
-              : Colors.white.withValues(alpha: 0.06),
+              ? T.accentFill
+              : T.surfaceHi,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: selected
-                ? T.accent
+                ? T.selectedStroke
                 : Colors.transparent,
             width: 1,
           ),
@@ -2733,7 +3467,7 @@ class _GroupTab extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? T.accent : Colors.white70,
+            color: selected ? T.accentText : T.textDim,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),
@@ -2830,7 +3564,7 @@ class _PhotoTileState extends State<_PhotoTile> {
       width: dim, height: dim,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white.withValues(alpha: 0.06),
+        color: T.surfaceHi,
         image: _path != null
             ? DecorationImage(
                 image: FileImage(File(_path!)),
@@ -2858,7 +3592,7 @@ class _PhotoTileState extends State<_PhotoTile> {
         height: dim * 1.15,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white.withValues(alpha: 0.06),
+          color: T.surfaceHi,
           image: _path != null
               ? DecorationImage(
                   image: FileImage(File(_path!)),
@@ -2917,7 +3651,7 @@ class _PhotoTileState extends State<_PhotoTile> {
             child: Container(
               width: 22, height: 22,
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: T.danger,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
@@ -2949,16 +3683,16 @@ class _AddPhotoTile extends StatelessWidget {
         width: 52 * s, height: 52 * s,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white.withValues(alpha: 0.08),
-          border: Border.all(color: Colors.white24, style: BorderStyle.solid, width: 1.2),
+          color: T.surfaceHi,
+          border: Border.all(color: T.border, style: BorderStyle.solid, width: 1.2),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.add_a_photo_outlined, color: Colors.white70, size: 18 * s),
+            Icon(Icons.add_a_photo_outlined, color: T.textDim, size: 18 * s),
             SizedBox(height: 2 * s),
             Text('photo_add_label'.tr(),
-                style: TextStyle(color: Colors.white54, fontSize: 9 * s)),
+                style: TextStyle(color: T.textOff, fontSize: 9 * s)),
           ],
         ),
       ),
@@ -3087,7 +3821,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
           clipper: MarkerShapeClipper(shape),
           child: _path != null
               ? Image.file(File(_path!), fit: BoxFit.cover)
-              : Container(color: Colors.white12),
+              : Container(color: T.border),
         ),
       ),
     );
@@ -3101,7 +3835,7 @@ class _DraggableElementTileState extends State<_DraggableElementTile> {
               clipper: MarkerShapeClipper(shape),
               child: _path != null
                   ? Image.file(File(_path!), fit: BoxFit.cover, width: 60, height: 60)
-                  : Container(color: Colors.white24),
+                  : Container(color: T.border),
             ),
             IgnorePointer(
               child: ClipPath(
@@ -3191,7 +3925,7 @@ class _CustomElementContentState extends State<_CustomElementContent> {
       clipper: MarkerShapeClipper(shape),
       child: _path != null
           ? Image.file(File(_path!), fit: BoxFit.cover)
-          : Container(color: Colors.white12),
+          : Container(color: T.border),
     );
   }
 }
@@ -3219,7 +3953,7 @@ class _PhotosManageDialog extends StatelessWidget {
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setSheet) => AlertDialog(
           title: Text('squad_member_title'.tr(),
-              style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: T.text)),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -3234,14 +3968,14 @@ class _PhotosManageDialog extends StatelessWidget {
                         initialValue: number,
                         maxLength: 3,
                         keyboardType: TextInputType.number,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: T.text),
                         decoration: InputDecoration(
                           labelText: 'squad_number'.tr(),
                           counterText: '',
-                          labelStyle: const TextStyle(color: Colors.white60),
+                          labelStyle: const TextStyle(color: T.textOff),
                           enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white30)),
-                          focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: T.borderStrong)),
+                          focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
                         onChanged: (v) => number = v,
@@ -3253,15 +3987,15 @@ class _PhotosManageDialog extends StatelessWidget {
                         initialValue: name,
                         maxLength: 12,
                         autofocus: true,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: T.text),
                         decoration: InputDecoration(
                           labelText: 'player_name'.tr(),
                           counterStyle:
-                              const TextStyle(color: Colors.white38, fontSize: 11),
-                          labelStyle: const TextStyle(color: Colors.white60),
+                              const TextStyle(color: T.textDisabled, fontSize: 11),
+                          labelStyle: const TextStyle(color: T.textOff),
                           enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white30)),
-                          focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: T.borderStrong)),
+                          focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: kAccent)),
                         ),
                         onChanged: (v) => name = v,
@@ -3272,7 +4006,7 @@ class _PhotosManageDialog extends StatelessWidget {
                 if (roles.isNotEmpty) ...[
                   const SizedBox(height: 14),
                   Text('role_title'.tr(),
-                      style: const TextStyle(color: Colors.white60, fontSize: 12)),
+                      style: const TextStyle(color: T.textOff, fontSize: 12)),
                   const SizedBox(height: 8),
                   Wrap(
                     spacing: 6,
@@ -3287,15 +4021,15 @@ class _PhotosManageDialog extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: role == r
                                   ? kAccent
-                                  : Colors.white.withValues(alpha: 0.08),
+                                  : T.surfaceHi,
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                  color: role == r ? kAccent : Colors.white24),
+                                  color: role == r ? T.selectedStroke : T.border),
                             ),
                             child: Text(
                               r ?? 'role_none'.tr(),
                               style: TextStyle(
-                                color: role == r ? Colors.white : Colors.white70,
+                                color: role == r ? T.onAccent : T.textDim,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -3312,12 +4046,12 @@ class _PhotosManageDialog extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
               child: Text('cancel'.tr(),
-                  style: const TextStyle(color: Colors.white54)),
+                  style: const TextStyle(color: T.textOff)),
             ),
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text('confirm'.tr(),
-                  style: const TextStyle(color: kAccent)),
+                  style: TextStyle(color: T.accentText)),
             ),
           ],
         ),
@@ -3337,15 +4071,15 @@ class _PhotosManageDialog extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: Colors.white)),
+        title: Text('photo_delete_confirm'.tr(), style: const TextStyle(color: T.text)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('cancel'.tr(), style: const TextStyle(color: Colors.white54)),
+            child: Text('cancel'.tr(), style: const TextStyle(color: T.textOff)),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('remove'.tr(), style: const TextStyle(color: Colors.redAccent)),
+            child: Text('remove'.tr(), style: const TextStyle(color: T.danger)),
           ),
         ],
       ),
@@ -3370,24 +4104,24 @@ class _PhotosManageDialog extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.edit_outlined, color: T.accent),
+                  Icon(Icons.edit_outlined, color: T.accent),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       'photo_manage_title'.tr(),
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(color: T.text, fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
-                    child: const Icon(Icons.close_rounded, color: Colors.white54),
+                    child: const Icon(Icons.close_rounded, color: T.textOff),
                   ),
                 ],
               ),
               const SizedBox(height: 8),
               Text(
                 'photo_manage_hint'.tr(),
-                style: const TextStyle(color: Colors.white54, fontSize: 12),
+                style: const TextStyle(color: T.textOff, fontSize: 12),
               ),
               const SizedBox(height: 12),
               Flexible(
@@ -3496,7 +4230,7 @@ class _ManageTileState extends State<_ManageTile> {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.06),
+                  color: T.surfaceHi,
                   image: _path != null
                       ? DecorationImage(
                           image: FileImage(File(_path!)),
@@ -3533,12 +4267,12 @@ class _ManageTileState extends State<_ManageTile> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                         decoration: BoxDecoration(
-                          color: kAccent.withValues(alpha: 0.22),
+                          color: T.accentFill,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(widget.photo.jerseyNumber!,
-                            style: const TextStyle(
-                                color: kAccent, fontSize: 11, fontWeight: FontWeight.w700)),
+                            style: TextStyle(
+                                color: T.accentText, fontSize: 11, fontWeight: FontWeight.w700)),
                       ),
                       const SizedBox(width: 4),
                     ],
@@ -3550,8 +4284,8 @@ class _ManageTileState extends State<_ManageTile> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: widget.photo.playerName?.trim().isNotEmpty == true
-                              ? Colors.white
-                              : Colors.white38,
+                              ? T.text
+                              : T.textOff,
                           fontSize: 12,
                         ),
                       ),
@@ -3560,7 +4294,7 @@ class _ManageTileState extends State<_ManageTile> {
                 ),
                 if (widget.photo.role?.isNotEmpty ?? false)
                   Text(widget.photo.role!,
-                      style: const TextStyle(color: Colors.white38, fontSize: 10)),
+                      style: const TextStyle(color: T.textOff, fontSize: 10)),
               ],
             ),
           ),
@@ -3571,7 +4305,7 @@ class _ManageTileState extends State<_ManageTile> {
           children: [
             _ManageAction(
               icon: Icons.badge_outlined,
-              color: kAccent,
+              color: T.accentText,
               onTap: widget.onEditIdentity,
             ),
             _ManageAction(
@@ -3581,7 +4315,7 @@ class _ManageTileState extends State<_ManageTile> {
             ),
             _ManageAction(
               icon: Icons.delete_outline_rounded,
-              color: Colors.redAccent,
+              color: T.danger,
               onTap: widget.onDelete,
             ),
           ],
@@ -3650,7 +4384,7 @@ class _EditModeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
-    final accent = editing ? T.accent : Colors.white54;
+    final accent = editing ? T.accentText : T.textOff;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -3658,8 +4392,8 @@ class _EditModeTile extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: editing
-              ? T.accent.withValues(alpha: 0.18)
-              : Colors.white.withValues(alpha: 0.06),
+              ? T.accentFill
+              : T.surfaceHi,
           border: Border.all(color: accent.withValues(alpha: 0.5), width: 1),
         ),
         child: Column(
@@ -3747,12 +4481,12 @@ class _AddAllTile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.group_add_outlined,
+            Icon(Icons.group_add_outlined,
                 color: T.accent, size: 22),
             const SizedBox(height: 1),
             Text(
               '+$count',
-              style: const TextStyle(
+              style: TextStyle(
                 color: T.accent,
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
@@ -3797,13 +4531,13 @@ class _PhotoTeamChip extends StatelessWidget {
         duration: const Duration(milliseconds: 140),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: selected ? color : Colors.white.withValues(alpha: 0.08),
+          color: selected ? color : T.surfaceHi,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : Colors.white60,
+            color: selected ? Colors.white : T.textOff,
             fontSize: 11,
             fontWeight: FontWeight.w600,
           ),
@@ -3962,23 +4696,125 @@ class _TeamSportSetup extends StatefulWidget {
 }
 
 class _TeamSportSetupState extends State<_TeamSportSetup> {
-  int? _selectedCount;
+  /// The format picked: home and away numbers both. Keyed by the home count
+  /// alone, the water-polo power play (six against five) was offered as
+  /// "6v6" — and being the only formation of its count, its name was never
+  /// shown either.
+  (int, int)? _selectedCount;
   SportFormation? _selectedFormation;
   _TeamOption _teamOption = _TeamOption.both;
 
-  List<int> get _distinctCounts {
-    final counts = <int>{};
-    for (final f in widget.state.sportType.formations) {
-      counts.add(f.homeCount);
+  /// Volleyball's "Rotation" chip under 6v6: the rotation controls in place
+  /// of the team row. Open already on a board that is a rotation board, so
+  /// rotating on is one tap.
+  bool _rotationMode = false;
+
+  /// On the full court only: the spots are laid out on its geometry.
+  bool get _offersRotation =>
+      widget.state.sportType == SportType.volleyball &&
+      widget.state.courtLayout(SportType.volleyball) == CourtLayout.full &&
+      _selectedCount == (6, 6);
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.state.sportType == SportType.volleyball &&
+        widget.state.rotation != null) {
+      _selectedCount = (6, 6);
+      _rotationMode = true;
     }
-    return counts.toList()..sort((a, b) => b.compareTo(a));
+  }
+
+  static (int, int) _countOf(SportFormation f) => (f.homeCount, f.awayCount);
+
+  List<(int, int)> get _distinctCounts {
+    final counts = <(int, int)>{};
+    for (final f in widget.state.formations) {
+      counts.add(_countOf(f));
+    }
+    return counts.toList()
+      ..sort((a, b) =>
+          a.$1 != b.$1 ? b.$1.compareTo(a.$1) : b.$2.compareTo(a.$2));
   }
 
   List<SportFormation> get _formationsForCount {
     if (_selectedCount == null) return [];
-    return widget.state.sportType.formations
-        .where((f) => f.homeCount == _selectedCount)
+    return widget.state.formations
+        .where((f) => _countOf(f) == _selectedCount)
         .toList();
+  }
+
+  /// A formation whose name is only its numbers ("7v7" under the 7v7 chip)
+  /// says nothing the chip above it did not; it is the standard set-up.
+  static bool _plainName(SportFormation f) =>
+      f.nameKey == 'formation_${f.homeCount}v${f.homeCount}' &&
+      f.homeCount == f.awayCount;
+
+  static String _formationName(SportFormation f) =>
+      _plainName(f) ? 'formation_standard'.tr() : f.nameKey.tr();
+
+  /// Volleyball: the six placed by rotation instead of a formation.
+  Widget _rotationChip() =>
+      Padding(
+        padding: const EdgeInsets.only(right: 8),
+        child: GestureDetector(
+          key: const ValueKey('rotation-chip'),
+          onTap: () => setState(() {
+            _rotationMode = true;
+            _selectedFormation = null;
+          }),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: _rotationMode ? T.accentFill : T.surfaceHi,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: _rotationMode ? T.selectedStroke : T.border,
+                width: _rotationMode ? 2 : 1,
+              ),
+            ),
+            child: Text(
+              'rotation_label'.tr(),
+              style: TextStyle(
+                color: _rotationMode ? T.accentText : T.textDim,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget _formationChip(SportFormation f) {
+    final selected = _selectedFormation == f;
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: () => setState(() {
+          _selectedFormation = f;
+          _rotationMode = false;
+        }),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: BoxDecoration(
+            color: selected ? T.accentFill : T.surfaceHi,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: selected ? T.selectedStroke : T.border,
+              width: selected ? 2 : 1,
+            ),
+          ),
+          child: Text(
+            _formationName(f),
+            style: TextStyle(
+              color: selected ? T.accentText : T.textDim,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   void _apply() {
@@ -4065,10 +4901,19 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
   @override
   Widget build(BuildContext context) {
     final formations = _formationsForCount;
-    // Auto-select if only one formation for this count
-    if (_selectedCount != null && formations.length == 1 && _selectedFormation == null) {
-      _selectedFormation = formations.first;
+    // The standard set-up is the default: picked the moment a count is, so
+    // Apply is one tap — unless the sheet is in rotation mode. (The only
+    // formation of its count is the default whatever it is called.)
+    if (_selectedCount != null && _selectedFormation == null && !_rotationMode) {
+      _selectedFormation = formations.length == 1
+          ? formations.first
+          : formations.where(_plainName).firstOrNull;
     }
+    // The formation row: several to choose from, or one with a name of its
+    // own (the power play) that the count chip cannot say.
+    final showFormations = _selectedCount != null &&
+        (formations.length > 1 ||
+            (formations.length == 1 && !_plainName(formations.first)));
     // A single-half pitch shows one goal, so formations add one team attacking
     // it — the "both teams" option doesn't apply. Force single-team selection.
     final halfPitch = widget.state.isSoccerHalfPitch;
@@ -4097,23 +4942,24 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                   onTap: () => setState(() {
                     _selectedCount = count;
                     _selectedFormation = null; // reset
+                    _rotationMode = false;
                   }),
                   child: Container(
                     width: 56 * s,
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
-                      color: selected ? Colors.blue : Colors.white.withValues(alpha: 0.08),
+                      color: selected ? T.accentFill : T.surfaceHi,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: selected ? Colors.blue : Colors.white24,
+                        color: selected ? T.selectedStroke : T.border,
                         width: selected ? 2 : 1,
                       ),
                     ),
                     child: Center(
                       child: Text(
-                        '${count}v$count',
+                        '${count.$1}v${count.$2}',
                         style: TextStyle(
-                          color: selected ? Colors.white : Colors.white70,
+                          color: selected ? T.accentText : T.textDim,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -4126,54 +4972,47 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
           ),
 
           // Row 2: Formation (only if multiple formations for selected count)
-          if (_selectedCount != null && formations.length > 1) ...[
+          if (showFormations) ...[
             const SizedBox(height: 12),
-            Text('formation_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('formation_label'.tr(), style: TextStyle(color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: formations.map((f) {
-                  final selected = _selectedFormation == f;
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: GestureDetector(
-                      onTap: () => setState(() => _selectedFormation = f),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: selected ? Colors.blue : Colors.white.withValues(alpha: 0.08),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: selected ? Colors.blue : Colors.white24,
-                            width: selected ? 2 : 1,
-                          ),
-                        ),
-                        child: Text(
-                          f.nameKey.tr(),
-                          style: TextStyle(
-                            color: selected ? Colors.white : Colors.white70,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }).toList(),
+                children: [
+                  // The standard set-up first, as the default. Volleyball's
+                  // Rotation chip comes right after it, before the named
+                  // set-ups, still in view when it is the one selected.
+                  for (final (i, f) in formations.indexed) ...[
+                    _formationChip(f),
+                    if (_offersRotation && i == 0) _rotationChip(),
+                  ],
+                ],
               ),
             ),
           ],
 
-          // Row 3: Team selection
-          if (_selectedFormation != null || (_selectedCount != null && formations.length == 1)) ...[
+          // Row 3 (volleyball rotation): system, rotation, libero, check.
+          if (_offersRotation && _rotationMode) ...[
             const SizedBox(height: 12),
-            Text('team_label'.tr(), style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.w600)),
+            VolleyballRotationControls(
+              state: widget.state,
+              team: _teamOption == _TeamOption.away
+                  ? PlayerTeam.away
+                  : PlayerTeam.home,
+              onPlace: () => Navigator.of(widget.sheetCtx).maybePop(),
+            ),
+          ],
+
+          // Row 3: Team selection
+          if (!_rotationMode && (_selectedFormation != null || (_selectedCount != null && formations.length == 1))) ...[
+            const SizedBox(height: 12),
+            Text('team_label'.tr(), style: TextStyle(color: T.textDim, fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             Row(
               children: [
                 if (!halfPitch) ...[
-                  _buildTeamChip('both_teams'.tr(), _TeamOption.both, Colors.purple),
+                  _buildTeamChip('both_teams'.tr(), _TeamOption.both, T.toolOn),
                   const SizedBox(width: 8),
                 ],
                 _buildTeamChip('team_home'.tr(), _TeamOption.home, T.home),
@@ -4189,7 +5028,7 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
                   onTap: _apply,
                   onDropAt: _applyAtDrop,
                   child: const Icon(Icons.groups_outlined,
-                      color: Color(0xFF4ADE80), size: 26),
+                      color: T.success, size: 26),
                 ),
               ],
             ),
@@ -4207,17 +5046,17 @@ class _TeamSportSetupState extends State<_TeamSportSetup> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? activeColor : Colors.white.withValues(alpha: 0.08),
+          color: selected ? activeColor : T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? activeColor : Colors.white24,
+            color: selected ? activeColor : T.border,
             width: selected ? 2 : 1,
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : Colors.white70,
+            color: selected ? Colors.white : T.textDim,
             fontSize: 13,
             fontWeight: FontWeight.w600,
           ),
@@ -4290,7 +5129,7 @@ class _QuickFormationRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formations = state.sportType.formations;
+    final formations = state.formations;
     final hasDoubles = formations.any((f) => f.nameKey == 'formation_doubles');
     final homeColor = PlayerIcon.teamColor(PlayerTeam.home);
     final awayColor = PlayerIcon.teamColor(PlayerTeam.away);
@@ -4338,13 +5177,13 @@ class _QuickFormationRow extends StatelessWidget {
       showDialog(
         context: context,
         builder: (dCtx) => AlertDialog(
-          title: Text('formation_replace_title'.tr(), style: const TextStyle(color: Colors.white)),
-          content: Text('formation_replace_message'.tr(), style: const TextStyle(color: Colors.white70)),
+          title: Text('formation_replace_title'.tr(), style: const TextStyle(color: T.text)),
+          content: Text('formation_replace_message'.tr(), style: const TextStyle(color: T.textDim)),
           actions: [
             TextButton(onPressed: () => Navigator.pop(dCtx), child: Text('cancel'.tr())),
             TextButton(
               onPressed: () { Navigator.pop(dCtx); doApply(); },
-              child: Text('formation_apply'.tr(), style: const TextStyle(color: Colors.purple)),
+              child: Text('formation_apply'.tr(), style: TextStyle(color: T.accentText)),
             ),
           ],
         ),
@@ -4369,9 +5208,9 @@ class _FormationCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.07),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white24),
+          border: Border.all(color: T.border),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -4382,13 +5221,13 @@ class _FormationCard extends StatelessWidget {
                 ..._dots(homeDots),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('vs', style: TextStyle(color: Colors.white38, fontSize: 10)),
+                  child: Text('vs', style: TextStyle(color: T.textDisabled, fontSize: 10)),
                 ),
                 ..._dots(awayDots),
               ],
             ),
             const SizedBox(height: 6),
-            Text(label, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+            Text(label, style: const TextStyle(color: T.text, fontSize: 13, fontWeight: FontWeight.w600)),
           ],
         ),
       ),
@@ -4528,7 +5367,7 @@ class _PasteRow extends StatelessWidget {
                     width: kPlayerIconSize * p.scale,
                     height: kPlayerIconSize * p.scale +
                         (p.label.isNotEmpty && !p.labelInside
-                            ? 21 * p.scale
+                            ? 21 * p.scale * kFigureScale
                             : 0),
                     child: IgnorePointer(
                       child: PlayerIconWidget(
@@ -4565,7 +5404,7 @@ class _PasteRow extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(Icons.content_paste_rounded,
+              Icon(Icons.content_paste_rounded,
                   color: T.accent, size: 18),
             ],
           ),
@@ -4581,25 +5420,54 @@ class _MarkerCard extends StatelessWidget {
   final VoidCallback onTap;
   const _MarkerCard({required this.label, required this.child, required this.onTap});
 
+  /// Every card is this tall: padding, the 28pt glyph, its gap and two
+  /// lines of label. On one line "Water goal" and "Lane rope" came out as
+  /// "Water g…" and "Lane r…". The "More" tile matches it.
+  static double heightFor(BuildContext context) {
+    final s = uiScale(context);
+    return 16 * s +
+        28 +
+        4 * s +
+        MediaQuery.textScalerOf(context).scale(10.5) * 1.15 * 2 + 3;
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = uiScale(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60 * s,
+        // A tablet sets the label 1.4x, and at 84pt "Hình vuông", "Tuan
+        // Rumah" and "Segitiga" broke over two lines; the tiles wrap there
+        // (see _strip), so the width costs nothing.
+        width: s > 1 ? 100 : 60 * s,
+        height: heightFor(context),
         padding: EdgeInsets.symmetric(vertical: 8 * s, horizontal: 4 * s),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.07),
+          color: T.surfaceHi,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white24),
+          border: Border.all(color: T.border),
         ),
+        // Centred in the card's fixed height: a one-line word used to sit
+        // at the top of a two-line band, leaving the glyph and the word
+        // riding high with a blank strip under them.
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             child,
             SizedBox(height: 4 * s),
-            Text(label, style: const TextStyle(color: Colors.white60, fontSize: 11), overflow: TextOverflow.ellipsis),
+            // Flexible: a glyph a point taller than its box, or a font's
+            // own line height, must shorten the label, not overflow.
+            Flexible(
+              child: Text(
+                label,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    color: T.textOff, fontSize: 10.5, height: 1.15),
+              ),
+            ),
           ],
         ),
       ),
@@ -4687,11 +5555,14 @@ class DrawingOptionsBar extends StatelessWidget {
                           Expanded(
                             child: CustomPaint(
                               size: const Size(56, 20),
+                              // The picked-out line's own style when there
+                              // is one: the pen's showed a wavy plain line
+                              // over a straight arrow (2026-10-17).
                               painter: LineStylePreviewPainter(
-                                shape: state.lineShape,
-                                dash: state.strokeStyle,
-                                arrow: state.arrowStyle,
-                                color: state.strokeColor,
+                                shape: sel?.shape ?? state.lineShape,
+                                dash: sel?.style ?? state.strokeStyle,
+                                arrow: sel?.arrow ?? state.arrowStyle,
+                                color: sel?.color ?? state.strokeColor,
                               ),
                             ),
                           ),
@@ -4703,23 +5574,38 @@ class DrawingOptionsBar extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: T.s8),
-              TacticalChip(
-                label: 'eraser'.tr(),
-                icon: Icons.backspace_outlined,
-                selected: state.eraserMode,
-                onTap: () => state.setEraserMode(!state.eraserMode),
-              ),
+              // No eraser here: a line is removed by picking it out and
+              // tapping the bin above (2026-10-17).
+              // A way out that is not the toolbar. Closing the pen's panel
+              // puts the pen down: the bottom bar goes back to Move, which
+              // is what a coach is about to do next. With a line picked
+              // out the row above has its own close, which only lets go of
+              // the line.
+              if (sel == null) ...[
+                const SizedBox(width: T.s4),
+                TacticalIconButton(
+                  icon: Icons.close_rounded,
+                  size: 20,
+                  onTap: () => state.setDrawingMode(false),
+                ),
+              ],
             ],
           ),
           const SizedBox(height: T.s12),
           // Colours and thickness on one line.
           Row(
             children: [
+              // A colour or a thickness is the pen's from here on — and,
+              // when a line is picked out, that line's too. Without the
+              // second half a drawn line could only be deleted and drawn
+              // again: updateStroke existed and nothing ever called it.
               ...kStrokeColors.map((c) => _ColorDot(
                     color: c,
-                    selected: state.strokeColor == c,
-                    onTap: () => state.setStrokeColor(c),
+                    selected: (sel?.color ?? state.strokeColor) == c,
+                    onTap: () {
+                      state.setStrokeColor(c);
+                      if (sel != null) state.updateStroke(sel.id, color: c);
+                    },
                   )),
               const SizedBox(width: T.s8),
               Expanded(
@@ -4737,11 +5623,21 @@ class DrawingOptionsBar extends StatelessWidget {
                     tickMarkShape: SliderTickMarkShape.noTickMark,
                   ),
                   child: Slider(
-                    value: state.strokeWidth,
+                    value: (sel?.width ?? state.strokeWidth).clamp(1.0, 8.0).toDouble(),
                     min: 1,
                     max: 8,
                     divisions: 7,
-                    onChanged: state.setStrokeWidth,
+                    // The first touch is the undo point; the steps after it
+                    // ride on top of that one snapshot.
+                    onChangeStart: sel == null
+                        ? null
+                        : (v) => state.updateStroke(sel.id, width: v),
+                    onChanged: (v) {
+                      state.setStrokeWidth(v);
+                      if (sel != null) {
+                        state.updateStroke(sel.id, width: v, snapshot: false);
+                      }
+                    },
                   ),
                 ),
               ),
@@ -4784,7 +5680,7 @@ class _ColorDot extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: selected
-                    ? Border.all(color: T.accent, width: 2)
+                    ? Border.all(color: T.selectedStroke, width: 2)
                     : Border.all(color: T.border),
               ),
               child: Center(
@@ -4835,13 +5731,16 @@ class _PlayCircle extends StatelessWidget {
         : primary
             ? T.onLime
             : active
-                ? T.accent
+                ? T.accentText
                 : T.text;
     final Color bg = primary
         ? T.lime
         : active
             ? T.accentFill
             : Colors.transparent;
+    // Play is the one control a coach hits from a metre away, so it is a
+    // size up from the steppers around it.
+    final dim = barButton(context) * (primary ? 1.14 : 1.0);
     return Semantics(
       button: true,
       enabled: onTap != null,
@@ -4850,11 +5749,11 @@ class _PlayCircle extends StatelessWidget {
         onTap: onTap,
         radius: 26,
         child: Container(
-          width: T.tap,
-          height: T.tap,
+          width: dim,
+          height: dim,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-          child: Icon(icon, color: fg, size: primary ? 26 : 22),
+          child: Icon(icon, color: fg, size: dim * (primary ? 0.59 : 0.50)),
         ),
       ),
     );
@@ -4923,8 +5822,9 @@ class _TimelineBtn extends StatelessWidget {
   }
 
   void _showTimeline(BuildContext context) {
-    TacticalSheet.show(
+    showBoardPanel(
       context,
+      maxWidth: kPanelMaxWidth,
       builder: (ctx) => TacticalSheet(
         padding: const EdgeInsets.fromLTRB(0, T.s12, 0, 0),
         child: scaledSheet(ctx, TimelineEditor(state: state)),
@@ -4976,7 +5876,7 @@ class _StepIndicator extends StatelessWidget {
     final s = uiScale(context);
     return Text(
       '${state.atStep}/${state.maxMoveSteps}',
-      style: TextStyle(color: Colors.white, fontSize: 16 * s, fontWeight: FontWeight.bold),
+      style: TextStyle(color: T.text, fontSize: 16 * s, fontWeight: FontWeight.bold),
     );
   }
 }
@@ -5012,35 +5912,44 @@ class PlayControlsBar extends StatelessWidget {
     return ListenableBuilder(
       listenable: state,
       builder: (context, _) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: EdgeInsets.symmetric(
+            horizontal: T.s12, vertical: 5 * uiScale(context)),
         // The same capsule as the tool bar below it. These were two different
         // dark treatments — translucent black here, T.surface there — stacked
         // one above the other, which read as two unrelated pieces of chrome
         // rather than one bar that had swapped its contents.
-        decoration: const BoxDecoration(
-          color: T.surface,
+        decoration: BoxDecoration(
+          color: state.sportType.theme.panelColor,
           borderRadius: T.brLg,
-          border: Border.fromBorderSide(BorderSide(color: T.border)),
+          border: const Border.fromBorderSide(BorderSide(color: T.border)),
           boxShadow: T.shadowFloat,
         ),
-        child: Row(
+        // Scaled down as a whole when the screen is too narrow for seven
+        // buttons at full size, rather than overflowing: at 375pt it ran 8pt
+        // off the right edge and at 320 it never had a chance. Everything
+        // keeps its proportions; only on a phone narrower than about 390pt
+        // does any of it shrink at all.
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _ResetButton(state: state),
-            const SizedBox(width: 6),
+            const BarDivider(),
             _StepBackButton(state: state),
-            const SizedBox(width: 8),
+            const SizedBox(width: T.s4),
             _StepIndicator(state: state),
-            const SizedBox(width: 8),
+            const SizedBox(width: T.s4),
             _StepForwardButton(state: state),
             const SizedBox(width: 6),
             _PlayButton(state: state),
             const SizedBox(width: 6),
             _LinesToggle(state: state),
-            const SizedBox(width: 6),
+            const BarDivider(),
             _TimelineBtn(state: state),
           ],
+        ),
         ),
       ),
     );

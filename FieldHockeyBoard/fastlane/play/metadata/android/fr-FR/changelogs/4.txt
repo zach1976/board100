@@ -1,0 +1,12 @@
+Nouveautés de la version 2.2.0
+
+• Jour de match : périodes, composition, chrono, remplacements ; cartons vert, jaune et rouge avec suspensions ; shoot-out ; PDF (le chrono demande Pro)
+• Cahier de jeu le jour du match
+• Séances prêtes : six plans
+• Salle et Hockey5s à côté du terrain extérieur
+• 65 exercices au lieu de 36
+• Notes sur le tableau, qui changent à chaque étape
+• Fonds bleu hockey
+• Mise en page tablette, clavier et stylet
+• Allemand et néerlandais : 14 langues
+• Autres corrections

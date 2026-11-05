@@ -13,7 +13,9 @@ enum PlayerGender { male, female, unspecified }
 /// only whether they are holding it — see [PlayerIcon.holdsImplement],
 /// because a feeder, a resting pair and the coach's cone-setter are all on
 /// the same court as the four people swinging.
-enum PlayerFigure { plain, racket, paddle, stick, bat, water }
+/// [barefoot] is the plain body with bare legs and feet, for the sports
+/// played on sand; [barefootPaddle] the paddle figure the same way.
+enum PlayerFigure { plain, racket, paddle, stick, bat, water, barefoot, barefootPaddle }
 
 /// The faces a text element can be set in, by the name the board stores.
 /// The empty name is the app's own font. Each resolves to a platform face

@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../models/match_day.dart';
 import '../models/practice_session.dart';
 import '../models/sport_type.dart';
 import 'auth_service.dart';
+import 'match_day_service.dart';
 import 'practice_history_service.dart';
 import 'sync_service.dart';
 
@@ -139,6 +141,8 @@ class CloudSyncService {
             sport, practicesBySport[sport.name] ?? const []);
         await _writeHistoryForSport(
             sport, sessionsBySport[sport.name] ?? const []);
+        await _applyMatchDaysForSport(sport,
+            practicesBySport[MatchDayService.syncSport(sport)] ?? const []);
       }
       _lastSyncAt = DateTime.now();
       _remoteHasNewer = false;
@@ -206,6 +210,20 @@ class CloudSyncService {
           } catch (_) {}
         }
       }
+      // Match days ride with the practice plans: the finished ones under
+      // their id, the one in progress under one fixed name.
+      final matches = await MatchDayService.history(sport);
+      final current = await MatchDayService.loadCurrent(sport);
+      for (final m in [...matches, ?current]) {
+        allPractices.add({
+          'name': current != null && identical(m, current)
+              ? MatchDayService.currentName
+              : m.id,
+          'sport_type': MatchDayService.syncSport(sport),
+          'data': m.toJson(),
+          'client_updated_at': m.updatedAt.toUtc().toIso8601String(),
+        });
+      }
       final sessions = await PracticeHistoryService.list(sport);
       for (final s in sessions) {
         allSessions.add({
@@ -250,6 +268,10 @@ class CloudSyncService {
       for (final entry in bySport.entries) {
         final sport = _parseSport(entry.key);
         if (sport != null) await _applyPracticesForSport(sport, entry.value);
+        final matchSport = _parseMatchDaySport(entry.key);
+        if (matchSport != null) {
+          await _applyMatchDaysForSport(matchSport, entry.value);
+        }
       }
     }
 
@@ -271,6 +293,13 @@ class CloudSyncService {
   static SportType? _parseSport(String name) {
     for (final s in SportType.values) {
       if (s.name == name) return s;
+    }
+    return null;
+  }
+
+  static SportType? _parseMatchDaySport(String key) {
+    for (final s in SportType.values) {
+      if (MatchDayService.syncSport(s) == key) return s;
     }
     return null;
   }
@@ -373,6 +402,52 @@ class CloudSyncService {
     final file = File('${dir.path}/${sport.name}.json');
     await file.writeAsString(
         jsonEncode(merged.map((s) => s.toJson()).toList()));
+  }
+
+  /// Merge the server's match days into the local files: finished matches
+  /// by id, the copy written last winning; the match in progress only when
+  /// the server's is newer. A match filed on another phone drops the local
+  /// copy in progress with the same id — it was finished there.
+  static Future<void> _applyMatchDaysForSport(
+      SportType sport, List<Map<String, dynamic>> remote) async {
+    if (remote.isEmpty) return;
+    final finished = <MatchDay>[];
+    MatchDay? remoteCurrent;
+    var currentDeleted = false;
+    for (final r in remote) {
+      final name = r['name'] as String?;
+      if (name == null || name.isEmpty) continue;
+      if (r['deleted_at'] != null) {
+        if (name == MatchDayService.currentName) currentDeleted = true;
+        continue;
+      }
+      final data = _decodeDataField(r['data']);
+      if (data == null) continue;
+      try {
+        final m = MatchDay.fromJson(data);
+        if (name == MatchDayService.currentName) {
+          remoteCurrent = m;
+        } else {
+          finished.add(m);
+        }
+      } catch (_) {}
+    }
+
+    final local = await MatchDayService.history(sport);
+    final merged = MatchDayService.merge(local, finished);
+    if (finished.isNotEmpty) await MatchDayService.writeHistory(sport, merged);
+
+    final localCurrent = await MatchDayService.loadCurrent(sport);
+    if (localCurrent != null &&
+        (currentDeleted || finished.isNotEmpty) &&
+        merged.any((m) => m.id == localCurrent.id)) {
+      await MatchDayService.clearCurrent(sport);
+    } else if (remoteCurrent != null &&
+        !merged.any((m) => m.id == remoteCurrent!.id) &&
+        (localCurrent == null ||
+            remoteCurrent.updatedAt.isAfter(localCurrent.updatedAt))) {
+      await MatchDayService.writeCurrent(sport, remoteCurrent);
+    }
   }
 
   /// Laravel's array cast normally returns an object, but if the cast ever

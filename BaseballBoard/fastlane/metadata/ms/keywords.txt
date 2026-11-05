@@ -1,1 +1,1 @@
-besbol,softbol,balingan,memukul,bertahan,bunt,curi base,double play,isyarat,jurulatih,susunan
+papan taktik,pelan latihan,jadual,susunan pemain,formasi bertahan,demo,analisis,ulasan perlawanan

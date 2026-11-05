@@ -1,0 +1,11 @@
+Yang Baru di 2.1.0
+
+• Semua enam rotasi saat servis atau menerima, dengan pemeriksaan tumpang tindih dan perbaikan satu ketukan
+• Set aturan FIVB, USAV, NFHS, atau NCAA dengan batas pergantiannya
+• Lembar line-up sebagai PDF; area sah saat menyeret
+• Hari pertandingan: lembar pergantian per set (memerlukan Pro)
+• Buku taktik; lapangan pantai untuk pasangan
+• 154 latihan, dari 44; enam sesi siap pakai
+• Tata letak tablet, keyboard, dan stilus
+• Jerman dan Belanda: 14 bahasa
+• Perbaikan kecil

@@ -1,24 +1,10 @@
-Yang Baru di 2.0.1
+Yang baru di versi 2.3.1
 
-Semua di versi ini tentang apa yang benar-benar digambar oleh papan latihan.
+PRO LEBIH MUDAH DITEMUKAN
+"Hapus Iklan" dan "Pulihkan Pembelian" kini ada di halaman Saya, cukup satu ketukan. Lembar pembelian kini panel putih tersendiri, jelas dibaca juga di iPad.
 
-BEDAKAN LARI, GIRINGAN, DAN UMPAN
-Tiga aksi, tiga garis: lari bergaris putus-putus, giringan bergelombang, umpan berupa panah utuh. Dulu pemain yang menggiring bola mendapat dua panah yang nyaris sama berdampingan.
+IKON OLAHRAGA DAN PENGANTAR BARU
+Ikon olahraga dan tiga layar pengantar saat pertama dibuka digambar ulang.
 
-SETIAP PANAH PUNYA TITIK AWAL
-Pergerakan pendek hanya menyisakan tujuan dan kehilangan titik awalnya, sehingga seperempat panah di pustaka tampak muncul entah dari mana.
-
-SATU PEMAIN, DIGAMBAR SEKALI
-Setelah langkah pertama, pemain yang sudah bergerak digambar dua kali — terpaut selangkah, menghadap dua arah berbeda.
-
-TEMBAKAN SAMPAI KE GAWANG
-Tembakan berhenti terlalu awal, di badan penjaga gawang; dan penjaga gawangnya sendiri berdiri di dalam jalanya. Keduanya diperbaiki.
-
-JUGA
-- Kerucut tetap di tempatnya saat ada yang berlari melewatinya
-- Panah umpan tiba bersama bola, bukan mendahuluinya
-- Pemain menghadap ke arah yang akan dilakukan — penjaga gawang menatap penyerang, bukan gawangnya sendiri
-- Lari bolak-balik dilakukan dengan tangan kosong
-- Label teks ikut berputar dan bisa memakai empat jenis huruf
-- Bilah edit hanya menampilkan yang bisa diubah: peralatan tidak punya lari maupun warna
-- Wasit dan pelatih digambar sebagai orang, dan berputar seperti orang
+PERBAIKAN LAIN
+Setelah papan ditutup, nama latihan tidak lagi tertinggal di atas daftar.

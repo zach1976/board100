@@ -1,0 +1,663 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>iPad 审计</title><style>body{background:#f6f7f9;color:#1d2128;font:14.5px/1.6 -apple-system,"PingFang SC",sans-serif;margin:0}main{max-width:1100px;margin:0 auto;padding:24px 16px}table{border-collapse:collapse;margin:8px 0;font-size:13px;display:block;overflow-x:auto}th,td{border:1px solid #dde1e6;padding:4px 8px;vertical-align:top;text-align:left}th{background:#eef1f4}details{background:#fff;border:1px solid #e3e6eb;border-radius:10px;padding:10px 14px;margin:12px 0}summary{cursor:pointer}code{background:#eef1f4;padding:1px 4px;border-radius:4px;font-size:12.5px}@media (prefers-color-scheme:dark){body{background:#121417;color:#e6e8eb}details{background:#1b1e23;border-color:#2c3138}th{background:#22262c}th,td{border-color:#2c3138}code{background:#22262c}}</style></head><body><main><h1>iPad 界面审计 · 横屏与竖屏</h1><p style="color:#6b7380">2026-10-11 · 易用性 · iPad 操作习惯 · 12 种语言溢出与排版</p>
+<h2>结论：板子本身已经为 iPad 做过适配，板子以外的界面基本是拉宽的手机界面</h2>
+<p>12 种语言 × 6 种 iPad 尺寸（Pro 13 寸、mini 的横竖屏，分屏一半，侧拉）约 3450 次渲染，<b>没有一处溢出报错</b>。问题集中在大屏布局和 iPad 操作习惯上。</p>
+<table>
+<tr><th>级别</th><th>数量</th><th>最要紧的</th></tr>
+<tr><td>违规级</td><td>1</td><td>从训练计划打开板子后，返回键在两页之间无限循环，只能杀 app（手机上也有；代码已核实）</td></tr>
+<tr><td>严重</td><td>16</td><td>不限宽：我的页、训练库、运行页、表单横跨 1000–1350 点；底部面板离开触发按钮；单运动 app 用手机底部标签栏；没有列表/详情分栏；横屏时步骤说明随场地转成竖排；没有任何键盘快捷键；没有 Apple Pencil 区分；横屏引导页底图只露三分之一且压住文字；iPad mini 和分屏下工具栏文字标签消失；11 个短字符串在 8 种语言里仍是英文</td></tr>
+<tr><td>小问题</td><td>约 17</td><td>提示条盖住播放控件、球员编辑面板按钮偏小、无悬停和右键菜单、时间线两字母名字被截、旋转后滚动位置跳动等</td></tr>
+</table>
+<h3>已经做对的</h3>
+<ul><li>板子控件在 iPad 上放大，训练详情 900 点以上是两栏，首页内容列限宽 1000 点，底部面板限宽 640 点。</li>
+<li>旋转时状态保持；支持多任务；横竖屏下场地缩放都正确。</li></ul>
+<h3>没能测到的</h3>
+<ul><li>分屏、侧拉、台前调度的实际窗口（只从代码判断），Apple Pencil、双指、触控板（模拟器做不出来），真机字体，大号辅助字体，VoiceOver。</li></ul>
+<details><summary><h2 style="display:inline">模拟器实测：iPad 操作习惯与易用性</h2></summary><h1>iPad UX audit: Tactics Board (HubBoard + VolleyballBoard), iPad Pro 13" M4 sim, iPadOS 27</h1>
+<p>Screenshots are in <code>scratchpad/ipad_audit/ux/</code>. Each has a full-resolution <code>X.png</code> and a downscaled <code>X_s.png</code>. Prefixes: <code>p..</code> portrait, <code>l..</code> landscape, <code>r..</code> rotation tests.
+<strong>How landscape was obtained:</strong> real device rotation. A Cmd+Left/Right keystroke was sent to DeviceHub (<code>osascript</code>: activate DeviceHub, send key code 123/124 with command, then hand focus back to the previously frontmost app). No harness was used and no repo file was touched. <code>git status</code> is clean apart from the existing <code>tactics_board/test/tmp_twoball_test.dart</code>.</p>
+<h2>Overall verdict</h2>
+<p>The board itself is iPad-aware: chrome scales 1.4x, there is a two-pane drill detail at 900pt and wider, the home column is capped at 1000pt, rotation keeps its state, and the app supports multitasking (no <code>UIRequiresFullScreen</code>, all four orientations). <strong>The rest of the app is a stretched phone app.</strong> It has phone bottom sheets and a phone tab bar, no list/detail split, full-width forms and buttons, and no keyboard, pointer, Pencil or context-menu support. Two bugs are not iPad-specific but showed up in the walk. The worse one traps the coach in an endless back loop between the board and the session timer (BLOCKER).</p>
+<h2>Findings</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Screen / orientation</th>
+<th>What is wrong</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>BLOCKER</strong></td>
+<td>Practice run → board → Back (both)</td>
+<td>Back on the board pushes a <strong>new</strong> session page. Back on the session page returns to the board, and the cycle never ends: 20+ back taps alternated board/session. The only way out was killing the app. Cause: the back button reads <code>runName</code> from a <code>Selector</code> tuple (<code>home_page.dart:448-487</code>), but <code>runningPlanName</code> is a plain field (<code>tactics_state.dart:2636</code>). Setting it to null in <code>PracticeRunPage.initState</code> (<code>practice_run_page.dart:50</code>) never notifies, so the closure keeps the old name forever.</td>
+<td>p44_home_menu, p45_back2, p46_back3, p47_back4</td>
+<td>Read <code>context.read&lt;TacticsState&gt;().runningPlanName</code> inside <code>onTap</code> (or make it a notifying setter). When a run page is already under the board, <code>pop</code> back to it instead of <code>push</code>ing a new one.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MAJOR</td>
+<td>Practice run → "Open on board" (both)</td>
+<td>The button lands on the <strong>sport home</strong>, not the board (<code>popUntil(isFirst)</code> at <code>practice_run_page.dart:190</code> dates from when the board was the root route). The coach has to tap "Open the board" again. The board then sits in a stuck "playing" state (Stop shown, 0/2, nothing moving) because <code>startAnimation</code> was scheduled for a board that was not mounted.</td>
+<td>p38_run → p39_volley_board (home); p41/p42 (stuck Stop at 0/2)</td>
+<td>Push the board route (or <code>popUntil</code> the board route) instead of <code>isFirst</code>. Start the animation from the board's own init when a run is pending.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MAJOR</td>
+<td>Board, landscape (soccer, table tennis)</td>
+<td>When the court rotates for landscape, the <strong>step note and user text elements rotate with it</strong>, so they read sideways. They are unreadable without tilting the iPad. The soccer note also sits over the left goal area.</td>
+<td>l30_soccer_step ("A passes to B…" and "Press high" vertical); l18_tt_board</td>
+<td>Keep text elements upright (counter-rotate the label, or place notes in screen space) when the board is drawn rotated.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MAJOR</td>
+<td>Drill library (both), plans (both)</td>
+<td>List→detail flow has <strong>no split view</strong>. The library is a single full-width list (992pt portrait, 1336pt landscape, about 1000pt line length), and each drill pushes a full-screen detail. The same applies to plan list → plan editor.</td>
+<td>p06_library, l06_wp_library, l25_vb_drills</td>
+<td>At 900pt and wider, show list + detail side by side (the detail page already has a wide layout). At minimum, cap the list at about 760pt or lay it out as a 2–3 column grid, as the home page does (<code>sport_home_page.dart:1066</code>).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MAJOR</td>
+<td>Single-sport shells: tab bar (both)</td>
+<td>A phone bottom tab bar on iPad: 4 items spread over 1376pt (344pt each), 22pt icons with tiny labels. iPadOS uses a top tab bar or sidebar. The hub has no tabs at all, so the hub and the shells are structured differently.</td>
+<td>l23_vb_home, l24_vb_me</td>
+<td>On <code>shortestSide &gt;= 600</code>, use a sidebar or <code>NavigationRail</code> (or a compact top tab bar) in <code>main_shell.dart:135</code>. Keep the bottom bar for phones.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MAJOR</td>
+<td>Save board, Edit plan, Login (both)</td>
+<td>Full-screen forms with 1000–1350pt-wide fields and full-bleed buttons, and two-thirds of the screen empty. Should be form sheets.</td>
+<td>p25_save, p36_plan_with_drill, l13_after_return, l21_login</td>
+<td>Present these as a centred form sheet (max about 560–620pt, as <code>sheetConstraints</code> already does) or cap the content width.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MAJOR</td>
+<td>Practice run (both)</td>
+<td>The session runner is a timer at the bottom with about 700pt of <strong>empty</strong> screen above it. No board or drill preview is shown, even though that is exactly what a coach on the touchline wants on a tablet.</td>
+<td>p38_run, l17_run, r05_run_rotated</td>
+<td>Show the drill's board/animation (<code>DrillThumbnail</code> or a read-only canvas) plus the note in the empty area. On landscape, use the timer and the board side by side.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>MAJOR</td>
+<td>Board: modals (both)</td>
+<td>Every board panel is a bottom sheet: Add, Timeline, Share-format, "Save" (a sheet holding a single button), plan "Add drill" (2 options). They open at the bottom centre, far from the button that opened them (Share is triggered from the top-right menu), and they dim and block the board. The Add sheet's Objects row scrolls sideways inside 620pt, cutting off "Triangle" and hiding "More" on a 1376pt screen.</td>
+<td>p12_add_sheet, p20_timeline, p22_share, p24_boards, l14_add_sheet, r04_add_rotated</td>
+<td>On tablet, use anchored popovers or menus for the small choosers (Share format, Boards/Save, Add-drill). Make the Add palette wrap into a grid. Dock the Timeline under or beside the board without a modal barrier, so the board stays live.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>MAJOR</td>
+<td>Board: keyboard (both)</td>
+<td>No keyboard support anywhere: no <code>Shortcuts</code> or <code>LogicalKeyboardKey</code> in <code>lib/</code>. Space, arrows, Cmd+Z and Delete did nothing with a hardware keyboard (verified: arrow and space left "0/4"). Return does submit dialogs.</td>
+<td>grep of <code>lib/</code> returns 0 hits; test on p15 board</td>
+<td>Add <code>Shortcuts</code>/<code>Actions</code> on the board: Space play/pause, ←/→ step, Cmd+Z / Shift+Cmd+Z, Delete removes selection, Esc deselects or closes a panel, Cmd+S saves. Also add a Cmd-hold shortcut overlay via <code>MenuBar</code>/<code>PlatformMenuBar</code>.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>MAJOR (code)</td>
+<td>Board: Apple Pencil</td>
+<td>Pencil and finger are treated the same. There is no <code>PointerDeviceKind.stylus</code> handling, so there is no "Pencil draws, finger moves" mode, and a resting palm can drag players or draw in Draw mode. Not verifiable in the simulator.</td>
+<td>grep <code>stylus</code>/<code>PointerDeviceKind</code> = 0 hits; <code>tactics_canvas.dart:1050ff</code> gestures</td>
+<td>In Move mode, route stylus pointers to drawing. In Draw mode, ignore touch pointers once a stylus is down (palm rejection).</td>
+</tr>
+<tr>
+<td>11</td>
+<td>MINOR</td>
+<td>Snackbars on the board (both)</td>
+<td>The floating snackbar is full-width (992pt) and sits <strong>on top of the playback capsule</strong> for about 4s after loading a drill or saving, hiding step and play.</td>
+<td>p08_board ("Rondo 4v2" over 0/4 + play), p26_saved</td>
+<td>Give <code>SnackBarThemeData</code> a <code>width</code> of about 420 on tablets, or lift it above both capsules.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>MINOR</td>
+<td>Selection / draw panels (both)</td>
+<td>The inspector docks at the bottom centre, far from the selected player (the player is at the left edge in l19). Its buttons and swatches are about 30pt and about 24pt, below the 44pt target.</td>
+<td>p17_crop, l19_tt_select, p19_drawn</td>
+<td>On tablet, float a compact panel or edit menu next to the selection. Raise the controls to at least 44pt.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>MINOR</td>
+<td>Pointer / trackpad, context menus (both)</td>
+<td>122 <code>GestureDetector</code>s vs 13 <code>InkWell</code>s. There are no <code>MouseRegion</code>/cursor/hover states and no <code>onSecondaryTap</code>, so a trackpad user gets no hover feedback and no right-click menu on players, drills or boards. Drag-and-drop from other apps (Photos/Files into the board) is not supported.</td>
+<td>grep of <code>lib/</code></td>
+<td>Add hover highlights to the custom buttons and right-click/long-press context menus (Duplicate, Delete, Rename) on board elements, saved boards and drill cards.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>MINOR</td>
+<td>Me tab (both, worst on iPad)</td>
+<td>Row trailing values ("None yet ›", "English (US) ›") float at mid-row instead of the right edge. <code>Expanded</code> label + <code>Flexible</code> trailing split the width 50/50 (<code>main_shell.dart:687-700</code>).</td>
+<td>l24_vb_me</td>
+<td>Make the trailing <code>Text</code> right-aligned inside the <code>Expanded</code>, or give the label <code>flex</code> and the value a non-flex child after a <code>Spacer</code>.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>MINOR</td>
+<td>Timeline rows (both)</td>
+<td>Two-character player labels (CF, GK, X2) show only the colour dot. The label column is fixed at 40pt (<code>timeline_editor.dart:201-237</code>) even inside a 620pt sheet.</td>
+<td>p20_timeline (red row without "X2"), l09_timeline (CF, GK blank)</td>
+<td>Widen the label column on tablet (56–64pt) or size it to the longest label.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>MINOR</td>
+<td>Board: step note placement (portrait)</td>
+<td>The note pill covers the bottom goal (soccer) or the receiving player's head (table tennis).</td>
+<td>p09_crop, p50_tt_board</td>
+<td>Avoid player and goal rects when placing the note, or dock it in the band above the playback capsule.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>MINOR</td>
+<td>Sport picker, rotation</td>
+<td>Rotating to landscape jumps the scroll position into the middle of the grid, so the header and "Continue" end up off-screen. Landscape side margins are 12pt (<code>sport_selection_page.dart:157</code>).</td>
+<td>l01_picker vs p48 (was at top)</td>
+<td>Keep the offset anchored to the first visible item on rotation. Use 20–24pt margins on tablet landscape.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>MINOR</td>
+<td>Intro (both)</td>
+<td>Phone layout scaled up: a 992–1336pt full-width CTA, the copy says "run it from your phone", "Skip" is a 36pt-high text, and in landscape the title sits on the cropped board art.</td>
+<td>p01_launch, p03_intro3, l22_vb_intro</td>
+<td>Cap the CTA at about 400pt and centre it. Use device-neutral copy ("from the touchline"). Make Skip a 44pt button.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>MINOR</td>
+<td>Fullscreen board (landscape)</td>
+<td>The "Start by tapping Add to place players" hint shows in fullscreen, where there is no Add button.</td>
+<td>l28_vb_add</td>
+<td>Suppress the hint in fullscreen or presentation mode.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>MINOR</td>
+<td>Board scale</td>
+<td>Players are about 36pt tokens on a 1000–1300pt pitch, small for presenting to a team. Half-court drills (water polo) are not zoomed to the action area.</td>
+<td>p10_step1, l08_wp_board</td>
+<td>Use a larger default token size on tablet. Auto-fit the view to the drill's bounding box on load.</td>
+</tr>
+</tbody>
+</table>
+<h2>What works (no action)</h2>
+<ul>
+<li>Drill detail uses two columns from 900pt (p07, l07).</li>
+<li>The home column is capped at 1000pt (l03).</li>
+<li>Overflow menus are anchored popups (p21, l20).</li>
+<li>The Share popover does not crash and shows correctly (p23). It is anchored at bottom-centre rather than at the button (<code>SharePlus</code> calls pass no <code>sharePositionOrigin</code>), which is cosmetic.</li>
+<li>State survives rotation with a sheet open (r04), mid-playback (r01/r02) and with a running timer (r05).</li>
+<li>Multitasking is enabled: <code>UISupportedInterfaceOrientations~ipad</code> has all 4 orientations, there is no <code>UIRequiresFullScreen</code>, and <code>UIApplicationSupportsMultipleScenes=false</code>.</li>
+</ul>
+<h2>Not tested / could not confirm</h2>
+<ul>
+<li><strong>Split View / Slide Over / Stage Manager resizing.</strong> Not drivable from idb. From code: <code>uiScale</code> (<code>toolbar.dart:69</code>) and <code>isTablet</code> (<code>home_page.dart:103</code>) key off the window's <code>shortestSide</code>, so a 1/2-width split (about 678pt) keeps the 1.4x tablet chrome in a narrow window. The tools are <code>Flexible</code>, so they shrink rather than overflow. A short, wide Stage Manager window (shortest side under 600) switches to the phone-landscape rail. Needs a real-device pass.</li>
+<li><strong>Apple Pencil, palm rejection, two-finger pinch/pan, trackpad hover/right-click.</strong> The simulator via idb cannot produce these. Findings 10 and 13 are from code. Pinch zoom is modal by design: the <code>InteractiveViewer</code> is only mounted in Zoom/presentation mode (<code>tactics_canvas.dart:1188</code>).</li>
+<li><strong>Ads on iPad.</strong> No app-open ad appeared during the walk. The code has only full-screen formats (app-open, interstitial) and no banners, so there is no layout impact.</li>
+<li><strong>Accessibility tree loss (unconfirmed).</strong> On two occasions, after the Timeline sheet and playback, <code>idb describe-all</code> returned only the application node until relaunch. A deliberate repro (open and close the Timeline) did not trigger it. This could be an app semantics issue or idb flakiness. Worth checking with VoiceOver on a device.</li>
+<li><strong>Rotation method side effect.</strong> My first rotation attempt clicked DeviceHub's rotate button with <code>cliclick</code>. The user had already switched to Chrome, so the click landed on Chrome near a "启动 TerminalAssist" pill (about 1042,1033 pt). After that I switched to the keystroke method, which restores focus. The user may want to check that nothing was started by that click.</li>
+<li>The other project's simulator "Lang1000 Audit iPad" (F8AEB8A7) was never addressed. It showed Booted at start and Shutdown at the end, presumably changed by its owner.</li>
+</ul>
+<h2>Housekeeping</h2>
+<p>The app was left in English. The iPad sim B29A5AD3 was rotated back to portrait and <strong>shut down</strong>. HubBoard and VolleyballBoard (com.zach.volleyballBoard) debug builds are installed on it. Repo <code>git status</code>: only the existing untracked <code>tactics_board/test/tmp_twoball_test.dart</code>.</p></details><details><summary><h2 style="display:inline">12 种语言 × 6 种尺寸：溢出与排版</h2></summary><h1>iPad locale and layout audit (widget-test sweep)</h1>
+<p>Date: 2026-10-11. Read-only. No lib/ changes, no commits. The temporary tests (<code>test/tmp_ipad_*.dart</code>) have been deleted, and <code>git status</code> shows only the untracked <code>tactics_board/test/tmp_twoball_test.dart</code>, which was there before this audit.</p>
+<h2>How the sweep ran</h2>
+<ul>
+<li><strong>Harness:</strong> one <code>pumpWidget</code> per file. EasyLocalization holds all 12 locales, and <code>ctx.setLocale</code> switches between them. The home widget is a <code>ValueNotifier&lt;Widget&gt;</code> inside a <code>MaterialApp</code> with the app's dark theme, and a <code>ValueNotifier&lt;TacticsState&gt;</code> supplies a fresh state per sport. Between screens the test calls <code>navigator.popUntil(first)</code> and then shows <code>SizedBox.shrink()</code>.</li>
+<li><strong>Overflow capture:</strong> a hook on <code>FlutterError.onError</code> writes each overflow (locale, size, sport, screen, message, <code>lib/</code> source line) to a TSV file. I checked the hook works by running the same sweep at 220×500 in Thai. It recorded 40 overflows, for example <code>drill_library_page.dart:689</code> and <code>toolbar.dart:1200</code>.</li>
+<li><strong>View:</strong> device pixel ratio 2. Simulated safe area of top 24 and bottom 20. The real apps hide the status bar (<code>UIStatusBarHidden</code>), so the real top inset is smaller.</li>
+<li><strong>Fonts:</strong> Roboto and MaterialIcons from the Flutter cache, plus <code>/System/Library/Fonts/Supplemental/Arial Unicode.ttf</code> as the fallback font. <strong>CJK, Thai and Korean rendered as real text, with no tofu boxes.</strong> Metrics are Roboto/Arial rather than SF Pro/PingFang, so widths are close to iOS but not exact.</li>
+<li><strong>Sizes:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Size (pt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pro_p</td>
+<td>1032×1376</td>
+</tr>
+<tr>
+<td>pro_l</td>
+<td>1376×1032</td>
+</tr>
+<tr>
+<td>mini_p</td>
+<td>744×1133</td>
+</tr>
+<tr>
+<td>mini_l</td>
+<td>1133×744</td>
+</tr>
+<tr>
+<td>split_half</td>
+<td>678×1032</td>
+</tr>
+<tr>
+<td>slideover</td>
+<td>375×1032</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Sports:</strong> soccer, volleyball, tableTennis, waterPolo, rugby.</li>
+<li><strong>Screens, per locale and size:</strong></li>
+<li>The hub picker.</li>
+<li>Per sport: MainShell home (top and scrolled), Drills tab (top and scrolled), drill detail for the drill with the longest name (top and scrolled), the board with that drill loaded, the Add sheet, draw mode with its draw panel, and the Timeline sheet.</li>
+<li>The ⋯ menu (soccer and volleyball only).</li>
+<li>Intro (no art).</li>
+<li>Me tab and Practice Plan (soccer only).</li>
+<li>A second pass covered the Practice plan page after loading, and the Practice <strong>run</strong> page, at 5 sizes × 8 locales.</li>
+<li>A third pass served SoccerBoard's real shell artwork (hero, covers, intro_1–3 webp) through a mock <code>flutter/assets</code> channel, for home and the three intro panels: 5 sizes × en/th/fr/ja.</li>
+<li><strong>Volume:</strong> about 3,450 overflow-checked renders across 12 locales × 6 sizes, and 3,020 PNGs under <code>scratchpad/ipad_audit/sweep/&lt;size&gt;/&lt;locale&gt;__&lt;screen&gt;.png</code>. Montages I inspected are in <code>scratchpad/ipad_audit/mont/</code>.</li>
+</ul>
+<h2>Overflow result</h2>
+<p><strong>Zero RenderFlex/overflow errors in any locale, at any of the 6 iPad sizes, on any of the screens above. There were also zero other Flutter errors.</strong> Files: <code>sweep/overflows_*.tsv</code> (all empty) and <code>sweep/errors_*.txt</code> (all empty).</p>
+<h2>Findings by severity</h2>
+<p>There are no BLOCKERs: no overflow, no control that cannot be used, and no text that cannot be read at all.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sev</th>
+<th>Locale</th>
+<th>Size / orientation</th>
+<th>Screen</th>
+<th>Evidence</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>pro_l, mini_l (landscape)</td>
+<td>Intro, 3 panels, sport shells (and the hub intro, by the same code)</td>
+<td><code>sweep/pro_l/th-TH__art_intro3.png</code>, <code>mont/art_intro.png</code>. The art is portrait (933×2021). <code>BoxFit.cover</code> with <code>Alignment.bottomCenter</code> shows only the bottom ~35% (pro_l) or ~30% (mini_l) of it. The tactics board, magnets and ball then sit directly behind the headline and body text, which the code says must land on the empty top 40%. The body text over the magnets is low contrast. The three pillars spread across 1376pt.</td>
+<td><code>lib/pages/intro_page.dart:351-357</code> (<code>_Backdrop</code>): when <code>size.aspectRatio &gt; 0.75</code>, lay the panel out as two columns (text column max ~520 on the left, art in a portrait box on the right), or at least use <code>Alignment.center</code> and a full-height scrim. Cap the text column (<code>:284</code>, Padding) at ~560 wide.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>all iPad sizes ≥678</td>
+<td>Intro CTA "Next/Start"</td>
+<td><code>sweep/pro_l/en-US__soccer_intro.png</code>: a 60pt pill 1336pt wide.</td>
+<td><code>lib/pages/intro_page.dart:214-217</code>: wrap <code>_BigCta</code> in <code>Center(ConstrainedBox(maxWidth: 480))</code>.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>pro_p, pro_l, mini_l, split_half</td>
+<td>Me tab</td>
+<td><code>sweep/pro_l/en-US__me.png</code>. The page runs to the full 1336pt with no column cap. In each row the trailing value ("None yet ›", "English (US) ›") sits in the middle of the row (x≈700), not at the right edge.</td>
+<td><code>lib/pages/main_shell.dart:693-698</code>: the trailing <code>Flexible</code> splits the free space 1:1 with the label's <code>Expanded</code>. Make it <code>Expanded(child: Text(..., textAlign: TextAlign.end))</code> or give the label a larger flex. <code>main_shell.dart:417</code> ListView: wrap it in a centred <code>ConstrainedBox(maxWidth: 720)</code> (or reuse SportHomePage's <code>_kMaxColumn</code> idea).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>pro_p, pro_l, mini_l</td>
+<td>Drill library (Drills tab)</td>
+<td><code>sweep/pro_l/en-US__soccer_drills.png</code>, <code>mont/pro_p_en_a.png</code>. Rows span the full width with no cap. The usage tag ("Staple/Common") floats mid-row (x≈700). The "open on board" icon is at the far right edge, about 600pt from the text it belongs to.</td>
+<td><code>lib/pages/drill_library_page.dart:~752-775</code>: the name is <code>Expanded</code> and the tag is <code>Flexible</code>, which splits the free space. Make the name <code>Flexible</code> so the tag follows it. Cap the list (padding at <code>:257</code>) at ~1040 centred, as <code>sport_home_page.dart:334-345</code> already does.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>mini_p, mini_l, split_half</td>
+<td>Board toolbar</td>
+<td><code>mont/toolbars.png</code> and <code>mont/toolbars2.png</code>. Move/Draw/Select/Add lose their labels on iPad mini and in Split View, even though each icon-only slot is ~90pt wide. The labels appear on the 13" iPad, so the two iPads look inconsistent.</td>
+<td><code>lib/widgets/toolbar.dart:1039-1040</code>: <code>wide = roomy &amp;&amp; box.maxWidth &gt;= barButton(context) * 8.4</code>. <code>barButton</code> is scaled ×1.4 on tablets (<code>toolbar.dart:69,88</code>), so the threshold becomes 517pt. Use <code>T.tap * 8.4</code> (≈370) or measure the four labels.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MAJOR</td>
+<td>all</td>
+<td>pro_l, pro_p, mini_l</td>
+<td>Practice run page</td>
+<td><code>sweep/pro_l/fr-FR__run.png</code>. This is the phone layout stretched. The drill card is full width, the prev and next arrows are about 480pt apart, the Reset button is 300pt and "Open on board" 600pt wide, and the middle is a large empty area.</td>
+<td><code>lib/pages/practice_run_page.dart:230+</code> (body) and <code>:340-360</code> (button row): centre the content in <code>ConstrainedBox(maxWidth: 640)</code>.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MAJOR (locale)</td>
+<td>es, fr, id, ja, ko, ms, th, vi (+zh-TW for some keys)</td>
+<td>all</td>
+<td>Me, Drills chip, Timeline sheet, Practice run, Contact page</td>
+<td><code>sweep/mini_p/th-TH__me.png</code> shows "Login", "My drills", "Language" and "Contact Us" in English, the drill chip says "Starred", and the Timeline and Run pages say "Reset".</td>
+<td><code>assets/translations/*.json</code>: keys <code>menu_login</code>, <code>menu_contact</code>, <code>menu_language</code>, <code>home_starred</code>, <code>drills_starred</code>, <code>timeline_reset</code>, <code>contact_title</code>, <code>send</code>, <code>your_email</code>, <code>subject</code> and <code>message</code> are identical to en-US. That is 9 locales for most keys, and 8 for <code>home_starred</code> and <code>drills_starred</code> (zh-TW has those two). Only zh-CN is fully translated. Keeping <code>menu_language</code> in English may be deliberate; the others are not.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>MINOR</td>
+<td>all</td>
+<td>pro_l (and any width &gt;1040)</td>
+<td>Sport home</td>
+<td><code>sweep/pro_l/en-US__soccer_home.png</code>. The title "Soccer Board" and its tagline sit at x=20, while the content column starts at x≈168, so the left edges do not line up.</td>
+<td><code>lib/pages/sport_home_page.dart</code> <code>_hero(...)</code>: apply the same <code>_kMaxColumn</code> centring (<code>:340</code>) to the hero's text row, leaving the photo full-bleed.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>MINOR</td>
+<td>all</td>
+<td>pro_p (1032)</td>
+<td>Drill library filter chips</td>
+<td><code>mont/pro_p_en_a.png</code>. The category chip row is a horizontal scroller cut mid-chip ("Set p…") at the edge, with no hint that it scrolls. In landscape the chips fit.</td>
+<td><code>lib/pages/drill_library_page.dart:453</code> and <code>:505</code>: on width ≥700 use a <code>Wrap</code> instead of <code>SingleChildScrollView</code>.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>MINOR</td>
+<td>all (worse in vi, id, ms)</td>
+<td>all</td>
+<td>Add sheet → OBJECTS row</td>
+<td><code>mont/vi_soccer_add_sheet.png</code>, <code>mont/fr_sheets.png</code>. Inside the 640pt sheet the last tile is cut ("Triang", "Tam gi", "Segitig"). "Hình vuông", "Tuan Rumah" and "Chủ nhà" wrap onto 2 lines inside 56pt tiles.</td>
+<td><code>lib/widgets/toolbar.dart:2171</code>: on tablets use a <code>Wrap</code> (or widen the tile to fit the label).</td>
+</tr>
+<tr>
+<td>11</td>
+<td>MINOR</td>
+<td>all</td>
+<td>pro_l, mini_l</td>
+<td>Hub picker</td>
+<td><code>sweep/pro_l/en-US__hub.png</code>, <code>mont/misc.png</code>. "Team sports" has 5 cards in 4 columns, so one card is orphaned next to ~1000pt of empty space.</td>
+<td><code>lib/pages/sport_selection_page.dart</code> grid: choose a column count that divides the shelf (5 → 5 or 3) or let the cards size to fill the row.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>MINOR</td>
+<td>es-ES</td>
+<td>slideover (375)</td>
+<td>Hub picker</td>
+<td><code>sweep/slideover/es-ES__hub.png</code>: "Hockey sobre…" is truncated. This is the same phone-width behaviour, not iPad-specific.</td>
+<td>Allow 2 lines on the <code>_SportCard</code> name (<code>sport_selection_page.dart:380+</code>).</td>
+</tr>
+<tr>
+<td>13</td>
+<td>MINOR</td>
+<td>all</td>
+<td>pro_l</td>
+<td>Draw panel, Timeline sheet</td>
+<td><code>mont/pro_l_en_d.png</code>, <code>mont/pro_l_en_c.png</code>. Phone-sized panels (~380pt and ~430pt) float in a 1376pt canvas. They work, but the slider and swatches are small for a tablet.</td>
+<td>Optional: scale them with <code>uiScale(context)</code> as the chrome circles already do (<code>toolbar.dart:69</code>).</td>
+</tr>
+<tr>
+<td>14</td>
+<td>MINOR</td>
+<td>all</td>
+<td>pro_p</td>
+<td>Drill detail (wide layout, width ≥900)</td>
+<td><code>mont/pro_p_en_b.png</code>. The left column is 0.36 of the width, so the pinned board is narrow, and in portrait there is a large empty area under it.</td>
+<td><code>lib/pages/drill_detail_page.dart:225,288</code>: consider using the wide layout only when landscape, or give the board a taller share in portrait.</td>
+</tr>
+</tbody>
+</table>
+<h3>Checked and fine</h3>
+<ul>
+<li><strong>No full-width bottom sheets.</strong> Material 3 caps them at 640pt.</li>
+<li><strong>The courts scale correctly</strong> in both orientations for all 5 sports, and the board rotates the pitch in portrait.</li>
+<li><strong>CJK, Thai and Vietnamese text is not clipped</strong> on home cards, detail titles (2 lines), the timeline, or the menu.</li>
+<li><strong>SportHomePage</strong> already caps its column at 1040 and uses a 3-column card grid.</li>
+<li><strong>Practice plan</strong> empty state is centred and fine. The page title touching the left edge in the PNGs is a test artefact: the page was the root with no back button.</li>
+</ul>
+<h2>Static string-length scan</h2>
+<p><code>scratchpad/ipad_audit/strlen.tsv</code>.</p>
+<ul>
+<li><strong>Method:</strong> short UI strings (en ≤ 40 characters) where a locale is more than 1.6× the en-US visual width, counting CJK as 1.8 and ignoring Thai combining marks.</li>
+<li><strong>Totals:</strong> 251 locale-key pairs over the threshold, across 150 keys. 57 of those keys are used in chips, buttons, tabs or titles.</li>
+<li><strong>Worst cases:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Usage</th>
+<th>en</th>
+<th>Longer translations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>male_doubles</code> / <code>female_doubles</code></td>
+<td><code>toolbar.dart:4185</code>, formation chips</td>
+<td>"M+M"</td>
+<td>ja ×3.6 "男子ダブルス"</td>
+</tr>
+<tr>
+<td><code>redo</code> / <code>undo</code></td>
+<td></td>
+<td></td>
+<td>ms ×2.75, ko ×2 (icon-only on iPad, semantic labels only)</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td></td>
+<td></td>
+<td>fr ×2.75</td>
+</tr>
+<tr>
+<td><code>intro_next</code></td>
+<td></td>
+<td></td>
+<td>ms ×2.5</td>
+</tr>
+<tr>
+<td><code>team_home</code> / <code>team_away</code></td>
+<td></td>
+<td></td>
+<td>id/ms "Tuan Rumah", es "Visitante"</td>
+</tr>
+<tr>
+<td><code>mode_move</code> / <code>mode_select</code> / <code>mode_draw</code></td>
+<td></td>
+<td></td>
+<td>vi/fr ×2</td>
+</tr>
+<tr>
+<td><code>plan_add_drill</code></td>
+<td></td>
+<td></td>
+<td>fr ×2.1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>On iPad none of these overflow</strong>, as the sweep confirms. The visible effects are #5 (tool labels dropped) and #10 (2-line object labels). The formation chips sit in a horizontal scroller (<code>toolbar.dart:4166</code>), so the Japanese labels scroll rather than overflow.</li>
+</ul>
+<h2>Counts</h2>
+<p><strong>Overflow errors:</strong> 0 at every locale × size.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>pro_p</th>
+<th>pro_l</th>
+<th>mini_p</th>
+<th>mini_l</th>
+<th>split_half</th>
+<th>slideover</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>en-US</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>en-GB</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>zh-CN</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>zh-TW</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ja-JP</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ko-KR</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>es-ES</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>fr-FR</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>id-ID</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ms-MY</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>th-TH</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>vi-VN</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Visual findings (14):</strong></p>
+<ul>
+<li><strong>By locale:</strong> 12 apply to every locale. #7 applies to 8–9 non-Chinese locales. #12 is es-ES only, and #10 is worse in vi, id and ms.</li>
+<li><strong>By size:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Size</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pro_l</td>
+<td>1, 2, 3, 4, 6, 8, 11, 13</td>
+</tr>
+<tr>
+<td>pro_p</td>
+<td>2, 3, 4, 6, 9, 14</td>
+</tr>
+<tr>
+<td>mini_l</td>
+<td>1, 2, 3, 4, 5, 6, 11</td>
+</tr>
+<tr>
+<td>mini_p</td>
+<td>2, 5</td>
+</tr>
+<tr>
+<td>split_half</td>
+<td>2, 3, 5</td>
+</tr>
+<tr>
+<td>slideover</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>#7 and #10</strong> apply at every size.</li>
+</ul>
+<h2>What I could not test</h2>
+<ul>
+<li><strong>Real iOS fonts</strong> (SF Pro, PingFang, Hiragino, Thonburi). I used Roboto and Arial Unicode, so widths may differ by a few percent. With zero overflows and generous iPad widths, the risk is low.</li>
+<li><strong>Larger accessibility text sizes on iPad:</strong> not swept. The phone large-text test exists, but the iPad layout at 1.3–2.0× was not run.</li>
+<li><strong>Shell artwork for sports other than soccer:</strong> served only from SoccerBoard. The other shells (volleyball, table tennis, water polo, rugby) have intro art only, and use the same <code>_Backdrop</code> code, so #1 applies to them. The hub intro (HubBoard art) was not rendered.</li>
+<li><strong>Sheets not opened:</strong> login, contact, language picker, field/court settings, the player edit bar, the photo/team sheets, save/load, PDF export, and practice history/attendance.</li>
+<li><strong>Practice plan</strong> was checked only in its empty state, with no saved plans in the list.</li>
+<li><strong>Not simulated:</strong> Stage Manager free-form window sizes, the iPad keyboard, and pointer hover. I also did not check the real safe-area insets on device, since the status bar is hidden.</li>
+<li><strong>Simulator:</strong> I did not use one, as instructed, and did not touch the "Lang1000 Audit iPad" simulator.</li>
+</ul></details></main></body></html>

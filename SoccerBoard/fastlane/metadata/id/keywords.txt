@@ -1,1 +1,1 @@
-futsal,4-4-2,4-3-3,3-5-2,formasi,pelatih,sepak pojok,tendangan bebas,set piece,tim,rencana latihan
+papan taktik,rencana latihan,jadwal,formasi,bola mati,demo,analisis,evaluasi laga

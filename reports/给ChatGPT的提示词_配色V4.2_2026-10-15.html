@@ -1,0 +1,446 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>配色 V4.2 提示词</title>
+<style>
+:root{color-scheme:light}
+body{margin:0;background:#F3F0E8;color:#16212E;font-family:-apple-system,"PingFang SC",Inter,sans-serif;padding:32px 16px 64px}
+.bar{position:sticky;top:0;background:#F3F0E8;padding:12px 0;display:flex;align-items:center;gap:12px;z-index:2;max-width:920px;margin:0 auto}
+.bar h1{font-size:18px;margin:0}.bar small{color:#526071}
+button{margin-left:auto;background:#16212E;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer}
+button.ok{background:#147D50}
+article{max-width:920px;margin:0 auto;background:#fff;border:1px solid #D8E0E8;border-radius:18px;padding:28px 32px;box-shadow:0 6px 20px rgba(22,33,46,.05);line-height:1.6;font-size:14.5px}
+h1,h2,h3{line-height:1.3}article h1{font-size:24px}article h2{font-size:18px;margin-top:30px;border-top:1px solid #D8E0E8;padding-top:20px}article h3{font-size:15.5px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13.5px}th,td{border:1px solid #D8E0E8;padding:6px 9px;text-align:left;vertical-align:top}th{background:#EEF3F8}
+code{background:#EEF3F8;border-radius:5px;padding:1px 5px;font-size:12.5px}pre{background:#EEF3F8;border-radius:10px;padding:14px;overflow:auto}pre code{background:none;padding:0}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+</style></head><body>
+<div class="bar"><h1>配色 V4.2 修订提示词</h1><small>复制后粘贴给 ChatGPT</small><button id="cp">复制全部提示词</button></div>
+<article id="doc"><h1>Sports Tactics Board Series — Colour System V4.2 Revision Request</h1>
+<h2>Your role</h2>
+<p>You are a senior sports UI/UX designer, colour-system architect and accessibility engineer. You are revising <strong>V4.1</strong>, a light-theme colour system for 16 apps: 15 single-sport tactics boards plus one multi-sport Hub. V4.1 was measured programmatically. The results are below. Your job is to produce <strong>V4.2</strong>, which fixes the measured problems with the <strong>smallest possible changes</strong> and keeps each sport recognisable.</p>
+<p>This is a revision, not a redesign. Do not touch anything that is not listed as a problem.</p>
+<hr />
+<h2>1. Fixed foundation — do not change</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>HEX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageBackground</td>
+<td>#F3F0E8</td>
+</tr>
+<tr>
+<td>appBackground</td>
+<td>#F6F4EE</td>
+</tr>
+<tr>
+<td>surface</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>elevatedSurface</td>
+<td>#EEF3F8</td>
+</tr>
+<tr>
+<td>secondarySurface</td>
+<td>#F7F9FC</td>
+</tr>
+<tr>
+<td>textPrimary</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>decorativeBorder</td>
+<td>#D8E0E8</td>
+</tr>
+<tr>
+<td>disabledSurface</td>
+<td>#C8D0D9</td>
+</tr>
+</tbody>
+</table>
+<p>Every app uses Background #F6F4EE, Surface #FFFFFF and Elevated #EEF3F8.</p>
+<hr />
+<h2>2. Current V4.1 values</h2>
+<h3>Semantic colours</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>HEX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>success</td>
+<td>#147D50</td>
+</tr>
+<tr>
+<td>warning</td>
+<td>#8B5900</td>
+</tr>
+<tr>
+<td>error</td>
+<td>#B83240</td>
+</tr>
+<tr>
+<td>information</td>
+<td>#155E9E</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>#4A345C</td>
+</tr>
+<tr>
+<td>textSecondary</td>
+<td>#526071</td>
+</tr>
+<tr>
+<td>textTertiary</td>
+<td>#586577</td>
+</tr>
+<tr>
+<td>inputBorder</td>
+<td>#778494</td>
+</tr>
+</tbody>
+</table>
+<h3>Brand colours</h3>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Primary</th>
+<th>Secondary</th>
+<th>Button text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volleyball 排球</td>
+<td>#2852B5</td>
+<td>#7DB7FF</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Soccer 足球</td>
+<td>#257D42</td>
+<td>#8BCF67</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Basketball 篮球</td>
+<td>#D06B25</td>
+<td>#FFB566</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Field Hockey 曲棍球</td>
+<td>#0873A4</td>
+<td>#E3C86C</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Tennis 网球</td>
+<td>#C7D93B</td>
+<td>#6E95DD</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Rugby 橄榄球</td>
+<td>#B98056</td>
+<td>#6FA570</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Badminton 羽毛球</td>
+<td>#087E78</td>
+<td>#D8B688</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Table Tennis 乒乓球</td>
+<td>#594695</td>
+<td>#E15C56</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Pickleball 匹克球</td>
+<td>#159C85</td>
+<td>#D7C96E</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Baseball 棒球</td>
+<td>#883C66</td>
+<td>#C98E57</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Handball 手球</td>
+<td>#7385C3</td>
+<td>#E59B55</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Water Polo 水球</td>
+<td>#227AA7</td>
+<td>#5E8FC8</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Sepak Takraw 藤球</td>
+<td>#AC862C</td>
+<td>#67A56C</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Beach Tennis 沙滩网球</td>
+<td>#E1C79B</td>
+<td>#CFA087</td>
+<td>#16212E</td>
+</tr>
+<tr>
+<td>Footvolley 足排球</td>
+<td>#A64E29</td>
+<td>#39B9C8</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Hub 战术板合集</td>
+<td>#344D63</td>
+<td>#B49A6A</td>
+<td>#FFFFFF</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Measured results of V4.1</h2>
+<p>The measurements use the WCAG 2.1 contrast formula with sRGB linearisation, truncated and never rounded up. Colour distance is ΔE in OKLab: below 0.08 is high risk, 0.08 to 0.12 needs review, above 0.12 is lower risk.</p>
+<p><strong>Contrast: no failures.</strong> All derived text and stroke tokens pass.</p>
+<h3>Problem A — high-risk collisions between sports</h3>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>ΔE_OK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field Hockey #0873A4 vs Water Polo #227AA7</td>
+<td><strong>0.024</strong>. Indistinguishable as 60 pt App Store icons. V4.1 made Water Polo darker, which caused this.</td>
+</tr>
+<tr>
+<td>Rugby #B98056 vs Sepak Takraw #AC862C</td>
+<td>0.055</td>
+</tr>
+<tr>
+<td>Basketball #D06B25 vs Rugby #B98056</td>
+<td>0.061. Rugby sits between two warm browns.</td>
+</tr>
+<tr>
+<td>Soccer #257D42 vs Badminton #087E78</td>
+<td>0.078</td>
+</tr>
+</tbody>
+</table>
+<h3>Problem B — brand colours collide with semantic colours</h3>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>ΔE_OK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Soccer #257D42 vs success #147D50</td>
+<td><strong>0.019</strong></td>
+</tr>
+<tr>
+<td>Volleyball #2852B5 vs information #155E9E</td>
+<td>0.053</td>
+</tr>
+<tr>
+<td>Field Hockey #0873A4 vs information #155E9E</td>
+<td>0.060</td>
+</tr>
+<tr>
+<td>Badminton #087E78 vs success #147D50</td>
+<td>0.060</td>
+</tr>
+<tr>
+<td>Footvolley #A64E29 vs warning #8B5900</td>
+<td>0.066</td>
+</tr>
+<tr>
+<td>Footvolley #A64E29 vs error #B83240</td>
+<td>0.071</td>
+</tr>
+<tr>
+<td>Hub #344D63 vs focus #4A345C</td>
+<td>0.078</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Root cause.</strong> success sits among the green sports (soccer, badminton) and information sits among the blue sports (volleyball, field hockey). An automated search found that Field Hockey cannot escape information anywhere in the blue family (hue ±30°, lightness ±0.15). Fixing these one sport at a time would move four sports. Moving two semantic colours may fix more with less.</p>
+<h3>Problem C — pairs to review (0.08 to 0.12)</h3>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>ΔE_OK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volleyball vs Table Tennis</td>
+<td>0.081</td>
+</tr>
+<tr>
+<td>Badminton vs Water Polo</td>
+<td>0.082</td>
+</tr>
+<tr>
+<td>Basketball vs Sepak Takraw</td>
+<td>0.085</td>
+</tr>
+<tr>
+<td>Field Hockey vs Badminton</td>
+<td>0.087</td>
+</tr>
+<tr>
+<td>Table Tennis vs information</td>
+<td>0.090</td>
+</tr>
+<tr>
+<td>Pickleball vs Badminton</td>
+<td>0.091</td>
+</tr>
+<tr>
+<td>Handball vs Water Polo</td>
+<td>0.099</td>
+</tr>
+<tr>
+<td>Volleyball vs Field Hockey</td>
+<td>0.099</td>
+</tr>
+<tr>
+<td>Hub vs Table Tennis</td>
+<td>0.107</td>
+</tr>
+<tr>
+<td>Baseball vs error</td>
+<td>0.109</td>
+</tr>
+<tr>
+<td>Footvolley vs Basketball</td>
+<td>0.111</td>
+</tr>
+</tbody>
+</table>
+<h3>Problem D — borderline contrast (passes, but below the 5:1 internal target)</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Contrast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basketball button text #16212E on #D06B25</td>
+<td>4.50</td>
+</tr>
+<tr>
+<td>Handball #16212E on #7385C3</td>
+<td>4.54</td>
+</tr>
+<tr>
+<td>Pickleball #16212E on #159C85</td>
+<td>4.74</td>
+</tr>
+<tr>
+<td>Water Polo #FFFFFF on #227AA7</td>
+<td>4.76</td>
+</tr>
+<tr>
+<td>Sepak Takraw #16212E on #AC862C</td>
+<td>4.80</td>
+</tr>
+<tr>
+<td>Rugby #16212E on #B98056</td>
+<td>4.86</td>
+</tr>
+<tr>
+<td>Badminton #FFFFFF on #087E78</td>
+<td>4.92</td>
+</tr>
+<tr>
+<td>inputBorder #778494</td>
+<td>3.34 (target 3.5)</td>
+</tr>
+<tr>
+<td>success used as text</td>
+<td>4.52</td>
+</tr>
+</tbody>
+</table>
+<p>A dedicated button fill that differs from the brand colour by less than 0.03 ΔE_OK would reach 5:1 for each of these. For example, Basketball #DA7430 reaches 5.05.</p>
+<h3>Problem E — text hierarchy</h3>
+<p>textSecondary #526071 and textTertiary #586577 are almost the same darkness, so there is no visible hierarchy between them.</p>
+<hr />
+<h2>4. What I need from you</h2>
+<ol>
+<li><strong>Decide the strategy for Problem B first.</strong> Choose one and justify it:</li>
+<li><strong>(a)</strong> Move the semantic colours: success, information, and if needed warning and error, plus focus vs Hub, to hues that no sport uses, while keeping their conventional meaning recognisable.</li>
+<li><strong>(b)</strong> Move the sports.</li>
+<li><strong>(c)</strong> A mix of both.</li>
+</ol>
+<p>Explain what each option costs.
+2. <strong>Fix every Problem A pair</strong> by moving only one side of each pair. Say which side moves and why, based on sport authenticity, for example "Water Polo gives way because V4.1 changed it".
+3. <strong>Propose button fills or foregrounds for Problem D</strong>, or accept the borderline values with a reason.
+4. <strong>Fix Problem E</strong> with a visible step between textSecondary and textTertiary. Both must keep at least 4.5:1 on #FFFFFF, #F6F4EE, #EEF3F8 and #F3F0E8.
+5. <strong>Keep every unchanged colour exactly as it is.</strong></p>
+<h3>Hard constraints for every new value</h3>
+<ul>
+<li>Each sport must stay recognisable as itself, based on real surfaces, balls or equipment. No arbitrary colours just to increase distance.</li>
+<li><strong>Brand vs brand:</strong> ΔE_OK at least 0.10 for every pair of the 16 primaries, ideally 0.12.</li>
+<li><strong>Brand vs semantic:</strong> ΔE_OK at least 0.10.</li>
+<li><strong>Hub vs focus:</strong> at least 0.12.</li>
+<li><strong>Button text on its fill:</strong> at least 4.5:1, target 5:1.</li>
+<li><strong>Semantic colours used as text:</strong> at least 4.5:1 on all four light backgrounds.</li>
+<li><strong>inputBorder:</strong> at least 3:1, target 3.5:1.</li>
+<li>Light theme only: no dark or near-black backgrounds, no neon colours.</li>
+</ul>
+<h3>Self-check</h3>
+<p>Before answering, compute ΔE_OK and WCAG contrast yourself for every value you change, and show the numbers. If you cannot compute them reliably, say so; do not guess. I will re-run my own validator on your output.</p>
+<hr />
+<h2>5. Output format</h2>
+<p>Reply in this order:</p>
+<ol>
+<li><strong>Strategy</strong> — one paragraph explaining your choice for Problem B.</li>
+<li><strong>Change table</strong> — only the tokens you changed: token, old HEX, new HEX, reason, new nearest ΔE_OK neighbour, new contrast figures.</li>
+<li><strong>Complete V4.2 JSON</strong> — the full system, including unchanged values, in exactly this structure:</li>
+</ol>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;4.2&quot;,
+  &quot;shared&quot;: { &quot;textSecondary&quot;: &quot;#…&quot;, &quot;textTertiary&quot;: &quot;#…&quot;, &quot;inputBorder&quot;: &quot;#…&quot; },
+  &quot;semantic&quot;: { &quot;success&quot;: &quot;#…&quot;, &quot;warning&quot;: &quot;#…&quot;, &quot;error&quot;: &quot;#…&quot;, &quot;information&quot;: &quot;#…&quot;, &quot;focus&quot;: &quot;#…&quot; },
+  &quot;apps&quot;: [
+    { &quot;id&quot;: &quot;volleyball&quot;, &quot;primary&quot;: &quot;#…&quot;, &quot;secondary&quot;: &quot;#…&quot;, &quot;buttonForeground&quot;: &quot;#…&quot;, &quot;buttonFill&quot;: &quot;#… or null&quot; }
+  ]
+}
+</code></pre>
+<p>List all 16 apps in this order: volleyball, soccer, basketball, fieldHockey, tennis, rugby, badminton, tableTennis, pickleball, baseball, handball, waterPolo, sepakTakraw, beachTennis, footvolley, hub. <code>buttonFill</code> is null when the button uses the brand primary itself.
+4. <strong>Open risks</strong> — anything you could not resolve, and the trade-off you accepted.</p></article>
+<script>
+const RAW="# Sports Tactics Board Series \u2014 Colour System V4.2 Revision Request\n\n## Your role\n\nYou are a senior sports UI/UX designer, colour-system architect and accessibility engineer. You are revising **V4.1**, a light-theme colour system for 16 apps: 15 single-sport tactics boards plus one multi-sport Hub. V4.1 was measured programmatically. The results are below. Your job is to produce **V4.2**, which fixes the measured problems with the **smallest possible changes** and keeps each sport recognisable.\n\nThis is a revision, not a redesign. Do not touch anything that is not listed as a problem.\n\n---\n\n## 1. Fixed foundation \u2014 do not change\n\n| Token | HEX |\n|---|---|\n| pageBackground | #F3F0E8 |\n| appBackground | #F6F4EE |\n| surface | #FFFFFF |\n| elevatedSurface | #EEF3F8 |\n| secondarySurface | #F7F9FC |\n| textPrimary | #16212E |\n| decorativeBorder | #D8E0E8 |\n| disabledSurface | #C8D0D9 |\n\nEvery app uses Background #F6F4EE, Surface #FFFFFF and Elevated #EEF3F8.\n\n---\n\n## 2. Current V4.1 values\n\n### Semantic colours\n\n| Role | HEX |\n|---|---|\n| success | #147D50 |\n| warning | #8B5900 |\n| error | #B83240 |\n| information | #155E9E |\n| focus | #4A345C |\n| textSecondary | #526071 |\n| textTertiary | #586577 |\n| inputBorder | #778494 |\n\n### Brand colours\n\n| App | Primary | Secondary | Button text |\n|---|---|---|---|\n| Volleyball \u6392\u7403 | #2852B5 | #7DB7FF | #FFFFFF |\n| Soccer \u8db3\u7403 | #257D42 | #8BCF67 | #FFFFFF |\n| Basketball \u7bee\u7403 | #D06B25 | #FFB566 | #16212E |\n| Field Hockey \u66f2\u68cd\u7403 | #0873A4 | #E3C86C | #FFFFFF |\n| Tennis \u7f51\u7403 | #C7D93B | #6E95DD | #16212E |\n| Rugby \u6a44\u6984\u7403 | #B98056 | #6FA570 | #16212E |\n| Badminton \u7fbd\u6bdb\u7403 | #087E78 | #D8B688 | #FFFFFF |\n| Table Tennis \u4e52\u4e53\u7403 | #594695 | #E15C56 | #FFFFFF |\n| Pickleball \u5339\u514b\u7403 | #159C85 | #D7C96E | #16212E |\n| Baseball \u68d2\u7403 | #883C66 | #C98E57 | #FFFFFF |\n| Handball \u624b\u7403 | #7385C3 | #E59B55 | #16212E |\n| Water Polo \u6c34\u7403 | #227AA7 | #5E8FC8 | #FFFFFF |\n| Sepak Takraw \u85e4\u7403 | #AC862C | #67A56C | #16212E |\n| Beach Tennis \u6c99\u6ee9\u7f51\u7403 | #E1C79B | #CFA087 | #16212E |\n| Footvolley \u8db3\u6392\u7403 | #A64E29 | #39B9C8 | #FFFFFF |\n| Hub \u6218\u672f\u677f\u5408\u96c6 | #344D63 | #B49A6A | #FFFFFF |\n\n---\n\n## 3. Measured results of V4.1\n\nThe measurements use the WCAG 2.1 contrast formula with sRGB linearisation, truncated and never rounded up. Colour distance is \u0394E in OKLab: below 0.08 is high risk, 0.08 to 0.12 needs review, above 0.12 is lower risk.\n\n**Contrast: no failures.** All derived text and stroke tokens pass.\n\n### Problem A \u2014 high-risk collisions between sports\n\n| Pair | \u0394E_OK |\n|---|---|\n| Field Hockey #0873A4 vs Water Polo #227AA7 | **0.024**. Indistinguishable as 60 pt App Store icons. V4.1 made Water Polo darker, which caused this. |\n| Rugby #B98056 vs Sepak Takraw #AC862C | 0.055 |\n| Basketball #D06B25 vs Rugby #B98056 | 0.061. Rugby sits between two warm browns. |\n| Soccer #257D42 vs Badminton #087E78 | 0.078 |\n\n### Problem B \u2014 brand colours collide with semantic colours\n\n| Pair | \u0394E_OK |\n|---|---|\n| Soccer #257D42 vs success #147D50 | **0.019** |\n| Volleyball #2852B5 vs information #155E9E | 0.053 |\n| Field Hockey #0873A4 vs information #155E9E | 0.060 |\n| Badminton #087E78 vs success #147D50 | 0.060 |\n| Footvolley #A64E29 vs warning #8B5900 | 0.066 |\n| Footvolley #A64E29 vs error #B83240 | 0.071 |\n| Hub #344D63 vs focus #4A345C | 0.078 |\n\n**Root cause.** success sits among the green sports (soccer, badminton) and information sits among the blue sports (volleyball, field hockey). An automated search found that Field Hockey cannot escape information anywhere in the blue family (hue \u00b130\u00b0, lightness \u00b10.15). Fixing these one sport at a time would move four sports. Moving two semantic colours may fix more with less.\n\n### Problem C \u2014 pairs to review (0.08 to 0.12)\n\n| Pair | \u0394E_OK |\n|---|---|\n| Volleyball vs Table Tennis | 0.081 |\n| Badminton vs Water Polo | 0.082 |\n| Basketball vs Sepak Takraw | 0.085 |\n| Field Hockey vs Badminton | 0.087 |\n| Table Tennis vs information | 0.090 |\n| Pickleball vs Badminton | 0.091 |\n| Handball vs Water Polo | 0.099 |\n| Volleyball vs Field Hockey | 0.099 |\n| Hub vs Table Tennis | 0.107 |\n| Baseball vs error | 0.109 |\n| Footvolley vs Basketball | 0.111 |\n\n### Problem D \u2014 borderline contrast (passes, but below the 5:1 internal target)\n\n| Item | Contrast |\n|---|---|\n| Basketball button text #16212E on #D06B25 | 4.50 |\n| Handball #16212E on #7385C3 | 4.54 |\n| Pickleball #16212E on #159C85 | 4.74 |\n| Water Polo #FFFFFF on #227AA7 | 4.76 |\n| Sepak Takraw #16212E on #AC862C | 4.80 |\n| Rugby #16212E on #B98056 | 4.86 |\n| Badminton #FFFFFF on #087E78 | 4.92 |\n| inputBorder #778494 | 3.34 (target 3.5) |\n| success used as text | 4.52 |\n\nA dedicated button fill that differs from the brand colour by less than 0.03 \u0394E_OK would reach 5:1 for each of these. For example, Basketball #DA7430 reaches 5.05.\n\n### Problem E \u2014 text hierarchy\n\ntextSecondary #526071 and textTertiary #586577 are almost the same darkness, so there is no visible hierarchy between them.\n\n---\n\n## 4. What I need from you\n\n1. **Decide the strategy for Problem B first.** Choose one and justify it:\n   - **(a)** Move the semantic colours: success, information, and if needed warning and error, plus focus vs Hub, to hues that no sport uses, while keeping their conventional meaning recognisable.\n   - **(b)** Move the sports.\n   - **(c)** A mix of both.\n\n   Explain what each option costs.\n2. **Fix every Problem A pair** by moving only one side of each pair. Say which side moves and why, based on sport authenticity, for example \"Water Polo gives way because V4.1 changed it\".\n3. **Propose button fills or foregrounds for Problem D**, or accept the borderline values with a reason.\n4. **Fix Problem E** with a visible step between textSecondary and textTertiary. Both must keep at least 4.5:1 on #FFFFFF, #F6F4EE, #EEF3F8 and #F3F0E8.\n5. **Keep every unchanged colour exactly as it is.**\n\n### Hard constraints for every new value\n\n- Each sport must stay recognisable as itself, based on real surfaces, balls or equipment. No arbitrary colours just to increase distance.\n- **Brand vs brand:** \u0394E_OK at least 0.10 for every pair of the 16 primaries, ideally 0.12.\n- **Brand vs semantic:** \u0394E_OK at least 0.10.\n- **Hub vs focus:** at least 0.12.\n- **Button text on its fill:** at least 4.5:1, target 5:1.\n- **Semantic colours used as text:** at least 4.5:1 on all four light backgrounds.\n- **inputBorder:** at least 3:1, target 3.5:1.\n- Light theme only: no dark or near-black backgrounds, no neon colours.\n\n### Self-check\n\nBefore answering, compute \u0394E_OK and WCAG contrast yourself for every value you change, and show the numbers. If you cannot compute them reliably, say so; do not guess. I will re-run my own validator on your output.\n\n---\n\n## 5. Output format\n\nReply in this order:\n\n1. **Strategy** \u2014 one paragraph explaining your choice for Problem B.\n2. **Change table** \u2014 only the tokens you changed: token, old HEX, new HEX, reason, new nearest \u0394E_OK neighbour, new contrast figures.\n3. **Complete V4.2 JSON** \u2014 the full system, including unchanged values, in exactly this structure:\n\n```json\n{\n  \"version\": \"4.2\",\n  \"shared\": { \"textSecondary\": \"#\u2026\", \"textTertiary\": \"#\u2026\", \"inputBorder\": \"#\u2026\" },\n  \"semantic\": { \"success\": \"#\u2026\", \"warning\": \"#\u2026\", \"error\": \"#\u2026\", \"information\": \"#\u2026\", \"focus\": \"#\u2026\" },\n  \"apps\": [\n    { \"id\": \"volleyball\", \"primary\": \"#\u2026\", \"secondary\": \"#\u2026\", \"buttonForeground\": \"#\u2026\", \"buttonFill\": \"#\u2026 or null\" }\n  ]\n}\n```\n\n   List all 16 apps in this order: volleyball, soccer, basketball, fieldHockey, tennis, rugby, badminton, tableTennis, pickleball, baseball, handball, waterPolo, sepakTakraw, beachTennis, footvolley, hub. `buttonFill` is null when the button uses the brand primary itself.\n4. **Open risks** \u2014 anything you could not resolve, and the trade-off you accepted.\n";
+document.getElementById('cp').onclick=async e=>{try{await navigator.clipboard.writeText(RAW);e.target.textContent='已复制';e.target.classList.add('ok');}catch(_){const t=document.createElement('textarea');t.value=RAW;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();e.target.textContent='已复制';e.target.classList.add('ok');}setTimeout(()=>{e.target.textContent='复制全部提示词';e.target.classList.remove('ok')},2000)};
+// colour chips beside every HEX in the page
+document.querySelectorAll('#doc td, #doc li, #doc p').forEach(el=>{el.innerHTML=el.innerHTML.replace(/(#[0-9A-Fa-f]{6})(?![0-9A-Fa-f])/g,'<span class="sw" style="background:$1"></span>$1')});
+</script></body></html>

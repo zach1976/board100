@@ -1,0 +1,29 @@
+# Which frame of each app's App Preview the store shows before it is played.
+#
+# ASC calls it previewFrameTimeCode and defaults it to a few seconds in, which
+# is where soccer's first upload put a picture of an EMPTY PITCH on the
+# listing — the film spends its opening seconds building the board, so the
+# early frames are the least worth showing. Pick the frame after the thing the
+# film is about has happened, and write it here.
+#
+# Format: HH:MM:SS:FF. release_app.py's preview step applies it, and a frame
+# can only be set while the version is NOT in review: Apple answers
+# "Can't Commit Preview while Waiting For Review" with a 409.
+#
+# key		timecode	what is on screen
+soccer		00:00:24:00	squad, the run drawn, the player settled at its end
+fieldHockey	00:00:15:00	6v6 out, a player picked up, his run drawn
+basketball	00:00:24:00	3v3 out, the run drawn, the runner settled at its end, ball on
+volleyball	00:00:24:00	6v6 out, the run drawn, the runner settled at its end, ball on
+tactics_board		00:00:23:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+badminton		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+tennis		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+tableTennis		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+pickleball		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+baseball		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+handball		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+rugby		00:00:22:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+waterPolo		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+sepakTakraw		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+beachTennis		00:00:21:00	the run drawn, ball on, play bar up (2026-10-22 re-record)
+footvolley		00:00:22:00	the run drawn, ball on, play bar up (2026-10-22 re-record)

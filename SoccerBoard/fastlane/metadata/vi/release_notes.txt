@@ -1,24 +1,10 @@
-Có gì mới trong 2.0.1
+Có gì mới trong phiên bản 2.3.1
 
-Mọi thứ trong bản này đều liên quan đến những gì bảng chiến thuật thực sự vẽ ra.
+DỄ TÌM PRO HƠN
+"Xóa quảng cáo" và "Khôi phục giao dịch" nay nằm ở trang Của tôi, chỉ một chạm. Trang mua là một bảng trắng riêng, dễ đọc cả trên iPad.
 
-PHÂN BIỆT CHẠY CHỖ, DẪN BÓNG VÀ CHUYỀN
-Ba hành động, ba kiểu nét: chạy chỗ là nét đứt, dẫn bóng là nét lượn sóng, chuyền là mũi tên nét liền. Trước đây người dẫn bóng bị vẽ thành hai mũi tên gần như giống hệt nhau nằm cạnh nhau.
+BIỂU TƯỢNG MÔN VÀ MÀN GIỚI THIỆU MỚI
+Biểu tượng các môn và ba màn giới thiệu khi mở lần đầu đều được vẽ lại.
 
-MỌI MŨI TÊN ĐỀU CÓ ĐIỂM XUẤT PHÁT
-Một pha di chuyển ngắn chỉ giữ lại điểm đến và mất điểm xuất phát, khiến một phần tư số mũi tên trong thư viện trông như hiện ra từ hư không.
-
-MỘT CẦU THỦ, VẼ MỘT LẦN
-Sau nhịp đầu tiên, cầu thủ đã di chuyển bị vẽ hai lần — cách nhau một bước chân và quay về hai hướng khác nhau.
-
-CÚ SÚT ĐẾN ĐƯỢC KHUNG THÀNH
-Cú sút từng dừng sớm, ngay trên người thủ môn; còn thủ môn thì đứng bên trong lưới nhà. Cả hai đều đã sửa.
-
-NGOÀI RA
-- Nón không bị xê dịch khi có người chạy ngang qua
-- Mũi tên đường chuyền đến cùng lúc với bóng, không đến trước
-- Cầu thủ quay mặt về phía việc sắp làm — thủ môn nhìn tiền đạo, không nhìn khung thành nhà
-- Bài chạy con thoi chạy tay không
-- Nhãn chữ xoay theo bảng và có bốn kiểu chữ để chọn
-- Thanh chỉnh sửa chỉ hiện những gì thay đổi được: dụng cụ không có chạy chỗ và không có màu
-- Trọng tài và huấn luyện viên được vẽ như người thật và xoay như người thật
+SỬA LỖI KHÁC
+Sau khi đóng bảng, tên bài tập không còn nằm đè lên danh sách.

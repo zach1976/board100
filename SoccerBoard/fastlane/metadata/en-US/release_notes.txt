@@ -1,24 +1,10 @@
-What's New in 2.0.1
+What's New in 2.3.1
 
-Everything in this release is about what the drill boards actually draw.
+PRO, EASIER TO FIND
+"Remove Ads" and "Restore Purchases" now sit on the Me page, one tap away. The purchase sheet is its own white panel, clear to read on iPad too.
 
-TELL A RUN FROM A DRIBBLE FROM A PASS
-Three actions, three lines: a run is dashed, a dribble waves, a pass is a solid arrow. A player carrying the ball used to get two near-identical arrows side by side.
+NEW SPORT ICONS AND INTRO
+The sport icons and the three intro screens you see on first launch are all redrawn.
 
-EVERY ARROW STARTS SOMEWHERE
-A short run kept its destination and lost where it came from, so a quarter of the arrows in the library appeared out of thin air.
-
-ONE PLAYER, DRAWN ONCE
-Past the first step, a player who had moved was drawn twice — a stride apart, facing two different ways.
-
-SHOTS THAT REACH THE GOAL
-A shot used to stop short, on the keeper; the keeper himself stood inside his own net. Both fixed.
-
-ALSO
-- Cones stay where they were put when a run goes past them
-- The pass arrow arrives with the ball instead of ahead of it
-- Players face what they are about to do — a keeper watches the attacker, not his own goal
-- A shuttle run is run empty-handed
-- Text labels turn with the board and can be set in four faces
-- The edit bar offers only what an element can change: equipment has no run and no colour
-- The referee and the coach are drawn as people, and turn like people
+SMALLER FIXES
+After you close a board, the drill name no longer hangs over the list.

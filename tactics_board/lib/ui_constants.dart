@@ -15,16 +15,16 @@ import 'ui/tokens.dart';
 /// `kAccent` should become `T.accent` and this file should shrink.
 
 /// The single brand accent. Selected/active state, primary actions, focus.
-const Color kAccent = T.accent;
+Color get kAccent => T.accent;
 
 /// Accent at low opacity, for tinted fills behind active controls.
-const Color kAccentFill = T.accentFill;
+Color get kAccentFill => T.accentFill;
 
 /// Base surface for modal sheets and dialogs.
-const Color kSurface = T.surface;
+Color get kSurface => T.surface;
 
 /// Raised surface for cards / list rows / panels sitting on [kSurface].
-const Color kSurfaceHi = T.surfaceHi;
+Color get kSurfaceHi => T.surfaceHi;
 
 /// Destructive action colour (delete / clear-all).
 const Color kDanger = T.danger;
@@ -43,4 +43,18 @@ const List<Color> kStrokeColors = [
   Color(0xFF43A047),
   Color(0xFF1E88E5),
   Color(0xFFFF6F00),
+];
+
+/// Palette offered for an element's own colour — a player's kit, a text
+/// chip's ground. Shared by the tune panel and the add-text dialog, which
+/// must offer the same set for the same reason the stroke palettes do.
+const List<Color> kElementColors = [
+  T.home,
+  T.away,
+  Color(0xFF2E7D32),
+  Color(0xFFE65100),
+  Color(0xFF6A1B9A),
+  Color(0xFF00838F),
+  Color(0xFFAD1457),
+  Color(0xFFF9A825),
 ];

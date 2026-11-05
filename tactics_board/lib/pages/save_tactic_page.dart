@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../ui/primitives.dart';
+import '../ui/adaptive.dart';
 import '../ui/tokens.dart';
 
 import '../models/tactic_meta.dart';
@@ -29,7 +30,10 @@ class SaveTacticPage extends StatefulWidget {
 
 class _SaveTacticPageState extends State<SaveTacticPage> {
   late final _nameCtrl = TextEditingController(
-      text: widget.initial?.name ?? widget.state.currentTacticName ?? '');
+      text: widget.initial?.name ??
+          widget.state.currentTacticName ??
+          widget.state.openedDrillName ??
+          '');
   late final _descCtrl =
       TextEditingController(text: widget.initial?.description ?? '');
   late final _pointsCtrl =
@@ -100,14 +104,14 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
       builder: (ctx) => AlertDialog(
         backgroundColor: kSurface,
         title: Text('new_folder'.tr(),
-            style: const TextStyle(color: Colors.white)),
+            style: const TextStyle(color: T.text)),
         content: TextField(
           controller: ctrl,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: T.text),
           decoration: InputDecoration(
             hintText: 'folder_name'.tr(),
-            hintStyle: const TextStyle(color: Colors.white38),
+            hintStyle: const TextStyle(color: T.textOff),
           ),
         ),
         actions: [
@@ -116,7 +120,7 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
           TextButton(
             onPressed: () => Navigator.pop(ctx, ctrl.text.trim()),
             child: Text('confirm'.tr(),
-                style: const TextStyle(color: T.accent)),
+                style: TextStyle(color: T.accentText)),
           ),
         ],
       ),
@@ -135,23 +139,28 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
         backgroundColor: kSurface,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close_rounded, color: Colors.white),
+          icon: const Icon(Icons.close_rounded, color: T.text),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text('save_tactic_title'.tr(),
             style: const TextStyle(
-                color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold)),
+                color: T.text, fontSize: 17, fontWeight: FontWeight.bold)),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.check_rounded, color: T.accent),
+            icon: Icon(Icons.check_rounded, color: T.accentText),
             onPressed: _confirm,
           ),
         ],
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        // A form's width on a tablet, centred: four fields 1300pt wide with
+        // the screen's lower two-thirds empty read as a phone page stretched.
+        child: LayoutBuilder(builder: (context, box) {
+          final x = 20 +
+              tabletInset(context, box.maxWidth - 40, maxWidth: kFormMaxWidth);
+          return ListView(
+          padding: EdgeInsets.fromLTRB(x, 8, x, 32),
           children: [
             _label('tactic_name_label'.tr()),
             _field(controller: _nameCtrl, hint: 'tactics_name'.tr()),
@@ -162,21 +171,21 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.08),
+                  color: T.surfaceHi,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
                   children: [
                     const Icon(Icons.folder_outlined,
-                        color: Colors.white54, size: 20),
+                        color: T.textOff, size: 20),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
                         _folder.isEmpty ? 'folder_default'.tr() : _folder,
-                        style: const TextStyle(color: Colors.white, fontSize: 14),
+                        style: const TextStyle(color: T.text, fontSize: 14),
                       ),
                     ),
-                    const Icon(Icons.expand_more_rounded, color: Colors.white54, size: 20),
+                    const Icon(Icons.expand_more_rounded, color: T.textOff, size: 20),
                   ],
                 ),
               ),
@@ -188,7 +197,8 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
             _label('coaching_points'.tr()),
             _field(controller: _pointsCtrl, hint: '', maxLines: 4),
           ],
-        ),
+        );
+        }),
       ),
     );
   }
@@ -197,7 +207,7 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
         padding: const EdgeInsets.only(bottom: 8),
         child: Text(text,
             style: const TextStyle(
-                color: Colors.white70,
+                color: T.textDim,
                 fontSize: 13,
                 fontWeight: FontWeight.w600)),
       );
@@ -210,14 +220,14 @@ class _SaveTacticPageState extends State<SaveTacticPage> {
       TextField(
         controller: controller,
         maxLines: maxLines,
-        style: const TextStyle(color: Colors.white, fontSize: 14),
+        style: const TextStyle(color: T.text, fontSize: 14),
         textInputAction:
             maxLines == 1 ? TextInputAction.next : TextInputAction.newline,
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: const TextStyle(color: Colors.white30),
+          hintStyle: const TextStyle(color: T.textOff),
           filled: true,
-          fillColor: Colors.white.withValues(alpha: 0.08),
+          fillColor: T.surfaceHi,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           border: OutlineInputBorder(
@@ -249,11 +259,11 @@ class _FolderPicker extends StatelessWidget {
               height: 4,
               margin: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
-                  color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+                  color: T.textOff, borderRadius: BorderRadius.circular(2)),
             ),
             Text('select_folder'.tr(),
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: T.text,
                     fontSize: 16,
                     fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
@@ -264,11 +274,11 @@ class _FolderPicker extends StatelessWidget {
                   _tile(context, '', 'folder_default'.tr()),
                   for (final f in folders) _tile(context, f, f),
                   ListTile(
-                    leading: const Icon(Icons.create_new_folder_outlined,
-                        color: T.accent, size: 20),
+                    leading: Icon(Icons.create_new_folder_outlined,
+                        color: T.accentText, size: 20),
                     title: Text('new_folder'.tr(),
-                        style: const TextStyle(
-                            color: T.accent, fontSize: 14)),
+                        style: TextStyle(
+                            color: T.accentText, fontSize: 14)),
                     onTap: () => Navigator.pop(context, _kNewFolderSentinel),
                   ),
                 ],
@@ -281,11 +291,11 @@ class _FolderPicker extends StatelessWidget {
   }
 
   Widget _tile(BuildContext context, String value, String label) => ListTile(
-        leading: const Icon(Icons.folder_outlined, color: Colors.white54, size: 20),
+        leading: const Icon(Icons.folder_outlined, color: T.textOff, size: 20),
         title: Text(label,
-            style: const TextStyle(color: Colors.white, fontSize: 14)),
+            style: const TextStyle(color: T.text, fontSize: 14)),
         trailing: value == selected
-            ? const Icon(Icons.check_rounded, color: T.accent, size: 20)
+            ? Icon(Icons.check_rounded, color: T.accentText, size: 20)
             : null,
         onTap: () => Navigator.pop(context, value),
       );

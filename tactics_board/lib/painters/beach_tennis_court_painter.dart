@@ -31,18 +31,19 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     const fieldH = 16.0;
     const ratio = fieldW / fieldH;
 
+    // At SportType.fieldRect's 0.84 (tools/drills/engine.py COURT) — room
+    // behind the far baseline.
     double cw, ch;
     if (w / h > ratio) {
-      ch = h * 0.85;
+      ch = h * 0.84;
       cw = ch * ratio;
     } else {
-      cw = w * 0.85;
+      cw = w * 0.84;
       ch = cw / ratio;
     }
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
 
-    final scX = cw / fieldW;
     Offset o(double x, double y) => Offset(left + x * (cw / fieldW), top + y * (ch / fieldH));
 
     final line = Paint()
@@ -53,29 +54,36 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     // Court boundary
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
 
-    // Net line — dashed across center
-    final netPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 3.0
+    // Singles court, 4.5 m wide inside the 8 m doubles court (ITF beach
+    // tennis rules). Lighter than the boundary: most play is doubles, and a
+    // singles game is the one place these lines are the edge.
+    final singles = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
+      ..strokeWidth = 1.4
       ..style = PaintingStyle.stroke;
-    drawDashedLine(canvas, netPaint,
-        o(0, fieldH / 2), o(fieldW, fieldH / 2),
-        dashLength: 8, gapLength: 5);
+    for (final x in const [1.75, 6.25]) {
+      canvas.drawLine(o(x, 0), o(x, fieldH), singles);
+    }
 
-    // Net posts (small tabs extending just outside the court at the net line)
+    // Net: the same band, mesh and tape as the tennis court — a faint
+    // dashed line read as a centre line, not a 1.70 m net.
+    final netBand = Paint()
+      ..color = Colors.white.withValues(alpha: 0.15)
+      ..strokeWidth = 10
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, fieldH / 2), o(fieldW, fieldH / 2), netBand);
+    drawNetMesh(canvas, o(0, fieldH / 2), o(fieldW, fieldH / 2), 10);
+    final netLine = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 4
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, fieldH / 2), o(fieldW, fieldH / 2), netLine);
     final postPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 3.0
+      ..color = const Color(0xFF37474F)
+      ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(-0.25, fieldH / 2), o(0, fieldH / 2), postPaint);
-    canvas.drawLine(o(fieldW, fieldH / 2), o(fieldW + 0.25, fieldH / 2), postPaint);
-
-    // Subtle serve-target dots along baselines (visual aid only)
-    final dot = Paint()
-      ..color = Colors.white.withValues(alpha: 0.4)
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(o(fieldW / 2, 0), 0.10 * scX, dot);
-    canvas.drawCircle(o(fieldW / 2, fieldH), 0.10 * scX, dot);
+    canvas.drawLine(o(0, fieldH / 2 - 0.4), o(0, fieldH / 2 + 0.4), postPaint);
+    canvas.drawLine(o(fieldW, fieldH / 2 - 0.4), o(fieldW, fieldH / 2 + 0.4), postPaint);
   }
 
   /// One side of the net filling the canvas: net at the TOP edge, baseline at
@@ -100,7 +108,6 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     final left = (w - cw) / 2;
     final top = (h - ch) / 2;
 
-    final scX = cw / fieldW;
     Offset o(double x, double y) => Offset(left + x * (cw / fieldW), top + y * (ch / fieldH));
 
     final line = Paint()
@@ -111,35 +118,41 @@ class BeachTennisCourtPainter extends CourtPainterBase {
     // Court boundary
     canvas.drawRect(Rect.fromLTWH(left, top, cw, ch), line);
 
-    // Net line — dashed along the TOP edge
-    final netPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 3.0
+    // Singles court, 4.5 m wide inside the 8 m doubles court (ITF beach
+    // tennis rules). Lighter than the boundary: most play is doubles, and a
+    // singles game is the one place these lines are the edge.
+    final singles = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
+      ..strokeWidth = 1.4
       ..style = PaintingStyle.stroke;
-    drawDashedLine(canvas, netPaint,
-        o(0, 0), o(fieldW, 0),
-        dashLength: 8, gapLength: 5);
+    for (final x in const [1.75, 6.25]) {
+      canvas.drawLine(o(x, 0), o(x, fieldH), singles);
+    }
 
-    // Net posts (small tabs extending just outside the court at the net line)
+    // Net: the same band, mesh and tape as the tennis court — a faint
+    // dashed line read as a centre line, not a 1.70 m net.
+    final netBand = Paint()
+      ..color = Colors.white.withValues(alpha: 0.15)
+      ..strokeWidth = 10
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(fieldW, 0), netBand);
+    drawNetMesh(canvas, o(0, 0), o(fieldW, 0), 10);
+    final netLine = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 4
+      ..style = PaintingStyle.stroke;
+    canvas.drawLine(o(0, 0), o(fieldW, 0), netLine);
     final postPaint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 3.0
+      ..color = const Color(0xFF37474F)
+      ..strokeWidth = 5
       ..style = PaintingStyle.stroke;
-    canvas.drawLine(o(-0.25, 0), o(0, 0), postPaint);
-    canvas.drawLine(o(fieldW, 0), o(fieldW + 0.25, 0), postPaint);
-
-    // Subtle serve-target dot along the baseline (visual aid only)
-    final dot = Paint()
-      ..color = Colors.white.withValues(alpha: 0.4)
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(o(fieldW / 2, fieldH), 0.10 * scX, dot);
+    canvas.drawLine(o(0, -0.4), o(0, 0.4), postPaint);
+    canvas.drawLine(o(fieldW, -0.4), o(fieldW, 0.4), postPaint);
   }
 
   void _drawSand(Canvas canvas, Size size) {
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      Paint()..color = courtColor..style = PaintingStyle.fill,
-    );
+    // Sand, lit from above like every other surface. No bands: nobody lays sand in strips.
+    drawSurface(canvas, size);
     // Sand speckles — scattered tiny dots for sand texture
     final speckle = Paint()
       ..color = const Color(0xFFB88848).withValues(alpha: 0.4)

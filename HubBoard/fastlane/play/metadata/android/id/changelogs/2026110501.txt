@@ -1,0 +1,7 @@
+Pembaruan besar:
+• Pustaka latihan dengan papan animasi langkah demi langkah, plus enam sesi siap pakai
+• Rencana latihan yang dijalankan dari pinggir lapangan
+• Papan digambar ulang, dengan catatan yang berganti tiap langkah
+• Tata letak tablet dengan bilah samping, keyboard, dan stylus
+• Ikon olahraga dan pengantar baru; bahasa Jerman dan Belanda
+• Semua latihan dan fitur termasuk, didukung iklan
