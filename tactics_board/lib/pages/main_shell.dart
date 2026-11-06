@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
+import '../services/ad_service.dart';
 import '../services/auth_service.dart';
 import '../services/drill_library_service.dart';
 import '../services/drill_notes_service.dart';
@@ -596,6 +597,18 @@ class _MinePageState extends State<_MinePage> {
               // looking for ภาษาไทย, not for "th_TH".
               trailing: LanguagePicker.nameOf(context.locale),
               onTap: () => LanguagePicker.show(context),
+            ),
+            // Google UMP's "privacy options" entry point — required for EEA /
+            // UK (and regulated US-state) users, shown ONLY when UMP says so.
+            ValueListenableBuilder<bool>(
+              valueListenable: AdService.instance.privacyOptionsRequired,
+              builder: (context, required, _) => required
+                  ? _Row(
+                      icon: Icons.privacy_tip_outlined,
+                      label: 'ad_privacy_choices'.tr(),
+                      onTap: AdService.instance.showPrivacyOptions,
+                    )
+                  : const SizedBox.shrink(),
             ),
             _Row(
               icon: Icons.mail_outline_rounded,

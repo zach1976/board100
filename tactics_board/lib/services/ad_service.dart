@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart'
+    show AppLifecycleState, WidgetsBinding, WidgetsBindingObserver;
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config_constants.dart';
@@ -163,6 +166,46 @@ const Map<SportType, _SportAds> _liveAdUnits = {
 // the string explicitly — otherwise hub ads silently stay off.
 bool get _hubAdsEnabled => ConfigConstants.hubAdsEnabled;
 
+/// QA hooks for the UMP consent flow, honored only in non-release builds
+/// (release build scripts never pass them, and they are ignored there anyway):
+///
+///   --dart-define=UMP_DEBUG_GEOGRAPHY=eea    pretend the device is in the EEA
+///                                            (also: us = regulated US state,
+///                                            other = no regulation)
+///   --dart-define=UMP_TEST_DEVICE_IDS=HASH1,HASH2
+///                                            hashed ids UMP prints in the log
+///                                            ("addTestDeviceHashedId" on
+///                                            Android, "testDeviceIdentifiers"
+///                                            on iOS); simulators are test
+///                                            devices automatically
+///   --dart-define=UMP_RESET=1                forget stored consent at launch
+///                                            so the form shows again
+const String _umpDebugGeography = String.fromEnvironment('UMP_DEBUG_GEOGRAPHY');
+const String _umpTestDeviceIds = String.fromEnvironment('UMP_TEST_DEVICE_IDS');
+const bool _umpReset = String.fromEnvironment('UMP_RESET') == '1';
+
+ConsentRequestParameters _consentRequestParameters() {
+  if (kReleaseMode) return ConsentRequestParameters();
+  final geography = switch (_umpDebugGeography.toLowerCase()) {
+    'eea' => DebugGeography.debugGeographyEea,
+    'us' => DebugGeography.debugGeographyRegulatedUsState,
+    'other' => DebugGeography.debugGeographyOther,
+    _ => null,
+  };
+  final ids = _umpTestDeviceIds
+      .split(',')
+      .map((e) => e.trim())
+      .where((e) => e.isNotEmpty)
+      .toList();
+  if (geography == null && ids.isEmpty) return ConsentRequestParameters();
+  return ConsentRequestParameters(
+    consentDebugSettings: ConsentDebugSettings(
+      debugGeography: geography,
+      testIdentifiers: ids,
+    ),
+  );
+}
+
 /// Ad units for the hub app's own AdMob apps (iOS App ID ~5907516538,
 /// Android App ID ~4532136942 — AdMob treats them as separate apps).
 const _AdUnitIds _hubIosAdUnits = _AdUnitIds(
@@ -200,7 +243,16 @@ const _AdUnitIds _testAndroidAdUnits = _AdUnitIds(
 /// [suppressNextAppOpen], and "stage" screens (presentation mode, practice
 /// run) bracket themselves with [pushAdSuppression]/[popAdSuppression] so no
 /// ad interrupts live coaching. Both formats are additionally rate-limited.
-class AdService {
+///
+/// Consent first (Google UMP): on every launch [init] refreshes the consent
+/// status and shows the GDPR / US-state message configured in AdMob "Privacy
+/// & messaging" when one is required. The Mobile Ads SDK is initialized — and
+/// any ad requested — only once `canRequestAds()` is true; [ready] flips then.
+/// A Pro (remove-ads) user never sees the form and never starts the SDK. A
+/// failed attempt (offline, form error) is retried on the next resume. These
+/// apps do not use ATT (no NSUserTrackingUsageDescription), so there is no
+/// tracking prompt to sequence after the consent message.
+class AdService with WidgetsBindingObserver {
   AdService._();
   static final AdService instance = AdService._();
 
@@ -242,6 +294,19 @@ class AdService {
   static const String _kLastBackgroundAt = 'ad_last_background_at';
 
   bool _initialized = false;
+
+  /// True once consent has been gathered (UMP `canRequestAds()`) and the
+  /// Mobile Ads SDK is initialized. Nothing may request or show an ad before.
+  final ValueNotifier<bool> ready = ValueNotifier(false);
+
+  /// True when UMP says a privacy-options entry point is required (EEA / UK /
+  /// regulated US states). Settings shows "Ad privacy choices" only then.
+  final ValueNotifier<bool> privacyOptionsRequired = ValueNotifier(false);
+
+  /// In-flight / finished consent + SDK start. Reset to null after a failed
+  /// attempt so the next resume can retry.
+  Future<bool>? _startFuture;
+  bool _appStateListening = false;
 
   SharedPreferences? _prefs;
   String _countersDate = '';
@@ -356,11 +421,19 @@ class AdService {
     if (_suppressDepth > 0) _suppressDepth--;
   }
 
-  /// Initialize the SDK and preload both formats. Safe to call once from
-  /// main(); returns immediately when ads are disabled for this build.
+  /// Run the consent flow, then initialize the SDK and preload the app-open
+  /// ad. Safe to call once from main(); returns immediately when this build
+  /// serves no ads.
   Future<void> init() async {
-    if (_initialized || !isEnabled) return;
+    if (_initialized || !servesAds) return;
     _initialized = true;
+    if (PurchaseService.instance.hasPro) {
+      // Remove-ads user: no consent form, no SDK. Still surface the privacy
+      // row if an earlier (pre-Pro) consent left one required — a local read.
+      _trace('Pro — consent + ads skipped');
+      await _refreshPrivacyOptionsRequirement();
+      return;
+    }
     // Anchor the cold-start window to launch, not to whenever the SDK and
     // SharedPreferences happen to finish initializing. main() awaits
     // PurchaseService (a StoreKit round trip) before it ever calls init(), so
@@ -368,7 +441,51 @@ class AdService {
     // network — exactly the mid-session app-open this gate exists to stop.
     _coldStartDeadline = (_launchAt ?? DateTime.now()).add(_coldStartWindow);
     await _loadCounters();
-    await MobileAds.instance.initialize();
+    WidgetsBinding.instance.addObserver(this);
+    await _ensureAdsStarted();
+  }
+
+  /// A consent attempt that failed (offline / form error) retries on resume.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) return;
+    if (!ready.value && _startFuture == null && isEnabled) {
+      unawaited(_ensureAdsStarted());
+    }
+  }
+
+  /// Starts consent + SDK once; concurrent callers share the same attempt.
+  Future<bool> _ensureAdsStarted() {
+    if (ready.value) return Future.value(true);
+    return _startFuture ??= _startAds().then((ok) {
+      if (!ok) _startFuture = null; // allow a retry on the next resume
+      return ok;
+    });
+  }
+
+  /// UMP consent → MobileAds.initialize → preload. Never throws; resolves to
+  /// whether ads may now be requested.
+  Future<bool> _startAds() async {
+    if (_umpReset && !kReleaseMode) {
+      try {
+        await ConsentInformation.instance.reset();
+      } catch (_) {}
+    }
+    await _gatherConsent();
+    await _refreshPrivacyOptionsRequirement();
+    if (!await _canRequestAds()) {
+      _trace('UMP: cannot request ads yet');
+      return false;
+    }
+    // A purchase made while the consent form was up.
+    if (!isEnabled) return false;
+    try {
+      await MobileAds.instance.initialize();
+    } catch (e) {
+      _trace('MobileAds.initialize failed: $e');
+      return false;
+    }
+    ready.value = true;
     // Deliberately no interstitial preload here. The only trigger is a
     // completed board share, which 2026-07 reporting showed is rare enough
     // that eager preloading burned 5,520 requests for 6 impressions (0.1%
@@ -376,6 +493,8 @@ class AdService {
     // [warmUpInterstitial]. The app-open ad still preloads, since its trigger
     // (this very launch) is certain.
     _loadAppOpenAd();
+    if (_appStateListening) return true;
+    _appStateListening = true;
     AppStateEventNotifier.startListening();
     AppStateEventNotifier.appStateStream.listen((state) {
       if (state == AppState.foreground) {
@@ -384,6 +503,74 @@ class AdService {
         _onBackground();
       }
     });
+    return true;
+  }
+
+  Future<void> _gatherConsent() {
+    final done = Completer<void>();
+    try {
+      ConsentInformation.instance.requestConsentInfoUpdate(
+        _consentRequestParameters(),
+        () async {
+          try {
+            await ConsentForm.loadAndShowConsentFormIfRequired((error) {
+              if (error != null) _trace('consent form: ${error.message}');
+              if (!done.isCompleted) done.complete();
+            });
+          } catch (e) {
+            _trace('consent form failed: $e');
+            if (!done.isCompleted) done.complete();
+          }
+        },
+        (error) {
+          _trace('consent info update: ${error.message}');
+          if (!done.isCompleted) done.complete();
+        },
+      );
+    } catch (e) {
+      _trace('consent flow failed: $e');
+      if (!done.isCompleted) done.complete();
+    }
+    return done.future;
+  }
+
+  Future<bool> _canRequestAds() async {
+    try {
+      return await ConsentInformation.instance.canRequestAds();
+    } catch (_) {
+      return false; // UMP unavailable — never request ads without consent
+    }
+  }
+
+  Future<void> _refreshPrivacyOptionsRequirement() async {
+    try {
+      final status = await ConsentInformation.instance
+          .getPrivacyOptionsRequirementStatus();
+      privacyOptionsRequired.value =
+          status == PrivacyOptionsRequirementStatus.required;
+    } catch (_) {
+      privacyOptionsRequired.value = false;
+    }
+  }
+
+  /// Re-opens the UMP privacy-options form (settings "Ad privacy choices").
+  /// If the user grants consent there for the first time, ads start.
+  Future<void> showPrivacyOptions() async {
+    if (!servesAds) return;
+    final done = Completer<void>();
+    try {
+      await ConsentForm.showPrivacyOptionsForm((error) {
+        if (error != null) _trace('privacy options: ${error.message}');
+        if (!done.isCompleted) done.complete();
+      });
+      await done.future;
+    } catch (e) {
+      _trace('privacy options failed: $e');
+    }
+    await _refreshPrivacyOptionsRequirement();
+    if (_initialized && isEnabled && !ready.value) {
+      unawaited(_ensureAdsStarted());
+    }
   }
 
   // ── Daily caps + first-launch state ─────────────────────────────────────────
@@ -474,6 +661,7 @@ class AdService {
   void _loadInterstitial() {
     final id = _ids?.interstitial;
     if (id == null || _interstitial != null || _interstitialLoading) return;
+    if (!ready.value) return; // never before consent + SDK init
     // Nothing can be shown today, so a request now is pure waste. The daily
     // counter rolls over at midnight and the next launch reloads.
     if (!_interstitialUnderDailyCap) {
@@ -512,7 +700,7 @@ class AdService {
   /// window; otherwise just (re)load for next time. Never blocks the caller —
   /// fire-and-forget after a *successful* share. No-op on a "stage" screen.
   void maybeShowInterstitial() {
-    if (!isEnabled || _suppressed) return;
+    if (!isEnabled || !ready.value || _suppressed) return;
     final now = DateTime.now();
     if (_lastInterstitialAt != null &&
         now.difference(_lastInterstitialAt!) < _minInterstitialGap) {
@@ -569,6 +757,7 @@ class AdService {
   void _loadAppOpenAd() {
     final id = _ids?.appOpen;
     if (id == null || _appOpenLoading) return;
+    if (!ready.value) return; // never before consent + SDK init
     // Same as the interstitial: don't request what today's cap forbids showing.
     if (!_appOpenUnderDailyCap) {
       _trace('app open load skipped: daily cap $_appOpenToday/$_maxAppOpenPerDay');
@@ -610,7 +799,7 @@ class AdService {
   }
 
   void _showAppOpenAdIfAvailable({required bool fromForeground}) {
-    if (!isEnabled || _isShowingFullScreenAd || _suppressed) {
+    if (!isEnabled || !ready.value || _isShowingFullScreenAd || _suppressed) {
       _trace('app open skipped: disabled/showing/suppressed');
       return;
     }

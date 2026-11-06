@@ -10,6 +10,7 @@ import '../models/drill.dart';
 import '../models/drill_note.dart';
 import '../models/sport_type.dart';
 import '../models/tactic_meta.dart';
+import '../services/ad_service.dart';
 import '../services/drill_library_service.dart';
 import '../services/drill_notes_service.dart';
 import '../services/purchase_service.dart';
@@ -1639,6 +1640,8 @@ class _HomeMenu extends StatelessWidget {
             onLanguage();
           case 'contact':
             onContact();
+          case 'ad_privacy':
+            AdService.instance.showPrivacyOptions();
           case 'login':
             onLogin();
         }
@@ -1663,6 +1666,12 @@ class _HomeMenu extends StatelessWidget {
       itemBuilder: (_) => [
         _item('language', Icons.language_rounded, 'menu_language'.tr()),
         _item('contact', Icons.mail_outline_rounded, 'menu_contact'.tr()),
+        // Google UMP's "privacy options" entry point — shown ONLY when UMP
+        // reports it as required (EEA / UK / regulated US states). The hub has
+        // no settings page, so this menu is its only home.
+        if (AdService.instance.privacyOptionsRequired.value)
+          _item('ad_privacy', Icons.privacy_tip_outlined,
+              'ad_privacy_choices'.tr()),
         _item('login', Icons.person_outline_rounded, 'menu_login'.tr()),
       ],
     );
