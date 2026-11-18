@@ -2782,6 +2782,9 @@ class _ScorerPromoSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      // Scrolls: with badminton's six companion rows the sheet is taller
+      // than TacticalSheet's height cap on a small phone.
+      child: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
         child: Column(
@@ -2853,8 +2856,9 @@ class _ScorerPromoSheet extends StatelessWidget {
                 ),
               ),
             ),
-            // Badminton-only training companion apps
-            if (sport == SportType.badminton) ...[
+            // Badminton-only training companion apps. App Store links only, so
+            // not on Android (there they would be unlabelled ads to Play).
+            if (sport == SportType.badminton && !Platform.isAndroid) ...[
               const SizedBox(height: 20),
               Align(
                 alignment: Alignment.centerLeft,
@@ -2868,6 +2872,24 @@ class _ScorerPromoSheet extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              // The other badminton apps, in the shared cross-promo order
+              // (scorer is this sheet itself, tactics is this app).
+              _trainerRow(
+                context,
+                Icons.fitness_center,
+                'trainer_follow_name'.tr(),
+                'trainer_follow_desc'.tr(),
+                'https://apps.apple.com/app/id6778923472',
+              ),
+              const SizedBox(height: 8),
+              _trainerRow(
+                context,
+                Icons.directions_run,
+                'trainer_footwork_name'.tr(),
+                'trainer_footwork_desc'.tr(),
+                'https://apps.apple.com/app/id6777419248',
+              ),
+              const SizedBox(height: 8),
               _trainerRow(
                 context,
                 Icons.bolt,
@@ -2878,14 +2900,34 @@ class _ScorerPromoSheet extends StatelessWidget {
               const SizedBox(height: 8),
               _trainerRow(
                 context,
-                Icons.directions_run,
-                'trainer_footwork_name'.tr(),
-                'trainer_footwork_desc'.tr(),
-                'https://apps.apple.com/app/id6777419248',
+                Icons.sync_alt,
+                'trainer_rotation_name'.tr(),
+                'trainer_rotation_desc'.tr(),
+                'https://apps.apple.com/app/id6785693458',
               ),
+              const SizedBox(height: 8),
+              _trainerRow(
+                context,
+                Icons.groups_outlined,
+                'trainer_loop8_name'.tr(),
+                'trainer_loop8_desc'.tr(),
+                'https://apps.apple.com/app/id6798368257',
+              ),
+              // A Chinese-only game: listed only in a Chinese UI.
+              if (context.locale.languageCode == 'zh') ...[
+                const SizedBox(height: 8),
+                _trainerRow(
+                  context,
+                  Icons.sports_esports_outlined,
+                  'trainer_master_name'.tr(),
+                  'trainer_master_desc'.tr(),
+                  'https://apps.apple.com/app/id6791484872',
+                ),
+              ],
             ],
           ],
         ),
+      ),
       ),
     );
   }
@@ -2897,6 +2939,18 @@ class _ScorerPromoSheet extends StatelessWidget {
     String desc,
     String urlStr,
   ) {
+    // The app's real store icon (same lookup as the scorer above), with the
+    // Material glyph until it loads or when offline.
+    final glyph = Container(
+      width: 38,
+      height: 38,
+      decoration: BoxDecoration(
+        color: T.surface,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(icon, color: T.textDim, size: 20),
+    );
+    final storeId = urlStr.substring(urlStr.lastIndexOf('/id') + 3);
     return InkWell(
       onTap: () => _openLink(context, urlStr),
       borderRadius: BorderRadius.circular(12),
@@ -2909,14 +2963,22 @@ class _ScorerPromoSheet extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              width: 38,
-              height: 38,
-              decoration: BoxDecoration(
-                color: T.surface,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Icon(icon, color: T.textDim, size: 20),
+            FutureBuilder<_StoreApp?>(
+              future: _StoreApp.lookup(storeId),
+              builder: (_, snap) {
+                final iconUrl = snap.data?.icon;
+                if (iconUrl == null) return glyph;
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(9),
+                  child: Image.network(
+                    iconUrl,
+                    width: 38,
+                    height: 38,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, _, _) => glyph,
+                  ),
+                );
+              },
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -2925,6 +2987,8 @@ class _ScorerPromoSheet extends StatelessWidget {
                 children: [
                   Text(
                     name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: T.text,
                       fontSize: 15,
@@ -2933,6 +2997,8 @@ class _ScorerPromoSheet extends StatelessWidget {
                   ),
                   Text(
                     desc,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(color: T.textOff, fontSize: 12),
                   ),
                 ],

@@ -49,11 +49,21 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       appOpen: 'ca-app-pub-4247621509300508/6704225901',
       interstitial: 'ca-app-pub-4247621509300508/3666999022',
     ),
+    // Android AdMob app 4621391305 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/1612084583',
+      interstitial: 'ca-app-pub-4247621509300508/6864411264',
+    ),
   ),
   SportType.tennis: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/3197437187',
       interstitial: 'ca-app-pub-4247621509300508/3568972271',
+    ),
+    // Android AdMob app 3470739973 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/6811219188',
+      interstitial: 'ca-app-pub-4247621509300508/8339923276',
     ),
   ),
   SportType.basketball: _SportAds(
@@ -86,6 +96,11 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       // appOpen: 'ca-app-pub-4247621509300508/2447462291',
       interstitial: 'ca-app-pub-4247621509300508/3133858004',
     ),
+    // Android AdMob app 4017534887 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/1037369514',
+      interstitial: 'ca-app-pub-4247621509300508/2512881520',
+    ),
   ),
   SportType.soccer: _SportAds(
     ios: _AdUnitIds(
@@ -117,11 +132,21 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       // appOpen: 'ca-app-pub-4247621509300508/5171652386',
       interstitial: 'ca-app-pub-4247621509300508/5611847534',
     ),
+    // Android AdMob app 4757122671 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/8215141054',
+      interstitial: 'ca-app-pub-4247621509300508/1799786848',
+    ),
   ),
   SportType.baseball: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/8832907249',
       interstitial: 'ca-app-pub-4247621509300508/3022177363',
+    ),
+    // Android AdMob app 8347002990 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/2840184585',
+      interstitial: 'ca-app-pub-4247621509300508/9405592933',
     ),
   ),
   SportType.handball: _SportAds(
@@ -129,11 +154,21 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       appOpen: 'ca-app-pub-4247621509300508/9685612467',
       interstitial: 'ca-app-pub-4247621509300508/3311775804',
     ),
+    // Android AdMob app 4850611114 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/3386979498',
+      interstitial: 'ca-app-pub-4247621509300508/6013142833',
+    ),
   ),
   SportType.waterPolo: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/8258192176',
       interstitial: 'ca-app-pub-4247621509300508/1481030838',
+    ),
+    // Android AdMob app 8155431300 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/6842349637',
+      interstitial: 'ca-app-pub-4247621509300508/4316917782',
     ),
   ),
   SportType.beachTennis: _SportAds(
@@ -141,17 +176,32 @@ const Map<SportType, _SportAds> _liveAdUnits = {
       appOpen: 'ca-app-pub-4247621509300508/1651209779',
       interstitial: 'ca-app-pub-4247621509300508/2871957953',
     ),
+    // Android AdMob app 3610340772 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/1089340408',
+      interstitial: 'ca-app-pub-4247621509300508/2297259101',
+    ),
   ),
   SportType.footvolley: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/4143687349',
       interstitial: 'ca-app-pub-4247621509300508/3580580568',
     ),
+    // Android AdMob app 8120431426 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/3827184380',
+      interstitial: 'ca-app-pub-4247621509300508/7432542427',
+    ),
   ),
   SportType.sepakTakraw: _SportAds(
     ios: _AdUnitIds(
       appOpen: 'ca-app-pub-4247621509300508/6195135611',
       interstitial: 'ca-app-pub-4247621509300508/2389576375',
+    ),
+    // Android AdMob app 1307611068 (created 2026-11-17).
+    android: _AdUnitIds(
+      appOpen: 'ca-app-pub-4247621509300508/2045977669',
+      interstitial: 'ca-app-pub-4247621509300508/4997950776',
     ),
   ),
 };
