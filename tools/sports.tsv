@@ -16,17 +16,17 @@
 # key	dir	bundle	name_en	name_zh	name_ja	admob_ios	admob_android
 tactics_board	HubBoard	com.zach.tacticsBoard	Tactics Board	战术板	タクティクスボード	ca-app-pub-4247621509300508~5907516538	ca-app-pub-4247621509300508~4532136942
 badminton	BadmintonBoard	com.zach.badmintonBoard	Badminton Board	羽毛球战术板	バドミントンボード	ca-app-pub-4247621509300508~8533679872	ca-app-pub-4247621509300508~5809946636
-tableTennis	TableTennisBoard	com.zach.tableTennisBoard	Table Tennis Board	乒乓球战术板	卓球ボード	ca-app-pub-4247621509300508~2607096007	-
-tennis	TennisBoard	com.zach.tennisBoard	Tennis Board	网球战术板	テニスボード	ca-app-pub-4247621509300508~1321934499	-
+tableTennis	TableTennisBoard	com.zach.tableTennisBoard	Table Tennis Board	乒乓球战术板	卓球ボード	ca-app-pub-4247621509300508~2607096007	ca-app-pub-4247621509300508~4621391305
+tennis	TennisBoard	com.zach.tennisBoard	Tennis Board	网球战术板	テニスボード	ca-app-pub-4247621509300508~1321934499	ca-app-pub-4247621509300508~3470739973
 basketball	BasketballBoard	com.zach.basketballBoard	Basketball Board	篮球战术板	バスケボード	ca-app-pub-4247621509300508~7734769370	ca-app-pub-4247621509300508~2744495676
 volleyball	VolleyballBoard	com.zach.volleyballBoard	Volleyball Board	排球战术板	バレーボード	ca-app-pub-4247621509300508~2373641809	ca-app-pub-4247621509300508~1629179306
-pickleball	PickleballBoard	com.zach.pickleballBoard	Pickleball Board	匹克球战术板	ピックルボールボード	ca-app-pub-4247621509300508~3191899453	-
+pickleball	PickleballBoard	com.zach.pickleballBoard	Pickleball Board	匹克球战术板	ピックルボールボード	ca-app-pub-4247621509300508~3191899453	ca-app-pub-4247621509300508~4017534887
 soccer	SoccerBoard	com.zach.soccerBoard	Soccer Board	足球战术板	サッカーボード	ca-app-pub-4247621509300508~2977796941	ca-app-pub-4247621509300508~5787916166
 fieldHockey	FieldHockeyBoard	com.zach.fieldHockeyBoard	Field Hockey Board	曲棍球战术板	フィールドホッケーボード	ca-app-pub-4247621509300508~7240475581	ca-app-pub-4247621509300508~3341278543
-rugby	RugbyBoard	com.zach.rugbyBoard	Rugby Board	橄榄球战术板	ラグビーボード	ca-app-pub-4247621509300508~3301230572	-
-baseball	BaseballBoard	com.zach.baseballBoard	Baseball Board	棒球战术板	野球ボード	ca-app-pub-4247621509300508~8270486222	-
-handball	HandballBoard	com.zach.handballBoard	Handball Board	手球战术板	ハンドボールボード	ca-app-pub-4247621509300508~1878817785	-
-waterPolo	WaterPoloBoard	com.zach.waterPoloBoard	Water Polo Board	水球战术板	水球ボード	ca-app-pub-4247621509300508~6692160761	-
-sepakTakraw	SepakTakrawBoard	com.zach.sepakTakrawBoard	Sepak Takraw Board	藤球战术板	セパタクローボード	ca-app-pub-4247621509300508~4478884795	-
-beachTennis	BeachTennisBoard	com.zach.beachTennisBoard	Beach Tennis Board	沙滩网球战术板	ビーチテニスボード	ca-app-pub-4247621509300508~8509629141	-
-footvolley	FootvolleyBoard	com.zach.footvolleyBoard	Footvolley Board	足排球战术板	フットボレーボード	ca-app-pub-4247621509300508~6721904756	-
+rugby	RugbyBoard	com.zach.rugbyBoard	Rugby Board	橄榄球战术板	ラグビーボード	ca-app-pub-4247621509300508~3301230572	ca-app-pub-4247621509300508~4757122671
+baseball	BaseballBoard	com.zach.baseballBoard	Baseball Board	棒球战术板	野球ボード	ca-app-pub-4247621509300508~8270486222	ca-app-pub-4247621509300508~8347002990
+handball	HandballBoard	com.zach.handballBoard	Handball Board	手球战术板	ハンドボールボード	ca-app-pub-4247621509300508~1878817785	ca-app-pub-4247621509300508~4850611114
+waterPolo	WaterPoloBoard	com.zach.waterPoloBoard	Water Polo Board	水球战术板	水球ボード	ca-app-pub-4247621509300508~6692160761	ca-app-pub-4247621509300508~8155431300
+sepakTakraw	SepakTakrawBoard	com.zach.sepakTakrawBoard	Sepak Takraw Board	藤球战术板	セパタクローボード	ca-app-pub-4247621509300508~4478884795	ca-app-pub-4247621509300508~1307611068
+beachTennis	BeachTennisBoard	com.zach.beachTennisBoard	Beach Tennis Board	沙滩网球战术板	ビーチテニスボード	ca-app-pub-4247621509300508~8509629141	ca-app-pub-4247621509300508~3610340772
+footvolley	FootvolleyBoard	com.zach.footvolleyBoard	Footvolley Board	足排球战术板	フットボレーボード	ca-app-pub-4247621509300508~6721904756	ca-app-pub-4247621509300508~8120431426
